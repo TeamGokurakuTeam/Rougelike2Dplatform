@@ -1,7 +1,7 @@
 extends Character
 class_name Player
 
-const JUMP_VELOCITY : float = -700
+const JUMP_VELOCITY : float = -900
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
