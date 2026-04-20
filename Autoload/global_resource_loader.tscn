@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bnvnwespjdbsa"]
+
+[ext_resource type="Script" uid="uid://cvavo1gons38l" path="res://Component/global_resource_loader.gd" id="1_in0ha"]
+
+[node name="GlobalResourceLoader" type="Node" unique_id=1231656520]
+script = ExtResource("1_in0ha")
+items_folder = Array[String](["res://Resource/Sword"])

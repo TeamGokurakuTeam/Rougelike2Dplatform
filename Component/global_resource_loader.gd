@@ -2,13 +2,16 @@ extends Node
 
 @export_dir var items_folder : Array[String]
 
-var item_cache : Dictionary = {}
+#Global変数なのでこれはよそで使ってもよい
+#使用例:Sword.resource = item_cache["DebugSword"]
+var item_cache : Dictionary[String, Resource] = {}
 
 func _ready() -> void:
 	for folder in items_folder:
-		file_load(folder, item_cache)
+		_file_load(folder, item_cache)
 
-func file_load(folder_path : String, res_cache : Dictionary) -> void:
+#下の関数はprivateでここのAutoload専用の関数なのでよそで使わないこと
+func _file_load(folder_path : String, res_cache : Dictionary) -> void:
 	var folder : DirAccess = DirAccess.open(folder_path)
 	
 	folder.list_dir_begin()

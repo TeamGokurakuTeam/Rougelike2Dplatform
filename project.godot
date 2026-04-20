@@ -17,10 +17,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
+GlobalResourceLoader="*uid://bnvnwespjdbsa"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red"
+}
 
 [input]
 

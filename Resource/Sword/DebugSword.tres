@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://b6vforyty1xjg"]
+
+[ext_resource type="Texture2D" uid="uid://bvcnbpaw5dyff" path="res://Assets/Image/Aluminium Axe of Silence.png" id="1_o3avf"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_t47hb"]
+
+[resource]
+script = ExtResource("2_t47hb")
+Sprite = ExtResource("1_o3avf")
+Id = "DebugSword"
+Name = "DebugSword"
+Rarities = "DreaM"

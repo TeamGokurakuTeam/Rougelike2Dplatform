@@ -2,6 +2,7 @@ extends Character
 class_name Player
 
 const JUMP_VELOCITY : float = -900
+var resource_ids : Array[String] = []
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 

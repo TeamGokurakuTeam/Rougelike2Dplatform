@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://qpvrd44qtox7"]
+
+[ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="1_fwiay"]
+
+[node name="Weapon" type="Node2D" unique_id=1591556401]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1105822441]
+
+[node name="Hitbox" parent="." unique_id=1964246491 instance=ExtResource("1_fwiay")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=722522530]

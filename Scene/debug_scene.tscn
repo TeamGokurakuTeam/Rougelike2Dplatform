@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://b16nqq5vpyxba"]
 
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_lnlp5"]
+[ext_resource type="Script" uid="uid://bda8lx2g1krbg" path="res://Scene/debug_scene.gd" id="1_nog1l"]
 [ext_resource type="Script" uid="uid://byrfiylxi7lg1" path="res://Scene/phantom_camera_2d.gd" id="2_xus1t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rec6y"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_hnclb"]
+[ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="5_bs0km"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_se2sp"]
 
@@ -28,6 +30,7 @@ ease = 1
 metadata/_custom_type_script = "uid://8umksf8e80fw"
 
 [node name="DebugScene" type="Node2D" unique_id=1248311808]
+script = ExtResource("1_nog1l")
 
 [node name="Character" parent="." unique_id=1094349948 instance=ExtResource("1_lnlp5")]
 position = Vector2(358, 500)
@@ -136,5 +139,8 @@ zoom = Vector2(0.915, 0.915)
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("4_hnclb")
+
+[node name="DropItem" parent="." unique_id=721992041 instance=ExtResource("5_bs0km")]
+position = Vector2(234, 209)
 
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]
