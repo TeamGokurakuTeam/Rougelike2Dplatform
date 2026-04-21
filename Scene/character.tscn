@@ -21,6 +21,8 @@ metadata/_custom_type_script = "uid://cbsdrpffp8k01"
 
 [node name="HPComponent" parent="." unique_id=456158778 instance=ExtResource("2_wfnr8")]
 
+[node name="Inventory" type="Node2D" parent="." unique_id=1538841313]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2042710104]
 scale = Vector2(0.625, 1)
 texture = ExtResource("3_px5sl")

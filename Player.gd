@@ -5,6 +5,7 @@ const JUMP_VELOCITY : float = -900
 var resource_ids : Array[String] = []
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var inventory: Node2D = $Inventory
 
 signal pickup_item
 
@@ -34,4 +35,23 @@ func _get_input() -> void:
 	move_direction.x = Input.get_axis(&"UI_left",&"UI_right") #横移動の入力
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
+	if Input.is_action_just_pressed("UI_1"):
+		var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[0]]
+		var weapon : Weapon = res.WeaponScene.instantiate()
+		for node in inventory.get_children():
+			node.queue_free()
+		inventory.add_child(weapon)
+	if Input.is_action_just_pressed("UI_2"):
+		var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[1]]
+		var weapon : Weapon = res.WeaponScene.instantiate()
+		for node in inventory.get_children():
+			node.queue_free()
+		inventory.add_child(weapon)
+	if Input.is_action_just_pressed("UI_3"):
+		var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[2]]
+		var weapon : Weapon = res.WeaponScene.instantiate()
+		for node in inventory.get_children():
+			node.queue_free()
+		inventory.add_child(weapon)
 	
