@@ -3,11 +3,19 @@
 [ext_resource type="Script" uid="uid://dncht7rhcx5dc" path="res://Player.gd" id="1_wa5vi"]
 [ext_resource type="PackedScene" uid="uid://11552kg7s1wm" path="res://Component/HP/hp_component.tscn" id="2_wfnr8"]
 [ext_resource type="Texture2D" uid="uid://p561qyuetbh2" path="res://icon.svg" id="3_px5sl"]
+[ext_resource type="Script" uid="uid://d017ua87oahdm" path="res://Scene/pickup_comporment.gd" id="5_ep1am"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qfo5"]
 size = Vector2(80, 129)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ht62"]
+size = Vector2(130, 131)
+
 [node name="Character" type="CharacterBody2D" unique_id=1094349948]
+collision_layer = 129
+collision_mask = 128
+platform_floor_layers = 4294901888
+platform_wall_layers = 128
 script = ExtResource("1_wa5vi")
 metadata/_custom_type_script = "uid://cbsdrpffp8k01"
 
@@ -20,3 +28,16 @@ texture = ExtResource("3_px5sl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=879731102]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0qfo5")
+
+[node name="PickupComponent" type="Area2D" parent="." unique_id=748586689 node_paths=PackedStringArray("character")]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("5_ep1am")
+character = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupComponent" unique_id=736833075]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_2ht62")
+debug_color = Color(0, 0.8039216, 0.69803923, 0.41960785)
+
+[connection signal="area_entered" from="PickupComponent" to="PickupComponent" method="_on_area_entered"]

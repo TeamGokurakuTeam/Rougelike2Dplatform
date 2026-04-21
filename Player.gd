@@ -6,6 +6,8 @@ var resource_ids : Array[String] = []
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+signal pickup_item
+
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
 	#マウスの方向はグローバル位置のマウスポジション - 自分のグローバル位置を正規化した方向

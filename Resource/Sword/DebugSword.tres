@@ -2,10 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bvcnbpaw5dyff" path="res://Assets/Image/Aluminium Axe of Silence.png" id="1_o3avf"]
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_t47hb"]
+[ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="2_v7oe3"]
 
 [resource]
 script = ExtResource("2_t47hb")
 Sprite = ExtResource("1_o3avf")
 Id = "DebugSword"
 Name = "DebugSword"
+WeaponScene = ExtResource("2_v7oe3")
 Rarities = "DreaM"
