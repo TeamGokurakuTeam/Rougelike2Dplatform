@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://vykqdjkk24yi"]
+
+[ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_kf836"]
+[ext_resource type="Texture2D" uid="uid://cvoylww0bvlld" path="res://Assets/Image/swords/tile025.png" id="2_cevrx"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_cevrx"]
+
+[sub_resource type="Resource" id="Resource_t5s6u"]
+script = ExtResource("3_cevrx")
+Sprite = ExtResource("2_cevrx")
+Id = "NormalSword"
+Name = "普通の剣"
+WeaponScene = null
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf836"]
+size = Vector2(20, 143)
+
+[sub_resource type="Animation" id="Animation_cevrx"]
+resource_name = "Attack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.33333334, 0.6666667, 0.8000001, 0.9333334, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.7853982, 0.4712389, 0.4712389, 1.0821041, 1.2304571, 1.2304571, 1.0821041, 0.7853982]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.36666667, 0.6666667, 1.1666666, 1.3666667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.28274333, -0.28274333, 2.49233, 2.49233, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.40000004, 1.1666667, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_kf836"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7853982]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.28274333]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t5s6u"]
+_data = {
+&"Attack": SubResource("Animation_cevrx"),
+&"RESET": SubResource("Animation_kf836")
+}
+
+[node name="NormalSword" unique_id=1591556401 instance=ExtResource("1_kf836")]
+resource = SubResource("Resource_t5s6u")
+
+[node name="Root" parent="." index="0" unique_id=1850941881]
+rotation = -0.28274333
+
+[node name="Sprite2D" parent="Root" index="0" unique_id=141181324]
+position = Vector2(0, -138)
+rotation = 0.7853982
+scale = Vector2(3.175, 3.175)
+texture = ExtResource("2_cevrx")
+
+[node name="CollisionShape2D2" parent="Root/Hitbox" parent_id_path=PackedInt32Array(1964246491) index="1" unique_id=722522530]
+position = Vector2(-0.5, -63.5)
+shape = SubResource("RectangleShape2D_kf836")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]
+libraries/ = SubResource("AnimationLibrary_t5s6u")

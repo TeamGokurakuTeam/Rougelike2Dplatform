@@ -1,0 +1,129 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://c7ajsldtc2w58"]
+
+[ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_sgrpx"]
+[ext_resource type="Texture2D" uid="uid://ix3nuehvg0rw" path="res://Assets/Image/swords/tile020.png" id="2_ww5hl"]
+[ext_resource type="PackedScene" uid="uid://vykqdjkk24yi" path="res://Weapon/normal_sword.tscn" id="3_est3h"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_ww5hl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sgrpx"]
+load_path = "res://.godot/imported/tile020.png-05393fab2bc2521ebcbac7c739ed7e8e.ctex"
+
+[sub_resource type="Resource" id="Resource_bcxrm"]
+script = ExtResource("3_ww5hl")
+Sprite = ExtResource("2_ww5hl")
+Id = "GoldSword"
+Name = "黄金の剣"
+WeaponScene = ExtResource("3_est3h")
+Rarities = "uncommon"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6memi"]
+size = Vector2(54, 108)
+
+[sub_resource type="Animation" id="Animation_kc4mp"]
+resource_name = "Attack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1.1, 1.4333333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.7592182, -0.7592182, 2.8344147, 2.8344147, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8000001, 1.1333333, 1.7666668, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.7853982, 0.3228859, 0.19198622, 1.1484267, 1.1484267, 0.7853982]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.8333334, 1.4333334, 1.4666667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_bcxrm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7853982]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygerq"]
+_data = {
+&"Attack": SubResource("Animation_kc4mp"),
+&"RESET": SubResource("Animation_bcxrm")
+}
+
+[sub_resource type="PackedScene" id="PackedScene_ofd08"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(1850941881), PackedInt32Array(1964246491), PackedInt32Array()],
+"names": PackedStringArray("GoldSword", "resource", "Sprite2D", "position", "rotation", "scale", "texture", "CollisionShape2D2", "position", "shape", "AnimationPlayer", "libraries/"),
+"node_count": 4,
+"node_ids": PackedInt32Array(1591556401, 141181324, 722522530, 2014526289),
+"node_paths": [NodePath("./Root"), NodePath("./Root/Hitbox"), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 262146, -1, 4, 3, 2, 4, 3, 5, 4, 6, 5, 0, 1073741825, -1, 2147483647, 524295, -1, 2, 8, 6, 9, 7, 0, 1073741826, -1, 2147483647, 524298, -1, 1, 11, 8, 0),
+"variants": [ExtResource("1_sgrpx"), SubResource("Resource_bcxrm"), Vector2(0, -119.99999), 0.7853982, Vector2(2.5, 2.5), ExtResource("2_ww5hl"), Vector2(0, -46), SubResource("RectangleShape2D_6memi"), SubResource("AnimationLibrary_ygerq")],
+"version": 3
+}
+
+[resource]
+script = ExtResource("3_ww5hl")
+Sprite = SubResource("CompressedTexture2D_sgrpx")
+Id = "GoldSword"
+Name = "黄金の剣"
+WeaponScene = SubResource("PackedScene_ofd08")
+Rarities = "uncommon"
