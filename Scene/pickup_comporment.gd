@@ -22,5 +22,5 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is DropItem:
 		character.resource_ids.append((area as DropItem).resource.Id)
-		var weapon = (area as DropItem).resource.WeaponScene.instantiate()
-		character.inventory.add_child(weapon)
+		character.current_weapon = character.resource_ids.size() - 1
+		character.update_weapon()

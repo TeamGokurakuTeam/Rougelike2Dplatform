@@ -7,6 +7,8 @@ var resource_ids : Array[String] = []
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var inventory: Node2D = $Inventory
 
+var current_weapon : int = -1
+
 signal pickup_item
 
 func _process(delta: float) -> void:
@@ -37,21 +39,21 @@ func _get_input() -> void:
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_just_pressed("UI_1"):
-		var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[0]]
-		var weapon : Weapon = res.WeaponScene.instantiate()
-		for node in inventory.get_children():
-			node.queue_free()
-		inventory.add_child(weapon)
+		current_weapon = 0
+		update_weapon()
 	if Input.is_action_just_pressed("UI_2"):
-		var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[1]]
-		var weapon : Weapon = res.WeaponScene.instantiate()
-		for node in inventory.get_children():
-			node.queue_free()
-		inventory.add_child(weapon)
+		current_weapon = 1
+		update_weapon()
 	if Input.is_action_just_pressed("UI_3"):
-		var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[2]]
-		var weapon : Weapon = res.WeaponScene.instantiate()
+		current_weapon = 2
+		update_weapon()
+		
+func update_weapon() -> void:
+	if current_weapon == -1:
 		for node in inventory.get_children():
 			node.queue_free()
-		inventory.add_child(weapon)
-	
+	var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[current_weapon]]
+	var weapon : Weapon = res.WeaponScene.instantiate()
+	for node in inventory.get_children():
+		node.queue_free()
+	inventory.add_child(weapon)
