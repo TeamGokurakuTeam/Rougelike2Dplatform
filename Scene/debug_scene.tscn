@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://vykqdjkk24yi" path="res://Weapon/normal_sword.tscn" id="11_bxa11"]
 [ext_resource type="Texture2D" uid="uid://cvoylww0bvlld" path="res://Assets/Image/swords/tile025.png" id="12_5qpma"]
 [ext_resource type="Resource" uid="uid://cjv4l6uw8q6yc" path="res://Resource/Sword/SpatulaSword.tres" id="14_56nsy"]
+[ext_resource type="Resource" uid="uid://d0k4uk0wkq46k" path="res://Resource/Sword/WoodenSword.tres" id="15_bxa11"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_se2sp"]
 
@@ -566,6 +567,10 @@ resource = SubResource("Resource_ux6lq")
 [node name="DropItem4" parent="." unique_id=1694954863 instance=ExtResource("5_bs0km")]
 position = Vector2(493, -161)
 resource = ExtResource("14_56nsy")
+
+[node name="DropItem5" parent="." unique_id=1738549531 instance=ExtResource("5_bs0km")]
+position = Vector2(893, 475)
+resource = ExtResource("15_bxa11")
 
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]
 
