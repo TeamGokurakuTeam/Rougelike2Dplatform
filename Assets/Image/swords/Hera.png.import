@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1wqyyp2r6b8w"
-path="res://.godot/imported/ヘラ.png-5bb20feb847f3420cf1666e5f959addb.ctex"
+path="res://.godot/imported/Hera.png-a0dee8c6d3e2a93aeeddc3ea3cfcef9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Image/swords/ヘラ.png"
-dest_files=["res://.godot/imported/ヘラ.png-5bb20feb847f3420cf1666e5f959addb.ctex"]
+source_file="res://Assets/Image/swords/Hera.png"
+dest_files=["res://.godot/imported/Hera.png-a0dee8c6d3e2a93aeeddc3ea3cfcef9a.ctex"]
 
 [params]
 

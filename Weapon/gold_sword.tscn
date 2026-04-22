@@ -2,16 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_1aswv"]
 [ext_resource type="Texture2D" uid="uid://ix3nuehvg0rw" path="res://Assets/Image/swords/tile020.png" id="2_7op67"]
-[ext_resource type="PackedScene" uid="uid://vykqdjkk24yi" path="res://Weapon/normal_sword.tscn" id="3_6memi"]
-[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="4_kc4mp"]
-
-[sub_resource type="Resource" id="Resource_bcxrm"]
-script = ExtResource("4_kc4mp")
-Sprite = ExtResource("2_7op67")
-Id = "GoldSword"
-Name = "黄金の剣"
-WeaponScene = ExtResource("3_6memi")
-Rarities = "uncommon"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6memi"]
 size = Vector2(54, 108)
@@ -102,7 +92,7 @@ _data = {
 }
 
 [node name="GoldSword" unique_id=1591556401 instance=ExtResource("1_1aswv")]
-resource = SubResource("Resource_bcxrm")
+resource_id = "GoldSword"
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
 position = Vector2(0, -119.99999)

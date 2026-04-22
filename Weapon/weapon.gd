@@ -1,7 +1,7 @@
 extends Node2D
 class_name Weapon
 
-@export var resource : ResourceItem
+@export var resource_id : String
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Root/Sprite2D

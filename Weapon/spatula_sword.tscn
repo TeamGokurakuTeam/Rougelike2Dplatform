@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://bd5n5mee0e1i1"]
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_8k8ak"]
-[ext_resource type="Resource" uid="uid://cjv4l6uw8q6yc" path="res://Resource/Sword/SpatulaSword.tres" id="2_72ssk"]
-[ext_resource type="Texture2D" uid="uid://c1wqyyp2r6b8w" path="res://Assets/Image/swords/ヘラ.png" id="2_jlkn3"]
+[ext_resource type="Texture2D" uid="uid://c1wqyyp2r6b8w" path="res://Assets/Image/swords/Hera.png" id="2_jlkn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72ssk"]
 size = Vector2(20, 25.863443)
@@ -93,7 +92,7 @@ _data = {
 }
 
 [node name="SpatulaSword" unique_id=1591556401 instance=ExtResource("1_8k8ak")]
-resource = ExtResource("2_72ssk")
+resource_id = "SpatulaSword"
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
 position = Vector2(0, -120)

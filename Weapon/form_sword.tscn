@@ -1,19 +1,7 @@
 [gd_scene format=3 uid="uid://bbl0mv5rrx4pt"]
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_762hb"]
-[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_cqg6v"]
 [ext_resource type="Texture2D" uid="uid://bxv73vem102g3" path="res://Assets/Image/swords/tile029.png" id="2_cye4q"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d3h4s"]
-load_path = "res://.godot/imported/tile029.png-1e0ff94c73d15d49e714c50b4edb692b.ctex"
-
-[sub_resource type="Resource" id="Resource_kr6l6"]
-script = ExtResource("2_cqg6v")
-Sprite = SubResource("CompressedTexture2D_d3h4s")
-Id = "FormSword"
-Name = "金と鉄の融合剣"
-WeaponScene = null
-Rarities = "rare"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqg6v"]
 size = Vector2(15.5, 45)
@@ -104,7 +92,7 @@ _data = {
 }
 
 [node name="FormSword" unique_id=1591556401 instance=ExtResource("1_762hb")]
-resource = SubResource("Resource_kr6l6")
+resource_id = "FormSword"
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
 position = Vector2(0, -75)
