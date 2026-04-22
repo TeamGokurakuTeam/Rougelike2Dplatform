@@ -1,0 +1,18 @@
+extends Panel
+class_name InventoryPanel
+
+@export var resource : ResourceItem
+
+@onready var texture_rect: TextureRect = $TextureRect
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if resource != null:
+		texture_rect.texture = resource.Sprite
+	else:
+		texture_rect.texture = null
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
