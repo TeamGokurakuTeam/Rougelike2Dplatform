@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bwxqa5e7epo7n"]
+
+[ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_8k8ak"]
+[ext_resource type="Resource" uid="uid://cygtu377adoq" path="res://Resource/Sword/SpatulaSword.tres" id="2_72ssk"]
+[ext_resource type="Texture2D" uid="uid://bc5f2enpg42px" path="res://Assets/Image/swords/ヘラ.png" id="2_jlkn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72ssk"]
+
+[sub_resource type="Animation" id="Animation_jlkn3"]
+resource_name = "Attack"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.06, 2.2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 2.6179938, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10516773, 0.13333334, 0.16666667, 0.2, 0.22616142, 0.2531311, 0.3015741, 0.3349074, 0.3718344, 0.39999998, 0.43333352, 0.46666682, 0.49282825, 0.5197979, 0.56666666, 0.59999996, 0.63692695, 0.6650925, 0.69842607, 0.73175937, 0.7579208, 0.7848905, 0.8333333, 0.8666666, 0.9035936, 0.9317592, 0.9650927, 0.998426, 1.0245874, 1.0515571, 1.1, 1.1333333, 1.1702603, 1.1984259, 1.2317594, 1.2650927, 1.2912542, 1.3182238, 1.3666667, 1.4, 1.436927, 1.4650925, 1.4984261, 1.5317594, 1.5579208, 1.5848905, 1.6333333, 1.6666666, 1.7035936, 1.7317593, 1.7650926, 1.7984259, 1.8245876, 1.851557, 1.9, 1.9333333, 1.9702603, 1.9984258, 2.0317593, 2.0526423),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.7853982, 0.7853982, 2.3561945, 3.9269907, 5.497787, 7.0685835, 8.6393795, 10.210176, 11.7809725, 0.7853982, 2.3561945, 3.9269907, 5.497787, 7.0685835, 8.6393795, 10.210176, 11.7809725, 0.7853982, 2.3561945, 3.9269907, 5.497787, 7.0685835, 8.6393795, 10.210176, 11.7809725, 0.7853982, 2.3561945, 3.9269907, 5.497787, 7.0685835, 8.6393795, 10.210176, 11.7809725, 0.7853982, 2.3561945, 3.9269907, 5.497787, 7.0685835, 8.6393795, 10.210176, 11.7809725, 0.7853982, 2.3561945, 3.9269907, 5.497787, 7.0685835, 8.6393795, 10.210176, 11.7809725, 0.7853982, 2.3561945, 3.9269907, 5.497787, 7.0685835, 8.6393795, 10.210176, 11.7809725, 0.7853982, 2.3561945, 3.9269907, 5.497787, 7.0685835, -0.7853982]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.053575, 2.062878, 2.2931201, 2.3210282, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_72ssk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.7853982]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qf3e1"]
+_data = {
+&"Attack": SubResource("Animation_jlkn3"),
+&"RESET": SubResource("Animation_72ssk")
+}
+
+[node name="SpatulaSword" unique_id=1591556401 instance=ExtResource("1_8k8ak")]
+resource = ExtResource("2_72ssk")
+
+[node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
+position = Vector2(0, -71)
+rotation = -0.7853982
+scale = Vector2(3, 3)
+texture = ExtResource("2_jlkn3")
+
+[node name="CollisionShape2D2" parent="Root/Hitbox" parent_id_path=PackedInt32Array(1964246491) index="1" unique_id=722522530]
+position = Vector2(0, 6)
+scale = Vector2(1, 3.2000003)
+shape = SubResource("RectangleShape2D_72ssk")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]
+libraries/ = SubResource("AnimationLibrary_qf3e1")
