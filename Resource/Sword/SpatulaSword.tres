@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://cjv4l6uw8q6yc"]
+
+[ext_resource type="Texture2D" uid="uid://c1wqyyp2r6b8w" path="res://Assets/Image/swords/ヘラ.png" id="1_53isq"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="1_rr7do"]
+[ext_resource type="PackedScene" uid="uid://bd5n5mee0e1i1" path="res://Weapon/spatula_sword.tscn" id="2_lskoq"]
+
+[resource]
+script = ExtResource("1_rr7do")
+Sprite = ExtResource("1_53isq")
+Id = "SpatulaSword"
+Name = "ヘラの剣"
+WeaponScene = ExtResource("2_lskoq")
+Rarities = "rare"
