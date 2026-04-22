@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_lnlp5"]
 [ext_resource type="Script" uid="uid://bda8lx2g1krbg" path="res://Scene/debug_scene.gd" id="1_nog1l"]
+[ext_resource type="Script" uid="uid://bgum7umr8diap" path="res://Scene/GameUI.gd" id="2_56nsy"]
 [ext_resource type="PackedScene" uid="uid://dbhq8ra3djg46" path="res://inventory_panel.tscn" id="2_m5guf"]
 [ext_resource type="Script" uid="uid://byrfiylxi7lg1" path="res://Scene/phantom_camera_2d.gd" id="2_xus1t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rec6y"]
@@ -409,35 +410,40 @@ WeaponScene = SubResource("PackedScene_4v1bl")
 script = ExtResource("1_nog1l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1464744164]
+script = ExtResource("2_56nsy")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=65687549]
+[node name="InventoryPanel" parent="CanvasLayer" unique_id=124921297 instance=ExtResource("2_m5guf")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -101.0
-offset_right = 128.0
-offset_bottom = -53.0
-grow_horizontal = 2
+offset_left = -86.0
+offset_top = -48.0
+offset_right = -38.0
+offset_bottom = 0.0
 grow_vertical = 0
-scale = Vector2(1.5, 1.5)
 
-[node name="InventoryPanel" parent="CanvasLayer/HBoxContainer" unique_id=124921297 instance=ExtResource("2_m5guf")]
-layout_mode = 2
+[node name="InventoryPanel2" parent="CanvasLayer" unique_id=1286775717 instance=ExtResource("2_m5guf")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = -48.0
+offset_right = 24.0
+offset_bottom = 0.0
+grow_vertical = 0
 
-[node name="InventoryPanel2" parent="CanvasLayer/HBoxContainer" unique_id=1473628673 instance=ExtResource("2_m5guf")]
-layout_mode = 2
-
-[node name="InventoryPanel3" parent="CanvasLayer/HBoxContainer" unique_id=1825920570 instance=ExtResource("2_m5guf")]
-layout_mode = 2
-
-[node name="InventoryPanel4" parent="CanvasLayer/HBoxContainer" unique_id=1768057931 instance=ExtResource("2_m5guf")]
-layout_mode = 2
-
-[node name="InventoryPanel5" parent="CanvasLayer/HBoxContainer" unique_id=829101942 instance=ExtResource("2_m5guf")]
-layout_mode = 2
+[node name="InventoryPanel3" parent="CanvasLayer" unique_id=1030824183 instance=ExtResource("2_m5guf")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 36.0
+offset_top = -48.0
+offset_right = 84.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="Character" parent="." unique_id=1094349948 instance=ExtResource("1_lnlp5")]
 position = Vector2(250, 412)
@@ -567,6 +573,7 @@ resource = SubResource("Resource_ux6lq")
 position = Vector2(493, -161)
 resource = ExtResource("14_56nsy")
 
+[connection signal="pickup_item" from="Character" to="CanvasLayer" method="_on_character_pickup_item"]
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]
 
 [editable path="Character"]

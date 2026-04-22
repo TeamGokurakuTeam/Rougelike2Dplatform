@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dbhq8ra3djg46"]
 
 [ext_resource type="Script" uid="uid://bix87ofep3vij" path="res://inventory_panel.gd" id="1_7by1q"]
-[ext_resource type="Resource" uid="uid://c7ajsldtc2w58" path="res://Resource/Sword/GoldSword.tres" id="2_7by1q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk1ls"]
 bg_color = Color(0.14509805, 0.19215687, 0.19215687, 1)
@@ -39,7 +38,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lk1ls")
 script = ExtResource("1_7by1q")
-resource = ExtResource("2_7by1q")
 
 [node name="Select" type="Panel" parent="." unique_id=220791737]
 visible = false
