@@ -76,11 +76,12 @@ func update_weapon() -> void:
 	inventory.call_deferred("add_child", weapon)
 	pickup_item.emit(self)
 
-func merge_weapon(target_res : ResourceItem) -> void:
+func merge_weapon(target_res_id : String) -> void:
+	var target_res : ResourceItem = GlobalResourceLoader.item_cache[target_res_id]
 	var count : int = resource_ids.count(target_res.Id)
-	if count >= 2:
+	if count >= 2 and target_res.MergeResultWeaponId != "":
 		current_weapon = 0
 		resource_ids.erase(target_res.Id)
 		resource_ids.erase(target_res.Id)
 		resource_ids.append(target_res.MergeResultWeaponId)
-		update_weapon()
+		merge_weapon(target_res.MergeResultWeaponId)

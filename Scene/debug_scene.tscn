@@ -447,6 +447,14 @@ resource = SubResource("Resource_ux6lq")
 position = Vector2(367, 98)
 resource = ExtResource("14_56nsy")
 
+[node name="DropItem5" parent="." unique_id=1059305240 instance=ExtResource("5_bs0km")]
+position = Vector2(572, 432)
+resource = ExtResource("14_56nsy")
+
+[node name="DropItem6" parent="." unique_id=1709165153 instance=ExtResource("5_bs0km")]
+position = Vector2(840, 441)
+resource = ExtResource("14_56nsy")
+
 [connection signal="pickup_item" from="Character" to="CanvasLayer" method="_on_character_pickup_item"]
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]
 
