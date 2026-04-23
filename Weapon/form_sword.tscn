@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxv73vem102g3" path="res://Assets/Image/swords/tile029.png" id="2_cye4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqg6v"]
-size = Vector2(15.5, 45)
+size = Vector2(15.5, 69)
 
 [sub_resource type="Animation" id="Animation_d3h4s"]
 resource_name = "Attack"
@@ -95,12 +95,13 @@ _data = {
 resource_id = "FormSword"
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
-position = Vector2(0, -75)
+position = Vector2(0, -87)
 rotation = 0.7853982
+scale = Vector2(1.57, 1.57)
 texture = ExtResource("2_cye4q")
 
 [node name="CollisionShape2D2" parent="Root/Hitbox" parent_id_path=PackedInt32Array(1964246491) index="1" unique_id=722522530]
-position = Vector2(1.75, 0.5)
+position = Vector2(1.75, -11.5)
 shape = SubResource("RectangleShape2D_cqg6v")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]

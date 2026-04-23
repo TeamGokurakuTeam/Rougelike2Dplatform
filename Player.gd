@@ -75,3 +75,12 @@ func update_weapon() -> void:
 		node.queue_free()
 	inventory.call_deferred("add_child", weapon)
 	pickup_item.emit(self)
+
+func merge_weapon(target_res : ResourceItem) -> void:
+	var count : int = resource_ids.count(target_res.Id)
+	if count >= 2:
+		current_weapon = 0
+		resource_ids.erase(target_res.Id)
+		resource_ids.erase(target_res.Id)
+		resource_ids.append(target_res.MergeResultWeaponId)
+		update_weapon()

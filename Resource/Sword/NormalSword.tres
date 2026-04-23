@@ -10,3 +10,4 @@ Sprite = ExtResource("1_t47hb")
 Id = "NormalSword"
 Name = "普通の剣"
 WeaponScene = ExtResource("2_v7oe3")
+MergeResultWeaponId = "SpatulaSword"
