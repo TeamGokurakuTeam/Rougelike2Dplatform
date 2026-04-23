@@ -8,6 +8,7 @@ size = Vector2(60, 60)
 
 [node name="DropItem" type="Area2D" unique_id=662552089]
 collision_layer = 64
+collision_mask = 64
 script = ExtResource("1_2xnun")
 resource = ExtResource("2_2xnun")
 
@@ -18,4 +19,4 @@ scale = Vector2(2.16, 2.16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=516187490]
 shape = SubResource("RectangleShape2D_snmuj")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

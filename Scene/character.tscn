@@ -32,7 +32,7 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0qfo5")
 
 [node name="PickupComponent" type="Area2D" parent="." unique_id=748586689 node_paths=PackedStringArray("character")]
-collision_layer = 0
+collision_layer = 64
 collision_mask = 64
 script = ExtResource("5_ep1am")
 character = NodePath("..")
