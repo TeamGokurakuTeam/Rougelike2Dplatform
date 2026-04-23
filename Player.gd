@@ -41,27 +41,15 @@ func _get_input() -> void:
 		velocity.y = JUMP_VELOCITY
 		
 	#region プロトタイプ完了後奇麗にする
-	if Input.is_action_just_pressed("UI_1"):
-		var prev_weapon = current_weapon
-		current_weapon = 0
-		if current_weapon >= resource_ids.size() or current_weapon < 0:
-			current_weapon = prev_weapon
-			return
-		update_weapon()
-	if Input.is_action_just_pressed("UI_2"):
-		var prev_weapon = current_weapon
-		current_weapon = 1
-		if current_weapon >= resource_ids.size() or current_weapon < 0:
-			current_weapon = prev_weapon
-			return
-		update_weapon()
-	if Input.is_action_just_pressed("UI_3"):
-		var prev_weapon = current_weapon
-		current_weapon = 2
-		if current_weapon >= resource_ids.size() or current_weapon < 0:
-			current_weapon = prev_weapon
-			return
-		update_weapon()
+	for i in range(5):
+		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
+			var prev_weapon = current_weapon
+			current_weapon = i
+			if current_weapon >= resource_ids.size() or current_weapon < 0:
+				current_weapon = prev_weapon
+				return
+			update_weapon()
+			break
 	#endregion
 	
 
