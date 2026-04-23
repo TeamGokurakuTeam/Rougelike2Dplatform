@@ -10,7 +10,7 @@ var resource_ids : Array[String] = []
 var current_weapon : int = -1
 
 
-signal pickup_item
+signal pickup_item(player : Player)
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -40,31 +40,33 @@ func _get_input() -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
+	#region プロトタイプ完了後奇麗にする
 	if Input.is_action_just_pressed("UI_1"):
 		var prev_weapon = current_weapon
 		current_weapon = 0
-		if current_weapon >= resource_ids.size() and current_weapon > 0:
+		if current_weapon >= resource_ids.size() or current_weapon < 0:
 			current_weapon = prev_weapon
 			return
 		update_weapon()
 	if Input.is_action_just_pressed("UI_2"):
 		var prev_weapon = current_weapon
 		current_weapon = 1
-		if current_weapon >= resource_ids.size() and current_weapon > 0:
+		if current_weapon >= resource_ids.size() or current_weapon < 0:
 			current_weapon = prev_weapon
 			return
 		update_weapon()
 	if Input.is_action_just_pressed("UI_3"):
 		var prev_weapon = current_weapon
 		current_weapon = 2
-		if current_weapon >= resource_ids.size() and current_weapon > 0:
+		if current_weapon >= resource_ids.size() or current_weapon < 0:
 			current_weapon = prev_weapon
 			return
 		update_weapon()
+	#endregion
 	
 
 func update_weapon() -> void:
-	if  current_weapon == -1:
+	if current_weapon == -1:
 		for node in inventory.get_children():
 			node.queue_free()
 	var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[current_weapon]]
@@ -72,4 +74,14 @@ func update_weapon() -> void:
 	for node in inventory.get_children():
 		node.queue_free()
 	inventory.call_deferred("add_child", weapon)
-	
+	pickup_item.emit(self)
+
+func merge_weapon(target_res_id : String) -> void:
+	var target_res : ResourceItem = GlobalResourceLoader.item_cache[target_res_id]
+	var count : int = resource_ids.count(target_res.Id)
+	if count >= 2 and target_res.MergeResultWeaponId != "":
+		current_weapon = 0
+		resource_ids.erase(target_res.Id)
+		resource_ids.erase(target_res.Id)
+		resource_ids.append(target_res.MergeResultWeaponId)
+		merge_weapon(target_res.MergeResultWeaponId)

@@ -12,4 +12,5 @@ Sprite = SubResource("CompressedTexture2D_rr7do")
 Id = "SpatulaSword"
 Name = "ヘラの剣"
 WeaponScene = ExtResource("2_lskoq")
+MergeResultWeaponId = "FormSword"
 Rarities = "rare"

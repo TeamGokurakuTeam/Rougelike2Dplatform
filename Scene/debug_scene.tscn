@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_lnlp5"]
 [ext_resource type="Script" uid="uid://bda8lx2g1krbg" path="res://Scene/debug_scene.gd" id="1_nog1l"]
+[ext_resource type="Script" uid="uid://bgum7umr8diap" path="res://Scene/GameUI.gd" id="2_56nsy"]
 [ext_resource type="PackedScene" uid="uid://dbhq8ra3djg46" path="res://inventory_panel.tscn" id="2_m5guf"]
 [ext_resource type="Script" uid="uid://byrfiylxi7lg1" path="res://Scene/phantom_camera_2d.gd" id="2_xus1t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rec6y"]
@@ -9,12 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="5_bs0km"]
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="7_ljdr3"]
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="8_2us0l"]
-[ext_resource type="Texture2D" uid="uid://bxv73vem102g3" path="res://Assets/Image/swords/tile029.png" id="9_m5guf"]
 [ext_resource type="Texture2D" uid="uid://ix3nuehvg0rw" path="res://Assets/Image/swords/tile020.png" id="10_56nsy"]
 [ext_resource type="PackedScene" uid="uid://vykqdjkk24yi" path="res://Weapon/normal_sword.tscn" id="11_bxa11"]
 [ext_resource type="Texture2D" uid="uid://cvoylww0bvlld" path="res://Assets/Image/swords/tile025.png" id="12_5qpma"]
 [ext_resource type="Resource" uid="uid://cjv4l6uw8q6yc" path="res://Resource/Sword/SpatulaSword.tres" id="14_56nsy"]
-[ext_resource type="Resource" uid="uid://d0k4uk0wkq46k" path="res://Resource/Sword/WoodenSword.tres" id="15_bxa11"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_se2sp"]
 
@@ -37,131 +36,6 @@ script = ExtResource("3_rec6y")
 transition = 2
 ease = 1
 metadata/_custom_type_script = "uid://8umksf8e80fw"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d3h4s"]
-load_path = "res://.godot/imported/tile029.png-1e0ff94c73d15d49e714c50b4edb692b.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1kbcf"]
-load_path = "res://.godot/imported/tile029.png-1e0ff94c73d15d49e714c50b4edb692b.ctex"
-
-[sub_resource type="Resource" id="Resource_kr6l6"]
-script = ExtResource("8_2us0l")
-Sprite = SubResource("CompressedTexture2D_1kbcf")
-Id = "FormSword"
-Name = "金と鉄の融合剣"
-Rarities = "rare"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqg6v"]
-size = Vector2(15.5, 45)
-
-[sub_resource type="Animation" id="Animation_d3h4s"]
-resource_name = "Attack"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 0.20000002, 0.76666677, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Root/Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.3, 0.40000004, 0.5, 0.6, 0.70000005, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.7853982, 3.5168386, 0.8813913, 0.8813913, -2.5569074, -5.532694, -5.532694, 0.7853982]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Root:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.20000002, 0.3, 0.5, 0.6, 0.70000005, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 2.958333, 2.958333, 0.0, 0.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_kr6l6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Root/Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.7853982]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Root:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_m52d2"]
-_data = {
-&"Attack": SubResource("Animation_d3h4s"),
-&"RESET": SubResource("Animation_kr6l6")
-}
-
-[sub_resource type="PackedScene" id="PackedScene_2704v"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(1850941881), PackedInt32Array(1964246491), PackedInt32Array()],
-"names": PackedStringArray("FormSword", "resource", "Sprite2D", "position", "rotation", "texture", "CollisionShape2D2", "position", "shape", "AnimationPlayer", "libraries/"),
-"node_count": 4,
-"node_ids": PackedInt32Array(1591556401, 141181324, 722522530, 2014526289),
-"node_paths": [NodePath("./Root"), NodePath("./Root/Hitbox"), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 262146, -1, 3, 3, 2, 4, 3, 5, 4, 0, 1073741825, -1, 2147483647, 524294, -1, 2, 7, 5, 8, 6, 0, 1073741826, -1, 2147483647, 524297, -1, 1, 10, 7, 0),
-"variants": [ExtResource("7_ljdr3"), SubResource("Resource_kr6l6"), Vector2(0, -75), 0.7853982, ExtResource("9_m5guf"), Vector2(1.75, 0.5), SubResource("RectangleShape2D_cqg6v"), SubResource("AnimationLibrary_m52d2")],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_56nsy"]
-script = ExtResource("8_2us0l")
-Sprite = SubResource("CompressedTexture2D_d3h4s")
-Id = "FormSword"
-Name = "金と鉄の融合剣"
-WeaponScene = SubResource("PackedScene_2704v")
-Rarities = "rare"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f3ssn"]
 load_path = "res://.godot/imported/tile020.png-05393fab2bc2521ebcbac7c739ed7e8e.ctex"
@@ -410,35 +284,40 @@ WeaponScene = SubResource("PackedScene_4v1bl")
 script = ExtResource("1_nog1l")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1464744164]
+script = ExtResource("2_56nsy")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=65687549]
+[node name="InventoryPanel" parent="CanvasLayer" unique_id=124921297 instance=ExtResource("2_m5guf")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -101.0
-offset_right = 128.0
-offset_bottom = -53.0
-grow_horizontal = 2
+offset_left = -86.0
+offset_top = -48.0
+offset_right = -38.0
+offset_bottom = 0.0
 grow_vertical = 0
-scale = Vector2(1.5, 1.5)
 
-[node name="InventoryPanel" parent="CanvasLayer/HBoxContainer" unique_id=124921297 instance=ExtResource("2_m5guf")]
-layout_mode = 2
+[node name="InventoryPanel2" parent="CanvasLayer" unique_id=1286775717 instance=ExtResource("2_m5guf")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -24.0
+offset_top = -48.0
+offset_right = 24.0
+offset_bottom = 0.0
+grow_vertical = 0
 
-[node name="InventoryPanel2" parent="CanvasLayer/HBoxContainer" unique_id=1473628673 instance=ExtResource("2_m5guf")]
-layout_mode = 2
-
-[node name="InventoryPanel3" parent="CanvasLayer/HBoxContainer" unique_id=1825920570 instance=ExtResource("2_m5guf")]
-layout_mode = 2
-
-[node name="InventoryPanel4" parent="CanvasLayer/HBoxContainer" unique_id=1768057931 instance=ExtResource("2_m5guf")]
-layout_mode = 2
-
-[node name="InventoryPanel5" parent="CanvasLayer/HBoxContainer" unique_id=829101942 instance=ExtResource("2_m5guf")]
-layout_mode = 2
+[node name="InventoryPanel3" parent="CanvasLayer" unique_id=1030824183 instance=ExtResource("2_m5guf")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 36.0
+offset_top = -48.0
+offset_right = 84.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="Character" parent="." unique_id=1094349948 instance=ExtResource("1_lnlp5")]
 position = Vector2(250, 412)
@@ -554,7 +433,7 @@ script = ExtResource("4_hnclb")
 
 [node name="DropItem" parent="." unique_id=662552089 instance=ExtResource("5_bs0km")]
 position = Vector2(143, 102)
-resource = SubResource("Resource_56nsy")
+resource = ExtResource("14_56nsy")
 
 [node name="DropItem2" parent="." unique_id=934636154 instance=ExtResource("5_bs0km")]
 position = Vector2(918, 192)
@@ -565,13 +444,18 @@ position = Vector2(144, -161)
 resource = SubResource("Resource_ux6lq")
 
 [node name="DropItem4" parent="." unique_id=1694954863 instance=ExtResource("5_bs0km")]
-position = Vector2(493, -161)
+position = Vector2(367, 98)
 resource = ExtResource("14_56nsy")
 
-[node name="DropItem5" parent="." unique_id=1738549531 instance=ExtResource("5_bs0km")]
-position = Vector2(893, 475)
-resource = ExtResource("15_bxa11")
+[node name="DropItem5" parent="." unique_id=1059305240 instance=ExtResource("5_bs0km")]
+position = Vector2(572, 432)
+resource = ExtResource("14_56nsy")
 
+[node name="DropItem6" parent="." unique_id=1709165153 instance=ExtResource("5_bs0km")]
+position = Vector2(840, 441)
+resource = ExtResource("14_56nsy")
+
+[connection signal="pickup_item" from="Character" to="CanvasLayer" method="_on_character_pickup_item"]
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]
 
 [editable path="Character"]
