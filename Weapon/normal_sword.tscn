@@ -2,14 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_kf836"]
 [ext_resource type="Texture2D" uid="uid://cvoylww0bvlld" path="res://Assets/Image/swords/tile025.png" id="2_cevrx"]
-[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_cevrx"]
-
-[sub_resource type="Resource" id="Resource_t5s6u"]
-script = ExtResource("3_cevrx")
-Sprite = ExtResource("2_cevrx")
-Id = "NormalSword"
-Name = "普通の剣"
-WeaponScene = null
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kf836"]
 size = Vector2(20, 143)
@@ -100,7 +92,7 @@ _data = {
 }
 
 [node name="NormalSword" unique_id=1591556401 instance=ExtResource("1_kf836")]
-resource = SubResource("Resource_t5s6u")
+resource_id = "NormalSword"
 
 [node name="Root" parent="." index="0" unique_id=1850941881]
 rotation = -0.28274333

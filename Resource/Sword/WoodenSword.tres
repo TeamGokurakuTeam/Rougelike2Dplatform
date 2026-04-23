@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://d0k4uk0wkq46k"]
+
+[ext_resource type="Texture2D" uid="uid://bis10q1fwyebo" path="res://Assets/Image/swords/木の剣.png" id="1_latc6"]
+[ext_resource type="PackedScene" uid="uid://biexb1n637u2x" path="res://Weapon/WoodenSword.tscn" id="2_a5n7g"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_lx2oc"]
+
+[resource]
+script = ExtResource("2_lx2oc")
+Sprite = ExtResource("1_latc6")
+Id = "WoodenSword"
+Name = "木の剣"
+WeaponScene = ExtResource("2_a5n7g")
