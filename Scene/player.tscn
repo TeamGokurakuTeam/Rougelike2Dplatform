@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://t6aylwfhobjb"]
+
+[ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_xa75v"]
+[ext_resource type="Script" uid="uid://dncht7rhcx5dc" path="res://Player.gd" id="2_58ae2"]
+[ext_resource type="Texture2D" uid="uid://p561qyuetbh2" path="res://icon.svg" id="3_58ae2"]
+[ext_resource type="PackedScene" uid="uid://cfh10dk73ugy0" path="res://Component/pickup_component.tscn" id="3_ivevv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivevv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_58ae2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58ae2"]
+size = Vector2(75, 131)
+
+[node name="Player" unique_id=1094349948 node_paths=PackedStringArray("hp_component") groups=["Player"] instance=ExtResource("1_xa75v")]
+collision_layer = 1
+script = ExtResource("2_58ae2")
+jump_velocity = -750.0
+hp_component = NodePath("HPComponent")
+
+[node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(0.578125, 1)
+sprite_frames = SubResource("SpriteFrames_ivevv")
+
+[node name="Inventory" type="Node2D" parent="." index="3" unique_id=1310483890]
+
+[node name="PickupComponent" parent="." index="4" unique_id=1819781862 node_paths=PackedStringArray("character") instance=ExtResource("3_ivevv")]
+character = NodePath("..")
+
+[node name="CollisionShape2D" parent="." index="5" unique_id=879731102]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_58ae2")
+
+[editable path="PickupComponent"]

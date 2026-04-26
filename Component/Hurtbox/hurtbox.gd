@@ -15,7 +15,6 @@ func _on_area_entered(area: Area2D) -> void:
 	if area != null and area is Hitbox:
 		timer.start()
 		current_area = area
-		print("direction : ", area.knockback_direction)
 		recieved_damage.emit(area.damage, area.knockback_force * area.knockback_direction)
 
 func _on_timer_timeout() -> void:
