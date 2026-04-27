@@ -357,6 +357,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewrsx"]
 size = Vector2(63, 97)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qcj2"]
+size = Vector2(63, 97)
+
 [sub_resource type="Animation" id="Animation_vmi60"]
 resource_name = "Attack"
 tracks/0/type = "value"
@@ -560,6 +563,10 @@ animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
+[node name="HPComponent" parent="." index="1" unique_id=456158778]
+max_hp = 10
+hp = 10
+
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 scale = Vector2(3.535, 3.535)
 sprite_frames = SubResource("SpriteFrames_6rpt5")
@@ -570,7 +577,14 @@ position = Vector2(3.5, 9.5)
 shape = SubResource("RectangleShape2D_ewrsx")
 
 [node name="Hurtbox" parent="." index="4" unique_id=1912714286 node_paths=PackedStringArray("character")]
+collision_layer = 32
+collision_mask = 4
 character = NodePath("..")
+
+[node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
+position = Vector2(3.5, 9.5)
+shape = SubResource("RectangleShape2D_0qcj2")
+debug_color = Color(0, 1, 0.69803923, 0.41960785)
 
 [node name="AnimationPlayer" parent="." index="5" unique_id=138459419 groups=["Enemy"]]
 libraries/ = SubResource("AnimationLibrary_n6qjc")
@@ -593,4 +607,5 @@ shape = SubResource("RectangleShape2D_44hyy")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8" unique_id=1628444027]
 debug_enabled = true
 
+[connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Chase" method="_on_player_detector_body_entered"]

@@ -10,3 +10,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = false
 	elif velocity.x <= 0 and not animated_sprite.flip_h:
 		animated_sprite.flip_h = true
+
+
+func _on_hp_component_is_dead() -> void:
+	queue_free()

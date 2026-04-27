@@ -24,4 +24,11 @@ position = Vector2(0, -0.5)
 
 [node name="Hurtbox" parent="." unique_id=1912714286 instance=ExtResource("2_46cb6")]
 
+[node name="CoolDown" type="Timer" parent="Hurtbox" unique_id=1300762615]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=1329737567]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=138459419]
+
+[connection signal="recieved_damage" from="Hurtbox" to="." method="_on_hurtbox_recieved_damage"]
+[connection signal="timeout" from="Hurtbox/CoolDown" to="Hurtbox" method="_on_cool_down_timeout"]

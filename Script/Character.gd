@@ -35,3 +35,6 @@ func knockback(dir : Vector2) -> void:
 
 func _set_speed(new_speed : float) -> void:
 	speed = clamp(new_speed, 0, max_speed) #set_hpと同じ
+
+func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
+	hp_component.hp -= damage

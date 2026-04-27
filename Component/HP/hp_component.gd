@@ -5,7 +5,6 @@ class_name HPComponent
 @export var hp : int = 100 : set = _set_hp #setterは変数を使うときに呼び出される関数
 
 signal hp_changed #hpが変わったときに呼び出される
-signal stack_damage_changed #stack_damageが変わった時に呼び出される
 signal is_dead #自身が死んだ時に呼び出される
 
 var is_death_warning : bool = false

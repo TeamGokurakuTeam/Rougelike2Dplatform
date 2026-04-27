@@ -68,3 +68,6 @@ func merge_weapon(target_res_id : String) -> void:
 		resource_ids.erase(target_res.Id)
 		resource_ids.append(target_res.MergeResultWeaponId)
 		merge_weapon(target_res.MergeResultWeaponId)
+
+func _on_hp_component_is_dead() -> void:
+	self.queue_free()

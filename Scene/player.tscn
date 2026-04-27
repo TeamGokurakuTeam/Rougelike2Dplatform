@@ -16,8 +16,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivevv"]
+size = Vector2(130, 131)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58ae2"]
 size = Vector2(52, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6jsd"]
+size = Vector2(56, 90)
 
 [node name="Player" unique_id=1094349948 node_paths=PackedStringArray("hp_component") groups=["Player"] instance=ExtResource("1_xa75v")]
 collision_layer = 1
@@ -37,9 +43,21 @@ character = NodePath("..")
 
 [node name="CollisionShape2D" parent="PickupComponent" index="0" unique_id=456453865]
 position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_ivevv")
 
 [node name="CollisionShape2D" parent="." index="5" unique_id=879731102]
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_58ae2")
+
+[node name="Hurtbox" parent="." index="6" unique_id=1912714286 node_paths=PackedStringArray("character")]
+collision_layer = 8
+collision_mask = 16
+character = NodePath("..")
+
+[node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_r6jsd")
+
+[connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 
 [editable path="PickupComponent"]

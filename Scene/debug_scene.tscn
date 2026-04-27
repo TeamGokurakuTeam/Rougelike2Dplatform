@@ -11,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="5_bs0km"]
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="7_ljdr3"]
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="8_2us0l"]
-[ext_resource type="Texture2D" uid="uid://ix3nuehvg0rw" path="res://Assets/Image/swords/tile020.png" id="10_56nsy"]
-[ext_resource type="PackedScene" uid="uid://vykqdjkk24yi" path="res://Weapon/normal_sword.tscn" id="11_bxa11"]
 [ext_resource type="Texture2D" uid="uid://cvoylww0bvlld" path="res://Assets/Image/swords/tile025.png" id="12_5qpma"]
 [ext_resource type="Resource" uid="uid://cjv4l6uw8q6yc" path="res://Resource/Sword/SpatulaSword.tres" id="14_56nsy"]
 [ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="15_bxa11"]
@@ -251,129 +249,6 @@ transition = 2
 ease = 1
 metadata/_custom_type_script = "uid://8umksf8e80fw"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f3ssn"]
-load_path = "res://.godot/imported/tile020.png-05393fab2bc2521ebcbac7c739ed7e8e.ctex"
-
-[sub_resource type="Resource" id="Resource_bcxrm"]
-script = ExtResource("8_2us0l")
-Sprite = ExtResource("10_56nsy")
-Id = "GoldSword"
-Name = "黄金の剣"
-WeaponScene = ExtResource("11_bxa11")
-Rarities = "uncommon"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6memi"]
-size = Vector2(54, 108)
-
-[sub_resource type="Animation" id="Animation_kc4mp"]
-resource_name = "Attack"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Root:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.8, 1.1, 1.4333333, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -0.7592182, -0.7592182, 2.8344147, 2.8344147, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Root/Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.8000001, 1.1333333, 1.7666668, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.7853982, 0.3228859, 0.19198622, 1.1484267, 1.1484267, 0.7853982]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.8333334, 1.4333334, 1.4666667, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, true, false, false, true, true]
-}
-
-[sub_resource type="Animation" id="Animation_bcxrm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Root:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Root/Sprite2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.7853982]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygerq"]
-_data = {
-&"Attack": SubResource("Animation_kc4mp"),
-&"RESET": SubResource("Animation_bcxrm")
-}
-
-[sub_resource type="PackedScene" id="PackedScene_ofd08"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(1850941881), PackedInt32Array(1964246491), PackedInt32Array()],
-"names": PackedStringArray("GoldSword", "resource", "Sprite2D", "position", "rotation", "scale", "texture", "CollisionShape2D2", "position", "shape", "AnimationPlayer", "libraries/"),
-"node_count": 4,
-"node_ids": PackedInt32Array(1591556401, 141181324, 722522530, 2014526289),
-"node_paths": [NodePath("./Root"), NodePath("./Root/Hitbox"), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 1073741824, -1, 2147483647, 262146, -1, 4, 3, 2, 4, 3, 5, 4, 6, 5, 0, 1073741825, -1, 2147483647, 524295, -1, 2, 8, 6, 9, 7, 0, 1073741826, -1, 2147483647, 524298, -1, 1, 11, 8, 0),
-"variants": [ExtResource("7_ljdr3"), SubResource("Resource_bcxrm"), Vector2(0, -119.99999), 0.7853982, Vector2(2.5, 2.5), ExtResource("10_56nsy"), Vector2(0, -46), SubResource("RectangleShape2D_6memi"), SubResource("AnimationLibrary_ygerq")],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_70r1f"]
-script = ExtResource("8_2us0l")
-Sprite = SubResource("CompressedTexture2D_f3ssn")
-Id = "GoldSword"
-Name = "黄金の剣"
-WeaponScene = SubResource("PackedScene_ofd08")
-Rarities = "uncommon"
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eclmh"]
 load_path = "res://.godot/imported/tile025.png-8abdb4816c73a4f06894b8465b8db7af.ctex"
 
@@ -502,7 +377,6 @@ tile_map_data = PackedByteArray("AAABACQAAAACAAEAAAACACQAAAACAAEAAAADACQAAAACAAE
 tile_set = SubResource("TileSet_ofd08")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1464744164]
-visible = false
 script = ExtResource("2_56nsy")
 
 [node name="InventoryPanel" parent="CanvasLayer" unique_id=124921297 instance=ExtResource("2_m5guf")]
@@ -595,7 +469,7 @@ position = Vector2(143, 102)
 
 [node name="DropItem2" parent="." unique_id=934636154 instance=ExtResource("5_bs0km")]
 position = Vector2(918, 192)
-resource = SubResource("Resource_70r1f")
+resource = ExtResource("14_56nsy")
 
 [node name="DropItem3" parent="." unique_id=844407502 instance=ExtResource("5_bs0km")]
 position = Vector2(144, -161)
@@ -607,6 +481,7 @@ resource = ExtResource("14_56nsy")
 
 [node name="DropItem5" parent="." unique_id=1059305240 instance=ExtResource("5_bs0km")]
 position = Vector2(593, 500)
+resource = ExtResource("14_56nsy")
 
 [node name="DropItem6" parent="." unique_id=1709165153 instance=ExtResource("5_bs0km")]
 position = Vector2(1061, 544)
