@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bda8lx2g1krbg" path="res://Scene/debug_scene.gd" id="1_nog1l"]
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="2_5qpma"]
-[ext_resource type="Script" uid="uid://bgum7umr8diap" path="res://Scene/GameUI.gd" id="2_56nsy"]
+[ext_resource type="Script" path="res://Scene/GameUI.gd" id="2_56nsy"]
 [ext_resource type="PackedScene" uid="uid://dbhq8ra3djg46" path="res://inventory_panel.tscn" id="2_m5guf"]
 [ext_resource type="Script" uid="uid://byrfiylxi7lg1" path="res://Scene/phantom_camera_2d.gd" id="2_xus1t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rec6y"]
@@ -569,6 +569,7 @@ position = Vector2(875, -54)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=365290539]
 position = Vector2(5, 33)
 shape = SubResource("RectangleShape2D_hnclb")
+disabled = true
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=432900896]
 position = Vector2(577, 238)

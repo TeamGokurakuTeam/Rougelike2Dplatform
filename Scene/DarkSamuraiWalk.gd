@@ -10,7 +10,6 @@ func Enter() -> void:
 	animation_player.play("Move")
 	if get_tree().get_node_count_in_group("Player"):
 		player = get_tree().get_nodes_in_group("Player")[0]
-	print(player)
 
 func Exit() -> void:
 	pass
@@ -39,3 +38,7 @@ func move_toward_player() -> void:
 	
 	if dir.y < -0.9 and parent.is_on_floor():
 		parent.velocity.y = parent.jump_velocity
+
+func _on_player_detector_body_entered(body: Node2D) -> void:
+	if body is Player:
+		StateTransitioned.emit(self, "Attack")

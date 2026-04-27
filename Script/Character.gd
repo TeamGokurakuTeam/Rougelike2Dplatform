@@ -7,11 +7,12 @@ const FRICTION : float = .15 ##摩擦力または抵抗力
 @export var max_speed : float = 200 
 @export var speed : float = 20 : set = _set_speed
 @export var hp_component: HPComponent
+@export var accerelation : int = 30 #加速度
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var move_direction : Vector2 = Vector2.ZERO #移動する方向
-var accerelation : int = 30 #加速度
+
 
 func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, .0, FRICTION)

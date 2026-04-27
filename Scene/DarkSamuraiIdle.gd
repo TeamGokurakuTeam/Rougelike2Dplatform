@@ -12,7 +12,7 @@ func Exit() -> void:
 
 func Update(delta) -> void:
 	if not animation_player.is_playing():
-		StateTransitioned.emit(self, "Walk")
+		StateTransitioned.emit(self, "Chase")
 
 func Physics_Update(delta) -> void:
 	pass

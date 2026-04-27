@@ -5,13 +5,14 @@ class_name DarkSamuraiAttack
 @export var parent : DarkSamurai
 
 func Enter() -> void:
-	pass
+	animation_player.play("Attack")
 
 func Exit() -> void:
 	pass
 
 func Update(delta) -> void:
-	pass
+	if not animation_player.is_playing():
+		StateTransitioned.emit(self, "Idle")
 
 func Physics_Update(delta) -> void:
 	pass
