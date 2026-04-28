@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bda8lx2g1krbg" path="res://Scene/debug_scene.gd" id="1_nog1l"]
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="2_5qpma"]
-[ext_resource type="Script" path="res://Scene/GameUI.gd" id="2_56nsy"]
+[ext_resource type="Script" uid="uid://bgum7umr8diap" path="res://Scene/GameUI.gd" id="2_56nsy"]
 [ext_resource type="PackedScene" uid="uid://dbhq8ra3djg46" path="res://inventory_panel.tscn" id="2_m5guf"]
 [ext_resource type="Script" uid="uid://byrfiylxi7lg1" path="res://Scene/phantom_camera_2d.gd" id="2_xus1t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rec6y"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="8_2us0l"]
 [ext_resource type="Texture2D" uid="uid://cvoylww0bvlld" path="res://Assets/Image/swords/tile025.png" id="12_5qpma"]
 [ext_resource type="Resource" uid="uid://cjv4l6uw8q6yc" path="res://Resource/Sword/SpatulaSword.tres" id="14_56nsy"]
+[ext_resource type="PackedScene" uid="uid://c1bhmx60ipa2t" path="res://Scene/dark_anomaly.tscn" id="15_5qpma"]
 [ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="15_bxa11"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1kbcf"]
@@ -489,6 +490,9 @@ resource = ExtResource("14_56nsy")
 
 [node name="DarkSamurai" parent="." unique_id=333494586 instance=ExtResource("15_bxa11")]
 position = Vector2(820, 180)
+
+[node name="DarkAnomaly" parent="." unique_id=1918104112 instance=ExtResource("15_5qpma")]
+position = Vector2(650, 0)
 
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]
 
