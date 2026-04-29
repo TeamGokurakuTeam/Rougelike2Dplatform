@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ix3nuehvg0rw" path="res://Assets/Image/swords/tile020.png" id="2_7op67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6memi"]
-size = Vector2(54, 108)
+size = Vector2(22, 35)
 
 [sub_resource type="Animation" id="Animation_kc4mp"]
 resource_name = "Attack"
@@ -95,13 +95,13 @@ _data = {
 resource_id = "GoldSword"
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
-position = Vector2(0, -119.99999)
+position = Vector2(0, -25.000002)
 rotation = 0.7853982
-scale = Vector2(2.5, 2.5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_7op67")
 
 [node name="CollisionShape2D2" parent="Root/Hitbox" parent_id_path=PackedInt32Array(1964246491) index="1" unique_id=722522530]
-position = Vector2(0, -46)
+position = Vector2(0, 50)
 shape = SubResource("RectangleShape2D_6memi")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]

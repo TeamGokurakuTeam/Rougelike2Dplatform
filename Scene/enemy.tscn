@@ -355,10 +355,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewrsx"]
-size = Vector2(63, 97)
+size = Vector2(22, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qcj2"]
-size = Vector2(63, 97)
+size = Vector2(26, 29)
 
 [sub_resource type="Animation" id="Animation_vmi60"]
 resource_name = "Attack"
@@ -528,15 +528,15 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n6qjc"]
-size = Vector2(168, 68)
+size = Vector2(47, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44hyy"]
-size = Vector2(171, 41)
+size = Vector2(54, 27)
 
 [node name="DarkSamurai" unique_id=1094349948 node_paths=PackedStringArray("hp_component") instance=ExtResource("1_yww8s")]
 collision_layer = 2
 script = ExtResource("2_n6qjc")
-jump_velocity = -700.0
+jump_velocity = -300.0
 max_speed = 100.0
 speed = 15.0
 hp_component = NodePath("HPComponent")
@@ -568,12 +568,11 @@ max_hp = 10
 hp = 10
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
-scale = Vector2(3.535, 3.535)
 sprite_frames = SubResource("SpriteFrames_6rpt5")
 animation = &"Idle"
 
 [node name="CollisionShape2D" parent="." index="3" unique_id=879731102]
-position = Vector2(3.5, 9.5)
+position = Vector2(-1, 3)
 shape = SubResource("RectangleShape2D_ewrsx")
 
 [node name="Hurtbox" parent="." index="4" unique_id=1912714286 node_paths=PackedStringArray("character")]
@@ -582,7 +581,7 @@ collision_mask = 4
 character = NodePath("..")
 
 [node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
-position = Vector2(3.5, 9.5)
+position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_0qcj2")
 debug_color = Color(0, 1, 0.69803923, 0.41960785)
 
@@ -592,7 +591,7 @@ libraries/ = SubResource("AnimationLibrary_n6qjc")
 [node name="Hitbox" parent="." index="6" unique_id=195243888 instance=ExtResource("3_s685e")]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1" unique_id=235091233]
-position = Vector2(16, 24)
+position = Vector2(4.5, 4.5)
 shape = SubResource("RectangleShape2D_n6qjc")
 disabled = true
 debug_color = Color(0.99215686, 0, 0, 0.41960785)
@@ -601,7 +600,7 @@ debug_color = Color(0.99215686, 0, 0, 0.41960785)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=1478873790]
-position = Vector2(17.5, 37.5)
+position = Vector2(4, 3.5)
 shape = SubResource("RectangleShape2D_44hyy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8" unique_id=1628444027]

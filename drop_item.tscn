@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://c7ajsldtc2w58" path="res://Resource/Sword/GoldSword.tres" id="2_2xnun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snmuj"]
-size = Vector2(60, 60)
+size = Vector2(30, 30)
 
 [node name="DropItem" type="Area2D" unique_id=662552089]
 collision_layer = 64
@@ -14,7 +14,6 @@ resource = ExtResource("2_2xnun")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=453952353]
 texture_filter = 1
-scale = Vector2(2.16, 2.16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=516187490]
 shape = SubResource("RectangleShape2D_snmuj")

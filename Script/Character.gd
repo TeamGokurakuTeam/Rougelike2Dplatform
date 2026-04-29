@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Character
 
-const FRICTION : float = .15 ##摩擦力または抵抗力
+@export var friction : float = .15 ##摩擦力または抵抗力
 
 @export var jump_velocity : float = -600
 @export var max_speed : float = 200 
@@ -15,7 +15,7 @@ var move_direction : Vector2 = Vector2.ZERO #移動する方向
 
 
 func _physics_process(delta: float) -> void:
-	velocity.x = lerp(velocity.x, .0, FRICTION)
+	velocity.x = lerp(velocity.x, .0, friction)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	move()

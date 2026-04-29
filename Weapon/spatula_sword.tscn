@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1wqyyp2r6b8w" path="res://Assets/Image/swords/Hera.png" id="2_jlkn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72ssk"]
-size = Vector2(20, 25.863443)
+size = Vector2(15.290501, 12.113258)
 
 [sub_resource type="Animation" id="Animation_jlkn3"]
 resource_name = "Attack"
@@ -95,13 +95,13 @@ _data = {
 resource_id = "SpatulaSword"
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
-position = Vector2(0, -120)
+position = Vector2(0, -43.000008)
 rotation = -0.7853982
-scale = Vector2(4, 4)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_jlkn3")
 
 [node name="CollisionShape2D2" parent="Root/Hitbox" parent_id_path=PackedInt32Array(1964246491) index="1" unique_id=722522530]
-position = Vector2(-0.5, -41.5)
+position = Vector2(0.49999946, 33.500004)
 scale = Vector2(1.1118014, -3.054504)
 shape = SubResource("RectangleShape2D_72ssk")
 

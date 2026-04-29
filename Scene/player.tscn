@@ -98,13 +98,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivevv"]
-size = Vector2(130, 99.5)
+size = Vector2(24, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58ae2"]
-size = Vector2(52, 90)
+size = Vector2(14, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6jsd"]
-size = Vector2(56, 90)
+size = Vector2(12, 21)
 
 [sub_resource type="Animation" id="Animation_58ae2"]
 resource_name = "Idle"
@@ -172,12 +172,13 @@ _data = {
 [node name="Player" unique_id=1094349948 node_paths=PackedStringArray("hp_component") groups=["Player"] instance=ExtResource("1_xa75v")]
 collision_layer = 1
 script = ExtResource("2_58ae2")
-jump_velocity = -750.0
+friction = 0.3
+jump_velocity = -400.0
 hp_component = NodePath("HPComponent")
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
-position = Vector2(-1.9073486e-06, 20)
-scale = Vector2(2.005, 2.005)
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ivevv")
 animation = &"Idle"
 
@@ -187,11 +188,11 @@ animation = &"Idle"
 character = NodePath("..")
 
 [node name="CollisionShape2D" parent="PickupComponent" index="0" unique_id=456453865]
-position = Vector2(0, 16.25)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_ivevv")
 
 [node name="CollisionShape2D" parent="." index="5" unique_id=879731102]
-position = Vector2(0, 20)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_58ae2")
 
 [node name="Hurtbox" parent="." index="6" unique_id=1912714286 node_paths=PackedStringArray("character")]
@@ -200,7 +201,7 @@ collision_mask = 16
 character = NodePath("..")
 
 [node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
-position = Vector2(0, 20)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_r6jsd")
 
 [node name="AnimationPlayer" parent="." index="7" unique_id=138459419]
