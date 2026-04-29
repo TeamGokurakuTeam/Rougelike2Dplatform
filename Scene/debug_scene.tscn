@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://cjv4l6uw8q6yc" path="res://Resource/Sword/SpatulaSword.tres" id="14_56nsy"]
 [ext_resource type="PackedScene" uid="uid://c1bhmx60ipa2t" path="res://Scene/dark_anomaly.tscn" id="15_5qpma"]
 [ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="15_bxa11"]
+[ext_resource type="PackedScene" uid="uid://dm5bnbxa2261l" path="res://Scene/bat.tscn" id="16_5qpma"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1kbcf"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -493,6 +494,9 @@ position = Vector2(820, 180)
 
 [node name="DarkAnomaly" parent="." unique_id=1918104112 instance=ExtResource("15_5qpma")]
 position = Vector2(650, 0)
+
+[node name="Bat" parent="." unique_id=665247472 instance=ExtResource("16_5qpma")]
+position = Vector2(203, 64)
 
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]
 
