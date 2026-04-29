@@ -3,10 +3,12 @@ class_name Player
 
 var resource_ids : Array[String] = []
 
+@onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
 
 var current_weapon : int = -1
+var coyote_time_activated : bool = false
 
 
 signal pickup_item(player : Player)
@@ -25,6 +27,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	super(delta)
 	_get_input()
+	
+	var was_on_floor : bool = is_on_floor()
+	if was_on_floor && !is_on_floor():
+		coyote_timer.start()
 		
 
 func _get_input() -> void:
@@ -34,6 +40,20 @@ func _get_input() -> void:
 	move_direction.x = Input.get_axis(&"UI_left",&"UI_right") #横移動の入力
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
+	
+	if is_on_floor():
+		if coyote_time_activated:
+			coyote_time_activated = false
+			coyote_timer.stop()
+	else:
+		if !coyote_time_activated:
+			coyote_timer.start()
+			coyote_time_activated = true
+	
+	if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
+		velocity.y = jump_velocity
+		coyote_timer.stop()
+		coyote_time_activated = true
 		
 	#region プロトタイプ完了後奇麗にする
 	for i in range(5):

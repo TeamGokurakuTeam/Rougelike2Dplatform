@@ -208,6 +208,10 @@ shape = SubResource("RectangleShape2D_r6jsd")
 libraries/ = SubResource("AnimationLibrary_r6jsd")
 autoplay = &"Idle"
 
+[node name="CoyoteTimer" type="Timer" parent="." index="8" unique_id=1786373520]
+wait_time = 0.25
+one_shot = true
+
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 
 [editable path="PickupComponent"]
