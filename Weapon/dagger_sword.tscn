@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://bt166y4rn30hm"]
+
+[ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_svr1h"]
+[ext_resource type="Texture2D" uid="uid://cveqduo8lu2b7" path="res://Assets/Image/swords/tile005.png" id="2_fdvlc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpxpo"]
+size = Vector2(30, 61)
+
+[sub_resource type="Animation" id="Animation_fdvlc"]
+resource_name = "Attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 2.3893557]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.7853982, 1.3089969, 1.8325957, 2.3561945, 2.8797932, 3.403392, 3.9269907, 4.4505897, 4.9741883, 5.497787, 6.021386, 6.544985, 7.0685835]
+}
+
+[sub_resource type="Animation" id="Animation_tpxpo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.3893557]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.7853982]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ux1d1"]
+_data = {
+&"Attack": SubResource("Animation_fdvlc"),
+&"RESET": SubResource("Animation_tpxpo")
+}
+
+[node name="DaggerSword" unique_id=1591556401 instance=ExtResource("1_svr1h")]
+
+[node name="Root" parent="." index="0" unique_id=1850941881]
+rotation = 2.3893557
+
+[node name="Sprite2D" parent="Root" index="0" unique_id=141181324]
+position = Vector2(0, -80)
+rotation = 0.7853982
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_fdvlc")
+
+[node name="Hitbox" parent="Root" index="1" unique_id=1964246491]
+damage = 1.0
+
+[node name="CollisionShape2D2" parent="Root/Hitbox" index="1" unique_id=722522530]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_tpxpo")
+disabled = false
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]
+libraries/ = SubResource("AnimationLibrary_ux1d1")

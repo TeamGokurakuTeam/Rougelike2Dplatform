@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://cufc4hr67s10n"]
+
+[ext_resource type="Texture2D" uid="uid://dnca3glkuwvmk" path="res://Assets/Image/swords/tile001.png" id="1_5r5lr"]
+[ext_resource type="PackedScene" uid="uid://dmmvbn08q2our" path="res://Weapon/rock_sword.tscn" id="2_xqu38"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_yf8ds"]
+
+[resource]
+script = ExtResource("2_yf8ds")
+Sprite = ExtResource("1_5r5lr")
+Id = "RockSword"
+Name = "岩の剣"
+WeaponScene = ExtResource("2_xqu38")
+Rarities = "uncommon"

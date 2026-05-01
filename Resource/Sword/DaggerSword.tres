@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://bvwrof5x4q6fm"]
+
+[ext_resource type="Texture2D" uid="uid://cveqduo8lu2b7" path="res://Assets/Image/swords/tile005.png" id="1_nduvg"]
+[ext_resource type="PackedScene" uid="uid://bt166y4rn30hm" path="res://Weapon/dagger_sword.tscn" id="2_gxbti"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_v6y1k"]
+
+[resource]
+script = ExtResource("2_v6y1k")
+Sprite = ExtResource("1_nduvg")
+Id = "DaggerSword"
+Name = "短剣"
+WeaponScene = ExtResource("2_gxbti")
+Rarities = "rare"

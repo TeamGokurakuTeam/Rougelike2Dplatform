@@ -13,8 +13,10 @@
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="8_2us0l"]
 [ext_resource type="Texture2D" uid="uid://cvoylww0bvlld" path="res://Assets/Image/swords/tile025.png" id="12_5qpma"]
 [ext_resource type="Resource" uid="uid://cjv4l6uw8q6yc" path="res://Resource/Sword/SpatulaSword.tres" id="14_56nsy"]
+[ext_resource type="Resource" uid="uid://cufc4hr67s10n" path="res://Resource/Sword/RockSword.tres" id="14_2704v"]
 [ext_resource type="PackedScene" uid="uid://c1bhmx60ipa2t" path="res://Scene/dark_anomaly.tscn" id="15_5qpma"]
 [ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="15_bxa11"]
+[ext_resource type="Resource" uid="uid://bvwrof5x4q6fm" path="res://Resource/Sword/DaggerSword.tres" id="15_f3ssn"]
 [ext_resource type="PackedScene" uid="uid://dm5bnbxa2261l" path="res://Scene/bat.tscn" id="16_5qpma"]
 [ext_resource type="PackedScene" uid="uid://blqi4yxuc25o4" path="res://Scene/knight.tscn" id="17_1kbcf"]
 
@@ -489,6 +491,14 @@ resource = ExtResource("14_56nsy")
 [node name="DropItem6" parent="." unique_id=1709165153 instance=ExtResource("5_bs0km")]
 position = Vector2(1061, 544)
 resource = ExtResource("14_56nsy")
+
+[node name="DropItem7" parent="." unique_id=489908504 instance=ExtResource("5_bs0km")]
+position = Vector2(937, 535)
+resource = ExtResource("14_2704v")
+
+[node name="DropItem8" parent="." unique_id=1372472209 instance=ExtResource("5_bs0km")]
+position = Vector2(294, 516)
+resource = ExtResource("15_f3ssn")
 
 [node name="DarkSamurai" parent="." unique_id=333494586 instance=ExtResource("15_bxa11")]
 visible = false
