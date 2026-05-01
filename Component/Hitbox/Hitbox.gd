@@ -9,6 +9,11 @@ class_name Hitbox
 var knockback_direction : Vector2 = Vector2.ZERO
 var is_body_inside : bool = false
 
+func _ready():
+	add_to_group("PlayerAttack")
+
+
+
 func _set_damage(new_dmg : float) -> void:
 	damage = new_dmg
 
