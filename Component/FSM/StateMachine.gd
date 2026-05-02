@@ -1,6 +1,8 @@
 extends Node
 class_name StateMachine
 
+
+
 @export var initial_state : State ##最初のステートを設定する
 
 var current_state : State

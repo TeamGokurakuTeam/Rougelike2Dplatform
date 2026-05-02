@@ -102,10 +102,7 @@ rotation = 0.7853982
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_fdvlc")
 
-[node name="Hitbox" parent="Root" index="1" unique_id=1964246491]
-damage = 1.0
-
-[node name="CollisionShape2D2" parent="Root/Hitbox" index="1" unique_id=722522530]
+[node name="CollisionShape2D2" parent="Root/Hitbox" parent_id_path=PackedInt32Array(1964246491) index="1" unique_id=722522530]
 position = Vector2(0, -5.5)
 shape = SubResource("RectangleShape2D_tpxpo")
 disabled = false

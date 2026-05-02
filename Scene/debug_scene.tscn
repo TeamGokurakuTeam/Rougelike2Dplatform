@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://bvwrof5x4q6fm" path="res://Resource/Sword/DaggerSword.tres" id="15_f3ssn"]
 [ext_resource type="PackedScene" uid="uid://dm5bnbxa2261l" path="res://Scene/bat.tscn" id="16_5qpma"]
 [ext_resource type="PackedScene" uid="uid://blqi4yxuc25o4" path="res://Scene/knight.tscn" id="17_1kbcf"]
+[ext_resource type="PackedScene" uid="uid://0gl6yf6q6tbn" path="res://Scene/mage.tscn" id="20_ofd08"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1kbcf"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -501,19 +502,19 @@ position = Vector2(294, 516)
 resource = ExtResource("15_f3ssn")
 
 [node name="DarkSamurai" parent="." unique_id=333494586 instance=ExtResource("15_bxa11")]
-visible = false
 position = Vector2(820, 180)
 
 [node name="DarkAnomaly" parent="." unique_id=1918104112 instance=ExtResource("15_5qpma")]
-visible = false
 position = Vector2(650, 0)
 
 [node name="Bat" parent="." unique_id=665247472 instance=ExtResource("16_5qpma")]
-visible = false
 position = Vector2(203, 64)
 
 [node name="Knight" parent="." unique_id=1908764025 instance=ExtResource("17_1kbcf")]
 position = Vector2(676, 34)
+
+[node name="Mage" parent="." unique_id=1384921409 instance=ExtResource("20_ofd08")]
+position = Vector2(255, 92)
 
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]
 
