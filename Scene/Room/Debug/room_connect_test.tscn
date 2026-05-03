@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b0ykb3t5ot3gm"]
+
+[ext_resource type="Script" uid="uid://b8q4omet6du0w" path="res://Scene/Room/Debug/RoomConnect.gd" id="1_1hl1w"]
+[ext_resource type="PackedScene" uid="uid://qiksywlugujn" path="res://Scene/Room/Room001.tscn" id="2_5cc6o"]
+[ext_resource type="PackedScene" uid="uid://drhgs0tlpmywt" path="res://Scene/Room/Room002.tscn" id="3_iu5xa"]
+
+[node name="RoomConnectTest" type="Node2D" unique_id=1066049401]
+script = ExtResource("1_1hl1w")
+first_room = ExtResource("2_5cc6o")
+second_room = ExtResource("3_iu5xa")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1233508711]
+position = Vector2(572, 0)
