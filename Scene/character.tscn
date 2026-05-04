@@ -18,8 +18,10 @@ metadata/_custom_type_script = "uid://cbsdrpffp8k01"
 [node name="HPComponent" parent="." unique_id=456158778 instance=ExtResource("2_wfnr8")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1883945263]
+z_index = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=879731102]
+z_index = 1
 position = Vector2(0, -0.5)
 
 [node name="Hurtbox" parent="." unique_id=1912714286 instance=ExtResource("2_46cb6")]
@@ -27,6 +29,7 @@ position = Vector2(0, -0.5)
 [node name="CoolDown" type="Timer" parent="Hurtbox" unique_id=1300762615]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=1329737567]
+z_index = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=138459419]
 
