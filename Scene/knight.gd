@@ -4,12 +4,14 @@ class_name Knight
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hp = $HPComponent
-
+var is_shielding: bool = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
 func _ready() -> void:
 	hp.damaged.connect(_on_hp_damaged)
+
+
+
 
 
 func _physics_process(delta: float) -> void:
@@ -41,8 +43,10 @@ func face_move_direction() -> void:
 		animation_player.get_parent().flip_h = true
 
 func _on_hp_damaged(amount: int) -> void:
-	animation_player.play("Hit")
-	animation_player.animation_finished.connect(_on_hit_finished, CONNECT_ONE_SHOT)
+	var state = $StateMachine.current_state
+
+	if state.name == "Move" or state.name == "Idle":
+		state.StateTransitioned.emit(state, "Hit")
 
 
 func _on_hit_finished(anim_name: String) -> void:

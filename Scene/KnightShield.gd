@@ -6,21 +6,33 @@ class_name KnightShield
 @export var hurtbox: Hurtbox
 @export var shield_hitbox: Area2D
 
-func Enter() -> void:
-	animation_player.play("Shield")
+func _ready() -> void:
+	if not shield_hitbox.area_entered.is_connected(_on_shield_hitbox_area_entered):
+		shield_hitbox.area_entered.connect(_on_shield_hitbox_area_entered)
 
-	if hurtbox:
-		hurtbox.monitoring = false
+	if not hurtbox.area_entered.is_connected(_on_hurtbox_area_entered):
+		hurtbox.area_entered.connect(_on_hurtbox_area_entered)
+
+func Enter() -> void:
+	parent.is_shielding = true 
+	animation_player.play("Shield")
 
 	if shield_hitbox:
 		shield_hitbox.monitoring = true
 
+		var shape := shield_hitbox.get_node("CollisionShape2D")
+		shape.set_deferred("disabled", false) 
+
+		print("=== ShieldHitbox Debug ===")
+		print("layer =", shield_hitbox.collision_layer)
+		print("mask =", shield_hitbox.collision_mask)
+
 func Exit() -> void:
-	if hurtbox:
-		hurtbox.monitoring = true
+	parent.is_shielding = false 
 
 	if shield_hitbox:
-		shield_hitbox.monitoring = false
+		var shape := shield_hitbox.get_node("CollisionShape2D")
+		shape.set_deferred("disabled", true) 
 
 func Update(delta) -> void:
 	if not animation_player.is_playing():
@@ -28,3 +40,11 @@ func Update(delta) -> void:
 
 func Physics_Update(delta) -> void:
 	pass
+
+
+func _on_shield_hitbox_area_entered(area: Area2D) -> void:
+	StateTransitioned.emit(self, "ShieldBash")
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print("=== Hurtbox area_entered ===")
+	print("触れた相手:", area.name)

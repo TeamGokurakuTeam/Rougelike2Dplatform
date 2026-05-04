@@ -4,7 +4,7 @@ class_name Bat
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-const SPEED = 200.0
+const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
 

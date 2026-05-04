@@ -11,9 +11,7 @@
 [ext_resource type="Script" uid="uid://dhggei1f5tsvn" path="res://Scene/KnightNearAttack.gd" id="6_mn5cq"]
 [ext_resource type="Script" uid="uid://76ghhy8876i1" path="res://Scene/KnightShield.gd" id="7_mn5cq"]
 [ext_resource type="Script" uid="uid://cg4w6kpurl8wa" path="res://Scene/KnightSiledBash.gd" id="8_3eces"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eces"]
-size = Vector2(51.5, 43)
+[ext_resource type="Script" uid="uid://bwtab2rjadcqt" path="res://Scene/KnightHit.gd" id="9_hu44a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6e4p"]
 atlas = ExtResource("2_cka4e")
@@ -642,11 +640,12 @@ size = Vector2(84, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4f6j"]
 size = Vector2(68.5, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3eces"]
+size = Vector2(96, 43)
+
 [node name="Knight" unique_id=1094349948 node_paths=PackedStringArray("hp_component") instance=ExtResource("1_qbtkq")]
 scale = Vector2(2, 2)
 script = ExtResource("2_x4f6j")
-jump_velocity = -400.0
-max_speed = 150.0
 hp_component = NodePath("HPComponent")
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
@@ -681,22 +680,17 @@ script = ExtResource("7_mn5cq")
 animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
 hurtbox = NodePath("../../Hurtbox")
-shield_hitbox = NodePath("ShieldHitbox")
+shield_hitbox = NodePath("../../ShieldHitbox")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
-
-[node name="ShieldHitbox" type="Area2D" parent="StateMachine/Shield" index="0" unique_id=1773725564]
-scale = Vector2(2, 2)
-collision_layer = 16
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StateMachine/Shield/ShieldHitbox" index="0" unique_id=205344032]
-position = Vector2(-0.75, 3.5)
-shape = SubResource("RectangleShape2D_3eces")
-disabled = true
-debug_color = Color(0.66805905, 0.5107881, 3.85046e-07, 0.41960785)
 
 [node name="ShieldBash" type="Node" parent="StateMachine" index="5" unique_id=2013671503 node_paths=PackedStringArray("animation_player", "parent")]
 script = ExtResource("8_3eces")
+animation_player = NodePath("../../AnimationPlayer")
+parent = NodePath("../..")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="KnightHit" type="Node" parent="StateMachine" index="6" unique_id=2122847628 node_paths=PackedStringArray("animation_player", "parent")]
+script = ExtResource("9_hu44a")
 animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
@@ -714,7 +708,7 @@ position = Vector2(1, 3.5)
 shape = SubResource("RectangleShape2D_cka4e")
 
 [node name="Hurtbox" parent="." index="4" unique_id=1912714286 node_paths=PackedStringArray("character")]
-collision_layer = 32
+collision_layer = 36
 collision_mask = 4
 character = NodePath("..")
 
@@ -743,6 +737,15 @@ shape = SubResource("RectangleShape2D_x4f6j")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8" unique_id=518546000]
 debug_enabled = true
 
-[connection signal="body_entered" from="StateMachine/Shield/ShieldHitbox" to="StateMachine/Shield" method="_on_shield_hitbox_body_entered"]
+[node name="ShieldHitbox" type="Area2D" parent="." index="9" unique_id=1773725564]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldHitbox" index="0" unique_id=205344032]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_3eces")
+debug_color = Color(0.66805905, 0.5107881, 3.85046e-07, 0.41960785)
+
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
+[connection signal="area_entered" from="Hurtbox" to="StateMachine/Shield" method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Move" method="_on_player_detector_body_entered"]

@@ -13,6 +13,11 @@ signal recieved_damage(damage : float, knockback_dir : Vector2)
 
 func _on_area_entered(area: Area2D) -> void:
 	if area != null and area is Hitbox:
+
+		if character is Knight and character.is_shielding:
+			print("シールド中 → ダメージ無効化")
+			return
+
 		cool_down.start()
 		current_area = area
 		recieved_damage.emit(area.damage, area.knockback_force * area.knockback_direction)
