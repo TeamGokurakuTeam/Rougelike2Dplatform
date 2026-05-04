@@ -16,3 +16,6 @@ tile_map_data = PackedByteArray("AAAIABUAAAACAAEAAAAJABUAAAACAAEAAAAKABUAAAACAAE
 
 [node name="StartPoint" type="Marker2D" parent="." index="1" unique_id=1774950216]
 position = Vector2(72, 344)
+
+[node name="ExitPoint" type="Marker2D" parent="." index="2" unique_id=324549347]
+position = Vector2(264, 8)

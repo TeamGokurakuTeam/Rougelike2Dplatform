@@ -98,10 +98,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivevv"]
-size = Vector2(24, 27)
+size = Vector2(24, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58ae2"]
-size = Vector2(14, 23)
+size = Vector2(14, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6jsd"]
 size = Vector2(12, 21)
@@ -188,7 +188,7 @@ animation = &"Idle"
 character = NodePath("..")
 
 [node name="CollisionShape2D" parent="PickupComponent" index="0" unique_id=456453865]
-position = Vector2(0, -1.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ivevv")
 
 [node name="CollisionShape2D" parent="." index="5" unique_id=879731102]
