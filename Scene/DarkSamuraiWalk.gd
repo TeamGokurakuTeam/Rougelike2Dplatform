@@ -18,6 +18,8 @@ func Update(delta) -> void:
 	pass
 
 func Physics_Update(delta) -> void:
+	if player == null:
+		return
 	set_target(player.global_position)
 	move_toward_player()
 	parent.move_and_slide()
