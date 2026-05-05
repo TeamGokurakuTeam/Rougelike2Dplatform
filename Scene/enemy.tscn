@@ -6,12 +6,9 @@
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n6qjc"]
 
-[node name="DarkSamurai" unique_id=1094349948 instance=ExtResource("1_yww8s")]
+[node name="Enemy" unique_id=1094349948 instance=ExtResource("1_yww8s")]
 collision_layer = 2
 script = ExtResource("2_44hyy")
-
-[node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("")
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
 max_hp = 10
