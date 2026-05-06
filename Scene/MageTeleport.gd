@@ -2,12 +2,12 @@ extends State
 class_name MageTeleport
 
 @export var animation_player: AnimationPlayer
-@export var parent : MageTeleport
-
-
+@export var parent : Mage
 
 func Enter() -> void:
 	animation_player.play("Teleport")
+	if parent.position_history.size() > 0:
+		parent.teleport_prev_data = {"old_pos" : parent.position_history[0]}
 
 func Exit() -> void:
 	pass

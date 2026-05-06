@@ -502,15 +502,19 @@ position = Vector2(294, 516)
 resource = ExtResource("15_f3ssn")
 
 [node name="DarkSamurai" parent="." unique_id=333494586 instance=ExtResource("15_bxa11")]
+visible = false
 position = Vector2(820, 180)
 
 [node name="DarkAnomaly" parent="." unique_id=1918104112 instance=ExtResource("15_5qpma")]
+visible = false
 position = Vector2(650, 0)
 
 [node name="Bat" parent="." unique_id=665247472 instance=ExtResource("16_5qpma")]
+visible = false
 position = Vector2(203, 64)
 
 [node name="Knight" parent="." unique_id=1908764025 instance=ExtResource("17_1kbcf")]
+visible = false
 position = Vector2(676, 34)
 
 [node name="Mage" parent="." unique_id=1384921409 instance=ExtResource("20_ofd08")]

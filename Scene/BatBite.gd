@@ -4,20 +4,17 @@ class_name BatBite
 @export var animation_player: AnimationPlayer
 @export var parent: Bat
 
+const DASH_SPEED := 150.0
 var player: Player
 var dash_direction: Vector2 = Vector2.ZERO
 var transitioned := false
-
-const DASH_SPEED := 150.0
 
 func Enter() -> void:
 	animation_player.play("Bite")
 	transitioned = false
 	parent.velocity = Vector2.ZERO
-
 	if get_tree().get_node_count_in_group("Player") > 0:
 		player = get_tree().get_nodes_in_group("Player")[0]
-
 	if player:
 		dash_direction = (player.global_position - parent.global_position).normalized()
 	else:

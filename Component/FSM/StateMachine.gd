@@ -1,8 +1,6 @@
 extends Node
 class_name StateMachine
 
-
-
 @export var initial_state : State ##最初のステートを設定する
 
 var current_state : State
@@ -13,7 +11,6 @@ func _ready() -> void:
 		if child is State:
 			states[child.name.to_lower()] = child
 			child.StateTransitioned.connect(on_child_transition)
-	
 	if initial_state:
 		initial_state.Enter()
 		current_state = initial_state
@@ -31,17 +28,12 @@ func on_child_transition(state : State, new_state_name) -> void:
 		return
 		
 	var new_state : State = states.get(new_state_name.to_lower())
-	
 	if new_state == null:
 		return
-	
 	if current_state:
 		current_state.Exit()
-	
 	new_state.Enter()
-	
 	current_state = new_state
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	queue_free()

@@ -2,8 +2,7 @@ extends State
 class_name KnightIdle
 
 @export var animation_player: AnimationPlayer
-@export var parent : KnightIdle
-
+@export var parent : Knight
 
 func Enter() -> void:
 	animation_player.play("Idle")

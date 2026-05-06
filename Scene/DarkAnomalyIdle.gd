@@ -6,8 +6,6 @@ class_name DarkAnomaly
 
 func Enter() -> void:
 	animation_player.play("Idle")
-	
-
 
 func Exit() -> void:
 	pass

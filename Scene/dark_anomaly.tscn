@@ -872,9 +872,11 @@ size = Vector2(22.03818, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctnf0"]
 
-[node name="DarkAnomaly" unique_id=1094349948 node_paths=PackedStringArray("hp_component") instance=ExtResource("1_dry4b")]
+[node name="DarkAnomaly" unique_id=1094349948 node_paths=PackedStringArray("state_machine", "hp", "hp_component") instance=ExtResource("1_dry4b")]
 collision_layer = 2
 script = ExtResource("2_aa8b5")
+state_machine = NodePath("StateMachine")
+hp = NodePath("HPComponent")
 jump_velocity = -700.0
 max_speed = 70.0
 speed = 15.0

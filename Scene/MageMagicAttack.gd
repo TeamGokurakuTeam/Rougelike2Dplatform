@@ -4,9 +4,6 @@ class_name MageMagicAttak
 @export var animation_player: AnimationPlayer
 @export var parent : MageMagicAttak
 
-
-
-
 func Enter() -> void:
 	animation_player.play("MagicAttack")
 

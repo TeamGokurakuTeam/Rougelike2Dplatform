@@ -747,5 +747,4 @@ shape = SubResource("RectangleShape2D_3eces")
 debug_color = Color(0.66805905, 0.5107881, 3.85046e-07, 0.41960785)
 
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
-[connection signal="area_entered" from="Hurtbox" to="StateMachine/Shield" method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Move" method="_on_player_detector_body_entered"]

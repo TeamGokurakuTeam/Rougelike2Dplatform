@@ -15,4 +15,5 @@ func Update(delta) -> void:
 		StateTransitioned.emit(self,"Idle")
 
 func Physics_Update(delta) -> void:
-	pass
+	parent.velocity.x = 0
+	parent.move_and_slide()

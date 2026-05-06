@@ -563,7 +563,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_7hupd"]
 resource_name = "Spell"
-step = 0.2
+length = 0.5
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -571,7 +572,7 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
@@ -595,7 +596,7 @@ tracks/2/path = NodePath("Hitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
@@ -701,10 +702,11 @@ size = Vector2(114, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vsws"]
 size = Vector2(65, 12)
 
-[node name="Mage" unique_id=1094349948 node_paths=PackedStringArray("navigation_agent_2d", "hp_component") instance=ExtResource("1_ynh8j")]
+[node name="Mage" unique_id=1094349948 node_paths=PackedStringArray("navigation_agent_2d", "cool_down", "hp_component") instance=ExtResource("1_ynh8j")]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("2_0icvi")
 navigation_agent_2d = NodePath("NavigationAgent2D")
+cool_down = NodePath("Hurtbox/CoolDown")
 max_speed = 60.0
 hp_component = NodePath("HPComponent")
 
@@ -717,10 +719,12 @@ animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Move" type="Node" parent="StateMachine" index="1" unique_id=699378181 node_paths=PackedStringArray("animation_player", "parent") groups=["Enemy"]]
+[node name="Move" type="Node" parent="StateMachine" index="1" unique_id=699378181 node_paths=PackedStringArray("animation_player", "parent", "sprite", "spell_timer") groups=["Enemy"]]
 script = ExtResource("4_2g7gn")
 animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
+sprite = NodePath("../../AnimatedSprite2D")
+spell_timer = NodePath("../../Hurtbox/CoolDown")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="Spell" type="Node" parent="StateMachine" index="2" unique_id=1698162146 node_paths=PackedStringArray("animation_player", "parent")]
@@ -766,6 +770,9 @@ collision_layer = 32
 collision_mask = 4
 character = NodePath("..")
 
+[node name="CoolDown" parent="Hurtbox" index="2" unique_id=1300762615]
+autostart = true
+
 [node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
 position = Vector2(-5.333334, 13)
 shape = SubResource("RectangleShape2D_ynh8j")
@@ -792,4 +799,6 @@ shape = SubResource("RectangleShape2D_8vsws")
 debug_enabled = true
 
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
+[connection signal="timeout" from="Hurtbox/CoolDown" to="." method="_on_cool_down_timeout"]
+[connection signal="timeout" from="Hurtbox/CoolDown" to="StateMachine/Move" method="_on_cool_down_timeout"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Move" method="_on_player_detector_body_entered"]

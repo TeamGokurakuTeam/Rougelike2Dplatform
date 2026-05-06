@@ -689,9 +689,6 @@ collision_layer = 32
 collision_mask = 4
 character = NodePath("..")
 
-[node name="CoolDown" parent="Hurtbox" index="2" unique_id=1300762615]
-one_shot = true
-
 [node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
 shape = SubResource("RectangleShape2D_62edm")
 debug_color = Color(0, 0.6515895, 0.013452545, 0.41960785)

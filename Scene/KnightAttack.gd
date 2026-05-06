@@ -4,7 +4,6 @@ class_name KnightAttack
 @export var animation_player: AnimationPlayer
 @export var parent : KnightAttack
 
-
 func Enter() -> void:
 	animation_player.play("Attack")
 
