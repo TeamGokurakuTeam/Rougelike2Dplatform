@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_yww8s"]
 [ext_resource type="Script" uid="uid://cjrbolw4153mw" path="res://Scene/Enemy.gd" id="2_44hyy"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_n6qjc"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="3_s685e"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n6qjc"]
@@ -9,10 +10,7 @@
 [node name="Enemy" unique_id=1094349948 instance=ExtResource("1_yww8s")]
 collision_layer = 2
 script = ExtResource("2_44hyy")
-
-[node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 10
-hp = 10
+item_resource = Array[ExtResource("3_n6qjc")]([])
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 animation = &""

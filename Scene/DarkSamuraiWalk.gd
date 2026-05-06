@@ -36,8 +36,6 @@ func move_toward_player() -> void:
 	
 	parent.velocity.x = dir.x * parent.max_speed
 	
-	print(str(dir.y) + "   " + str(parent.is_on_floor()))
-	
 	if dir.y < -0.9 and parent.is_on_floor():
 		parent.velocity.y = parent.jump_velocity
 

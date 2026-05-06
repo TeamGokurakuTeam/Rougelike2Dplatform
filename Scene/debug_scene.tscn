@@ -446,11 +446,10 @@ position = Vector2(5, 33)
 shape = SubResource("RectangleShape2D_hnclb")
 disabled = true
 
-[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=432900896 node_paths=PackedStringArray("follow_target")]
+[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=432900896]
 position = Vector2(408, 362)
 script = ExtResource("2_xus1t")
 priority_override = true
-follow_target = NodePath("")
 zoom = Vector2(1.4, 1.4)
 tween_resource = SubResource("Resource_hnclb")
 tween_on_load = false

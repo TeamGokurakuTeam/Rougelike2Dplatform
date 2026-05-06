@@ -169,12 +169,11 @@ _data = {
 &"RESET": SubResource("Animation_ivevv")
 }
 
-[node name="Player" unique_id=1094349948 node_paths=PackedStringArray("hp_component") groups=["Player"] instance=ExtResource("1_xa75v")]
+[node name="Player" unique_id=1094349948 groups=["Player"] instance=ExtResource("1_xa75v")]
 collision_layer = 1
 script = ExtResource("2_58ae2")
 friction = 0.3
 jump_velocity = -400.0
-hp_component = NodePath("HPComponent")
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 position = Vector2(-1.9073486e-06, 0)
@@ -213,5 +212,6 @@ wait_time = 0.25
 one_shot = true
 
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
+[connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
 
 [editable path="PickupComponent"]

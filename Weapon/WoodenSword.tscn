@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bis10q1fwyebo" path="res://Assets/Image/swords/木の剣.png" id="2_va35j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvnf7"]
-size = Vector2(42.57084, 10.228312)
+size = Vector2(17.028336, 3.5920768)
 
 [sub_resource type="Animation" id="Animation_aeruu"]
 resource_name = "Attack"
@@ -70,13 +70,13 @@ _data = {
 resource_id = "WoodenSword"
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
-position = Vector2(0, -138.2)
+position = Vector2(0, -37.000004)
 rotation = -0.7853982
-scale = Vector2(3, 3)
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_va35j")
 
 [node name="CollisionShape2D2" parent="Root/Hitbox" parent_id_path=PackedInt32Array(1964246491) index="1" unique_id=722522530]
-position = Vector2(0.49999976, -63.599808)
+position = Vector2(0, 37.7999)
 scale = Vector2(0.5872565, 6.5699606)
 shape = SubResource("RectangleShape2D_wvnf7")
 

@@ -6,16 +6,28 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snmuj"]
 size = Vector2(30, 30)
 
-[node name="DropItem" type="Area2D" unique_id=662552089]
-collision_layer = 64
-collision_mask = 64
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xnun"]
+size = Vector2(30, 30)
+
+[node name="DropItem" type="CharacterBody2D" unique_id=931621491]
+collision_layer = 192
+collision_mask = 128
 script = ExtResource("1_2xnun")
 resource = ExtResource("2_2xnun")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=453952353]
+z_index = 1
 texture_filter = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=516187490]
+[node name="DropItemArea" type="Area2D" parent="." unique_id=657935261]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropItemArea" unique_id=516187490]
+z_index = 1
 shape = SubResource("RectangleShape2D_snmuj")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721792257]
+shape = SubResource("RectangleShape2D_2xnun")
+
+[connection signal="area_entered" from="DropItemArea" to="." method="_on_drop_item_area_area_entered"]

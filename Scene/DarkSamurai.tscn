@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_2ir46"]
 [ext_resource type="Script" uid="uid://bjf7wxt4iwfi" path="res://Scene/DarkSamurai.gd" id="2_65rjy"]
 [ext_resource type="Script" uid="uid://dcrfducj3u6yx" path="res://Scene/DarkSamuraiIdle.gd" id="3_lefgm"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_xclgv"]
+[ext_resource type="Resource" uid="uid://d0k4uk0wkq46k" path="res://Resource/Sword/WoodenSword.tres" id="4_tmy0u"]
 [ext_resource type="Script" uid="uid://cpoltudiipp7m" path="res://Scene/DarkSamuraiWalk.gd" id="4_xclgv"]
 [ext_resource type="Script" uid="uid://bvakei6ebuv84" path="res://Scene/DarkSamuraiAttack.gd" id="5_tmy0u"]
 [ext_resource type="Texture2D" uid="uid://ba8mc06cxwtds" path="res://Assets/Enemy/DarkSamurai (64x64).png" id="6_riyji"]
@@ -533,13 +535,13 @@ size = Vector2(47, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44hyy"]
 size = Vector2(54, 27)
 
-[node name="DarkSamurai" unique_id=1094349948 node_paths=PackedStringArray("hp_component") instance=ExtResource("1_2ir46")]
+[node name="DarkSamurai" unique_id=1094349948 instance=ExtResource("1_2ir46")]
 collision_layer = 2
 script = ExtResource("2_65rjy")
+item_resource = Array[ExtResource("3_xclgv")]([ExtResource("4_tmy0u")])
 jump_velocity = -300.0
 max_speed = 100.0
 speed = 15.0
-hp_component = NodePath("HPComponent")
 accerelation = 15
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
@@ -564,8 +566,8 @@ parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 10
-hp = 10
+max_hp = 5.0
+hp = 5.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 sprite_frames = SubResource("SpriteFrames_6rpt5")
@@ -606,4 +608,5 @@ shape = SubResource("RectangleShape2D_44hyy")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8" unique_id=1628444027]
 debug_enabled = true
 
+[connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Chase" method="_on_player_detector_body_entered"]

@@ -86,9 +86,6 @@ func _generate_room() -> void:
 	##prev_connect_point = first_room_node.to_local(prev_connect_point)
 	#add_child(second_room_node)
 	 #
-	#print(next_connect_point)
-	#
-	#print(init_point)
 	
 	
 	

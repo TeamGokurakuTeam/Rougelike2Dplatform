@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://bpcscoo7wifp6" path="res://Component/FSM/state_machine.tscn" id="2_tgux0"]
 [ext_resource type="PackedScene" uid="uid://11552kg7s1wm" path="res://Component/HP/hp_component.tscn" id="2_wfnr8"]
 
-[node name="Character" type="CharacterBody2D" unique_id=1094349948]
+[node name="Character" type="CharacterBody2D" unique_id=1094349948 node_paths=PackedStringArray("hp_component")]
 collision_layer = 0
 collision_mask = 128
 platform_floor_layers = 4294901888
 platform_wall_layers = 128
 script = ExtResource("1_tgux0")
+hp_component = NodePath("HPComponent")
 metadata/_custom_type_script = "uid://cbsdrpffp8k01"
 
 [node name="StateMachine" parent="." unique_id=1396875699 instance=ExtResource("2_tgux0")]

@@ -19,9 +19,9 @@ func _process(delta: float) -> void:
 	else:
 		collision_shape_2d.disabled = false
 
-func _on_area_entered(area: Area2D) -> void:
-	if area is DropItem:
-		character.resource_ids.append((area as DropItem).resource.Id)
+func _on_body_entered(body: Node2D) -> void:
+	if body is DropItem:
+		character.resource_ids.append((body as DropItem).resource.Id)
 		character.current_weapon = character.resource_ids.size() - 1
-		character.merge_weapon((area as DropItem).resource.Id)
+		character.merge_weapon((body as DropItem).resource.Id)
 		character.update_weapon()
