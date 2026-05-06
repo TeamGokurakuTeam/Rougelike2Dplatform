@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="8_2us0l"]
 [ext_resource type="Texture2D" uid="uid://cvoylww0bvlld" path="res://Assets/Image/swords/tile025.png" id="12_5qpma"]
 [ext_resource type="Resource" uid="uid://cjv4l6uw8q6yc" path="res://Resource/Sword/SpatulaSword.tres" id="14_56nsy"]
+[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/mushroom.tscn" id="15_5qpma"]
 [ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="15_bxa11"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_1kbcf"]
@@ -236,7 +237,7 @@ texture = ExtResource("2_5qpma")
 
 [sub_resource type="TileSet" id="TileSet_ofd08"]
 physics_layer_0/collision_layer = 128
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_mask = 67
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_f3ssn")
 
@@ -495,5 +496,8 @@ script = ExtResource("4_hnclb")
 position = Vector2(28, 556)
 jump_velocity = -450.0
 max_speed = 400.0
+
+[node name="Mushroom" parent="." unique_id=1019244636 instance=ExtResource("15_5qpma")]
+position = Vector2(749, 297)
 
 [connection signal="body_entered" from="Area2D" to="PhantomCamera2D" method="_on_area_2d_body_entered"]

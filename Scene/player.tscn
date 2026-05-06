@@ -203,13 +203,12 @@ character = NodePath("..")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_r6jsd")
 
-[node name="AnimationPlayer" parent="." index="7" unique_id=138459419]
-libraries/ = SubResource("AnimationLibrary_r6jsd")
-autoplay = &"Idle"
-
-[node name="CoyoteTimer" type="Timer" parent="." index="8" unique_id=1786373520]
+[node name="CoyoteTimer" type="Timer" parent="." index="7" unique_id=1786373520]
 wait_time = 0.25
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8" unique_id=1634371556]
+libraries/ = SubResource("AnimationLibrary_r6jsd")
 
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]

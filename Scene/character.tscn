@@ -32,7 +32,5 @@ position = Vector2(0, -0.5)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=1329737567]
 z_index = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=138459419]
-
 [connection signal="recieved_damage" from="Hurtbox" to="." method="_on_hurtbox_recieved_damage"]
 [connection signal="timeout" from="Hurtbox/CoolDown" to="Hurtbox" method="_on_cool_down_timeout"]
