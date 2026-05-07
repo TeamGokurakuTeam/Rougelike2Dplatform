@@ -27,3 +27,5 @@ disabled = true
 debug_color = Color(0.9987715, 0, 0.14525625, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2014526289]
+
+[node name="ChargeParticle" type="GPUParticles2D" parent="." unique_id=359079536]

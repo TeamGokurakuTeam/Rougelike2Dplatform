@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_762hb"]
 [ext_resource type="Texture2D" uid="uid://bxv73vem102g3" path="res://Assets/Image/swords/tile029.png" id="2_cye4q"]
+[ext_resource type="Texture2D" uid="uid://5futa8f7kict" path="res://Assets/Particle/2.png" id="3_cye4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cqg6v"]
 size = Vector2(10, 28)
@@ -45,6 +46,57 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0, 0.0, 2.958333, 2.958333, 0.0, 0.0, 0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChargeParticle:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Root/Sprite2D:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_762hb"]
+resource_name = "Charge"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Sprite2D:self_modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.40000004, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1), Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChargeParticle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_kr6l6"]
 length = 0.001
@@ -84,12 +136,128 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Sprite2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ChargeParticle:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cye4q"]
+resource_name = "StrongAttack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.26666668, 0.6666667, 0.73333335, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.7853982, 0.7853982, 0.36651915, 0.36651915, 1.5097098, 0.7295476, 0.7295476, 0.7853982]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.26666668, 0.6, 0.73333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.98611104, -0.98611104, 6.1784654, 6.1784654, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.3, 0.6, 0.6333334, 0.73333335, 0.7666667, 0.9666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true, true, false, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ChargeParticle:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Root/Sprite2D:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m52d2"]
 _data = {
 &"Attack": SubResource("Animation_d3h4s"),
-&"RESET": SubResource("Animation_kr6l6")
+&"Charge": SubResource("Animation_762hb"),
+&"RESET": SubResource("Animation_kr6l6"),
+&"StrongAttack": SubResource("Animation_cye4q")
 }
+
+[sub_resource type="Curve" id="Curve_cqg6v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0.5074425), 0.0, 0.0, 0, 0, Vector2(0.76000005, 0.4986468), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_d3h4s"]
+curve = SubResource("Curve_cqg6v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kr6l6"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+angular_velocity_min = 34.079983
+angular_velocity_max = 127.80998
+orbit_velocity_min = 0.97000015
+orbit_velocity_max = 0.97000015
+radial_velocity_min = 0.99997765
+radial_velocity_max = 9.999977
+gravity = Vector3(0, 0.1, 0)
+linear_accel_min = 2.9599977
+linear_accel_max = 2.9599977
+damping_min = 2.071
+damping_max = 6.8050003
+scale_min = 0.099999994
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_d3h4s")
 
 [node name="FormSword" unique_id=1591556401 instance=ExtResource("1_762hb")]
 resource_id = "FormSword"
@@ -109,3 +277,9 @@ shape = SubResource("RectangleShape2D_cqg6v")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]
 libraries/ = SubResource("AnimationLibrary_m52d2")
+
+[node name="ChargeParticle" parent="." index="2" unique_id=359079536]
+position = Vector2(0, -33)
+emitting = false
+texture = ExtResource("3_cye4q")
+process_material = SubResource("ParticleProcessMaterial_kr6l6")
