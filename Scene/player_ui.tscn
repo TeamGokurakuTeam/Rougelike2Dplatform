@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dvx3iti4h218x"]
+
+[ext_resource type="Script" uid="uid://bgum7umr8diap" path="res://Scene/GameUI.gd" id="1_q25tn"]
+[ext_resource type="PackedScene" uid="uid://dbhq8ra3djg46" path="res://inventory_panel.tscn" id="2_00pm1"]
+
+[node name="PlayerUI" type="CanvasLayer" unique_id=1814325200]
+script = ExtResource("1_q25tn")
+
+[node name="InventoryPanel" parent="." unique_id=124921297 instance=ExtResource("2_00pm1")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -132.0
+offset_top = -71.0
+offset_right = -84.0
+offset_bottom = -23.0
+grow_vertical = 0
+
+[node name="InventoryPanel2" parent="." unique_id=1137378075 instance=ExtResource("2_00pm1")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -70.0
+offset_top = -71.0
+offset_right = -22.0
+offset_bottom = -23.0
+grow_vertical = 0
+
+[node name="InventoryPanel3" parent="." unique_id=2047070168 instance=ExtResource("2_00pm1")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -10.0
+offset_top = -71.0
+offset_right = 38.0
+offset_bottom = -23.0
+grow_vertical = 0
+
+[node name="InventoryPanel4" parent="." unique_id=123343308 instance=ExtResource("2_00pm1")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 48.0
+offset_top = -71.0
+offset_right = 96.0
+offset_bottom = -23.0
+grow_vertical = 0
+
+[node name="InventoryPanel5" parent="." unique_id=166664471 instance=ExtResource("2_00pm1")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = 104.0
+offset_top = -71.0
+offset_right = 152.0
+offset_bottom = -23.0
+grow_vertical = 0

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b4i3w233507yf"]
+
+[ext_resource type="Script" uid="uid://b8q4omet6du0w" path="res://Scene/Room/Debug/RoomConnect.gd" id="1_4nic5"]
+[ext_resource type="Script" uid="uid://b383l3v25na7" path="res://Scene/MainGame/Maingame.gd" id="1_ga214"]
+[ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
+[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/player.tscn" id="3_4x3oj"]
+
+[node name="MainGame" type="Node2D" unique_id=334667216]
+script = ExtResource("1_ga214")
+
+[node name="PlayerUI" parent="." unique_id=1814325200 instance=ExtResource("2_8fymo")]
+
+[node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
+script = ExtResource("1_4nic5")
+lobby_room_dir = "res://Scene/Room/DebugFloor/Lobby"
+enemy_room_dir = "res://Scene/Room/DebugFloor/Enemy"
+boss_room_dir = "res://Scene/Room/DebugFloor/Boss"
+end_room_dir = "res://Scene/Room/DebugFloor/End"
+generate_room_value = 3
+
+[node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
+position = Vector2(184, 263)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=779157867]
+position = Vector2(0, 1)
+zoom = Vector2(2, 2)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[editable path="PlayerUI"]
+[editable path="Player"]
+[editable path="Player/PickupComponent"]

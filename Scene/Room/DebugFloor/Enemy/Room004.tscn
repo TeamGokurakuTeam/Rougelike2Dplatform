@@ -1,6 +1,9 @@
 [gd_scene format=4 uid="uid://dmr36tx2lb1nw"]
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_i20jj"]
+[ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="2_hal6f"]
+[ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="3_8mke3"]
+[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/mushroom.tscn" id="4_hai75"]
 
 [node name="Room004" unique_id=423967005 node_paths=PackedStringArray("StartPoint", "ExitPoint") instance=ExtResource("1_i20jj")]
 StartPoint = NodePath("StartPoint")
@@ -20,3 +23,28 @@ position = Vector2(121, 664)
 
 [node name="ExitPoint" type="Marker2D" parent="." index="2" unique_id=960062295]
 position = Vector2(57, 8)
+
+[node name="EnemySpawnPoint" parent="." index="3" unique_id=441511218 instance=ExtResource("2_hal6f")]
+position = Vector2(163, 433)
+enemys = Array[PackedScene]([ExtResource("3_8mke3"), ExtResource("4_hai75")])
+is_random = true
+
+[node name="EnemySpawnPoint2" parent="." index="4" unique_id=1095825137 instance=ExtResource("2_hal6f")]
+position = Vector2(235, 73)
+enemys = Array[PackedScene]([ExtResource("3_8mke3"), ExtResource("4_hai75")])
+is_random = true
+
+[node name="EnemySpawnPoint3" parent="." index="5" unique_id=1080880613 instance=ExtResource("2_hal6f")]
+position = Vector2(358, 312)
+enemys = Array[PackedScene]([ExtResource("3_8mke3"), ExtResource("4_hai75")])
+is_random = true
+
+[node name="EnemySpawnPoint4" parent="." index="6" unique_id=1810014565 instance=ExtResource("2_hal6f")]
+position = Vector2(421, 610)
+enemys = Array[PackedScene]([ExtResource("3_8mke3"), ExtResource("4_hai75")])
+is_random = true
+
+[node name="EnemySpawnPoint5" parent="." index="7" unique_id=1964698342 instance=ExtResource("2_hal6f")]
+position = Vector2(337, 185)
+enemys = Array[PackedScene]([ExtResource("3_8mke3"), ExtResource("4_hai75")])
+is_random = true

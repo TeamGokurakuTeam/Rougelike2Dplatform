@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://daswny3xai2q3"]
 
-[ext_resource type="Script" uid="uid://cs7rtnf17ctbl" path="res://EnemySpawnPoint.gd" id="1_jegjm"]
+[ext_resource type="Script" uid="uid://cs7rtnf17ctbl" path="res://Scene/EnemySpawnPoint.gd" id="1_jegjm"]
 [ext_resource type="Texture2D" uid="uid://dlnsmtnyh2ny" path="res://Assets/Particle/Free Smoke Fx  Pixel 05.png" id="2_dot2l"]
 [ext_resource type="Texture2D" uid="uid://x7amrwqju0u0" path="res://Assets/Particle/32x32_Star_5.png" id="3_npcjo"]
 [ext_resource type="Texture2D" uid="uid://ba4swwx5dir3o" path="res://Assets/Particle/32x32_Impact_6.png" id="4_1ctc6"]

@@ -7,7 +7,7 @@ class_name DarkSamuraiChase
 var player : Player
 
 func Enter() -> void:
-	animation_player.play("Move")
+	animation_player.play("Walk")
 	if get_tree().get_node_count_in_group("Player"):
 		player = get_tree().get_nodes_in_group("Player")[0]
 

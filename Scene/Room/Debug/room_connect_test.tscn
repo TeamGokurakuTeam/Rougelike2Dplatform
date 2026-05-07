@@ -12,7 +12,7 @@ end_room_dir = "res://Scene/Room/DebugFloor/End"
 generate_room_value = 3
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("4_osm70")]
-position = Vector2(192, 215)
+position = Vector2(177, 215)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1395167634]
 zoom = Vector2(2, 2)
