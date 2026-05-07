@@ -46,6 +46,9 @@ tracks/2/keys = {
 "values": [true, true, false, false, true, true]
 }
 
+[sub_resource type="Animation" id="Animation_t5s6u"]
+resource_name = "Charge"
+
 [sub_resource type="Animation" id="Animation_kf836"]
 length = 0.001
 tracks/0/type = "value"
@@ -88,6 +91,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t5s6u"]
 _data = {
 &"Attack": SubResource("Animation_cevrx"),
+&"Charge": SubResource("Animation_t5s6u"),
 &"RESET": SubResource("Animation_kf836")
 }
 
