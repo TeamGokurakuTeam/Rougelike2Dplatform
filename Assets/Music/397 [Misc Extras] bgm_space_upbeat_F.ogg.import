@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0lx114m7xfjt"
+path="res://.godot/imported/397 [Misc Extras] bgm_space_upbeat_F.ogg-20ab6432016611cd06cc3d792cffa9ba.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Music/397 [Misc Extras] bgm_space_upbeat_F.ogg"
+dest_files=["res://.godot/imported/397 [Misc Extras] bgm_space_upbeat_F.ogg-20ab6432016611cd06cc3d792cffa9ba.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -15,7 +15,3 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		move_and_slide()
-
-func _on_drop_item_area_area_entered(area: Area2D) -> void:
-	if area is PickupComponent:
-		queue_free()

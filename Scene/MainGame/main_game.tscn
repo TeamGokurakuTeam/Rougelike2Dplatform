@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b383l3v25na7" path="res://Scene/MainGame/Maingame.gd" id="1_ga214"]
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
 [ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/player.tscn" id="3_4x3oj"]
+[ext_resource type="AudioStream" uid="uid://c0lx114m7xfjt" path="res://Assets/Music/397 [Misc Extras] bgm_space_upbeat_F.ogg" id="5_g7el7"]
 
 [node name="MainGame" type="Node2D" unique_id=334667216]
 script = ExtResource("1_ga214")
@@ -25,6 +26,11 @@ position = Vector2(184, 263)
 position = Vector2(0, 1)
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="Stage" type="AudioStreamPlayer" parent="." unique_id=1112841277]
+stream = ExtResource("5_g7el7")
+volume_db = -20.0
+autoplay = true
 
 [editable path="PlayerUI"]
 [editable path="Player"]

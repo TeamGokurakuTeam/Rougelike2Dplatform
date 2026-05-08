@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dvh48t63xyscl" path="res://drop_item.gd" id="1_2xnun"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_snmuj"]
-size = Vector2(16, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xnun"]
 
 [node name="DropItem" type="CharacterBody2D" unique_id=931621491]
@@ -18,15 +15,5 @@ texture_filter = 1
 position = Vector2(-2.3841858e-07, -2.3841858e-07)
 scale = Vector2(0.625, 0.625)
 
-[node name="DropItemArea" type="Area2D" parent="." unique_id=657935261]
-collision_layer = 0
-collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DropItemArea" unique_id=516187490]
-z_index = 1
-shape = SubResource("RectangleShape2D_snmuj")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721792257]
 shape = SubResource("RectangleShape2D_2xnun")
-
-[connection signal="area_entered" from="DropItemArea" to="." method="_on_drop_item_area_area_entered"]
