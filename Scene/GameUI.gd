@@ -1,6 +1,8 @@
 extends CanvasLayer
 class_name GameUI
 
+@onready var hotbar: HBoxContainer = $Hotbar
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -10,8 +12,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_character_pickup_item(player: Player) -> void:
-	for i in get_children().size():
-		var node : InventoryPanel = get_child(i)
+	for i in hotbar.get_children().size():
+		var node : InventoryPanel = hotbar.get_child(i)
 		if i >= player.resource_ids.size() or i < 0:
 			node.resource = null
 		else:

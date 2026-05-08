@@ -13,12 +13,23 @@ config_version=5
 config/name="Rougelike2DPlatform"
 run/main_scene="uid://b16nqq5vpyxba"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=60
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
 GlobalResourceLoader="*uid://bnvnwespjdbsa"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=288
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://4wrqpxn0rmk6"
 
 [editor_plugins]
 

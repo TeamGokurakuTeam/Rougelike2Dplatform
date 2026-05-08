@@ -15,4 +15,3 @@ generate_room_value = 3
 position = Vector2(177, 215)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1395167634]
-zoom = Vector2(2, 2)

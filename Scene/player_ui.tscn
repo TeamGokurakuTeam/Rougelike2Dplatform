@@ -6,57 +6,31 @@
 [node name="PlayerUI" type="CanvasLayer" unique_id=1814325200]
 script = ExtResource("1_q25tn")
 
-[node name="InventoryPanel" parent="." unique_id=124921297 instance=ExtResource("2_00pm1")]
+[node name="Hotbar" type="HBoxContainer" parent="." unique_id=1910330715]
+custom_minimum_size = Vector2(24, 24)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -132.0
-offset_top = -71.0
-offset_right = -84.0
-offset_bottom = -23.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -38.0
+offset_right = 68.0
+offset_bottom = -14.0
+grow_horizontal = 2
 grow_vertical = 0
 
-[node name="InventoryPanel2" parent="." unique_id=1137378075 instance=ExtResource("2_00pm1")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-offset_left = -70.0
-offset_top = -71.0
-offset_right = -22.0
-offset_bottom = -23.0
-grow_vertical = 0
+[node name="InventoryPanel" parent="Hotbar" unique_id=124921297 instance=ExtResource("2_00pm1")]
+layout_mode = 2
 
-[node name="InventoryPanel3" parent="." unique_id=2047070168 instance=ExtResource("2_00pm1")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-offset_left = -10.0
-offset_top = -71.0
-offset_right = 38.0
-offset_bottom = -23.0
-grow_vertical = 0
+[node name="InventoryPanel2" parent="Hotbar" unique_id=393319545 instance=ExtResource("2_00pm1")]
+layout_mode = 2
 
-[node name="InventoryPanel4" parent="." unique_id=123343308 instance=ExtResource("2_00pm1")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-offset_left = 48.0
-offset_top = -71.0
-offset_right = 96.0
-offset_bottom = -23.0
-grow_vertical = 0
+[node name="InventoryPanel3" parent="Hotbar" unique_id=1053133660 instance=ExtResource("2_00pm1")]
+layout_mode = 2
 
-[node name="InventoryPanel5" parent="." unique_id=166664471 instance=ExtResource("2_00pm1")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-offset_left = 104.0
-offset_top = -71.0
-offset_right = 152.0
-offset_bottom = -23.0
-grow_vertical = 0
+[node name="InventoryPanel4" parent="Hotbar" unique_id=1825379332 instance=ExtResource("2_00pm1")]
+layout_mode = 2
+
+[node name="InventoryPanel5" parent="Hotbar" unique_id=535230581 instance=ExtResource("2_00pm1")]
+layout_mode = 2
