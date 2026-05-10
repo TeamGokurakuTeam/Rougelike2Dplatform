@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://t13ifssdsp0u"]
+
+[ext_resource type="PackedScene" uid="uid://bl2oh7jwq25ai" path="res://Scene/Room/OneWayTemplate.tscn" id="1_uhjy2"]
+[ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="2_0mreg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhjy2"]
+size = Vector2(48, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mreg"]
+atlas = ExtResource("2_0mreg")
+region = Rect2(0, 128, 80, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3sxop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mreg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxuqf"]
+size = Vector2(48, 10)
+
+[node name="OneWay" unique_id=610867179 instance=ExtResource("1_uhjy2")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1858975291]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_uhjy2")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1806543501]
+sprite_frames = SubResource("SpriteFrames_3sxop")
+
+[node name="Sensor" parent="." index="2" unique_id=891831714]
+position = Vector2(0, -9)
+
+[node name="CollisionShape2D" parent="Sensor" index="0" unique_id=1203024663]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_lxuqf")
+debug_color = Color(0.1345081, 0.6256689, 0.47060543, 0.41960785)

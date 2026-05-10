@@ -404,7 +404,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 position = Vector2(22, 423)
 
 [node name="DropItem2" parent="." unique_id=934636154 instance=ExtResource("5_bs0km")]
-position = Vector2(69, 551)
+position = Vector2(98, 550)
 resource = ExtResource("14_56nsy")
 
 [node name="DropItem3" parent="." unique_id=844407502 instance=ExtResource("5_bs0km")]
