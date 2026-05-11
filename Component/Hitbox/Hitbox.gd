@@ -12,5 +12,5 @@ var is_body_inside : bool = false
 func _set_damage(new_dmg : float) -> void:
 	damage = new_dmg
 
-func _get_damage() -> int:
+func _get_damage() -> float:
 	return damage
