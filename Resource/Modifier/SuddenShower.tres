@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://cw0khx5mhmup1"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_68j2a"]
+
+[resource]
+script = ExtResource("1_68j2a")
+modifier_id = "SuddenShower"
+modifier_name = "驟雨の"
+color_rarity = Color(0.31364584, 0.5591659, 0.8487194, 1)
+explanation = "・この修飾子がある時、水属性として扱う"

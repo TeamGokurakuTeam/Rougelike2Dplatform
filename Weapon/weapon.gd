@@ -8,11 +8,20 @@ class_name Weapon
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Root/Sprite2D
 
+var hitboxes : Array[Hitbox] = []
+var modifiers_ids : Array[String] = []
 var mouse_direction : Vector2
+
+var base_stats : Array[HitboxStat] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for node in root.get_children():
+		if node is Hitbox:
+			var hitbox : Hitbox = (node as Hitbox)
+			hitboxes.append(node)
+			base_stats.append(HitboxStat.new_stat(hitbox.damage, hitbox.knockback_force))
+	add_modifier()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -46,6 +55,14 @@ func _process(delta: float) -> void:
 				#scale.y = -1
 			#elif scale.y == -1 and mouse_direction.x > 0:
 				#scale.y = 1
+
+func add_modifier() -> void:
+	ModifierLibrary.apply_sharp(self)
+
+func reset_modifier() -> void:
+	for i in hitboxes.size():
+		hitboxes[i].damage = base_stats[i].damage
+		hitboxes[i].knockback_force = base_stats[i].knockback_force
 
 func _physics_process(delta: float) -> void:
 	pass
