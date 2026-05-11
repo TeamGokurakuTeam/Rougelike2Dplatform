@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://cilgirx2bwgg8"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_fv7km"]
+
+[resource]
+script = ExtResource("1_fv7km")
+modifier_id = "Devils"
+modifier_name = "悪魔の"
+explanation = "・この修飾子を持つ武器を所持しているプレイヤーは、アビリティが○○に置換される。
+
+「神とやらに惑わされるなよ」"
