@@ -1,13 +1,13 @@
 extends StaticBody2D
 
-@export var disable_time := 0.2
+@export var disable_time : float = 0.2
 @onready var col: CollisionShape2D = $CollisionShape2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sensor: Area2D = $Sensor
 
-var player_inside := false
+var player_inside : bool = false
 var player_body: Node2D = null
-var current_time : =0.0
+var current_time : float =0.0
 
 func _ready() -> void:
 	sensor.body_entered.connect(_on_body_entered)
