@@ -2,7 +2,7 @@ extends Enemy
 class_name DarkSamurai
 
 func _process(delta: float) -> void:
-	print(hp_component.hp)
+	pass
 
 func _on_hp_component_is_dead() -> void:
 	if item_resource != null:

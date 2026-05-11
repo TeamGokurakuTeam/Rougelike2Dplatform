@@ -1,11 +1,11 @@
 extends Character
 class_name Player
 
-var resource_ids : Array[String] = []
-
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
+
+var resource_ids : Array[String] = []
 
 var current_weapon : int = -1
 var coyote_time_activated : bool = false
