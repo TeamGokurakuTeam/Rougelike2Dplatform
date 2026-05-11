@@ -9,7 +9,8 @@ var resource_ids : Array[String] = []
 
 var current_weapon : int = -1
 var coyote_time_activated : bool = false
-
+var fall_through_time := 0.25
+var fall_timer := 0.0
 
 signal pickup_item(player : Player)
 
@@ -27,7 +28,10 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	super(delta)
 	_get_input()
-	
+	if fall_timer > 0:
+		fall_timer -= delta
+		if fall_timer <= 0:
+			set_collision_mask_value(1, true)
 	var was_on_floor : bool = is_on_floor()
 	if was_on_floor && !is_on_floor():
 		coyote_timer.start()
@@ -40,6 +44,9 @@ func _get_input() -> void:
 	move_direction.x = Input.get_axis(&"UI_left",&"UI_right") #横移動の入力
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_velocity
+	if Input.is_action_just_pressed("UI_Down"):
+		fall_timer = fall_through_time
+		set_collision_mask_value(1, false)
 	
 	if is_on_floor():
 		if coyote_time_activated:
@@ -67,6 +74,7 @@ func _get_input() -> void:
 			break
 	#endregion
 	
+
 
 func update_weapon() -> void:
 	if current_weapon == -1:

@@ -171,6 +171,7 @@ _data = {
 
 [node name="Player" unique_id=1094349948 groups=["Player"] instance=ExtResource("1_xa75v")]
 collision_layer = 1
+collision_mask = 129
 script = ExtResource("2_58ae2")
 friction = 0.3
 jump_velocity = -400.0
@@ -196,7 +197,7 @@ shape = SubResource("RectangleShape2D_58ae2")
 
 [node name="Hurtbox" parent="." index="6" unique_id=1912714286 node_paths=PackedStringArray("character")]
 collision_layer = 8
-collision_mask = 16
+collision_mask = 17
 character = NodePath("..")
 
 [node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
