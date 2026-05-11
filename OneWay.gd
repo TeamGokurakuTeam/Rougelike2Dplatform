@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-@export var tile_frame : int = 0
 @export var disable_time := 0.2
 @onready var col: CollisionShape2D = $CollisionShape2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -8,16 +7,15 @@ extends StaticBody2D
 
 var player_inside := false
 var player_body: Node2D = null
-var disable_timer :=0.0
+var current_time : =0.0
 
 func _ready() -> void:
-	sprite.frame = tile_frame
 	sensor.body_entered.connect(_on_body_entered)
 	sensor.body_exited.connect(_on_body_exited)
 
 func _process(delta):
-	if disable_timer > 0:
-		disable_timer -= delta
+	if current_time > 0:
+		current_time -= delta
 		col.disabled = true
 		return
 	if player_inside and player_body:
@@ -36,7 +34,7 @@ func _on_body_entered(body: Node2D) -> void:
 	player_inside = true
 	player_body = body
 	if body.velocity.y > 0:
-		disable_timer = disable_time
+		current_time = disable_time
 		col.disabled = true
 
 func _on_body_exited(body: Node2D) -> void:
@@ -44,5 +42,5 @@ func _on_body_exited(body: Node2D) -> void:
 		return
 	player_inside = false
 	player_body = null
-	if disable_timer <= 0:
+	if current_time <= 0:
 		col.disabled = false

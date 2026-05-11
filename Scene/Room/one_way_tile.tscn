@@ -25,6 +25,7 @@ animations = [{
 size = Vector2(48, 10)
 
 [node name="OneWay" unique_id=610867179 instance=ExtResource("1_uhjy2")]
+tile_frame = 1
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1858975291]
 position = Vector2(0, 3)
