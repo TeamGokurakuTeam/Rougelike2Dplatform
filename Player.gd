@@ -5,6 +5,12 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
 
+@export_category("プレイヤーステータス")
+@export var defense_power : float = 10
+@export var critical_chance : float = .0
+@export var critical_damage : float = .0
+@export var luck : float = .0
+
 var resource_ids : Array[String] = []
 
 var current_weapon : int = -1

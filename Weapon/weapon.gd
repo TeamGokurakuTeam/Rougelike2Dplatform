@@ -3,6 +3,12 @@ class_name Weapon
 
 @export var resource_id : String
 
+@export_category("ステータス")
+@export var cooldown : float = 3.0
+@export_enum("火属性", "水属性", "血属性", "呪属性", "聖属性", "無属性") var attribute = "無属性"
+@export var durability : float = 100
+#@export var ability : AbilityResource
+
 @onready var charge_particle: GPUParticles2D = $ChargeParticle
 @onready var root: Node2D = $Root
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
