@@ -11,13 +11,14 @@ var current_weapon : int = -1
 var coyote_time_activated : bool = false
 var fall_through_time := 0.25
 var fall_timer := 0.0
+#ジャンプのジャストタイミング
+var jump_pressed_buffer: int = 0
 
 signal pickup_item(player : Player)
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
 	#マウスの方向はグローバル位置のマウスポジション - 自分のグローバル位置を正規化した方向
-	
 	if mouse_direction.x > 0 and animated_sprite_2d.flip_h:
 		#マウスの方向が右側にあったら
 		animated_sprite_2d.flip_h = false
@@ -35,7 +36,11 @@ func _physics_process(delta: float) -> void:
 	var was_on_floor : bool = is_on_floor()
 	if was_on_floor && !is_on_floor():
 		coyote_timer.start()
-		
+	if jump_pressed_buffer > 0:
+		jump_pressed_buffer -= 1
+
+func external_bounce_jump(power: float) -> void:
+	velocity.y = -power
 
 func _get_input() -> void:
 	#移動方向の初期化
@@ -58,6 +63,7 @@ func _get_input() -> void:
 			coyote_time_activated = true
 	
 	if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
+		jump_pressed_buffer = 5
 		velocity.y = jump_velocity
 		coyote_timer.stop()
 		coyote_time_activated = true
@@ -73,8 +79,6 @@ func _get_input() -> void:
 			update_weapon()
 			break
 	#endregion
-	
-
 
 func update_weapon() -> void:
 	if current_weapon == -1:

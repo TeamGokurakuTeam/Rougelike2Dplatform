@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://d4dwrpxjq06r7"]
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_1b0lg"]
+[ext_resource type="PackedScene" uid="uid://b3ys5ty8jofad" path="res://Scene/Room/bounce_pad.tscn" id="2_x1778"]
 
 [node name="Room006" unique_id=423967005 node_paths=PackedStringArray("StartPoint", "ExitPoint") instance=ExtResource("1_1b0lg")]
 StartPoint = NodePath("StartPoint")
@@ -20,3 +21,6 @@ position = Vector2(433, 408)
 
 [node name="ExitPoint" type="Marker2D" parent="." index="2" unique_id=989195377]
 position = Vector2(272, 9)
+
+[node name="BouncePad" parent="." index="3" unique_id=1611631856 instance=ExtResource("2_x1778")]
+position = Vector2(355, 356)

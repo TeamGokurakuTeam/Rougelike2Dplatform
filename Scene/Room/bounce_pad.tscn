@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b3ys5ty8jofad"]
+
+[ext_resource type="Script" uid="uid://cfrb45i68p58p" path="res://BouncePad.gd" id="1_d5dlu"]
+[ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="2_ts161"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y75to"]
+atlas = ExtResource("2_ts161")
+region = Rect2(104, 154, 26, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ts161"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y75to")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y75to"]
+size = Vector2(20, 10)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwn8x"]
+radius = 4.0246716
+height = 26.0
+
+[node name="BouncePad" type="StaticBody2D" unique_id=1611631856]
+script = ExtResource("1_d5dlu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1154956590]
+sprite_frames = SubResource("SpriteFrames_ts161")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556642312]
+position = Vector2(3, 6)
+shape = SubResource("RectangleShape2D_y75to")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=271624135]
+position = Vector2(0, -13)
+rotation = -1.5757405
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2116160229]
+position = Vector2(-11.014698, 2.945578)
+rotation = -0.16761401
+shape = SubResource("CapsuleShape2D_vwn8x")
+debug_color = Color(0.2496807, 0.630383, 0.24396122, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
