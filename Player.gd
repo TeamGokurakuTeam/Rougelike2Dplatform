@@ -6,13 +6,14 @@ var resource_ids : Array[String] = []
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
+@export  var max_jump_pressed_frame : int = 5
 
 var current_weapon : int = -1
 var coyote_time_activated : bool = false
 var fall_through_time := 0.25
 var fall_timer := 0.0
 #ジャンプのジャストタイミング
-var jump_pressed_buffer: int = 0
+var jump_pressed_frame : int = 0
 
 signal pickup_item(player : Player)
 
@@ -36,8 +37,8 @@ func _physics_process(delta: float) -> void:
 	var was_on_floor : bool = is_on_floor()
 	if was_on_floor && !is_on_floor():
 		coyote_timer.start()
-	if jump_pressed_buffer > 0:
-		jump_pressed_buffer -= 1
+	if jump_pressed_frame > 0:
+		jump_pressed_frame -= 1
 
 func external_bounce_jump(power: float) -> void:
 	velocity.y = -power
@@ -63,7 +64,7 @@ func _get_input() -> void:
 			coyote_time_activated = true
 	
 	if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
-		jump_pressed_buffer = 5
+		jump_pressed_frame = max_jump_pressed_frame
 		velocity.y = jump_velocity
 		coyote_timer.stop()
 		coyote_time_activated = true

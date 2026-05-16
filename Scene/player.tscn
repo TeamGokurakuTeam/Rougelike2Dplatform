@@ -173,6 +173,7 @@ _data = {
 collision_layer = 1
 collision_mask = 129
 script = ExtResource("2_58ae2")
+max_jump_pressed_frame = 5
 friction = 0.3
 jump_velocity = -400.0
 
