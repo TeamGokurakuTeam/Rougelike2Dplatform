@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_n7drq"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="2_5k6l3"]
+[ext_resource type="PackedScene" uid="uid://b3ys5ty8jofad" path="res://Scene/Room/bounce_pad.tscn" id="3_1n3ns"]
 
 [node name="Room007" unique_id=423967005 node_paths=PackedStringArray("StartPoint", "ExitPoint") instance=ExtResource("1_n7drq")]
 StartPoint = NodePath("StartPoint")
@@ -24,3 +25,6 @@ position = Vector2(800, 9)
 
 [node name="OneWay" parent="." index="3" unique_id=610867179 instance=ExtResource("2_5k6l3")]
 position = Vector2(695, 398)
+
+[node name="BouncePad" parent="." index="4" unique_id=1611631856 instance=ExtResource("3_1n3ns")]
+position = Vector2(467, 467)

@@ -3,7 +3,6 @@ class_name EnemySpawnPoint
 
 @export var enemys : Array[PackedScene]
 @export var is_random : bool
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
