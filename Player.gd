@@ -19,6 +19,9 @@ var mod_resource_ids : Array[String] = []
 #アイテムとしてのmodifierの配列
 
 var current_weapon : int = -1
+var current_modifier : int = -1
+#現在選択している修飾子の場所
+
 var coyote_time_activated : bool = false
 var fall_through_time := 0.25
 var fall_timer := 0.0
@@ -26,6 +29,7 @@ var fall_timer := 0.0
 var jump_pressed_frame : int = 0
 
 signal pickup_item(player : Player)
+signal pickup_modifier(player : Player)
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -101,6 +105,10 @@ func update_weapon() -> void:
 		node.queue_free()
 	inventory.call_deferred("add_child", weapon)
 	pickup_item.emit(self)
+
+func update_modifier() -> void:
+	current_modifier += 1
+	pickup_modifier.emit(self)
 
 func merge_weapon(target_res_id : String) -> void:
 	var target_res : ResourceItem = GlobalResourceLoader.item_cache[target_res_id]

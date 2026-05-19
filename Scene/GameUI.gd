@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name GameUI
 
 @onready var hotbar: HBoxContainer = $Hotbar
+@onready var mod_ui: ModUI = $ModUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
