@@ -21,8 +21,15 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is DropItem:
-		character.resource_ids.append((body as DropItem).resource.Id)
+		character.weapon_resource_ids.append((body as DropItem).resource.Id)
 		#character.current_weapon = character.resource_ids.size() - 1
 		character.merge_weapon((body as DropItem).resource.Id)
 		character.update_weapon()
 		body.queue_free()
+	
+	if body is DropModifier:
+		var drop_modifier : DropModifier = (body as DropModifier)
+		character.mod_resource_ids.append(drop_modifier.modifier.modifier_id)
+		body.queue_free()
+		
+		print((character.mod_resource_ids))

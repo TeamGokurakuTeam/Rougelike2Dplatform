@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://gl15bqbe4gt0"]
 
 [ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_7kppm"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_6yywp"]
 
 [resource]
 script = ExtResource("1_7kppm")
+texture = ExtResource("2_6yywp")
 modifier_id = "Angels"
 modifier_name = "天使の"
 explanation = "・この修飾子を持つ武器を所持しているプレイヤーは、アビリティが○○に置換される。
 ・\"悪魔の\"がついているなら、優先的に天使に置換される。
 
-「悪魔とやらに惑わされないで」
-
-「神とやらに惑わされるなよ」"
+「悪魔とやらに惑わされないで」"

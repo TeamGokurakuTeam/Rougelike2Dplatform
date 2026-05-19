@@ -14,9 +14,9 @@ func _process(delta: float) -> void:
 func _on_character_pickup_item(player: Player) -> void:
 	for i in hotbar.get_children().size():
 		var node : InventoryPanel = hotbar.get_child(i)
-		if i >= player.resource_ids.size() or i < 0:
+		if i >= player.weapon_resource_ids.size() or i < 0:
 			node.resource = null
 		else:
-			var resource : ResourceItem = GlobalResourceLoader.item_cache[player.resource_ids[i]]
+			var resource : ResourceItem = GlobalResourceLoader.item_cache[player.weapon_resource_ids[i]]
 			node.resource = resource
 		node.update(player.current_weapon == i)

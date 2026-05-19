@@ -12,7 +12,11 @@ class_name Player
 @export var critical_damage : float = .0
 @export var luck : float = .0
 
-var resource_ids : Array[String] = []
+var weapon_resource_ids : Array[String] = []
+#アイテムとしての武器の配列
+
+var mod_resource_ids : Array[String] = []
+#アイテムとしてのmodifierの配列
 
 var current_weapon : int = -1
 var coyote_time_activated : bool = false
@@ -80,7 +84,7 @@ func _get_input() -> void:
 		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
 			var prev_weapon = current_weapon
 			current_weapon = i
-			if current_weapon >= resource_ids.size() or current_weapon < 0:
+			if current_weapon >= weapon_resource_ids.size() or current_weapon < 0:
 				current_weapon = prev_weapon
 				return
 			update_weapon()
@@ -91,7 +95,7 @@ func update_weapon() -> void:
 	if current_weapon == -1:
 		for node in inventory.get_children():
 			node.queue_free()
-	var res : ResourceItem = GlobalResourceLoader.item_cache[resource_ids[current_weapon]]
+	var res : ResourceItem = GlobalResourceLoader.item_cache[weapon_resource_ids[current_weapon]]
 	var weapon : Weapon = res.WeaponScene.instantiate()
 	for node in inventory.get_children():
 		node.queue_free()
@@ -100,12 +104,12 @@ func update_weapon() -> void:
 
 func merge_weapon(target_res_id : String) -> void:
 	var target_res : ResourceItem = GlobalResourceLoader.item_cache[target_res_id]
-	var count : int = resource_ids.count(target_res.Id)
+	var count : int = weapon_resource_ids.count(target_res.Id)
 	if count >= 2 and target_res.MergeResultWeaponId != "":
 		current_weapon = 0
-		resource_ids.erase(target_res.Id)
-		resource_ids.erase(target_res.Id)
-		resource_ids.append(target_res.MergeResultWeaponId)
+		weapon_resource_ids.erase(target_res.Id)
+		weapon_resource_ids.erase(target_res.Id)
+		weapon_resource_ids.append(target_res.MergeResultWeaponId)
 		merge_weapon(target_res.MergeResultWeaponId)
 
 func _on_hp_component_is_dead() -> void:
