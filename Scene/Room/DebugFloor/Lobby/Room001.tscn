@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="1_71uuk"]
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="3_shxa2"]
 [ext_resource type="Resource" uid="uid://bjpx8gbysfdd2" path="res://Resource/Sword/FormSword.tres" id="4_cbjr8"]
+[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="5_12s50"]
+[ext_resource type="Resource" uid="uid://gl15bqbe4gt0" path="res://Resource/Modifier/Angels.tres" id="6_x8lb8"]
+[ext_resource type="Resource" uid="uid://dcj7k6r25txc3" path="res://Resource/Modifier/Regulate.tres" id="7_6j1b4"]
+[ext_resource type="Resource" uid="uid://cilgirx2bwgg8" path="res://Resource/Modifier/Devils.tres" id="8_f760l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -300,3 +304,15 @@ position = Vector2(72, 8)
 [node name="DropItem" parent="." unique_id=931621491 instance=ExtResource("3_shxa2")]
 position = Vector2(256, 278)
 resource = ExtResource("4_cbjr8")
+
+[node name="DropModifier" parent="." unique_id=1774769907 instance=ExtResource("5_12s50")]
+position = Vector2(343, 308)
+modifier = ExtResource("6_x8lb8")
+
+[node name="DropModifier2" parent="." unique_id=96577375 instance=ExtResource("5_12s50")]
+position = Vector2(384, 308)
+modifier = ExtResource("7_6j1b4")
+
+[node name="DropModifier3" parent="." unique_id=1485571676 instance=ExtResource("5_12s50")]
+position = Vector2(427, 308)
+modifier = ExtResource("8_f760l")

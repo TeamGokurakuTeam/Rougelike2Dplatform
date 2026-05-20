@@ -5,6 +5,7 @@ class_name MainGame
 @onready var player: Player = $Player
 
 func _ready() -> void:
+	player_ui.player = player
 	player.pickup_item.connect(player_ui._on_character_pickup_item)
 	player.pickup_modifier.connect(player_ui.mod_ui._on_player_pickup_modifier)
 

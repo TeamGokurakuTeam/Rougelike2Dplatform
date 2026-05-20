@@ -19,7 +19,7 @@ var mod_resource_ids : Array[String] = []
 #アイテムとしてのmodifierの配列
 
 var current_weapon : int = -1
-var current_modifier : int = -1
+var current_modifier : int = -1 : set = _set_current_modifier
 #現在選択している修飾子の場所
 
 var coyote_time_activated : bool = false
@@ -108,6 +108,7 @@ func update_weapon() -> void:
 
 func update_modifier() -> void:
 	current_modifier += 1
+	print("current_modifier : ", current_modifier)
 	pickup_modifier.emit(self)
 
 func merge_weapon(target_res_id : String) -> void:
@@ -122,3 +123,11 @@ func merge_weapon(target_res_id : String) -> void:
 
 func _on_hp_component_is_dead() -> void:
 	self.queue_free()
+
+func _set_current_modifier(new_value : int) -> void:
+	if mod_resource_ids.size() <= 0:
+		current_modifier = 0
+		return
+	current_modifier = new_value % mod_resource_ids.size()
+	if current_modifier < 0:
+		current_modifier += mod_resource_ids.size()
