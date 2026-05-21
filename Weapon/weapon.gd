@@ -42,13 +42,13 @@ func _process(delta: float) -> void:
 	mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
-		root.rotation = mouse_direction.angle()
-		if root.scale.y == 1 and mouse_direction.x < 0:
-			root.scale.y = -1
-		elif root.scale.y == -1 and mouse_direction.x > 0:
-			root.scale.y = 1
-	
-	root.rotation = mouse_direction.angle()
+		rotation = mouse_direction.angle()
+		if scale.y == 1 and mouse_direction.x < 0:
+			scale.y = -1
+		elif scale.y == -1 and mouse_direction.x > 0:
+			scale.y = 1
+			
+
 
 #func move(mouse_direction: Vector2) -> void:
 	#if ranged_weapon:
