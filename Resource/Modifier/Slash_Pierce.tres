@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://cedst8uqfl75l"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_1g6bk"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_1g6bk"]
+
+[resource]
+script = ExtResource("1_1g6bk")
+ModifierRank = 2
+texture = ExtResource("2_1g6bk")
+modifier_id = "Slash_Pierce"
+modifier_name = "斬：貫通　"
+color_rarity = Color(0.774, 0.86, 0, 1)
+explanation = "プレイヤーが放つ斬撃(発射物)がある場合、剣から放った斬撃が地形を貫通する。"

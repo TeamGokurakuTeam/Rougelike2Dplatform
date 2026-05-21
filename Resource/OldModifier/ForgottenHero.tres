@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://coovfqdrvxes2"]
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://e75t1fy6oneq"]
 
-[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_fr1mg"]
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_af16n"]
 
 [resource]
-script = ExtResource("1_fr1mg")
+script = ExtResource("1_af16n")
 modifier_id = "ForgottenHero"
 modifier_name = "忘れ去られた英雄の"
 color_rarity = Color(0.50105566, 0.4907217, 0.33936, 1)

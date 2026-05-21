@@ -7,10 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://clda02nydd70i" path="res://Assets/Enemy/Mushroom/cute mushroom walk.png" id="3_f1xg0"]
 [ext_resource type="Script" uid="uid://c6e7ytywusrsn" path="res://Scene/Enemy/MushWander.gd" id="3_x8iq2"]
 [ext_resource type="Script" uid="uid://cmk7b25fjgmas" path="res://Scene/Enemy/MushDash.gd" id="4_2ao2u"]
-[ext_resource type="Resource" uid="uid://gl15bqbe4gt0" path="res://Resource/Modifier/Angels.tres" id="4_joaa4"]
 [ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="5_8uh7s"]
-[ext_resource type="Resource" uid="uid://cilgirx2bwgg8" path="res://Resource/Modifier/Devils.tres" id="5_ahoh3"]
-[ext_resource type="Resource" uid="uid://dcj7k6r25txc3" path="res://Resource/Modifier/Regulate.tres" id="7_a5qlg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6rvn"]
 atlas = ExtResource("2_7kuqn")
@@ -364,7 +361,7 @@ _data = {
 [node name="Mushroom" unique_id=1094349948 instance=ExtResource("1_4kjkg")]
 script = ExtResource("2_x8iq2")
 dash_speed = 400.0
-mod_resource = Array[ExtResource("5_8uh7s")]([ExtResource("4_joaa4"), ExtResource("5_ahoh3"), ExtResource("7_a5qlg")])
+mod_resource = Array[ExtResource("5_8uh7s")]([])
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://chyw28j23uaay"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_jdbdw"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_quwrb"]
+
+[resource]
+script = ExtResource("1_jdbdw")
+texture = ExtResource("2_quwrb")
+modifier_id = "Resonating"
+modifier_name = "波動する"
+explanation = "プレイヤーが剣でチャージ攻撃時、斬撃(発射物)を出す。"
