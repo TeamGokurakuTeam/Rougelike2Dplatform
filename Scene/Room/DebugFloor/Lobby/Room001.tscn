@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="1_71uuk"]
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="3_shxa2"]
 [ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="4_12s50"]
+[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="5_shxa2"]
+[ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="6_ufdrf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -300,3 +302,7 @@ position = Vector2(72, 8)
 [node name="DropItem" parent="." unique_id=931621491 instance=ExtResource("3_shxa2")]
 position = Vector2(256, 278)
 resource = ExtResource("4_12s50")
+
+[node name="DropModifier" parent="." unique_id=1774769907 instance=ExtResource("5_shxa2")]
+position = Vector2(335, 316)
+modifier = ExtResource("6_ufdrf")

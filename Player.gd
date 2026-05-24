@@ -82,7 +82,17 @@ func _get_input() -> void:
 		velocity.y = jump_velocity
 		coyote_timer.stop()
 		coyote_time_activated = true
+	
+	if Input.is_action_just_pressed("UI_Apply"):
+		if weapon_resource_ids.size() < 0 and inventory.get_child_count() <= 0:
+			return
+		var weapon : Weapon = inventory.get_child(current_weapon)
+		weapon.modifiers_ids.append(mod_resource_ids[current_modifier])
+		mod_resource_ids.remove_at(current_modifier)
+		pickup_modifier.emit(self)
 		
+		
+	
 	#region プロトタイプ完了後奇麗にする
 	for i in range(5):
 		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):

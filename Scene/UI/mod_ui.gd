@@ -10,7 +10,7 @@ class_name ModUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	init_ui()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,6 +22,7 @@ func texture_update(player : Player) -> void:
 	var texture : Texture
 	var next_texture : Texture
 	if player.mod_resource_ids.size() <= 0:
+		init_ui()
 		return
 	elif player.mod_resource_ids.size() == 1:
 		texture = GlobalResourceLoader.item_cache[player.mod_resource_ids[player.current_modifier]].texture
@@ -53,6 +54,12 @@ func texture_update(player : Player) -> void:
 		right_mod.texture = next_texture
 	mod_res_name = GlobalResourceLoader.item_cache[player.mod_resource_ids[player.current_modifier]].modifier_name
 	mod_name.text = mod_res_name
+
+func init_ui() -> void:
+	mod_name.text = "なし"
+	center_mod.texture = null
+	left_mod.texture = null
+	right_mod.texture = null
 
 func _on_player_pickup_modifier(player : Player) -> void:
 	texture_update(player)

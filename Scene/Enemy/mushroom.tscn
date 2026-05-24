@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://clda02nydd70i" path="res://Assets/Enemy/Mushroom/cute mushroom walk.png" id="3_f1xg0"]
 [ext_resource type="Script" uid="uid://c6e7ytywusrsn" path="res://Scene/Enemy/MushWander.gd" id="3_x8iq2"]
 [ext_resource type="Script" uid="uid://cmk7b25fjgmas" path="res://Scene/Enemy/MushDash.gd" id="4_2ao2u"]
+[ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="4_joaa4"]
 [ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="5_8uh7s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6rvn"]
@@ -361,7 +362,7 @@ _data = {
 [node name="Mushroom" unique_id=1094349948 instance=ExtResource("1_4kjkg")]
 script = ExtResource("2_x8iq2")
 dash_speed = 400.0
-mod_resource = Array[ExtResource("5_8uh7s")]([])
+mod_resource = Array[ExtResource("5_8uh7s")]([ExtResource("4_joaa4")])
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")
