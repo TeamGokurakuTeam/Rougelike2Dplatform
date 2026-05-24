@@ -14,11 +14,13 @@ const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 @export_category("初期設定")
 @export var offset_length : float = 0 #発射物が出る時の位置を決める長さ
 
+@onready var modifier_count_timer: Timer = $ModifierCountTimer
 @onready var charge_particle: GPUParticles2D = $ChargeParticle
 @onready var root: Node2D = $Root
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Root/Sprite2D
 
+var player : Player
 var hitboxes : Array[Hitbox] = []
 var modifiers_ids : Array[String] = []
 var mouse_direction : Vector2
@@ -32,7 +34,6 @@ func _ready() -> void:
 			var hitbox : Hitbox = (node as Hitbox)
 			hitboxes.append(node)
 			base_stats.append(HitboxStat.new_stat(hitbox.damage, hitbox.knockback_force))
-	add_modifier()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -74,6 +75,7 @@ func reset_modifier() -> void:
 	for i in hitboxes.size():
 		hitboxes[i].damage = base_stats[i].damage
 		hitboxes[i].knockback_force = base_stats[i].knockback_force
+	modifiers_ids.clear()
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -89,3 +91,9 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	slash.global_position = self.global_position + weapon_rotation
 	get_tree().root.add_child(slash)
 	
+
+func start_modifier_timer() -> void:
+	modifier_count_timer.start()
+
+func _on_modifier_count_timer_timeout() -> void:
+	reset_modifier()

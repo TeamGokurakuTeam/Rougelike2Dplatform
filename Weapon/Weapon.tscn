@@ -35,3 +35,9 @@ debug_color = Color(0.9987715, 0, 0.14525625, 0.41960785)
 stream = ExtResource("3_l4m4n")
 pitch_scale = 1.1
 bus = &"SoundEffect"
+
+[node name="ModifierCountTimer" type="Timer" parent="." unique_id=991766433]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="timeout" from="ModifierCountTimer" to="." method="_on_modifier_count_timer_timeout"]

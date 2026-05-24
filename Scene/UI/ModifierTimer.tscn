@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cuc66hry0j4hn"]
+
+[ext_resource type="Script" uid="uid://ba3ijvw3ximb2" path="res://Scene/UI/modifier_timer.gd" id="1_n031n"]
+
+[node name="ModifierTimer" type="Control" unique_id=1389695203]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n031n")
+
+[node name="Label" type="Label" parent="." unique_id=1842799154]
+layout_mode = 0
+offset_left = 438.0
+offset_top = -1.0
+offset_right = 483.0
+offset_bottom = 22.0
+text = "Time:"
+
+[node name="second" type="Label" parent="." unique_id=376998153]
+layout_mode = 0
+offset_left = 473.0
+offset_right = 518.0
+offset_bottom = 23.0
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1

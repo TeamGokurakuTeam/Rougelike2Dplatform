@@ -4,6 +4,7 @@ class_name Player
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
+
 @export  var max_jump_pressed_frame : int = 5
 
 @export_category("プレイヤーステータス")
@@ -30,6 +31,7 @@ var jump_pressed_frame : int = 0
 
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
+signal applied_modifier(player : Player)
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -90,8 +92,7 @@ func _get_input() -> void:
 		weapon.modifiers_ids.append(mod_resource_ids[current_modifier])
 		mod_resource_ids.remove_at(current_modifier)
 		pickup_modifier.emit(self)
-		
-		
+		weapon.start_modifier_timer()
 	
 	#region プロトタイプ完了後奇麗にする
 	for i in range(5):
@@ -115,6 +116,7 @@ func update_weapon() -> void:
 		node.queue_free()
 	inventory.call_deferred("add_child", weapon)
 	pickup_item.emit(self)
+	applied_modifier.emit.call_deferred(self)
 
 func update_modifier() -> void:
 	current_modifier += 1
