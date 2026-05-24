@@ -1,6 +1,8 @@
 extends Node2D
 class_name Weapon
 
+const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
+
 @export var resource_id : String
 
 @export_category("ステータス")
@@ -8,6 +10,9 @@ class_name Weapon
 @export_enum("火属性", "水属性", "血属性", "呪属性", "聖属性", "無属性") var attribute = "無属性"
 @export var durability : float = 100
 #@export var ability : AbilityResource
+
+@export_category("初期設定")
+@export var offset_length : float = 0 #発射物が出る時の位置を決める長さ
 
 @onready var charge_particle: GPUParticles2D = $ChargeParticle
 @onready var root: Node2D = $Root
@@ -72,3 +77,15 @@ func reset_modifier() -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
+
+func attack_trigger_modifier() -> void:
+	if modifiers_ids.has("Bloodletting"):
+		bloodletting(mouse_direction, offset_length)
+
+func bloodletting(direction : Vector2, offset_position_length : float) -> void:
+	var slash : PlayerSlashProjectile = PLAYER_SLASH.instantiate()
+	var weapon_rotation : Vector2 = Vector2.RIGHT.rotated(self.rotation) * offset_position_length
+	slash.direction = direction
+	slash.global_position = self.global_position + weapon_rotation
+	get_tree().root.add_child(slash)
+	

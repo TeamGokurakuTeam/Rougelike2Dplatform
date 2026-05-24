@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b8q4omet6du0w" path="res://Scene/Room/Debug/RoomConnect.gd" id="1_4nic5"]
 [ext_resource type="Script" uid="uid://b383l3v25na7" path="res://Scene/MainGame/Maingame.gd" id="1_ga214"]
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
-[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/player.tscn" id="3_4x3oj"]
+[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="3_4x3oj"]
 [ext_resource type="AudioStream" uid="uid://c0lx114m7xfjt" path="res://Assets/Music/397 [Misc Extras] bgm_space_upbeat_F.ogg" id="5_g7el7"]
 
 [node name="MainGame" type="Node2D" unique_id=334667216]
