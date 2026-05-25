@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_3vuvp")
 texture = ExtResource("2_k7xgl")
-modifier_id = "Swift"
-modifier_name = "波動する"
-explanation = "プレイヤーが放つ斬撃(発射物)がある場合、斬撃の速度を+10早くする"
+modifier_id = "Expanding"
+modifier_name = "膨張する"
+explanation = "プレイヤーが放つ斬撃(発射物)がある場合、斬撃の大きさを+0.1大きくする"

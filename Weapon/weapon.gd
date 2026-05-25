@@ -69,7 +69,8 @@ func _process(delta: float) -> void:
 				#scale.y = 1
 
 func add_modifier() -> void:
-	ModifierLibrary.apply_sharp(self)
+	pass
+	#ModifierLibrary.apply_sharp(self)
 
 func reset_modifier() -> void:
 	for i in hitboxes.size():
@@ -89,8 +90,13 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	var weapon_rotation : Vector2 = Vector2.RIGHT.rotated(self.rotation) * offset_position_length
 	slash.direction = direction
 	slash.global_position = self.global_position + weapon_rotation
+	if modifiers_ids.has("Expanding"):
+		slash.scale += Vector2(0.1, 0.1)
+	if modifiers_ids.has("Swift"):
+		slash.speed += 10
+	if modifiers_ids.has("Slash_Pierce"):
+		slash.set_collision_mask_value(8, false)
 	get_tree().root.add_child(slash)
-	
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()

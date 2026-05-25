@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_jdbdw")
 texture = ExtResource("2_quwrb")
-modifier_id = "Resonating"
-modifier_name = "波動する"
-explanation = "プレイヤーが剣でチャージ攻撃時、斬撃(発射物)を出す。"
+modifier_id = "Swift"
+modifier_name = "迅速な"
+explanation = "プレイヤーが放つ斬撃(発射物)がある場合、斬撃の速さを+10する。"

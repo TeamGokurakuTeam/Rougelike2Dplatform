@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://cmk7b25fjgmas" path="res://Scene/Enemy/MushDash.gd" id="4_2ao2u"]
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="4_joaa4"]
 [ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="5_8uh7s"]
+[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="5_ahoh3"]
+[ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="6_rfp0g"]
+[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="7_a5qlg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6rvn"]
 atlas = ExtResource("2_7kuqn")
@@ -362,7 +365,7 @@ _data = {
 [node name="Mushroom" unique_id=1094349948 instance=ExtResource("1_4kjkg")]
 script = ExtResource("2_x8iq2")
 dash_speed = 400.0
-mod_resource = Array[ExtResource("5_8uh7s")]([ExtResource("4_joaa4")])
+mod_resource = Array[ExtResource("5_8uh7s")]([ExtResource("4_joaa4"), ExtResource("5_ahoh3"), ExtResource("6_rfp0g"), ExtResource("7_a5qlg")])
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")

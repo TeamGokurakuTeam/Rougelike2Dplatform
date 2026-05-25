@@ -7,5 +7,5 @@
 script = ExtResource("1_brm14")
 texture = ExtResource("2_nuv2l")
 modifier_id = "Resonating"
-modifier_name = "波動する"
-explanation = "プレイヤーが剣でチャージ攻撃時、斬撃(発射物)を出す。"
+modifier_name = "呼応する"
+explanation = "プレイヤーが放つ斬撃(発射物)がある場合、斬撃の速さに応じて、一秒ごとの斬撃の大きさが+0.02ずつ大きくなっていく"

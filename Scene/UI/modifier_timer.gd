@@ -19,3 +19,5 @@ func _process(delta: float) -> void:
 
 func _on_player_applied_modifier(player : Player) -> void:
 	weapon = player.inventory.get_child(0)
+	weapon.modifier_count_timer.wait_time = 30
+	weapon.modifier_count_timer.start()
