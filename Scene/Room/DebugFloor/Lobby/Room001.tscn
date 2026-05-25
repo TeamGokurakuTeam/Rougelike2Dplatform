@@ -6,6 +6,8 @@
 [ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="4_12s50"]
 [ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="5_shxa2"]
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="6_ufdrf"]
+[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="7_12s50"]
+[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="8_x8lb8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -306,3 +308,23 @@ resource = ExtResource("4_12s50")
 [node name="DropModifier" parent="." unique_id=1774769907 instance=ExtResource("5_shxa2")]
 position = Vector2(335, 316)
 modifier = ExtResource("6_ufdrf")
+
+[node name="DropModifier2" parent="." unique_id=224078714 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier4" parent="." unique_id=816030427 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier5" parent="." unique_id=111265253 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier6" parent="." unique_id=53794880 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier3" parent="." unique_id=1967184069 instance=ExtResource("5_shxa2")]
+position = Vector2(407, 316)
+modifier = ExtResource("8_x8lb8")

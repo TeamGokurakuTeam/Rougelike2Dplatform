@@ -32,7 +32,7 @@ func texture_update(player : Player) -> void:
 		right_mod.texture = texture
 	elif player.mod_resource_ids.size() == 2:
 		var current_number : int = player.current_modifier
-		var prev_number : int = player.current_modifier % 1
+		var prev_number : int = player.current_modifier % 2
 		
 		texture = GlobalResourceLoader.item_cache[player.mod_resource_ids[current_number]].texture
 		prev_texture = GlobalResourceLoader.item_cache[player.mod_resource_ids[prev_number]].texture
