@@ -89,8 +89,10 @@ func _get_input() -> void:
 		if weapon_resource_ids.size() < 0 and inventory.get_child_count() <= 0:
 			return
 		var weapon : Weapon = inventory.get_child(current_weapon)
-		weapon.modifiers_ids.append(mod_resource_ids[current_modifier])
+		weapon.add_modifier(mod_resource_ids[current_modifier])
+		#weapon.modifiers_ids.append(mod_resource_ids[current_modifier])
 		mod_resource_ids.remove_at(current_modifier)
+		current_modifier -= 1
 		pickup_modifier.emit(self)
 		weapon.start_modifier_timer()
 	

@@ -313,6 +313,18 @@ modifier = ExtResource("6_ufdrf")
 position = Vector2(371, 316)
 modifier = ExtResource("7_12s50")
 
+[node name="DropModifier4" parent="." unique_id=816030427 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier5" parent="." unique_id=111265253 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier6" parent="." unique_id=53794880 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
 [node name="DropModifier3" parent="." unique_id=1967184069 instance=ExtResource("5_shxa2")]
 position = Vector2(407, 316)
 modifier = ExtResource("8_x8lb8")

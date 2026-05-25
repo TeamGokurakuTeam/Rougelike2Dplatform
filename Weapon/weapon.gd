@@ -22,7 +22,7 @@ const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 
 var player : Player
 var hitboxes : Array[Hitbox] = []
-var modifiers_ids : Array[String] = []
+var modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
 
 var base_stats : Array[HitboxStat] = []
@@ -34,6 +34,7 @@ func _ready() -> void:
 			var hitbox : Hitbox = (node as Hitbox)
 			hitboxes.append(node)
 			base_stats.append(HitboxStat.new_stat(hitbox.damage, hitbox.knockback_force))
+	player = get_tree().get_first_node_in_group("Player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -68,8 +69,11 @@ func _process(delta: float) -> void:
 			#elif scale.y == -1 and mouse_direction.x > 0:
 				#scale.y = 1
 
-func add_modifier() -> void:
-	pass
+func add_modifier(id : String, count : int = 1) -> void:
+	if modifiers_ids.has(id):
+		modifiers_ids[id] += count
+	else:
+		modifiers_ids[id] = count
 	#ModifierLibrary.apply_sharp(self)
 
 func reset_modifier() -> void:
@@ -86,17 +90,19 @@ func attack_trigger_modifier() -> void:
 		bloodletting(mouse_direction, offset_length)
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
-	var slash : PlayerSlashProjectile = PLAYER_SLASH.instantiate()
-	var weapon_rotation : Vector2 = Vector2.RIGHT.rotated(self.rotation) * offset_position_length
-	slash.direction = direction
-	slash.global_position = self.global_position + weapon_rotation
-	if modifiers_ids.has("Expanding"):
-		slash.scale += Vector2(0.1, 0.1)
-	if modifiers_ids.has("Swift"):
-		slash.speed += 10
-	if modifiers_ids.has("Slash_Pierce"):
-		slash.set_collision_mask_value(8, false)
-	get_tree().root.add_child(slash)
+	if player.hp_component.hp > 10:
+		var slash : PlayerSlashProjectile = PLAYER_SLASH.instantiate()
+		var weapon_rotation : Vector2 = Vector2.RIGHT.rotated(self.rotation) * offset_position_length
+		slash.direction = direction
+		slash.global_position = self.global_position + weapon_rotation
+		if modifiers_ids.has("Expanding"):
+			slash.scale += Vector2(0.1, 0.1)
+		if modifiers_ids.has("Swift"):
+			slash.speed += 10
+		if modifiers_ids.has("Slash_Pierce"):
+			slash.set_collision_mask_value(8, false)
+		get_tree().root.add_child(slash)
+		player.hp_component.hp -= 2 #2は自傷ダメージ
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
