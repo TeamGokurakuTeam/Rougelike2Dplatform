@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://t6aylwfhobjb"]
 
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_xa75v"]
-[ext_resource type="Script" uid="uid://dncht7rhcx5dc" path="res://Scene/Player/Player.gd" id="2_58ae2"]
+[ext_resource type="Script" uid="uid://dncht7rhcx5dc" path="res://Player.gd" id="2_58ae2"]
 [ext_resource type="Texture2D" uid="uid://ch4xc24hx8tbw" path="res://Assets/Player/HarleChan.png" id="3_58ae2"]
 [ext_resource type="PackedScene" uid="uid://cfh10dk73ugy0" path="res://Component/pickup_component.tscn" id="3_ivevv"]
 
