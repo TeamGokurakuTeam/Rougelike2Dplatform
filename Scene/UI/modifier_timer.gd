@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 		if weapon.modifiers_ids.size() < 0:
 			second.text = "?"
 		else:
-			second.text = str(weapon.modifier_count_timer.time_left)
+			second.text = str(ceil(weapon.modifier_count_timer.time_left))
 
 func _on_player_applied_modifier(player : Player) -> void:
 	weapon = player.inventory.get_child(0)
