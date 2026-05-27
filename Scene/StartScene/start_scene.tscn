@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bke0h7pvvj54l"]
+
+[ext_resource type="Script" uid="uid://83hcv0epavcm" path="res://start_game_button.gd" id="1_esxe7"]
+[ext_resource type="VideoStream" uid="uid://dxuel3stm3icq" path="res://Assets/Title/fa-ama.ogv" id="1_o3q03"]
+[ext_resource type="Script" uid="uid://o38onsvrq72j" path="res://end_game_button.gd" id="2_o3q03"]
+
+[node name="StartScene" type="CanvasLayer" unique_id=2119117515]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1218054916]
+anchors_preset = -1
+anchor_right = 0.994
+anchor_bottom = 0.98300004
+offset_right = 0.07199097
+offset_bottom = -0.104003906
+mouse_filter = 1
+stream = ExtResource("1_o3q03")
+volume_db = -20.0
+autoplay = true
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="." unique_id=1559533760]
+anchors_preset = -1
+anchor_left = 0.32000002
+anchor_top = 0.194
+anchor_right = 0.67800003
+anchor_bottom = 0.29500002
+offset_left = 0.1599884
+offset_top = 0.12799835
+offset_right = -2.1360168
+offset_bottom = 0.039993286
+text = "仮タイトル"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=622641708]
+offset_left = 179.0
+offset_top = 141.0
+offset_right = 336.0
+offset_bottom = 277.0
+
+[node name="StartGame_Button" type="Button" parent="VBoxContainer" unique_id=762870257]
+layout_mode = 2
+text = "遊ぶ"
+script = ExtResource("1_esxe7")
+
+[node name="Setting_Button" type="Button" parent="VBoxContainer" unique_id=107302179]
+layout_mode = 2
+text = "設定"
+
+[node name="Credit_Button" type="Button" parent="VBoxContainer" unique_id=2138932911]
+layout_mode = 2
+text = "クレジット"
+
+[node name="EndGame_Button" type="Button" parent="VBoxContainer" unique_id=550861654]
+layout_mode = 2
+text = "終了"
+script = ExtResource("2_o3q03")
+
+[connection signal="pressed" from="VBoxContainer/StartGame_Button" to="VBoxContainer/StartGame_Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/EndGame_Button" to="VBoxContainer/EndGame_Button" method="_on_pressed"]

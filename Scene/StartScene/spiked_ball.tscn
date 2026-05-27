@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://chc66e2df4wcx"]
+
+[ext_resource type="Script" path="res://Scene/Trap/Trap_Standard.gd" id="1_46l0a"]
+[ext_resource type="Texture2D" path="res://Assets/Trap/Spiked Ball/SpikedChain.png" id="2_r223p"]
+[ext_resource type="Texture2D" path="res://Assets/Trap/Spiked Ball/Spiked Ball.png" id="3_evnsw"]
+[ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="4_2rixy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kl4i"]
+atlas = ExtResource("3_evnsw")
+region = Rect2(0, 0, 28, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wixd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kl4i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5w2ag"]
+radius = 13.0
+
+[sub_resource type="Animation" id="Animation_e6xxx"]
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 1.3000001, 1.4000001, 1.5000001, 1.6000001, 1.7, 2.8000002, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.17453292, 2.9670596, 3.0543263, 3.1415927, 3.0543263, 2.9670596, 0.17453292, 0.08726646, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_t7jcn"]
+resource_name = "Swing"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 1.3000001, 1.4000001, 1.5000001, 1.6000001, 1.7, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.17453292, 2.9670596, 3.0543263, 3.1415927, 3.0543263, 2.9670596, 0.08726646, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4px8"]
+_data = {
+&"RESET": SubResource("Animation_e6xxx"),
+&"Swing": SubResource("Animation_t7jcn")
+}
+
+[node name="SpikedBall" type="Node2D" unique_id=2125643365]
+script = ExtResource("1_46l0a")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1081680771]
+
+[node name="Line2D" type="Line2D" parent="Node2D" unique_id=1420391428]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 99, 0)
+texture = ExtResource("2_r223p")
+texture_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=1128955809]
+position = Vector2(99, 0)
+sprite_frames = SubResource("SpriteFrames_1wixd")
+
+[node name="Hitbox" parent="Node2D/AnimatedSprite2D" unique_id=1856529588 instance=ExtResource("4_2rixy")]
+collision_layer = 16
+damage = 100.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/AnimatedSprite2D/Hitbox" unique_id=387520483]
+shape = SubResource("CircleShape2D_5w2ag")
+debug_color = Color(0.9963873, 0, 0.19643527, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=975144033]
+libraries/ = SubResource("AnimationLibrary_j4px8")
+autoplay = &"RESET"
+
+[connection signal="body_entered" from="Node2D/AnimatedSprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]
