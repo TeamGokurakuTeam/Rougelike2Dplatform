@@ -4,6 +4,7 @@ class_name Player
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export  var max_jump_pressed_frame : int = 5
 
@@ -55,6 +56,12 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 	if jump_pressed_frame > 0:
 		jump_pressed_frame -= 1
+	
+	#歩き
+	if abs(velocity.x) > 0.1:
+		animation_player.play("Walk")
+	else:
+		animation_player.play("Idle")
 
 func external_bounce_jump(power: float) -> void:
 	velocity.y = -power
