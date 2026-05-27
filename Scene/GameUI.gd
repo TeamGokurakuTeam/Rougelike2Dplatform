@@ -4,6 +4,7 @@ class_name GameUI
 @onready var hotbar: HBoxContainer = $Hotbar
 @onready var mod_ui: ModUI = $ModUI
 @onready var modifier_timer: ModifierTimer = $ModifierTimer
+@onready var player_hp_ui: PlayerHpUI = $PlayerHpUI
 
 var player : Player
 

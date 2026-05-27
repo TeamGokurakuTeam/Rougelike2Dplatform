@@ -35,6 +35,7 @@ volume_db = -20.0
 autoplay = true
 
 [editable path="PlayerUI"]
+[editable path="PlayerUI/PlayerHpUI"]
 [editable path="PlayerUI/ModUI"]
 [editable path="Player"]
 [editable path="Player/PickupComponent"]
