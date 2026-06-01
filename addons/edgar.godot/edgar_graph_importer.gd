@@ -1,0 +1,112 @@
+# MIT License
+#
+# Copyright (c) 2025 RickyYC
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+@tool
+extends EditorImportPlugin
+
+func _get_importer_name() -> String:
+	return "Edgar Graph Importer"
+
+func _get_visible_name() -> String:
+	return "Edgar Graph Importer"
+
+func _get_recognized_extensions() -> PackedStringArray:
+	return ["edgar-graph"]
+
+func _get_save_extension() -> String:
+	return "tres"
+
+func _get_resource_type() -> String:
+	return "EdgarGraphResource"
+
+func _get_priority() -> float:
+	return 0.11
+
+func _get_preset_count() -> int:
+	return 0
+
+func _get_preset_name(preset_index: int) -> String:
+	return ""
+
+func _get_option_visibility(path: String, option_name: StringName, options: Dictionary) -> bool:
+	return true
+
+func _get_import_options(path: String, preset_index: int) -> Array:
+	return []
+
+func _get_import_order() -> int:
+	return 98
+
+func _import(source_file: String, save_path: String, options: Dictionary, platform_variants: Array, gen_files: Array) -> Error:
+	var json := _read_json(source_file)
+	if json.is_empty():
+		return FAILED
+
+	var res := _create_resource(source_file, json)
+	var ret := ResourceSaver.save(res, save_path + "." + _get_save_extension())
+	return ret
+
+static func _read_json(source_file: String) -> Dictionary:
+	if !FileAccess.file_exists(source_file):
+		printerr("Import file '" + source_file + "' not found!")
+		return {}
+
+	var file := FileAccess.open(source_file, FileAccess.READ)
+	if file == null:
+		return {}
+
+	var text := file.get_as_text()
+	var json_obj := JSON.new()
+	var err := json_obj.parse(text)
+	if err != Error.OK:
+		return {"edges": [], "layers": [], "nodes": {}, "layer_names": []}
+
+	return json_obj.data
+
+static func _create_resource(source_file: String, json: Dictionary) -> EdgarGraphResource:
+	var res := EdgarGraphResource.new()
+	res.set_meta("source_file", source_file)
+	res.set_meta("is_edgar_graph", true)
+	res.set_meta("nodes", json["nodes"])
+	res.set_meta("edges", json["edges"])
+	res.set_meta("layers", json["layers"])
+
+	# layer_names: migrate from ProjectSettings if missing
+	var layer_names = json.get("layer_names", [])
+	if layer_names.is_empty():
+		var layers: Array = json["layers"]
+		for i in range(layers.size()):
+			var fallback: String = ProjectSettings.get("layer_names/edgar/layer_" + str(i + 1))
+			layer_names.append(fallback if fallback != null and fallback != "" else "Layer " + str(i + 1))
+		if layer_names.is_empty():
+			layer_names = ["Layer 1"]
+	res.set_meta("layer_names", layer_names)
+
+	return res
+
+static func import_external(source_file: String) -> EdgarGraphResource:
+	var json := _read_json(source_file)
+	if json.is_empty():
+		return null
+
+	var res := _create_resource(source_file, json)
+	return res

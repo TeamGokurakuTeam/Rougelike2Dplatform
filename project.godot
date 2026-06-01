@@ -8,11 +8,15 @@
 
 config_version=5
 
+[Edgar]
+
+kernel/edgar_kernel_proxy="uid://bg8f6qhdnxo3s"
+
 [application]
 
 config/name="Rougelike2DPlatform"
 run/main_scene="uid://b16nqq5vpyxba"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 run/max_fps=60
 boot_splash/show_image=false
 config/icon="res://icon.svg"
@@ -36,9 +40,13 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://4wrqpxn0rmk6"
 
+[dotnet]
+
+project/assembly_name="Rougelike2DPlatform"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/edgar.godot/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 
