@@ -1,0 +1,14 @@
+[remap]
+
+importer="Edgar Graph Importer"
+type="EdgarGraphResource"
+uid="uid://c45xy8xnosbn6"
+path="res://.godot/imported/Floor1.edgar-graph-1880250f627872119a84f10322326e08.tres"
+
+[deps]
+
+source_file="res://Resource/Edgar/Floor1.edgar-graph"
+dest_files=["res://.godot/imported/Floor1.edgar-graph-1880250f627872119a84f10322326e08.tres"]
+
+[params]
+
