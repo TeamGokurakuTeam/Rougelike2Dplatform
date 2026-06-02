@@ -11,6 +11,7 @@
 script = ExtResource("1_ga214")
 
 [node name="Generator" type="Node2D" parent="." unique_id=1812736498 node_paths=PackedStringArray("tile_map_layers")]
+position = Vector2(-128, -80)
 script = ExtResource("3_hhsrg")
 tile_map_layers = [NodePath("background"), NodePath("col"), NodePath("decoration")]
 level = ExtResource("4_5mt6q")

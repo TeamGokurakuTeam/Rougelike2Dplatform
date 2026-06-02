@@ -4,7 +4,7 @@ class_name PlayerSpawner
 @export var player_scene : PackedScene
 
 func _ready() -> void:
-	summon()
+	pass
 
 func summon() -> void:
 	var player : Player = player_scene.instantiate()

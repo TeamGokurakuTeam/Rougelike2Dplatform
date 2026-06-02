@@ -23,6 +23,7 @@ func _ready() -> void:
 	player_marker = PLAYER_SPAWN.instantiate()
 	get_tree().current_scene.add_child(player_marker)
 	player_marker.position = generator.player_spawn_coordinate
+	player_marker.summon()
 	
 	var camera : Camera = CAMERA_2D.instantiate()
 	add_child(camera)
