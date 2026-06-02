@@ -339,6 +339,8 @@ func _get_swap_data(tile_data: TileData, transformation: int) -> Vector4i:
 	return Vector4i(-1, 0, 0, 0)
 
 func _get_tile_data_property(tile_data: TileData, key: String) -> Variant:
+	if tile_data == null:
+		return null
 	if tile_data.has_custom_data(key):
 		var custom_data := tile_data.get_custom_data(key)
 		return custom_data

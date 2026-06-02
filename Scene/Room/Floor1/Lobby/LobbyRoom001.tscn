@@ -34,6 +34,7 @@ tile_set = ExtResource("1_23f2i")
 unique_name_in_owner = true
 
 [node name="PlayerMarker" type="Marker2D" parent="markers" unique_id=1629838910]
+position = Vector2(-79, 48)
 
 [node name="lnk" type="Node2D" parent="." unique_id=711971829]
 unique_name_in_owner = true
