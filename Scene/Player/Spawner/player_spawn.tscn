@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://di5wuga8fd5i4"]
+
+[ext_resource type="Script" uid="uid://dixrvwq65hxm0" path="res://Scene/Player/Spawner/player_spawn.gd" id="1_bkhxs"]
+[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="2_4gb4d"]
+[ext_resource type="PackedScene" uid="uid://cvnfa7dppgwhv" path="res://Scene/camera_2d.tscn" id="3_vr6kr"]
+
+[node name="PlayerSpawn" type="Node2D" unique_id=2023603523]
+script = ExtResource("1_bkhxs")
+player_scene = ExtResource("2_4gb4d")
+camera_scene = ExtResource("3_vr6kr")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=311040970]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1689665069]

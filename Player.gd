@@ -5,6 +5,7 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var remote_transform_2d: RemoteTransform2D = $RemoteTransform2D
 
 @export  var max_jump_pressed_frame : int = 5
 
@@ -29,10 +30,14 @@ var fall_through_time := 0.25
 var fall_timer := 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
+var camera_node_path : NodePath
 
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
 signal applied_modifier(player : Player)
+
+func _ready() -> void:
+	remote_transform_2d.remote_path = camera_node_path
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()

@@ -1,8 +1,6 @@
 @tool
 extends EdgarRenderer2D
 
-const DOOR = preload("uid://cmin4ppf3tbti")
-
 func _post_process(tile_map_layer: TileMapLayer, tiled_layer: String) -> void:
 	# Custom per-layer post-processing
 	pass
