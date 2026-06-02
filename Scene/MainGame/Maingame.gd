@@ -1,8 +1,6 @@
 extends Node2D
 class_name MainGame
 
-
-
 @onready var player_ui: GameUI = $PlayerUI
 @onready var generator: DungeonGeneratorFloor1 = $Generator
 

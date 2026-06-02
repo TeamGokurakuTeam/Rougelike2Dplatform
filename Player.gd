@@ -30,14 +30,16 @@ var fall_through_time := 0.25
 var fall_timer := 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
-var camera_node_path : NodePath
+var camera_node_path : NodePath : 
+	set(value):
+		remote_transform_2d.remote_path = value
 
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
 signal applied_modifier(player : Player)
 
 func _ready() -> void:
-	remote_transform_2d.remote_path = camera_node_path
+	pass
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
