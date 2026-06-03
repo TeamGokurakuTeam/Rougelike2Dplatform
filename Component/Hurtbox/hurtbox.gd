@@ -15,6 +15,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area != null and area is Hitbox:
 		cool_down.start()
 		current_area = area
+		DamageNumber.display_number(area.damage, global_position, false, Color("ff0000") if character is Player else Color("ffffff"))
 		recieved_damage.emit(area.damage, area.knockback_force * area.knockback_direction)
 
 func _on_cool_down_timeout() -> void:

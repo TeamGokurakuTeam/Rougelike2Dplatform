@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bi433fo8wl3ca"]
+[gd_scene format=3 uid="uid://b5kc1j6soq87h"]
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_1aswv"]
-[ext_resource type="Texture2D" uid="uid://ix3nuehvg0rw" path="res://Assets/Image/swords/tile020.png" id="2_7op67"]
+[ext_resource type="Texture2D" path="res://Assets/Image/swords/tile020.png" id="2_7op67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6memi"]
 size = Vector2(22, 35)
@@ -106,3 +106,6 @@ shape = SubResource("RectangleShape2D_6memi")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]
 libraries/ = SubResource("AnimationLibrary_ygerq")
+
+[node name="Charge" parent="." index="3" unique_id=1009231787]
+bus = &"Master"
