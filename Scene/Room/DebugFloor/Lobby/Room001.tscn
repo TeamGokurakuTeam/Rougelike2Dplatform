@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="5_shxa2"]
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="6_ufdrf"]
 [ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="7_12s50"]
+[ext_resource type="Resource" uid="uid://b52pjp0l061t6" path="res://Resource/Modifier/Leap.tres" id="8_6j1b4"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="8_x8lb8"]
+[ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="9_6j1b4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -324,6 +326,14 @@ modifier = ExtResource("7_12s50")
 [node name="DropModifier6" parent="." unique_id=53794880 instance=ExtResource("5_shxa2")]
 position = Vector2(371, 316)
 modifier = ExtResource("7_12s50")
+
+[node name="DropModifier7" parent="." unique_id=36712611 instance=ExtResource("5_shxa2")]
+position = Vector2(444, 316)
+modifier = ExtResource("8_6j1b4")
+
+[node name="DropModifier8" parent="." unique_id=1495226569 instance=ExtResource("5_shxa2")]
+position = Vector2(479, 316)
+modifier = ExtResource("9_6j1b4")
 
 [node name="DropModifier3" parent="." unique_id=1967184069 instance=ExtResource("5_shxa2")]
 position = Vector2(407, 316)

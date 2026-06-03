@@ -4,6 +4,8 @@ class_name PlayerSlashProjectile
 @export var timer : Timer
 @export var animation_player : AnimationPlayer
 
+
+
 func _ready() -> void:
 	pass # Replace with function body.
 

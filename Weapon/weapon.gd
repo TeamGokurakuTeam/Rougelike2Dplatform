@@ -3,6 +3,8 @@ class_name Weapon
 
 const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 
+
+
 @export var resource_id : String
 
 @export_category("ステータス")
@@ -69,6 +71,9 @@ func _process(delta: float) -> void:
 			#elif scale.y == -1 and mouse_direction.x > 0:
 				#scale.y = 1
 
+
+
+
 func add_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
 		modifiers_ids[id] += count
@@ -88,6 +93,32 @@ func _physics_process(delta: float) -> void:
 func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("Bloodletting"):
 		bloodletting(mouse_direction, offset_length)
+#跳躍(Leap)
+	if modifiers_ids.has("Leap"):
+		leap_forward()
+#残影な(Afterimage)
+	if modifiers_ids.has("Afterimage"):
+		afterimage_slash()
+#
+	
+	
+
+func afterimage_slash() -> void:
+	var slash := PLAYER_SLASH.instantiate()
+	slash.scale *= 0.8
+	slash.speed *= 0.8
+	var offset := Vector2.RIGHT.rotated(self.rotation) * offset_length
+	slash.direction = mouse_direction
+	slash.global_position = self.global_position + offset
+	if slash.has_method("set_opacity"):
+		slash.set_opacity(0.9)
+	get_tree().root.add_child(slash)
+
+func leap_forward() -> void:
+	if player == null:
+		return
+	var leap_power := 300.0 #跳躍の数値
+	player.velocity += mouse_direction * leap_power
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	if player.hp_component.hp > 10:
