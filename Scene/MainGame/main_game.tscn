@@ -25,14 +25,16 @@ generate_room_value = 3
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
 position = Vector2(184, 263)
 
-[node name="Camera2D" parent="Player" unique_id=1883637712 instance=ExtResource("5_88yfh")]
-random_strength = 6.0
-shake_fade = 18.0
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
+remote_path = NodePath("../../Camera2D")
 
 [node name="Stage" type="AudioStreamPlayer" parent="." unique_id=1112841277]
 stream = ExtResource("5_g7el7")
 volume_db = -20.0
 autoplay = true
+
+[node name="Camera2D" parent="." unique_id=1883637712 instance=ExtResource("5_88yfh")]
+position = Vector2(184, 263)
 
 [editable path="PlayerUI"]
 [editable path="PlayerUI/PlayerHpUI"]
