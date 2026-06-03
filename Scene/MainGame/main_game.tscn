@@ -14,12 +14,10 @@ script = ExtResource("1_ga214")
 
 [node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
 script = ExtResource("1_4nic5")
-lobby_room_dir = "res://Scene/Room/DebugFloor/Lobby"
-enemy_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-bonus_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-shop_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-boss_room_dir = "res://Scene/Room/DebugFloor/Boss"
-end_room_dir = "res://Scene/Room/DebugFloor/End"
+lobby_room_dir = "res://Resource/RoomInfo/Floor1/Lobby"
+enemy_room_dir = "res://Resource/RoomInfo/Floor1/Enemy"
+boss_room_dir = "res://Resource/RoomInfo/Floor1/Boss"
+end_room_dir = "res://Resource/RoomInfo/Floor1/End"
 generate_room_value = 3
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]

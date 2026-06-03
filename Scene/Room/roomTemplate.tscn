@@ -836,3 +836,8 @@ tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Ground" type="TileMapLayer" parent="TileMaps" unique_id=101481590]
 tile_set = SubResource("TileSet_3gcdb")
+
+[node name="Decoration" type="TileMapLayer" parent="TileMaps" unique_id=1904370471]
+tile_set = SubResource("TileSet_3gcdb")
+
+[node name="Doors" type="Node2D" parent="." unique_id=622901157]
