@@ -16,3 +16,6 @@ tile_map_data = PackedByteArray("AAAJAAoAAAAHAAoAAAAlAAcAAAAHAAoAAAARAAoAAAAEAA0
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("2_fgpll")]
 position = Vector2(720, 96)
+
+[node name="PlayerMarker" type="Marker2D" parent="." index="2" unique_id=642251857]
+position = Vector2(56, 144)

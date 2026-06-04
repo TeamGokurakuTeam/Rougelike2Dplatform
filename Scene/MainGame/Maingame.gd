@@ -3,8 +3,10 @@ class_name MainGame
 
 @onready var player_ui: GameUI = $PlayerUI
 @onready var player: Player = $Player
+@onready var room_generator: RoomConnect = $RoomGenerator
 
 func _ready() -> void:
+	room_generator.room_generate()
 	player_ui.player = player
 	player_ui.player_hp_ui.player = player
 	player.pickup_item.connect(player_ui._on_character_pickup_item)

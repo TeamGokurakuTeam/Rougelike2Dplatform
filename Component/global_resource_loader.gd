@@ -12,7 +12,7 @@ func _ready() -> void:
 	for folder in items_folder:
 		_file_load(folder, item_cache)
 	for folder in room_folder:
-		_file_load(folder, room_cache)
+		_file_room_load(folder, room_cache)
 
 #下の関数はprivateでここのAutoload専用の関数なのでよそで使わないこと
 func _file_load(folder_path : String, res_cache : Dictionary) -> void:
