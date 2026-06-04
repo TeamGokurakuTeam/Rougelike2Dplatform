@@ -1,15 +1,7 @@
 extends Node2D
 class_name RoomConnect
 
-const ROOM_DISTANCE : int = 500
-
-@export_category("各部屋のリソースディレクトリ")
-@export_dir var lobby_room_dir ## 必ず最初に生成する部屋
-@export_dir var enemy_room_dir ## 道中に生成される部屋
-@export_dir var bonus_room_dir ## 一定確率で生成される部屋
-@export_dir var shop_room_dir ## どこかで必ず生成されるショップ
-@export_dir var boss_room_dir ## 最上階に必ず生成するショップ
-@export_dir var end_room_dir ## ボスを倒した後に到達できる部屋(次のステージへ)
+const ROOM_DISTANCE : int = 5000
 
 @export_category("生成する部屋の数")
 @export var generate_room_value : int = 6
@@ -23,7 +15,32 @@ const ROOM_DISTANCE : int = 500
 #var boss_room_scenes : Array[PackedScene]
 
 func room_generate() -> void:
-	pass
+	var room_grid : Array[Array] = []
+	
+	#二重配列を3行として扱い、forループでルームの初期化を行う
+	for i in 3:
+		room_grid.append([])
+		for j in generate_room_value:
+			room_grid[i].append(0)
+	
+	#最初の部屋ではなかったら左の道を、最後の部屋ではなかったら右の道を作る
+	for i in generate_room_value:
+		if i != generate_room_value - 1:
+			room_grid[1][i] |= Common.RIGHT_MASK
+		if i != 0:
+			room_grid[1][i] |= Common.LEFT_MASK
+	
+	for i in 3:
+		for j in generate_room_value:
+			var room_opening : int = room_grid[i][j]
+			if room_opening == 0:
+				continue
+			var room_res : RoomInfoResource = GlobalResourceLoader.room_cache[room_opening].pick_random()
+			var room_node : Room = room_res.room_scene.instantiate()
+			add_child(room_node)
+			room_node.global_position = Vector2(j * ROOM_DISTANCE, i * ROOM_DISTANCE)
+		
+		print(room_grid)
 
 ## Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
