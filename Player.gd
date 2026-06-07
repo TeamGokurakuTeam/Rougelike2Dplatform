@@ -30,6 +30,10 @@ var fall_timer := 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
 
+#Fan
+var external_velocity : Vector2 = Vector2.ZERO
+var external_friction := 500.0
+
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
 signal applied_modifier(player : Player)
@@ -43,6 +47,9 @@ func _process(delta: float) -> void:
 	elif mouse_direction.x < 0 and not animated_sprite_2d.flip_h:
 		#マウスの方向が左側にあったら
 		animated_sprite_2d.flip_h = true
+
+
+
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -62,9 +69,15 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("Walk")
 	else:
 		animation_player.play("Idle")
+	#Fan
+	velocity += external_velocity
+	external_velocity = external_velocity.move_toward(Vector2.ZERO, external_friction * delta)
 
 func external_bounce_jump(power: float) -> void:
 	velocity.y = -power
+#Fan
+func add_external_force(force: Vector2) -> void:
+	external_velocity += force
 
 func _get_input() -> void:
 	#移動方向の初期化
@@ -115,6 +128,9 @@ func _get_input() -> void:
 			break
 	#endregion
 
+
+
+
 func update_weapon() -> void:
 	if current_weapon == -1:
 		for node in inventory.get_children():
@@ -141,6 +157,11 @@ func merge_weapon(target_res_id : String) -> void:
 		weapon_resource_ids.erase(target_res.Id)
 		weapon_resource_ids.append(target_res.MergeResultWeaponId)
 		merge_weapon(target_res.MergeResultWeaponId)
+
+#Spikeダメージ
+func take_damage(amount : float) -> void:
+	var hp_component: HPComponent = $HPComponent
+	hp_component.hp -= amount
 
 func _on_hp_component_is_dead() -> void:
 	self.queue_free()
