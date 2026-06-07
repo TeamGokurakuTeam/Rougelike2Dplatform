@@ -5,7 +5,8 @@ class_name Door
 
 @export var dir : Direction = Direction.NONE #NONEは初期値用
 
-var teleport_to : Vector2
+var teleport_to : Door
+var exit_point : Marker2D
 
 enum Direction {
 	NONE,
@@ -15,11 +16,29 @@ enum Direction {
 	RIGHT,
 }
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	exit_point = get_node("./ExitPoint")
+	
 
+func _on_player_detector_body_entered(body: Node2D) -> void:
+	if body is Player and teleport_to != null:
+		var player : Player = body as Player
+		player.global_position = teleport_to.exit_point.global_position
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+static func get_opposite_dirction(dir : Direction) -> Direction:
+	match dir:
+		Direction.UP:
+			dir = Direction.DOWN
+		Direction.DOWN:
+			dir = Direction.UP
+		Direction.LEFT:
+			dir = Direction.RIGHT
+		Direction.RIGHT:
+			dir = Direction.LEFT
+	return dir
+
+static func connect_door(door_a : Door, door_b : Door) -> void:
+	if door_a == null or door_b == null:
+		return
+	door_a.teleport_to = door_b
+	door_b.teleport_to = door_a

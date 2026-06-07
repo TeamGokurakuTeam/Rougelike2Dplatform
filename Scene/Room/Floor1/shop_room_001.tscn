@@ -850,6 +850,10 @@ position = Vector2(224, 240)
 rotation = 1.5707964
 
 [node name="Door" parent="Doors" unique_id=611324660 instance=ExtResource("6_wi6os")]
+dir = 2
+
+[node name="Marker2D" type="Marker2D" parent="Doors/Door" unique_id=1442436838]
+position = Vector2(-53, 9.000002)
 
 [node name="OneWay" parent="." unique_id=610867179 instance=ExtResource("7_sqw4r")]
 position = Vector2(216, 208)
