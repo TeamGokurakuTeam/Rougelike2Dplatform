@@ -99,3 +99,6 @@ sprite_frames = SubResource("SpriteFrames_axg12")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1345418347]
 libraries/ = SubResource("AnimationLibrary_4ajab")
+
+[connection signal="body_entered" from="WindArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="WindArea" to="." method="_on_body_exited"]

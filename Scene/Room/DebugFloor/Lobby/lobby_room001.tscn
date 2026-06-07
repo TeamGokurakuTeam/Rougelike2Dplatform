@@ -9,10 +9,8 @@
 [ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="7_12s50"]
 [ext_resource type="Resource" uid="uid://b52pjp0l061t6" path="res://Resource/Modifier/Leap.tres" id="8_6j1b4"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="8_x8lb8"]
-[ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="9_kc1u8"]
-[ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="10_f760l"]
-[ext_resource type="Resource" uid="uid://bhwuiry4se62y" path="res://Resource/Modifier/Burstslasher.tres" id="11_v1gdm"]
-[ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="12_3n56f"]
+[ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="9_6j1b4"]
+[ext_resource type="PackedScene" uid="uid://dofccvw7xhhbj" path="res://Scene/Room/spike.tscn" id="11_f760l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -336,20 +334,11 @@ modifier = ExtResource("8_6j1b4")
 
 [node name="DropModifier8" parent="." unique_id=1495226569 instance=ExtResource("5_shxa2")]
 position = Vector2(479, 316)
-modifier = ExtResource("9_kc1u8")
-
-[node name="DropModifier9" parent="." unique_id=641417715 instance=ExtResource("5_shxa2")]
-position = Vector2(176, 316)
-modifier = ExtResource("10_f760l")
-
-[node name="DropModifier10" parent="." unique_id=683986370 instance=ExtResource("5_shxa2")]
-position = Vector2(134, 316)
-modifier = ExtResource("11_v1gdm")
-
-[node name="DropModifier11" parent="." unique_id=1775361575 instance=ExtResource("5_shxa2")]
-position = Vector2(95, 316)
-modifier = ExtResource("12_3n56f")
+modifier = ExtResource("9_6j1b4")
 
 [node name="DropModifier3" parent="." unique_id=1967184069 instance=ExtResource("5_shxa2")]
 position = Vector2(407, 316)
 modifier = ExtResource("8_x8lb8")
+
+[node name="Spike" parent="." unique_id=2129174175 instance=ExtResource("11_f760l")]
+position = Vector2(411, 270)

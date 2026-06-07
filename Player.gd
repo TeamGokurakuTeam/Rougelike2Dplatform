@@ -75,6 +75,9 @@ func _process(delta: float) -> void:
 		#マウスの方向が左側にあったら
 		animated_sprite_2d.flip_h = true
 
+
+
+
 func _physics_process(delta: float) -> void:
 	#慣性
 	_get_input()
@@ -187,6 +190,9 @@ func _get_input() -> void:
 			update_weapon()
 			break
 
+
+
+
 func update_weapon() -> void:
 	if current_weapon == -1:
 		for node in inventory.get_children():
@@ -213,6 +219,14 @@ func merge_weapon(target_res_id : String) -> void:
 		weapon_resource_ids.append(target_res.MergeResultWeaponId)
 		merge_weapon(target_res.MergeResultWeaponId)
 
+#Spikeダメージ
+func take_damage(amount : float) -> void:
+	var hp_component: HPComponent = $HPComponent
+	hp_component.hp -= amount
+
+func _on_hp_component_is_dead() -> void:
+	self.queue_free()
+	
 func _dodge_roll_effect() -> void:
 	ghost_effect = GHOST_EFFECT.instantiate()
 	ghost_effect.animated_sprite_2d = self.animated_sprite_2d
