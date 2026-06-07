@@ -24,9 +24,11 @@ position = Vector2(-8, 8)
 shape = SubResource("RectangleShape2D_t1p54")
 
 [node name="PlayerDetector" type="Area2D" parent="." unique_id=114558383]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=608414875]
 position = Vector2(-8.5, 8)
 shape = SubResource("RectangleShape2D_8kni7")
-disabled = true
 debug_color = Color(0.5209268, 0.57466865, 0, 0.41960785)
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

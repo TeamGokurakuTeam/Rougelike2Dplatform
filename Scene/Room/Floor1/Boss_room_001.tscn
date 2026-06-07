@@ -26,6 +26,14 @@ position = Vector2(584, 240)
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("3_3dwrt")]
 position = Vector2(16, 336)
+dir = 3
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door" index="3" unique_id=1236670679]
+position = Vector2(32, 0)
 
 [node name="Door2" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="1" unique_id=2102797138 instance=ExtResource("3_3dwrt")]
 position = Vector2(1072, 160)
+dir = 4
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="3" unique_id=1720707185]
+position = Vector2(-48, 0)

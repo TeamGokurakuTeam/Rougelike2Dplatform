@@ -857,10 +857,22 @@ position = Vector2(304, 112)
 
 [node name="Door" parent="Doors" unique_id=611324660 instance=ExtResource("7_n61j5")]
 position = Vector2(16, 160)
+dir = 3
+
+[node name="Marker2D" type="Marker2D" parent="Doors/Door" unique_id=1500265627]
+position = Vector2(32, 0)
 
 [node name="Door2" parent="Doors" unique_id=1600359996 instance=ExtResource("7_n61j5")]
 position = Vector2(400, 160)
+dir = 4
+
+[node name="Marker2D" type="Marker2D" parent="Doors/Door2" unique_id=78072588]
+position = Vector2(-48, 0)
 
 [node name="Door3" parent="Doors" unique_id=2026662573 instance=ExtResource("7_n61j5")]
 position = Vector2(192, 0)
 rotation = -1.5707964
+dir = 1
+
+[node name="Marker2D" type="Marker2D" parent="Doors/Door3" unique_id=1985067679]
+position = Vector2(-64, -2.7975289e-06)
