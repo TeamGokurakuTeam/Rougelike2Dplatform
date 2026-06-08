@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://clpqfex6bgjj5"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_7q00u"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_uf46w"]
+
+[resource]
+script = ExtResource("1_7q00u")
+ModifierRank = 1
+texture = ExtResource("2_uf46w")
+modifier_id = "Gambling"
+modifier_name = "賭博の"
+color_rarity = Color(1, 0.101960786, 0.101960786, 1)
+explanation = "攻撃時、低確率でダメージが２倍になる"
