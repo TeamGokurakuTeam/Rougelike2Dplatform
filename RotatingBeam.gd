@@ -6,12 +6,10 @@ class_name RotatingBeam
 @onready var pivot : Node2D = $Pivot
 @onready var beam_area : Area2D = $Pivot/BeamArea
 @onready var anim0 : AnimationPlayer = $AnimationPlayer
-@onready var anim1 : AnimationPlayer = $AnimationPlayer2
 
 func _ready() -> void:
 	beam_area.connect("body_entered",Callable(self, "_on_beam_hit"))
 	anim0.play("Lightning")
-	anim1.play("Charge")
 
 func _process(delta: float) -> void:
 	pivot.rotation_degrees += rotate_speed * delta
