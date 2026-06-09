@@ -3,13 +3,16 @@ class_name Player
 
 const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 
-@onready var parry: GPUParticles2D = $Parry
+@onready var parry_effect: GPUParticles2D = $Parry
 @onready var ghost_timer: Timer = $GhostTimer
 @onready var coyote_timer: Timer = $CoyoteTimer
+@onready var counter_timer: Timer = $CounterDetector/CounterTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D2
+@onready var counter_collision: CollisionShape2D = $CounterDetector/CollisionShape2D
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 @export var max_jump_pressed_frame : int = 5
 
@@ -118,14 +121,15 @@ func _get_input() -> void:
 	move_direction.x = Input.get_axis(&"UI_left",&"UI_right") #横移動の入力
 	
 	if abs(move_direction.x) > 0 and Input.is_action_just_pressed("UI_DodgeRoll") and not is_dodgeroll:
-		ghost_timer.start()
 		is_dodgeroll = true
-		hurtbox_collision.disabled = true
+		ghost_timer.start()
+		counter_timer.start()
+		_counter_switch()
 		dodgeroll_dir.x = sign(move_direction.x)
 		current_acceleration = dodgeroll_acceleration
 		await get_tree().create_timer(dodgeroll_time).timeout
 		is_dodgeroll = false
-		hurtbox_collision.disabled = false
+		hurtbox.monitoring = true
 		current_acceleration = acceleration
 		
 	if is_dodgeroll:
@@ -220,11 +224,17 @@ func _dodge_roll_effect() -> void:
 	ghost_effect.set_propety(animated_sprite_2d.global_position, animated_sprite_2d.scale)
 	get_tree().current_scene.add_child(ghost_effect)
 
+func _counter_switch() -> void:
+	counter_collision.disabled = !counter_collision.disabled
+
 func _on_ghost_timer_timeout() -> void:
 	_dodge_roll_effect()
 #Spikeダメージ
 func take_damage(amount : float) -> void:
 	hp_component.hp -= amount
+
+func _on_counter_timer_timeout() -> void:
+	_counter_switch()
 
 func _on_hp_component_is_dead() -> void:
 	self.queue_free()
@@ -236,3 +246,8 @@ func _set_current_modifier(new_value : int) -> void:
 	current_modifier = new_value % mod_resource_ids.size()
 	if current_modifier < 0:
 		current_modifier += mod_resource_ids.size()
+
+func _on_counter_detector_area_entered(area: Area2D) -> void:
+	if area is Hitbox:
+		parry_effect.emitting = true
+		hurtbox.monitoring = false
