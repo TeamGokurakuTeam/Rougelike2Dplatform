@@ -226,9 +226,6 @@ size = Vector2(14, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6jsd"]
 size = Vector2(8, 21)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd8gp"]
-size = Vector2(16, 19)
-
 [sub_resource type="Animation" id="Animation_58ae2"]
 resource_name = "Idle"
 length = 1.2
@@ -335,6 +332,7 @@ critical_damage = 0.0
 luck = 0.0
 dodgeroll_acceleration = 45
 dodgeroll_time = 0.5
+just_dodgeroll_time = 0.09
 jump_velocity = -400.0
 acceleration = 20
 
@@ -379,32 +377,25 @@ character = NodePath("..")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_r6jsd")
 
-[node name="CounterDetector" type="Area2D" parent="." index="8" unique_id=431421710]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CounterDetector" index="0" unique_id=1534937399]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_jd8gp")
-disabled = true
-debug_color = Color(0.85448533, 0.7275545, 0, 0.41960785)
-
-[node name="CounterTimer" type="Timer" parent="CounterDetector" index="1" unique_id=2004750626]
-wait_time = 0.2
-one_shot = true
-
-[node name="CoyoteTimer" type="Timer" parent="." index="9" unique_id=1786373520]
+[node name="CoyoteTimer" type="Timer" parent="." index="8" unique_id=1786373520]
 wait_time = 0.25
 one_shot = true
 
-[node name="GhostTimer" type="Timer" parent="." index="10" unique_id=3008633]
+[node name="GhostTimer" type="Timer" parent="." index="9" unique_id=3008633]
 wait_time = 0.08
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="11" unique_id=1634371556]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10" unique_id=1634371556]
 libraries/ = SubResource("AnimationLibrary_r6jsd")
+
+[node name="DodgeRollCoolDownTimer" type="Timer" parent="." index="11" unique_id=1273912296]
+wait_time = 2.0
+one_shot = true
+
+[node name="DodgeRollingTimer" type="Timer" parent="." index="12" unique_id=1435531217]
 
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
-[connection signal="area_entered" from="CounterDetector" to="." method="_on_counter_detector_area_entered"]
-[connection signal="timeout" from="CounterDetector/CounterTimer" to="." method="_on_counter_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="DodgeRollingTimer" to="." method="_on_dodge_rolling_timer_timeout"]
 
 [editable path="PickupComponent"]

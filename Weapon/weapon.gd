@@ -133,7 +133,7 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		if modifiers_ids.has("Slash_Pierce"):
 			slash.set_collision_mask_value(8, false)
 		get_tree().root.add_child(slash)
-		DamageNumber.display_number(2, global_position, false, Color("ff0000"))
+		DamageNumber.display_number(2, global_position, false, Color("6f0000ff"))
 		player.hp_component.hp -= 2 #2は自傷ダメージ
 
 func start_modifier_timer() -> void:
