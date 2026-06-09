@@ -299,8 +299,9 @@ defense_power = 10.0
 critical_chance = 0.0
 critical_damage = 0.0
 luck = 0.0
-friction = 0.3
+dodgeroll_acceleration = 45
 jump_velocity = -400.0
+acceleration = 20
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 position = Vector2(-1.9073486e-06, 0)

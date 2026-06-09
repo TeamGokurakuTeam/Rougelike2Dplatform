@@ -5,6 +5,7 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D2
 
 @export  var max_jump_pressed_frame : int = 5
 
@@ -13,6 +14,7 @@ class_name Player
 @export var critical_chance : float = .0
 @export var critical_damage : float = .0
 @export var luck : float = .0
+@export var dodgeroll_acceleration : int = 60
 
 var weapon_resource_ids : Array[String] = []
 #アイテムとしての武器の配列
@@ -29,6 +31,9 @@ var fall_through_time := 0.25
 var fall_timer := 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
+
+var is_dodgeroll : bool = false
+var dodgeroll_dir : Vector2 = Vector2.ZERO
 
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
@@ -58,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		jump_pressed_frame -= 1
 	
 	#歩き
-	if abs(velocity.x) > 0.1:
+	if abs(velocity.x) > 0.8:
 		animation_player.play("Walk")
 	else:
 		animation_player.play("Idle")
@@ -71,11 +76,25 @@ func _get_input() -> void:
 	move_direction = Vector2.ZERO
 	#get_axisで方向を求めている
 	move_direction.x = Input.get_axis(&"UI_left",&"UI_right") #横移動の入力
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = jump_velocity
-	if Input.is_action_just_pressed("UI_Down"):
-		fall_timer = fall_through_time
-		set_collision_mask_value(1, false)
+	
+	if abs(move_direction.x) > 0 and Input.is_action_just_pressed("UI_DodgeRoll") and not is_dodgeroll:
+		is_dodgeroll = true
+		hurtbox_collision.disabled = true
+		dodgeroll_dir.x = sign(move_direction.x)
+		current_acceleration = dodgeroll_acceleration
+		await get_tree().create_timer(0.5).timeout
+		is_dodgeroll = false
+		hurtbox_collision.disabled = false
+		current_acceleration = acceleration
+		
+	if is_dodgeroll:
+		move_direction.x = dodgeroll_dir.x
+	else:
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = jump_velocity
+		if Input.is_action_just_pressed("UI_Down"):
+			fall_timer = fall_through_time
+			set_collision_mask_value(1, false)
 	
 	if is_on_floor():
 		if coyote_time_activated:
@@ -85,15 +104,16 @@ func _get_input() -> void:
 		if !coyote_time_activated:
 			coyote_timer.start()
 			coyote_time_activated = true
-	
-	if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
-		jump_pressed_frame = max_jump_pressed_frame
-		velocity.y = jump_velocity
-		coyote_timer.stop()
-		coyote_time_activated = true
+		
+		#ui_acceptに移動させるし、書いたやつを殺す
+		if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
+			jump_pressed_frame = max_jump_pressed_frame
+			velocity.y = jump_velocity
+			coyote_timer.stop()
+			coyote_time_activated = true
 	
 	if Input.is_action_just_pressed("UI_Apply"):
-		if weapon_resource_ids.size() < 0 and inventory.get_child_count() <= 0:
+		if weapon_resource_ids.size() <= 0 and inventory.get_child_count() <= 0:
 			return
 		var weapon : Weapon = inventory.get_child(current_weapon)
 		weapon.add_modifier(mod_resource_ids[current_modifier])
