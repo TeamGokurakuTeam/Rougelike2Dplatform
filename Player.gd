@@ -1,13 +1,17 @@
 extends Character
 class_name Player
 
+const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
+
+@onready var parry: GPUParticles2D = $Parry
+@onready var ghost_timer: Timer = $GhostTimer
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D2
 
-@export  var max_jump_pressed_frame : int = 5
+@export var max_jump_pressed_frame : int = 5
 
 @export_category("プレイヤーステータス")
 @export var defense_power : float = 10
@@ -15,6 +19,7 @@ class_name Player
 @export var critical_damage : float = .0
 @export var luck : float = .0
 @export var dodgeroll_acceleration : int = 60
+@export var dodgeroll_time : float = 0.5
 
 
 var weapon_resource_ids : Array[String] = []
@@ -46,6 +51,7 @@ var original_color: Color = Color.WHITE
 
 var is_dodgeroll : bool = false
 var dodgeroll_dir : Vector2 = Vector2.ZERO
+var ghost_effect : GhostEffect
 
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
@@ -112,16 +118,27 @@ func _get_input() -> void:
 	move_direction.x = Input.get_axis(&"UI_left",&"UI_right") #横移動の入力
 	
 	if abs(move_direction.x) > 0 and Input.is_action_just_pressed("UI_DodgeRoll") and not is_dodgeroll:
+		ghost_timer.start()
 		is_dodgeroll = true
 		hurtbox_collision.disabled = true
 		dodgeroll_dir.x = sign(move_direction.x)
 		current_acceleration = dodgeroll_acceleration
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(dodgeroll_time).timeout
 		is_dodgeroll = false
 		hurtbox_collision.disabled = false
 		current_acceleration = acceleration
 		
 	if is_dodgeroll:
+		var tween : Tween = create_tween()
+		tween.tween_property(
+			self,
+			"dodgeroll_acceleration",
+			dodgeroll_acceleration,
+			dodgeroll_time).set_ease(
+				Tween.EASE_IN
+				).set_trans(
+					Tween.TRANS_EXPO
+					)
 		move_direction.x = dodgeroll_dir.x
 	else:
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -129,6 +146,7 @@ func _get_input() -> void:
 		if Input.is_action_just_pressed("UI_Down"):
 			fall_timer = fall_through_time
 			set_collision_mask_value(1, false)
+		ghost_timer.stop()
 	
 	if is_on_floor():
 		if coyote_time_activated:
@@ -196,6 +214,14 @@ func merge_weapon(target_res_id : String) -> void:
 		weapon_resource_ids.append(target_res.MergeResultWeaponId)
 		merge_weapon(target_res.MergeResultWeaponId)
 
+func _dodge_roll_effect() -> void:
+	ghost_effect = GHOST_EFFECT.instantiate()
+	ghost_effect.animated_sprite_2d = self.animated_sprite_2d
+	ghost_effect.set_propety(animated_sprite_2d.global_position, animated_sprite_2d.scale)
+	get_tree().current_scene.add_child(ghost_effect)
+
+func _on_ghost_timer_timeout() -> void:
+	_dodge_roll_effect()
 #Spikeダメージ
 func take_damage(amount : float) -> void:
 	hp_component.hp -= amount
