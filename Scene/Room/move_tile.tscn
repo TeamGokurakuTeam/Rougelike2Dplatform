@@ -21,6 +21,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rocg1"]
 size = Vector2(48, 5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24yck"]
+size = Vector2(48, 10)
+
 [node name="MoveTile" type="StaticBody2D" unique_id=971770846]
 script = ExtResource("1_rocg1")
 
@@ -30,3 +33,11 @@ sprite_frames = SubResource("SpriteFrames_24yck")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1757281778]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_rocg1")
+one_way_collision = true
+
+[node name="Sensor" type="Area2D" parent="." unique_id=807839081]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensor" unique_id=1784021326]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_24yck")
+debug_color = Color(5.390644e-06, 0.64565897, 0.2619926, 0.41960785)
