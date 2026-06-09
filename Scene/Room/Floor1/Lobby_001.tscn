@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_lhnps"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_fgpll"]
+[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/mushroom.tscn" id="3_0rie4"]
 
 [node name="LobbyRoom001" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_lhnps")]
 player_marker = NodePath("PlayerMarker")
@@ -24,3 +25,6 @@ position = Vector2(-40, 8)
 
 [node name="PlayerMarker" type="Marker2D" parent="." index="2" unique_id=642251857]
 position = Vector2(56, 144)
+
+[node name="Mushroom" parent="." index="3" unique_id=1094349948 instance=ExtResource("3_0rie4")]
+position = Vector2(504, 125)

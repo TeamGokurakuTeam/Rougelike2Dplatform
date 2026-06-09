@@ -18,6 +18,13 @@ script = ExtResource("1_4nic5")
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
 position = Vector2(184, 263)
 
+[node name="CounterDetector" parent="Player" index="8" unique_id=431421710]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="Player/CounterDetector" index="0" unique_id=1534937399]
+z_index = 1
+
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
 remote_path = NodePath("../../Camera2D")
 
