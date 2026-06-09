@@ -4,15 +4,17 @@ class_name Character
 @export var friction : float = .15 ##摩擦力または抵抗力
 
 @export var jump_velocity : float = -600
-@export var max_speed : float = 200
-@export var speed : float = 20 : set = _set_speed
+@export var max_speed : float = 200 
 @export var hp_component: HPComponent
-@export var accerelation : int = 30 #加速度
+@export var acceleration : int = 30 #加速度
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+var current_acceleration : int = 0
 var move_direction : Vector2 = Vector2.ZERO #移動する方向
 
+func _ready() -> void:
+	current_acceleration = acceleration
 
 func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, .0, friction)
@@ -24,7 +26,8 @@ func _physics_process(delta: float) -> void:
 
 func move() -> void:
 	move_direction = move_direction.normalized() #移動する方向を0~1(正規化)している
-	velocity.x += move_direction.x * accerelation #動く方向にスピードをかけている
+	velocity.x += move_direction.x * current_acceleration #動く方向にスピードをかけている
+	
 	#velocity = velocity.limit_length(max_speed) #最大速度の設定
 	
 	#なぜ正規化するのかというと移動速度の統一と方向の安定をさせなければいけないから
@@ -32,9 +35,6 @@ func move() -> void:
 
 func knockback(dir : Vector2) -> void:
 	velocity += dir
-
-func _set_speed(new_speed : float) -> void:
-	speed = clamp(new_speed, 0, max_speed) #set_hpと同じ
 
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	hp_component.hp -= damage
