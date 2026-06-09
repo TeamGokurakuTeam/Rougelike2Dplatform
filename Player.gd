@@ -6,7 +6,8 @@ const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 @onready var parry_effect: GPUParticles2D = $Parry
 @onready var ghost_timer: Timer = $GhostTimer
 @onready var coyote_timer: Timer = $CoyoteTimer
-@onready var counter_timer: Timer = $CounterDetector/CounterTimer
+@onready var dodge_roll_cool_down_timer: Timer = $DodgeRollCoolDownTimer #ドッジロール再使用までの時間
+@onready var dodge_rolling_timer: Timer = $DodgeRollingTimer #ドッジロールしている時の時間
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -23,6 +24,7 @@ const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 @export var luck : float = .0
 @export var dodgeroll_acceleration : int = 60
 @export var dodgeroll_time : float = 0.5
+@export var just_dodgeroll_time : float = 0.09
 
 
 var weapon_resource_ids : Array[String] = []
@@ -36,8 +38,8 @@ var current_modifier : int = -1 : set = _set_current_modifier
 #現在選択している修飾子の場所
 
 var coyote_time_activated : bool = false
-var fall_through_time := 0.25
-var fall_timer := 0.0
+var fall_through_time : float = 0.25
+var fall_timer : float = 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
 
@@ -54,6 +56,7 @@ var original_color: Color = Color.WHITE
 
 var is_dodgeroll : bool = false
 var dodgeroll_dir : Vector2 = Vector2.ZERO
+var is_just_dodgeroll : bool = false
 var ghost_effect : GhostEffect
 
 signal pickup_item(player : Player)
@@ -121,28 +124,21 @@ func _get_input() -> void:
 	move_direction.x = Input.get_axis(&"UI_left",&"UI_right") #横移動の入力
 	
 	if abs(move_direction.x) > 0 and Input.is_action_just_pressed("UI_DodgeRoll") and not is_dodgeroll:
-		is_dodgeroll = true
-		ghost_timer.start()
-		counter_timer.start()
-		_counter_switch()
-		dodgeroll_dir.x = sign(move_direction.x)
-		current_acceleration = dodgeroll_acceleration
-		await get_tree().create_timer(dodgeroll_time).timeout
-		is_dodgeroll = false
-		hurtbox.monitoring = true
-		current_acceleration = acceleration
+		if dodge_roll_cool_down_timer.time_left <= 0.0:
+			is_dodgeroll = true
+			ghost_timer.start()
+			dodge_rolling_timer.start()
+			dodgeroll_dir.x = sign(move_direction.x)
+			current_acceleration = dodgeroll_acceleration
 		
 	if is_dodgeroll:
 		var tween : Tween = create_tween()
-		tween.tween_property(
-			self,
-			"dodgeroll_acceleration",
-			dodgeroll_acceleration,
-			dodgeroll_time).set_ease(
-				Tween.EASE_IN
-				).set_trans(
-					Tween.TRANS_EXPO
-					)
+		tween.tween_property(self,
+							 "dodgeroll_acceleration",
+							 dodgeroll_acceleration,
+							 dodgeroll_time) \
+			.set_ease(Tween.EASE_IN) \
+			.set_trans(Tween.TRANS_EXPO)
 		move_direction.x = dodgeroll_dir.x
 	else:
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -179,7 +175,6 @@ func _get_input() -> void:
 		pickup_modifier.emit(self)
 		weapon.start_modifier_timer()
 	
-	#region プロトタイプ完了後奇麗にする
 	for i in range(5):
 		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
 			var prev_weapon = current_weapon
@@ -189,7 +184,6 @@ func _get_input() -> void:
 				return
 			update_weapon()
 			break
-	#endregion
 
 func update_weapon() -> void:
 	if current_weapon == -1:
@@ -239,6 +233,7 @@ func _on_counter_timer_timeout() -> void:
 func _on_hp_component_is_dead() -> void:
 	self.queue_free()
 
+#region setter
 func _set_current_modifier(new_value : int) -> void:
 	if mod_resource_ids.size() <= 0:
 		current_modifier = 0
@@ -246,8 +241,25 @@ func _set_current_modifier(new_value : int) -> void:
 	current_modifier = new_value % mod_resource_ids.size()
 	if current_modifier < 0:
 		current_modifier += mod_resource_ids.size()
+#endregion
 
-func _on_counter_detector_area_entered(area: Area2D) -> void:
-	if area is Hitbox:
+#region signal
+func _on_ghost_timer_timeout() -> void:
+	_dodge_roll_effect()
+
+func _on_hp_component_is_dead() -> void:
+	self.queue_free()
+
+func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
+	if not is_dodgeroll:
+		hp_component.hp -= damage
+		DamageNumber.display_number(damage, global_position, false, Color("ff0000"))
+	elif dodge_roll_cool_down_timer.is_stopped():
+		dodge_roll_cool_down_timer.start()
+	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
 		parry_effect.emitting = true
-		hurtbox.monitoring = false
+
+func _on_dodge_rolling_timer_timeout() -> void:
+	is_dodgeroll = false
+	current_acceleration = acceleration
+#endregion

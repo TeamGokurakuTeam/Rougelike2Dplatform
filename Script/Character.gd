@@ -38,3 +38,4 @@ func knockback(dir : Vector2) -> void:
 
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	hp_component.hp -= damage
+	DamageNumber.display_number(damage, global_position, false, Color("ffffff"))
