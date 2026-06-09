@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://djae1rhe63ajg"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_3vuvp"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_k7xgl"]
+
+[resource]
+script = ExtResource("1_3vuvp")
+texture = ExtResource("2_k7xgl")
+modifier_id = "Expanding"
+modifier_name = "膨張する"
+explanation = "プレイヤーが放つ斬撃(発射物)がある場合、斬撃の大きさを+0.1大きくする"

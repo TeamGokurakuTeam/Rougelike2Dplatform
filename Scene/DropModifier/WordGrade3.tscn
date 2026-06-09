@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://b0y0k7i3mitbo"]
+
+[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="1_54wfy"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_khu45"]
+[ext_resource type="Animation" uid="uid://sa6c2th6aif8" path="res://Scene/DropModifier/Pickup.res" id="3_iviya"]
+[ext_resource type="Texture2D" uid="uid://x7amrwqju0u0" path="res://Assets/Particle/32x32_Star_5.png" id="4_iviya"]
+
+[sub_resource type="Animation" id="Animation_khu45"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iviya"]
+_data = {
+&"RESET": SubResource("Animation_khu45")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6rvm"]
+_data = {
+&"Pickup": ExtResource("3_iviya")
+}
+
+[sub_resource type="Curve" id="Curve_ri54u"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uskhy"]
+curve = SubResource("Curve_ri54u")
+
+[sub_resource type="Curve" id="Curve_nuts6"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bx7ow"]
+curve = SubResource("Curve_nuts6")
+
+[sub_resource type="Curve" id="Curve_2odxx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nuts6"]
+curve = SubResource("Curve_2odxx")
+
+[sub_resource type="Curve" id="Curve_bx7ow"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1.553323), 4.2, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_c1tla"]
+curve = SubResource("Curve_bx7ow")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e6rvm"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 13.7
+angle_min = 1.0728835e-05
+angle_max = 10.0000105
+angle_curve = SubResource("CurveTexture_uskhy")
+spread = 65.0
+angular_velocity_min = 9.999984
+angular_velocity_max = 19.999983
+orbit_velocity_min = 0.1000001
+orbit_velocity_max = 0.1000001
+radial_velocity_min = 9.999977
+radial_velocity_max = 9.999977
+linear_accel_curve = SubResource("CurveTexture_bx7ow")
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+scale_min = 0.099999994
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_nuts6")
+scale_over_velocity_min = 2.0
+scale_over_velocity_max = 2.0
+scale_over_velocity_curve = SubResource("CurveTexture_c1tla")
+color = Color(0.8996641, 0.9134036, 0, 1)
+hue_variation_min = -0.12000002
+hue_variation_max = -2.2351742e-08
+
+[node name="Word3" unique_id=1774769907 instance=ExtResource("1_54wfy")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1827699005]
+texture = ExtResource("2_khu45")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=902723879]
+libraries/ = SubResource("AnimationLibrary_iviya")
+libraries/Pickup = SubResource("AnimationLibrary_e6rvm")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="3" unique_id=311559377]
+texture = ExtResource("4_iviya")
+process_material = SubResource("ParticleProcessMaterial_e6rvm")
