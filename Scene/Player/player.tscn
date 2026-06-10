@@ -330,6 +330,7 @@ defense_power = 10.0
 critical_chance = 0.0
 critical_damage = 0.0
 luck = 0.0
+dash_acceleration = 80
 dodgeroll_acceleration = 45
 dodgeroll_time = 0.5
 just_dodgeroll_time = 0.09
@@ -382,7 +383,11 @@ one_shot = true
 
 [node name="DodgeRollingTimer" type="Timer" parent="." index="11" unique_id=1435531217]
 
-[node name="Parry" type="GPUParticles2D" parent="." index="12" unique_id=1435189356]
+[node name="CounterTimer" type="Timer" parent="." index="12" unique_id=1821045109]
+wait_time = 2.0
+one_shot = true
+
+[node name="Parry" type="GPUParticles2D" parent="." index="13" unique_id=1435189356]
 modulate = Color(4.415934, 4.415934, 4.415934, 1)
 z_index = 1
 emitting = false

@@ -43,7 +43,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("UI_Attack") and not animation_player.is_playing():
 		animation_player.play("Charge")
 	elif Input.is_action_just_released("UI_Attack"):
-		if animation_player.is_playing() and animation_player.current_animation == "Charge":
+		if animation_player.is_playing() and player.counter_timer.wait_time > 0 and not player.counter_timer.is_stopped():
+			player.counter_timer.stop()
+			animation_player.play("CounterAttack")
+		elif animation_player.is_playing() and animation_player.current_animation == "Charge":
 			animation_player.play("Attack")
 		elif charge_particle.emitting:
 			animation_player.play("StrongAttack")
@@ -71,9 +74,6 @@ func _process(delta: float) -> void:
 			#elif scale.y == -1 and mouse_direction.x > 0:
 				#scale.y = 1
 
-
-
-
 func add_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
 		modifiers_ids[id] += count
@@ -100,7 +100,6 @@ func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("Afterimage"):
 		afterimage_slash()
 #
-	
 	
 
 func afterimage_slash() -> void:
@@ -138,6 +137,9 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
+
+func dash() -> void:
+	player.player_dash()
 
 func _on_modifier_count_timer_timeout() -> void:
 	reset_modifier()
