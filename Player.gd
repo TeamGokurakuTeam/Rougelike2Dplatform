@@ -205,10 +205,12 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	if not is_dodgeroll:
 		hp_component.hp -= damage
 		DamageNumber.display_number(damage, global_position, false, Color("ff0000"))
-	elif dodge_roll_cool_down_timer.is_stopped():
-		dodge_roll_cool_down_timer.start()
 	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
 		parry_effect.emitting = true
+	elif dodge_roll_cool_down_timer.is_stopped():
+		dodge_roll_cool_down_timer.start()
+	print(dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time))
+	print(dodge_rolling_timer.time_left, "  ", dodge_rolling_timer.wait_time - just_dodgeroll_time)
 
 func _on_dodge_rolling_timer_timeout() -> void:
 	is_dodgeroll = false
