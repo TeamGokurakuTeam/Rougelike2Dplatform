@@ -8,6 +8,7 @@ const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var dodge_roll_cool_down_timer: Timer = $DodgeRollCoolDownTimer #ドッジロール再使用までの時間
 @onready var dodge_rolling_timer: Timer = $DodgeRollingTimer #ドッジロールしている時の時間
+@onready var counter_timer: Timer = $CounterTimer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var inventory: Node2D = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -22,6 +23,7 @@ const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 @export var critical_chance : float = .0
 @export var critical_damage : float = .0
 @export var luck : float = .0
+@export var dash_acceleration : int = 80
 @export var dodgeroll_acceleration : int = 60
 @export var dodgeroll_time : float = 0.5
 @export var just_dodgeroll_time : float = 0.09
@@ -218,6 +220,11 @@ func _dodge_roll_effect() -> void:
 	ghost_effect.set_propety(animated_sprite_2d.global_position, animated_sprite_2d.scale)
 	get_tree().current_scene.add_child(ghost_effect)
 
+func player_dash() -> void:
+	current_acceleration = dash_acceleration
+	await get_tree().create_timer(0.4).timeout
+	current_acceleration = acceleration
+	
 func _counter_switch() -> void:
 	counter_collision.disabled = !counter_collision.disabled
 
@@ -256,8 +263,10 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 		DamageNumber.display_number(damage, global_position, false, Color("ff0000"))
 	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
 		parry_effect.emitting = true
+		counter_timer.start()
 	elif dodge_roll_cool_down_timer.is_stopped():
 		dodge_roll_cool_down_timer.start()
+		counter_timer.start()
 	print(dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time))
 	print(dodge_rolling_timer.time_left, "  ", dodge_rolling_timer.wait_time - just_dodgeroll_time)
 
