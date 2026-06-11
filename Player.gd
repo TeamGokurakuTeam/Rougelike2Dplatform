@@ -33,8 +33,8 @@ var jump_pressed_frame : int = 0
 #Fan
 var external_velocity : Vector2 = Vector2.ZERO
 var external_friction := 500.0
-
-
+#慣性
+var floor_motion: Vector2 = Vector2.ZERO
 
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
@@ -50,12 +50,17 @@ func _process(delta: float) -> void:
 		#マウスの方向が左側にあったら
 		animated_sprite_2d.flip_h = true
 
-
-
-
 func _physics_process(delta: float) -> void:
-	super(delta)
+	#慣性
 	_get_input()
+	if floor_motion.x != 0:
+		if move_direction.x != 0:
+			move_direction.x = sign(move_direction.x)
+	super(delta)
+	if floor_motion != Vector2.ZERO:
+		global_position += floor_motion
+	floor_motion = Vector2.ZERO
+	
 	if fall_timer > 0:
 		fall_timer -= delta
 		if fall_timer <= 0:
@@ -65,7 +70,6 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 	if jump_pressed_frame > 0:
 		jump_pressed_frame -= 1
-	
 	#歩き
 	if abs(velocity.x) > 0.1:
 		animation_player.play("Walk")

@@ -17,8 +17,13 @@ var current_index: int = 0
 var next_index: int = 1
 var point_number: float = 0.0
 var forward: bool = true
+#慣性
+var last_position: Vector2
+var floor_motion: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
+	#慣性
+	last_position = global_position
 	points =[]
 	for p in line.points:
 		points.append(line.to_global(p))
@@ -26,8 +31,12 @@ func _ready() -> void:
 	sensor.body_exited.connect(_on_body_exited)
 
 func _process(delta: float) -> void:
+	var prev_pos = global_position
 	_move_along_line(delta)
-	_one_way_platform(delta)
+	floor_motion = global_position - prev_pos
+	#慣性
+	if player_inside and player_body:
+		player_body.floor_motion = floor_motion
 
 func _move_along_line(delta: float) -> void:
 	if points.size() < 2:
@@ -48,9 +57,8 @@ func _move_along_line(delta: float) -> void:
 	next_index = current_index + (1 if forward else -1)
 	var p1 = points[current_index]
 	var p2 = points[next_index]
-	position = p1.lerp(p2,point_number)
-
-func _one_way_platform(delta: float) -> void:
+	var eased_point_number := ease(point_number, 1.0)
+	position = p1.lerp(p2, eased_point_number)
 	if current_time > 0:
 		current_time -= delta
 		col.disabled = true
@@ -66,16 +74,13 @@ func _one_way_platform(delta: float) -> void:
 		col.disabled = false
 
 func _on_body_entered(body : Node2D) -> void:
-	if not body.is_in_group("player"):
+	if not body.is_in_group("Player"):
 		return
 	player_inside = true
 	player_body = body
-	if body.velocity.y > 0:
-		current_time = disable_time
-		col.disabled = true
 
 func _on_body_exited(body : Node2D) -> void:
-	if not body.is_in_group("player"):
+	if not body.is_in_group("Player"):
 		return
 	player_inside = false
 	player_body = null
