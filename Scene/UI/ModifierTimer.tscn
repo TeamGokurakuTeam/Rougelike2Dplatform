@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cuc66hry0j4hn"]
+
+[ext_resource type="Script" uid="uid://ba3ijvw3ximb2" path="res://Scene/UI/modifier_timer.gd" id="1_n031n"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="2_qhv11"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e7jts"]
+font = ExtResource("2_qhv11")
+
+[node name="ModifierTimer" type="Control" unique_id=1389695203]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n031n")
+
+[node name="Label" type="Label" parent="." unique_id=1842799154]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 2.0
+offset_right = 493.0
+offset_bottom = 25.0
+text = "Time:"
+label_settings = SubResource("LabelSettings_e7jts")
+
+[node name="second" type="Label" parent="." unique_id=376998153]
+layout_mode = 0
+offset_left = 484.0
+offset_right = 529.0
+offset_bottom = 23.0
+text = "100.0"
+label_settings = SubResource("LabelSettings_e7jts")
+horizontal_alignment = 1
+vertical_alignment = 1

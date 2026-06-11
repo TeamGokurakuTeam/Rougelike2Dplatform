@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://5ujllemb1cp"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_mx5wu"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_ieup5"]
+
+[resource]
+script = ExtResource("1_mx5wu")
+texture = ExtResource("2_ieup5")
+modifier_id = "Afterimage"
+modifier_name = "残影な"
+color_rarity = Color(0.77254903, 0.85882354, 0, 1)
+explanation = "剣を1度振るごとに２回斬る"
