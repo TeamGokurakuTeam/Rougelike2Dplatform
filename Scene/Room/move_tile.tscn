@@ -41,3 +41,8 @@ one_way_collision = true
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_24yck")
 debug_color = Color(5.390644e-06, 0.64565897, 0.2619926, 0.41960785)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1507952156]
+scale = Vector2(10, 10)
+points = PackedVector2Array(0, 0)
+default_color = Color(1, 1, 1, 0)

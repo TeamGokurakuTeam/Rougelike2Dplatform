@@ -34,6 +34,8 @@ var jump_pressed_frame : int = 0
 var external_velocity : Vector2 = Vector2.ZERO
 var external_friction := 500.0
 
+
+
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
 signal applied_modifier(player : Player)
