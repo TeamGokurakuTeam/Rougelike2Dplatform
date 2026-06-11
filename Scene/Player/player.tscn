@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bxnsgbmwkuyuk" path="res://Assets/Player/HarleChanIdle.png" id="3_88wa8"]
 [ext_resource type="PackedScene" uid="uid://cfh10dk73ugy0" path="res://Component/pickup_component.tscn" id="3_ivevv"]
 [ext_resource type="Texture2D" uid="uid://dqppxvvyli88o" path="res://Assets/Player/HarleChanWalk.png" id="4_jd8gp"]
+[ext_resource type="Texture2D" uid="uid://ba4swwx5dir3o" path="res://Assets/Particle/32x32_Impact_6.png" id="6_jd8gp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewflj"]
 atlas = ExtResource("3_88wa8")
@@ -194,7 +195,7 @@ size = Vector2(24, 23)
 size = Vector2(14, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6jsd"]
-size = Vector2(12, 21)
+size = Vector2(8, 21)
 
 [sub_resource type="Animation" id="Animation_58ae2"]
 resource_name = "Idle"
@@ -290,7 +291,37 @@ _data = {
 &"Walk": SubResource("Animation_ikn3s")
 }
 
+[sub_resource type="Gradient" id="Gradient_ewflj"]
+offsets = PackedFloat32Array(0, 0.8423913)
+colors = PackedColorArray(1, 1, 0.63743347, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2x3rd"]
+gradient = SubResource("Gradient_ewflj")
+
+[sub_resource type="Curve" id="Curve_usf6g"]
+_data = [Vector2(0, 1), 0.0, -0.44536173, 0, 0, Vector2(1, 0), -2.784723, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_b00hk"]
+curve = SubResource("Curve_usf6g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_88wa8"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+angular_velocity_min = -180.00002
+angular_velocity_max = 179.99998
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 18.589998
+scale_min = 0.19999999
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_b00hk")
+color_ramp = SubResource("GradientTexture1D_2x3rd")
+
 [node name="Player" unique_id=1094349948 groups=["Player"] instance=ExtResource("1_xa75v")]
+z_index = 1
 collision_layer = 1
 collision_mask = 129
 script = ExtResource("2_58ae2")
@@ -299,8 +330,12 @@ defense_power = 10.0
 critical_chance = 0.0
 critical_damage = 0.0
 luck = 0.0
-friction = 0.3
+dash_acceleration = 80
+dodgeroll_acceleration = 45
+dodgeroll_time = 0.5
+just_dodgeroll_time = 0.09
 jump_velocity = -400.0
+acceleration = 20
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 position = Vector2(-1.9073486e-06, 0)
@@ -336,10 +371,37 @@ shape = SubResource("RectangleShape2D_r6jsd")
 wait_time = 0.25
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8" unique_id=1634371556]
+[node name="GhostTimer" type="Timer" parent="." index="8" unique_id=3008633]
+wait_time = 0.08
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9" unique_id=1634371556]
 libraries/ = SubResource("AnimationLibrary_r6jsd")
+
+[node name="DodgeRollCoolDownTimer" type="Timer" parent="." index="10" unique_id=1273912296]
+wait_time = 2.0
+one_shot = true
+
+[node name="DodgeRollingTimer" type="Timer" parent="." index="11" unique_id=1435531217]
+
+[node name="CounterTimer" type="Timer" parent="." index="12" unique_id=1821045109]
+wait_time = 2.0
+one_shot = true
+
+[node name="Parry" type="GPUParticles2D" parent="." index="13" unique_id=1435189356]
+modulate = Color(4.415934, 4.415934, 4.415934, 1)
+z_index = 1
+emitting = false
+amount = 45
+texture = ExtResource("6_jd8gp")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.75
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_88wa8")
 
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="DodgeRollingTimer" to="." method="_on_dodge_rolling_timer_timeout"]
 
 [editable path="PickupComponent"]

@@ -181,6 +181,72 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_ylik5"]
+resource_name = "CounterAttack"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Hitbox:damage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707964, 1.5707964, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.099999994, 0.13333333, 0.16666666, 0.2, 0.23333333, 0.26666665, 0.3, 0.40000004, 0.43333337, 0.4666667, 0.50000006, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.8, 1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-26.449125, 0), Vector2(-42.51009, 0), Vector2(-51.34242, 0), Vector2(-55.531197, 0), Vector2(-57.087025, 0), Vector2(-57.446064, 0), Vector2(-57.47, 0), Vector2(-57.47, 0), Vector2(-56.99496, 0), Vector2(-55.555256, 0), Vector2(-53.10482, 0), Vector2(-49.558136, 0), Vector2(-44.773228, 0), Vector2(-38.516, 0), Vector2(-30.379313, 0), Vector2(-19.561989, 0), Vector2(-4.009266, 0), Vector2(53.97, 0), Vector2(53.97, 0), Vector2(37.3, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.16666667, 1.2, 1.2333333, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false, true, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"dash"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_pjbhm"]
 length = 0.001
 tracks/0/type = "value"
@@ -473,7 +539,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [25.0]
+"values": [5.0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -492,6 +558,7 @@ tracks/9/keys = {
 _data = {
 &"Attack": SubResource("Animation_6ejhd"),
 &"Charge": SubResource("Animation_opn06"),
+&"CounterAttack": SubResource("Animation_ylik5"),
 &"RESET": SubResource("Animation_pjbhm"),
 &"StrongAttack": SubResource("Animation_cog27")
 }
@@ -506,6 +573,7 @@ texture = ExtResource("2_srm4q")
 
 [node name="Hitbox" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="1" unique_id=1964246491]
 damage = 20.0
+knockback_force = 50.0
 
 [node name="CollisionShape2D2" parent="Root/Hitbox" index="1" unique_id=722522530]
 position = Vector2(0, 47)
