@@ -331,11 +331,12 @@ critical_chance = 0.0
 critical_damage = 0.0
 luck = 0.0
 dash_acceleration = 80
-dodgeroll_acceleration = 45
-dodgeroll_time = 0.5
+dodgeroll_acceleration = 65
+dodgeroll_time = 0.3
 just_dodgeroll_time = 0.09
+friction = 0.3
 jump_velocity = -400.0
-acceleration = 20
+max_speed = 250.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 position = Vector2(-1.9073486e-06, 0)
@@ -372,7 +373,7 @@ wait_time = 0.25
 one_shot = true
 
 [node name="GhostTimer" type="Timer" parent="." index="8" unique_id=3008633]
-wait_time = 0.08
+wait_time = 0.06
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9" unique_id=1634371556]
 libraries/ = SubResource("AnimationLibrary_r6jsd")
