@@ -44,6 +44,14 @@ position = Vector2(280, 320)
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("3_nvhlt")]
 position = Vector2(16, 48)
+dir = 3
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door" index="3" unique_id=1355670498]
+position = Vector2(23, 8)
 
 [node name="Door2" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="1" unique_id=1400446994 instance=ExtResource("3_nvhlt")]
 position = Vector2(320, 48)
+dir = 4
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="3" unique_id=930331554]
+position = Vector2(-39, 7)

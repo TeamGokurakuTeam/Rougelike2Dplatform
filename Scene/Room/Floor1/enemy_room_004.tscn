@@ -20,9 +20,17 @@ tile_map_data = PackedByteArray("AAAIACMAAAADAA4AAAAJACMAAAAEAA4AAAAEABMAAAAEAA0
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("2_isv3k")]
 position = Vector2(16, 288)
+dir = 3
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door" index="3" unique_id=1285149047]
+position = Vector2(25, 5)
 
 [node name="Door2" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="1" unique_id=57798199 instance=ExtResource("2_isv3k")]
 position = Vector2(688, 338)
+dir = 4
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="3" unique_id=1866473318]
+position = Vector2(-41, 9)
 
 [node name="OneWay" parent="." index="2" unique_id=610867179 instance=ExtResource("3_swvev")]
 position = Vector2(728, 304)
