@@ -75,12 +75,12 @@ func _process(delta: float) -> void:
 		#マウスの方向が左側にあったら
 		animated_sprite_2d.flip_h = true
 
-
-
-
 func _physics_process(delta: float) -> void:
 	#慣性
 	_get_input()
+	if floor_motion.x != 0:
+		if move_direction.x != 0:
+			move_direction.x = sign(move_direction.x)
 	super(delta)
 	if floor_motion != Vector2.ZERO:
 		global_position += floor_motion
