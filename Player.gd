@@ -14,6 +14,8 @@ class_name Player
 @export var critical_damage : float = .0
 @export var luck : float = .0
 
+
+
 var weapon_resource_ids : Array[String] = []
 #アイテムとしての武器の配列
 
@@ -35,6 +37,10 @@ var external_velocity : Vector2 = Vector2.ZERO
 var external_friction := 500.0
 #慣性
 var floor_motion: Vector2 = Vector2.ZERO
+#凍結ダメージ
+var dot_damage_per_second: float = 0.0
+var dot_timer: float = 0.0 
+var original_color: Color = Color.WHITE 
 
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
@@ -54,8 +60,9 @@ func _physics_process(delta: float) -> void:
 	#慣性
 	_get_input()
 	if floor_motion.x != 0:
-		if move_direction.x != 0:
-			move_direction.x = sign(move_direction.x)
+		pass
+		#if move_direction.x != 0:
+			#move_direction.x = sign(move_direction.x)
 	super(delta)
 	if floor_motion != Vector2.ZERO:
 		global_position += floor_motion
@@ -78,12 +85,25 @@ func _physics_process(delta: float) -> void:
 	#Fan
 	velocity += external_velocity
 	external_velocity = external_velocity.move_toward(Vector2.ZERO, external_friction * delta)
+	#凍結ダメージ
+	if dot_timer > 0:
+		dot_timer -= delta
+		var hp_component: HPComponent = $HPComponent
+		hp_component.hp -= dot_damage_per_second * delta
+		if dot_timer <= 0:
+			animated_sprite_2d.modulate = original_color
 
 func external_bounce_jump(power: float) -> void:
 	velocity.y = -power
 #Fan
 func add_external_force(force: Vector2) -> void:
 	external_velocity += force
+#凍結
+func apply_dot(dps: float, duration: float) -> void:
+	dot_damage_per_second = dps
+	dot_timer = duration
+	original_color = animated_sprite_2d.modulate
+	animated_sprite_2d.modulate = Color(0.2,0.8,2.0)
 
 func _get_input() -> void:
 	#移動方向の初期化

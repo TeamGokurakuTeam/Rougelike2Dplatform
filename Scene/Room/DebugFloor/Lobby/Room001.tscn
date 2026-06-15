@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://b52pjp0l061t6" path="res://Resource/Modifier/Leap.tres" id="8_6j1b4"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="8_x8lb8"]
 [ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="9_6j1b4"]
-[ext_resource type="PackedScene" uid="uid://dofccvw7xhhbj" path="res://Scene/Room/spike.tscn" id="11_f760l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -339,6 +338,3 @@ modifier = ExtResource("9_6j1b4")
 [node name="DropModifier3" parent="." unique_id=1967184069 instance=ExtResource("5_shxa2")]
 position = Vector2(407, 316)
 modifier = ExtResource("8_x8lb8")
-
-[node name="Spike" parent="." unique_id=2129174175 instance=ExtResource("11_f760l")]
-position = Vector2(411, 270)

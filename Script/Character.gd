@@ -4,7 +4,7 @@ class_name Character
 @export var friction : float = .15 ##摩擦力または抵抗力
 
 @export var jump_velocity : float = -600
-@export var max_speed : float = 200 
+@export var max_speed : float = 200
 @export var speed : float = 20 : set = _set_speed
 @export var hp_component: HPComponent
 @export var accerelation : int = 30 #加速度
@@ -18,11 +18,11 @@ func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, .0, friction)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	move()
+	move(delta) #
 	move_and_slide()
 	#lerpは線形補間、移動速度を補間している
 
-func move() -> void:
+func move(delta : float) -> void:
 	move_direction = move_direction.normalized() #移動する方向を0~1(正規化)している
 	velocity.x += move_direction.x * accerelation #動く方向にスピードをかけている
 	#velocity = velocity.limit_length(max_speed) #最大速度の設定
