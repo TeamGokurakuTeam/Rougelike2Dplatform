@@ -839,3 +839,5 @@ tile_set = SubResource("TileSet_3gcdb")
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Doors" type="Node2D" parent="." unique_id=622901157]
+
+[node name="EnemySpawnPoints" type="Node2D" parent="." unique_id=1286384951]
