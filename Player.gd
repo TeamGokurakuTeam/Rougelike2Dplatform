@@ -78,10 +78,6 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	#慣性
 	_get_input()
-	if floor_motion.x != 0:
-		pass
-		#if move_direction.x != 0:
-			#move_direction.x = sign(move_direction.x)
 	super(delta)
 	if floor_motion != Vector2.ZERO:
 		global_position += floor_motion
@@ -191,9 +187,6 @@ func _get_input() -> void:
 			update_weapon()
 			break
 
-
-
-
 func update_weapon() -> void:
 	if current_weapon == -1:
 		for node in inventory.get_children():
@@ -222,7 +215,6 @@ func merge_weapon(target_res_id : String) -> void:
 
 #Spikeダメージ
 func take_damage(amount : float) -> void:
-	var hp_component: HPComponent = $HPComponent
 	hp_component.hp -= amount
 
 func _on_hp_component_is_dead() -> void:
