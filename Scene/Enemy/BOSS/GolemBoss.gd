@@ -4,7 +4,7 @@ class_name GolemBoss
 @export var dash_speed : float = 200
 @export var can_move : bool = true
 
-var max_degree : float = 20
+var max_degree : float = 30
 var angle_acceleration : float = 30
 var player : Player
 
