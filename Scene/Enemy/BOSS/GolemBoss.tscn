@@ -481,7 +481,7 @@ radius = 56.0803
 
 [sub_resource type="Animation" id="Animation_k05o4"]
 resource_name = "Attack"
-length = 2.0
+length = 3.2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -502,7 +502,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 0.90000004, 1.1, 1.6, 1.7, 1.8000001, 1.9),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 0.90000004, 2.1, 2.6, 2.6999998, 2.8, 2.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 6, 5, 4, 3, 2, 1, 0]
@@ -514,10 +514,10 @@ tracks/2/path = NodePath("AnimatedSprite2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.5, 0.8, 1.2, 1.7, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.5, 0.8, 0.90000004, 1.2, 1.7, 2, 2.1999998, 2.6999998, 3.0000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.00797249143559364, -0.03188996574237457, -0.07175241329759308, -0.12755986296949828, -0.1953260185208574, -0.25113346338138776, -0.2909959157479811, -0.3149134141116363, -0.3228859, -0.3228859, 0.29670596, 0.29670596, 6.2831855, 6.2831855]
+"values": [0.0, -0.00797249143559364, -0.03188996574237457, -0.07175241329759308, -0.12755986296949828, -0.1953260185208574, -0.25113346338138776, -0.2909959157479811, -0.3149134141116363, -0.3228859, -0.3228859, 0.29670596, 0.29670596, -0.1134464, -0.1134464, 0.29670596, 0.29670596, 6.2831855, 6.2831855]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -550,7 +550,7 @@ tracks/5/path = NodePath(".:can_move")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.90000004, 1, 2),
+"times": PackedFloat32Array(0, 0.90000004, 1, 3.0000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, true, false, false]
@@ -562,7 +562,7 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(1.3),
+"times": PackedFloat32Array(2.2999997),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -576,7 +576,7 @@ tracks/7/path = NodePath("Hitbox/CollisionShape2D2:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6, 0.8, 0.90000004, 2),
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.8, 0.90000004, 3.0000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, true, false, false, true, true]
@@ -588,7 +588,7 @@ tracks/8/path = NodePath("GolemHitbox/CollisionShape2D2:disabled")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1.1, 1.2, 1.7, 1.8000001, 2),
+"times": PackedFloat32Array(0, 1.1, 2.1999998, 2.6999998, 2.8, 3.0000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, true, false, false, true, true]
@@ -1185,7 +1185,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="BulletShotTimer" type="Timer" parent="." index="11" unique_id=124914573]
-wait_time = 0.5
+wait_time = 0.45
 one_shot = true
 
 [connection signal="timeout" from="FlyTimer" to="StateMachine/Fly" method="_on_fly_timer_timeout"]

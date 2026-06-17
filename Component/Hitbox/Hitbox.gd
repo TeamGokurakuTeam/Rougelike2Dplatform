@@ -3,6 +3,7 @@ class_name Hitbox
 
 
 @export var damage : float = 0 : set = _set_damage , get = _get_damage
+@export var damage_multiplier : float = 1.0
 @export var knockback_force : float = 0
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D

@@ -213,6 +213,7 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 		DamageNumber.display_number(damage, global_position, false, Color("ff0000"))
 	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
 		parry_effect.emitting = true
+		is_just_dodgeroll = true
 		counter_timer.start()
 	elif dodge_roll_cool_down_timer.is_stopped():
 		dodge_roll_cool_down_timer.start()
@@ -222,3 +223,6 @@ func _on_dodge_rolling_timer_timeout() -> void:
 	is_dodgeroll = false
 	current_acceleration = acceleration
 #endregion
+
+func _on_counter_timer_timeout() -> void:
+	is_just_dodgeroll = false
