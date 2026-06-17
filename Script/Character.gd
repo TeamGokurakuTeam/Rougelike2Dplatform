@@ -4,7 +4,7 @@ class_name Character
 @export var friction : float = .15 ##摩擦力または抵抗力
 
 @export var jump_velocity : float = -600
-@export var max_speed : float = 200 
+@export var max_speed : float = 200
 @export var speed : float = 20 : set = _set_speed
 @export var hp_component: HPComponent
 @export var accerelation : int = 30 #加速度
@@ -38,4 +38,3 @@ func _set_speed(new_speed : float) -> void:
 
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	hp_component.hp -= damage
-	DamageNumber.display_number(damage, global_position, false)

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://p7fm5umwi47k"]
+
+[ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="1_835gv"]
+[ext_resource type="Script" uid="uid://28jtjqc4pkm4" path="res://Scene/Room/MoveTile.gd" id="1_rocg1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rocg1"]
+atlas = ExtResource("1_835gv")
+region = Rect2(0, 132, 80, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24yck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rocg1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rocg1"]
+size = Vector2(48, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24yck"]
+size = Vector2(48, 10)
+
+[node name="MoveTile" type="StaticBody2D" unique_id=971770846]
+script = ExtResource("1_rocg1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1984206051]
+sprite_frames = SubResource("SpriteFrames_24yck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1757281778]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_rocg1")
+one_way_collision = true
+
+[node name="Sensor" type="Area2D" parent="." unique_id=807839081]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sensor" unique_id=1784021326]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_24yck")
+debug_color = Color(5.390644e-06, 0.64565897, 0.2619926, 0.41960785)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1507952156]
+scale = Vector2(10, 10)
+points = PackedVector2Array(0, 0)
+default_color = Color(1, 1, 1, 0)

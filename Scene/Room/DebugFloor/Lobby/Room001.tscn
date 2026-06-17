@@ -3,7 +3,16 @@
 [ext_resource type="Script" uid="uid://muwqwwmrj617" path="res://Scene/Room/Room.gd" id="1_5disr"]
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="1_71uuk"]
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="3_shxa2"]
-[ext_resource type="Resource" uid="uid://bjpx8gbysfdd2" path="res://Resource/Sword/FormSword.tres" id="4_cbjr8"]
+[ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="4_12s50"]
+[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="5_shxa2"]
+[ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="6_ufdrf"]
+[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="7_12s50"]
+[ext_resource type="Resource" uid="uid://b52pjp0l061t6" path="res://Resource/Modifier/Leap.tres" id="8_6j1b4"]
+[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="8_x8lb8"]
+[ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="9_6j1b4"]
+[ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="10_f760l"]
+[ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="12_3n56f"]
+[ext_resource type="PackedScene" uid="uid://esb02rh4pf7m" path="res://Scene/Room/ice_magic.tscn" id="13_kc1u8"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -299,4 +308,44 @@ position = Vector2(72, 8)
 
 [node name="DropItem" parent="." unique_id=931621491 instance=ExtResource("3_shxa2")]
 position = Vector2(256, 278)
-resource = ExtResource("4_cbjr8")
+resource = ExtResource("4_12s50")
+
+[node name="DropModifier" parent="." unique_id=1774769907 instance=ExtResource("5_shxa2")]
+position = Vector2(335, 316)
+modifier = ExtResource("6_ufdrf")
+
+[node name="DropModifier2" parent="." unique_id=224078714 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier4" parent="." unique_id=816030427 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier5" parent="." unique_id=111265253 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier6" parent="." unique_id=53794880 instance=ExtResource("5_shxa2")]
+position = Vector2(371, 316)
+modifier = ExtResource("7_12s50")
+
+[node name="DropModifier7" parent="." unique_id=36712611 instance=ExtResource("5_shxa2")]
+position = Vector2(444, 316)
+modifier = ExtResource("8_6j1b4")
+
+[node name="DropModifier8" parent="." unique_id=1495226569 instance=ExtResource("5_shxa2")]
+position = Vector2(479, 316)
+modifier = ExtResource("9_6j1b4")
+
+[node name="DropModifier9" parent="." unique_id=641417715 instance=ExtResource("5_shxa2")]
+position = Vector2(176, 316)
+modifier = ExtResource("10_f760l")
+
+[node name="DropModifier3" parent="." unique_id=1967184069 instance=ExtResource("5_shxa2")]
+position = Vector2(407, 316)
+modifier = ExtResource("8_x8lb8")
+
+[node name="Launcher" parent="." unique_id=1827001644 instance=ExtResource("12_3n56f")]
+position = Vector2(45, 320)
+projectile_scene = ExtResource("13_kc1u8")
