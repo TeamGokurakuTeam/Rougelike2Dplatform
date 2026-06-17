@@ -18,11 +18,11 @@ func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, .0, friction)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	move(delta) #
+	move()
 	move_and_slide()
 	#lerpは線形補間、移動速度を補間している
 
-func move(delta : float) -> void:
+func move() -> void:
 	move_direction = move_direction.normalized() #移動する方向を0~1(正規化)している
 	velocity.x += move_direction.x * accerelation #動く方向にスピードをかけている
 	#velocity = velocity.limit_length(max_speed) #最大速度の設定

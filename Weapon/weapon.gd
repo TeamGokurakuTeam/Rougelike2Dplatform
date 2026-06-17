@@ -4,7 +4,6 @@ class_name Weapon
 const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 
 
-
 @export var resource_id : String
 
 @export_category("ステータス")
@@ -28,6 +27,8 @@ var modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
 
 var base_stats : Array[HitboxStat] = []
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -72,8 +73,6 @@ func _process(delta: float) -> void:
 				#scale.y = 1
 
 
-
-
 func add_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
 		modifiers_ids[id] += count
@@ -90,6 +89,7 @@ func reset_modifier() -> void:
 func _physics_process(delta: float) -> void:
 	pass
 
+
 func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("Bloodletting"):
 		bloodletting(mouse_direction, offset_length)
@@ -99,9 +99,10 @@ func attack_trigger_modifier() -> void:
 #残影な(Afterimage)
 	if modifiers_ids.has("Afterimage"):
 		afterimage_slash()
-#
-	
-	
+#反撃な（Reversal）
+	if modifiers_ids.has("Reversal"):
+		reversal_up()
+
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -114,11 +115,21 @@ func afterimage_slash() -> void:
 		slash.set_opacity(0.9)
 	get_tree().root.add_child(slash)
 
-func leap_forward() -> void:
+func leap_forward() -> void: 
 	if player == null:
 		return
 	var leap_power := 300.0 #跳躍の数値
 	player.velocity += mouse_direction * leap_power
+#反撃な
+func reversal_up() -> void:
+	var current_hp := player.hp_component.hp
+	var max_hp := player.hp_component.max_hp
+	current_hp = max(current_hp, 1)
+	var multiplier := pow(float(max_hp) / float(current_hp), 1.5)
+	for i in hitboxes.size():
+		var new_damage := base_stats[i].damage * multiplier
+		hitboxes[i].damage = base_stats[i].damage * multiplier
+
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	if player.hp_component.hp > 10:
