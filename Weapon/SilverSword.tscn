@@ -3,10 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_ut1te"]
 [ext_resource type="Texture2D" uid="uid://ctragr7dov227" path="res://Assets/Weapon/swords/tile014.png" id="2_yum6c"]
 [ext_resource type="Texture2D" uid="uid://cp8sj38qiol27" path="res://Assets/Weapon/Effect/WeaponEffect/25.png" id="3_horw5"]
+[ext_resource type="AudioStream" uid="uid://b73ml3ifqp014" path="res://Assets/SoundEffect/チャージ完了.mp3" id="3_ycb8v"]
+[ext_resource type="Texture2D" uid="uid://5futa8f7kict" path="res://Assets/Particle/2.png" id="4_gjlbc"]
 [ext_resource type="Texture2D" uid="uid://ci7ug1v3u3oxe" path="res://Assets/Weapon/Effect/WeaponEffect/30.png" id="4_ycb8v"]
+[ext_resource type="Material" uid="uid://d2b7yscsepnje" path="res://Weapon/New/Charge.tres" id="5_tip51"]
+[ext_resource type="Texture2D" uid="uid://c5p1jklge4fo6" path="res://Assets/Weapon/Effect/WeaponEffect/sprite-sheet.png" id="8_gjlbc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjlbc"]
-size = Vector2(9, 59.12742)
+size = Vector2(9, 43.731304)
 
 [sub_resource type="Animation" id="Animation_tip51"]
 resource_name = "Attack"
@@ -111,6 +115,43 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_2bg5t"]
 resource_name = "Charge"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChargeParticle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9000001, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Charge:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_oks0n"]
 length = 0.001
@@ -210,9 +251,166 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ChargeParticle:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Root/Sprite2D:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Charge:stream")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ycb8v")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Root:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("StrongAttackEffect:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("StrongAttackEffect:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_imffo"]
 resource_name = "StrongAttack"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333337, 0.4666667, 0.5, 0.53333336, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4.333, 6), Vector2(-4.667, 10), Vector2(-5, 0), Vector2(-10, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.13333334, 0.16666667, 0.2, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 3.6651914, 3.665297818288576, 3.6668939130365237, 3.673810321193085, 3.6924314290036886, 3.7316953391801206, 3.8030939595086757, 3.920672902396433, 4.101031684478329, 4.363323, 4.222581174370012, 3.7366662121052396, 1.9032586560515856, 0.0681520832986493, -0.4177631723299662, -0.55850536, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Sprite2D:rotation")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.7853982, -0.7853982, 0.7853982, 0.7853982]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Sprite2D:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.39722443, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StrongAttackEffect:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.40000004, 0.43333337, 0.4666667, 0.5, 0.53333336, 0.5666667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StrongAttackEffect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4, 0.6333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Root/Hitbox/CollisionShape2D2:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.40000004, 0.6, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2tcue"]
 _data = {
@@ -225,23 +423,26 @@ _data = {
 [node name="Weapon" unique_id=1591556401 instance=ExtResource("1_ut1te")]
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
-position = Vector2(-2.62, -35.275)
+position = Vector2(1, -28)
 rotation = 0.82030475
 texture = ExtResource("2_yum6c")
 
 [node name="CollisionShape2D2" parent="Root/Hitbox" parent_id_path=PackedInt32Array(1964246491) index="1" unique_id=722522530]
-position = Vector2(-2, 32.56371)
+position = Vector2(-1.9999981, 40.261765)
 shape = SubResource("RectangleShape2D_gjlbc")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]
 libraries/ = SubResource("AnimationLibrary_2tcue")
 
 [node name="ChargeParticle" parent="." index="2" unique_id=359079536]
-position = Vector2(-1, -7)
+position = Vector2(1, -45)
+emitting = false
+texture = ExtResource("4_gjlbc")
+process_material = ExtResource("5_tip51")
 
 [node name="AttackEffect" type="Sprite2D" parent="." index="5" unique_id=243103509]
 position = Vector2(44, 0)
-scale = Vector2(2, 2)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("3_horw5")
 hframes = 40
 vframes = 2
@@ -254,3 +455,10 @@ texture = ExtResource("4_ycb8v")
 hframes = 40
 vframes = 2
 frame = 70
+
+[node name="StrongAttackEffect" type="Sprite2D" parent="." index="7" unique_id=1331402457]
+texture_filter = 1
+texture = ExtResource("8_gjlbc")
+offset = Vector2(20, 0)
+hframes = 5
+vframes = 2
