@@ -167,7 +167,6 @@ func update_weapon() -> void:
 
 func update_modifier() -> void:
 	current_modifier += 1
-	print("current_modifier : ", current_modifier)
 	pickup_modifier.emit(self)
 
 func merge_weapon(target_res_id : String) -> void:
@@ -218,8 +217,6 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	elif dodge_roll_cool_down_timer.is_stopped():
 		dodge_roll_cool_down_timer.start()
 		counter_timer.start()
-	print(dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time))
-	print(dodge_rolling_timer.time_left, "  ", dodge_rolling_timer.wait_time - just_dodgeroll_time)
 
 func _on_dodge_rolling_timer_timeout() -> void:
 	is_dodgeroll = false

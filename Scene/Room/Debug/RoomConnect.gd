@@ -72,8 +72,6 @@ func room_generate() -> void:
 		if room_data[1][0]:
 			lobby_room = room_data[1][0] as Room
 			
-		
-		print(room_data)
 
 ## Called when the node enters the scene tree for the first time.
 #func _ready() -> void:

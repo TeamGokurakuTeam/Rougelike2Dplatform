@@ -32,5 +32,3 @@ func _on_body_entered(body: Node2D) -> void:
 		character.mod_resource_ids.append(drop_modifier.modifier.modifier_id)
 		character.update_modifier()
 		body.queue_free()
-		
-		print((character.mod_resource_ids))
