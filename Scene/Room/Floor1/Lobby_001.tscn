@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_lhnps"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_fgpll"]
+[ext_resource type="Resource" uid="uid://ddw6jksv1chng" path="res://Resource/Sword/EternalSword.tres" id="4_nwjdp"]
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="4_tomr8"]
-[ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="5_nwjdp"]
-[ext_resource type="PackedScene" uid="uid://bthj1ytrgopek" path="res://Scene/Enemy/boss.tscn" id="5_tomr8"]
+[ext_resource type="PackedScene" uid="uid://bthj1ytrgopek" path="res://Scene/Enemy/BOSS/GolemBoss.tscn" id="5_tomr8"]
 
 [node name="LobbyRoom001" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_lhnps")]
 can_spawn_enemy = false
@@ -31,7 +31,7 @@ position = Vector2(56, 144)
 
 [node name="DropItem" parent="." index="3" unique_id=931621491 instance=ExtResource("4_tomr8")]
 position = Vector2(258, 155)
-resource = ExtResource("5_nwjdp")
+resource = ExtResource("4_nwjdp")
 
 [node name="GolemBoss" parent="." index="5" unique_id=1094349948 instance=ExtResource("5_tomr8")]
 position = Vector2(323, 116)
