@@ -3,8 +3,6 @@ class_name Weapon
 
 const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 
-
-
 @export var resource_id : String
 
 @export_category("ステータス")
