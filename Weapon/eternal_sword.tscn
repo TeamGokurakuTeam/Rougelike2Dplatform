@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_6m55f"]
 [ext_resource type="Texture2D" uid="uid://cba2on58wibm" path="res://Assets/Weapon/エターナルソード.png" id="2_2i581"]
+[ext_resource type="Script" uid="uid://dnahyy0ghq27e" path="res://Weapon/eternal_sword.gd" id="2_jjlr0"]
 [ext_resource type="Script" uid="uid://xchyfr3avu0m" path="res://Component/Hitbox/Hitbox.gd" id="3_0y0d7"]
 [ext_resource type="Texture2D" uid="uid://k7h2x7mmasbp" path="res://Assets/Weapon/Effect/StarVFX/sprite-sheet.png" id="3_2i581"]
 [ext_resource type="Texture2D" uid="uid://5futa8f7kict" path="res://Assets/Particle/2.png" id="4_hjl78"]
@@ -148,10 +149,10 @@ tracks/0/path = NodePath("Root/Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5, 3.3333335, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(18.892157, 18.892157, 18.892157, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.2234871, 2.2234871, 2.2234871, 1), Color(18.892157, 18.892157, 18.892157, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -226,7 +227,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -298,10 +299,54 @@ tracks/0/path = NodePath("Root/Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.70000005, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.36666664, 0.46666664, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"StrongShot"
+}, {
+"args": [],
+"method": &"StrongShot"
+}, {
+"args": [],
+"method": &"StrongShot"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChargeParticle:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.73333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [0.0, 4.415683, 4.415683, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jjlr0"]
@@ -313,6 +358,7 @@ _data = {
 }
 
 [node name="Weapon" unique_id=1591556401 instance=ExtResource("1_6m55f")]
+script = ExtResource("2_jjlr0")
 
 [node name="Root" parent="." index="0" unique_id=1850941881]
 position = Vector2(-4.205, 0)
@@ -329,7 +375,6 @@ damage = 3.0
 position = Vector2(-30.999996, 51.999992)
 rotation = -0.9710978
 shape = SubResource("CapsuleShape2D_0y0d7")
-disabled = false
 
 [node name="Hitbox2" type="Area2D" parent="Root" index="2" unique_id=2057420297]
 collision_layer = 4
@@ -348,7 +393,7 @@ debug_color = Color(0.9974751, 0, 0.17505756, 0.41960785)
 libraries/ = SubResource("AnimationLibrary_jjlr0")
 
 [node name="ChargeParticle" parent="." index="2" unique_id=359079536]
-position = Vector2(-31, -56)
+position = Vector2(-31, -21.000004)
 scale = Vector2(0.27, 0.27)
 emitting = false
 texture = ExtResource("4_hjl78")
