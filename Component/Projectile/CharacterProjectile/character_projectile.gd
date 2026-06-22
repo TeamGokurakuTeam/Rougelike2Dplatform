@@ -23,8 +23,6 @@ func _physics_process(delta: float) -> void:
 		
 	sprite.rotation = direction.angle()
 	move_and_slide()
-	
-	print(velocity)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	self.queue_free()
