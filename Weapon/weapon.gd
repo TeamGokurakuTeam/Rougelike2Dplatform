@@ -3,6 +3,7 @@ class_name Weapon
 
 const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 
+const PLAYER_RANGESLASH : PackedScene = preload("res://Scene/Player/Projectile/range_slash.tscn")
 
 @export var resource_id : String
 
@@ -27,8 +28,6 @@ var modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
 
 var base_stats : Array[HitboxStat] = []
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -102,7 +101,9 @@ func attack_trigger_modifier() -> void:
 #反撃な（Reversal）
 	if modifiers_ids.has("Reversal"):
 		reversal_up()
-
+#破裂し斬撃する(BurstSlasher)
+	if modifiers_ids.has("Burstslasher"):
+		burst_slash()
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -129,6 +130,14 @@ func reversal_up() -> void:
 	for i in hitboxes.size():
 		var new_damage := base_stats[i].damage * multiplier
 		hitboxes[i].damage = base_stats[i].damage * multiplier
+##破裂し斬撃する(BurstSlasher)
+func burst_slash() -> void:
+	var slash := PLAYER_SLASH.instantiate()
+	slash.direction = mouse_direction.normalized()
+	slash.scale *= 0.5
+	slash.global_position = global_position
+	slash.range_slash_scene = PLAYER_RANGESLASH
+	get_tree().root.add_child(slash)
 
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:

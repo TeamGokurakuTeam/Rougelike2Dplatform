@@ -15,7 +15,6 @@ class_name Player
 @export var luck : float = .0
 
 
-
 var weapon_resource_ids : Array[String] = []
 #アイテムとしての武器の配列
 
@@ -41,6 +40,8 @@ var floor_motion: Vector2 = Vector2.ZERO
 var dot_damage_per_second: float = 0.0
 var dot_timer: float = 0.0 
 var original_color: Color = Color.WHITE 
+
+
 
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
