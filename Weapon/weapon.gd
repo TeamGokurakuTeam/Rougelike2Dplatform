@@ -29,8 +29,6 @@ var mouse_direction : Vector2
 
 var base_stats : Array[HitboxStat] = []
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for node in root.get_children():
