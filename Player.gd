@@ -239,7 +239,6 @@ func _set_current_modifier(new_value : int) -> void:
 #endregion
 
 #region signal
-
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	if not is_dodgeroll:
 		hp_component.hp -= damage
@@ -265,6 +264,3 @@ func _on_ghost_timer_timeout() -> void:
 func _on_hp_component_is_dead() -> void:
 	self.queue_free()
 #endregion
-
-func _on_counter_timer_timeout() -> void:
-	is_just_dodgeroll = false
