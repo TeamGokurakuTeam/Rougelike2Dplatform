@@ -272,7 +272,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vharx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -301,7 +301,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7n4on")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Charge",
 "speed": 5.0
 }, {
@@ -348,7 +348,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5ml8q")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -383,7 +383,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tev7c")
 }],
-"loop": true,
+"loop": 1,
 "name": &"ModeChange",
 "speed": 5.0
 }, {
@@ -400,7 +400,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vjqek")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Move",
 "speed": 5.0
 }, {
@@ -429,7 +429,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ruwle")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Rock",
 "speed": 5.0
 }, {
@@ -461,7 +461,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6fe4o")
 }],
-"loop": true,
+"loop": 1,
 "name": &"ShotArm",
 "speed": 5.0
 }]

@@ -7,6 +7,8 @@ class_name EnemySpawnPoint
 
 signal enemy_summoned(enemy : Enemy)
 
+var main_game_node : MainGame
+
 func _summon() -> void:
 	if is_random:
 		enemys.shuffle()
@@ -16,3 +18,4 @@ func _summon() -> void:
 	var enemy : Enemy = enemys[0].instantiate()
 	add_child(enemy)
 	enemy_summoned.emit(enemy)
+	enemy.main_game_node = self.main_game_node

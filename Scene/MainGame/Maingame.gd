@@ -4,8 +4,10 @@ class_name MainGame
 @onready var player_ui: GameUI = $PlayerUI
 @onready var player: Player = $Player
 @onready var room_generator: RoomGenerator = $RoomGenerator
+@onready var camera_2d: Camera = $Camera2D
 
 func _ready() -> void:
+	room_generator.main_game_node = self
 	room_generator.room_generate()
 	player.global_position = room_generator.lobby_room.player_marker.global_position
 	player_ui.player = player
