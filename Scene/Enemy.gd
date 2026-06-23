@@ -11,6 +11,7 @@ const DROP_MODIFIER = preload("uid://b47iwp7p6b4wk")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if velocity.x > 0 and sprite.flip_h:

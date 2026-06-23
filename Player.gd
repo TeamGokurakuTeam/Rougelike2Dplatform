@@ -44,6 +44,17 @@ var fall_timer : float = 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
 
+#Fan
+var external_velocity : Vector2 = Vector2.ZERO
+var external_friction := 500.0
+#慣性
+var floor_motion: Vector2 = Vector2.ZERO
+#凍結ダメージ
+var dot_damage_per_second: float = 0.0
+var dot_timer: float = 0.0 
+var original_color: Color = Color.WHITE 
+
+
 var is_dodgeroll : bool = false
 var dodgeroll_dir : Vector2 = Vector2.ZERO
 var is_just_dodgeroll : bool = false
@@ -64,8 +75,13 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 
 func _physics_process(delta: float) -> void:
-	super(delta)
+	#慣性
 	_get_input()
+	super(delta)
+	if floor_motion != Vector2.ZERO:
+		global_position += floor_motion
+	floor_motion = Vector2.ZERO
+	
 	if fall_timer > 0:
 		fall_timer -= delta
 		if fall_timer <= 0:
@@ -75,15 +91,32 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 	if jump_pressed_frame > 0:
 		jump_pressed_frame -= 1
-	
 	#歩き
 	if abs(velocity.x) > 0.8:
 		animation_player.play("Walk")
 	else:
 		animation_player.play("Idle")
+	#Fan
+	velocity += external_velocity
+	external_velocity = external_velocity.move_toward(Vector2.ZERO, external_friction * delta)
+	#凍結ダメージ
+	if dot_timer > 0:
+		dot_timer -= delta
+		hp_component.hp -= dot_damage_per_second * delta
+		if dot_timer <= 0:
+			animated_sprite_2d.modulate = original_color
 
 func external_bounce_jump(power: float) -> void:
 	velocity.y = -power
+#Fan
+func add_external_force(force: Vector2) -> void:
+	external_velocity += force
+#凍結
+func apply_dot(dps: float, duration: float) -> void:
+	dot_damage_per_second = dps
+	dot_timer = duration
+	original_color = animated_sprite_2d.modulate
+	animated_sprite_2d.modulate = Color(0.2,0.8,2.0)
 
 func _get_input() -> void:
 	#移動方向の初期化
@@ -179,6 +212,13 @@ func merge_weapon(target_res_id : String) -> void:
 		weapon_resource_ids.append(target_res.MergeResultWeaponId)
 		merge_weapon(target_res.MergeResultWeaponId)
 
+#Spikeダメージ
+func take_damage(amount : float) -> void:
+	hp_component.hp -= amount
+
+func _on_hp_component_is_dead() -> void:
+	self.queue_free()
+	
 func _dodge_roll_effect() -> void:
 	ghost_effect = GHOST_EFFECT.instantiate()
 	ghost_effect.animated_sprite_2d = self.animated_sprite_2d
@@ -189,6 +229,21 @@ func player_dash() -> void:
 	current_acceleration = dash_acceleration
 	await get_tree().create_timer(0.4).timeout
 	current_acceleration = acceleration
+	
+func _counter_switch() -> void:
+	counter_collision.disabled = !counter_collision.disabled
+
+func _on_ghost_timer_timeout() -> void:
+	_dodge_roll_effect()
+#Spikeダメージ
+func take_damage(amount : float) -> void:
+	hp_component.hp -= amount
+
+func _on_counter_timer_timeout() -> void:
+	_counter_switch()
+
+func _on_hp_component_is_dead() -> void:
+	self.queue_free()
 
 #region setter
 func _set_current_modifier(new_value : int) -> void:
