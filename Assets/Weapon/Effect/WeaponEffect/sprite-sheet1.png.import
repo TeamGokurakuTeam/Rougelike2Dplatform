@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b18pjge2ej56o"
-path="res://.godot/imported/sprite-sheet.png-eb7871e31aae7268cab657c29d197629.ctex"
+uid="uid://c5p1jklge4fo6"
+path="res://.godot/imported/sprite-sheet1.png-89857494964be4c220511c8dc909dc05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Weapon/Effect/WeaponEffect/sprite-sheet.png"
-dest_files=["res://.godot/imported/sprite-sheet.png-eb7871e31aae7268cab657c29d197629.ctex"]
+source_file="res://Assets/Weapon/Effect/WeaponEffect/sprite-sheet1.png"
+dest_files=["res://.godot/imported/sprite-sheet1.png-89857494964be4c220511c8dc909dc05.ctex"]
 
 [params]
 
