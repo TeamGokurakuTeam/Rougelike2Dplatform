@@ -13,7 +13,6 @@ const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 @onready var inventory: Node2D = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D2
-@onready var counter_collision: CollisionShape2D = $CounterDetector/CollisionShape2D
 @onready var hurtbox: Hurtbox = $Hurtbox
 
 @export var max_jump_pressed_frame : int = 5
@@ -220,9 +219,6 @@ func player_dash() -> void:
 	current_acceleration = dash_acceleration
 	await get_tree().create_timer(0.4).timeout
 	current_acceleration = acceleration
-	
-func _counter_switch() -> void:
-	counter_collision.disabled = !counter_collision.disabled
 
 #Spikeダメージ
 func take_damage(amount : float) -> void:
@@ -254,9 +250,6 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 func _on_dodge_rolling_timer_timeout() -> void:
 	is_dodgeroll = false
 	current_acceleration = acceleration
-
-func _on_counter_timer_timeout() -> void:
-	_counter_switch()
 
 func _on_ghost_timer_timeout() -> void:
 	_dodge_roll_effect()
