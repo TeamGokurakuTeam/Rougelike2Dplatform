@@ -2,8 +2,10 @@ extends Node2D
 class_name Weapon
 
 const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
+const CRITICAL_RATE : float = 1.5
+const NORMAL_RATE : float = 1.0
 
-
+const PLAYER_RANGESLASH : PackedScene = preload("res://Scene/Player/Projectile/range_slash.tscn")
 
 @export var resource_id : String
 
@@ -46,9 +48,17 @@ func _process(delta: float) -> void:
 		if animation_player.is_playing() and player.counter_timer.wait_time > 0 and not player.counter_timer.is_stopped():
 			player.counter_timer.stop()
 			animation_player.play("CounterAttack")
+			if player.is_just_dodgeroll:
+				player.is_just_dodgeroll = false
+				for i in hitboxes.size():
+					hitboxes[i].damage_multiplier = CRITICAL_RATE
+			await animation_player.animation_finished
+			for i in hitboxes.size():
+				hitboxes[i].damage_multiplier = NORMAL_RATE
+				
 		elif animation_player.is_playing() and animation_player.current_animation == "Charge":
 			animation_player.play("Attack")
-		elif charge_particle.emitting:
+		elif charge_particle.emitting:	
 			animation_player.play("StrongAttack")
 	
 	mouse_direction = (get_global_mouse_position() - global_position).normalized()
@@ -90,6 +100,7 @@ func reset_modifier() -> void:
 func _physics_process(delta: float) -> void:
 	pass
 
+
 func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("Bloodletting"):
 		bloodletting(mouse_direction, offset_length)
@@ -99,8 +110,12 @@ func attack_trigger_modifier() -> void:
 #残影な(Afterimage)
 	if modifiers_ids.has("Afterimage"):
 		afterimage_slash()
-#
-	
+#反撃な（Reversal）
+	if modifiers_ids.has("Reversal"):
+		reversal_up()
+#破裂し斬撃する(BurstSlasher)
+	if modifiers_ids.has("Burstslasher"):
+		burst_slash()
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -113,11 +128,29 @@ func afterimage_slash() -> void:
 		slash.set_opacity(0.9)
 	get_tree().root.add_child(slash)
 
-func leap_forward() -> void:
+func leap_forward() -> void: 
 	if player == null:
 		return
 	var leap_power := 300.0 #跳躍の数値
 	player.velocity += mouse_direction * leap_power
+#反撃な
+func reversal_up() -> void:
+	var current_hp := player.hp_component.hp
+	var max_hp := player.hp_component.max_hp
+	current_hp = max(current_hp, 1)
+	var multiplier := pow(float(max_hp) / float(current_hp), 1.5)
+	for i in hitboxes.size():
+		var new_damage := base_stats[i].damage * multiplier
+		hitboxes[i].damage = base_stats[i].damage * multiplier
+##破裂し斬撃する(BurstSlasher)
+func burst_slash() -> void:
+	var slash := PLAYER_SLASH.instantiate()
+	slash.direction = mouse_direction.normalized()
+	slash.scale *= 0.5
+	slash.global_position = global_position
+	slash.range_slash_scene = PLAYER_RANGESLASH
+	get_tree().root.add_child(slash)
+
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	if player.hp_component.hp > 10:

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dncht7rhcx5dc" path="res://Player.gd" id="2_58ae2"]
 [ext_resource type="Texture2D" uid="uid://bxnsgbmwkuyuk" path="res://Assets/Player/HarleChanIdle.png" id="3_88wa8"]
 [ext_resource type="PackedScene" uid="uid://cfh10dk73ugy0" path="res://Component/pickup_component.tscn" id="3_ivevv"]
+[ext_resource type="Texture2D" uid="uid://b3hxjbeen08mq" path="res://Assets/Player/27.png" id="4_ewflj"]
 [ext_resource type="Texture2D" uid="uid://dqppxvvyli88o" path="res://Assets/Player/HarleChanWalk.png" id="4_jd8gp"]
 [ext_resource type="Texture2D" uid="uid://ba4swwx5dir3o" path="res://Assets/Particle/32x32_Impact_6.png" id="6_jd8gp"]
 
@@ -54,6 +55,26 @@ region = Rect2(132, 45, 33, 45)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfwal"]
 atlas = ExtResource("3_88wa8")
 region = Rect2(165, 45, 33, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikn3s"]
+atlas = ExtResource("4_ewflj")
+region = Rect2(0, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4te7"]
+atlas = ExtResource("4_ewflj")
+region = Rect2(33, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_251m6"]
+atlas = ExtResource("4_ewflj")
+region = Rect2(66, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44ib8"]
+atlas = ExtResource("4_ewflj")
+region = Rect2(99, 0, 33, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiuf6"]
+atlas = ExtResource("4_ewflj")
+region = Rect2(132, 0, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxbqa"]
 atlas = ExtResource("4_jd8gp")
@@ -144,6 +165,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikn3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4te7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_251m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44ib8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiuf6")
+}],
+"loop": true,
+"name": &"Jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -331,11 +372,12 @@ critical_chance = 0.0
 critical_damage = 0.0
 luck = 0.0
 dash_acceleration = 80
-dodgeroll_acceleration = 45
-dodgeroll_time = 0.5
+dodgeroll_acceleration = 65
+dodgeroll_time = 0.3
 just_dodgeroll_time = 0.09
+friction = 0.3
 jump_velocity = -400.0
-acceleration = 20
+max_speed = 250.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 position = Vector2(-1.9073486e-06, 0)
@@ -372,7 +414,7 @@ wait_time = 0.25
 one_shot = true
 
 [node name="GhostTimer" type="Timer" parent="." index="8" unique_id=3008633]
-wait_time = 0.08
+wait_time = 0.06
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9" unique_id=1634371556]
 libraries/ = SubResource("AnimationLibrary_r6jsd")
@@ -384,7 +426,6 @@ one_shot = true
 [node name="DodgeRollingTimer" type="Timer" parent="." index="11" unique_id=1435531217]
 
 [node name="CounterTimer" type="Timer" parent="." index="12" unique_id=1821045109]
-wait_time = 2.0
 one_shot = true
 
 [node name="Parry" type="GPUParticles2D" parent="." index="13" unique_id=1435189356]
@@ -403,5 +444,6 @@ process_material = SubResource("ParticleProcessMaterial_88wa8")
 [connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="DodgeRollingTimer" to="." method="_on_dodge_rolling_timer_timeout"]
+[connection signal="timeout" from="CounterTimer" to="." method="_on_counter_timer_timeout"]
 
 [editable path="PickupComponent"]

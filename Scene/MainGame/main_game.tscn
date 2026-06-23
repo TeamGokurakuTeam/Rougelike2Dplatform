@@ -19,6 +19,7 @@ script = ExtResource("1_4nic5")
 position = Vector2(184, 263)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
+position = Vector2(0, -38)
 remote_path = NodePath("../../Camera2D")
 
 [node name="Stage" type="AudioStreamPlayer" parent="." unique_id=1112841277]
@@ -27,7 +28,7 @@ volume_db = -20.0
 autoplay = true
 
 [node name="Camera2D" parent="." unique_id=1883637712 instance=ExtResource("5_88yfh")]
-position = Vector2(184, 263)
+position = Vector2(184, 225)
 
 [editable path="PlayerUI"]
 [editable path="PlayerUI/PlayerHpUI"]

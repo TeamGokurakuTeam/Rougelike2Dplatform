@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_n7drq"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="2_5k6l3"]
 [ext_resource type="PackedScene" uid="uid://b3ys5ty8jofad" path="res://Scene/Room/bounce_pad.tscn" id="3_1n3ns"]
+[ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="4_vp7m2"]
+[ext_resource type="PackedScene" uid="uid://esb02rh4pf7m" path="res://Scene/Room/ice_magic.tscn" id="5_r7idn"]
 
 [node name="Room007" unique_id=423967005 node_paths=PackedStringArray("StartPoint", "ExitPoint") instance=ExtResource("1_n7drq")]
 StartPoint = NodePath("StartPoint")
@@ -28,3 +30,8 @@ position = Vector2(695, 398)
 
 [node name="BouncePad" parent="." index="4" unique_id=1611631856 instance=ExtResource("3_1n3ns")]
 position = Vector2(467, 467)
+
+[node name="Launcher" parent="." index="5" unique_id=1827001644 instance=ExtResource("4_vp7m2")]
+position = Vector2(866, 468)
+projectile_scene = ExtResource("5_r7idn")
+shoot_direction = Vector2(-1, 0)

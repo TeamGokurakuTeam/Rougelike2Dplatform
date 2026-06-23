@@ -7,6 +7,7 @@ class_name Character
 @export var max_speed : float = 200 
 @export var hp_component: HPComponent
 @export var acceleration : int = 30 #加速度
+@export var is_fly : bool = false
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
@@ -18,7 +19,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity.x = lerp(velocity.x, .0, friction)
-	if not is_on_floor():
+	if not is_on_floor() and not is_fly:
 		velocity += get_gravity() * delta
 	move()
 	move_and_slide()

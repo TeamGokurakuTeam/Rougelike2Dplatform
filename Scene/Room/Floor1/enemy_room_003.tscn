@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_ytcsd"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="2_tvl2l"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="3_nvhlt"]
+[ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_i2lgo"]
+[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/mushroom.tscn" id="5_7t78i"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_ytcsd")]
 
@@ -44,6 +46,26 @@ position = Vector2(280, 320)
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("3_nvhlt")]
 position = Vector2(16, 48)
+dir = 3
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door" index="3" unique_id=1355670498]
+position = Vector2(23, 8)
 
 [node name="Door2" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="1" unique_id=1400446994 instance=ExtResource("3_nvhlt")]
 position = Vector2(320, 48)
+dir = 4
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="3" unique_id=930331554]
+position = Vector2(-39, 7)
+
+[node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("4_i2lgo")]
+position = Vector2(176, 208)
+enemys = Array[PackedScene]([ExtResource("5_7t78i")])
+
+[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=2130010724 instance=ExtResource("4_i2lgo")]
+position = Vector2(176, 368)
+enemys = Array[PackedScene]([ExtResource("5_7t78i")])
+
+[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=778739745 instance=ExtResource("4_i2lgo")]
+position = Vector2(144, 128)
+enemys = Array[PackedScene]([ExtResource("5_7t78i")])

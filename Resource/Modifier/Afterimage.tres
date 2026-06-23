@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_mx5wu")
+ModifierRank = 2
 texture = ExtResource("2_ieup5")
 modifier_id = "Afterimage"
 modifier_name = "残影な"

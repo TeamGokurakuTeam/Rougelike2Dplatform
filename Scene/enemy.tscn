@@ -28,6 +28,7 @@ debug_color = Color(0, 1, 0.69803923, 0.41960785)
 
 [node name="Hitbox" parent="." index="5" unique_id=195243888 groups=["Enemy"] instance=ExtResource("3_s685e")]
 collision_layer = 16
+collision_mask = 8
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1" unique_id=235091233]
 z_index = 1
