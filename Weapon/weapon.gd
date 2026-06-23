@@ -2,6 +2,8 @@ extends Node2D
 class_name Weapon
 
 const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
+const CRITICAL_RATE : float = 1.5
+const NORMAL_RATE : float = 1.0
 
 const PLAYER_RANGESLASH : PackedScene = preload("res://Scene/Player/Projectile/range_slash.tscn")
 
@@ -46,9 +48,17 @@ func _process(delta: float) -> void:
 		if animation_player.is_playing() and player.counter_timer.wait_time > 0 and not player.counter_timer.is_stopped():
 			player.counter_timer.stop()
 			animation_player.play("CounterAttack")
+			if player.is_just_dodgeroll:
+				player.is_just_dodgeroll = false
+				for i in hitboxes.size():
+					hitboxes[i].damage_multiplier = CRITICAL_RATE
+			await animation_player.animation_finished
+			for i in hitboxes.size():
+				hitboxes[i].damage_multiplier = NORMAL_RATE
+				
 		elif animation_player.is_playing() and animation_player.current_animation == "Charge":
 			animation_player.play("Attack")
-		elif charge_particle.emitting:
+		elif charge_particle.emitting:	
 			animation_player.play("StrongAttack")
 	
 	mouse_direction = (get_global_mouse_position() - global_position).normalized()

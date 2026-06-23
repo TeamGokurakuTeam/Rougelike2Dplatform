@@ -13,8 +13,8 @@ var can_shot_bullet : bool = false
 var texture : Texture2D
 var bullet_num : int = 6
 
-var min_angle : float = -45
-var max_angle : float = 45
+var min_angle : float = -25
+var max_angle : float = 25
 var center : Vector2
 
 func _ready() -> void:

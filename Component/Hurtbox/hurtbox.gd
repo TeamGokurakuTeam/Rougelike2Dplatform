@@ -12,7 +12,7 @@ signal recieved_damage(damage : float, knockback_dir : Vector2)
 
 func _apply_damage(hitbox : Hitbox) -> void:
 	if hitbox:
-		recieved_damage.emit(hitbox.damage, hitbox.knockback_force * hitbox.knockback_direction)
+		recieved_damage.emit(hitbox.damage * area.damage_multiplier, hitbox.knockback_force * hitbox.knockback_direction)
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Hitbox:

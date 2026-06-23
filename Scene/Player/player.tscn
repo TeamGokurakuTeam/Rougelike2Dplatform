@@ -426,7 +426,6 @@ one_shot = true
 [node name="DodgeRollingTimer" type="Timer" parent="." index="11" unique_id=1435531217]
 
 [node name="CounterTimer" type="Timer" parent="." index="12" unique_id=1821045109]
-wait_time = 2.0
 one_shot = true
 
 [node name="Parry" type="GPUParticles2D" parent="." index="13" unique_id=1435189356]
@@ -445,5 +444,6 @@ process_material = SubResource("ParticleProcessMaterial_88wa8")
 [connection signal="body_entered" from="PickupComponent" to="PickupComponent" method="_on_body_entered"]
 [connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="DodgeRollingTimer" to="." method="_on_dodge_rolling_timer_timeout"]
+[connection signal="timeout" from="CounterTimer" to="." method="_on_counter_timer_timeout"]
 
 [editable path="PickupComponent"]
