@@ -10,7 +10,6 @@ class_name Launcher
 @onready var fire_point: Marker2D = $FirePoint
 @onready var timer: Timer = $FireTimer
 
-
 func _ready() -> void:
 	timer.wait_time = fire_interval
 	timer.timeout.connect(_shoot)
@@ -19,7 +18,6 @@ func _ready() -> void:
 func _shoot() -> void:
 	if projectile_scene == null:
 		return
-	
 	var bullet = projectile_scene.instantiate()
 	bullet.global_position = fire_point.global_position
 	if "velocity" in bullet:

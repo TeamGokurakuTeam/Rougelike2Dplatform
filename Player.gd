@@ -28,7 +28,6 @@ const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 @export var dodgeroll_time : float = 0.5
 @export var just_dodgeroll_time : float = 0.09
 
-
 var weapon_resource_ids : Array[String] = []
 #アイテムとしての武器の配列
 
@@ -54,7 +53,6 @@ var floor_motion: Vector2 = Vector2.ZERO
 var dot_damage_per_second: float = 0.0
 var dot_timer: float = 0.0 
 var original_color: Color = Color.WHITE 
-
 
 var is_dodgeroll : bool = false
 var dodgeroll_dir : Vector2 = Vector2.ZERO
@@ -171,7 +169,6 @@ func _get_input() -> void:
 			return
 		var weapon : Weapon = inventory.get_child(current_weapon)
 		weapon.add_modifier(mod_resource_ids[current_modifier])
-		#weapon.modifiers_ids.append(mod_resource_ids[current_modifier])
 		mod_resource_ids.remove_at(current_modifier)
 		current_modifier -= 1
 		pickup_modifier.emit(self)
@@ -212,13 +209,6 @@ func merge_weapon(target_res_id : String) -> void:
 		weapon_resource_ids.erase(target_res.Id)
 		weapon_resource_ids.append(target_res.MergeResultWeaponId)
 		merge_weapon(target_res.MergeResultWeaponId)
-
-#Spikeダメージ
-func take_damage(amount : float) -> void:
-	hp_component.hp -= amount
-
-func _on_hp_component_is_dead() -> void:
-	self.queue_free()
 	
 func _dodge_roll_effect() -> void:
 	ghost_effect = GHOST_EFFECT.instantiate()
@@ -234,17 +224,9 @@ func player_dash() -> void:
 func _counter_switch() -> void:
 	counter_collision.disabled = !counter_collision.disabled
 
-func _on_ghost_timer_timeout() -> void:
-	_dodge_roll_effect()
 #Spikeダメージ
 func take_damage(amount : float) -> void:
 	hp_component.hp -= amount
-
-func _on_counter_timer_timeout() -> void:
-	_counter_switch()
-
-func _on_hp_component_is_dead() -> void:
-	self.queue_free()
 
 #region setter
 func _set_current_modifier(new_value : int) -> void:
@@ -257,11 +239,6 @@ func _set_current_modifier(new_value : int) -> void:
 #endregion
 
 #region signal
-func _on_ghost_timer_timeout() -> void:
-	_dodge_roll_effect()
-
-func _on_hp_component_is_dead() -> void:
-	self.queue_free()
 
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	if not is_dodgeroll:
@@ -277,4 +254,13 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 func _on_dodge_rolling_timer_timeout() -> void:
 	is_dodgeroll = false
 	current_acceleration = acceleration
+
+func _on_counter_timer_timeout() -> void:
+	_counter_switch()
+
+func _on_ghost_timer_timeout() -> void:
+	_dodge_roll_effect()
+
+func _on_hp_component_is_dead() -> void:
+	self.queue_free()
 #endregion

@@ -6,7 +6,6 @@ class_name IceMagic
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-
 var velocity: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
@@ -26,7 +25,6 @@ func _on_body_entered(body : Node) -> void:
 	if body.is_in_group("Player"):
 		if body.has_method("take_damage"):
 			body.take_damage(damage)
-			#
 		if body.has_method("apply_dot"):
 			body.apply_dot(2,2.0) #(ダメージ、時間)
 	queue_free()

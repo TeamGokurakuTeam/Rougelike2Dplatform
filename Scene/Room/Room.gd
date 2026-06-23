@@ -9,7 +9,6 @@ class_name Room
 
 var enemy_count : int = 0
 
-
 func _ready() -> void:
 	for node in doors.get_children():
 		var door : Door = node as Door
