@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="11_ru5wp"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="12_q8aav"]
 [ext_resource type="Resource" uid="uid://cycf0m4pavf61" path="res://Resource/Modifier/FallSlashing.tres" id="13_y4w1a"]
+[ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="14_ru5wp"]
 
 [node name="LobbyRoom001" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_lhnps")]
 can_spawn_enemy = false
@@ -73,6 +74,10 @@ modifier = ExtResource("11_ru5wp")
 position = Vector2(76, 94)
 modifier = ExtResource("13_y4w1a")
 
-[node name="DropModifier6" parent="." index="13" unique_id=210758661 instance=ExtResource("6_nvwak")]
+[node name="DropModifier8" parent="." index="13" unique_id=1382189345 instance=ExtResource("6_nvwak")]
+position = Vector2(495, 124)
+modifier = ExtResource("14_ru5wp")
+
+[node name="DropModifier6" parent="." index="14" unique_id=210758661 instance=ExtResource("6_nvwak")]
 position = Vector2(142, 125)
 modifier = ExtResource("12_q8aav")

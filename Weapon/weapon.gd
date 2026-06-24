@@ -9,6 +9,8 @@ const PLAYER_RANGESLASH : PackedScene = preload("res://Scene/Player/Projectile/r
 
 const PLAYER_FALL_SLASH : PackedScene  = preload("C:/Users/scar0/OneDrive/ドキュメント/GodotTeam制作/Rougelike2Dplatform/Scene/Player/Projectile/fall_slash.tscn")
 
+
+
 @export var resource_id : String
 
 @export_category("ステータス")
@@ -32,6 +34,7 @@ var modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
 
 var base_stats : Array[HitboxStat] = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -121,6 +124,9 @@ func attack_trigger_modifier() -> void:
 #斬：複製
 	if modifiers_ids.has("FallSlashing"):
 		fall_slashing()
+#攻撃速度ビルド
+	if modifiers_ids.has("DampingSpeedUp"):
+		damping_speedup(mouse_direction,offset_length)
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -157,20 +163,26 @@ func burst_slash() -> void:
 	get_tree().root.add_child(slash)
 #斬：複製
 func fall_slashing() -> void:
-	var count = 5
-	var range_x = 200
-	var range_y = -200
+	var count = 3
+	var range_x = 50
+	var range_y_min = -250
+	var range_y_max = -100
 	var dir = sign(mouse_direction.x)
 	if dir == 0:
 		dir = 1
 	for i in count:
-		var slash := PLAYER_FALL_SLASH.instantiate()
-		slash.direction = dir
-		slash.damage = 3
-		var offset := Vector2(randf_range(50, range_x) * dir,randf_range(-range_y, range_y))
-		slash.global_position = global_position + offset
-		slash.knockback_direction = Vector2(dir, 0)
-		get_tree().root.add_child(slash)
+		var delay := randf_range(0.0, 0.3)
+		var randomspeed := create_tween()
+		randomspeed.tween_interval(delay)
+		randomspeed.tween_callback(func ():
+			var slash := PLAYER_FALL_SLASH.instantiate()
+			slash.direction = dir
+			slash.damage =3
+			var offset := Vector2(randf_range(50, range_x) * dir,randf_range(range_y_min, range_y_max))
+			slash.global_position = global_position + offset
+			slash.knockback_direction = Vector2(dir, 0)
+			get_tree().root.add_child(slash)
+		)
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	if player.hp_component.hp > 10:
@@ -187,6 +199,18 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		get_tree().root.add_child(slash)
 		DamageNumber.display_number(2, global_position, false, Color("6f0000ff"))
 		player.hp_component.hp -= 2 #2は自傷ダメージ
+#攻撃速度ビルド
+func damping_speedup(direction: Vector2, offset_Speed_Up: float) -> void:
+	animation_player.speed_scale = 2.5
+	for i in range(hitboxes.size()):
+		var new_damage := 0.0
+		var min_damage := 1.0
+		new_damage = max(new_damage, min_damage)
+		if randf() < 0.5:
+			new_damage = 0.0
+		else:
+			new_damage = 1.0
+		hitboxes[i].damage = new_damage
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
