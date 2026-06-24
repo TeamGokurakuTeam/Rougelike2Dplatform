@@ -58,6 +58,8 @@ var dodgeroll_dir : Vector2 = Vector2.ZERO
 var is_just_dodgeroll : bool = false
 var ghost_effect : GhostEffect
 
+var weapon : Weapon
+
 signal pickup_item(player : Player)
 signal pickup_modifier(player : Player)
 signal applied_modifier(player : Player)
@@ -166,7 +168,7 @@ func _get_input() -> void:
 	if Input.is_action_just_pressed("UI_Apply"):
 		if weapon_resource_ids.size() <= 0 and inventory.get_child_count() <= 0:
 			return
-		var weapon : Weapon = inventory.get_child(current_weapon)
+		weapon = inventory.get_child(current_weapon)
 		weapon.add_modifier(mod_resource_ids[current_modifier])
 		mod_resource_ids.remove_at(current_modifier)
 		current_modifier -= 1
@@ -188,7 +190,7 @@ func update_weapon() -> void:
 		for node in inventory.get_children():
 			node.queue_free()
 	var res : ResourceItem = GlobalResourceLoader.item_cache[weapon_resource_ids[current_weapon]]
-	var weapon : Weapon = res.WeaponScene.instantiate()
+	weapon = res.WeaponScene.instantiate()
 	for node in inventory.get_children():
 		node.queue_free()
 	inventory.call_deferred("add_child", weapon)

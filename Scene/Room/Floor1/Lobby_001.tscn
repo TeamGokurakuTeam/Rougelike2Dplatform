@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_lhnps"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_fgpll"]
-[ext_resource type="Resource" uid="uid://ddw6jksv1chng" path="res://Resource/Sword/EternalSword.tres" id="4_nwjdp"]
+[ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="4_00i6c"]
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="4_tomr8"]
 [ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="6_nvwak"]
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="7_iujhg"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="11_ru5wp"]
 [ext_resource type="Resource" uid="uid://bhwuiry4se62y" path="res://Resource/Modifier/Burstslasher.tres" id="12_f4wo4"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="12_q8aav"]
+[ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="13_f4wo4"]
 
 [node name="LobbyRoom001" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_lhnps")]
 can_spawn_enemy = false
@@ -38,7 +39,7 @@ position = Vector2(56, 144)
 
 [node name="DropItem" parent="." index="3" unique_id=931621491 instance=ExtResource("4_tomr8")]
 position = Vector2(258, 155)
-resource = ExtResource("4_nwjdp")
+resource = ExtResource("4_00i6c")
 
 [node name="DropModifier" parent="." index="5" unique_id=1774769907 instance=ExtResource("6_nvwak")]
 position = Vector2(109, 157)
@@ -67,3 +68,7 @@ modifier = ExtResource("12_f4wo4")
 [node name="DropModifier6" parent="." index="11" unique_id=210758661 instance=ExtResource("6_nvwak")]
 position = Vector2(142, 125)
 modifier = ExtResource("12_q8aav")
+
+[node name="Obelisk" parent="." index="12" unique_id=1340329694 instance=ExtResource("13_f4wo4")]
+position = Vector2(493, 100)
+scale = Vector2(0.92, 0.92)

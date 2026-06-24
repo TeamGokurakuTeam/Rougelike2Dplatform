@@ -27,6 +27,7 @@ const PLAYER_RANGESLASH : PackedScene = preload("res://Scene/Player/Projectile/r
 var player : Player
 var hitboxes : Array[Hitbox] = []
 var modifiers_ids : Dictionary[String, int] = {}
+var lock_modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
 
 var base_stats : Array[HitboxStat] = []
@@ -91,6 +92,12 @@ func add_modifier(id : String, count : int = 1) -> void:
 		modifiers_ids[id] = count
 	#ModifierLibrary.apply_sharp(self)
 
+func add_lock_modifier(id : String, count : int = 1) -> void:
+	if lock_modifiers_ids.has(id):
+		lock_modifiers_ids[id] += count
+	else:
+		lock_modifiers_ids[id] = count
+
 func reset_modifier() -> void:
 	for i in hitboxes.size():
 		hitboxes[i].damage = base_stats[i].damage
@@ -100,22 +107,32 @@ func reset_modifier() -> void:
 func _physics_process(delta: float) -> void:
 	pass
 
+func has_modifiers(name : String):
+	return modifiers_ids.has(name) or lock_modifiers_ids.has(name)
 
 func attack_trigger_modifier() -> void:
-	if modifiers_ids.has("Bloodletting"):
+	if has_modifiers("Bloodletting"):
 		bloodletting(mouse_direction, offset_length)
 #跳躍(Leap)
-	if modifiers_ids.has("Leap"):
+	if has_modifiers("Leap"):
 		leap_forward()
 #残影な(Afterimage)
-	if modifiers_ids.has("Afterimage"):
+	if has_modifiers("Afterimage"):
 		afterimage_slash()
 #反撃な（Reversal）
-	if modifiers_ids.has("Reversal"):
+	if has_modifiers("Reversal"):
 		reversal_up()
 #破裂し斬撃する(BurstSlasher)
-	if modifiers_ids.has("Burstslasher"):
+	if has_modifiers("Burstslasher"):
 		burst_slash()
+	
+func get_modifiers_level(name : String) -> bool:
+	var sum : int = 0
+	if modifiers_ids.has(name):
+		sum += modifiers_ids[name]
+	if lock_modifiers_ids.has(name):
+		sum += lock_modifiers_ids[name]
+	return sum
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -151,17 +168,16 @@ func burst_slash() -> void:
 	slash.range_slash_scene = PLAYER_RANGESLASH
 	get_tree().root.add_child(slash)
 
-
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	if player.hp_component.hp > 10:
 		var slash : PlayerSlashProjectile = PLAYER_SLASH.instantiate()
 		var weapon_rotation : Vector2 = Vector2.RIGHT.rotated(self.rotation) * offset_position_length
 		slash.direction = direction
 		slash.global_position = self.global_position + weapon_rotation
-		if modifiers_ids.has("Expanding"):
-			slash.scale += Vector2(0.1, 0.1)
-		if modifiers_ids.has("Swift"):
-			slash.speed += 10
+		if get_modifiers_level("Expanding"):
+			slash.scale += Vector2(0.2, 0.2)
+		if get_modifiers_level("Swift"):
+			slash.speed += 20
 		if modifiers_ids.has("Slash_Pierce"):
 			slash.set_collision_mask_value(8, false)
 		get_tree().root.add_child(slash)

@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_nb4g8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d3h4s"]
-load_path = "res://.godot/imported/tile029.png-1e0ff94c73d15d49e714c50b4edb692b.ctex"
 
 [resource]
 script = ExtResource("3_nb4g8")
