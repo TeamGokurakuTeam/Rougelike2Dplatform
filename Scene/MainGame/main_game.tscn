@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://b8q4omet6du0w" path="res://Scene/Room/Debug/RoomConnect.gd" id="1_4nic5"]
 [ext_resource type="Script" uid="uid://b383l3v25na7" path="res://Scene/MainGame/Maingame.gd" id="1_ga214"]
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
-[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/player.tscn" id="3_4x3oj"]
+[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="3_4x3oj"]
+[ext_resource type="PackedScene" uid="uid://cvnfa7dppgwhv" path="res://Scene/camera_2d.tscn" id="5_88yfh"]
 [ext_resource type="AudioStream" uid="uid://c0lx114m7xfjt" path="res://Assets/Music/397 [Misc Extras] bgm_space_upbeat_F.ogg" id="5_g7el7"]
 
 [node name="MainGame" type="Node2D" unique_id=334667216]
@@ -13,27 +14,23 @@ script = ExtResource("1_ga214")
 
 [node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
 script = ExtResource("1_4nic5")
-lobby_room_dir = "res://Scene/Room/DebugFloor/Lobby"
-enemy_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-bonus_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-shop_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-boss_room_dir = "res://Scene/Room/DebugFloor/Boss"
-end_room_dir = "res://Scene/Room/DebugFloor/End"
-generate_room_value = 3
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
 position = Vector2(184, 263)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=779157867]
-position = Vector2(0, 1)
-limit_smoothed = true
-position_smoothing_enabled = true
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
+remote_path = NodePath("../../Camera2D")
 
 [node name="Stage" type="AudioStreamPlayer" parent="." unique_id=1112841277]
 stream = ExtResource("5_g7el7")
 volume_db = -20.0
 autoplay = true
 
+[node name="Camera2D" parent="." unique_id=1883637712 instance=ExtResource("5_88yfh")]
+position = Vector2(184, 263)
+
 [editable path="PlayerUI"]
+[editable path="PlayerUI/PlayerHpUI"]
+[editable path="PlayerUI/ModUI"]
 [editable path="Player"]
 [editable path="Player/PickupComponent"]
