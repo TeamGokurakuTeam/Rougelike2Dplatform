@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://dec7j331tdlky"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_6qyyy"]
+
+[resource]
+script = ExtResource("1_6qyyy")
+modifier_id = "Hero"
+modifier_name = "英雄の"
+explanation = "・この修飾子がついた武器が\"剣\"なら、プレイヤーの移動速度を+3する。"

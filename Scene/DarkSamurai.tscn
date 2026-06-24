@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://d0k4uk0wkq46k" path="res://Resource/Sword/WoodenSword.tres" id="4_tmy0u"]
 [ext_resource type="Script" uid="uid://cpoltudiipp7m" path="res://Scene/DarkSamuraiWalk.gd" id="4_xclgv"]
 [ext_resource type="Script" uid="uid://bvakei6ebuv84" path="res://Scene/DarkSamuraiAttack.gd" id="5_tmy0u"]
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="5_xclgv"]
 [ext_resource type="Texture2D" uid="uid://ba8mc06cxwtds" path="res://Assets/Enemy/DarkSamurai (64x64).png" id="6_riyji"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="7_inab3"]
 
@@ -566,10 +567,9 @@ _data = {
 collision_layer = 2
 script = ExtResource("2_65rjy")
 item_resource = Array[ExtResource("3_xclgv")]([ExtResource("4_tmy0u")])
+mod_resource = Array[ExtResource("5_xclgv")]([])
 jump_velocity = -300.0
 max_speed = 100.0
-speed = 15.0
-accerelation = 15
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Chase")

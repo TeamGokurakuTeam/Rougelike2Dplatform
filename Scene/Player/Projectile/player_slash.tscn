@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://bikpq30swfbk1"]
+
+[ext_resource type="PackedScene" uid="uid://xnlrm0l37rap" path="res://Component/Projectile/AreaProjectile/projectile.tscn" id="1_3gb7b"]
+[ext_resource type="Texture2D" uid="uid://cdy8t86f16fsj" path="res://Assets/Weapon/Effect/slash_effect_anim_spritesheet.png" id="2_blufh"]
+[ext_resource type="Script" uid="uid://bwcc8g41tn41" path="res://Scene/Player/Projectile/player_slash.gd" id="2_jxvfw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxvfw"]
+atlas = ExtResource("2_blufh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2tqb"]
+atlas = ExtResource("2_blufh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lq2u"]
+atlas = ExtResource("2_blufh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1q5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxvfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2tqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lq2u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gb7b"]
+size = Vector2(20, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blufh"]
+size = Vector2(18, 26)
+
+[sub_resource type="Animation" id="Animation_blufh"]
+resource_name = "Destroy"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VisualRoot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisualRoot/AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_jxvfw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VisualRoot/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VisualRoot/AnimatedSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2tqb"]
+_data = {
+&"Destroy": SubResource("Animation_blufh"),
+&"RESET": SubResource("Animation_jxvfw")
+}
+
+[node name="PlayerSlash" unique_id=753101119 node_paths=PackedStringArray("timer", "animation_player") instance=ExtResource("1_3gb7b")]
+script = ExtResource("2_jxvfw")
+timer = NodePath("Timer")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AnimatedSprite2D" parent="VisualRoot" parent_id_path=PackedInt32Array(1505287453) index="0" unique_id=1699136720]
+scale = Vector2(1.585, 1.585)
+sprite_frames = SubResource("SpriteFrames_p1q5m")
+animation = &"default"
+
+[node name="CollisionShape2D2" parent="." index="1" unique_id=196155440]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_3gb7b")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2" unique_id=744235173]
+rect = Rect2(-10, -10, 14.285714, 20)
+
+[node name="Hitbox" parent="." index="3" unique_id=2085938192]
+damage = 1.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_blufh")
+debug_color = Color(0.9962476, 0, 0.19900262, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." index="4" unique_id=2005913019]
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1912678174]
+libraries/ = SubResource("AnimationLibrary_a2tqb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Hitbox"]
