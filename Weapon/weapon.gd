@@ -7,6 +7,8 @@ const NORMAL_RATE : float = 1.0
 
 const PLAYER_RANGESLASH : PackedScene = preload("res://Scene/Player/Projectile/range_slash.tscn")
 
+const PLAYER_FALL_SLASH : PackedScene  = preload("C:/Users/scar0/OneDrive/ドキュメント/GodotTeam制作/Rougelike2Dplatform/Scene/Player/Projectile/fall_slash.tscn")
+
 @export var resource_id : String
 
 @export_category("ステータス")
@@ -116,6 +118,9 @@ func attack_trigger_modifier() -> void:
 #破裂し斬撃する(BurstSlasher)
 	if modifiers_ids.has("Burstslasher"):
 		burst_slash()
+#斬：複製
+	if modifiers_ids.has("FallSlashing"):
+		fall_slashing()
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -150,7 +155,22 @@ func burst_slash() -> void:
 	slash.global_position = global_position
 	slash.range_slash_scene = PLAYER_RANGESLASH
 	get_tree().root.add_child(slash)
-
+#斬：複製
+func fall_slashing() -> void:
+	var count = 5
+	var range_x = 200
+	var range_y = -200
+	var dir = sign(mouse_direction.x)
+	if dir == 0:
+		dir = 1
+	for i in count:
+		var slash := PLAYER_FALL_SLASH.instantiate()
+		slash.direction = dir
+		slash.damage = 3
+		var offset := Vector2(randf_range(50, range_x) * dir,randf_range(-range_y, range_y))
+		slash.global_position = global_position + offset
+		slash.knockback_direction = Vector2(dir, 0)
+		get_tree().root.add_child(slash)
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	if player.hp_component.hp > 10:
