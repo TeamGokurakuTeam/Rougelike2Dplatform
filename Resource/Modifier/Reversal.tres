@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://dxfs8cvbj5p05"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_yrxxc"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_n1vxg"]
+
+[resource]
+script = ExtResource("1_yrxxc")
+ModifierRank = 1
+texture = ExtResource("2_n1vxg")
+modifier_id = "Reversal"
+modifier_name = "反撃な"
+color_rarity = Color(1, 0.101960786, 0.101960786, 1)
+explanation = "HPが低くなるほど攻撃力が上昇する"
