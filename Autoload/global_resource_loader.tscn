@@ -6,3 +6,4 @@
 script = ExtResource("1_in0ha")
 items_folder = Array[String](["res://Resource/Sword", "res://Resource/Modifier"])
 room_folder = Array[String](["res://Resource/RoomInfo/Floor1/Boss", "res://Resource/RoomInfo/Floor1/End", "res://Resource/RoomInfo/Floor1/Enemy", "res://Resource/RoomInfo/Floor1/Lobby", "res://Resource/RoomInfo/Floor1/Shop"])
+obelisk_folder = Array[String](["res://Resource/Obelisk/Return", "res://Resource/Obelisk/Risk"])
