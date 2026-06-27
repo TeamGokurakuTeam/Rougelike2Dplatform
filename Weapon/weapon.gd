@@ -10,7 +10,6 @@ const PLAYER_RANGESLASH : PackedScene = preload("res://Scene/Player/Projectile/r
 const PLAYER_FALL_SLASH : PackedScene  = preload("C:/Users/scar0/OneDrive/ドキュメント/GodotTeam制作/Rougelike2Dplatform/Scene/Player/Projectile/fall_slash.tscn")
 
 
-
 @export var resource_id : String
 
 @export_category("ステータス")
@@ -32,6 +31,11 @@ var player : Player
 var hitboxes : Array[Hitbox] = []
 var modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
+#自動攻撃
+var auto_attack_speed_buff_active := false
+var auto_attack_original_speed := 1.0
+var base_speed_scale = 1.0 #現在の速度
+
 
 var base_stats : Array[HitboxStat] = []
 
@@ -74,7 +78,15 @@ func _process(delta: float) -> void:
 			scale.y = -1
 		elif scale.y == -1 and mouse_direction.x > 0:
 			scale.y = 1
-			
+	#自動攻撃
+	if modifiers_ids.has("AutoAttack"):
+		if Input.is_action_pressed("UI_Attack"):
+			if not animation_player.is_playing():
+				animation_player.play("Attack")
+				await animation_player.animation_started
+				base_speed_scale = animation_player.speed_scale
+				_try_auto_attack_speed_buff()
+	return
 
 
 #func move(mouse_direction: Vector2) -> void:
@@ -127,6 +139,7 @@ func attack_trigger_modifier() -> void:
 #攻撃速度ビルド
 	if modifiers_ids.has("DampingSpeedUp"):
 		damping_speedup(mouse_direction,offset_length)
+
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -211,6 +224,28 @@ func damping_speedup(direction: Vector2, offset_Speed_Up: float) -> void:
 		else:
 			new_damage = 1.0
 		hitboxes[i].damage = new_damage
+#自動攻撃
+func _try_auto_attack_speed_buff() -> void:
+	if auto_attack_speed_buff_active:
+		return
+	if randf() < 0.3:
+		_start_auto_attack_speed_buff()
+#自動攻撃
+func _start_auto_attack_speed_buff() -> void:
+	auto_attack_speed_buff_active = true
+	auto_attack_original_speed = animation_player.speed_scale
+	animation_player.speed_scale = 1.5#速度
+	var timer := Timer.new()
+	timer.wait_time = 2.0#秒数
+	timer.one_shot = true
+	add_child(timer)
+	timer.timeout.connect(func():
+		animation_player.speed_scale = auto_attack_original_speed
+		auto_attack_speed_buff_active = false
+		timer.queue_free())
+	timer.start()
+
+
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()

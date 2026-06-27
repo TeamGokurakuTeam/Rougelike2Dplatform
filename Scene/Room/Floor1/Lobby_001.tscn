@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="6_nvwak"]
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="7_iujhg"]
 [ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="8_00i6c"]
-[ext_resource type="Resource" uid="uid://b52pjp0l061t6" path="res://Resource/Modifier/Leap.tres" id="9_f4wo4"]
+[ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="10_ru5wp"]
 [ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="10_y4w1a"]
 [ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="11_ru5wp"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="12_q8aav"]
 [ext_resource type="Resource" uid="uid://cycf0m4pavf61" path="res://Resource/Modifier/FallSlashing.tres" id="13_y4w1a"]
-[ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="14_ru5wp"]
+[ext_resource type="Resource" uid="uid://q17v86qdk2us" path="res://Resource/Modifier/AutoAttack.tres" id="14_ru5wp"]
 
 [node name="LobbyRoom001" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_lhnps")]
 can_spawn_enemy = false
@@ -60,7 +60,7 @@ modifier = ExtResource("8_00i6c")
 
 [node name="DropModifier3" parent="." index="9" unique_id=2048202620 instance=ExtResource("6_nvwak")]
 position = Vector2(175, 157)
-modifier = ExtResource("9_f4wo4")
+modifier = ExtResource("10_ru5wp")
 
 [node name="DropModifier4" parent="." index="10" unique_id=938386175 instance=ExtResource("6_nvwak")]
 position = Vector2(175, 125)

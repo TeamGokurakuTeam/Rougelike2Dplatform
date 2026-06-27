@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://q17v86qdk2us"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_0das5"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_twq88"]
+
+[resource]
+script = ExtResource("1_0das5")
+ModifierRank = 2
+texture = ExtResource("2_twq88")
+modifier_id = "AutoAttack"
+modifier_name = "自動攻撃する"
+color_rarity = Color(1, 0.101960786, 0.101960786, 1)
+explanation = "チャージ攻撃出来なくなる代わりに自動攻撃が出来るようになる。
+たまに剣の振る速度がはやくなる"
