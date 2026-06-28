@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://cmyslb65bixep"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_82xkk"]
+
+[resource]
+script = ExtResource("1_82xkk")
+resource_id = "EnemyAttackInc"
+explanation_text = "敵の攻撃力が+5される。"

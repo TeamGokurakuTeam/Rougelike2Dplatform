@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cisg26nogsxyt"]
 
 [ext_resource type="Script" uid="uid://wixmyn4lsagh" path="res://RiskReturnUI.gd" id="1_wsh1e"]
+[ext_resource type="Script" uid="uid://dx4nhc0f856wr" path="res://Scene/risk_return_panel.gd" id="2_3kqch"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj3l6"]
 bg_color = Color(0.6, 0.7921569, 0.6, 1)
@@ -81,6 +82,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
 
 [sub_resource type="Animation" id="Animation_wsh1e"]
 length = 0.001
@@ -139,6 +152,18 @@ tracks/4/path = NodePath("BackGround/RightPanel:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -207,6 +232,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, false, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_akvq1"]
 _data = {
@@ -246,18 +283,18 @@ offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gj3l6")
+script = ExtResource("2_3kqch")
 
 [node name="Label" type="Label" parent="BackGround/CenterPanel" unique_id=1865241259]
 layout_mode = 0
 offset_right = 129.5
 offset_bottom = 98.0
-text = "「~~~」を
-現在の武器に
-固定する"
+text = "「~~~」を現在の武器に固定する"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 1
 
-[node name="CenterButton" type="Button" parent="BackGround/CenterPanel" unique_id=247198487]
+[node name="Button" type="Button" parent="BackGround/CenterPanel" unique_id=247198487]
 layout_mode = 0
 offset_right = 129.5
 offset_bottom = 241.0
@@ -278,8 +315,9 @@ offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gj3l6")
+script = ExtResource("2_3kqch")
 
-[node name="Label2" type="Label" parent="BackGround/LeftPanel" unique_id=943314836]
+[node name="Label" type="Label" parent="BackGround/LeftPanel" unique_id=943314836]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -288,13 +326,12 @@ offset_left = -64.75
 offset_right = 64.75
 offset_bottom = 98.0
 grow_horizontal = 2
-text = "「~~~」を
-現在の武器に
-固定する"
+text = "「~~~」を現在の武器に固定する"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="LeftButton" type="Button" parent="BackGround/LeftPanel" unique_id=2001910704]
+[node name="Button" type="Button" parent="BackGround/LeftPanel" unique_id=2001910704]
 layout_mode = 0
 offset_right = 129.0
 offset_bottom = 241.0
@@ -315,8 +352,9 @@ offset_bottom = 133.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gj3l6")
+script = ExtResource("2_3kqch")
 
-[node name="Label3" type="Label" parent="BackGround/RightPanel" unique_id=323024029]
+[node name="Label" type="Label" parent="BackGround/RightPanel" unique_id=323024029]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -325,19 +363,19 @@ offset_left = -64.75
 offset_right = 64.75
 offset_bottom = 98.0
 grow_horizontal = 2
-text = "「自傷出血」を
-現在の武器に
-固定する"
+text = "「自傷出血」を現在の武器に固定する"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="RightButton" type="Button" parent="BackGround/RightPanel" unique_id=10588652]
+[node name="Button" type="Button" parent="BackGround/RightPanel" unique_id=10588652]
 layout_mode = 0
 offset_right = 129.0
 offset_bottom = 241.5
 theme_override_styles/normal = SubResource("StyleBoxFlat_akvq1")
 
-[node name="Label" type="Label" parent="BackGround" unique_id=508229970]
+[node name="Label" type="Label" parent="." unique_id=508229970]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -353,6 +391,6 @@ label_settings = SubResource("LabelSettings_jhy2k")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=727604631]
 libraries/ = SubResource("AnimationLibrary_akvq1")
 
-[connection signal="pressed" from="BackGround/CenterPanel/CenterButton" to="." method="_on_center_button_pressed"]
-[connection signal="pressed" from="BackGround/LeftPanel/LeftButton" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="BackGround/RightPanel/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="BackGround/CenterPanel/Button" to="." method="_on_center_button_pressed"]
+[connection signal="pressed" from="BackGround/LeftPanel/Button" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="BackGround/RightPanel/Button" to="." method="_on_right_button_pressed"]

@@ -84,6 +84,9 @@ func _process(delta: float) -> void:
 				#scale.y = -1
 			#elif scale.y == -1 and mouse_direction.x > 0:
 				#scale.y = 1
+func decrease_modifier(id : String, count : int = 1) -> void:
+	if modifiers_ids.has(id):
+		modifiers_ids[id] = max(0, modifiers_ids[id] - count)
 
 func add_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
