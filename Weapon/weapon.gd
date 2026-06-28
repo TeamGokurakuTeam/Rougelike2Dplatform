@@ -36,6 +36,10 @@ var auto_attack_speed_buff_active := false
 var auto_attack_original_speed := 1.0
 var base_speed_scale = 1.0 #現在の速度
 
+#速度上限
+var max_speed_scale := 2.5
+#
+var original_multipliers: Array[float] = []
 
 var base_stats : Array[HitboxStat] = []
 
@@ -119,6 +123,7 @@ func _physics_process(delta: float) -> void:
 
 
 func attack_trigger_modifier() -> void:
+	
 	if modifiers_ids.has("Bloodletting"):
 		bloodletting(mouse_direction, offset_length)
 #跳躍(Leap)
@@ -214,7 +219,8 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		player.hp_component.hp -= 2 #2は自傷ダメージ
 #攻撃速度ビルド
 func damping_speedup(direction: Vector2, offset_Speed_Up: float) -> void:
-	animation_player.speed_scale = 2.5
+	var target_speed = 2.5#速度
+	animation_player.speed_scale = min(target_speed, max_speed_scale)
 	for i in range(hitboxes.size()):
 		var new_damage := 0.0
 		var min_damage := 1.0
@@ -234,7 +240,22 @@ func _try_auto_attack_speed_buff() -> void:
 func _start_auto_attack_speed_buff() -> void:
 	auto_attack_speed_buff_active = true
 	auto_attack_original_speed = animation_player.speed_scale
-	animation_player.speed_scale = 1.5#速度
+	var auto_speed = 1.3 #速度
+	var damping_speed = 0.0
+	if modifiers_ids.has("DampingSpeedUp"):
+		damping_speed = 2.5
+	var raw_speed = auto_speed + damping_speed #合計速度
+	var final_speed = auto_speed + damping_speed
+	final_speed = min(final_speed, max_speed_scale)
+	animation_player.speed_scale = final_speed
+		#超過ダメージ
+	if modifiers_ids.has("Speedingexceed"):
+		var exceed = raw_speed - max_speed_scale
+		if exceed > 0:
+			original_multipliers.clear()
+			for i in range(hitboxes.size()):
+				original_multipliers.append(hitboxes[i].damage_multiplier)
+			_add_speed_exceed_damage(exceed)
 	var timer := Timer.new()
 	timer.wait_time = 2.0#秒数
 	timer.one_shot = true
@@ -242,9 +263,17 @@ func _start_auto_attack_speed_buff() -> void:
 	timer.timeout.connect(func():
 		animation_player.speed_scale = auto_attack_original_speed
 		auto_attack_speed_buff_active = false
+		if original_multipliers.size() == hitboxes.size():
+			for i in range(hitboxes.size()):
+				hitboxes[i].damage_multiplier = original_multipliers[i]
+		original_multipliers.clear()
 		timer.queue_free())
 	timer.start()
-
+#超過速度な
+func _add_speed_exceed_damage(exceed: float) -> void:
+	for i in range(hitboxes.size()):
+		hitboxes[i].damage_multiplier += exceed
+		print("超過",exceed)
 
 
 func start_modifier_timer() -> void:
