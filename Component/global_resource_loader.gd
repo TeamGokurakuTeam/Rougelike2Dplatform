@@ -2,21 +2,25 @@ extends Node
 
 @export_dir var items_folder : Array[String]
 @export_dir var room_folder : Array[String]
-@export_dir var obelisk_folder : Array[String]
+@export_dir var gain_folder : Array[String]
+@export_dir var loss_folder : Array[String]
 
 #Global変数なのでこれはよそで使ってもよい
 #使用例:Sword.resource = item_cache["DebugSword"]
 var item_cache : Dictionary[String, Resource] = {}
 var room_cache : Dictionary[int, Array] = {}
-var obelisk_cache : Dictionary[String, ObeliskResource] = {}
+var gain_cache : Dictionary[String, ObeliskResource] = {}
+var loss_cache : Dictionary[String, ObeliskResource] = {}
 
 func _ready() -> void:
 	for folder in items_folder:
 		_file_load(folder, item_cache)
 	for folder in room_folder:
 		_file_room_load(folder, room_cache)
-	for folder in obelisk_folder:
-		_file_load(folder, obelisk_cache)
+	for folder in gain_folder:
+		_file_load(folder, gain_cache)
+	for folder in loss_folder:
+		_file_load(folder, loss_cache)
 
 #下の関数はprivateでここのAutoload専用の関数なのでよそで使わないこと
 func _file_load(folder_path : String, res_cache : Dictionary) -> void:

@@ -13,10 +13,12 @@ signal risk_return_selected(gain_resource_id, loss_resource_id)
 func _ready() -> void:
 	button.button_down.connect(_on_button_pressed)
 
-func setup(gain_resource_id : String, loss_resource_id : String) -> void:
-	if GlobalResourceLoader.obelisk_cache.has(gain_resource_id):
-		var gain_res : ObeliskResource = GlobalResourceLoader.obelisk_cache[gain_resource_id]
-		var loss_res : ObeliskResource = GlobalResourceLoader.obelisk_cache[loss_resource_id]
+func setup(gain_res_id : String, loss_res_id : String) -> void:
+	if GlobalResourceLoader.gain_cache.has(gain_res_id) and GlobalResourceLoader.loss_cache.has(loss_res_id):
+		var gain_res : ObeliskResource = GlobalResourceLoader.gain_cache[gain_res_id]
+		var loss_res : ObeliskResource = GlobalResourceLoader.loss_cache[loss_res_id]
+		gain_resource_id = gain_res.resource_id
+		loss_resource_id = loss_res.resource_id
 		label.text = gain_res.explanation_text
 		label_2.text = loss_res.explanation_text
 		

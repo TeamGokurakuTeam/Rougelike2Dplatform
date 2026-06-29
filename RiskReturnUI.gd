@@ -6,15 +6,17 @@ class_name RiskReturnUI
 
 var player : Player
 var risk_ids : Array[String]
+var parent : MainGame
 
-signal on_risk_selected(id : String)
+signal risk_selected(id : String)
 
 func _ready() -> void:
 	for node in back_ground.get_children():
 		var panel : RiskReturnPanel = node as RiskReturnPanel
-		var picked_id = GlobalResourceLoader.obelisk_cache.keys().pick_random()
-		risk_ids.append(picked_id)
-		panel.setup("FixedModifier", picked_id)
+		var picked_gain_id = GlobalResourceLoader.gain_cache.keys().pick_random()
+		var picked_loss_id = GlobalResourceLoader.loss_cache.keys().pick_random()
+		risk_ids.append(picked_loss_id)
+		panel.setup(picked_gain_id, picked_loss_id)
 		panel.risk_return_selected.connect(_on_risk_return_selected)
 	animation_player.play("Ready")
 
@@ -25,5 +27,5 @@ func _on_risk_return_selected(gain_resource_id : String, loss_resource_id : Stri
 	weapon.decrease_modifier(id)
 	weapon.add_lock_modifier(id)
 	print(loss_resource_id)
-	on_risk_selected.emit(loss_resource_id)
+	risk_selected.emit(loss_resource_id)
 	animation_player.play("End")
