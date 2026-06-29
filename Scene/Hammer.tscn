@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://65jci7m05bgu"]
+
+[ext_resource type="Script" uid="uid://c82gq28ge5ren" path="res://Scene/hammer.gd" id="1_hgtn3"]
+[ext_resource type="Texture2D" uid="uid://bo2f17yq3ud1" path="res://Assets/Weapon/バトライ刃.png" id="2_3tpaj"]
+[ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="3_2g3e7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(50, 52)
+
+[node name="Hammer" type="Node2D" unique_id=619106096]
+script = ExtResource("1_hgtn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=278922208]
+texture = ExtResource("2_3tpaj")
+
+[node name="Hitbox" parent="." unique_id=975955189 instance=ExtResource("3_2g3e7")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=1758895518]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=580433151]

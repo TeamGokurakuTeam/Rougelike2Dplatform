@@ -37,3 +37,7 @@ func killed_drop_item() -> void:
 		drop_item.resource = item_resource.pick_random()
 		get_tree().root.add_child(drop_item)
 		drop_item.global_position = Vector2(self.global_position.x, self.global_position.y + 15)
+
+func move_other_scene():
+	var other = get_node("OtherSceneInstance")
+	other.start_move()
