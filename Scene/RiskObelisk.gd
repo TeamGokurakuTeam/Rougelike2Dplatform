@@ -24,3 +24,4 @@ func _process(delta: float) -> void:
 		parent = get_tree().current_scene
 		var ui : RiskReturnUI = RISK_RETURN_UI.instantiate()
 		parent.player_ui.add_child(ui)
+		ui.on_risk_selected.connect(parent._on_risk_selected)

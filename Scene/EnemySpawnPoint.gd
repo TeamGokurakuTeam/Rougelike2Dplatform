@@ -8,6 +8,7 @@ class_name EnemySpawnPoint
 signal enemy_summoned(enemy : Enemy)
 
 var main_game_node : MainGame
+var enemy : Enemy
 
 func _summon() -> void:
 	if is_random:
@@ -15,7 +16,7 @@ func _summon() -> void:
 	if enemys.size() < 0:
 		print(self.name + " : 敵が設定されていません。")
 		return
-	var enemy : Enemy = enemys[0].instantiate()
+	enemy = enemys[0].instantiate()
 	add_child(enemy)
 	enemy_summoned.emit(enemy)
 	enemy.main_game_node = self.main_game_node

@@ -6,8 +6,21 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj3l6"]
 bg_color = Color(0.6, 0.7921569, 0.6, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_u0otr"]
+font_size = 10
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsh1e"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
+bg_color = Color(1, 0.5702433, 0.515468, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kqch"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -287,9 +300,12 @@ script = ExtResource("2_3kqch")
 
 [node name="Label" type="Label" parent="BackGround/CenterPanel" unique_id=1865241259]
 layout_mode = 0
+offset_top = 20.0
 offset_right = 129.5
-offset_bottom = 98.0
-text = "「~~~」を現在の武器に固定する"
+offset_bottom = 111.0
+text = "自分の所持している修飾子の中から一つランダムで選び、それを現在の剣につける。
+その修飾子は、死ぬまで効果を発揮するようになる。"
+label_settings = SubResource("LabelSettings_u0otr")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
@@ -299,6 +315,23 @@ layout_mode = 0
 offset_right = 129.5
 offset_bottom = 241.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_wsh1e")
+
+[node name="Risk" type="Panel" parent="BackGround/CenterPanel" unique_id=153981115]
+layout_mode = 0
+offset_top = 129.0
+offset_right = 129.5
+offset_bottom = 222.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")
+
+[node name="Label2" type="Label" parent="BackGround/CenterPanel/Risk" unique_id=115984071]
+layout_mode = 0
+offset_right = 128.5
+offset_bottom = 92.0
+text = "敵の攻撃力が+5される。"
+label_settings = SubResource("LabelSettings_5hoxb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="LeftPanel" type="Panel" parent="BackGround" unique_id=323869347]
 visible = false
@@ -317,25 +350,42 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gj3l6")
 script = ExtResource("2_3kqch")
 
-[node name="Label" type="Label" parent="BackGround/LeftPanel" unique_id=943314836]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.75
-offset_right = 64.75
-offset_bottom = 98.0
-grow_horizontal = 2
-text = "「~~~」を現在の武器に固定する"
+[node name="Label" type="Label" parent="BackGround/LeftPanel" unique_id=1035996274]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 128.5
+offset_bottom = 111.0
+text = "自分の所持している修飾子の中から一つランダムで選び、それを現在の剣につける。
+その修飾子は、死ぬまで効果を発揮するようになる。"
+label_settings = SubResource("LabelSettings_u0otr")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 1
 
 [node name="Button" type="Button" parent="BackGround/LeftPanel" unique_id=2001910704]
 layout_mode = 0
 offset_right = 129.0
 offset_bottom = 241.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_3kqch")
+
+[node name="Risk" type="Panel" parent="BackGround/LeftPanel" unique_id=328353568]
+layout_mode = 0
+offset_top = 129.0
+offset_right = 129.5
+offset_bottom = 222.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")
+
+[node name="Label2" type="Label" parent="BackGround/LeftPanel/Risk" unique_id=971615780]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 129.5
+offset_bottom = 92.0
+text = "敵の攻撃力が+5される。"
+label_settings = SubResource("LabelSettings_5hoxb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="RightPanel" type="Panel" parent="BackGround" unique_id=188400607]
 visible = false
@@ -354,25 +404,43 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gj3l6")
 script = ExtResource("2_3kqch")
 
-[node name="Label" type="Label" parent="BackGround/RightPanel" unique_id=323024029]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.75
-offset_right = 64.75
-offset_bottom = 98.0
-grow_horizontal = 2
-text = "「自傷出血」を現在の武器に固定する"
+[node name="Label" type="Label" parent="BackGround/RightPanel" unique_id=554377064]
+layout_mode = 0
+offset_top = 19.5
+offset_right = 129.5
+offset_bottom = 110.5
+text = "自分の所持している修飾子の中から一つランダムで選び、それを現在の剣につける。
+その修飾子は、死ぬまで効果を発揮するようになる。"
+label_settings = SubResource("LabelSettings_u0otr")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 1
 
 [node name="Button" type="Button" parent="BackGround/RightPanel" unique_id=10588652]
 layout_mode = 0
 offset_right = 129.0
 offset_bottom = 241.5
 theme_override_styles/normal = SubResource("StyleBoxFlat_akvq1")
+
+[node name="Risk" type="Panel" parent="BackGround/RightPanel" unique_id=2049409385]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 127.5
+offset_right = 128.5
+offset_bottom = 220.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")
+
+[node name="Label2" type="Label" parent="BackGround/RightPanel/Risk" unique_id=1576744506]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 129.5
+offset_bottom = 93.0
+text = "敵の攻撃力が+5される。"
+label_settings = SubResource("LabelSettings_5hoxb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Label" type="Label" parent="." unique_id=508229970]
 visible = false

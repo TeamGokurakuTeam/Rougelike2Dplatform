@@ -1,6 +1,9 @@
 extends Node2D
 class_name MainGame
 
+@export var enemy_damage_addition : float
+@export var enemy_hp_addition : float
+
 @onready var player_ui: GameUI = $PlayerUI
 @onready var player: Player = $Player
 @onready var room_generator: RoomGenerator = $RoomGenerator
@@ -19,3 +22,12 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	pass
+
+func _on_risk_selected(id : String) -> void:
+	if id == "EnemyAttackInc":
+		enemy_damage_addition += 5
+	if id == "EnemyHealthInc":
+		enemy_hp_addition += 15
+	if id == "EnemyAttackHealtgInc":
+		enemy_damage_addition += 3
+		enemy_hp_addition += 10
