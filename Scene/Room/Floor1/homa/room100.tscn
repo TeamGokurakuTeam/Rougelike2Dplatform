@@ -126,79 +126,73 @@ position = Vector2(232, 160)
 
 [node name="MoveTile2" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="37" unique_id=2130919559 instance=ExtResource("2_pr46i")]
 position = Vector2(472, 944)
-move_speed = 0.5
+move_speed = 0.3
 
 [node name="Line2D" parent="TileMaps/MoveTile2" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 96)
 
 [node name="MoveTile8" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="38" unique_id=1803277862 instance=ExtResource("2_pr46i")]
 position = Vector2(168, 1072)
+move_speed = 0.5
 
 [node name="Line2D" parent="TileMaps/MoveTile8" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -128, 0)
 
 [node name="MoveTile7" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="39" unique_id=1461829131 instance=ExtResource("2_pr46i")]
 position = Vector2(40, 1120)
+move_speed = 0.5
 
 [node name="Line2D" parent="TileMaps/MoveTile7" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 128, 0)
 
 [node name="MoveTile6" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="40" unique_id=529453718 instance=ExtResource("2_pr46i")]
 position = Vector2(168, 1160)
+move_speed = 0.5
 
 [node name="Line2D" parent="TileMaps/MoveTile6" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -128, 0)
 
 [node name="MoveTile3" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="41" unique_id=209787173 instance=ExtResource("2_pr46i")]
 position = Vector2(536, 96)
-move_speed = 0.5
+move_speed = 0.2
 
 [node name="Line2D" parent="TileMaps/MoveTile3" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 160)
 
-[node name="MoveTile4" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="42" unique_id=1616543280 instance=ExtResource("2_pr46i")]
-position = Vector2(544, 1040)
-move_speed = 0.5
-
-[node name="Line2D" parent="TileMaps/MoveTile4" index="3" unique_id=2081624802]
-points = PackedVector2Array(0, 0, 0, 64)
-
-[node name="MoveTile5" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="43" unique_id=119179492 instance=ExtResource("2_pr46i")]
+[node name="MoveTile5" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="42" unique_id=119179492 instance=ExtResource("2_pr46i")]
 position = Vector2(608, 1096)
+move_speed = 0.5
 
 [node name="Line2D" parent="TileMaps/MoveTile5" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 88)
 
-[node name="Fan" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="44" unique_id=2135413050 instance=ExtResource("4_3cpk3")]
+[node name="Fan" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="43" unique_id=2135413050 instance=ExtResource("4_3cpk3")]
 position = Vector2(624, 256)
 rotation = 3.1415927
+pull_strength = 700.0
 
-[node name="Spike" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="45" unique_id=2129174175 instance=ExtResource("5_4du4v")]
+[node name="Spike" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="44" unique_id=2129174175 instance=ExtResource("5_4du4v")]
 position = Vector2(208, 240)
 rotation = 1.5707964
 
-[node name="Spike2" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="46" unique_id=1324943456 instance=ExtResource("5_4du4v")]
+[node name="Spike2" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="45" unique_id=1324943456 instance=ExtResource("5_4du4v")]
 position = Vector2(208, 264)
 rotation = 1.5707964
 
-[node name="Spike3" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="47" unique_id=1703821242 instance=ExtResource("5_4du4v")]
+[node name="Spike3" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="46" unique_id=1703821242 instance=ExtResource("5_4du4v")]
 position = Vector2(208, 288)
 rotation = 1.5707964
 
-[node name="Spike4" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="48" unique_id=1965563092 instance=ExtResource("5_4du4v")]
-position = Vector2(208, 312)
-rotation = 1.5707964
-
-[node name="Spike5" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="49" unique_id=1376069658 instance=ExtResource("5_4du4v")]
-position = Vector2(208, 336)
-rotation = 1.5707964
-
-[node name="Spike6" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="50" unique_id=699024756 instance=ExtResource("5_4du4v")]
-position = Vector2(208, 360)
-rotation = 1.5707964
-
-[node name="Fan2" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="51" unique_id=1464798067 instance=ExtResource("4_3cpk3")]
+[node name="Fan2" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="47" unique_id=1464798067 instance=ExtResource("4_3cpk3")]
 position = Vector2(256, 816)
+pull_strength = 700.0
+
+[node name="MoveTile4" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="48" unique_id=618014385 instance=ExtResource("2_pr46i")]
+position = Vector2(544, 1096)
+move_speed = 0.5
+
+[node name="Line2D" parent="TileMaps/MoveTile4" index="3" unique_id=2081624802]
+points = PackedVector2Array(0, 0, 0, -56)
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("4_4ob4o")]
 position = Vector2(32, 128)
@@ -282,5 +276,5 @@ position = Vector2(624, 584)
 [editable path="TileMaps/MoveTile7"]
 [editable path="TileMaps/MoveTile6"]
 [editable path="TileMaps/MoveTile3"]
-[editable path="TileMaps/MoveTile4"]
 [editable path="TileMaps/MoveTile5"]
+[editable path="TileMaps/MoveTile4"]
