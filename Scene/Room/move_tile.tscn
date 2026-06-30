@@ -25,6 +25,8 @@ size = Vector2(48, 5)
 size = Vector2(48, 10)
 
 [node name="MoveTile" type="StaticBody2D" unique_id=971770846]
+collision_layer = 128
+collision_mask = 3
 script = ExtResource("1_rocg1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1984206051]
