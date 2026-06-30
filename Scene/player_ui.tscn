@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dbhq8ra3djg46" path="res://inventory_panel.tscn" id="2_00pm1"]
 [ext_resource type="PackedScene" uid="uid://h1mtavafjl0i" path="res://Scene/UI/player_hp_ui.tscn" id="2_5xwoe"]
 [ext_resource type="PackedScene" uid="uid://b6vh5w3ybhsjo" path="res://Scene/UI/mod_ui.tscn" id="3_00pm1"]
-[ext_resource type="PackedScene" uid="uid://cuc66hry0j4hn" path="res://Scene/UI/ModifierTimer.tscn" id="4_rj6n4"]
+[ext_resource type="PackedScene" uid="uid://cuc66hry0j4hn" path="res://Scene/UI/ModifierProgressBar.tscn" id="4_rj6n4"]
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=1814325200]
 script = ExtResource("1_q25tn")
@@ -43,6 +43,11 @@ layout_mode = 2
 [node name="ModUI" parent="." unique_id=1180346681 instance=ExtResource("3_00pm1")]
 
 [node name="ModifierTimer" parent="." unique_id=1389695203 instance=ExtResource("4_rj6n4")]
+offset_left = 29.0
+offset_top = 200.0
+offset_right = 29.0
+offset_bottom = 200.0
+scale = Vector2(0.6, 0.6)
 
 [editable path="PlayerHpUI"]
 [editable path="ModUI"]
