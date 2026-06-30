@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rocg1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -41,3 +41,6 @@ one_way_collision = true
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_24yck")
 debug_color = Color(5.390644e-06, 0.64565897, 0.2619926, 0.41960785)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2081624802]
+default_color = Color(1, 1, 1, 0)
