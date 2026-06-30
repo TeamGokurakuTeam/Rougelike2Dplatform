@@ -2,6 +2,7 @@ extends State
 class_name GolemBossFly
 
 const ROCK = preload("uid://dqiu3v1k0xk63")
+const WAVE_EFFECT = preload("uid://06ss5bj7u3pc")
 
 @export var parent : GolemBoss
 @export var anim_player : AnimationPlayer
@@ -22,10 +23,15 @@ func _ready() -> void:
 	center = (texture.get_size()) / 2
 
 func _spawn_bullet(pos : Vector2, angle : float):
+	var wave_effect : WaveEffect =  WAVE_EFFECT.instantiate()
 	var bullet : CharaProjectile = ROCK.instantiate()
 	get_tree().current_scene.add_child(bullet)
+	get_tree().current_scene.add_child(wave_effect)
 	bullet.global_position = pos
 	bullet.fire_angle = angle
+	wave_effect.global_position = pos
+	parent.main_game_node.camera_2d.shake_fade = 10
+	parent.main_game_node.camera_2d.apply_shake(10)
 
 func Enter() -> void:
 	parent.can_move = false

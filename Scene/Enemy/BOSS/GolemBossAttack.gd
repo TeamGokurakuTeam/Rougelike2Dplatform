@@ -15,15 +15,16 @@ func Exit() -> void:
 	parent.can_move = true
 
 func Update(delta) -> void:
-	if not anim_player.is_playing() and attack_count < 3:
-		attack_count += 1
-		anim_player.play("Attack")
-	elif not anim_player.is_playing() and attack_count >= 3:
-		StateTransitioned.emit(self, "Fly")
-		
-	if parent.can_move:
-		parent.set_target(parent.player.global_position)
-		parent.move_toward_player()
+	if parent.player != null:
+		if not anim_player.is_playing() and attack_count < 3:
+			attack_count += 1
+			anim_player.play("Attack")
+		elif not anim_player.is_playing() and attack_count >= 3:
+			StateTransitioned.emit(self, "Fly")
+			
+		if parent.can_move:
+			parent.set_target(parent.player.global_position)
+			parent.move_toward_player()
 
 func Physics_Update(delta) -> void:
 	pass

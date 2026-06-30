@@ -13,6 +13,7 @@ class_name Character
 
 var current_acceleration : int = 0
 var move_direction : Vector2 = Vector2.ZERO #移動する方向
+var main_game_node : MainGame
 
 func _ready() -> void:
 	current_acceleration = acceleration

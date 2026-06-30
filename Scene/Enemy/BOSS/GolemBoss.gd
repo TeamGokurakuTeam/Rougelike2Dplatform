@@ -25,12 +25,13 @@ func GolemFlyRotate(delta : float) -> void:
 		)
 
 func Dash() -> void:
-	navigation_agent.target_position = player.global_position
-	if navigation_agent.is_navigation_finished():
-		return
-	var next_pos : Vector2 =  navigation_agent.get_next_path_position()
-	var player_dir_x : float = sign(next_pos.x - global_position.x)
-	velocity.x += player_dir_x * dash_speed
+	if player != null:
+		navigation_agent.target_position = player.global_position
+		if navigation_agent.is_navigation_finished():
+			return
+		var next_pos : Vector2 =  navigation_agent.get_next_path_position()
+		var player_dir_x : float = sign(next_pos.x - global_position.x)
+		velocity.x += player_dir_x * dash_speed
 
 #---test-----------
 func move_toward_player() -> void:

@@ -1,13 +1,12 @@
 extends Camera2D
 class_name Camera
 
-@export var random_strength : float = 30
 @export var shake_fade : float = 5.5
 
 var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 var shake_strength : float = 0.0
 
-func apply_shake() -> void:
+func apply_shake(random_strength : float) -> void:
 	shake_strength = random_strength
 
 func random_offset() -> Vector2:
