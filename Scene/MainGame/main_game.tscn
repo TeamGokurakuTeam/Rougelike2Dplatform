@@ -31,6 +31,11 @@ autoplay = true
 [node name="Camera2D" parent="." unique_id=1883637712 instance=ExtResource("5_88yfh")]
 position = Vector2(184, 225)
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=193283993]
+energy = 0.16
+blend_mode = 1
+shadow_enabled = true
+
 [editable path="PlayerUI"]
 [editable path="PlayerUI/PlayerHpUI"]
 [editable path="PlayerUI/ModUI"]

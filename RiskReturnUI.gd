@@ -7,6 +7,7 @@ class_name RiskReturnUI
 var player : Player
 var risk_ids : Array[String]
 var parent : MainGame
+var obelisk : RiskObelisk
 
 signal risk_selected(id : String)
 
@@ -29,3 +30,5 @@ func _on_risk_return_selected(gain_resource_id : String, loss_resource_id : Stri
 	print(loss_resource_id)
 	risk_selected.emit(loss_resource_id)
 	animation_player.play("End")
+	await animation_player.animation_finished
+	obelisk.animation_player.play("End")
