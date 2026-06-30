@@ -6,8 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://b6vh5w3ybhsjo" path="res://Scene/UI/mod_ui.tscn" id="3_00pm1"]
 [ext_resource type="PackedScene" uid="uid://cuc66hry0j4hn" path="res://Scene/UI/ModifierProgressBar.tscn" id="4_rj6n4"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="PlayerUI" type="CanvasLayer" unique_id=1814325200]
 script = ExtResource("1_q25tn")
+
+[node name="LockedModLabel" type="Label" parent="." unique_id=1549443319]
+offset_left = 304.0
+offset_right = 511.0
+offset_bottom = 67.0
+text = "固定修飾子"
+label_settings = SubResource("LabelSettings_jhy2k")
+autowrap_mode = 2
+clip_text = true
 
 [node name="PlayerHpUI" parent="." unique_id=343152128 instance=ExtResource("2_5xwoe")]
 
