@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="3_3ocud"]
 [ext_resource type="Texture2D" uid="uid://buymhea83npvs" path="res://Assets/Weapon/Effect/Brushed - FX Series 003_nyknck/BFX003_02.png" id="3_7580n"]
 [ext_resource type="Texture2D" uid="uid://tlsdbn7qenbs" path="res://Assets/Weapon/Effect/Brushed - FX Series 003_nyknck/BFX003_03.png" id="4_n2edo"]
+[ext_resource type="Script" uid="uid://bcxc2kx4fu3hm" path="res://Scene/Player/Projectile/FallSlashGhost.gd" id="6_n2edo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7580n"]
 atlas = ExtResource("2_7580n")
@@ -245,6 +246,30 @@ tracks/15/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, true, false, false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Ghost:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.05501967, 0.05501967), Vector2(0.14607826, 0.14607826), Vector2(0.290625, 0.290625), Vector2(0.5200785, 0.5200785), Vector2(0.8843137, 0.8843137), Vector2(1.4625, 1.4625), Vector2(2.3803146, 2.3803146), Vector2(3.8372538, 3.8372538), Vector2(6.150001, 6.150001), Vector2(9.821259, 9.821259), Vector2(15.649014, 15.649014), Vector2(24.900003, 24.900003), Vector2(39.58503, 39.58503), Vector2(62.896053, 62.896053), Vector2(100.049995, 100.049995), Vector2(137.07246, 137.07246), Vector2(160.39513, 160.39513), Vector2(175.08751, 175.08751), Vector2(184.34311, 184.34311), Vector2(190.17378, 190.17378), Vector2(193.84686, 193.84686), Vector2(196.16077, 196.16077), Vector2(197.61845, 197.61845), Vector2(198.53671, 198.53671), Vector2(199.11519, 199.11519), Vector2(199.47961, 199.47961), Vector2(199.70918, 199.70918), Vector2(199.85379, 199.85379), Vector2(199.9449, 199.9449), Vector2(200, 200)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Ghost:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.9825476),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_3ocud"]
@@ -611,6 +636,30 @@ tracks/16/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Ghost:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Ghost:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ludi"]
 _data = {
@@ -644,6 +693,7 @@ position = Vector2(13.665, 11.98)
 scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_75vwg")
 animation = &"Particle"
+frame_progress = 0.38173306
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852538571]
 rotation = 0.4886922
@@ -665,6 +715,17 @@ debug_color = Color(3.272891e-06, 0.6267689, 0.5162628, 0.41960785)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1763524710]
 libraries/ = SubResource("AnimationLibrary_2ludi")
 
+[node name="Ghost" type="Sprite2D" parent="." unique_id=592530790]
+modulate = Color(1, 1, 1, 0.60784316)
+rotation = 1.0471976
+texture = ExtResource("2_3ocud")
+script = ExtResource("6_n2edo")
+
+[node name="GhostTimer" type="Timer" parent="." unique_id=12386132]
+wait_time = 0.05
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GhostTimer" to="Ghost" method="_on_ghost_timer_timeout"]
 
 [editable path="Hitbox"]

@@ -5,8 +5,14 @@ extends StaticBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sensor: Area2D = $Sensor
 
+#
+@onready var one_way: StaticBody2D
+#
+@export var player_coll : Player 
+
+
 var player_inside : bool = false
-var player_body: Node2D = null
+var player_body : Node2D = null
 var current_time : float =0.0
 
 func _ready() -> void:
@@ -27,6 +33,13 @@ func _process(delta):
 			col.disabled = true
 	else:
 		col.disabled = false
+		#
+		if player_coll:
+			set_collision_mask_value(1, false)
+			one_way.collision_layer
+
+
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):

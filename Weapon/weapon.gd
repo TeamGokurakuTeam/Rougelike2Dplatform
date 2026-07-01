@@ -5,9 +5,8 @@ const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 const CRITICAL_RATE : float = 1.5
 const NORMAL_RATE : float = 1.0
 
-const PLAYER_RANGESLASH : PackedScene = preload("res://Scene/Player/Projectile/range_slash.tscn")
-
-const PLAYER_FALL_SLASH : PackedScene  = preload("C:/Users/scar0/OneDrive/ドキュメント/GodotTeam制作/Rougelike2Dplatform/Scene/Player/Projectile/fall_slash.tscn")
+const PLAYER_FALL_SLASH : PackedScene = preload("uid://cf50nqa2obwgs")
+const PLAYER_RANGESLASH : PackedScene = preload("uid://dds7cl7iiu2wf")
 
 
 @export var resource_id : String
@@ -40,6 +39,8 @@ var base_speed_scale = 1.0 #現在の速度
 var max_speed_scale := 2.5
 #
 var original_multipliers: Array[float] = []
+#
+var original_acceleration := 0.0
 
 var base_stats : Array[HitboxStat] = []
 
@@ -240,24 +241,31 @@ func _try_auto_attack_speed_buff() -> void:
 func _start_auto_attack_speed_buff() -> void:
 	auto_attack_speed_buff_active = true
 	auto_attack_original_speed = animation_player.speed_scale
-	var auto_speed = 1.3 #速度
+	var auto_speed = 1.3
 	var damping_speed = 0.0
 	if modifiers_ids.has("DampingSpeedUp"):
 		damping_speed = 2.5
-	var raw_speed = auto_speed + damping_speed #合計速度
-	var final_speed = auto_speed + damping_speed
-	final_speed = min(final_speed, max_speed_scale)
+	var raw_speed = auto_speed + damping_speed
+	var final_speed = min(raw_speed, max_speed_scale)
 	animation_player.speed_scale = final_speed
-		#超過ダメージ
+	var need_save := false
+	if modifiers_ids.has("Speedingexceed") or modifiers_ids.has("SpeedingMoveExceed"):
+		need_save = true
+	if need_save:
+		original_multipliers.clear()
+		for i in range(hitboxes.size()):
+			original_multipliers.append(hitboxes[i].damage_multiplier)
 	if modifiers_ids.has("Speedingexceed"):
 		var exceed = raw_speed - max_speed_scale
 		if exceed > 0:
-			original_multipliers.clear()
-			for i in range(hitboxes.size()):
-				original_multipliers.append(hitboxes[i].damage_multiplier)
 			_add_speed_exceed_damage(exceed)
+	if modifiers_ids.has("SpeedingMoveExceed"):
+		var exceed = raw_speed - max_speed_scale
+		if exceed > 0:
+			original_acceleration = player.current_acceleration
+			_add_speed_move_exceed(exceed)
 	var timer := Timer.new()
-	timer.wait_time = 2.0#秒数
+	timer.wait_time = 2.0
 	timer.one_shot = true
 	add_child(timer)
 	timer.timeout.connect(func():
@@ -267,14 +275,22 @@ func _start_auto_attack_speed_buff() -> void:
 			for i in range(hitboxes.size()):
 				hitboxes[i].damage_multiplier = original_multipliers[i]
 		original_multipliers.clear()
+		if original_acceleration != 0.0:
+			player.current_acceleration = original_acceleration
+			original_acceleration = 0.0
 		timer.queue_free())
 	timer.start()
+
 #超過速度な
 func _add_speed_exceed_damage(exceed: float) -> void:
 	for i in range(hitboxes.size()):
 		hitboxes[i].damage_multiplier += exceed
 		print("超過",exceed)
-
+#???
+func _add_speed_move_exceed(exceed:float) -> void:
+	if exceed > 0:
+		var add_speed = exceed * 20
+		player.current_acceleration += add_speed
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
