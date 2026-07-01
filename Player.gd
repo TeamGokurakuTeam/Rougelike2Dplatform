@@ -38,7 +38,7 @@ var current_modifier : int = -1 : set = _set_current_modifier
 #現在選択している修飾子の場所
 
 var coyote_time_activated : bool = false
-var fall_through_time : float = 0.25
+var fall_through_time : float = 0.5
 var fall_timer : float = 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
@@ -80,6 +80,9 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	if floor_motion != Vector2.ZERO:
 		global_position += floor_motion
+		#Y方向の移動時は横に動かない
+		global_position.y += 0
+		
 	floor_motion = Vector2.ZERO
 	
 	if fall_timer > 0:

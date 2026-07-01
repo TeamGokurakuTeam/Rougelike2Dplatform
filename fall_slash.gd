@@ -1,6 +1,8 @@
 extends Hitbox
 class_name PlayerFallProjecttile
 
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $Root/AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Hitbox = $Hitbox
@@ -30,6 +32,8 @@ func _on_GhostTimer_timeout() -> void:
 		root.scale
 	)
 	get_tree().current_scene.add_child(ghost)
+	ghost.texture = animated_sprite_2d.sprite_frames.get_frame_texture(animated_sprite_2d.animation, animated_sprite_2d.frame)
+	ghost.ghosting()
 
 func _on_timer_timeout() -> void:
 	ghost_timer.stop()

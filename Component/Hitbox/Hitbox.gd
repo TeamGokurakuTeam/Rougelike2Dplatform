@@ -1,6 +1,7 @@
 extends Area2D
 class_name Hitbox
 
+
 @export var damage : float = 0 : set = _set_damage , get = _get_damage
 @export var knockback_force : float = 0 ##ノックバック力
 @export var is_continuous : bool = false ##継続ダメージか
