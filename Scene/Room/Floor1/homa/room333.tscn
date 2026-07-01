@@ -143,7 +143,12 @@ position = Vector2(448, 640)
 enemys = Array[PackedScene]([ExtResource("10_nxo0y"), ExtResource("11_m0q2n")])
 is_random = true
 
-[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=967666902 instance=ExtResource("9_dd2au")]
+[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=2060066207 instance=ExtResource("9_dd2au")]
+position = Vector2(216, 640)
+enemys = Array[PackedScene]([ExtResource("10_nxo0y"), ExtResource("11_m0q2n")])
+is_random = true
+
+[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=967666902 instance=ExtResource("9_dd2au")]
 position = Vector2(576, 640)
 enemys = Array[PackedScene]([ExtResource("10_nxo0y"), ExtResource("11_m0q2n")])
 is_random = true
@@ -212,7 +217,7 @@ position = Vector2(640, 16)
 rotation = 3.1415927
 
 [node name="Launcher" parent="." index="13" unique_id=784651057 instance=ExtResource("5_wmsef")]
-position = Vector2(184, 400)
+position = Vector2(8, 400)
 projectile_scene = ExtResource("6_a4h8d")
 
 [node name="BouncePad3" parent="." index="14" unique_id=941075620 instance=ExtResource("9_m0q2n")]
