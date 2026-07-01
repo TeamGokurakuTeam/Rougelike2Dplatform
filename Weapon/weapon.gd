@@ -5,7 +5,8 @@ const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 const CRITICAL_RATE : float = 1.5
 const NORMAL_RATE : float = 1.0
 
-const PLAYER_FALL_SLASH : PackedScene = preload("uid://cf50nqa2obwgs")
+const PLAYER_FALL_SLASH : PackedScene = preload("uid://bjj3tflijfk6o")
+
 const PLAYER_RANGESLASH : PackedScene = preload("uid://dds7cl7iiu2wf")
 
 
