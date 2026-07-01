@@ -7,3 +7,5 @@
 script = ExtResource("1_ntn31")
 room_scene = ExtResource("1_vccfh")
 room_type = 1
+left = true
+right = true
