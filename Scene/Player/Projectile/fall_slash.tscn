@@ -1,27 +1,20 @@
-[gd_scene format=3 uid="uid://cf50nqa2obwgs"]
+[gd_scene format=3 uid="uid://bjj3tflijfk6o"]
 
-[ext_resource type="Script" uid="uid://bbehhmwegmec6" path="res://fall_slash.gd" id="1_xhnku"]
-[ext_resource type="Texture2D" uid="uid://slqk022cybo" path="res://Assets/Weapon/Effect/Brushed - FX Series 003_nyknck/BFX003_01.png" id="2_3ocud"]
+[ext_resource type="Script" uid="uid://7c18oyed3r62" path="res://fall_slash.gd" id="1_xhnku"]
 [ext_resource type="Texture2D" uid="uid://x7amrwqju0u0" path="res://Assets/Particle/32x32_Star_5.png" id="2_7580n"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="3_3ocud"]
-[ext_resource type="Texture2D" uid="uid://buymhea83npvs" path="res://Assets/Weapon/Effect/Brushed - FX Series 003_nyknck/BFX003_02.png" id="3_7580n"]
-[ext_resource type="Texture2D" uid="uid://tlsdbn7qenbs" path="res://Assets/Weapon/Effect/Brushed - FX Series 003_nyknck/BFX003_03.png" id="4_n2edo"]
-[ext_resource type="Script" uid="uid://bcxc2kx4fu3hm" path="res://Scene/Player/Projectile/FallSlashGhost.gd" id="6_n2edo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7580n"]
 atlas = ExtResource("2_7580n")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb63f"]
-atlas = ExtResource("2_3ocud")
 region = Rect2(0, 0, 106, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqobf"]
-atlas = ExtResource("3_7580n")
 region = Rect2(0, 0, 106, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cdimc"]
-atlas = ExtResource("4_n2edo")
 region = Rect2(0, 0, 106, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_75vwg"]
@@ -718,8 +711,6 @@ libraries/ = SubResource("AnimationLibrary_2ludi")
 [node name="Ghost" type="Sprite2D" parent="." unique_id=592530790]
 modulate = Color(1, 1, 1, 0.60784316)
 rotation = 1.0471976
-texture = ExtResource("2_3ocud")
-script = ExtResource("6_n2edo")
 
 [node name="GhostTimer" type="Timer" parent="." unique_id=12386132]
 wait_time = 0.05
