@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://bhwuiry4se62y" path="res://Resource/Modifier/Burstslasher.tres" id="12_f4wo4"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="12_q8aav"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="13_f4wo4"]
+[ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="14_y4w1a"]
 
 [node name="LobbyRoom001" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_lhnps")]
 can_spawn_enemy = false
@@ -72,3 +73,11 @@ modifier = ExtResource("12_q8aav")
 [node name="Obelisk" parent="." index="12" unique_id=1340329694 instance=ExtResource("13_f4wo4")]
 position = Vector2(493, 100)
 scale = Vector2(0.92, 0.92)
+
+[node name="MoveTile" parent="." index="13" unique_id=971770846 instance=ExtResource("14_y4w1a")]
+position = Vector2(142, 125)
+
+[node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
+points = PackedVector2Array(48.535, 0, -34.14, 0)
+
+[editable path="MoveTile"]

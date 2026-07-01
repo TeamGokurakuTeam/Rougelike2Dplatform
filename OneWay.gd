@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name OneWayPlatform
 
 @export var disable_time : float = 0.2
 @onready var col: CollisionShape2D = $CollisionShape2D

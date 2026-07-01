@@ -147,6 +147,13 @@ func _get_input() -> void:
 		if Input.is_action_just_pressed("UI_Down"):
 			fall_timer = fall_through_time
 			set_collision_mask_value(1, false)
+			#
+			set_collision_mask_value(8, false)
+			#追加
+			await get_tree().create_timer(0.2).timeout
+			set_collision_mask_value(1, true)
+			set_collision_mask_value(8, true)
+			
 		ghost_timer.stop()
 	
 	if is_on_floor():
