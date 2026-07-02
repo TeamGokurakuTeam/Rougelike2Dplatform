@@ -205,8 +205,9 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_58ae2")
 
 [node name="Hurtbox" parent="." index="6" unique_id=1912714286 node_paths=PackedStringArray("character")]
+position = Vector2(0, 2)
 collision_layer = 8
-collision_mask = 17
+collision_mask = 145
 character = NodePath("..")
 
 [node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
