@@ -15,11 +15,11 @@ const PLAYER_RANGESLASH : PackedScene = preload("uid://dds7cl7iiu2wf")
 @export_category("ステータス")
 @export var cooldown : float = 3.0
 @export_enum("火属性", "水属性", "血属性", "呪属性", "聖属性", "無属性") var attribute = "無属性"
-@export var durability : float = 100
+@export var durability : float = 100.0
 #@export var ability : AbilityResource
 
 @export_category("初期設定")
-@export var offset_length : float = 0 #発射物が出る時の位置を決める長さ
+@export var offset_length : float = 0.0 #発射物が出る時の位置を決める長さ
 
 @onready var modifier_count_timer: Timer = $ModifierCountTimer
 @onready var charge_particle: GPUParticles2D = $ChargeParticle

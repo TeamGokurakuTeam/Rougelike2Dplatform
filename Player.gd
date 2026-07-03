@@ -95,7 +95,9 @@ func _physics_process(delta: float) -> void:
 	if jump_pressed_frame > 0:
 		jump_pressed_frame -= 1
 	#歩き
-	if abs(velocity.x) > 0.8:
+	if is_dodgeroll:
+		animation_player.play("DodgeRoll")
+	elif abs(velocity.x) > 0.8:
 		animation_player.play("Walk")
 	else:
 		animation_player.play("Idle")
