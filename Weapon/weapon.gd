@@ -166,6 +166,10 @@ func get_modifiers_level(name : String) -> int:
 	if lock_modifiers_ids.has(name):
 		sum += lock_modifiers_ids[name]
 	return sum
+	
+	#この関数は同じmodifierの数を返す
+	#もし、"同じ数だけあれば大きくする"などの修飾子に使うなら
+	#まず、変数にいれてから掛け算すること。
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
