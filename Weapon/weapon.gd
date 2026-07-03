@@ -159,7 +159,7 @@ func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("DampingSpeedUp"):
 		damping_speedup(mouse_direction,offset_length)
 	
-func get_modifiers_level(name : String) -> bool:
+func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
 	if modifiers_ids.has(name):
 		sum += modifiers_ids[name]
