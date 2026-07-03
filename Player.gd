@@ -70,10 +70,6 @@ func _physics_process(delta: float) -> void:
 		global_position += floor_motion
 		global_position.y += 0
 	floor_motion = Vector2.ZERO
-	if fall_timer > 0:
-		fall_timer -= delta
-		if fall_timer <= 0:
-			set_collision_mask_value(1, true)
 	var was_on_floor : bool = is_on_floor()
 	if was_on_floor && !is_on_floor():
 		coyote_timer.start()
@@ -125,18 +121,6 @@ func _get_input() -> void:
 	else:
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = jump_velocity
-			if Input.is_action_just_pressed("UI_Down"):
-				fall_timer = fall_through_time
-				set_collision_mask_value(1, false)
-				var targets: Array[StaticBody2D] = []
-				for one_way in get_tree().get_nodes_in_group("OneWay"):
-					if one_way.player_touching:
-						one_way.set_collision_layer_value(8, false)
-						targets.append(one_way)
-				await get_tree().create_timer(0.5).timeout
-				for b in targets:
-					if is_instance_valid(b):
-						b.set_collision_layer_value(8, true)
 
 		ghost_timer.stop()
 	if is_on_floor():
@@ -152,7 +136,6 @@ func _get_input() -> void:
 			velocity.y = jump_velocity
 			coyote_timer.stop()
 			coyote_time_activated = true
-
 	if Input.is_action_just_pressed("UI_Apply"):
 		if weapon_resource_ids.size() <= 0 and inventory.get_child_count() <= 0:
 			return
@@ -162,7 +145,6 @@ func _get_input() -> void:
 		current_modifier -= 1
 		pickup_modifier.emit(self)
 		weapon.start_modifier_timer()
-
 	for i in range(5):
 		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
 			var prev_weapon = current_weapon
