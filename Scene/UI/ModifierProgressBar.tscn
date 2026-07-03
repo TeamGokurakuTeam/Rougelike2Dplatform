@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cuc66hry0j4hn"]
+
+[ext_resource type="Script" uid="uid://ba3ijvw3ximb2" path="res://Scene/UI/modifier_timer.gd" id="1_d637d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hoxb"]
+bg_color = Color(0.3764706, 0.7921569, 0.40392157, 1)
+
+[sub_resource type="Animation" id="Animation_d637d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProgressBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-560, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_yli2d"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ProgressBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-560, 0), Vector2(-496.15778, 0), Vector2(-437.9816, 0), Vector2(-384.78906, 0), Vector2(-335.84207, 0), Vector2(-290.42624, 0), Vector2(-247.91202, 0), Vector2(-207.79974, 0), Vector2(-169.75021, 0), Vector2(-133.60486, 0), Vector2(-99.39517, 0), Vector2(-67.345825, 0), Vector2(-37.86969, 0), Vector2(-11.554077, 0), Vector2(10.867737, 0), Vector2(28.568787, 0), Vector2(40.71924, 0), Vector2(46.632446, 0), Vector2(45.979004, 0), Vector2(39.059753, 0), Vector2(27.088318, 0), Vector2(12.364746, 0), Vector2(-1.855896, 0), Vector2(-12.014221, 0), Vector2(-15.479736, 0), Vector2(-12.009033, 0), Vector2(-4.4658203, 0), Vector2(2.3621216, 0), Vector2(4.88678, 0), Vector2(3.289978, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qj88r"]
+_data = {
+&"RESET": SubResource("Animation_d637d"),
+&"start": SubResource("Animation_yli2d")
+}
+
+[node name="ModifierProgressBar" type="Control" unique_id=1389695203]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d637d")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1704251926]
+visible = false
+layout_mode = 0
+offset_left = -560.0
+offset_right = -390.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jhy2k")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5hoxb")
+max_value = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1492804379]
+libraries/ = SubResource("AnimationLibrary_qj88r")
+autoplay = &"start"

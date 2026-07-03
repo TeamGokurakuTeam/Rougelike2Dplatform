@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dkxbmaoyq1r3"]
+
+[ext_resource type="Script" uid="uid://evc7u5dvk7sk" path="res://Launcher.gd" id="1_1b2oy"]
+
+[node name="Launcher" type="Node2D" unique_id=1827001644]
+script = ExtResource("1_1b2oy")
+fire_interval = 3.0
+
+[node name="FireTimer" type="Timer" parent="." unique_id=1098391806]
+
+[node name="FirePoint" type="Marker2D" parent="." unique_id=266672875]
