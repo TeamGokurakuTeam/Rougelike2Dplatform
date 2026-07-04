@@ -45,7 +45,10 @@ var original_multipliers: Array[float] = []
 var original_acceleration := 0.0
 
 var base_stats : Array[HitboxStat] = []
-
+#使用した修飾子の数
+var modifier_use_count: int = 0
+#
+var fall_slash_cooldown := 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,6 +61,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if fall_slash_cooldown > 0.0:
+		fall_slash_cooldown -= delta
 	if Input.is_action_just_pressed("UI_Attack") and not animation_player.is_playing():
 		animation_player.play("Charge")
 	elif Input.is_action_just_released("UI_Attack"):
@@ -76,6 +81,7 @@ func _process(delta: float) -> void:
 			animation_player.play("Attack")
 		elif charge_particle.emitting:	
 			animation_player.play("StrongAttack")
+
 	
 	mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	
@@ -137,6 +143,8 @@ func has_modifiers(name : String):
 	return modifiers_ids.has(name) or lock_modifiers_ids.has(name)
 
 func attack_trigger_modifier() -> void:
+	#
+	modifier_use_count += 1
 	
 	if modifiers_ids.has("Bloodletting"):
 		bloodletting(mouse_direction, offset_length)
@@ -159,12 +167,20 @@ func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("DampingSpeedUp"):
 		damping_speedup(mouse_direction,offset_length)
 	
-func get_modifiers_level(name : String) -> bool:
+func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
 	if modifiers_ids.has(name):
 		sum += modifiers_ids[name]
 	if lock_modifiers_ids.has(name):
 		sum += lock_modifiers_ids[name]
+	return sum
+#
+func get_all_modifier_levels_sum() -> int:
+	var sum := 0
+	for id in modifiers_ids.keys():
+		sum += modifiers_ids[id]
+	for id in lock_modifiers_ids.keys():
+		sum += lock_modifiers_ids[id]
 	return sum
 
 func afterimage_slash() -> void:
@@ -202,22 +218,35 @@ func burst_slash() -> void:
 	get_tree().root.add_child(slash)
 #斬：複製
 func fall_slashing() -> void:
-	var count = 3
+	if fall_slash_cooldown > 0.0:
+		return
+	fall_slash_cooldown = 3.0
+	var count: int = 1
+	if modifier_use_count >= 10:
+		count = 3
+	elif modifier_use_count >= 5:
+		count = 2
+	else:
+		count = 1
+	count = min(count, 3)
 	var range_x = 50
 	var range_y_min = -250
 	var range_y_max = -100
 	var dir = sign(mouse_direction.x)
 	if dir == 0:
 		dir = 1
-	for i in count:
+	for i in range(count):
 		var delay := randf_range(0.0, 0.3)
 		var randomspeed := create_tween()
 		randomspeed.tween_interval(delay)
 		randomspeed.tween_callback(func ():
 			var slash := PLAYER_FALL_SLASH.instantiate()
 			slash.direction = dir
-			slash.damage =3
-			var offset := Vector2(randf_range(50, range_x) * dir,randf_range(range_y_min, range_y_max))
+			slash.damage = 3
+			var offset := Vector2(
+				randf_range(50, range_x) * dir,
+				randf_range(range_y_min, range_y_max)
+			)
 			slash.global_position = global_position + offset
 			slash.knockback_direction = Vector2(dir, 0)
 			get_tree().root.add_child(slash)
@@ -305,8 +334,7 @@ func _start_auto_attack_speed_buff() -> void:
 func _add_speed_exceed_damage(exceed: float) -> void:
 	for i in range(hitboxes.size()):
 		hitboxes[i].damage_multiplier += exceed
-		print("超過",exceed)
-#???
+#
 func _add_speed_move_exceed(exceed:float) -> void:
 	if exceed > 0:
 		var add_speed = exceed * 20
