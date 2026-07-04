@@ -30,9 +30,9 @@ func _process(delta: float) -> void:
 		player_body.floor_motion = floor_motion
 		super(delta)
 
-func _restore_layer() -> void:
-	await get_tree().create_timer(0.5).timeout
-	set_collision_layer_value(8, true)
+#func _restore_layer() -> void:
+	#await get_tree().create_timer(0.5).timeout
+	#set_collision_layer_value(8, true)
 
 func _move_along_line(delta: float) -> void:
 	if points.size() < 2:
@@ -66,7 +66,12 @@ func _move_along_line(delta: float) -> void:
 	else:
 		col.disabled = false
 
+
+
 func _on_body_exited(body : Node2D) -> void:
-		super(body)
+	if body is Player:
+		player_inside = false
+		player_body = null
+		player_touching = false
 		if current_time <= 0:
 			col.disabled = false
