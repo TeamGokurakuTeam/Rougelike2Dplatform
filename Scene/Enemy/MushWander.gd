@@ -22,7 +22,7 @@ func Update(delta) -> void:
 	pass
 
 func Physics_Update(delta) -> void:
-	parent.velocity += direction * parent.speed
+	parent.velocity += direction * parent.acceleration
 
 func _on_timer_timeout() -> void:
 	StateTransitioned.emit(self, "Idle")

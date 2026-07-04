@@ -7,7 +7,6 @@ class_name PickupComponent
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,9 +19,15 @@ func _process(delta: float) -> void:
 		collision_shape_2d.disabled = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is DropItem:
-		character.resource_ids.append((body as DropItem).resource.Id)
-		#character.current_weapon = character.resource_ids.size() - 1
+	if body is DropItem and character.weapon_resource_ids.size() <= 0:
+		character.weapon_resource_ids.append((body as DropItem).resource.Id)
+		character.current_weapon = character.weapon_resource_ids.size() - 1
 		character.merge_weapon((body as DropItem).resource.Id)
 		character.update_weapon()
+		body.queue_free()
+	
+	if body is DropModifier:
+		var drop_modifier : DropModifier = (body as DropModifier)
+		character.mod_resource_ids.append(drop_modifier.modifier.modifier_id)
+		character.update_modifier()
 		body.queue_free()
