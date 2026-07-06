@@ -8,6 +8,7 @@ class_name MainGame
 @onready var player: Player = $Player
 @onready var room_generator: RoomGenerator = $RoomGenerator
 @onready var camera_2d: Camera = $Camera2D
+@onready var bgm_changer: BGMChanger = $BGMChanger
 
 func _ready() -> void:
 	room_generator.main_game_node = self
