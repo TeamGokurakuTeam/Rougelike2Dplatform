@@ -16,7 +16,6 @@ const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 @onready var hurtbox: Hurtbox = $Hurtbox
 
 @export var max_jump_pressed_frame : int = 5
-
 @export_category("プレイヤーステータス")
 @export var defense_power : float = 10
 @export var critical_chance : float = .0
@@ -28,21 +27,14 @@ const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
 @export var just_dodgeroll_time : float = 0.09
 
 var weapon_resource_ids : Array[String] = []
-#アイテムとしての武器の配列
-
 var mod_resource_ids : Array[String] = []
-#アイテムとしてのmodifierの配列
-
 var current_weapon : int = -1
 var current_modifier : int = -1 : set = _set_current_modifier
-#現在選択している修飾子の場所
-
 var coyote_time_activated : bool = false
 var fall_through_time : float = 0.5
 var fall_timer : float = 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
-
 #Fan
 var external_velocity : Vector2 = Vector2.ZERO
 var external_friction := 500.0
@@ -52,12 +44,10 @@ var floor_motion: Vector2 = Vector2.ZERO
 var dot_damage_per_second: float = 0.0
 var dot_timer: float = 0.0 
 var original_color: Color = Color.WHITE 
-
 var is_dodgeroll : bool = false
 var dodgeroll_dir : Vector2 = Vector2.ZERO
 var is_just_dodgeroll : bool = false
 var ghost_effect : GhostEffect
-
 var weapon : Weapon
 
 signal pickup_item(player : Player)
@@ -66,9 +56,7 @@ signal applied_modifier(player : Player)
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
-	#マウスの方向はグローバル位置のマウスポジション - 自分のグローバル位置を正規化した方向
 	if mouse_direction.x > 0 and animated_sprite_2d.flip_h:
-		#マウスの方向が右側にあったら
 		animated_sprite_2d.flip_h = false
 	elif mouse_direction.x < 0 and not animated_sprite_2d.flip_h:
 		#マウスの方向が左側にあったら
@@ -80,15 +68,8 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	if floor_motion != Vector2.ZERO:
 		global_position += floor_motion
-		#Y方向の移動時は横に動かない
 		global_position.y += 0
-		
 	floor_motion = Vector2.ZERO
-	
-	if fall_timer > 0:
-		fall_timer -= delta
-		if fall_timer <= 0:
-			set_collision_mask_value(1, true)
 	var was_on_floor : bool = is_on_floor()
 	if was_on_floor && !is_on_floor():
 		coyote_timer.start()
@@ -124,11 +105,8 @@ func apply_dot(dps: float, duration: float) -> void:
 	animated_sprite_2d.modulate = Color(0.2,0.8,2.0)
 
 func _get_input() -> void:
-	#移動方向の初期化
 	move_direction = Vector2.ZERO
-	#get_axisで方向を求めている
-	move_direction.x = Input.get_axis(&"UI_left",&"UI_right") #横移動の入力
-	
+	move_direction.x = Input.get_axis(&"UI_left", &"UI_right")
 	if abs(move_direction.x) > 0 and Input.is_action_just_pressed("UI_DodgeRoll") and not is_dodgeroll:
 		if dodge_roll_cool_down_timer.time_left <= 0.0:
 			is_dodgeroll = true
@@ -136,31 +114,17 @@ func _get_input() -> void:
 			dodge_rolling_timer.start()
 			dodgeroll_dir.x = sign(move_direction.x)
 			current_acceleration = dodgeroll_acceleration
-		
 	if is_dodgeroll:
-		var tween : Tween = create_tween()
-		tween.tween_property(self,
-							 "dodgeroll_acceleration",
-							 dodgeroll_acceleration,
-							 dodgeroll_time) \
+		var tween: Tween = create_tween()
+		tween.tween_property(self, "dodgeroll_acceleration", dodgeroll_acceleration, dodgeroll_time) \
 			.set_ease(Tween.EASE_IN) \
 			.set_trans(Tween.TRANS_EXPO)
 		move_direction.x = dodgeroll_dir.x
 	else:
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = jump_velocity
-		if Input.is_action_just_pressed("UI_Down"):
-			fall_timer = fall_through_time
-			set_collision_mask_value(1, false)
-			#
-			set_collision_mask_value(8, false)
-			#追加
-			await get_tree().create_timer(0.2).timeout
-			set_collision_mask_value(1, true)
-			set_collision_mask_value(8, true)
-			
+
 		ghost_timer.stop()
-	
 	if is_on_floor():
 		if coyote_time_activated:
 			coyote_time_activated = false
@@ -169,14 +133,11 @@ func _get_input() -> void:
 		if !coyote_time_activated:
 			coyote_timer.start()
 			coyote_time_activated = true
-		
-		#ui_acceptに移動させるし、書いたやつを殺す
 		if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
 			jump_pressed_frame = max_jump_pressed_frame
 			velocity.y = jump_velocity
 			coyote_timer.stop()
 			coyote_time_activated = true
-	
 	if Input.is_action_just_pressed("UI_Apply"):
 		if weapon_resource_ids.size() <= 0 and inventory.get_child_count() <= 0:
 			return
@@ -186,7 +147,6 @@ func _get_input() -> void:
 		current_modifier -= 1
 		pickup_modifier.emit(self)
 		weapon.start_modifier_timer()
-	
 	for i in range(5):
 		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
 			var prev_weapon = current_weapon

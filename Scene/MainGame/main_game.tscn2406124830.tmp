@@ -5,22 +5,18 @@
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
 [ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="3_4x3oj"]
 [ext_resource type="PackedScene" uid="uid://cvnfa7dppgwhv" path="res://Scene/camera_2d.tscn" id="5_88yfh"]
+[ext_resource type="AudioStream" uid="uid://c0lx114m7xfjt" path="res://Assets/Music/397 [Misc Extras] bgm_space_upbeat_F.ogg" id="5_g7el7"]
 [ext_resource type="Texture2D" uid="uid://c0f5n711eyibd" path="res://Assets/BackGround/1.png" id="7_2ns5o"]
 [ext_resource type="Texture2D" uid="uid://dvqkb5s8smq1p" path="res://Assets/BackGround/2.png" id="8_t5ou6"]
 [ext_resource type="Texture2D" uid="uid://clgkqf0rfktdb" path="res://Assets/BackGround/3.png" id="9_50dfd"]
 [ext_resource type="Texture2D" uid="uid://d2hpdmvxqrhvk" path="res://Assets/BackGround/4.png" id="10_4lo75"]
 [ext_resource type="Texture2D" uid="uid://cy7y1qvpstcyl" path="res://Assets/BackGround/5.png" id="11_1shb2"]
-[ext_resource type="Script" uid="uid://bqa23sw42pwvk" path="res://Scene/MainGame/bgm_changer.gd" id="11_50dfd"]
-[ext_resource type="AudioStream" uid="uid://dl0tuiisa34l6" path="res://Assets/Music/IswearIsawit.ogg" id="11_t5ou6"]
 [ext_resource type="Texture2D" uid="uid://bypwuf60t74yf" path="res://Assets/BackGround/6.png" id="12_n14k5"]
-[ext_resource type="AudioStream" uid="uid://fmkya4o1cxob" path="res://Assets/Music/PerituneMaterial_Gothic_Dark_loop.mp3" id="13_4lo75"]
-[ext_resource type="AudioStream" uid="uid://dtkgjxgq3rlg1" path="res://Assets/Music/TheLoomingBattle.OGG" id="14_4lo75"]
 
 [node name="MainGame" type="Node2D" unique_id=334667216]
 script = ExtResource("1_ga214")
 
 [node name="BackGround" type="Node2D" parent="." unique_id=1755069234]
-modulate = Color(0.42592907, 0.3903062, 0.4745459, 1)
 
 [node name="BackParallax2D" type="Parallax2D" parent="BackGround" unique_id=1960957557]
 scroll_scale = Vector2(0, 0)
@@ -80,26 +76,10 @@ is_fly = null
 position = Vector2(0, -38)
 remote_path = NodePath("../../Camera2D")
 
-[node name="BGMChanger" type="Node2D" parent="." unique_id=9408269 node_paths=PackedStringArray("stage_bgm", "battle_bgm", "boss_bgm")]
-script = ExtResource("11_50dfd")
-stage_bgm = NodePath("Stage")
-battle_bgm = NodePath("Battle")
-boss_bgm = NodePath("Boss")
-
-[node name="Stage" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1112841277]
-stream = ExtResource("11_t5ou6")
-bus = &"BGM"
-parameters/looping = true
-
-[node name="Battle" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1791616548]
-stream = ExtResource("13_4lo75")
-bus = &"BGM"
-parameters/looping = true
-
-[node name="Boss" type="AudioStreamPlayer" parent="BGMChanger" unique_id=965717512]
-stream = ExtResource("14_4lo75")
-bus = &"BGM"
-parameters/looping = true
+[node name="Stage" type="AudioStreamPlayer" parent="." unique_id=1112841277]
+stream = ExtResource("5_g7el7")
+volume_db = -20.0
+autoplay = true
 
 [node name="Camera2D" parent="." unique_id=1883637712 instance=ExtResource("5_88yfh")]
 position = Vector2(0, -38)
