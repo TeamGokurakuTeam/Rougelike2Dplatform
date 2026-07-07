@@ -53,7 +53,7 @@ var weapon : Weapon
 signal pickup_item(player : Player)
 signal modifier_updated(player : Player)
 signal applied_modifier(player : Player)
-signal modifier_picked_up(mod_res : Player)
+signal modifier_picked_up(mod_res : ModifierResource)
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()

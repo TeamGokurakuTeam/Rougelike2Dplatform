@@ -17,8 +17,9 @@ func _process(delta: float) -> void:
 	pass
 
 func submit(text:String, scroll_second : float):
-	count += 1
-	rich_text_label.add_text("{0}: {1}".format([count, text]))
+	#count += 1
+	rich_text_label.clear()
+	rich_text_label.add_text(text)
 	rich_text_label.newline()
 	# これがないと一度に10行程度入力した時に最下行までスクロールしません
 	rich_text_label.get_line_count()

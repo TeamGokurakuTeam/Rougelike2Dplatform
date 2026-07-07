@@ -30,5 +30,5 @@ func _on_body_entered(body: Node2D) -> void:
 		var drop_modifier : DropModifier = (body as DropModifier)
 		character.mod_resource_ids.append(drop_modifier.modifier.modifier_id)
 		character.update_modifier()
-		character.modifier_picked_up.emit(drop_modifier)
+		character.modifier_picked_up.emit(drop_modifier.modifier)
 		body.queue_free()

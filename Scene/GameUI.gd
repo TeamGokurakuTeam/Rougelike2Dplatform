@@ -33,7 +33,9 @@ func _on_character_modifier_updated(player: Player) -> void:
 			node.resource = resource
 		node.update(player.current_weapon == i)
 
-func _on_modifier_picked_up(res : ModifierResource) -> void:
-	modifier_explanation.modifier_resource = res
-	modifier_explanation.submit(res.explanation, 5.0)
-	modifier_explanation.animation_player.play("start")
+func _on_modifier_picked_up(mod_res : ModifierResource) -> void:
+	modifier_explanation.modifier_resource = mod_res
+	modifier_explanation.submit(mod_res.explanation, 5.0)
+	modifier_explanation.animation_player.play("Start")
+	await get_tree().create_timer(6).timeout
+	modifier_explanation.animation_player.play("End")
