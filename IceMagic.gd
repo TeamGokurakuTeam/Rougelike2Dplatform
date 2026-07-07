@@ -17,6 +17,20 @@ func _process(delta: float) -> void:
 		animation_player.play("Right")
 	else:
 		animation_player.play("Left")
+	#上下
+	if velocity.y > 0:
+		animation_player.play("Up")
+	else:
+		animation_player.play("Down")
+	#斜め
+	if velocity.x > 0 || velocity.y > 0:
+		animation_player.play("Slanted_DownRight")
+	else:
+		animation_player.play("Slanted_UpLeft")
+	if velocity.x > -0 || velocity.y > 0:
+		animation_player.play("Slanted_UpRight")
+	if velocity.x > 0 || velocity.y > -0:
+		animation_player.play("Slanted_DownLeft")
 	life_time -= delta
 	if life_time <= 0:
 		queue_free()

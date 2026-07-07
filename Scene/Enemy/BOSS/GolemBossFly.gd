@@ -13,7 +13,6 @@ const WAVE_EFFECT = preload("uid://06ss5bj7u3pc")
 var can_shot_bullet : bool = false
 var texture : Texture2D
 var bullet_num : int = 6
-
 var min_angle : float = -25
 var max_angle : float = 25
 var center : Vector2
@@ -48,25 +47,18 @@ func Exit() -> void:
 func Update(delta) -> void:
 	pass
 
-
 func Physics_Update(delta) -> void:
 	parent.GolemFlyRotate(delta)
 	
 	
 	if can_shot_bullet and bullet_shot_timer.time_left <= 0:
 		bullet_shot_timer.start()
-	
-	#----------------test用----------------#
 	if parent.player == null:
 		return
 	if parent.can_move:
 		parent.set_target(parent.player.global_position)
 		parent.move_toward_player()
 		parent.move_and_slide()
-	#--------------------------------------#
-
-#----------------test用----------------#
-
 
 func _on_fly_timer_timeout() -> void:
 	parent.can_move = false
@@ -75,7 +67,6 @@ func _on_fly_timer_timeout() -> void:
 	await anim_player.animation_finished
 	parent.can_move = true
 	StateTransitioned.emit(self, "Move")
-
 
 func _on_bullet_shot_timer_timeout() -> void:
 	for i in bullet_num:

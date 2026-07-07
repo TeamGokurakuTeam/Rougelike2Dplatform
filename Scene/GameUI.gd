@@ -5,6 +5,7 @@ class_name GameUI
 @onready var mod_ui: ModUI = $ModUI
 @onready var modifier_timer: ModifierTimer = $ModifierTimer
 @onready var player_hp_ui: PlayerHpUI = $PlayerHpUI
+@onready var locked_mod_label: Label = $LockedModLabel
 
 var player : Player
 

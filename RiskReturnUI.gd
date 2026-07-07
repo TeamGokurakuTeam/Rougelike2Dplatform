@@ -27,7 +27,7 @@ func _on_risk_return_selected(gain_resource_id : String, loss_resource_id : Stri
 	var id : String = player.mod_resource_ids.pick_random()
 	weapon.decrease_modifier(id)
 	weapon.add_lock_modifier(id)
-	print(loss_resource_id)
+	parent.player_ui.locked_mod_label.text = "固定 : " + str(weapon.lock_modifiers_ids)
 	risk_selected.emit(loss_resource_id)
 	animation_player.play("End")
 	await animation_player.animation_finished
