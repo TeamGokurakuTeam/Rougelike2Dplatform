@@ -16,11 +16,12 @@ func _ready() -> void:
 	player.global_position = room_generator.lobby_room.player_marker.global_position
 	player_ui.player = player
 	player_ui.player_hp_ui.player = player
-	player.pickup_item.connect(player_ui._on_character_pickup_item)
-	player.pickup_modifier.connect(player_ui.mod_ui._on_player_pickup_modifier)
+	player.modifier_updated.connect(player_ui._on_character_modifier_updated)
+	player.modifier_updated.connect(player_ui.mod_ui._on_player_modifier_updated)
 	player.applied_modifier.connect(player_ui.modifier_timer._on_player_applied_modifier)
 	player.hp_component.hp_changed.connect(player_ui.player_hp_ui._on_player_hp_changed)
-	
+	player.modifier_picked_up.connect(player_ui._on_modifier_picked_up)
+
 func _process(delta: float) -> void:
 	pass
 

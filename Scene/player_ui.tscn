@@ -35,6 +35,131 @@ corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
+[sub_resource type="Animation" id="Animation_a57nb"]
+resource_name = "End"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.43333337, 0.4666667, 0.50000006, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8000001, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(152.5, 243), Vector2(152.5, 243), Vector2(152.5, 254.48727), Vector2(152.5, 264.06482), Vector2(152.5, 271.90625), Vector2(152.5, 278.18518), Vector2(152.5, 283.07523), Vector2(152.5, 286.75), Vector2(152.5, 289.38312), Vector2(152.5, 291.14813), Vector2(152.5, 292.21875), Vector2(152.5, 292.76852), Vector2(152.5, 292.97107), Vector2(152.5, 293), Vector2(152.5, 293)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 0.8666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.23333335, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.017453292, 0.017453292, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_chu1y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(152.5, 296)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yegcq"]
+resource_name = "Start"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.13333334, 0.16666667, 0.2, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(152.5, 296), Vector2(152.5, 296), Vector2(152.5, 276.9724), Vector2(152.5, 269.55896), Vector2(152.5, 264.2), Vector2(152.5, 259.96692), Vector2(152.5, 256.49612), Vector2(152.5, 253.6), Vector2(152.5, 251.16702), Vector2(152.5, 249.12503), Vector2(152.5, 247.4247), Vector2(152.5, 246.03113), Vector2(152.5, 244.91919), Vector2(152.5, 244.07082), Vector2(152.5, 243.47322), Vector2(152.5, 243.1179), Vector2(152.5, 243)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_adel5"]
+_data = {
+&"End": SubResource("Animation_a57nb"),
+&"RESET": SubResource("Animation_chu1y"),
+&"Start": SubResource("Animation_yegcq")
+}
+
 [node name="PlayerUI" type="CanvasLayer" unique_id=1814325200]
 script = ExtResource("1_q25tn")
 
@@ -80,6 +205,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ModUI" parent="." unique_id=1180346681 instance=ExtResource("3_00pm1")]
+mod_resources = null
 
 [node name="ModifierTimer" parent="." unique_id=1389695203 instance=ExtResource("4_rj6n4")]
 offset_left = 29.0
@@ -89,15 +215,16 @@ offset_bottom = 200.0
 scale = Vector2(0.6, 0.6)
 
 [node name="ModifierExplanation" type="Panel" parent="." unique_id=20382060]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -103.5
-offset_top = -44.0
+offset_top = 8.0
 offset_right = 103.5
-offset_bottom = -4.0
+offset_bottom = 47.999878
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")
@@ -125,10 +252,15 @@ offset_top = 2.0
 offset_right = 205.5
 offset_bottom = 38.0
 theme_override_font_sizes/normal_font_size = 8
-text = "ゆらゆら踊る火種、燃やせ、燃やせ！
-この生の千秋楽まで
-ざらざら粘る摩擦の只中で
-向かい風が吹くのを強く予感していた"
+
+[node name="Timer" type="Timer" parent="ModifierExplanation" unique_id=458784596]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ModifierExplanation" unique_id=744258914]
+libraries/ = SubResource("AnimationLibrary_adel5")
+
+[connection signal="timeout" from="ModifierExplanation/Timer" to="ModifierExplanation" method="_on_timer_timeout"]
 
 [editable path="PlayerHpUI"]
 [editable path="ModUI"]

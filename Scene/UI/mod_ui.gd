@@ -61,6 +61,6 @@ func init_ui() -> void:
 	left_mod.texture = null
 	right_mod.texture = null
 
-func _on_player_pickup_modifier(player : Player) -> void:
+func _on_player_modifier_updated(player : Player) -> void:
 	texture_update(player)
 	

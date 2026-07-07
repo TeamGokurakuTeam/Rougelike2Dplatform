@@ -6,12 +6,13 @@ class_name GameUI
 @onready var modifier_timer: ModifierTimer = $ModifierTimer
 @onready var player_hp_ui: PlayerHpUI = $PlayerHpUI
 @onready var locked_mod_label: Label = $LockedModLabel
+@onready var modifier_explanation: ModifierExplanationUI = $ModifierExplanation
 
 var player : Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,7 +23,7 @@ func _process(delta: float) -> void:
 		player.current_modifier -= 1
 		mod_ui.texture_update(player)
 
-func _on_character_pickup_item(player: Player) -> void:
+func _on_character_modifier_updated(player: Player) -> void:
 	for i in hotbar.get_children().size():
 		var node : InventoryPanel = hotbar.get_child(i)
 		if i >= player.weapon_resource_ids.size() or i < 0:
@@ -31,3 +32,8 @@ func _on_character_pickup_item(player: Player) -> void:
 			var resource : ResourceItem = GlobalResourceLoader.item_cache[player.weapon_resource_ids[i]]
 			node.resource = resource
 		node.update(player.current_weapon == i)
+
+func _on_modifier_picked_up(res : ModifierResource) -> void:
+	modifier_explanation.modifier_resource = res
+	modifier_explanation.submit(res.explanation, 5.0)
+	modifier_explanation.animation_player.play("start")
