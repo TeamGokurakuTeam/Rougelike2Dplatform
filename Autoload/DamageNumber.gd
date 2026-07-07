@@ -1,13 +1,12 @@
 extends Node
 
-func display_number(value : float, position : Vector2, is_critical : bool) -> void:
+func display_number(value : float, position : Vector2, is_critical : bool, color : Color = "#FFF") -> void:
 	var number : Label = Label.new()
 	number.global_position = position
 	number.text = str(int(value))
 	number.z_index = 5
 	number.label_settings = LabelSettings.new()
 	
-	var color : Color = "#FFF"
 	if is_critical:
 		color = "#B22"
 	if value == 0:
