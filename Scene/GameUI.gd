@@ -35,7 +35,11 @@ func _on_character_modifier_updated(player: Player) -> void:
 
 func _on_modifier_picked_up(mod_res : ModifierResource) -> void:
 	modifier_explanation.modifier_resource = mod_res
+	modifier_explanation.texture_rect.texture = mod_res.texture
 	modifier_explanation.submit(mod_res.explanation, 5.0)
-	modifier_explanation.animation_player.play("Start")
-	await get_tree().create_timer(6).timeout
+	if modifier_explanation.animation_player.is_playing():
+		modifier_explanation.animation_player.play("Normal")
+	else:
+		modifier_explanation.animation_player.play("Start")
+	await modifier_explanation.animation_player.animation_finished
 	modifier_explanation.animation_player.play("End")
