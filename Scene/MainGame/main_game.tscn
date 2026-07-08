@@ -66,15 +66,6 @@ script = ExtResource("1_4nic5")
 generate_room_value = 8
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
-max_jump_pressed_frame = null
-defense_power = null
-critical_chance = null
-critical_damage = null
-luck = null
-dash_acceleration = null
-just_dodgeroll_time = null
-acceleration = null
-is_fly = null
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
 position = Vector2(0, -38)

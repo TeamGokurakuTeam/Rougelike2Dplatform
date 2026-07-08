@@ -51,8 +51,9 @@ var ghost_effect : GhostEffect
 var weapon : Weapon
 
 signal pickup_item(player : Player)
-signal pickup_modifier(player : Player)
+signal modifier_updated(player : Player)
 signal applied_modifier(player : Player)
+signal modifier_picked_up(mod_res : ModifierResource)
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -145,7 +146,7 @@ func _get_input() -> void:
 		weapon.add_modifier(mod_resource_ids[current_modifier])
 		mod_resource_ids.remove_at(current_modifier)
 		current_modifier -= 1
-		pickup_modifier.emit(self)
+		modifier_updated.emit(self)
 		weapon.start_modifier_timer()
 	for i in range(5):
 		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
@@ -171,7 +172,7 @@ func update_weapon() -> void:
 
 func update_modifier() -> void:
 	current_modifier += 1
-	pickup_modifier.emit(self)
+	modifier_updated.emit(self)
 
 func merge_weapon(target_res_id : String) -> void:
 	var target_res : ResourceItem = GlobalResourceLoader.item_cache[target_res_id]
