@@ -2,11 +2,10 @@ extends Area2D
 class_name AreaProjectile
 
 @export var speed : float = 200
-@export var direction : Vector2 = Vector2.LEFT
+@export var direction : Vector2 = Vector2.RIGHT
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $VisualRoot/AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Hitbox = $Hitbox
 
 func _physics_process(delta: float) -> void:
@@ -31,4 +30,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func destory() -> void:
 	speed = 0
-	animation_player.play(&"destroy")
+	self.queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer:
+		destory()

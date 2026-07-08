@@ -1,0 +1,20 @@
+extends Camera2D
+class_name Camera
+
+@export var shake_fade : float = 5.5
+
+var rng : RandomNumberGenerator = RandomNumberGenerator.new()
+var shake_strength : float = 0.0
+
+func apply_shake(random_strength : float) -> void:
+	shake_strength = random_strength
+
+func random_offset() -> Vector2:
+	return Vector2(rng.randf_range(-shake_strength, shake_strength), rng.randf_range(-shake_strength, shake_strength))
+
+func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("ui_enter"):
+		#apply_shake()
+	if shake_strength > 0:
+		shake_strength = lerpf  (shake_strength, 0, shake_fade * delta)
+		offset = random_offset()

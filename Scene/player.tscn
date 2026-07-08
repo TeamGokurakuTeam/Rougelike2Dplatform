@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://t6aylwfhobjb"]
+[gd_scene format=3 uid="uid://dyt6lgikee0an"]
 
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_xa75v"]
 [ext_resource type="Script" uid="uid://dncht7rhcx5dc" path="res://Player.gd" id="2_58ae2"]
@@ -92,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eqmt2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }]
@@ -173,13 +173,20 @@ _data = {
 collision_layer = 1
 collision_mask = 129
 script = ExtResource("2_58ae2")
-max_jump_pressed_frame = 5
-defense_power = 10.0
-critical_chance = 0.0
-critical_damage = 0.0
-luck = 0.0
+max_jump_pressed_frame = null
+defense_power = null
+critical_chance = null
+critical_damage = null
+luck = null
+dash_acceleration = null
+dodgeroll_acceleration = null
+dodgeroll_time = null
+just_dodgeroll_time = null
 friction = 0.3
 jump_velocity = -400.0
+max_speed = null
+acceleration = null
+is_fly = null
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 position = Vector2(-1.9073486e-06, 0)
@@ -201,8 +208,9 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_58ae2")
 
 [node name="Hurtbox" parent="." index="6" unique_id=1912714286 node_paths=PackedStringArray("character")]
+position = Vector2(0, 2)
 collision_layer = 8
-collision_mask = 17
+collision_mask = 145
 character = NodePath("..")
 
 [node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]
