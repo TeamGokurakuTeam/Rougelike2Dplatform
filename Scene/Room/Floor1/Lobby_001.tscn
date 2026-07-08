@@ -10,8 +10,10 @@
 [ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="8_00i6c"]
 [ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="10_ru5wp"]
 [ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="10_y4w1a"]
+[ext_resource type="Resource" uid="uid://cpvdfidpdiacj" path="res://Resource/Modifier/HeavyStrike.tres" id="12_q8aav"]
 [ext_resource type="Resource" uid="uid://tbq5gx41ix3b" path="res://Resource/Modifier/Speedingexceed.tres" id="12_ru5wp"]
-[ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="13_ru5wp"]
+[ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="13_q8aav"]
+[ext_resource type="PackedScene" uid="uid://esb02rh4pf7m" path="res://Scene/Room/ice_magic.tscn" id="14_5tx0k"]
 [ext_resource type="Resource" uid="uid://q17v86qdk2us" path="res://Resource/Modifier/AutoAttack.tres" id="14_ru5wp"]
 [ext_resource type="Resource" uid="uid://cycf0m4pavf61" path="res://Resource/Modifier/FallSlashing.tres" id="15_ru5wp"]
 
@@ -68,7 +70,7 @@ modifier = ExtResource("12_ru5wp")
 
 [node name="DropModifier7" parent="." index="11" unique_id=524663078 instance=ExtResource("6_nvwak")]
 position = Vector2(76, 94)
-modifier = ExtResource("13_ru5wp")
+modifier = ExtResource("12_q8aav")
 
 [node name="DropModifier8" parent="." index="12" unique_id=1382189345 instance=ExtResource("6_nvwak")]
 position = Vector2(495, 124)
@@ -77,3 +79,9 @@ modifier = ExtResource("14_ru5wp")
 [node name="DropModifier6" parent="." index="13" unique_id=210758661 instance=ExtResource("6_nvwak")]
 position = Vector2(142, 125)
 modifier = ExtResource("15_ru5wp")
+
+[node name="Launcher2" parent="." index="14" unique_id=976977621 instance=ExtResource("13_q8aav")]
+position = Vector2(337, 134)
+projectile_scene = ExtResource("14_5tx0k")
+projectile_speed = 200.0
+projectile_facing = Vector2(0, 1)

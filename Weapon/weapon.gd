@@ -50,6 +50,7 @@ var modifier_use_count: int = 0
 #
 var fall_slash_cooldown := 0.0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for node in root.get_children():
@@ -76,15 +77,12 @@ func _process(delta: float) -> void:
 			await animation_player.animation_finished
 			for i in hitboxes.size():
 				hitboxes[i].damage_multiplier = NORMAL_RATE
-				
 		elif animation_player.is_playing() and animation_player.current_animation == "Charge":
 			animation_player.play("Attack")
 		elif charge_particle.emitting:	
 			animation_player.play("StrongAttack")
 
-	
 	mouse_direction = (get_global_mouse_position() - global_position).normalized()
-	
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
 		rotation = mouse_direction.angle()
 		if scale.y == 1 and mouse_direction.x < 0:
@@ -134,6 +132,8 @@ func reset_modifier() -> void:
 	for i in hitboxes.size():
 		hitboxes[i].damage = base_stats[i].damage
 		hitboxes[i].knockback_force = base_stats[i].knockback_force
+		#
+		hitboxes[i].damage_multiplier = 1.0
 	modifiers_ids.clear()
 
 func _physics_process(delta: float) -> void:
@@ -166,7 +166,10 @@ func attack_trigger_modifier() -> void:
 #攻撃速度ビルド
 	if modifiers_ids.has("DampingSpeedUp"):
 		damping_speedup(mouse_direction,offset_length)
-	
+#重撃
+	if modifiers_ids.has("HeavyStrike"):
+		HeavyStrike()
+
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
 	if modifiers_ids.has(name):
@@ -339,6 +342,16 @@ func _add_speed_move_exceed(exceed:float) -> void:
 	if exceed > 0:
 		var add_speed = exceed * 20
 		player.current_acceleration += add_speed
+
+#重撃
+func HeavyStrike() -> void:
+	for i in hitboxes.size():
+		hitboxes[i].damage_multiplier = base_stats[i].damage * 0.1
+	animation_player.speed_scale = 0.4
+	await animation_player.animation_finished
+	animation_player.speed_scale = 1.0
+	for i in hitboxes.size():
+		hitboxes[i].damage = hitboxes[i].damage_multiplier
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
