@@ -128,7 +128,7 @@ rotate_speed = 30.0
 [node name="Launcher" parent="." index="15" unique_id=1827001644 instance=ExtResource("10_3p2nw")]
 position = Vector2(24, 80)
 projectile_scene = ExtResource("11_7k0oi")
-shoot_direction = Vector2(0, 0)
+projectile_facing = Vector2(0, 1)
 
 [node name="MoveTile" parent="." index="16" unique_id=971770846 instance=ExtResource("12_hy7k6")]
 position = Vector2(320, 56)

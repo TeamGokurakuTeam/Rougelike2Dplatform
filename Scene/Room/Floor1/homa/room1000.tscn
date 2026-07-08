@@ -39,18 +39,21 @@ bounce_power = 800.0
 position = Vector2(104, 232)
 rotation = -1.5707964
 projectile_scene = ExtResource("5_t7iby")
+projectile_facing = Vector2(0, 1)
 
 [node name="Launcher2" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="8" unique_id=874017785 instance=ExtResource("4_xeuir")]
 position = Vector2(104, 432)
 rotation = -1.5707964
 fire_interval = 2.0
 projectile_scene = ExtResource("5_t7iby")
+projectile_facing = Vector2(0, 1)
 
 [node name="Launcher3" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="9" unique_id=887947988 instance=ExtResource("4_xeuir")]
 position = Vector2(104, 416)
 rotation = -1.5707964
 fire_interval = 4.0
 projectile_scene = ExtResource("5_t7iby")
+projectile_facing = Vector2(0, 1)
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("6_133g3")]
 position = Vector2(416, 224)

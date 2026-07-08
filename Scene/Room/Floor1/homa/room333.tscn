@@ -104,6 +104,7 @@ rotation = 3.1415927
 position = Vector2(808, 336)
 rotation = -1.5707964
 projectile_scene = ExtResource("6_a4h8d")
+projectile_facing = Vector2(0, 1)
 
 [node name="OneWay4" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="23" unique_id=2116454952 instance=ExtResource("3_flo5c")]
 position = Vector2(760, 448)
