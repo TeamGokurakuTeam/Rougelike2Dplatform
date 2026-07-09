@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://bnaoxtnetcaqi"]
+
+[ext_resource type="PackedScene" uid="uid://b1p2q5ig7avft" path="res://Weapon/New/NewWorldBlade.tscn" id="1_1ycfr"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="1_g0rjm"]
+[ext_resource type="Texture2D" uid="uid://cdgsbs0n55y61" path="res://Assets/Weapon/swords/tile015.png" id="1_nq6ev"]
+
+[resource]
+script = ExtResource("1_g0rjm")
+Sprite = ExtResource("1_nq6ev")
+Id = "NewWorld"
+Name = "新世界"
+WeaponScene = ExtResource("1_1ycfr")
+Rarities = "DreaM"
