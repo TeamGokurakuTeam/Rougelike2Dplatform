@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ciohbcdkapsop" path="res://Assets/TileMap/CastleTiles.png" id="3_n1mh3"]
 [ext_resource type="Texture2D" uid="uid://diedq27yg6hso" path="res://Assets/TileMap/ExtraTiles1.png" id="4_xyspu"]
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="5_wpdj0"]
+[ext_resource type="Shader" uid="uid://o0qdnhtmetpu" path="res://Scene/Room/Hole.gdshader" id="6_wpdj0"]
+[ext_resource type="Script" uid="uid://cj48ra7cnmp2l" path="res://Scene/Room/hide_tilemap.gd" id="6_xyspu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -820,6 +822,12 @@ sources/2 = SubResource("TileSetAtlasSource_twl2u")
 sources/3 = SubResource("TileSetAtlasSource_so7u1")
 sources/4 = SubResource("TileSetAtlasSource_h6fnw")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xyspu"]
+shader = ExtResource("6_wpdj0")
+shader_parameter/reveal_position = Vector2(0, 0)
+shader_parameter/radius = 0.0
+shader_parameter/softness = 0.0
+
 [node name="Room" type="Node2D" unique_id=423967005]
 script = ExtResource("1_qo1ei")
 
@@ -827,16 +835,28 @@ script = ExtResource("1_qo1ei")
 
 [node name="BackGround" type="TileMapLayer" parent="TileMaps" unique_id=1098702387]
 modulate = Color(0.5568628, 0.5568628, 0.5568628, 1)
+z_index = 1
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Wall" type="TileMapLayer" parent="TileMaps" unique_id=1061717494]
+z_index = 1
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Ground" type="TileMapLayer" parent="TileMaps" unique_id=101481590]
+z_index = 1
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Decoration" type="TileMapLayer" parent="TileMaps" unique_id=1904370471]
+z_index = 1
 tile_set = SubResource("TileSet_3gcdb")
+
+[node name="HideWall" type="TileMapLayer" parent="TileMaps" unique_id=1855144737]
+z_index = 2
+material = SubResource("ShaderMaterial_xyspu")
+tile_set = SubResource("TileSet_3gcdb")
+script = ExtResource("6_xyspu")
+
+[node name="Area2D" type="Area2D" parent="TileMaps/HideWall" unique_id=482470592]
 
 [node name="Doors" type="Node2D" parent="." unique_id=622901157]
 
