@@ -6,6 +6,7 @@ class_name Room
 
 @onready var doors: Node2D = $Doors
 @onready var enemy_spawn_points: Node2D = $EnemySpawnPoints
+@onready var hide_wall: HideTileMap = $TileMaps/HideWall
 
 var enemy_count : int = 0
 var main_game_node : MainGame
@@ -14,6 +15,7 @@ func _ready() -> void:
 	for node in doors.get_children():
 		var door : Door = node as Door
 		door.exit_door_player_entered.connect(_on_exit_door_player_entered)
+	hide_wall.player = main_game_node.player
 
 func _process(delta: float) -> void:
 	pass

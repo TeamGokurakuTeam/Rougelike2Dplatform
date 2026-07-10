@@ -155,6 +155,7 @@ UI_DodgeRoll={
 2d_physics/layer_7="PickupItem"
 2d_physics/layer_8="World"
 2d_physics/layer_9="PickupModifier"
+2d_physics/layer_10="HideTileMapLayer"
 
 [physics]
 
