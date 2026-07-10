@@ -835,19 +835,18 @@ script = ExtResource("1_qo1ei")
 
 [node name="BackGround" type="TileMapLayer" parent="TileMaps" unique_id=1098702387]
 modulate = Color(0.5568628, 0.5568628, 0.5568628, 1)
-z_index = 1
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Wall" type="TileMapLayer" parent="TileMaps" unique_id=1061717494]
-z_index = 1
+z_index = 2
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Ground" type="TileMapLayer" parent="TileMaps" unique_id=101481590]
-z_index = 1
+z_index = 2
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Decoration" type="TileMapLayer" parent="TileMaps" unique_id=1904370471]
-z_index = 1
+z_index = 2
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="HideWall" type="TileMapLayer" parent="TileMaps" unique_id=1855144737]

@@ -1,9 +1,13 @@
 extends TileMapLayer
 class_name HideTileMap
 
+@export var hide_radius : float = 40.0 ## 隠しタイルに入った時に表示される丸の範囲。これを多くすると、半径が大きくなる。
+@export var hide_softness : float = 20.0 ## 隠しタイルに入った時に表示される丸にたいしてのぼかしの量。これを多くすると、より円の縁がぼける。
+
 @onready var area_2d: Area2D = $Area2D
 
 var player : Player
+var tween : Tween
 
 func _ready() -> void:
 	build_collision_from_tilemap()
@@ -14,18 +18,30 @@ func _ready() -> void:
 	(material as ShaderMaterial).set_shader_parameter("radius", 0)
 	(material as ShaderMaterial).set_shader_parameter("softness", 0)
 
+func _process(delta: float) -> void:
+	(material as ShaderMaterial).set_shader_parameter("reveal_position", player.global_position)
+
 func _on_body_entered(body : Node2D) -> void:
 	if body is Player:
-		(material as ShaderMaterial).set_shader_parameter("radius", 50)
-		(material as ShaderMaterial).set_shader_parameter("softness", 50)
+		if tween:
+			tween.kill()
+		tween = create_tween()
+		tween.parallel()
+		tween.tween_property(self.material, "shader_parameter/radius", hide_radius, 0.5)
+		(material as ShaderMaterial).set_shader_parameter("softness", hide_softness)
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 
 func _on_body_exited(body : Node2D) -> void:
 	if body is Player:
-		(material as ShaderMaterial).set_shader_parameter("radius", 0)
-		(material as ShaderMaterial).set_shader_parameter("softness", 0)
+		if tween:
+			tween.kill()
+		tween = create_tween()
+		tween.parallel()
+		tween.tween_property(self.material, "shader_parameter/radius", 0, 0.4)
+		tween.tween_property(self.material, "shader_parameter/softness", 0, 0.4)
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 
 func build_collision_from_tilemap() -> void:
-	# 既存のCollisionShapeがあれば削除(再生成対応)
 	for child in get_children():
 		if child is CollisionPolygon2D:
 			child.queue_free()
@@ -37,15 +53,14 @@ func build_collision_from_tilemap() -> void:
 		if tile_data == null:
 			continue
 
-		var polygon_count: int = tile_data.get_collision_polygons_count(10)
+		var polygon_count: int = tile_data.get_collision_polygons_count(0)
 		if polygon_count == 0:
 			continue
 
-		# セルのローカル座標(タイル1個分のオフセット)を計算
 		var cell_local_pos: Vector2 = map_to_local(cell)
 
 		for i in range(polygon_count):
-			var points: PackedVector2Array = tile_data.get_collision_polygon_points(10, i)
+			var points: PackedVector2Array = tile_data.get_collision_polygon_points(0, i)
 			if points.is_empty():
 				continue
 
