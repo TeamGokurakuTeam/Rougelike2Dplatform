@@ -679,16 +679,19 @@ metadata/_custom_type_script = "uid://xchyfr3avu0m"
 rotation = 1.0471976
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Root" unique_id=918164099]
+z_index = 2
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_75vwg")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Root" unique_id=126619021]
+z_index = 2
 position = Vector2(-18.515, -6.84)
 scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_75vwg")
 animation = &"Particle"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Root" unique_id=1849552789]
+z_index = 2
 position = Vector2(13.665, 11.98)
 scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_75vwg")

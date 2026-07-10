@@ -142,7 +142,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n775q")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slash1",
 "speed": 9.0
 }, {
@@ -162,7 +162,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7j5ab")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slash2",
 "speed": 8.0
 }, {
@@ -182,7 +182,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i3nw5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slash3",
 "speed": 9.0
 }, {
@@ -235,12 +235,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yfhuh")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slash4",
 "speed": 7.0
 }, {
 "frames": [],
-"loop": true,
+"loop": 1,
 "name": &"Slash5",
 "speed": 5.0
 }]
@@ -383,16 +383,19 @@ timer = NodePath("Timer")
 [node name="Root" type="Node2D" parent="." unique_id=7511897]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Root" unique_id=1912679206]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_6vg6p")
 animation = &"Slash1"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Root" unique_id=830692905]
+z_index = 2
 position = Vector2(-35.32, -20)
 rotation = -3.1415927
 sprite_frames = SubResource("SpriteFrames_6vg6p")
 animation = &"Slash2"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Root" unique_id=1965550308]
+z_index = 2
 position = Vector2(-16.385, 18.11)
 rotation = -3.9084125
 scale = Vector2(1.2, 1.2)
@@ -400,12 +403,14 @@ sprite_frames = SubResource("SpriteFrames_6vg6p")
 animation = &"Slash3"
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Root" unique_id=276006229]
+z_index = 2
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6vg6p")
 animation = &"Slash4"
 frame = 3
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Root" unique_id=1927194245]
+z_index = 2
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6vg6p")
 animation = &"Slash5"

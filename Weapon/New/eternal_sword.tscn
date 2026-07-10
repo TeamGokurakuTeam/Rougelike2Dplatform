@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_6m55f"]
 [ext_resource type="Texture2D" uid="uid://cba2on58wibm" path="res://Assets/Weapon/エターナルソード.png" id="2_2i581"]
-[ext_resource type="Script" uid="uid://dnahyy0ghq27e" path="res://Weapon/eternal_sword.gd" id="2_jjlr0"]
+[ext_resource type="Script" uid="uid://dnahyy0ghq27e" path="res://Weapon/New/eternal_sword.gd" id="2_jjlr0"]
 [ext_resource type="Script" uid="uid://xchyfr3avu0m" path="res://Component/Hitbox/Hitbox.gd" id="3_0y0d7"]
 [ext_resource type="Texture2D" uid="uid://k7h2x7mmasbp" path="res://Assets/Weapon/Effect/StarVFX/sprite-sheet.png" id="3_2i581"]
 [ext_resource type="Texture2D" uid="uid://5futa8f7kict" path="res://Assets/Particle/2.png" id="4_hjl78"]
@@ -395,6 +395,7 @@ process_material = ExtResource("5_jjlr0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="5" unique_id=723566143]
 visible = false
+z_index = 3
 position = Vector2(91.00001, -22.000002)
 rotation = 0.7853982
 texture = ExtResource("3_2i581")

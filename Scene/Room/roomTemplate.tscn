@@ -1786,7 +1786,7 @@ z_index = 2
 tile_set = SubResource("TileSet_3gcdb")
 
 [node name="Decoration" type="TileMapLayer" parent="TileMaps" unique_id=1904370471]
-z_index = 2
+z_index = 1
 tile_set = SubResource("TileSet_08wr4")
 
 [node name="HideWall" type="TileMapLayer" parent="TileMaps" unique_id=1855144737]

@@ -581,6 +581,7 @@ shape = SubResource("RectangleShape2D_5svnq")
 
 [node name="EffectSlashV" type="Sprite2D" parent="." index="1" unique_id=1999014491]
 visible = false
+z_index = 3
 position = Vector2(41.000004, 8.000004)
 scale = Vector2(1.51, 2.1390002)
 texture = ExtResource("3_6ejhd")
@@ -588,6 +589,7 @@ hframes = 4
 
 [node name="EffectSlashH" type="Sprite2D" parent="." index="2" unique_id=1079801737]
 visible = false
+z_index = 3
 position = Vector2(24.000002, -35)
 scale = Vector2(1.665, 1.665)
 skew = -0.13264513
