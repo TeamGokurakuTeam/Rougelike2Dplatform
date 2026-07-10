@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6vh5w3ybhsjo" path="res://Scene/UI/mod_ui.tscn" id="3_00pm1"]
 [ext_resource type="PackedScene" uid="uid://cuc66hry0j4hn" path="res://Scene/UI/ModifierProgressBar.tscn" id="4_rj6n4"]
 [ext_resource type="Script" uid="uid://de1nov8m6sb05" path="res://Scene/modifier_explanation.gd" id="6_a57nb"]
+[ext_resource type="Shader" uid="uid://ces7mkd1ea685" path="res://Scene/Transition.gdshader" id="7_chu1y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
 font_size = 12
@@ -189,6 +190,17 @@ _data = {
 &"Start": SubResource("Animation_yegcq")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhy2k"]
+shader = ExtResource("7_chu1y")
+shader_parameter/progress = 0.0
+shader_parameter/speed = 0.105
+shader_parameter/pixelation = Vector2(10, 10)
+shader_parameter/zoom = 6.86
+shader_parameter/background_threshold = -0.5309999302224999
+shader_parameter/color_threshold = 0.6170000293075
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/seed = 0.125
+
 [node name="PlayerUI" type="CanvasLayer" unique_id=1814325200]
 script = ExtResource("1_q25tn")
 
@@ -288,6 +300,14 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ModifierExplanation" unique_id=744258914]
 libraries/ = SubResource("AnimationLibrary_adel5")
+
+[node name="Transition" type="ColorRect" parent="." unique_id=496640772]
+material = SubResource("ShaderMaterial_jhy2k")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="ModifierExplanation/Timer" to="ModifierExplanation" method="_on_timer_timeout"]
 

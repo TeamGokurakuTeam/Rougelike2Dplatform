@@ -7,8 +7,11 @@ class_name GameUI
 @onready var player_hp_ui: PlayerHpUI = $PlayerHpUI
 @onready var locked_mod_label: Label = $LockedModLabel
 @onready var modifier_explanation: ModifierExplanationUI = $ModifierExplanation
+@onready var transition: ColorRect = $Transition
 
 var player : Player
+
+var tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -43,3 +46,19 @@ func _on_modifier_picked_up(mod_res : ModifierResource) -> void:
 		modifier_explanation.animation_player.play("Start")
 	await modifier_explanation.animation_player.animation_finished
 	modifier_explanation.animation_player.play("End")
+
+func transition_start() -> void:
+	if tween != null and tween.is_running():
+		tween.kill()
+	tween = create_tween()
+	(transition.material as ShaderMaterial).set_shader_parameter("Progress", .0)
+	tween.tween_property(transition.material, "shader_parameter/progress", 1.0, 0.8)
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+
+func transition_back() -> void:
+	(transition.material as ShaderMaterial).set_shader_parameter("Progress", 1.0)
+	if tween.is_running():
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(transition.material, "shader_parameter/progress", .0, 0.8)
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)

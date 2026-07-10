@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 func get_door(direction : Door.Direction) -> Door:
 	for i in doors.get_children():
 		var door : Door = i as Door
+		door.main_game_node = main_game_node
 		if door.dir == direction:
 			return door
 	return null
@@ -40,6 +41,7 @@ func _on_exit_door_player_entered(player : Player) -> void:
 		var door : Door = node as Door
 		door.player_detector.monitoring = false
 	main_game_node.bgm_changer.change_bgm(main_game_node.bgm_changer.stage_bgm, main_game_node.bgm_changer.battle_bgm)
+	
 
 func _on_enemy_summoned(enemy : Enemy) -> void:
 	enemy.hp_component.is_dead.connect(_on_enemy_is_dead)

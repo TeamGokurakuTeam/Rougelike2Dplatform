@@ -7,6 +7,7 @@ class_name Door
 
 var teleport_to : Door
 var exit_point : Marker2D
+var main_game_node : MainGame
 
 signal exit_door_player_entered(player : Player)
 
@@ -23,6 +24,8 @@ func _ready() -> void:
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body is Player and teleport_to != null:
+		main_game_node.player_ui.transition_start()
+		await get_tree().create_timer(0.3).timeout
 		var player : Player = body as Player
 		player.global_position = teleport_to.exit_point.global_position
 		teleport_to.exit_door_player_entered.emit(player)
