@@ -113,7 +113,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8d78c")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 10.0
 }]
@@ -233,7 +233,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d7vrv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 7.0
 }]
@@ -319,6 +319,7 @@ sprite_frames = SubResource("SpriteFrames_8muik")
 speed_scale = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1993432426]
+z_index = 2
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_5b3he")
 

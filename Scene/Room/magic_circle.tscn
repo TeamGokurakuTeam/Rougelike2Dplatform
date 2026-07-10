@@ -62,7 +62,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6vtaq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 4.0
 }]
@@ -112,6 +112,7 @@ _data = {
 script = ExtResource("1_8l34s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1039089583]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_6vtaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830256075]

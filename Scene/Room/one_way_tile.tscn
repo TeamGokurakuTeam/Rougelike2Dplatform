@@ -33,6 +33,7 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_uhjy2")
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1806543501]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_3sxop")
 
 [node name="Sensor" parent="." index="2" unique_id=891831714]

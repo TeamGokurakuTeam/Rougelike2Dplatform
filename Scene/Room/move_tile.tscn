@@ -30,6 +30,7 @@ collision_mask = 3
 script = ExtResource("1_rocg1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1984206051]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_24yck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1757281778]

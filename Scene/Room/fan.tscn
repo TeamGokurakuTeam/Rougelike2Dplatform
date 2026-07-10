@@ -37,7 +37,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hyo58")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -93,6 +93,7 @@ position = Vector2(229, 0.5)
 shape = SubResource("RectangleShape2D_4ajab")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1522711502]
+z_index = 2
 position = Vector2(5, 0)
 scale = Vector2(0.84375, 1)
 sprite_frames = SubResource("SpriteFrames_axg12")

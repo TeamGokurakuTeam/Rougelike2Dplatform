@@ -645,6 +645,7 @@ shape = SubResource("RectangleShape2D_st0cg")
 debug_color = Color(0.98903626, 0, 0.3004872, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=836565103]
+z_index = 2
 rotation = -1.5707964
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_hqppg")

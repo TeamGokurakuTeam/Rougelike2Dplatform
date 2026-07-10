@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bw3ky")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -25,6 +25,7 @@ size = Vector2(20, 5.7842293)
 script = ExtResource("1_bw3ky")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=571216221]
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_jcpht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1260362436]
