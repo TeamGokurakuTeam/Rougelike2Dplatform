@@ -646,6 +646,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -0.00015729517), Vector2(0, -0.0050334455), Vector2(0, -0.038222723), Vector2(0, -0.16107026), Vector2(0, -0.4915475), Vector2(0, -1.2231271), Vector2(0, -2.64366), Vector2(0, -5.154248), Vector2(0, -9.288124), Vector2(0, -15.72952), Vector2(0, -25.33255), Vector2(0, -39.14), Vector2(0, -44.25564), Vector2(0, -47.045315), Vector2(0, -48.35112), Vector2(0, -48.82506), Vector2(0, -48.92907), Vector2(0, -48.92907), Vector2(0, 1.2116623), Vector2(0, 5.9129105), Vector2(0, 7.48), Vector2(0, 7.48), Vector2(0, 0), Vector2(0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitboxes/GolemHitbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_kjf0e"]
 resource_name = "Dead"

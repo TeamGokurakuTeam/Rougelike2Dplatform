@@ -24,6 +24,7 @@ func submit(text:String, scroll_second : float):
 	# これがないと一度に10行程度入力した時に最下行までスクロールしません
 	rich_text_label.get_line_count()
 	var bar:VScrollBar = rich_text_label.get_v_scroll_bar()
+	await get_tree().create_timer(1.5).timeout
 	if(tween != null):
 		tween.kill()
 	tween = get_tree().create_tween()

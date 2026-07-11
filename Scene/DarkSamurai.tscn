@@ -580,8 +580,9 @@ animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Chase" type="Node" parent="StateMachine" index="1" unique_id=678420001 node_paths=PackedStringArray("animation_player", "parent") groups=["Enemy"]]
+[node name="Chase" type="Node" parent="StateMachine" index="1" unique_id=678420001 node_paths=PackedStringArray("chase_timer", "animation_player", "parent") groups=["Enemy"]]
 script = ExtResource("4_xclgv")
+chase_timer = NodePath("../../ChaseTimer")
 animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
@@ -637,5 +638,9 @@ debug_enabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8" unique_id=187047511]
 libraries/ = SubResource("AnimationLibrary_xclgv")
 
+[node name="ChaseTimer" type="Timer" parent="." index="9" unique_id=269855137]
+wait_time = 0.1
+
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Chase" method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="ChaseTimer" to="StateMachine/Chase" method="_on_chase_timer_timeout"]

@@ -8,10 +8,12 @@ class_name GameUI
 @onready var locked_mod_label: Label = $LockedModLabel
 @onready var modifier_explanation: ModifierExplanationUI = $ModifierExplanation
 @onready var transition: ColorRect = $Transition
+@onready var parent: Control = $Parent
 
 var player : Player
 
 var tween : Tween
+var fade_tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,14 +53,30 @@ func transition_start() -> void:
 	if tween != null and tween.is_running():
 		tween.kill()
 	tween = create_tween()
-	(transition.material as ShaderMaterial).set_shader_parameter("Progress", .0)
+	(transition.material as ShaderMaterial).set_shader_parameter("progress", .0)
 	tween.tween_property(transition.material, "shader_parameter/progress", 1.0, 0.8)
 	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
 func transition_back() -> void:
-	(transition.material as ShaderMaterial).set_shader_parameter("Progress", 1.0)
+	(transition.material as ShaderMaterial).set_shader_parameter("progress", 1.0)
 	if tween.is_running():
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property(transition.material, "shader_parameter/progress", .0, 0.8)
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func ui_fade_in() -> void:
+	if fade_tween != null and fade_tween.is_running():
+		fade_tween.kill()
+	fade_tween = create_tween()
+	parent.modulate = Color("ffffff")
+	fade_tween.tween_property(parent, "modulate", Color("ffffff00"), 1.0)
+	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+func ui_fade_out() -> void:
+	if fade_tween != null and fade_tween.is_running():
+		fade_tween.kill()
+	fade_tween = create_tween()
+	parent.modulate = Color("ffffff00")
+	fade_tween.tween_property(parent, "modulate", Color("ffffff"), 1.0)
+	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)

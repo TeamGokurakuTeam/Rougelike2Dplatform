@@ -8,12 +8,12 @@
 script = ExtResource("1_yj4d2")
 
 [node name="OutSide" type="Sprite2D" parent="." unique_id=1258682475]
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.18039216)
 z_index = 3
 texture = ExtResource("2_oro8x")
 
 [node name="InSide" type="Sprite2D" parent="." unique_id=1220317930]
-self_modulate = Color(1, 1, 1, 0.50980395)
+self_modulate = Color(1, 1, 1, 0.18039216)
 z_index = 3
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("3_ktrqb")
