@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_37bs3")
 resource_id = "EnemyHealthInc"
-explanation_text = "敵の体力が+15される。"
+explanation_text = "敵の体力が
++15される。"

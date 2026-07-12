@@ -3,7 +3,7 @@ class_name RiskReturnPanel
 
 @onready var label: Label = $Label
 @onready var button: Button = $Button
-@onready var label_2: Label = $Risk/Label2
+@onready var label_2: Label = $Label2
 
 var gain_resource_id : String
 var loss_resource_id : String

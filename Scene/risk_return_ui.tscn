@@ -2,31 +2,51 @@
 
 [ext_resource type="Script" uid="uid://wixmyn4lsagh" path="res://RiskReturnUI.gd" id="1_wsh1e"]
 [ext_resource type="Script" uid="uid://dx4nhc0f856wr" path="res://Scene/risk_return_panel.gd" id="2_3kqch"]
+[ext_resource type="Texture2D" uid="uid://icbmrklmhvc8" path="res://Assets/UI/ObeliskPanel.png" id="2_akvq1"]
+[ext_resource type="StyleBox" uid="uid://i83s10rj5cgd" path="res://Resource/UI_Tres/CenterPanel.tres" id="2_gcaq0"]
+[ext_resource type="StyleBox" uid="uid://b85qi84kuij1v" path="res://Resource/UI_Tres/LeftPanel.tres" id="5_be2sj"]
+[ext_resource type="StyleBox" uid="uid://duur611rb4741" path="res://Resource/UI_Tres/RightPanel.tres" id="6_rpy7f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj3l6"]
-bg_color = Color(0.6, 0.7921569, 0.6, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c5t5y"]
+texture = ExtResource("2_akvq1")
+region_rect = Rect2(67, 0, 64, 98)
+modulate_color = Color(0.34117648, 0.34117648, 0.34117648, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rpy7f"]
+texture = ExtResource("2_akvq1")
+region_rect = Rect2(67, 0, 64, 98)
+modulate_color = Color(1, 1, 0.7607843, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_u0otr"]
-font_size = 10
+font_size = 8
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsh1e"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
-bg_color = Color(1, 0.5702433, 0.515468, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+font_size = 8
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kqch"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gcaq0"]
+texture = ExtResource("2_akvq1")
+region_rect = Rect2(0, 0, 64, 98)
+modulate_color = Color(0.34117648, 0.34117648, 0.34117648, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akvq1"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_be2sj"]
+texture = ExtResource("2_akvq1")
+region_rect = Rect2(0, 0, 64, 98)
+modulate_color = Color(1, 1, 0.7607843, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnpw5"]
+texture = ExtResource("2_akvq1")
+region_rect = Rect2(136, 0, 64, 98)
+modulate_color = Color(0.34117648, 0.34117648, 0.34117648, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x8m8d"]
+texture = ExtResource("2_akvq1")
+region_rect = Rect2(136, 0, 64, 98)
+modulate_color = Color(1, 1, 0.7607843, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
 font_size = 24
@@ -50,62 +70,134 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackGround:position")
+tracks/1/path = NodePath("BackGround/CenterPanel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.13333334, 0.16666667, 0.2, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.90000004, 0.93333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0.10854562), Vector2(0, 0.30385962), Vector2(0, 0.6439208), Vector2(0, 1.2360026), Vector2(0, 2.2668757), Vector2(0, 4.06173), Vector2(0, 7.186752), Vector2(0, 12.627738), Vector2(0, 22.101034), Vector2(0, 38.595016), Vector2(0, 67.31269), Vector2(0, 117.313065), Vector2(0, 192.62831), Vector2(0, 242.6536), Vector2(0, 271.38565), Vector2(0, 287.88785), Vector2(0, 297.36588), Vector2(0, 302.80957), Vector2(0, 305.93616), Vector2(0, 307.7319), Vector2(0, 308.7633), Vector2(0, 309.35568), Vector2(0, 309.69592), Vector2(0, 309.89133), Vector2(0, 310)]
+"times": PackedFloat32Array(0, 0.9333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackGround/CenterPanel:visible")
+tracks/2/path = NodePath("BackGround/LeftPanel:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.9666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, false]
+"values": [true, true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BackGround/LeftPanel:visible")
+tracks/3/path = NodePath("BackGround/RightPanel:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.9666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, false]
+"values": [true, true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BackGround/RightPanel:visible")
+tracks/4/path = NodePath("Label:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Label:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.20000002, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BackGround/RightPanel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(335, 35), Vector2(335, 35), Vector2(335, 30.276749), Vector2(335, 20.153803), Vector2(335, 10.701382), Vector2(335, 7.989704), Vector2(335, 18.088974), Vector2(335, 47.06942), Vector2(335, 101.00123), Vector2(335, 185.95476), Vector2(335, 308)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BackGround/LeftPanel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 35), Vector2(9, 35), Vector2(9, 31.739082), Vector2(9, 24.156563), Vector2(9, 15.552795), Vector2(9, 9.22813), Vector2(9, 8.4829235), Vector2(9, 16.61753), Vector2(9, 36.93228), Vector2(9, 72.72758), Vector2(9, 127.3037), Vector2(9, 203.9611), Vector2(9, 306)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BackGround/CenterPanel:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(174, 35), Vector2(174, 33.17423), Vector2(174, 28.561426), Vector2(174, 22.458347), Vector2(174, 16.16175), Vector2(174, 10.968399), Vector2(174, 8.175045), Vector2(174, 9.078455), Vector2(174, 14.975372), Vector2(174, 27.162573), Vector2(174, 46.936806), Vector2(174, 75.594826), Vector2(174, 114.43342), Vector2(174, 164.74928), Vector2(174, 227.83925), Vector2(174, 305)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BackGround/CenterPanel/Button:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BackGround/LeftPanel/Button:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BackGround/RightPanel/Button:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BackGround:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_wsh1e"]
@@ -182,9 +274,106 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Label:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(126.5, -36)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BackGround/CenterPanel:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(174, -249)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BackGround/LeftPanel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, -252)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BackGround/RightPanel:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(335, -251.5)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BackGround/CenterPanel/Button:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BackGround/LeftPanel/Button:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BackGround/RightPanel/Button:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BackGround:self_modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_3kqch"]
 resource_name = "Ready"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -212,50 +401,98 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BackGround/CenterPanel:visible")
+tracks/2/path = NodePath("Label:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.93333334, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.23333335, 0.26666665, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [false, false, true]
+"values": [false, false, true, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BackGround/LeftPanel:visible")
+tracks/3/path = NodePath("Label:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.9666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, false, true]
+"times": PackedFloat32Array(0, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(126.5, -36), Vector2(126.5, -36), Vector2(126.5, -28.80286), Vector2(126.5, -22.563822), Vector2(126.5, -17.214441), Vector2(126.5, -12.686289), Vector2(126.5, -8.910925), Vector2(126.5, -5.8199215), Vector2(126.5, -3.3448372), Vector2(126.5, -1.4172325), Vector2(126.5, 0.031318665), Vector2(126.5, 1.0692596), Vector2(126.5, 1.7650185), Vector2(126.5, 2.1870384), Vector2(126.5, 2.4037514), Vector2(126.5, 2.483593), Vector2(126.5, 2.495), Vector2(126.5, 2.495)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BackGround/RightPanel:visible")
+tracks/4/path = NodePath("BackGround/CenterPanel:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.9666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, false, true]
+"times": PackedFloat32Array(0, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3, 1.3333334, 1.3666667, 1.4, 1.4333333, 1.4666667, 1.5000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(174, -249), Vector2(174, -249), Vector2(174, -167.83832), Vector2(174, -101.47702), Vector2(174, -48.552216), Vector2(174, -7.699753), Vector2(174, 22.444244), Vector2(174, 43.243805), Vector2(174, 56.062927), Vector2(174, 62.265625), Vector2(174, 63.21588), Vector2(174, 60.27768), Vector2(174, 54.815033), Vector2(174, 48.191986), Vector2(174, 41.77243), Vector2(174, 36.92044), Vector2(174, 35)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Label:visible")
+tracks/5/path = NodePath("BackGround/LeftPanel:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.2, 1.2333333, 1.2666668, 1.3000001, 1.3333334, 1.3666667, 1.4000001, 1.4333334, 1.4666667, 1.5, 1.5333334, 1.5666667, 1.6, 1.6333333, 1.6666667, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(9, -252), Vector2(9, -252), Vector2(9, -169.98099), Vector2(9, -102.918686), Vector2(9, -49.434784), Vector2(9, -8.150803), Vector2(9, 22.311646), Vector2(9, 43.33087), Vector2(9, 56.28546), Vector2(9, 62.55365), Vector2(9, 63.513916), Vector2(9, 60.54471), Vector2(9, 55.024353), Vector2(9, 48.33133), Vector2(9, 41.843933), Vector2(9, 36.940735), Vector2(9, 35)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BackGround/RightPanel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.1333333, 1.1666667, 1.2, 1.2333333, 1.2666667, 1.3000001, 1.3333334, 1.3666667, 1.4, 1.4333334, 1.4666667, 1.5, 1.5333333, 1.5666667, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(335, -251.5), Vector2(335, -251.5), Vector2(335, -169.62387), Vector2(335, -102.678406), Vector2(335, -49.28769), Vector2(335, -8.075623), Vector2(335, 22.33374), Vector2(335, 43.316376), Vector2(335, 56.248383), Vector2(335, 62.505646), Vector2(335, 63.464233), Vector2(335, 60.500214), Vector2(335, 54.98947), Vector2(335, 48.308105), Vector2(335, 41.83203), Vector2(335, 36.937347), Vector2(335, 35)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BackGround/CenterPanel:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BackGround/LeftPanel:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BackGround/RightPanel:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_akvq1"]
@@ -289,20 +526,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.5
-offset_top = -108.0
-offset_right = 64.5
-offset_bottom = 133.0
+offset_left = -82.0
+offset_top = -393.0
+offset_right = 81.0
+offset_bottom = -145.00024
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gj3l6")
+theme_override_styles/panel = ExtResource("2_gcaq0")
 script = ExtResource("2_3kqch")
+
+[node name="Button" type="Button" parent="BackGround/CenterPanel" unique_id=247198487]
+layout_mode = 0
+offset_right = 163.0
+offset_bottom = 249.0
+theme_override_styles/normal = ExtResource("2_gcaq0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c5t5y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rpy7f")
+disabled = true
 
 [node name="Label" type="Label" parent="BackGround/CenterPanel" unique_id=1865241259]
 layout_mode = 0
-offset_top = 20.0
-offset_right = 129.5
-offset_bottom = 111.0
+offset_left = 28.25
+offset_top = 112.0
+offset_right = 134.0
+offset_bottom = 212.0
 text = "自分の所持している修飾子の中から一つランダムで選び、それを現在の剣につける。
 その修飾子は、死ぬまで効果を発揮するようになる。"
 label_settings = SubResource("LabelSettings_u0otr")
@@ -310,28 +557,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Button" type="Button" parent="BackGround/CenterPanel" unique_id=247198487]
+[node name="Label2" type="Label" parent="BackGround/CenterPanel" unique_id=115984071]
 layout_mode = 0
-offset_right = 129.5
-offset_bottom = 241.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_wsh1e")
-
-[node name="Risk" type="Panel" parent="BackGround/CenterPanel" unique_id=153981115]
-layout_mode = 0
-offset_top = 129.0
-offset_right = 129.5
-offset_bottom = 222.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")
-
-[node name="Label2" type="Label" parent="BackGround/CenterPanel/Risk" unique_id=115984071]
-layout_mode = 0
-offset_right = 128.5
-offset_bottom = 92.0
-text = "敵の攻撃力が+5される。"
+offset_left = 35.0
+offset_top = 47.0
+offset_right = 132.75
+offset_bottom = 90.0
+text = "敵の攻撃力は+3され、
+HPの最大値は+12される。"
 label_settings = SubResource("LabelSettings_5hoxb")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
+clip_text = true
 
 [node name="LeftPanel" type="Panel" parent="BackGround" unique_id=323869347]
 visible = false
@@ -341,21 +579,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = -108.0
-offset_right = -82.0
-offset_bottom = 133.0
+offset_left = -247.0
+offset_top = -396.0
+offset_right = -84.0
+offset_bottom = -148.00037
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gj3l6")
+theme_override_styles/panel = ExtResource("5_be2sj")
 script = ExtResource("2_3kqch")
+
+[node name="Button" type="Button" parent="BackGround/LeftPanel" unique_id=2001910704]
+layout_mode = 0
+offset_right = 163.0
+offset_bottom = 248.0
+theme_override_styles/normal = ExtResource("5_be2sj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gcaq0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_be2sj")
+disabled = true
 
 [node name="Label" type="Label" parent="BackGround/LeftPanel" unique_id=1035996274]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 20.0
-offset_right = 128.5
-offset_bottom = 111.0
+offset_left = 30.0
+offset_top = 109.0
+offset_right = 133.0
+offset_bottom = 216.0
 text = "自分の所持している修飾子の中から一つランダムで選び、それを現在の剣につける。
 その修飾子は、死ぬまで効果を発揮するようになる。"
 label_settings = SubResource("LabelSettings_u0otr")
@@ -363,24 +610,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Button" type="Button" parent="BackGround/LeftPanel" unique_id=2001910704]
+[node name="Label2" type="Label" parent="BackGround/LeftPanel" unique_id=971615780]
 layout_mode = 0
-offset_right = 129.0
-offset_bottom = 241.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_3kqch")
-
-[node name="Risk" type="Panel" parent="BackGround/LeftPanel" unique_id=328353568]
-layout_mode = 0
-offset_top = 129.0
-offset_right = 129.5
-offset_bottom = 222.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")
-
-[node name="Label2" type="Label" parent="BackGround/LeftPanel/Risk" unique_id=971615780]
-layout_mode = 0
-offset_left = 1.0
-offset_right = 129.5
-offset_bottom = 92.0
+offset_left = 38.0
+offset_top = 37.0
+offset_right = 126.0
+offset_bottom = 88.0
 text = "敵の攻撃力が+5される。"
 label_settings = SubResource("LabelSettings_5hoxb")
 horizontal_alignment = 1
@@ -395,20 +630,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 81.0
-offset_top = -107.5
-offset_right = 210.0
-offset_bottom = 133.5
+offset_left = 79.0
+offset_top = -395.5
+offset_right = 242.0
+offset_bottom = -147.50037
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gj3l6")
+theme_override_styles/panel = ExtResource("6_rpy7f")
 script = ExtResource("2_3kqch")
+
+[node name="Button" type="Button" parent="BackGround/RightPanel" unique_id=10588652]
+layout_mode = 0
+offset_right = 163.0
+offset_bottom = 248.0
+theme_override_styles/normal = ExtResource("6_rpy7f")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xnpw5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x8m8d")
+disabled = true
 
 [node name="Label" type="Label" parent="BackGround/RightPanel" unique_id=554377064]
 layout_mode = 0
-offset_top = 19.5
-offset_right = 129.5
-offset_bottom = 110.5
+offset_left = 35.0
+offset_top = 112.5
+offset_right = 128.5
+offset_bottom = 214.5
 text = "自分の所持している修飾子の中から一つランダムで選び、それを現在の剣につける。
 その修飾子は、死ぬまで効果を発揮するようになる。"
 label_settings = SubResource("LabelSettings_u0otr")
@@ -416,26 +661,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Button" type="Button" parent="BackGround/RightPanel" unique_id=10588652]
+[node name="Label2" type="Label" parent="BackGround/RightPanel" unique_id=1576744506]
 layout_mode = 0
-offset_right = 129.0
-offset_bottom = 241.5
-theme_override_styles/normal = SubResource("StyleBoxFlat_akvq1")
-
-[node name="Risk" type="Panel" parent="BackGround/RightPanel" unique_id=2049409385]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 127.5
-offset_right = 128.5
-offset_bottom = 220.5
-theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")
-
-[node name="Label2" type="Label" parent="BackGround/RightPanel/Risk" unique_id=1576744506]
-layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 129.5
-offset_bottom = 93.0
+offset_left = 38.0
+offset_top = 45.5
+offset_right = 127.0
+offset_bottom = 89.5
 text = "敵の攻撃力が+5される。"
 label_settings = SubResource("LabelSettings_5hoxb")
 horizontal_alignment = 1
@@ -449,9 +680,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -129.5
-offset_top = 1.0
+offset_top = -36.0
 offset_right = 129.5
-offset_bottom = 35.0
+offset_bottom = -2.0
 grow_horizontal = 2
 text = "Select Risk and Return"
 label_settings = SubResource("LabelSettings_jhy2k")
