@@ -1,6 +1,11 @@
 extends Enemy
 class_name GolemBoss
 
+const GOLEM_ARM = preload("uid://sa838rue6n5a")
+
+@onready var root_node: Node2D = $RootNode
+@onready var marker_2d: Marker2D = $RootNode/Marker2D
+
 @export var dash_speed : float = 200
 @export var can_move : bool = true
 
@@ -32,6 +37,11 @@ func Dash() -> void:
 		var next_pos : Vector2 =  navigation_agent.get_next_path_position()
 		var player_dir_x : float = sign(next_pos.x - global_position.x)
 		velocity.x += player_dir_x * dash_speed
+
+func Shoot() -> void:
+	var arm : GolemArm = GOLEM_ARM.instantiate()
+	add_child(arm)
+	arm.global_position = marker_2d.global_position
 
 #---test-----------
 func move_toward_player() -> void:

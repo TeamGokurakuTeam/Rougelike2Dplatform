@@ -66,7 +66,7 @@ func _on_fly_timer_timeout() -> void:
 	parent.animation_player.play("FlyEnd")
 	await anim_player.animation_finished
 	parent.can_move = true
-	StateTransitioned.emit(self, "Move")
+	StateTransitioned.emit(self, "Shoot")
 
 func _on_bullet_shot_timer_timeout() -> void:
 	for i in bullet_num:

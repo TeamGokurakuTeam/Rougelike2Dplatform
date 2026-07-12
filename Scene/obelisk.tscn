@@ -341,6 +341,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhy2k"]
 size = Vector2(21, 77)
 
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font_size = 12
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.3137255)
+
 [node name="Obelisk" type="Node2D" unique_id=1340329694]
 script = ExtResource("1_ociln")
 
@@ -382,6 +389,16 @@ visible = false
 texture = ExtResource("3_hqlg3")
 hframes = 7
 vframes = 6
+
+[node name="Label" type="Label" parent="." unique_id=1767291616]
+offset_left = -34.0
+offset_top = 21.0
+offset_right = 35.0
+offset_bottom = 44.0
+text = "Press \"S\""
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ncteui0x5rir" path="res://Scene/Enemy/BOSS/GolemBossFly.gd" id="4_oaa17"]
 [ext_resource type="Script" uid="uid://7dvclidi08dr" path="res://Scene/Enemy/BOSS/GolemBossAttack.gd" id="5_4bl0x"]
 [ext_resource type="Texture2D" uid="uid://dktuj0ydds5j2" path="res://Assets/BOSS/Character_sheet.png" id="6_5nfcm"]
+[ext_resource type="Script" uid="uid://coyohaf4i45hc" path="res://Scene/Enemy/BOSS/GolemShoot.gd" id="6_qmbkk"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="7_ajh7x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hna4m"]
@@ -1098,6 +1099,26 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 1.8000001, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"Shoot"
+}, {
+"args": [],
+"method": &"Shoot"
+}, {
+"args": [],
+"method": &"Shoot"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7r0m2"]
 _data = {
@@ -1121,8 +1142,13 @@ max_speed = 300.0
 acceleration = 3
 is_fly = true
 
-[node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("Move")
+[node name="RootNode" type="Node2D" parent="." index="0" unique_id=1682161448]
+
+[node name="Marker2D" type="Marker2D" parent="RootNode" index="0" unique_id=1715372938]
+position = Vector2(54, -26)
+
+[node name="StateMachine" parent="." index="1" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Shoot")
 
 [node name="Move" type="Node" parent="StateMachine" index="0" unique_id=1830323087 node_paths=PackedStringArray("parent", "anim_player", "move_timer")]
 script = ExtResource("3_t5hy6")
@@ -1146,16 +1172,22 @@ parent = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="HPComponent" parent="." index="1" unique_id=456158778]
+[node name="Shoot" type="Node" parent="StateMachine" index="3" unique_id=582765379 node_paths=PackedStringArray("parent", "anim_player")]
+script = ExtResource("6_qmbkk")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="HPComponent" parent="." index="2" unique_id=456158778]
 max_hp = 200.0
 hp = 200.0
 
-[node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
+[node name="AnimatedSprite2D" parent="." index="3" unique_id=1883945263]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_biqjo")
 animation = &"Move"
 
-[node name="CollisionShape2D" parent="." index="3" unique_id=879731102]
+[node name="CollisionShape2D" parent="." index="4" unique_id=879731102]
 visible = false
 position = Vector2(-2, -6.5)
 shape = SubResource("RectangleShape2D_y6wyp")
@@ -1185,18 +1217,18 @@ position = Vector2(-4, 24)
 rotation = -1.5299917
 shape = SubResource("CapsuleShape2D_3g44x")
 
-[node name="AnimationPlayer" parent="." index="7" unique_id=559520988]
+[node name="AnimationPlayer" parent="." index="8" unique_id=559520988]
 libraries/ = SubResource("AnimationLibrary_7r0m2")
 
-[node name="FlyTimer" type="Timer" parent="." index="8" unique_id=1533892626]
+[node name="FlyTimer" type="Timer" parent="." index="9" unique_id=1533892626]
 wait_time = 10.0
 one_shot = true
 
-[node name="MoveTimer" type="Timer" parent="." index="9" unique_id=1602657909]
+[node name="MoveTimer" type="Timer" parent="." index="10" unique_id=1602657909]
 wait_time = 3.0
 one_shot = true
 
-[node name="BulletShotTimer" type="Timer" parent="." index="10" unique_id=124914573]
+[node name="BulletShotTimer" type="Timer" parent="." index="11" unique_id=124914573]
 wait_time = 0.45
 one_shot = true
 
