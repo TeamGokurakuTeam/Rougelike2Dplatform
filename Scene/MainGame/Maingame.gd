@@ -14,8 +14,8 @@ func _ready() -> void:
 	room_generator.main_game_node = self
 	room_generator.room_generate()
 	player.global_position = room_generator.lobby_room.player_marker.global_position
-	player_ui.player = player
-	player_ui.player_hp_ui.player = player
+	player_ui.player = self.player
+	player_ui.player_hp_ui.player = self.player
 	player.modifier_updated.connect(player_ui._on_character_modifier_updated)
 	player.modifier_updated.connect(player_ui.mod_ui._on_player_modifier_updated)
 	player.applied_modifier.connect(player_ui.modifier_timer._on_player_applied_modifier)

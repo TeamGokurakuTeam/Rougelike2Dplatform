@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmin4ppf3tbti"]
 
-[ext_resource type="Texture2D" uid="uid://p561qyuetbh2" path="res://icon.svg" id="1_d5ka1"]
 [ext_resource type="Script" uid="uid://bp7spqx85b8l2" path="res://Scene/door.gd" id="1_t1p54"]
+[ext_resource type="Texture2D" uid="uid://c1dyp8nhcwpf0" path="res://Assets/Door.png" id="2_t1p54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1p54"]
 size = Vector2(16, 48)
@@ -9,16 +9,109 @@ size = Vector2(16, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8kni7"]
 size = Vector2(23, 48)
 
+[sub_resource type="Animation" id="Animation_t1p54"]
+resource_name = "Lock"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -39), Vector2(0, -38.60507), Vector2(0, -37.420277), Vector2(0, -35.445625), Vector2(0, -32.68111), Vector2(0, -29.126736), Vector2(0, -24.7825), Vector2(0, -19.648401), Vector2(0, -13.724442), Vector2(0, -7.010622), Vector2(0, 0.49305725), Vector2(0, 7.611599), Vector2(0, 3.7700005), Vector2(0, 0.71826553), Vector2(0, -1.5436096), Vector2(0, -3.015625), Vector2(0, -3.6977806), Vector2(0, -3.5900688), Vector2(0, -2.692501), Vector2(0, -1.0050697), Vector2(0, 1.4722214), Vector2(0, 4.7393723), Vector2(0, 7.6213875), Vector2(0, 6.005764), Vector2(0, 5.1800003), Vector2(0, 5.1440964), Vector2(0, 5.898056), Vector2(0, 7.4418716), Vector2(0, 7.425556), Vector2(0, 7.3178444), Vector2(0, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerDetector/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_8kni7"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 8), Vector2(0, 7.605069), Vector2(0, 6.4202776), Vector2(0, 4.445625), Vector2(0, 1.6811104), Vector2(0, -1.8732643), Vector2(0, -6.2175007), Vector2(0, -11.351599), Vector2(0, -17.275558), Vector2(0, -23.989378), Vector2(0, -31.493057), Vector2(0, -38.6116), Vector2(0, -34.77), Vector2(0, -31.718266), Vector2(0, -29.45639), Vector2(0, -27.984375), Vector2(0, -27.30222), Vector2(0, -27.409931), Vector2(0, -28.307499), Vector2(0, -29.99493), Vector2(0, -32.47222), Vector2(0, -35.739372), Vector2(0, -38.621387), Vector2(0, -37.005764), Vector2(0, -36.18), Vector2(0, -36.144096), Vector2(0, -36.898056), Vector2(0, -38.44187), Vector2(0, -38.425556), Vector2(0, -38.317844), Vector2(0, -39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerDetector/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.53333336, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_lmuuw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerDetector/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xwlx2"]
+_data = {
+&"Lock": SubResource("Animation_t1p54"),
+&"Open": SubResource("Animation_8kni7"),
+&"RESET": SubResource("Animation_lmuuw")
+}
+
 [node name="Door" type="StaticBody2D" unique_id=611324660]
 collision_layer = 128
 collision_mask = 0
 script = ExtResource("1_t1p54")
 
+[node name="Gate" type="Sprite2D" parent="." unique_id=1326436168]
+position = Vector2(0, 8)
+texture = ExtResource("2_t1p54")
+hframes = 2
+frame = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139834341]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-8, 7.9999995)
-scale = Vector2(0.125, 0.375)
-texture = ExtResource("1_d5ka1")
+position = Vector2(-16, 7)
+texture = ExtResource("2_t1p54")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1078878530]
 position = Vector2(-8, 8)
@@ -30,6 +123,10 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=608414875]
 position = Vector2(-8.5, 8)
 shape = SubResource("RectangleShape2D_8kni7")
+disabled = true
 debug_color = Color(0.5209268, 0.57466865, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=884074299]
+libraries/ = SubResource("AnimationLibrary_xwlx2")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

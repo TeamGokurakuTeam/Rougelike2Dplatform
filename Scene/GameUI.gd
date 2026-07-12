@@ -1,13 +1,13 @@
 extends CanvasLayer
 class_name GameUI
 
-@onready var hotbar: HBoxContainer = $Hotbar
-@onready var mod_ui: ModUI = $ModUI
-@onready var modifier_timer: ModifierTimer = $ModifierTimer
-@onready var player_hp_ui: PlayerHpUI = $PlayerHpUI
-@onready var locked_mod_label: Label = $LockedModLabel
-@onready var modifier_explanation: ModifierExplanationUI = $ModifierExplanation
-@onready var transition: ColorRect = $Transition
+@onready var hotbar: HBoxContainer = $Parent/Hotbar
+@onready var mod_ui: ModUI = $Parent/ModUI
+@onready var modifier_timer: ModifierTimer = $Parent/ModifierTimer
+@onready var player_hp_ui: PlayerHpUI = $Parent/PlayerHpUI
+@onready var locked_mod_label: Label = $Parent/LockedModLabel
+@onready var modifier_explanation: ModifierExplanationUI = $Parent/ModifierExplanation
+@onready var transition: ColorRect = $Parent/Transition
 @onready var parent: Control = $Parent
 
 var player : Player

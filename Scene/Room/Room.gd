@@ -39,7 +39,7 @@ func _on_exit_door_player_entered(player : Player) -> void:
 		enemy_point.enemy_summoned.connect(_on_enemy_summoned)
 	for node in doors.get_children():
 		var door : Door = node as Door
-		door.player_detector.monitoring = false
+		door.animation_player.play("Lock")
 	main_game_node.bgm_changer.change_bgm(main_game_node.bgm_changer.stage_bgm, main_game_node.bgm_changer.battle_bgm)
 	
 
@@ -52,5 +52,5 @@ func _on_enemy_is_dead() -> void:
 	if enemy_count <= 0:
 		for node in doors.get_children():
 			var door : Door = node as Door
-			door.player_detector.monitoring = true
+			door.animation_player.play("Open")
 		main_game_node.bgm_changer.change_bgm(main_game_node.bgm_changer.battle_bgm, main_game_node.bgm_changer.stage_bgm)

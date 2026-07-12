@@ -925,6 +925,7 @@ collision_layer = 0
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("2_fgpll")]
 position = Vector2(720, 96)
 dir = 4
+is_open = true
 
 [node name="ExitPoint" type="Marker2D" parent="Doors/Door" index="3" unique_id=1781628370]
 position = Vector2(-40, 8)

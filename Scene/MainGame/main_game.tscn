@@ -61,7 +61,7 @@ centered = false
 
 [node name="PlayerUI" parent="." unique_id=1814325200 instance=ExtResource("2_8fymo")]
 
-[node name="RichTextLabel" parent="PlayerUI/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]
+[node name="RichTextLabel" parent="PlayerUI/Parent/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]
 scroll_active = false
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
@@ -104,7 +104,7 @@ blend_mode = 1
 shadow_enabled = true
 
 [editable path="PlayerUI"]
-[editable path="PlayerUI/PlayerHpUI"]
-[editable path="PlayerUI/ModUI"]
+[editable path="PlayerUI/Parent/ModUI"]
+[editable path="PlayerUI/Parent/PlayerHpUI"]
 [editable path="Player"]
 [editable path="Player/PickupComponent"]

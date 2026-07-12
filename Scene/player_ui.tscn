@@ -205,16 +205,16 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_q25tn")
 
 [node name="Parent" type="Control" parent="." unique_id=559341666]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Hotbar" type="HBoxContainer" parent="Parent" unique_id=1910330715]
-visible = false
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 1
 anchors_preset = 7
@@ -246,7 +246,6 @@ layout_mode = 2
 
 [node name="ModUI" parent="Parent" unique_id=1180346681 instance=ExtResource("3_00pm1")]
 layout_mode = 1
-mod_resources = null
 
 [node name="ModifierTimer" parent="Parent" unique_id=1389695203 instance=ExtResource("4_rj6n4")]
 layout_mode = 1

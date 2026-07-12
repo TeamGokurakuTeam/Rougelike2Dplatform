@@ -19,7 +19,8 @@ func _ready() -> void:
 	(material as ShaderMaterial).set_shader_parameter("softness", 0)
 
 func _process(delta: float) -> void:
-	(material as ShaderMaterial).set_shader_parameter("reveal_position", player.global_position)
+	if player != null:
+		(material as ShaderMaterial).set_shader_parameter("reveal_position", player.global_position)
 
 func _on_body_entered(body : Node2D) -> void:
 	if body is Player:
