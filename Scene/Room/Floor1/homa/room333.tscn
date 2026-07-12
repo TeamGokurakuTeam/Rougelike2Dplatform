@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="8_nxo0y"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="9_dd2au"]
 [ext_resource type="PackedScene" uid="uid://b3ys5ty8jofad" path="res://Scene/Room/bounce_pad.tscn" id="9_m0q2n"]
-[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/mushroom.tscn" id="10_nxo0y"]
+[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="10_nxo0y"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="11_m0q2n"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_lfuwl")]

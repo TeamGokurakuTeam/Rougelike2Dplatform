@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="3_swvev"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_fmtm0"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="5_4h8qy"]
-[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/mushroom.tscn" id="6_iak6g"]
+[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="6_iak6g"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_l4ym1")]
 

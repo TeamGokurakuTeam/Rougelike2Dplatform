@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="2_y6chv"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_fmn6u"]
 [ext_resource type="PackedScene" uid="uid://esb02rh4pf7m" path="res://Scene/Room/ice_magic.tscn" id="3_lrf4m"]
-[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/mushroom.tscn" id="4_a2n61"]
+[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_a2n61"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="5_cabvo"]
 [ext_resource type="PackedScene" uid="uid://b3ys5ty8jofad" path="res://Scene/Room/bounce_pad.tscn" id="6_8r7xl"]
 [ext_resource type="PackedScene" uid="uid://dofccvw7xhhbj" path="res://Scene/Room/spike.tscn" id="7_d024q"]
