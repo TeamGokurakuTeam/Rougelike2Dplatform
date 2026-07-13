@@ -20,12 +20,14 @@ func _on_area_entered(area: Area2D) -> void:
 		_apply_damage(area)
 		if area.is_continuous:
 			cool_down.start()
+		character.is_damaged = true
 
 func _on_area_exited(area: Area2D) -> void:
 	if area == current_area:
 		current_area = null
 		cool_down.stop()
-	
+		character.is_damaged = false
+
 func _on_cool_down_timeout() -> void:
 	if current_area == null:
 		return

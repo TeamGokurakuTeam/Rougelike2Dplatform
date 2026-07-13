@@ -1,11 +1,14 @@
-extends EnemyState
+extends State
 class_name BatHurt
 
+@export var parent : Bat
+@export var anim_player : AnimationPlayer
+
 func Enter() -> void:
-	anim_player.play("hurt")
+	anim_player.play("BatAnim/hurt")
 
 func Exit() -> void:
-	parent.hp_component.stack_damage = 0
+	pass
 
 func Update(delta) -> void:
 	pass
@@ -13,18 +16,16 @@ func Update(delta) -> void:
 func Physics_Update(delta) -> void:
 	var dir = parent.velocity.normalized() #現在の方向を取得
 	var spd = parent.velocity.length() #普通にスピード
-	spd = max(spd - parent.decrement_speed, 0) #実質limit_lengthみたいな感じ
+	spd = max(spd - parent.max_speed, 0) #実質limit_lengthみたいな感じ
 	parent.velocity = dir * spd
 	var collided : KinematicCollision2D = parent.move_and_collide(parent.velocity * delta)
 	if collided:
 		var normal : Vector2 = collided.get_normal() ##ぶつかったボディを90度のベクトル(normal)で返す
 		parent.velocity = parent.velocity.bounce(normal)
 		if collided.get_collider() is TileMapLayer:
-			G_TextManager.display_number(parent.hp_component.stack_damage, parent.global_position)
 			if parent.hp_component.hp <= 0:
 				StateTransitioned.emit(self, "Dead")
 				return
-			parent.deal_stackdamage()
 		parent.knockback_dir = parent.velocity.normalized()
 		parent.hitbox.knockback_direction = parent.knockback_dir
 	if parent.velocity.is_zero_approx():

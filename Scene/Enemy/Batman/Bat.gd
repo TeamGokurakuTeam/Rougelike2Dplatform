@@ -1,7 +1,7 @@
 extends Enemy
 class_name Bat
 
-const GHOST_EFFECT = preload("uid://b3d4vmf5tf2os")
+const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 
 @onready var ghost_timer: Timer = $GhostTimer
 
@@ -19,16 +19,11 @@ func _physics_process(delta: float) -> void:
 
 func get_path_to_player_point(navigation_agent : NavigationAgent2D) -> void:
 	if target == null:
-		set_target()
+		target = get_tree().get_first_node_in_group("Player")
+		if target == null:
+			return
 	else:
 		navigation_agent.target_position = target.global_position
-
-func set_target() -> void:
-	var player : Player = get_tree().get_first_node_in_group("Player")
-	if player.size() != 0:
-		target = player.pick_random()
-	else:
-		target = null
 
 func _on_path_timer_timeout() -> void:
 	get_path_to_player_point(navigation_agent)
@@ -42,8 +37,8 @@ func _on_player_detector_body_exited(body: Node2D) -> void:
 		is_player_entered = false
 
 func add_ghost_effect() -> void:
-	var ghost = GHOST_EFFECT.instantiate()
-	ghost.set_property(position, sprite.scale, sprite.sprite_frames.get_frame_texture("Idle", sprite.frame))
+	var ghost : GhostEffect = GHOST_EFFECT.instantiate()
+	ghost.set_propety(position, sprite.scale)
 	get_tree().current_scene.add_child(ghost)
 
 func _on_ghost_timer_timeout() -> void:

@@ -1,10 +1,13 @@
-extends EnemyState
+extends State
 class_name BatIdle
+
+@export var parent : Bat
+@export var anim_player : AnimationPlayer
 
 @export var idle_timer : Timer
 
 func Enter() -> void:
-	anim_player.play("IdleWander")
+	anim_player.play("BatAnim/IdleWander")
 
 func Exit() -> void:
 	pass

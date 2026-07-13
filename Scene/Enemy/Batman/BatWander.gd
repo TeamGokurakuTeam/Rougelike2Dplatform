@@ -1,4 +1,4 @@
-extends EnemyState
+extends State
 class_name BatWander
 
 const NEAR_DISTANCE : float = 1.0
@@ -8,6 +8,9 @@ const NEAR_DISTANCE : float = 1.0
 @export var wander_speed : float = 5
 @export var accelerator : float = 300
 
+@export var parent : Bat
+@export var anim_player : AnimationPlayer
+
 var random_dir : Vector2
 var target_position : Vector2
 var start_position : Vector2
@@ -16,7 +19,7 @@ var wait_timer : float
 
 func Enter() -> void:
 	wait_timer = 3
-	anim_player.play("IdleWander")
+	anim_player.play("BatAnim/IdleWander")
 	_set_direction()
 
 func Exit() -> void:

@@ -1,8 +1,11 @@
-extends EnemyState
+extends State
 class_name BatChase
 
+@export var parent : Bat
+@export var anim_player : AnimationPlayer
+
 func Enter() -> void:
-	anim_player.play("Chase")
+	anim_player.play("BatAnim/Chase")
 
 func Exit() -> void:
 	pass
@@ -17,7 +20,7 @@ func Physics_Update(delta) -> void:
 		StateTransitioned.emit(self, "hurt")
 	parent.sprite.flip_h = parent.velocity.x < 0
 	parent.move_direction = get_next_direction().normalized()
-	parent.velocity = parent.move_direction * parent.speed / 2
+	parent.velocity = parent.move_direction * parent.max_speed / 2
 	parent.move_and_slide()
 	if not parent.is_player_entered:
 		if randf() <= 0.5:

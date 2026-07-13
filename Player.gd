@@ -1,7 +1,7 @@
 extends Character
 class_name Player
 
-const GHOST_EFFECT = preload("uid://bbh4yarpd37co")
+const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 
 @onready var parry_effect: GPUParticles2D = $Parry
 @onready var ghost_timer: Timer = $GhostTimer

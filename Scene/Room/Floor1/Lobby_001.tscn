@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://q17v86qdk2us" path="res://Resource/Modifier/AutoAttack.tres" id="14_ru5wp"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="15_q8aav"]
 [ext_resource type="Resource" uid="uid://cycf0m4pavf61" path="res://Resource/Modifier/FallSlashing.tres" id="15_ru5wp"]
+[ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="20_oqmah"]
 
 [sub_resource type="Shader" id="Shader_6avjc"]
 code = "shader_type canvas_item;
@@ -975,3 +976,9 @@ modifier = ExtResource("15_ru5wp")
 
 [node name="Obelisk" parent="." index="14" unique_id=1340329694 instance=ExtResource("15_q8aav")]
 position = Vector2(621, 82)
+
+[node name="Batman" parent="." index="15" unique_id=1333291757 instance=ExtResource("20_oqmah")]
+position = Vector2(472, 120)
+
+[node name="Batman2" parent="." index="16" unique_id=392318210 instance=ExtResource("20_oqmah")]
+position = Vector2(528, 120)

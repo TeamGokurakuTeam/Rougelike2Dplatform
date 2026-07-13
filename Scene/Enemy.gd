@@ -14,6 +14,7 @@ const DROP_MODIFIER = preload("uid://b47iwp7p6b4wk")
 
 var hitboxes_array : Array[Hitbox]
 
+
 func _ready() -> void:
 	for node in hitboxes.get_children():
 		if node is not Hitbox:
