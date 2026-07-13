@@ -8,6 +8,8 @@ extends Node
 #Global変数なのでこれはよそで使ってもよい
 #使用例:Sword.resource = item_cache["DebugSword"]
 var item_cache : Dictionary[String, Resource] = {}
+
+#room_cacheのintはバイナリ(0101のやつ)、第二はRoomResのArrayとして用意している
 var room_cache : Dictionary[int, Array] = {}
 var gain_cache : Dictionary[String, ObeliskResource] = {}
 var loss_cache : Dictionary[String, ObeliskResource] = {}

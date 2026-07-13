@@ -5,6 +5,7 @@ class_name RoomInfoResource
 @export var room_type : RoomType
 
 enum RoomType {
+	EMPTY,
 	LOBBY_ROOM,
 	ENEMY_ROOM,
 	BONUS_ROOM,

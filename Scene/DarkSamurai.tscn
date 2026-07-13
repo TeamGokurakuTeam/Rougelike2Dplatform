@@ -618,6 +618,8 @@ debug_color = Color(0, 1, 0.69803923, 0.41960785)
 [node name="Hitboxes" type="Node2D" parent="." index="5" unique_id=1518591342]
 
 [node name="Hitbox" parent="Hitboxes" index="0" unique_id=195243888 instance=ExtResource("7_inab3")]
+collision_mask = 8
+damage = 2.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
 position = Vector2(4.5, 4.5)

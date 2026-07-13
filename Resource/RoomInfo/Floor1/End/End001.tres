@@ -6,4 +6,5 @@
 [resource]
 script = ExtResource("2_ckqmh")
 room_scene = ExtResource("1_5e5mn")
+room_type = 6
 left = true
