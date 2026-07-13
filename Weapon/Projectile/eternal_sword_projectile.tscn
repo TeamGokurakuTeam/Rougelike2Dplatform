@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://k7h2x7mmasbp" path="res://Assets/Weapon/Effect/StarVFX/sprite-sheet.png" id="3_3vjh3"]
 [ext_resource type="Texture2D" uid="uid://x7amrwqju0u0" path="res://Assets/Particle/32x32_Star_5.png" id="4_eo6j5"]
 [ext_resource type="Script" uid="uid://xchyfr3avu0m" path="res://Component/Hitbox/Hitbox.gd" id="5_11cdg"]
+[ext_resource type="AudioStream" uid="uid://de3lw3apsncg4" path="res://Assets/SoundEffect/エタソ出現.mp3" id="7_x2pms"]
+[ext_resource type="AudioStream" uid="uid://yuxamxwaqypi" path="res://Assets/SoundEffect/エタソ着地.mp3" id="8_vcbop"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eo6j5"]
 atlas = ExtResource("2_3vjh3")
@@ -114,6 +116,118 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VisualRoot/AnimatedSprite2D/Sprite2D2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.3561945]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VisualRoot/AnimatedSprite2D/Sprite2D2:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = false
+tracks/9/path = NodePath("EternalSpawn:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = false
+tracks/10/path = NodePath("EternalSlam:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("VisualRoot/AnimatedSprite2D/Sprite2D2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cb2jr"]
+resource_name = "Spawn"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisualRoot/AnimatedSprite2D/Sprite2D2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.566371]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VisualRoot/AnimatedSprite2D/Sprite2D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.43333337, 0.4666667, 0.50000006, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(5, 5), Vector2(4.737414, 4.737414), Vector2(3.949655, 3.949655), Vector2(2.6367238, 2.6367238), Vector2(0.7986202, 0.7986202), Vector2(0.6228385, 0.6228385), Vector2(1.1718824, 1.1718824), Vector2(1.1957543, 1.1957543), Vector2(0.69445324, 0.69445324), Vector2(0.13672829, 0.13672829), Vector2(0.30382872, 0.30382872), Vector2(0.023881435, 0.023881435), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EternalSpawn:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VisualRoot/AnimatedSprite2D/Sprite2D2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3vjh3"]
 resource_name = "init"
@@ -177,10 +291,21 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, false, true, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VisualRoot/AnimatedSprite2D/Sprite2D2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_eo6j5"]
 resource_name = "touchdown"
-length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -260,17 +385,42 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.8666667),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("EternalSlam:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VisualRoot/AnimatedSprite2D/Sprite2D2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_11cdg"]
 _data = {
 &"RESET": SubResource("Animation_bkb4b"),
+&"Spawn": SubResource("Animation_cb2jr"),
 &"init": SubResource("Animation_3vjh3"),
 &"touchdown": SubResource("Animation_eo6j5")
 }
@@ -312,6 +462,7 @@ alpha_curve = SubResource("CurveTexture_11cdg")
 radius = 15.0
 
 [node name="EternalSwordProjectile" unique_id=753101119 instance=ExtResource("1_bkb4b")]
+collision_mask = 130
 script = ExtResource("2_bnvvb")
 max_speed = 400.0
 speed = 250.0
@@ -324,6 +475,13 @@ rotation = 2.3561945
 scale = Vector2(0.37, 0.37)
 sprite_frames = SubResource("SpriteFrames_11cdg")
 animation = &"default"
+
+[node name="Sprite2D2" type="Sprite2D" parent="VisualRoot/AnimatedSprite2D" index="0" unique_id=1096165072]
+visible = false
+position = Vector2(-1.9110997, 1.9110997)
+rotation = -2.3561945
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_eo6j5")
 
 [node name="CollisionShape2D2" parent="." index="1" unique_id=196155440]
 shape = SubResource("RectangleShape2D_11cdg")
@@ -370,5 +528,17 @@ debug_color = Color(0.9949309, 0, 0.2215791, 0.41960785)
 enabled = false
 target_position = Vector2(0, 17)
 collision_mask = 128
+
+[node name="EternalSpawn" type="AudioStreamPlayer" parent="." index="9" unique_id=1580919256]
+stream = ExtResource("7_x2pms")
+volume_db = -15.0
+pitch_scale = 0.9
+bus = &"SoundEffect"
+
+[node name="EternalSlam" type="AudioStreamPlayer" parent="." index="10" unique_id=206052222]
+stream = ExtResource("8_vcbop")
+volume_db = -15.0
+pitch_scale = 0.9
+bus = &"SoundEffect"
 
 [editable path="Hitbox"]

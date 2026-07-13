@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://k7h2x7mmasbp" path="res://Assets/Weapon/Effect/StarVFX/sprite-sheet.png" id="3_2i581"]
 [ext_resource type="Texture2D" uid="uid://5futa8f7kict" path="res://Assets/Particle/2.png" id="4_hjl78"]
 [ext_resource type="Material" uid="uid://d2b7yscsepnje" path="res://Weapon/New/Charge.tres" id="5_jjlr0"]
+[ext_resource type="AudioStream" uid="uid://c1tiljq6r41e" path="res://Assets/SoundEffect/剣の斬撃1.mp3" id="8_ff81a"]
+[ext_resource type="AudioStream" uid="uid://bxjue7nw4o4x7" path="res://Assets/SoundEffect/エタソチャージ発動.mp3" id="9_bcbfq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0y0d7"]
 radius = 13.392303
@@ -138,6 +140,18 @@ tracks/9/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Attack:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="Animation" id="Animation_0y0d7"]
 resource_name = "Charge"
@@ -165,6 +179,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StrongAttack:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_hjl78"]
@@ -289,6 +315,30 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = false
+tracks/10/path = NodePath("Attack:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = false
+tracks/11/path = NodePath("StrongAttack:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_vt3k1"]
 resource_name = "StrongAttack"
@@ -341,6 +391,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 4.415683, 4.415683, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StrongAttack:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jjlr0"]
@@ -401,3 +463,11 @@ rotation = 0.7853982
 texture = ExtResource("3_2i581")
 hframes = 5
 vframes = 2
+
+[node name="Attack" type="AudioStreamPlayer" parent="." index="6" unique_id=2135258592]
+stream = ExtResource("8_ff81a")
+volume_db = -10.0
+
+[node name="StrongAttack" type="AudioStreamPlayer" parent="." index="7" unique_id=1565475423]
+stream = ExtResource("9_bcbfq")
+volume_db = -25.0
