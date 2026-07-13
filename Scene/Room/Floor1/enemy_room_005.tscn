@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_vk3vl"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_p7wrq"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="6_bu022"]
+[ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="7_p7wrq"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_4xbar")]
 
@@ -83,4 +84,14 @@ is_random = true
 [node name="EnemySpawnPoint6" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="5" unique_id=2146434402 instance=ExtResource("4_vk3vl")]
 position = Vector2(64, 64)
 enemys = Array[PackedScene]([ExtResource("5_p7wrq"), ExtResource("6_bu022")])
+is_random = true
+
+[node name="EnemySpawnPoint7" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="6" unique_id=1831087955 instance=ExtResource("4_vk3vl")]
+position = Vector2(272, 96)
+enemys = Array[PackedScene]([ExtResource("7_p7wrq")])
+is_random = true
+
+[node name="EnemySpawnPoint8" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="7" unique_id=886615917 instance=ExtResource("4_vk3vl")]
+position = Vector2(352, 96)
+enemys = Array[PackedScene]([ExtResource("7_p7wrq")])
 is_random = true

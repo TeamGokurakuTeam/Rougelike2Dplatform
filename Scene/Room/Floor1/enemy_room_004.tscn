@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="3_swvev"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_fmtm0"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="5_4h8qy"]
+[ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="6_4h8qy"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="6_iak6g"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_l4ym1")]
@@ -55,24 +56,40 @@ position = Vector2(576, 400)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("4_fmtm0")]
 position = Vector2(416, 80)
-enemys = Array[PackedScene]([ExtResource("5_4h8qy")])
+enemys = Array[PackedScene]([ExtResource("5_4h8qy"), ExtResource("6_4h8qy"), ExtResource("6_iak6g")])
 
-[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=909874680 instance=ExtResource("4_fmtm0")]
+[node name="EnemySpawnPoint6" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=1135898749 instance=ExtResource("4_fmtm0")]
+position = Vector2(192, 128)
+enemys = Array[PackedScene]([ExtResource("5_4h8qy"), ExtResource("6_4h8qy")])
+
+[node name="EnemySpawnPoint7" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=756447995 instance=ExtResource("4_fmtm0")]
+position = Vector2(680, 160)
+enemys = Array[PackedScene]([ExtResource("5_4h8qy"), ExtResource("6_4h8qy")])
+
+[node name="EnemySpawnPoint8" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=2051520777 instance=ExtResource("4_fmtm0")]
+position = Vector2(616, 560)
+enemys = Array[PackedScene]([ExtResource("5_4h8qy"), ExtResource("6_4h8qy")])
+
+[node name="EnemySpawnPoint9" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=819157292 instance=ExtResource("4_fmtm0")]
+position = Vector2(232, 560)
+enemys = Array[PackedScene]([ExtResource("5_4h8qy"), ExtResource("6_4h8qy")])
+
+[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="5" unique_id=909874680 instance=ExtResource("4_fmtm0")]
 position = Vector2(416, 608)
 enemys = Array[PackedScene]([ExtResource("5_4h8qy")])
 
-[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=2022181744 instance=ExtResource("4_fmtm0")]
+[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="6" unique_id=2022181744 instance=ExtResource("4_fmtm0")]
 position = Vector2(400, 336)
 enemys = Array[PackedScene]([ExtResource("5_4h8qy"), ExtResource("6_iak6g")])
 is_random = true
 
-[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=2100591187 instance=ExtResource("4_fmtm0")]
+[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="7" unique_id=2100591187 instance=ExtResource("4_fmtm0")]
 position = Vector2(576, 368)
-enemys = Array[PackedScene]([ExtResource("6_iak6g")])
+enemys = Array[PackedScene]([ExtResource("6_iak6g"), ExtResource("6_4h8qy")])
 
-[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=1813746015 instance=ExtResource("4_fmtm0")]
+[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="8" unique_id=1813746015 instance=ExtResource("4_fmtm0")]
 position = Vector2(256, 352)
-enemys = Array[PackedScene]([ExtResource("6_iak6g")])
+enemys = Array[PackedScene]([ExtResource("6_iak6g"), ExtResource("6_4h8qy")])
 
 [node name="OneWay7" parent="." index="9" unique_id=1583716193 instance=ExtResource("3_swvev")]
 position = Vector2(632, 368)
