@@ -15,6 +15,7 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D2
 @onready var hurtbox: Hurtbox = $Hurtbox
 
+@export var input_enabled : bool = true #どうせいいの思いつかないしtrueが操作できてfalseができない
 @export var max_jump_pressed_frame : int = 5
 @export_category("プレイヤーステータス")
 @export var defense_power : float = 10
@@ -66,6 +67,11 @@ signal modifier_updated(player : Player)
 signal applied_modifier(player : Player)
 signal modifier_picked_up(mod_res : ModifierResource)
 
+func _ready() -> void:
+	super()
+	GameEvents.cutscene_started.connect(_on_cutscene_started)
+	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
+
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
 	if mouse_direction.x > 0 and animated_sprite_2d.flip_h:
@@ -75,6 +81,8 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 
 func _physics_process(delta: float) -> void:
+	if not input_enabled:
+		return
 	#慣性
 	_get_input()
 	super(delta)
@@ -241,6 +249,13 @@ func _on_ghost_timer_timeout() -> void:
 
 func _on_hp_component_is_dead() -> void:
 	self.queue_free()
+
+func _on_cutscene_started() -> void:
+	input_enabled = false
+
+func _on_cutscene_ended() -> void:
+	input_enabled = true
+
 #endregion
 
 func _update_state() -> void:
