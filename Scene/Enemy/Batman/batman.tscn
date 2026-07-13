@@ -205,6 +205,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerDetector/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yrim7"]
 _data = {
@@ -252,6 +264,10 @@ anim_player = NodePath("../../AnimationPlayer")
 script = ExtResource("8_rukdi")
 parent = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
+
+[node name="HPComponent" parent="." index="1" unique_id=456158778]
+max_hp = 10.0
+hp = 10.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 scale = Vector2(2, 2)
