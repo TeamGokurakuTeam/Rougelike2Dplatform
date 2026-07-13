@@ -56,7 +56,9 @@ enemys = Array[PackedScene]([ExtResource("5_mulfa")])
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=109083243 instance=ExtResource("4_l4p15")]
 position = Vector2(149, 88)
 enemys = Array[PackedScene]([ExtResource("5_mulfa"), ExtResource("6_mulfa")])
+is_random = true
 
 [node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=1383265873 instance=ExtResource("4_l4p15")]
 position = Vector2(436, 88)
 enemys = Array[PackedScene]([ExtResource("5_mulfa"), ExtResource("6_mulfa")])
+is_random = true

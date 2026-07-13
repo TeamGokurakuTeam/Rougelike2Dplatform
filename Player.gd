@@ -26,6 +26,17 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @export var dodgeroll_time : float = 0.5
 @export var just_dodgeroll_time : float = 0.09
 
+enum PlayerState { 
+ IDLE,
+ WALK,
+ JUMP_START,
+ JUMPING,
+ JUMP_END,
+ DODGE_ROLL 
+}
+
+var current_state : PlayerState = PlayerState.IDLE
+
 var weapon_resource_ids : Array[String] = []
 var mod_resource_ids : Array[String] = []
 var current_weapon : int = -1
@@ -76,13 +87,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer.start()
 	if jump_pressed_frame > 0:
 		jump_pressed_frame -= 1
-	#歩き
-	if is_dodgeroll:
-		animation_player.play("DodgeRoll")
-	elif abs(velocity.x) > 0.8:
-		animation_player.play("Walk")
-	else:
-		animation_player.play("Idle")
+
 	#Fan
 	velocity += external_velocity
 	external_velocity = external_velocity.move_toward(Vector2.ZERO, external_friction * delta)
@@ -92,6 +97,9 @@ func _physics_process(delta: float) -> void:
 		hp_component.hp -= dot_damage_per_second * delta
 		if dot_timer <= 0:
 			animated_sprite_2d.modulate = original_color
+	
+	_update_state()
+	_play_state_animation()
 
 func external_bounce_jump(power: float) -> void:
 	velocity.y = -power
@@ -124,6 +132,7 @@ func _get_input() -> void:
 	else:
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = jump_velocity
+			current_state = PlayerState.JUMP_START
 
 		ghost_timer.stop()
 	if is_on_floor():
@@ -136,6 +145,7 @@ func _get_input() -> void:
 			coyote_time_activated = true
 		if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
 			jump_pressed_frame = max_jump_pressed_frame
+			current_state = PlayerState.JUMP_START
 			velocity.y = jump_velocity
 			coyote_timer.stop()
 			coyote_time_activated = true
@@ -232,3 +242,41 @@ func _on_ghost_timer_timeout() -> void:
 func _on_hp_component_is_dead() -> void:
 	self.queue_free()
 #endregion
+
+func _update_state() -> void:
+	if is_dodgeroll:
+		current_state = PlayerState.DODGE_ROLL
+		return
+
+	match current_state:
+		PlayerState.JUMP_START:
+			if not animation_player.is_playing() or animation_player.current_animation != "JumpStart":
+				current_state = PlayerState.JUMPING
+		PlayerState.JUMPING, PlayerState.DODGE_ROLL:
+			if is_on_floor():
+				current_state = PlayerState.JUMP_END
+		PlayerState.JUMP_END:
+			if not animation_player.is_playing() or animation_player.current_animation != "JumpEnd":
+				current_state = PlayerState.WALK if abs(velocity.x) > 0.8 else PlayerState.IDLE
+		_:
+			if not is_on_floor():
+				current_state = PlayerState.JUMPING
+			elif abs(velocity.x) > 0.8:
+				current_state = PlayerState.WALK
+			else:
+				current_state = PlayerState.IDLE
+
+func _play_state_animation() -> void:
+	match current_state:
+		PlayerState.IDLE:
+			animation_player.play("Idle")
+		PlayerState.WALK:
+			animation_player.play("Walk")
+		PlayerState.JUMP_START:
+			animation_player.play("JumpStart")
+		PlayerState.JUMPING:
+			animation_player.play("Jumping")
+		PlayerState.JUMP_END:
+			animation_player.play("JumpEnd")
+		PlayerState.DODGE_ROLL:
+			animation_player.play("DodgeRoll")

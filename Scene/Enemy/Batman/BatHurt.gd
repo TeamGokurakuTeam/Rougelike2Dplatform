@@ -26,8 +26,6 @@ func Physics_Update(delta) -> void:
 			if parent.hp_component.hp <= 0:
 				StateTransitioned.emit(self, "Dead")
 				return
-		parent.knockback_dir = parent.velocity.normalized()
-		parent.hitbox.knockback_direction = parent.knockback_dir
 	if parent.velocity.is_zero_approx():
 		parent.is_damaged = false
 		StateTransitioned.emit(self, "Attack")

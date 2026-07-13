@@ -10,7 +10,7 @@ script = ExtResource("1_l4m4n")
 [node name="Root" type="Node2D" parent="." unique_id=1850941881]
 
 [node name="Sprite2D" type="Sprite2D" parent="Root" unique_id=141181324]
-z_index = 1
+z_index = 4
 texture_filter = 1
 
 [node name="Hitbox" parent="Root" unique_id=1964246491 instance=ExtResource("1_fwiay")]

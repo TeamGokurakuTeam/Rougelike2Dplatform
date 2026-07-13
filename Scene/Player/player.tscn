@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://fwxw6xhukcd4" path="res://Assets/Player/HarleChanDodgeRoll.png" id="3_2x3rd"]
 [ext_resource type="Texture2D" uid="uid://bxnsgbmwkuyuk" path="res://Assets/Player/HarleChanIdle.png" id="3_88wa8"]
 [ext_resource type="PackedScene" uid="uid://cfh10dk73ugy0" path="res://Component/pickup_component.tscn" id="3_ivevv"]
-[ext_resource type="Texture2D" uid="uid://b3hxjbeen08mq" path="res://Assets/Player/27.png" id="4_ewflj"]
 [ext_resource type="Texture2D" uid="uid://dqppxvvyli88o" path="res://Assets/Player/HarleChanWalk.png" id="4_jd8gp"]
+[ext_resource type="Texture2D" uid="uid://dnb3h3c1jfmvx" path="res://Assets/Player/Jump.png" id="5_2x3rd"]
 [ext_resource type="Texture2D" uid="uid://ba4swwx5dir3o" path="res://Assets/Particle/32x32_Impact_6.png" id="6_jd8gp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1dov"]
@@ -78,23 +78,23 @@ atlas = ExtResource("3_88wa8")
 region = Rect2(165, 45, 33, 45)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikn3s"]
-atlas = ExtResource("4_ewflj")
+atlas = ExtResource("5_2x3rd")
 region = Rect2(0, 0, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4te7"]
-atlas = ExtResource("4_ewflj")
+atlas = ExtResource("5_2x3rd")
 region = Rect2(33, 0, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_251m6"]
-atlas = ExtResource("4_ewflj")
+atlas = ExtResource("5_2x3rd")
 region = Rect2(66, 0, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44ib8"]
-atlas = ExtResource("4_ewflj")
+atlas = ExtResource("5_2x3rd")
 region = Rect2(99, 0, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oiuf6"]
-atlas = ExtResource("4_ewflj")
+atlas = ExtResource("5_2x3rd")
 region = Rect2(132, 0, 33, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxbqa"]
@@ -338,6 +338,91 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
 
+[sub_resource type="Animation" id="Animation_2x3rd"]
+resource_name = "JumpEnd"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+
+[sub_resource type="Animation" id="Animation_n1dov"]
+resource_name = "JumpStart"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_usf6g"]
+resource_name = "Jumping"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+
 [sub_resource type="Animation" id="Animation_ivevv"]
 length = 0.001
 tracks/0/type = "value"
@@ -399,6 +484,9 @@ tracks/1/keys = {
 _data = {
 &"DodgeRoll": SubResource("Animation_ewflj"),
 &"Idle": SubResource("Animation_58ae2"),
+&"JumpEnd": SubResource("Animation_2x3rd"),
+&"JumpStart": SubResource("Animation_n1dov"),
+&"Jumping": SubResource("Animation_usf6g"),
 &"RESET": SubResource("Animation_ivevv"),
 &"Walk": SubResource("Animation_ikn3s")
 }
