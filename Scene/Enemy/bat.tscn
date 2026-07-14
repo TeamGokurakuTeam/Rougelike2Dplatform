@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://dchev0u4eia8l"]
+
+[ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="1_on3w3"]
+[ext_resource type="Texture2D" uid="uid://oj2qfas20xoe" path="res://Assets/Enemy/Bat/bat.png" id="2_fagdv"]
+[ext_resource type="Script" uid="uid://barwpqt5jorm1" path="res://Scene/Enemy/Bat.gd" id="2_ih7pw"]
+[ext_resource type="Script" uid="uid://ddr2ov32xqk57" path="res://Scene/Enemy/BatIdle.gd" id="3_e50hq"]
+[ext_resource type="Script" uid="uid://rmc5sefkem0j" path="res://Scene/Enemy/BatAttack.gd" id="4_nw3ng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih7pw"]
+atlas = ExtResource("2_fagdv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e50hq"]
+atlas = ExtResource("2_fagdv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fagdv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih7pw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e50hq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw3ng"]
+size = Vector2(17, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tupjh"]
+size = Vector2(25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fagdv"]
+size = Vector2(21, 20)
+
+[sub_resource type="Animation" id="Animation_nw3ng"]
+resource_name = "Attack"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04651359, 0.9628314, 0.9884138),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.3864384, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.72849953, 0, 0.1911779, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ih7pw"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerDetector/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1019768, 0.13775812, 0.2093208, 0.24510212, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_e50hq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerDetector/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nw3ng"]
+_data = {
+&"Attack": SubResource("Animation_nw3ng"),
+&"Idle": SubResource("Animation_ih7pw"),
+&"RESET": SubResource("Animation_e50hq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
+size = Vector2(403, 130.75)
+
+[node name="Bat" unique_id=1094349948 instance=ExtResource("1_on3w3")]
+script = ExtResource("2_ih7pw")
+attack_speed = 500.0
+is_fly = true
+
+[node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=268261368 node_paths=PackedStringArray("parent", "animation_player")]
+script = ExtResource("3_e50hq")
+parent = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="Attack" type="Node" parent="StateMachine" index="1" unique_id=1446890292 node_paths=PackedStringArray("parent", "animation_player")]
+script = ExtResource("4_nw3ng")
+parent = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="HPComponent" parent="." index="1" unique_id=456158778]
+max_hp = 5.0
+hp = 5.0
+
+[node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
+sprite_frames = SubResource("SpriteFrames_fagdv")
+animation = &"default"
+
+[node name="CollisionShape2D" parent="." index="3" unique_id=879731102]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_nw3ng")
+
+[node name="CollisionShape2D2" parent="Hurtbox" parent_id_path=PackedInt32Array(1912714286) index="3" unique_id=1329737567]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_tupjh")
+
+[node name="CollisionShape2D2" parent="Hitboxes/Hitbox" parent_id_path=PackedInt32Array(195243888) index="1" unique_id=235091233]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_fagdv")
+
+[node name="AnimationPlayer" parent="." index="7" unique_id=559520988]
+libraries/ = SubResource("AnimationLibrary_nw3ng")
+
+[node name="PlayerDetector" type="Area2D" parent="." index="8" unique_id=827205706]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=959902351]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_75vwg")
+debug_color = Color(0.68516374, 0.501304, 0, 0.41960785)
+
+[connection signal="body_entered" from="PlayerDetector" to="StateMachine/Idle" method="_on_player_detector_body_entered"]
