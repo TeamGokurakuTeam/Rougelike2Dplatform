@@ -142,7 +142,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n775q")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slash1",
 "speed": 9.0
 }, {
@@ -162,7 +162,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7j5ab")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slash2",
 "speed": 8.0
 }, {
@@ -182,7 +182,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i3nw5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slash3",
 "speed": 9.0
 }, {
@@ -235,12 +235,12 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yfhuh")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Slash4",
 "speed": 7.0
 }, {
 "frames": [],
-"loop": true,
+"loop": 1,
 "name": &"Slash5",
 "speed": 5.0
 }]

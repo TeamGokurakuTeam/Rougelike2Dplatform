@@ -8,7 +8,8 @@ const NORMAL_RATE : float = 1.0
 const PLAYER_FALL_SLASH : PackedScene = preload("uid://bjj3tflijfk6o")
 
 const PLAYER_RANGESLASH : PackedScene = preload("uid://dds7cl7iiu2wf")
-
+#アヒル
+const DUCK_SLASH : PackedScene = preload("C:/Users/scar0/OneDrive/ドキュメント/GodotTeam制作/Rougelike2Dplatform/Scene/Player/Projectile/duck.tscn")
 
 @export var resource_id : String
 
@@ -169,6 +170,9 @@ func attack_trigger_modifier() -> void:
 #重撃
 	if modifiers_ids.has("HeavyStrike"):
 		HeavyStrike()
+#アヒル
+	if modifiers_ids.has("Slash_Duck"):
+		slashduck()
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -356,6 +360,22 @@ func HeavyStrike() -> void:
 	animation_player.speed_scale = 1.0
 	for i in hitboxes.size():
 		hitboxes[i].damage = hitboxes[i].damage_multiplier
+#アヒル
+func slashduck() -> void:
+	if randf() < 0.6:
+		var duck: Node2D = DUCK_SLASH.instantiate()
+		duck.global_position = player.global_position
+		var dir: int = sign(mouse_direction.x)
+		if dir == 0:
+			dir = 1
+		var min_speed_x := 100.0
+		var max_speed_x := 350.0
+		var min_speed_y := -300.0
+		var max_speed_y := -350.0
+		var random_x := randf_range(min_speed_x, max_speed_x) * dir
+		var random_y := randf_range(min_speed_y, max_speed_y)
+		duck.velocity = Vector2(random_x, random_y)
+		get_tree().root.add_child(duck)
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
