@@ -67,6 +67,34 @@ region = Rect2(320, 32, 32, 32)
 atlas = ExtResource("3_50hei")
 region = Rect2(384, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq62e"]
+atlas = ExtResource("3_50hei")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikbxm"]
+atlas = ExtResource("3_50hei")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j3ox"]
+atlas = ExtResource("3_50hei")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_668xu"]
+atlas = ExtResource("3_50hei")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlqgc"]
+atlas = ExtResource("3_50hei")
+region = Rect2(256, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxc8o"]
+atlas = ExtResource("3_50hei")
+region = Rect2(320, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u54ru"]
+atlas = ExtResource("3_50hei")
+region = Rect2(384, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_u1yf7"]
 animations = [{
 "frames": [{
@@ -127,6 +155,32 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq62e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikbxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j3ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_668xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlqgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxc8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u54ru")
+}],
+"loop": 1,
+"name": &"Jump_h",
 "speed": 5.0
 }]
 
@@ -309,9 +363,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
 size = Vector2(188, 28)
 
-[node name="Frog" unique_id=1094349948 instance=ExtResource("1_mhyku")]
+[node name="Frog" unique_id=1094349948 node_paths=PackedStringArray("frog") instance=ExtResource("1_mhyku")]
 scale = Vector2(2, 2)
 script = ExtResource("2_4xo4e")
+Jump_up = -350.0
+Jump_speed = 300.0
+frog = NodePath(".")
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")
@@ -322,10 +379,11 @@ parent = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Jump" type="Node" parent="StateMachine" index="1" unique_id=1658832496 node_paths=PackedStringArray("parent", "animation_player")]
+[node name="Jump" type="Node" parent="StateMachine" index="1" unique_id=1658832496 node_paths=PackedStringArray("parent", "animation_player", "animated_sprite_2d")]
 script = ExtResource("4_50hei")
 parent = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="Attack" type="Node" parent="StateMachine" index="2" unique_id=1708419857 node_paths=PackedStringArray("parent", "animation_player")]

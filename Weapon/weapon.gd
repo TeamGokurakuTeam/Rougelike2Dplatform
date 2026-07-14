@@ -276,7 +276,7 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		player.hp_component.hp -= 2 #2は自傷ダメージ
 #攻撃速度ビルド
 func damping_speedup(direction: Vector2, offset_Speed_Up: float) -> void:
-	var target_speed = 2.5#速度
+	var target_speed = 1.5#速度
 	animation_player.speed_scale = min(target_speed, max_speed_scale)
 	for i in range(hitboxes.size()):
 		var new_damage := 0.0
@@ -291,7 +291,7 @@ func damping_speedup(direction: Vector2, offset_Speed_Up: float) -> void:
 func _try_auto_attack_speed_buff() -> void:
 	if auto_attack_speed_buff_active:
 		return
-	if randf() < 0.3:
+	if randf() < 0.1:
 		_start_auto_attack_speed_buff()
 #自動攻撃
 func _start_auto_attack_speed_buff() -> void:
@@ -300,7 +300,7 @@ func _start_auto_attack_speed_buff() -> void:
 	var auto_speed = 1.3
 	var damping_speed = 0.0
 	if modifiers_ids.has("DampingSpeedUp"):
-		damping_speed = 2.5
+		damping_speed = 1.5
 	var raw_speed = auto_speed + damping_speed
 	var final_speed = min(raw_speed, max_speed_scale)
 	animation_player.speed_scale = final_speed
@@ -321,7 +321,7 @@ func _start_auto_attack_speed_buff() -> void:
 			original_acceleration = player.current_acceleration
 			_add_speed_move_exceed(exceed)
 	var timer := Timer.new()
-	timer.wait_time = 2.0
+	timer.wait_time = 0.5
 	timer.one_shot = true
 	add_child(timer)
 	timer.timeout.connect(func():
@@ -344,7 +344,7 @@ func _add_speed_exceed_damage(exceed: float) -> void:
 #
 func _add_speed_move_exceed(exceed:float) -> void:
 	if exceed > 0:
-		var add_speed = exceed * 20
+		var add_speed = exceed * 10
 		player.current_acceleration += add_speed
 
 #重撃
