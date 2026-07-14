@@ -82,7 +82,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, 8, 8, -8, -8, -8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w2ybo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6avjc"]
 texture = ExtResource("2_6avjc")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
@@ -382,7 +382,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpv45"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oqmah"]
 texture = ExtResource("3_oqmah")
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_n1mh3")
@@ -676,7 +676,7 @@ texture = ExtResource("3_oqmah")
 7:13/0 = 0
 7:13/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_so7u1")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcuja"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v0sef"]
 texture = ExtResource("4_v0sef")
 2:0/0 = 0
 3:0/0 = 0
@@ -724,7 +724,7 @@ texture = ExtResource("4_v0sef")
 14:3/0 = 0
 15:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7fce"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffhxb"]
 texture = ExtResource("5_ffhxb")
 0:0/0 = 0
 1:0/0 = 0
@@ -893,14 +893,14 @@ texture = ExtResource("5_ffhxb")
 14:13/0 = 0
 15:13/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_c2nwr"]
+[sub_resource type="TileSet" id="TileSet_w2ybo"]
 physics_layer_0/collision_layer = 512
 physics_layer_0/collision_mask = 67
 navigation_layer_0/layers = 1
-sources/0 = SubResource("TileSetAtlasSource_w2ybo")
-sources/2 = SubResource("TileSetAtlasSource_rpv45")
-sources/3 = SubResource("TileSetAtlasSource_kcuja")
-sources/4 = SubResource("TileSetAtlasSource_c7fce")
+sources/0 = SubResource("TileSetAtlasSource_6avjc")
+sources/2 = SubResource("TileSetAtlasSource_oqmah")
+sources/3 = SubResource("TileSetAtlasSource_v0sef")
+sources/4 = SubResource("TileSetAtlasSource_ffhxb")
 
 [node name="LobbyRoom001" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_lhnps")]
 can_spawn_enemy = false
@@ -917,7 +917,7 @@ tile_map_data = PackedByteArray("AAAJAAoAAAAHAAoAAAAlAAcAAAAHAAoAAAARAAoAAAAEAA0
 
 [node name="HideWall" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="4" unique_id=1855144737]
 material = SubResource("ShaderMaterial_oqmah")
-tile_set = SubResource("TileSet_c2nwr")
+tile_set = SubResource("TileSet_w2ybo")
 
 [node name="Area2D" parent="TileMaps/HideWall" index="0" unique_id=482470592]
 collision_layer = 0
@@ -974,4 +974,4 @@ position = Vector2(142, 125)
 modifier = ExtResource("15_ru5wp")
 
 [node name="Obelisk" parent="." index="14" unique_id=1340329694 instance=ExtResource("15_q8aav")]
-position = Vector2(621, 82)
+position = Vector2(618, 83)
