@@ -13,6 +13,8 @@ func Exit() -> void:
 	pass
 
 func Update(delta) -> void:
+	if parent.player != null:
+		return
 	dir_player = (parent.player.global_position - parent.global_position).normalized()
 	if dir_player.x < 0:
 		parent.sprite.flip_h = true

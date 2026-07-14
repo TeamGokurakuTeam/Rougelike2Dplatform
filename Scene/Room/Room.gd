@@ -47,6 +47,7 @@ func _on_exit_door_player_entered(player : Player) -> void:
 func _on_enemy_summoned(enemy : Enemy) -> void:
 	enemy.hp_component.is_dead.connect(_on_enemy_is_dead)
 	enemy_count += 1
+	GameEvents.battle_start.emit()
 
 func _on_enemy_is_dead() -> void:
 	enemy_count -= 1
@@ -55,3 +56,4 @@ func _on_enemy_is_dead() -> void:
 			var door : Door = node as Door
 			door.animation_player.play("Open")
 		main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.STAGE)
+		GameEvents.battle_end.emit()

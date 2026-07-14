@@ -34,18 +34,20 @@ func _on_hp_component_is_dead() -> void:
 	queue_free()
 
 func killed_drop_modifier() -> void:
-	if mod_resource != null:
-		var drop_mod : DropModifier = DROP_MODIFIER.instantiate()
-		drop_mod.modifier = mod_resource.pick_random()
-		get_tree().root.add_child(drop_mod)
-		drop_mod.global_position = Vector2(self.global_position)
+	if mod_resource.size() <= 0:
+		return
+	var drop_mod : DropModifier = DROP_MODIFIER.instantiate()
+	drop_mod.modifier = mod_resource.pick_random()
+	get_tree().root.add_child(drop_mod)
+	drop_mod.global_position = Vector2(self.global_position)
 
 func killed_drop_item() -> void:
-	if item_resource != null:
-		var drop_item : DropItem = DROP_ITEM.instantiate()
-		drop_item.resource = item_resource.pick_random()
-		get_tree().root.add_child(drop_item)
-		drop_item.global_position = Vector2(self.global_position.x, self.global_position.y + 15)
+	if item_resource.size() <= 0:
+		return
+	var drop_item : DropItem = DROP_ITEM.instantiate()
+	drop_item.resource = item_resource.pick_random()
+	get_tree().root.add_child(drop_item)
+	drop_item.global_position = Vector2(self.global_position.x, self.global_position.y + 15)
 
 func increment_damage(value : float) -> void:
 	for i in hitboxes_array.size():

@@ -166,6 +166,7 @@ func _get_input() -> void:
 		weapon.add_modifier(mod_resource_ids[current_modifier])
 		mod_resource_ids.remove_at(current_modifier)
 		current_modifier -= 1
+		applied_modifier.emit.call_deferred(self)
 		modifier_updated.emit(self)
 		weapon.start_modifier_timer()
 	for i in range(5):
@@ -188,7 +189,6 @@ func update_weapon() -> void:
 		node.queue_free()
 	inventory.call_deferred("add_child", weapon)
 	pickup_item.emit(self)
-	applied_modifier.emit.call_deferred(self)
 
 func update_modifier() -> void:
 	current_modifier += 1

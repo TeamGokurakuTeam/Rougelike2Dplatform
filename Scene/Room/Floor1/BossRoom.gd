@@ -31,8 +31,9 @@ func boss_summon() -> void:
 	boss.hp_component.is_dead.connect(_on_boss_is_dead)
 	boss_object.visible = false
 	enemy_count += 1
-	battle_bgm_type = BGMChanger.BGMType.BATTLE
+	battle_bgm_type = BGMChanger.BGMType.BOSS
 	main_game_node.bgm_changer.change_bgm(battle_bgm_type)
+	GameEvents.battle_start.emit()
 
 func _on_boss_is_dead() -> void:
 	enemy_count -= 1
@@ -41,3 +42,4 @@ func _on_boss_is_dead() -> void:
 			var door : Door = node as Door
 			door.animation_player.play("Open")
 		main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.STAGE)
+		GameEvents.battle_end.emit()
