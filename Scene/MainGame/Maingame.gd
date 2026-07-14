@@ -7,10 +7,20 @@ class_name MainGame
 @onready var player_ui: GameUI = $PlayerUI
 @onready var player: Player = $Player
 @onready var room_generator: RoomGenerator = $RoomGenerator
-@onready var camera_2d: Camera = $Camera2D
+@onready var main_camera: Camera = $MainCamera
 @onready var bgm_changer: BGMChanger = $BGMChanger
 
+var transition_tween : Tween
+var transition_zoom_tween : Tween
+var transition_offset_tween : Tween
+var current_camera : Camera2D
+
 func _ready() -> void:
+	current_camera = main_camera
+	main_camera.make_current()
+	transition_tween = create_tween()
+	transition_offset_tween = create_tween()
+	transition_zoom_tween = create_tween()
 	room_generator.main_game_node = self
 	room_generator.room_generate()
 	player.global_position = room_generator.lobby_room.player_marker.global_position
@@ -22,8 +32,33 @@ func _ready() -> void:
 	player.hp_component.hp_changed.connect(player_ui.player_hp_ui._on_player_hp_changed)
 	player.modifier_picked_up.connect(player_ui._on_modifier_picked_up)
 
-func _process(delta: float) -> void:
-	pass
+func change_camera(target_camera: Camera2D) -> void:
+	var final_transform := target_camera.global_transform
+	var final_zoom := target_camera.zoom
+	var final_offset := target_camera.offset
+
+	# 切り替え瞬間のカクツキを防ぐため、対象カメラを今の位置に一旦揃えてから current にする
+	target_camera.global_transform = current_camera.global_transform
+	target_camera.zoom = current_camera.zoom
+	target_camera.offset = current_camera.offset
+	target_camera.make_current()
+
+	if transition_tween: transition_tween.kill()
+	transition_tween = create_tween()
+	transition_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	transition_tween.tween_property(target_camera, "global_transform", final_transform, 0.8)
+
+	if transition_zoom_tween: transition_zoom_tween.kill()
+	transition_zoom_tween = create_tween()
+	transition_zoom_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	transition_zoom_tween.tween_property(target_camera, "zoom", final_zoom, 0.8)
+
+	if transition_offset_tween: transition_offset_tween.kill()
+	transition_offset_tween = create_tween()
+	transition_offset_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	transition_offset_tween.tween_property(target_camera, "offset", final_offset, 0.8)
+
+	current_camera = target_camera
 
 func _on_risk_selected(id : String) -> void:
 	if id == "EnemyAttackInc":

@@ -62,6 +62,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not player.input_enabled:
+		return
 	if fall_slash_cooldown > 0.0:
 		fall_slash_cooldown -= delta
 	if Input.is_action_just_pressed("UI_Attack") and not animation_player.is_playing():

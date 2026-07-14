@@ -14,6 +14,7 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D2
 @onready var hurtbox: Hurtbox = $Hurtbox
+@onready var remote_transform: RemoteTransform2D = $RemoteTransform2D
 
 @export var input_enabled : bool = true #どうせいいの思いつかないしtrueが操作できてfalseができない
 @export var max_jump_pressed_frame : int = 5
@@ -81,11 +82,12 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 
 func _physics_process(delta: float) -> void:
+	super(delta)
 	if not input_enabled:
+		move_direction = Vector2.ZERO
 		return
 	#慣性
 	_get_input()
-	super(delta)
 	if floor_motion != Vector2.ZERO:
 		global_position += floor_motion
 		global_position.y += 0
