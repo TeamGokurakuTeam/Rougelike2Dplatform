@@ -73,7 +73,7 @@ remote_path = NodePath("../../MainCamera")
 
 [node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
 script = ExtResource("1_4nic5")
-generate_room_value = 3
+generate_room_value = 4
 
 [node name="BGMChanger" type="Node2D" parent="." unique_id=9408269 node_paths=PackedStringArray("stage_bgm", "battle_bgm", "boss_bgm")]
 script = ExtResource("11_50dfd")

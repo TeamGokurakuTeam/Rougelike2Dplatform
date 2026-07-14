@@ -37,10 +37,6 @@ func change_camera(target_camera: Camera2D) -> void:
 	var final_zoom := target_camera.zoom
 	var final_offset := target_camera.offset
 
-	# 切り替え瞬間のカクツキを防ぐため、対象カメラを今の位置に一旦揃えてから current にする
-	target_camera.global_transform = current_camera.global_transform
-	target_camera.zoom = current_camera.zoom
-	target_camera.offset = current_camera.offset
 	target_camera.make_current()
 
 	if transition_tween: transition_tween.kill()

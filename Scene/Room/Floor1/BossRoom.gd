@@ -14,6 +14,7 @@ func _ready() -> void:
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	main_game_node.change_camera(boss_room_camera)
 	GameEvents.cutscene_started.emit()
+	await main_game_node.transition_offset_tween.finished
 	animation_player.play("Start")
 	main_game_node.player_ui.ui_fade_in()
 	await animation_player.animation_finished
