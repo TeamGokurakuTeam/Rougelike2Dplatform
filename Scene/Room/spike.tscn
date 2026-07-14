@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dofccvw7xhhbj"]
+
+[ext_resource type="Script" uid="uid://clwq0yxcpfuy0" path="res://Scene/Room/Spike.gd" id="1_bw3ky"]
+[ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="1_u8vcs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw3ky"]
+atlas = ExtResource("1_u8vcs")
+region = Rect2(24, 224, 24, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcpht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw3ky")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6180"]
+size = Vector2(20, 5.7842293)
+
+[node name="Spike" type="Area2D" unique_id=2129174175]
+script = ExtResource("1_bw3ky")
+damage = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=571216221]
+sprite_frames = SubResource("SpriteFrames_jcpht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1260362436]
+position = Vector2(0, -2.5000005)
+scale = Vector2(1.208612, 1.536231)
+shape = SubResource("RectangleShape2D_r6180")
+debug_color = Color(0.98004335, 0, 0.3869308, 0.41960785)
