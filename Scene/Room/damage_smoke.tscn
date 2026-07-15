@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://c0kbc8fa0iv1m"]
+
+[ext_resource type="Texture2D" uid="uid://q0chtlnf5is0" path="res://Assets/Trap/DamageSmoke/Smoke VFX 2.png" id="1_c8i1e"]
+[ext_resource type="Script" uid="uid://br3t5lf5mfy2i" path="res://Scene/Room/DamageSmoke.gd" id="1_jd4ld"]
+[ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="3_44irn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
+size = Vector2(14.611465, 46)
+
+[sub_resource type="Animation" id="Animation_c8i1e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jd4ld"]
+resource_name = "Smoke"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.771714, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06938895, 0.0929812, 0.14155346, 0.17763571, 0.76666665, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_44irn"]
+_data = {
+&"RESET": SubResource("Animation_c8i1e"),
+&"Smoke": SubResource("Animation_jd4ld")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd4ld"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44irn"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ce1l"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pi15q"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w581e"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfeq8"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iv2q"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thp46"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q02m"]
+atlas = ExtResource("1_c8i1e")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgmmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jd4ld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44irn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ce1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pi15q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w581e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfeq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iv2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thp46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q02m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd4ld"]
+
+[node name="DamageSmoke" type="Area2D" unique_id=773231264 node_paths=PackedStringArray("animation_player", "timer", "hitbox", "damage_smoke")]
+collision_layer = 5
+collision_mask = 33
+script = ExtResource("1_jd4ld")
+animation_player = NodePath("AnimationPlayer")
+timer = NodePath("Timer")
+hitbox = NodePath("Hitbox")
+damage_smoke = NodePath(".")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=894591842]
+position = Vector2(1, -2)
+scale = Vector2(3.6957278, 1)
+shape = SubResource("RectangleShape2D_75vwg")
+debug_color = Color(0.7435716, 0.46365726, 0.000334605, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=721854972]
+libraries/ = SubResource("AnimationLibrary_44irn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1929917268]
+modulate = Color(0.34509805, 0.5294118, 0.34901962, 1)
+sprite_frames = SubResource("SpriteFrames_lgmmx")
+
+[node name="Timer" type="Timer" parent="." unique_id=407183826]
+
+[node name="Hitbox" parent="." unique_id=1253391424 instance=ExtResource("3_44irn")]
+collision_layer = 5
+collision_mask = 33
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(1, -2)
+scale = Vector2(2.5600019, 2.240001)
+shape = SubResource("RectangleShape2D_jd4ld")
+debug_color = Color(0.98976713, 0, 0.29205015, 0.41960785)
+
+[editable path="Hitbox"]
