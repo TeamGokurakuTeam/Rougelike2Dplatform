@@ -27,7 +27,7 @@ func Update(delta) -> void:
 		parent.root_node.scale.x = 1
 	
 	if not anim_player.is_playing():
-		StateTransitioned.emit(self, "Move")
+		StateTransitioned.emit(self, "Attack")
 
 func Physics_Update(delta) -> void:
 	pass

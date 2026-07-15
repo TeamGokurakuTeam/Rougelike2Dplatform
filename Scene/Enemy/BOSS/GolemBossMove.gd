@@ -19,4 +19,4 @@ func Physics_Update(delta) -> void:
 	pass
 
 func _on_move_timer_timeout() -> void:
-	StateTransitioned.emit(self, "Attack")
+	StateTransitioned.emit(self, "Shoot")
