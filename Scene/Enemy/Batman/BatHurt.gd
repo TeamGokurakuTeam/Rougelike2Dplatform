@@ -1,7 +1,7 @@
 extends State
 class_name BatHurt
 
-@export var parent : Bat
+@export var parent : BatMan
 @export var anim_player : AnimationPlayer
 
 func Enter() -> void:

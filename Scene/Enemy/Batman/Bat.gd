@@ -1,5 +1,5 @@
 extends Enemy
-class_name Bat
+class_name BatMan
 
 const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 

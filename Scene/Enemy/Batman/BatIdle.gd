@@ -1,7 +1,7 @@
 extends State
 class_name BatIdle
 
-@export var parent : Bat
+@export var parent : BatMan
 @export var anim_player : AnimationPlayer
 
 @export var idle_timer : Timer

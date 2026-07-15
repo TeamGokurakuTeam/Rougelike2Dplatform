@@ -8,7 +8,7 @@ const NEAR_DISTANCE : float = 1.0
 @export var wander_speed : float = 5
 @export var accelerator : float = 300
 
-@export var parent : Bat
+@export var parent : BatMan
 @export var anim_player : AnimationPlayer
 
 var random_dir : Vector2
