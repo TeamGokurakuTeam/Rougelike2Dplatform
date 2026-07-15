@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://06ss5bj7u3pc"]
+
+[ext_resource type="Script" uid="uid://2qquxfhwau3p" path="res://Scene/Effect/wave_effect.gd" id="1_yj4d2"]
+[ext_resource type="Texture2D" uid="uid://b8mylfl7mui5d" path="res://Assets/Particle/46.png" id="2_oro8x"]
+[ext_resource type="Texture2D" uid="uid://cmo0lb77fb68y" path="res://Assets/Particle/13(for particle trails).png" id="3_ktrqb"]
+
+[node name="WaveEffect" type="Node2D" unique_id=85355063]
+script = ExtResource("1_yj4d2")
+
+[node name="OutSide" type="Sprite2D" parent="." unique_id=1258682475]
+self_modulate = Color(1, 1, 1, 0.18039216)
+z_index = 3
+texture = ExtResource("2_oro8x")
+
+[node name="InSide" type="Sprite2D" parent="." unique_id=1220317930]
+self_modulate = Color(1, 1, 1, 0.18039216)
+z_index = 3
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_ktrqb")

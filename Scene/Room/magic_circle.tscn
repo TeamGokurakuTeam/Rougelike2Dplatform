@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cktcb0kfofk2u"]
+
+[ext_resource type="Script" uid="uid://bgqjkdb6o78j0" path="res://MagicCircle.gd" id="1_8l34s"]
+[ext_resource type="Texture2D" uid="uid://c2vmjalg4ml5v" path="res://Assets/Pixel Holy Spell Effect 32x32 Pack 3/01.png" id="2_b4qty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gi4k"]
+atlas = ExtResource("2_b4qty")
+region = Rect2(64, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lknk5"]
+atlas = ExtResource("2_b4qty")
+region = Rect2(128, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i65kv"]
+atlas = ExtResource("2_b4qty")
+region = Rect2(192, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xpns"]
+atlas = ExtResource("2_b4qty")
+region = Rect2(256, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ucif"]
+atlas = ExtResource("2_b4qty")
+region = Rect2(320, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l34s"]
+atlas = ExtResource("2_b4qty")
+region = Rect2(384, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4qty"]
+atlas = ExtResource("2_b4qty")
+region = Rect2(448, 384, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vtaq"]
+atlas = ExtResource("2_b4qty")
+region = Rect2(512, 384, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6vtaq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gi4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lknk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i65kv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xpns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ucif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l34s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4qty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vtaq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrogm"]
+size = Vector2(43, 44)
+
+[sub_resource type="Animation" id="Animation_lrogm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_83dot"]
+resource_name = "Start"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1, 1.2668018, 1.5787995, 1.8943026, 2.205629, 2.4685485, 2.7565608),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_stm2h"]
+_data = {
+&"RESET": SubResource("Animation_lrogm"),
+&"Start": SubResource("Animation_83dot")
+}
+
+[node name="MagicCircle" type="Area2D" unique_id=1791399160]
+script = ExtResource("1_8l34s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1039089583]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_6vtaq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=830256075]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_lrogm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2039753095]
+libraries/ = SubResource("AnimationLibrary_stm2h")
