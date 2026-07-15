@@ -1,0 +1,32 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://b18llw7j002qd"]
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_nd50y"]
+resource_name = "EQ"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_nd50y"]
+resource_name = "Distortion"
+
+[resource]
+bus/0/volume_db = 0.26501846
+bus/1/name = &"BGM"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -21.826433
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectEQ_nd50y")
+bus/1/effect/0/enabled = true
+bus/1/effect/1/effect = SubResource("AudioEffectDistortion_nd50y")
+bus/1/effect/1/enabled = true
+bus/2/name = &"SoundEffect"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -5.9307528
+bus/2/send = &"Master"
+bus/3/name = &"UISound"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"

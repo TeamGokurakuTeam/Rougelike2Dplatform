@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://dnqbvb6wnwkmd"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_cakh7"]
+
+[resource]
+script = ExtResource("1_cakh7")
