@@ -237,6 +237,9 @@ modulate = Color(0.4509804, 0.80784315, 0.22352941, 1)
 position = Vector2(576.00006, 944)
 rotation = -1.5707964
 scale = Vector2(0.5, 2.4)
+pull_strength = 530.0
+on_time = 4.0
+off_time = 0.1
 
 [node name="CollisionShape2D" parent="Fan/WindArea" parent_id_path=PackedInt32Array(2135413050, 1889727315) index="0" unique_id=959600140]
 position = Vector2(427, 0.25)
