@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://847gbo8kwud2"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_qieac"]
+
+[resource]
+script = ExtResource("1_qieac")
+name = "選別の眼"
+resource_id = "SealedSlot"
+explanation_text = "修飾子スロットが1つ封印される"

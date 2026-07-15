@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://dooo8qe350lja"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_nl2vq"]
+
+[resource]
+script = ExtResource("1_nl2vq")
+difficult = 2
+name = "回避と回復の決断"
+resource_id = "PerfectRecovery"
+explanation_text = "ジャスト回避をすると修飾子の残りゲージが50%回復する。"

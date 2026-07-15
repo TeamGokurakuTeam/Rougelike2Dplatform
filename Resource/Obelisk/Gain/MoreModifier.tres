@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://cmyjfqig12p7x"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_ooy2n"]
+
+[resource]
+script = ExtResource("1_ooy2n")
+name = "もっともっと！"
+resource_id = "MoreModifier"
+explanation_text = "ランダムな修飾子を3つ取得"

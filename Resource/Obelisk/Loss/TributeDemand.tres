@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://hmmqnbavydup"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_5fgr2"]
+
+[resource]
+script = ExtResource("1_5fgr2")
+difficult = 1
+name = "供物の要求"
+resource_id = "TributeDemand"
+explanation_text = "フロア突破ごとに、所持修飾子を1つランダムでロストする"

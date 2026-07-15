@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_q8yaq")
+name = "怨念の修飾"
 resource_id = "FixedModifier"
 explanation_text = "自分の所持している修飾子の中から一つランダムで選び、それを現在の剣につける。
 その修飾子は、死ぬまで効果を発揮するようになる。"

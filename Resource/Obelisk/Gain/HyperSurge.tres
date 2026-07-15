@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://ceq3h5hpsuop8"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_7krrr"]
+
+[resource]
+script = ExtResource("1_7krrr")
+difficult = 1
+name = "ハイパーサージ"
+resource_id = "HyperSurge"
+explanation_text = "レベルがある修飾子を2倍する"
