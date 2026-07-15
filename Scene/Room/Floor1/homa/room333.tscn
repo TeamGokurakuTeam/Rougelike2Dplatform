@@ -111,6 +111,7 @@ position = Vector2(760, 448)
 
 [node name="MoveTile" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="24" unique_id=971770846 instance=ExtResource("7_dd2au")]
 position = Vector2(856, 480)
+move_speed = 0.3
 
 [node name="Line2D" parent="TileMaps/MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 104)

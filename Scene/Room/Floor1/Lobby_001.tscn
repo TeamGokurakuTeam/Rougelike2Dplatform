@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://diedq27yg6hso" path="res://Assets/TileMap/ExtraTiles1.png" id="4_v0sef"]
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="5_ffhxb"]
 [ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="5_y4w1a"]
+[ext_resource type="Resource" uid="uid://ddw6jksv1chng" path="res://Resource/Sword/EternalSword.tres" id="9_350wa"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="15_q8aav"]
 
 [sub_resource type="Shader" id="Shader_6avjc"]
@@ -927,5 +928,9 @@ position = Vector2(56, 144)
 position = Vector2(401, 137)
 resource = ExtResource("5_y4w1a")
 
-[node name="Obelisk" parent="." index="5" unique_id=1340329694 instance=ExtResource("15_q8aav")]
+[node name="DropItem3" parent="." index="4" unique_id=931621491 instance=ExtResource("4_tomr8")]
+position = Vector2(300, 137)
+resource = ExtResource("9_350wa")
+
+[node name="Obelisk" parent="." index="6" unique_id=1340329694 instance=ExtResource("15_q8aav")]
 position = Vector2(618, 83)

@@ -98,13 +98,13 @@ shoot_direction = Vector2(0, 1)
 
 [node name="RotatingBeam" parent="." index="10" unique_id=1288819283 instance=ExtResource("11_eysye")]
 position = Vector2(896, 352)
-rotation = -2.4748769
-scale = Vector2(0.5, 0.5)
+rotation = 3.8519416
+scale = Vector2(0.7, 0.7)
 
 [node name="RotatingBeam2" parent="." index="11" unique_id=1862642723 instance=ExtResource("11_eysye")]
 position = Vector2(768, 352)
-rotation = 1.2863077
-scale = Vector2(0.5, 0.5)
+rotation = -0.50963616
+scale = Vector2(0.7, 0.7)
 
 [node name="OneWay" parent="." index="12" unique_id=610867179 instance=ExtResource("12_csisj")]
 position = Vector2(728, 400)
