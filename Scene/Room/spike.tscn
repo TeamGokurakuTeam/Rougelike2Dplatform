@@ -23,6 +23,7 @@ size = Vector2(20, 5.7842293)
 
 [node name="Spike" type="Area2D" unique_id=2129174175]
 script = ExtResource("1_bw3ky")
+damage = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=571216221]
 z_index = 2

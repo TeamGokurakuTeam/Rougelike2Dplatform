@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://byhvlgtgsoruw"]
 
 [ext_resource type="Script" uid="uid://draxp6q5yqqw5" path="res://RotatingBeam.gd" id="1_g7huu"]
+[ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="2_5b3he"]
 [ext_resource type="Texture2D" uid="uid://whwaa56eklkk" path="res://Assets/lightning/lightning/lightning_v2_1.png" id="2_88m6l"]
 [ext_resource type="Texture2D" uid="uid://cf2q2qtc4fjka" path="res://Assets/Pixel Holy Spell Effect 32x32 Pack 3/00.png" id="2_wsodn"]
 [ext_resource type="Texture2D" uid="uid://s2733nmapya8" path="res://Assets/lightning/lightning/lightning_v2_2.png" id="3_t8a5x"]
@@ -16,64 +17,94 @@
 [ext_resource type="Texture2D" uid="uid://bvlkonwsvnrxj" path="res://Assets/lightning/lightning/lightning_v2_12.png" id="13_ehiu4"]
 [ext_resource type="Texture2D" uid="uid://hesqia078ur6" path="res://Assets/lightning/lightning/lightning_v2_13.png" id="14_lvel1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsodn"]
-size = Vector2(20, 177)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
+size = Vector2(20, 16.882025)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jih03"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_quuo0"]
 atlas = ExtResource("2_88m6l")
 region = Rect2(0, 0, 26, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_38yes"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3888f"]
 atlas = ExtResource("3_t8a5x")
 region = Rect2(0, 0, 34, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_47yuq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5enn"]
 atlas = ExtResource("4_d7vrv")
 region = Rect2(0, 0, 52, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4kt8w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtsu2"]
 atlas = ExtResource("5_quuo0")
-region = Rect2(0, 0, 104, 22)
+region = Rect2(0, 0, 52, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_weewf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_134cp"]
 atlas = ExtResource("6_3888f")
 region = Rect2(0, 0, 104, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86hct"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ape4"]
 atlas = ExtResource("7_k5enn")
 region = Rect2(0, 0, 104, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pse62"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_40xi1"]
 atlas = ExtResource("8_vtsu2")
 region = Rect2(0, 0, 104, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0wvd5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fomg"]
 atlas = ExtResource("9_134cp")
 region = Rect2(0, 0, 104, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wd0pq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehiu4"]
 atlas = ExtResource("10_7ape4")
-region = Rect2(0, 0, 104, 22)
+region = Rect2(52, 0, 52, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhaw5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvel1"]
 atlas = ExtResource("11_40xi1")
 region = Rect2(52, 0, 52, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxtnu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jih03"]
 atlas = ExtResource("12_6fomg")
 region = Rect2(68, 0, 34, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xr21g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_38yes"]
 atlas = ExtResource("13_ehiu4")
-region = Rect2(78, 0, 26, 22)
+region = Rect2(91, 0, 13, 22)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8d78c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_47yuq"]
 atlas = ExtResource("14_lvel1")
-region = Rect2(78, 0, 26, 22)
+region = Rect2(91, 0, 13, 22)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8muik"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wgeh"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quuo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3888f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5enn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtsu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_134cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ape4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40xi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fomg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehiu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvel1")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jih03")
 }, {
@@ -82,40 +113,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_47yuq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4kt8w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_weewf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_86hct")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pse62")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0wvd5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wd0pq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhaw5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pxtnu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xr21g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8d78c")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsodn"]
@@ -245,19 +246,19 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/BeamArea/AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("Pivot/Hitbox/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -272,7 +273,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/BeamArea/AnimatedSprite2D:frame")
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -284,7 +285,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("Pivot/Hitbox/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -305,18 +306,21 @@ script = ExtResource("1_g7huu")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=294448172]
 
-[node name="BeamArea" type="Area2D" parent="Pivot" unique_id=907467058]
+[node name="Hitbox" parent="Pivot" unique_id=1299649668 instance=ExtResource("2_5b3he")]
+collision_layer = 1
+collision_mask = 5
+is_continuous = true
+damage_multiplier = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/BeamArea" unique_id=2031361446]
-position = Vector2(0, 78.5)
-shape = SubResource("RectangleShape2D_wsodn")
+[node name="CollisionShape2D" parent="Pivot/Hitbox" index="0"]
+position = Vector2(0, 59.900013)
+scale = Vector2(1, 7.1199975)
+shape = SubResource("RectangleShape2D_75vwg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/BeamArea" unique_id=1103955577]
-position = Vector2(-4.1211484e-13, 77)
-rotation = 4.712389
-scale = Vector2(1.7537564, 1.5902731)
-sprite_frames = SubResource("SpriteFrames_8muik")
-speed_scale = 0.1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Hitbox" unique_id=11229514]
+position = Vector2(0, 64)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_2wgeh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1993432426]
 z_index = 2
@@ -325,3 +329,7 @@ sprite_frames = SubResource("SpriteFrames_5b3he")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1021549150]
 libraries/ = SubResource("AnimationLibrary_3888f")
+
+[connection signal="body_entered" from="Pivot/Hitbox" to="." method="_on_hitbox_body_entered"]
+
+[editable path="Pivot/Hitbox"]
