@@ -340,7 +340,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2x3rd"]
 resource_name = "JumpEnd"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -368,7 +368,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_n1dov"]
 resource_name = "JumpStart"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -525,6 +525,7 @@ z_index = 1
 collision_layer = 1
 collision_mask = 129
 script = ExtResource("2_58ae2")
+input_enabled = true
 max_jump_pressed_frame = 5
 defense_power = 10.0
 critical_chance = 0.0

@@ -14,7 +14,9 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D2
 @onready var hurtbox: Hurtbox = $Hurtbox
+@onready var remote_transform: RemoteTransform2D = $RemoteTransform2D
 
+@export var input_enabled : bool = true #どうせいいの思いつかないしtrueが操作できてfalseができない
 @export var max_jump_pressed_frame : int = 5
 @export_category("プレイヤーステータス")
 @export var defense_power : float = 10
@@ -66,6 +68,11 @@ signal modifier_updated(player : Player)
 signal applied_modifier(player : Player)
 signal modifier_picked_up(mod_res : ModifierResource)
 
+func _ready() -> void:
+	super()
+	GameEvents.cutscene_started.connect(_on_cutscene_started)
+	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
+
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
 	if mouse_direction.x > 0 and animated_sprite_2d.flip_h:
@@ -75,9 +82,12 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 
 func _physics_process(delta: float) -> void:
+	super(delta)
+	if not input_enabled:
+		move_direction = Vector2.ZERO
+		return
 	#慣性
 	_get_input()
-	super(delta)
 	if floor_motion != Vector2.ZERO:
 		global_position += floor_motion
 		global_position.y += 0
@@ -156,6 +166,7 @@ func _get_input() -> void:
 		weapon.add_modifier(mod_resource_ids[current_modifier])
 		mod_resource_ids.remove_at(current_modifier)
 		current_modifier -= 1
+		applied_modifier.emit.call_deferred(self)
 		modifier_updated.emit(self)
 		weapon.start_modifier_timer()
 	for i in range(5):
@@ -178,7 +189,6 @@ func update_weapon() -> void:
 		node.queue_free()
 	inventory.call_deferred("add_child", weapon)
 	pickup_item.emit(self)
-	applied_modifier.emit.call_deferred(self)
 
 func update_modifier() -> void:
 	current_modifier += 1
@@ -241,6 +251,13 @@ func _on_ghost_timer_timeout() -> void:
 
 func _on_hp_component_is_dead() -> void:
 	self.queue_free()
+
+func _on_cutscene_started() -> void:
+	input_enabled = false
+
+func _on_cutscene_ended() -> void:
+	input_enabled = true
+
 #endregion
 
 func _update_state() -> void:

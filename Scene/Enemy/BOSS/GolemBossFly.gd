@@ -29,8 +29,8 @@ func _spawn_bullet(pos : Vector2, angle : float):
 	bullet.global_position = pos
 	bullet.fire_angle = angle
 	wave_effect.global_position = pos
-	parent.main_game_node.camera_2d.shake_fade = 5
-	parent.main_game_node.camera_2d.apply_shake(10)
+	parent.main_game_node.main_camera.shake_fade = 5
+	parent.main_game_node.main_camera.apply_shake(10)
 
 func Enter() -> void:
 	parent.can_move = false

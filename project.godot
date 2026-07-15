@@ -26,6 +26,7 @@ buses/default_bus_layout="uid://b18llw7j002qd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 GlobalResourceLoader="*uid://bnvnwespjdbsa"
 DamageNumber="*uid://b4gqhq4qw58mm"
+GameEvents="*uid://bpufvoph2t7c4"
 
 [display]
 

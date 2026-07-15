@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_tyqln")
 room_scene = ExtResource("1_nmq33")
-room_type = 1
+room_type = 2
 left = true
 right = true

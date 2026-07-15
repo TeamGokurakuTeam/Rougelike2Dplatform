@@ -28,6 +28,8 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if body is DropModifier:
 		var drop_modifier : DropModifier = (body as DropModifier)
+		if drop_modifier == null and drop_modifier.modifier == null:
+			return
 		character.mod_resource_ids.append(drop_modifier.modifier.modifier_id)
 		character.update_modifier()
 		character.modifier_picked_up.emit(drop_modifier.modifier)

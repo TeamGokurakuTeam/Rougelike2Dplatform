@@ -59,9 +59,13 @@ func _ready() -> void:
 			hitboxes.append(node)
 			base_stats.append(HitboxStat.new_stat(hitbox.damage, hitbox.knockback_force))
 	player = get_tree().get_first_node_in_group("Player")
+	GameEvents.battle_start.connect(_on_battle_start)
+	GameEvents.battle_end.connect(_on_battle_end)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not player.input_enabled:
+		return
 	if fall_slash_cooldown > 0.0:
 		fall_slash_cooldown -= delta
 	if Input.is_action_just_pressed("UI_Attack") and not animation_player.is_playing():
@@ -365,3 +369,9 @@ func dash() -> void:
 
 func _on_modifier_count_timer_timeout() -> void:
 	reset_modifier()
+
+func _on_battle_start() -> void:
+	modifier_count_timer.paused = false
+
+func _on_battle_end() -> void:
+	modifier_count_timer.paused = true

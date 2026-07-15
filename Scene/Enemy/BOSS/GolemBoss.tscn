@@ -1179,8 +1179,8 @@ anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="2" unique_id=456158778]
-max_hp = 200.0
-hp = 200.0
+max_hp = 500.0
+hp = 500.0
 
 [node name="AnimatedSprite2D" parent="." index="3" unique_id=1883945263]
 scale = Vector2(2, 2)
@@ -1201,7 +1201,7 @@ shape = SubResource("CircleShape2D_y6wyp")
 [node name="GolemHitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="0" unique_id=544687997 instance=ExtResource("7_ajh7x")]
 collision_layer = 16
 collision_mask = 8
-damage = 10.0
+damage = 8.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitboxes/GolemHitbox" index="1" unique_id=260148628]
 position = Vector2(-3, 0)
@@ -1210,7 +1210,7 @@ disabled = true
 debug_color = Color(0.99687964, 0, 0.1870884, 0.41960785)
 
 [node name="Hitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="1" unique_id=195243888]
-damage = 15.0
+damage = 10.0
 
 [node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
 position = Vector2(-4, 24)
@@ -1229,7 +1229,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="BulletShotTimer" type="Timer" parent="." index="11" unique_id=124914573]
-wait_time = 0.45
+wait_time = 0.8
 one_shot = true
 
 [connection signal="timeout" from="FlyTimer" to="StateMachine/Fly" method="_on_fly_timer_timeout"]
