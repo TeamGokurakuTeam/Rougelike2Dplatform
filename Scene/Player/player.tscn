@@ -535,6 +535,7 @@ dash_acceleration = 80
 dodgeroll_acceleration = 65
 dodgeroll_time = 0.3
 just_dodgeroll_time = 0.09
+max_modifier_slot = 10
 friction = 0.3
 jump_velocity = -400.0
 max_speed = 250.0

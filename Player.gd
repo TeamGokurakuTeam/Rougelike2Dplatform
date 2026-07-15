@@ -27,6 +27,7 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @export var dodgeroll_acceleration : int = 60
 @export var dodgeroll_time : float = 0.5
 @export var just_dodgeroll_time : float = 0.09
+@export var max_modifier_slot : int = 10
 
 enum PlayerState { 
  IDLE,
@@ -61,6 +62,7 @@ var is_dodgeroll : bool = false
 var dodgeroll_dir : Vector2 = Vector2.ZERO
 var is_just_dodgeroll : bool = false
 var ghost_effect : GhostEffect
+var main_game : MainGame
 var weapon : Weapon
 
 signal pickup_item(player : Player)

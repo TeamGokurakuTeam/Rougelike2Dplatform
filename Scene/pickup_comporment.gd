@@ -30,7 +30,8 @@ func _on_body_entered(body: Node2D) -> void:
 		var drop_modifier : DropModifier = (body as DropModifier)
 		if drop_modifier == null and drop_modifier.modifier == null:
 			return
-		character.mod_resource_ids.append(drop_modifier.modifier.modifier_id)
-		character.update_modifier()
-		character.modifier_picked_up.emit(drop_modifier.modifier)
-		body.queue_free()
+		if character.mod_resource_ids.size() < (character.max_modifier_slot - character.main_game.seal_slot_count):
+			character.mod_resource_ids.append(drop_modifier.modifier.modifier_id)
+			character.update_modifier()
+			character.modifier_picked_up.emit(drop_modifier.modifier)
+			body.queue_free()

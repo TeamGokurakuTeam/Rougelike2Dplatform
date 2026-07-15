@@ -3,6 +3,7 @@ class_name MainGame
 
 @export var enemy_damage_addition : float
 @export var enemy_hp_addition : float
+@export var seal_slot_count : int ##修飾子が使えなくなる数。修飾子の後ろから使えなくなる。
 
 @onready var player_ui: GameUI = $PlayerUI
 @onready var player: Player = $Player
@@ -24,6 +25,7 @@ func _ready() -> void:
 	room_generator.main_game_node = self
 	room_generator.room_generate()
 	player.global_position = room_generator.lobby_room.player_marker.global_position
+	player.main_game = self
 	player_ui.player = self.player
 	player_ui.player_hp_ui.player = self.player
 	player.modifier_updated.connect(player_ui._on_character_modifier_updated)
@@ -64,3 +66,5 @@ func _on_risk_selected(id : String) -> void:
 	if id == "EnemyAttackHealtgInc":
 		enemy_damage_addition += 3
 		enemy_hp_addition += 10
+	if id == "SealedSlot":
+		pass
