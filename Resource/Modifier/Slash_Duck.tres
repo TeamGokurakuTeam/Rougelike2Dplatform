@@ -8,4 +8,4 @@ script = ExtResource("1_5dcd8")
 texture = ExtResource("2_bfmeb")
 modifier_id = "Slash_Duck"
 modifier_name = "アヒル"
-explanation = "剣を振るとアヒルが出現"
+explanation = "剣を振ると確率でアヒルが出現"
