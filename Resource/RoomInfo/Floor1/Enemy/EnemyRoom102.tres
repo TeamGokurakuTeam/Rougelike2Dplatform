@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="RoomInfoResource" format=3 uid="uid://dtmety2vhhaxw"]
+[gd_resource type="Resource" script_class="RoomInfoResource" format=3 uid="uid://cs5485uftpkef"]
 
-[ext_resource type="PackedScene" uid="uid://umi1bgj0fo8w" path="res://Scene/Room/Floor1/enemy_room_002.tscn" id="1_f4b4u"]
-[ext_resource type="Script" uid="uid://d344k4o5vtrgi" path="res://Resource/RoomInfo/RoomInfoResource.gd" id="2_6vei3"]
+[ext_resource type="PackedScene" uid="uid://baufdh5qcp1tl" path="res://Scene/Room/Floor1/homa/room111.tscn" id="1_ynucu"]
+[ext_resource type="Script" uid="uid://d344k4o5vtrgi" path="res://Resource/RoomInfo/RoomInfoResource.gd" id="2_iukyn"]
 
 [resource]
-script = ExtResource("2_6vei3")
-room_scene = ExtResource("1_f4b4u")
+script = ExtResource("2_iukyn")
+room_scene = ExtResource("1_ynucu")
 room_type = 2
-up = true
 left = true
 right = true
