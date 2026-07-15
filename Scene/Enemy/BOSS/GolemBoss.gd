@@ -5,6 +5,7 @@ const GOLEM_ARM = preload("uid://sa838rue6n5a")
 
 @onready var root_node: Node2D = $RootNode
 @onready var marker_2d: Marker2D = $RootNode/Marker2D
+@onready var rock_shoot_2: AudioStreamPlayer2D = $Audio/RockShoot2
 
 @export var dash_speed : float = 200
 @export var can_move : bool = true

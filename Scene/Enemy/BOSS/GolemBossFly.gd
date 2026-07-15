@@ -24,8 +24,9 @@ func _ready() -> void:
 func _spawn_bullet(pos : Vector2, angle : float):
 	var wave_effect : WaveEffect =  WAVE_EFFECT.instantiate()
 	var bullet : CharaProjectile = ROCK.instantiate()
-	get_tree().current_scene.add_child(bullet)
 	get_tree().current_scene.add_child(wave_effect)
+	await get_tree().create_timer(0.1).timeout
+	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = pos
 	bullet.fire_angle = angle
 	wave_effect.global_position = pos
@@ -72,3 +73,4 @@ func _on_bullet_shot_timer_timeout() -> void:
 	for i in bullet_num:
 		var angle = randf_range(min_angle, max_angle)
 		_spawn_bullet(parent.global_position, angle)
+		parent.rock_shoot_2.play()
