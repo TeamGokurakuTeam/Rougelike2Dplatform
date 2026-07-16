@@ -9,11 +9,16 @@ class_name GameUI
 @onready var modifier_explanation: ModifierExplanationUI = $Parent/ModifierExplanation
 @onready var transition: ColorRect = $Parent/Transition
 @onready var parent: Control = $Parent
+@onready var weapon_modifier_ui: WeaponModifierUI = $WeaponModifierUI
 
 var player : Player
 
 var tween : Tween
 var fade_tween : Tween
+
+var is_show_mod_ui : bool = false
+
+signal attribute_ui_triggered(player : Player)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +32,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("UI_scroll_right"):
 		player.current_modifier -= 1
 		mod_ui.texture_update(player)
+	if Input.is_action_just_pressed("UI_ShowMod"):
+		attribute_ui_triggered.emit(player)
 
 func _on_character_modifier_updated(player: Player) -> void:
 	for i in hotbar.get_children().size():
