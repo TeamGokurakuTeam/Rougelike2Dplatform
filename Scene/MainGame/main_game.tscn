@@ -73,7 +73,7 @@ remote_path = NodePath("../../MainCamera")
 
 [node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
 script = ExtResource("1_4nic5")
-generate_room_value = 4
+generate_room_value = 10
 
 [node name="BGMChanger" type="Node2D" parent="." unique_id=9408269 node_paths=PackedStringArray("stage_bgm", "battle_bgm", "boss_bgm")]
 script = ExtResource("11_50dfd")
@@ -113,5 +113,6 @@ metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 [editable path="PlayerUI"]
 [editable path="PlayerUI/Parent/ModUI"]
 [editable path="PlayerUI/Parent/PlayerHpUI"]
+[editable path="PlayerUI/WeaponModifierUI"]
 [editable path="Player"]
 [editable path="Player/PickupComponent"]

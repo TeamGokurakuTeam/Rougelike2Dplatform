@@ -185,6 +185,7 @@ func update_weapon() -> void:
 			node.queue_free()
 	var res : ResourceItem = GlobalResourceLoader.item_cache[weapon_resource_ids[current_weapon]]
 	weapon = res.WeaponScene.instantiate()
+	weapon.resource_id = res.Id
 	for node in inventory.get_children():
 		node.queue_free()
 	inventory.call_deferred("add_child", weapon)
