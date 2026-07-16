@@ -33,7 +33,12 @@ func _process(delta: float) -> void:
 		player.current_modifier -= 1
 		mod_ui.texture_update(player)
 	if Input.is_action_just_pressed("UI_ShowMod"):
-		attribute_ui_triggered.emit(player)
+		is_show_mod_ui = !is_show_mod_ui
+		if is_show_mod_ui:
+			attribute_ui_triggered.emit(player)
+			weapon_modifier_ui.show_ui()
+		else:
+			weapon_modifier_ui.hide_ui()
 
 func _on_character_modifier_updated(player: Player) -> void:
 	for i in hotbar.get_children().size():
