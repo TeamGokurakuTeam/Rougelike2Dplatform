@@ -37,6 +37,8 @@ var auto_attack_speed_buff_active := false
 var auto_attack_original_speed := 1.0
 var base_speed_scale = 1.0 #現在の速度
 
+
+
 #速度上限
 var max_speed_scale := 2.5
 #
@@ -49,15 +51,18 @@ var base_stats : Array[HitboxStat] = []
 var modifier_use_count: int = 0
 #
 var fall_slash_cooldown := 0.0
-
+#大きいくなる大きさリセット
+var original_root_scale := Vector2.ONE
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	original_root_scale = root.scale
 	for node in root.get_children():
 		if node is Hitbox:
 			var hitbox : Hitbox = (node as Hitbox)
 			hitboxes.append(node)
 			base_stats.append(HitboxStat.new_stat(hitbox.damage, hitbox.knockback_force))
+			hitbox.area_entered.connect(_on_hitbox_area_entered)
 	player = get_tree().get_first_node_in_group("Player")
 	GameEvents.battle_start.connect(_on_battle_start)
 	GameEvents.battle_end.connect(_on_battle_end)
@@ -173,6 +178,10 @@ func attack_trigger_modifier() -> void:
 #重撃
 	if modifiers_ids.has("HeavyStrike"):
 		HeavyStrike()
+#大きくなる
+	if modifiers_ids.has("BiggerAttack"):
+		bigger_avoidance()
+
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -348,7 +357,7 @@ func _add_speed_exceed_damage(exceed: float) -> void:
 #
 func _add_speed_move_exceed(exceed:float) -> void:
 	if exceed > 0:
-		var add_speed = exceed * 10
+		var add_speed = exceed * 2.0
 		player.current_acceleration += add_speed
 
 #重撃
@@ -361,6 +370,26 @@ func HeavyStrike() -> void:
 	for i in hitboxes.size():
 		hitboxes[i].damage = hitboxes[i].damage_multiplier
 
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		area.recieved_damage.emit(hitboxes[0].damage, Vector2.ZERO)
+		if has_modifiers("BiggerAvoidance"):
+			_on_weapon_dealt_damage(hitboxes[0].damage)
+
+func bigger_avoidance() -> void:
+	pass
+	_on_weapon_dealt_damage(hitboxes[0].damage)
+
+func _on_weapon_dealt_damage(amount: float) -> void:
+	var current_scale := root.scale
+	var increase := amount * 0.002
+	var new_scale := current_scale + Vector2(increase, increase)
+	var max_scale := Vector2(5.0, 5.0)
+	new_scale.x = min(new_scale.x, max_scale.x)
+	new_scale.y = min(new_scale.y, max_scale.y)
+	root.scale = new_scale
+
+
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
 
@@ -369,6 +398,7 @@ func dash() -> void:
 
 func _on_modifier_count_timer_timeout() -> void:
 	reset_modifier()
+	root.scale = original_root_scale
 
 func _on_battle_start() -> void:
 	modifier_count_timer.paused = false
