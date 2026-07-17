@@ -180,7 +180,7 @@ func attack_trigger_modifier() -> void:
 		HeavyStrike()
 #大きくなる
 	if modifiers_ids.has("BiggerAttack"):
-		bigger_avoidance()
+		_weapon_dealt_damage(hitboxes[0].damage)
 
 
 func get_modifiers_level(name : String) -> int:
@@ -190,10 +190,6 @@ func get_modifiers_level(name : String) -> int:
 	if lock_modifiers_ids.has(name):
 		sum += lock_modifiers_ids[name]
 	return sum
-	
-	#この関数は同じmodifierの数を返す
-	#もし、"同じ数だけあれば大きくする"などの修飾子に使うなら
-	#まず、変数にいれてから掛け算すること。
 
 func get_all_modifier_levels_sum() -> int:
 	var sum := 0
@@ -373,16 +369,17 @@ func HeavyStrike() -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		area.recieved_damage.emit(hitboxes[0].damage, Vector2.ZERO)
-		if has_modifiers("BiggerAvoidance"):
-			_on_weapon_dealt_damage(hitboxes[0].damage)
+		_weapon_dealt_damage(hitboxes[0].damage)
 
-func bigger_avoidance() -> void:
-	pass
-	_on_weapon_dealt_damage(hitboxes[0].damage)
+func bigger_attack() -> void:
+	_weapon_dealt_damage(hitboxes[0].damage)
 
-func _on_weapon_dealt_damage(amount: float) -> void:
+func _weapon_dealt_damage(amount: float) -> void:
+	var level := get_modifiers_level("BiggerAttack")
+	if level <= 0:
+		return
 	var current_scale := root.scale
-	var increase := amount * 0.002
+	var increase := amount * 0.002 * level
 	var new_scale := current_scale + Vector2(increase, increase)
 	var max_scale := Vector2(5.0, 5.0)
 	new_scale.x = min(new_scale.x, max_scale.x)
