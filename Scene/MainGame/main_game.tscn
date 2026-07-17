@@ -3,37 +3,115 @@
 [ext_resource type="Script" uid="uid://b8q4omet6du0w" path="res://Scene/Room/Debug/RoomConnect.gd" id="1_4nic5"]
 [ext_resource type="Script" uid="uid://b383l3v25na7" path="res://Scene/MainGame/Maingame.gd" id="1_ga214"]
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
-[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/player.tscn" id="3_4x3oj"]
-[ext_resource type="AudioStream" uid="uid://c0lx114m7xfjt" path="res://Assets/Music/397 [Misc Extras] bgm_space_upbeat_F.ogg" id="5_g7el7"]
+[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="3_4x3oj"]
+[ext_resource type="PackedScene" uid="uid://cvnfa7dppgwhv" path="res://Scene/camera_2d.tscn" id="5_88yfh"]
+[ext_resource type="Texture2D" uid="uid://c0f5n711eyibd" path="res://Assets/BackGround/1.png" id="7_2ns5o"]
+[ext_resource type="Texture2D" uid="uid://dvqkb5s8smq1p" path="res://Assets/BackGround/2.png" id="8_t5ou6"]
+[ext_resource type="Texture2D" uid="uid://clgkqf0rfktdb" path="res://Assets/BackGround/3.png" id="9_50dfd"]
+[ext_resource type="Texture2D" uid="uid://d2hpdmvxqrhvk" path="res://Assets/BackGround/4.png" id="10_4lo75"]
+[ext_resource type="Texture2D" uid="uid://cy7y1qvpstcyl" path="res://Assets/BackGround/5.png" id="11_1shb2"]
+[ext_resource type="Script" uid="uid://bqa23sw42pwvk" path="res://Scene/MainGame/bgm_changer.gd" id="11_50dfd"]
+[ext_resource type="AudioStream" uid="uid://dl0tuiisa34l6" path="res://Assets/Music/IswearIsawit.ogg" id="11_t5ou6"]
+[ext_resource type="Texture2D" uid="uid://bypwuf60t74yf" path="res://Assets/BackGround/6.png" id="12_n14k5"]
+[ext_resource type="AudioStream" uid="uid://fmkya4o1cxob" path="res://Assets/Music/PerituneMaterial_Gothic_Dark_loop.mp3" id="13_4lo75"]
+[ext_resource type="AudioStream" uid="uid://cva8xydyvx4r8" path="res://Assets/Music/Yooh - Decoy.mp3" id="14_1shb2"]
+[ext_resource type="Script" uid="uid://c7ox6e5n2d6j1" path="res://camera.gd" id="16_1shb2"]
 
 [node name="MainGame" type="Node2D" unique_id=334667216]
 script = ExtResource("1_ga214")
 
+[node name="BackGround" type="Node2D" parent="." unique_id=1755069234]
+modulate = Color(0.42592907, 0.3903062, 0.4745459, 1)
+
+[node name="BackParallax2D" type="Parallax2D" parent="BackGround" unique_id=1960957557]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackParallax2D" unique_id=554929006]
+texture = ExtResource("7_2ns5o")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackGround/BackParallax2D" unique_id=2125110980]
+texture = ExtResource("8_t5ou6")
+centered = false
+
+[node name="MiddleParallax2D" type="Parallax2D" parent="BackGround" unique_id=1507401849]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(11, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/MiddleParallax2D" unique_id=1459665417]
+texture = ExtResource("9_50dfd")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackGround/MiddleParallax2D" unique_id=267959882]
+texture = ExtResource("10_4lo75")
+centered = false
+
+[node name="FrontParallax2D" type="Parallax2D" parent="BackGround" unique_id=403755846]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround/FrontParallax2D" unique_id=1573580807]
+texture = ExtResource("11_1shb2")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackGround/FrontParallax2D" unique_id=64919783]
+texture = ExtResource("12_n14k5")
+centered = false
+
 [node name="PlayerUI" parent="." unique_id=1814325200 instance=ExtResource("2_8fymo")]
+
+[node name="RichTextLabel" parent="PlayerUI/Parent/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]
+scroll_active = false
+
+[node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
+position = Vector2(0, -38)
+remote_path = NodePath("../../MainCamera")
 
 [node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
 script = ExtResource("1_4nic5")
-lobby_room_dir = "res://Scene/Room/DebugFloor/Lobby"
-enemy_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-bonus_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-shop_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-boss_room_dir = "res://Scene/Room/DebugFloor/Boss"
-end_room_dir = "res://Scene/Room/DebugFloor/End"
-generate_room_value = 3
+generate_room_value = 4
 
-[node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
-position = Vector2(184, 263)
+[node name="BGMChanger" type="Node2D" parent="." unique_id=9408269 node_paths=PackedStringArray("stage_bgm", "battle_bgm", "boss_bgm")]
+script = ExtResource("11_50dfd")
+stage_bgm = NodePath("Stage")
+battle_bgm = NodePath("Battle")
+boss_bgm = NodePath("Boss")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=779157867]
-position = Vector2(0, 1)
-limit_smoothed = true
-position_smoothing_enabled = true
+[node name="Stage" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1112841277]
+stream = ExtResource("11_t5ou6")
+bus = &"BGM"
+parameters/looping = true
 
-[node name="Stage" type="AudioStreamPlayer" parent="." unique_id=1112841277]
-stream = ExtResource("5_g7el7")
-volume_db = -20.0
-autoplay = true
+[node name="Battle" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1791616548]
+stream = ExtResource("13_4lo75")
+bus = &"BGM"
+parameters/looping = true
+
+[node name="Boss" type="AudioStreamPlayer" parent="BGMChanger" unique_id=965717512]
+stream = ExtResource("14_1shb2")
+volume_db = -10.0
+bus = &"BGM"
+parameters/looping = true
+
+[node name="MainCamera" parent="." unique_id=1883637712 instance=ExtResource("5_88yfh")]
+position = Vector2(0, -38)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=193283993]
+energy = 0.16
+blend_mode = 1
+shadow_enabled = true
+
+[node name="TransitionCamera" type="Camera2D" parent="." unique_id=1248579436]
+position = Vector2(0, -38)
+script = ExtResource("16_1shb2")
+metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 
 [editable path="PlayerUI"]
+[editable path="PlayerUI/Parent/ModUI"]
+[editable path="PlayerUI/Parent/PlayerHpUI"]
 [editable path="Player"]
 [editable path="Player/PickupComponent"]

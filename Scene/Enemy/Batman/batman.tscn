@@ -1,0 +1,325 @@
+[gd_scene format=3 uid="uid://ccb30p5cwn564"]
+
+[ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="1_eqi56"]
+[ext_resource type="Script" uid="uid://b7ndjfim1k5gm" path="res://Scene/Enemy/Batman/Bat.gd" id="2_utyoy"]
+[ext_resource type="Script" uid="uid://by820jvpbt4iq" path="res://Scene/Enemy/Batman/BatIdle.gd" id="3_es3oc"]
+[ext_resource type="Script" uid="uid://dql0greqptbdy" path="res://Scene/Enemy/Batman/BatWander.gd" id="4_atx0t"]
+[ext_resource type="Script" uid="uid://bu58dtlmkqevr" path="res://Scene/Enemy/Batman/BatChase.gd" id="5_atx0t"]
+[ext_resource type="Script" uid="uid://bhcu7ulo4nhrj" path="res://Scene/Enemy/Batman/BatAttack.gd" id="6_atx0t"]
+[ext_resource type="Script" uid="uid://bmqob4ljyohw8" path="res://Scene/Enemy/Batman/BatHurt.gd" id="7_awlq2"]
+[ext_resource type="Script" uid="uid://cn1bns74dl2r7" path="res://Scene/Enemy/Batman/BatDead.gd" id="8_rukdi"]
+[ext_resource type="Texture2D" uid="uid://d4k3tb4bglpi7" path="res://Assets/Enemy/Bat_Sprite_Sheet.png" id="9_ayh16"]
+[ext_resource type="AnimationLibrary" uid="uid://bpr1j0bw8leog" path="res://Resource/Anim_Tres/BatAnim.res" id="10_l3uev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3uev"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(0, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abreq"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(16, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrim7"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(32, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boycw"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(48, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv2dt"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(64, 48, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqsec"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pyn8"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvxux"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cygid"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(48, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1ku2"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(64, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3d1e"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f7ru"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dil4v"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr2jp"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqqm2"]
+atlas = ExtResource("9_ayh16")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nd50y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3uev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abreq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrim7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boycw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv2dt")
+}],
+"loop": 1,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqsec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pyn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvxux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cygid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1ku2")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3d1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f7ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dil4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr2jp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqqm2")
+}],
+"loop": 1,
+"name": &"Move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cokpx"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kgfv"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3uev"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_abreq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerDetector/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yrim7"]
+_data = {
+&"RESET": SubResource("Animation_abreq")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_atx0t"]
+radius = 84.095184
+
+[node name="Batman" unique_id=1333291757 instance=ExtResource("1_eqi56")]
+z_index = 1
+script = ExtResource("2_utyoy")
+
+[node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Wander")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=662206048 node_paths=PackedStringArray("parent", "anim_player", "idle_timer")]
+script = ExtResource("3_es3oc")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+idle_timer = NodePath("../../IdleTimer")
+
+[node name="Wander" type="Node" parent="StateMachine" index="1" unique_id=1427066268 node_paths=PackedStringArray("parent", "anim_player")]
+script = ExtResource("4_atx0t")
+wander_speed = 30.0
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+
+[node name="Chase" type="Node" parent="StateMachine" index="2" unique_id=1897115294 node_paths=PackedStringArray("parent", "anim_player")]
+script = ExtResource("5_atx0t")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+
+[node name="Attack" type="Node" parent="StateMachine" index="3" unique_id=1433863430 node_paths=PackedStringArray("parent", "anim_player")]
+script = ExtResource("6_atx0t")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+
+[node name="hurt" type="Node" parent="StateMachine" index="4" unique_id=1088019855 node_paths=PackedStringArray("parent", "anim_player")]
+script = ExtResource("7_awlq2")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+
+[node name="Dead" type="Node" parent="StateMachine" index="5" unique_id=948206982 node_paths=PackedStringArray("parent", "anim_player")]
+script = ExtResource("8_rukdi")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+
+[node name="HPComponent" parent="." index="1" unique_id=456158778]
+max_hp = 10.0
+hp = 10.0
+
+[node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nd50y")
+animation = &"Idle"
+flip_h = true
+
+[node name="CollisionShape2D" parent="." index="3" unique_id=879731102]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_cokpx")
+
+[node name="CollisionShape2D" parent="Hurtbox" parent_id_path=PackedInt32Array(1912714286) index="0" unique_id=1856668573]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_0kgfv")
+
+[node name="CollisionShape2D2" parent="Hurtbox" parent_id_path=PackedInt32Array(1912714286) index="3" unique_id=1329737567]
+position = Vector2(0, -5)
+
+[node name="Hitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="0" unique_id=195243888]
+damage = 3.0
+
+[node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_l3uev")
+disabled = false
+
+[node name="AnimationPlayer" parent="." index="7" unique_id=559520988]
+libraries/ = SubResource("AnimationLibrary_yrim7")
+libraries/BatAnim = ExtResource("10_l3uev")
+
+[node name="PathTimer" type="Timer" parent="." index="8" unique_id=1859090175]
+wait_time = 0.2
+autostart = true
+
+[node name="IdleTimer" type="Timer" parent="." index="9" unique_id=1655638826]
+wait_time = 2.0
+autostart = true
+
+[node name="GhostTimer" type="Timer" parent="." index="10" unique_id=485776742]
+wait_time = 0.1
+
+[node name="PlayerDetector" type="Area2D" parent="." index="11" unique_id=459188987]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=1419202774]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_atx0t")
+
+[connection signal="recieved_damage" from="Hurtbox" to="StateMachine/Chase" method="_on_hurtbox_recieved_damage"]
+[connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
+
+[editable path="Hurtbox"]

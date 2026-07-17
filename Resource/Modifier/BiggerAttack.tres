@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://c6vjtwv2osjb1"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_7vojx"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_s0jxd"]
+
+[resource]
+script = ExtResource("1_7vojx")
+ModifierRank = 1
+texture = ExtResource("2_s0jxd")
+modifier_id = "BiggerAttack"
+modifier_name = "大きくなる"
+color_rarity = Color(0.77254903, 0.85882354, 0, 1)
+explanation = "攻撃する程武器が大きくなる"

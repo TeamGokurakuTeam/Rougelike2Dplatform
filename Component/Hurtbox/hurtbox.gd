@@ -7,17 +7,31 @@ class_name Hurtbox
 @onready var cool_down: Timer = $CoolDown
 
 var current_area : Area2D
-var is_stop_timer : bool = false
 
 signal recieved_damage(damage : float, knockback_dir : Vector2)
 
+func _apply_damage(hitbox : Hitbox) -> void:
+	if hitbox:
+		recieved_damage.emit(hitbox.damage * hitbox.damage_multiplier, hitbox.knockback_force * hitbox.knockback_direction)
+
 func _on_area_entered(area: Area2D) -> void:
-	if area != null and area is Hitbox:
-		cool_down.start()
+	if area is Hitbox:
 		current_area = area
-		recieved_damage.emit(area.damage, area.knockback_force * area.knockback_direction)
+		_apply_damage(area)
+		if area.is_continuous:
+			cool_down.start()
+		character.is_damaged = true
+
+func _on_area_exited(area: Area2D) -> void:
+	if area == current_area:
+		current_area = null
+		cool_down.stop()
+		character.is_damaged = false
 
 func _on_cool_down_timeout() -> void:
-	if not is_stop_timer and current_area != null:
-		current_area = null
-	is_stop_timer = false
+	if current_area == null:
+		return
+	
+	_apply_damage(current_area)
+	if (current_area.is_continuous):
+		cool_down.start()
