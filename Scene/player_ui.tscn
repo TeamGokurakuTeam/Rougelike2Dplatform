@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://de1nov8m6sb05" path="res://Scene/modifier_explanation.gd" id="6_a57nb"]
 [ext_resource type="Shader" uid="uid://ces7mkd1ea685" path="res://Scene/Transition.gdshader" id="7_chu1y"]
 [ext_resource type="PackedScene" uid="uid://cox1a8khttces" path="res://weapon_modifier_ui.tscn" id="8_yegcq"]
+[ext_resource type="Texture2D" uid="uid://b6fpp52qvfsp6" path="res://Assets/Keyboard Extras (1).png" id="9_0pu00"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="10_okfkp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
 bg_color = Color(0.21590185, 0.21590167, 0.2159017, 1)
@@ -202,6 +204,18 @@ font_size = 12
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
+atlas = ExtResource("9_0pu00")
+region = Rect2(4, 2, 24, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+font = ExtResource("10_okfkp")
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(1, 1, 1, 1)
+
 [node name="PlayerUI" type="CanvasLayer" unique_id=1814325200]
 script = ExtResource("1_q25tn")
 
@@ -326,6 +340,24 @@ clip_text = true
 layout_mode = 1
 
 [node name="WeaponModifierUI" parent="." unique_id=1151445566 instance=ExtResource("8_yegcq")]
+
+[node name="TAB" type="TextureRect" parent="." unique_id=378722646]
+offset_left = 388.0
+offset_top = 271.0
+offset_right = 418.47617
+offset_bottom = 287.0
+texture = SubResource("AtlasTexture_jhy2k")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="TAB" unique_id=586158396]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 1.0
+offset_right = 121.0
+offset_bottom = 24.0
+text = ":武器ステータス"
+label_settings = SubResource("LabelSettings_5hoxb")
 
 [connection signal="timeout" from="Parent/ModifierExplanation/Timer" to="Parent/ModifierExplanation" method="_on_timer_timeout"]
 

@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bjf7wxt4iwfi" path="res://Scene/DarkSamurai.gd" id="2_65rjy"]
 [ext_resource type="Script" uid="uid://dcrfducj3u6yx" path="res://Scene/DarkSamuraiIdle.gd" id="3_lefgm"]
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_xclgv"]
-[ext_resource type="Resource" uid="uid://d0k4uk0wkq46k" path="res://Resource/Sword/WoodenSword.tres" id="4_tmy0u"]
 [ext_resource type="Script" uid="uid://cpoltudiipp7m" path="res://Scene/DarkSamuraiWalk.gd" id="4_xclgv"]
 [ext_resource type="Script" uid="uid://bvakei6ebuv84" path="res://Scene/DarkSamuraiAttack.gd" id="5_tmy0u"]
 [ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="5_xclgv"]
@@ -582,7 +581,7 @@ _data = {
 [node name="DarkSamurai" unique_id=1094349948 instance=ExtResource("1_2ir46")]
 collision_layer = 2
 script = ExtResource("2_65rjy")
-item_resource = Array[ExtResource("3_xclgv")]([ExtResource("4_tmy0u")])
+item_resource = Array[ExtResource("3_xclgv")]([])
 mod_resource = Array[ExtResource("5_xclgv")]([ExtResource("6_4l2dx"), ExtResource("7_kusi2"), ExtResource("8_np5u4"), ExtResource("9_cvtlj"), ExtResource("10_k3f1e"), ExtResource("11_k11ql"), ExtResource("12_82dk4"), ExtResource("13_74faj"), ExtResource("14_w58ag"), ExtResource("15_5u8ms"), ExtResource("16_3wn6q"), ExtResource("17_cb8o2"), ExtResource("18_yntsn"), ExtResource("19_5t2v2"), ExtResource("20_7cwa8"), ExtResource("21_wlmng")])
 jump_velocity = -300.0
 max_speed = 100.0
@@ -634,6 +633,7 @@ debug_color = Color(0, 1, 0.69803923, 0.41960785)
 [node name="Hitboxes" type="Node2D" parent="." index="5" unique_id=1518591342]
 
 [node name="Hitbox" parent="Hitboxes" index="0" unique_id=195243888 instance=ExtResource("7_inab3")]
+collision_layer = 16
 collision_mask = 8
 damage = 2.0
 

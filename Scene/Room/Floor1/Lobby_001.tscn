@@ -923,5 +923,5 @@ position = Vector2(-40, 8)
 position = Vector2(56, 144)
 
 [node name="DropItem2" parent="." index="3" unique_id=1569758340 instance=ExtResource("4_tomr8")]
-position = Vector2(401, 137)
+position = Vector2(680, 104)
 resource = ExtResource("8_iujhg")

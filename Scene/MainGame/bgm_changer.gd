@@ -33,7 +33,7 @@ func fade_out(bgm : AudioStreamPlayer, duration : float) -> void:
 	bgm.stop()
 
 func fade_in(bgm : AudioStreamPlayer, duration : float) -> void:
-	bgm.volume_db = -20
+	bgm.volume_db = -25
 	bgm.play()
 	var tween : Tween = create_tween()
 	tween.tween_property(bgm, "volume_db", -25, duration)

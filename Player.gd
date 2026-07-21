@@ -160,7 +160,7 @@ func _get_input() -> void:
 			coyote_timer.stop()
 			coyote_time_activated = true
 	if Input.is_action_just_pressed("UI_Apply"):
-		if weapon_resource_ids.size() <= 0 and inventory.get_child_count() <= 0:
+		if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
 			return
 		weapon = inventory.get_child(current_weapon)
 		weapon.add_modifier(mod_resource_ids[current_modifier])
