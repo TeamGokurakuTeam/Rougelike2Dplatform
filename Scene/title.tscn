@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="1_nn2l1"]
 [ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="2_5qay0"]
 [ext_resource type="Texture2D" uid="uid://bjq1r0cdrogty" path="res://Assets/UI/FreeButtons.png" id="2_gcboo"]
-[ext_resource type="AudioStream" uid="uid://rvasv7ghvpcp" path="res://Assets/Music/music_jewels.ogg" id="6_p6i14"]
+[ext_resource type="Texture2D" uid="uid://bv3ptchjq5mc1" path="res://Assets/Magic-Tower4.jpg" id="2_p5xl0"]
+[ext_resource type="AudioStream" uid="uid://ck34jd4lbre1h" path="res://Assets/Music/PerituneMaterial_Conjurer_loop.mp3" id="6_p6i14"]
+[ext_resource type="Shader" uid="uid://ces7mkd1ea685" path="res://Scene/Transition.gdshader" id="7_xriko"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xijl7"]
 texture = ExtResource("1_nn2l1")
@@ -65,6 +67,106 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(17, 2, 14, 13)
 modulate_color = Color(0.32358384, 0.32358387, 0.32358384, 1)
 
+[sub_resource type="Animation" id="Animation_p5xl0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xriko"]
+resource_name = "START"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.1666667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.9000001, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p5xl0"]
+_data = {
+&"RESET": SubResource("Animation_p5xl0"),
+&"START": SubResource("Animation_xriko")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_gj3l6"]
+font = ExtResource("2_5qay0")
+font_size = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhy2k"]
+shader = ExtResource("7_xriko")
+shader_parameter/progress = 0.0
+shader_parameter/speed = 0.345
+shader_parameter/pixelation = Vector2(5, 5)
+shader_parameter/zoom = 1.71
+shader_parameter/background_threshold = -0.5959999333099999
+shader_parameter/color_threshold = 0.6450000306375
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/seed = 0.705
+
 [node name="Title" type="Control" unique_id=1816576831]
 layout_mode = 3
 anchors_preset = 15
@@ -74,12 +176,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5qay0")
 
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=127084988]
+self_modulate = Color(0.70380783, 0.70380783, 0.70380783, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.375
+anchor_top = -1.375
+anchor_right = 2.375
+anchor_bottom = 2.375
+offset_left = 704.0
+offset_top = 396.0
+offset_right = -704.0
+offset_bottom = -396.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_p5xl0")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="OptionPanel" type="Panel" parent="." unique_id=2140415352]
 layout_mode = 0
-offset_left = 523.0
-offset_top = 5.0
-offset_right = 703.0
-offset_bottom = 264.0
+offset_left = 534.0
+offset_top = 11.0
+offset_right = 714.0
+offset_bottom = 270.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xijl7")
 
 [node name="Sound" type="Control" parent="OptionPanel" unique_id=811094655]
@@ -125,8 +246,8 @@ offset_left = 20.0
 offset_top = 33.0
 offset_right = 168.0
 offset_bottom = 49.0
-max_value = 8.0
-step = 0.1
+max_value = 1.0
+step = 0.01
 
 [node name="Label" type="Label" parent="OptionPanel/Sound/BGMSlider" unique_id=944430951]
 layout_mode = 0
@@ -185,14 +306,15 @@ offset_top = 160.0
 offset_right = 56.0
 offset_bottom = 240.0
 
-[node name="CheckButton" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1941857583]
+[node name="FullScreen" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1941857583]
 layout_mode = 2
 
-[node name="CheckButton2" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1486420566]
+[node name="VSYNC" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1486420566]
 layout_mode = 2
 
 [node name="CheckButton3" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1935582231]
 layout_mode = 2
+disabled = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1306227839]
 layout_mode = 0
@@ -241,5 +363,58 @@ text = "QUIT"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=979635541]
 stream = ExtResource("6_p6i14")
-autoplay = true
+volume_db = -25.0
 bus = &"BGM"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1337307510]
+libraries/ = SubResource("AnimationLibrary_p5xl0")
+autoplay = &"START"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=982272086]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1482537577]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -11.5
+offset_right = 35.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Team 極楽"
+label_settings = SubResource("LabelSettings_gj3l6")
+
+[node name="Transition" type="ColorRect" parent="." unique_id=1091218178]
+material = SubResource("ShaderMaterial_jhy2k")
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 288.0
+mouse_filter = 2
+
+[node name="Black" type="ColorRect" parent="." unique_id=194255604]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="toggled" from="OptionPanel/Sound/Check/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="OptionPanel/Sound/Check/VSYNC" to="." method="_on_vsync_toggled"]
+[connection signal="pressed" from="ButtonContainor/START" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonContainor/OPTION" to="." method="_on_option_pressed"]

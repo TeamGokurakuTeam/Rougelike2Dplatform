@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="4_tomr8"]
 [ext_resource type="Texture2D" uid="uid://diedq27yg6hso" path="res://Assets/TileMap/ExtraTiles1.png" id="4_v0sef"]
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="5_ffhxb"]
-[ext_resource type="Resource" uid="uid://ddw6jksv1chng" path="res://Resource/Sword/EternalSword.tres" id="8_elah0"]
-[ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="15_q8aav"]
+[ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="8_iujhg"]
 
 [sub_resource type="Shader" id="Shader_6avjc"]
 code = "shader_type canvas_item;
@@ -925,7 +924,4 @@ position = Vector2(56, 144)
 
 [node name="DropItem2" parent="." index="3" unique_id=1569758340 instance=ExtResource("4_tomr8")]
 position = Vector2(401, 137)
-resource = ExtResource("8_elah0")
-
-[node name="Obelisk" parent="." index="5" unique_id=1340329694 instance=ExtResource("15_q8aav")]
-position = Vector2(618, 83)
+resource = ExtResource("8_iujhg")

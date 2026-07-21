@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Rougelike2DPlatform"
-run/main_scene="uid://c6ispiydj1y1r"
+run/main_scene="uid://d15a301cfnn87"
+run/print_header=false
 config/features=PackedStringArray("4.7", "Forward Plus")
 run/max_fps=60
 boot_splash/show_image=false

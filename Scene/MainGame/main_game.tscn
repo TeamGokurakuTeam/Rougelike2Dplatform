@@ -83,17 +83,19 @@ boss_bgm = NodePath("Boss")
 
 [node name="Stage" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1112841277]
 stream = ExtResource("11_t5ou6")
+volume_db = -25.0
 bus = &"BGM"
 parameters/looping = true
 
 [node name="Battle" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1791616548]
 stream = ExtResource("13_4lo75")
+volume_db = -25.0
 bus = &"BGM"
 parameters/looping = true
 
 [node name="Boss" type="AudioStreamPlayer" parent="BGMChanger" unique_id=965717512]
 stream = ExtResource("14_1shb2")
-volume_db = -10.0
+volume_db = -25.0
 bus = &"BGM"
 parameters/looping = true
 
