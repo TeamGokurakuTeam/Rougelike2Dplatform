@@ -10,10 +10,13 @@ const GOLEM_BOSS = preload("uid://bthj1ytrgopek")
 
 func _ready() -> void:
 	collision_shape_2d.disabled = false
+	boss_object.visible = true
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	main_game_node.change_camera(boss_room_camera)
 	GameEvents.cutscene_started.emit()
+	battle_bgm_type = BGMChanger.BGMType.BOSS
+	main_game_node.bgm_changer.change_bgm(battle_bgm_type)
 	await main_game_node.transition_offset_tween.finished
 	animation_player.play("Start")
 	main_game_node.player_ui.ui_fade_in()
@@ -31,8 +34,6 @@ func boss_summon() -> void:
 	boss.hp_component.is_dead.connect(_on_boss_is_dead)
 	boss_object.visible = false
 	enemy_count += 1
-	battle_bgm_type = BGMChanger.BGMType.BOSS
-	main_game_node.bgm_changer.change_bgm(battle_bgm_type)
 	GameEvents.battle_start.emit()
 
 func _on_boss_is_dead() -> void:

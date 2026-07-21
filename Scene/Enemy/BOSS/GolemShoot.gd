@@ -13,7 +13,7 @@ func Exit() -> void:
 	pass
 
 func Update(delta) -> void:
-	if parent.player != null:
+	if parent.player == null:
 		return
 	dir_player = (parent.player.global_position - parent.global_position).normalized()
 	if dir_player.x < 0:
@@ -25,8 +25,9 @@ func Update(delta) -> void:
 		parent.root_node.scale.x = -1
 	else:
 		parent.root_node.scale.x = 1
+	
 	if not anim_player.is_playing():
-		StateTransitioned.emit(self, "Move")
+		StateTransitioned.emit(self, "Attack")
 
 func Physics_Update(delta) -> void:
 	pass

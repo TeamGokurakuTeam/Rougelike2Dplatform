@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dchcs7a330j1m"]
+
+[ext_resource type="Script" uid="uid://dulqothl6lkew" path="res://modifier_button.gd" id="1_2eo7m"]
+[ext_resource type="Texture2D" uid="uid://c1gdn22qmvsnf" path="res://Assets/UI/SpriteSheet.png" id="2_x1u25"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="3_5cy8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xijl7"]
+atlas = ExtResource("2_x1u25")
+region = Rect2(52, 1557, 57, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdq5c"]
+texture = SubResource("AtlasTexture_xijl7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+modulate_color = Color(0.90588236, 0.8039216, 0.37254903, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqte1"]
+atlas = ExtResource("2_x1u25")
+region = Rect2(132, 1557, 57, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e82y7"]
+texture = SubResource("AtlasTexture_lqte1")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+modulate_color = Color(0.90588236, 0.8039216, 0.37254903, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o56xt"]
+atlas = ExtResource("2_x1u25")
+region = Rect2(52, 1557, 57, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdr12"]
+texture = SubResource("AtlasTexture_o56xt")
+modulate_color = Color(1, 1, 0.40784314, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40k1b"]
+atlas = ExtResource("2_x1u25")
+region = Rect2(132, 1557, 57, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hgod4"]
+texture = SubResource("AtlasTexture_40k1b")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+modulate_color = Color(0.4392157, 0.27058825, 0.27058825, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("3_5cy8u")
+font_size = 8
+font_color = Color(1, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LockModifierButton" type="Control" unique_id=412886008]
+custom_minimum_size = Vector2(65, 20)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -439.0
+offset_bottom = -268.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2eo7m")
+
+[node name="Button" type="Button" parent="." unique_id=1963454213]
+custom_minimum_size = Vector2(64.805, 20)
+layout_mode = 0
+offset_right = 73.0
+offset_bottom = 20.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_qdq5c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e82y7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sdr12")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hgod4")
+
+[node name="Label" type="Label" parent="Button" unique_id=715968104]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 70.0
+offset_bottom = 15.0
+text = "テスト文字テスト文字テスト文字"
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+visible_characters_behavior = 1

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cuc66hry0j4hn" path="res://Scene/UI/ModifierProgressBar.tscn" id="4_rj6n4"]
 [ext_resource type="Script" uid="uid://de1nov8m6sb05" path="res://Scene/modifier_explanation.gd" id="6_a57nb"]
 [ext_resource type="Shader" uid="uid://ces7mkd1ea685" path="res://Scene/Transition.gdshader" id="7_chu1y"]
+[ext_resource type="PackedScene" uid="uid://cox1a8khttces" path="res://weapon_modifier_ui.tscn" id="8_yegcq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
 bg_color = Color(0.21590185, 0.21590167, 0.2159017, 1)
@@ -324,7 +325,10 @@ clip_text = true
 [node name="PlayerHpUI" parent="Parent" unique_id=343152128 instance=ExtResource("2_5xwoe")]
 layout_mode = 1
 
+[node name="WeaponModifierUI" parent="." unique_id=1151445566 instance=ExtResource("8_yegcq")]
+
 [connection signal="timeout" from="Parent/ModifierExplanation/Timer" to="Parent/ModifierExplanation" method="_on_timer_timeout"]
 
 [editable path="Parent/ModUI"]
 [editable path="Parent/PlayerHpUI"]
+[editable path="WeaponModifierUI"]

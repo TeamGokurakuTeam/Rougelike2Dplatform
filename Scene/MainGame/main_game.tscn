@@ -73,7 +73,7 @@ remote_path = NodePath("../../MainCamera")
 
 [node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
 script = ExtResource("1_4nic5")
-generate_room_value = 4
+generate_room_value = 10
 
 [node name="BGMChanger" type="Node2D" parent="." unique_id=9408269 node_paths=PackedStringArray("stage_bgm", "battle_bgm", "boss_bgm")]
 script = ExtResource("11_50dfd")
@@ -83,17 +83,19 @@ boss_bgm = NodePath("Boss")
 
 [node name="Stage" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1112841277]
 stream = ExtResource("11_t5ou6")
+volume_db = -25.0
 bus = &"BGM"
 parameters/looping = true
 
 [node name="Battle" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1791616548]
 stream = ExtResource("13_4lo75")
+volume_db = -25.0
 bus = &"BGM"
 parameters/looping = true
 
 [node name="Boss" type="AudioStreamPlayer" parent="BGMChanger" unique_id=965717512]
 stream = ExtResource("14_1shb2")
-volume_db = -10.0
+volume_db = -25.0
 bus = &"BGM"
 parameters/looping = true
 
@@ -113,5 +115,6 @@ metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 [editable path="PlayerUI"]
 [editable path="PlayerUI/Parent/ModUI"]
 [editable path="PlayerUI/Parent/PlayerHpUI"]
+[editable path="PlayerUI/WeaponModifierUI"]
 [editable path="Player"]
 [editable path="Player/PickupComponent"]
