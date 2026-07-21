@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_m7hjc"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_6l0hs"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="6_u0w5x"]
+[ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="7_6l0hs"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_jjrqc")]
 
@@ -54,3 +55,6 @@ is_random = true
 position = Vector2(576, 176)
 enemys = Array[PackedScene]([ExtResource("6_u0w5x"), ExtResource("5_6l0hs")])
 is_random = true
+
+[node name="Obelisk" parent="." index="3" unique_id=1340329694 instance=ExtResource("7_6l0hs")]
+position = Vector2(592, 64)
