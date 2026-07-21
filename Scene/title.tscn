@@ -1,0 +1,245 @@
+[gd_scene format=3 uid="uid://d15a301cfnn87"]
+
+[ext_resource type="Script" uid="uid://d17jwq3jo03ty" path="res://Scene/Title.gd" id="1_5qay0"]
+[ext_resource type="Texture2D" uid="uid://bvbnsrlntkuqv" path="res://Assets/350dpi.png" id="1_75qdg"]
+[ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="1_nn2l1"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="2_5qay0"]
+[ext_resource type="Texture2D" uid="uid://bjq1r0cdrogty" path="res://Assets/UI/FreeButtons.png" id="2_gcboo"]
+[ext_resource type="AudioStream" uid="uid://rvasv7ghvpcp" path="res://Assets/Music/music_jewels.ogg" id="6_p6i14"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xijl7"]
+texture = ExtResource("1_nn2l1")
+region_rect = Rect2(513, 81, 47, 62)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+font = ExtResource("2_5qay0")
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_nn2l1"]
+font = ExtResource("2_5qay0")
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qay0"]
+font = ExtResource("2_5qay0")
+font_color = Color(1, 0, 0, 1)
+outline_size = 6
+outline_color = Color(0.3882353, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("2_5qay0")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jhy2k"]
+texture = ExtResource("2_gcboo")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+expand_margin_bottom = 2.0
+region_rect = Rect2(1, 1, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoxb"]
+texture = ExtResource("2_gcboo")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(17, 2, 14, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gj3l6"]
+texture = ExtResource("2_gcboo")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(33, 1, 14, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdq5c"]
+texture = ExtResource("2_gcboo")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(17, 2, 14, 13)
+modulate_color = Color(0.32358384, 0.32358387, 0.32358384, 1)
+
+[node name="Title" type="Control" unique_id=1816576831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5qay0")
+
+[node name="OptionPanel" type="Panel" parent="." unique_id=2140415352]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 5.0
+offset_right = 703.0
+offset_bottom = 264.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xijl7")
+
+[node name="Sound" type="Control" parent="OptionPanel" unique_id=811094655]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label2" type="Label" parent="OptionPanel/Sound" unique_id=177158817]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 161.0
+offset_right = 134.0
+offset_bottom = 184.0
+text = "FullScreen"
+label_settings = SubResource("LabelSettings_5hoxb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="OptionPanel/Sound" unique_id=973892336]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 189.0
+offset_right = 134.0
+offset_bottom = 212.0
+text = "VSYNC"
+label_settings = SubResource("LabelSettings_nn2l1")
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="OptionPanel/Sound" unique_id=1616732307]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 217.0
+offset_right = 134.0
+offset_bottom = 240.0
+text = "HARD MODE"
+label_settings = SubResource("LabelSettings_5qay0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BGMSlider" type="HSlider" parent="OptionPanel/Sound" unique_id=1707275868]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 33.0
+offset_right = 168.0
+offset_bottom = 49.0
+max_value = 8.0
+step = 0.1
+
+[node name="Label" type="Label" parent="OptionPanel/Sound/BGMSlider" unique_id=944430951]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -22.0
+offset_right = 58.0
+offset_bottom = 1.0
+text = "BGM Vol"
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SESlider" type="HSlider" parent="OptionPanel/Sound" unique_id=1431807342]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 83.0
+offset_right = 168.0
+offset_bottom = 99.0
+max_value = 8.0
+step = 0.1
+
+[node name="Label" type="Label" parent="OptionPanel/Sound/SESlider" unique_id=2105425966]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -22.0
+offset_right = 58.0
+offset_bottom = 1.0
+text = "SoundEffect Vol"
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="OptionPanel/Sound" unique_id=917790538]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 133.0
+offset_right = 168.0
+offset_bottom = 149.0
+max_value = 8.0
+step = 0.1
+
+[node name="Label" type="Label" parent="OptionPanel/Sound/MasterSlider" unique_id=1065667565]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -22.0
+offset_right = 58.0
+offset_bottom = 1.0
+text = "UI Vol"
+label_settings = SubResource("LabelSettings_jhy2k")
+vertical_alignment = 1
+
+[node name="Check" type="VBoxContainer" parent="OptionPanel/Sound" unique_id=1605716160]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 160.0
+offset_right = 56.0
+offset_bottom = 240.0
+
+[node name="CheckButton" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1941857583]
+layout_mode = 2
+
+[node name="CheckButton2" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1486420566]
+layout_mode = 2
+
+[node name="CheckButton3" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1935582231]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1306227839]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 177.0
+offset_bottom = 118.0
+texture = ExtResource("1_75qdg")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ButtonContainor" type="VBoxContainer" parent="." unique_id=1555366325]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 125.0
+offset_right = 136.0
+offset_bottom = 259.0
+alignment = 1
+
+[node name="START" type="Button" parent="ButtonContainor" unique_id=2015879748]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5hoxb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
+text = "START"
+
+[node name="OPTION" type="Button" parent="ButtonContainor" unique_id=1973823877]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5hoxb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
+text = "OPTION"
+
+[node name="QUIT" type="Button" parent="ButtonContainor" unique_id=2144348159]
+custom_minimum_size = Vector2(80, 30)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5hoxb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
+text = "QUIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=979635541]
+stream = ExtResource("6_p6i14")
+autoplay = true
+bus = &"BGM"
