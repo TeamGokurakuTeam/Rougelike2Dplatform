@@ -52,6 +52,12 @@ var modifier_use_count: int = 0
 var fall_slash_cooldown := 0.0
 
 
+# バウンド設定
+var bounce_speed_multiplier := 1.1
+var max_speed := 800
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for node in root.get_children():
@@ -176,7 +182,7 @@ func attack_trigger_modifier() -> void:
 #アヒルバウンス
 	if modifiers_ids.has("Bounce_Duck"):
 		bounceduck()
-
+#アヒル爆弾
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -364,38 +370,37 @@ func HeavyStrike() -> void:
 	animation_player.speed_scale = 1.0
 	for i in hitboxes.size():
 		hitboxes[i].damage = hitboxes[i].damage_multiplier
-#アヒル
+
+# アヒル
 func slashduck() -> void:
 	if randf() < 0.6:
-		var duck: Node2D = DUCK_SLASH.instantiate()
+		var duck: DuckProjectile = DUCK_SLASH.instantiate()
+		duck.duck_type = DuckProjectile.DuckType.NORMAL
+		duck.enable_bounce = false
+		duck.should_explode = modifiers_ids.has("Bomb_Duck")
 		duck.global_position = player.global_position
-		var dir: int = sign(mouse_direction.x)
-		if dir == 0:
-			dir = 1
-		var min_speed_x := 100.0
-		var max_speed_x := 350.0
-		var min_speed_y := -300.0
-		var max_speed_y := -350.0
-		var random_x := randf_range(min_speed_x, max_speed_x) * dir
-		var random_y := randf_range(min_speed_y, max_speed_y)
+		var dir = sign(mouse_direction.x)
+		if dir == 0: dir = 1
+		var random_x: float = randf_range(100, 350) * dir
+		var random_y: float = randf_range(-350, -300)
 		duck.velocity = Vector2(random_x, random_y)
 		get_tree().root.add_child(duck)
 
-#アヒルバウンス
+# アヒルバウンス
 func bounceduck() -> void:
-	var duck: Node2D = DUCK_SLASH.instantiate()
-	duck.global_position = player.global_position
-	var dir = sign(mouse_direction.x)
-	if dir == 0:
-		dir = 1
-	var random_x = randf_range(150, 300) * dir
-	var random_y := randf_range(-300, -150)
-	duck.velocity = Vector2(random_x, random_y)
+	var duck: DuckProjectile = DUCK_SLASH.instantiate()
+	duck.duck_type = DuckProjectile.DuckType.BOUNCE
+	duck.enable_bounce = true
 	duck.bounce_speed_multiplier = 1.1
 	duck.max_speed = 800
-
+	duck.should_explode = modifiers_ids.has("Bomb_Duck")
+	duck.global_position = player.global_position
+	var dir = sign(mouse_direction.x)
+	if dir == 0: dir = 1
+	var random_x: float = randf_range(150, 300) * dir
+	var random_y: float = randf_range(-300, -150)
+	duck.velocity = Vector2(random_x, random_y)
 	get_tree().root.add_child(duck)
-
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()

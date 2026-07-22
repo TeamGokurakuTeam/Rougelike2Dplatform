@@ -6,16 +6,17 @@ class_name DuckProjectile
 @export var range_slash_scene: PackedScene
 @export var damage: float = 3.0
 @onready var hitbox: Hitbox = $Hitbox
-
+enum DuckType { NORMAL, BOUNCE }
 var velocity: Vector2 = Vector2.ZERO
 var duck_gravity: float = 900.0
 var can_spawn_range_slash: bool = false
 var hit_position: Vector2 = Vector2.ZERO
 var hit_happened: bool = false
-
-# バウンド設定
+var duck_type: DuckType = DuckType.NORMAL
+var should_explode: bool = false
 var bounce_speed_multiplier := 1.1
 var max_speed := 800
+var enable_bounce: bool = false
 
 func _ready() -> void:
 	if animation_player:
@@ -37,18 +38,18 @@ func _enable_spawn() -> void:
 	monitoring = true
 	monitorable = true
 
-
 func _physics_process(delta: float) -> void:
 	velocity.y += duck_gravity * delta
 	global_position += velocity * delta
-	var space_state := get_world_2d().direct_space_state
-	var params := PhysicsRayQueryParameters2D.create(
-		global_position,
-		global_position + velocity.normalized() * 10
-	)
-	var result := space_state.intersect_ray(params)
-	if result.size() > 0:
-		_bounce(result.normal)
+	if enable_bounce and duck_type == DuckType.BOUNCE:
+		var space_state := get_world_2d().direct_space_state
+		var params := PhysicsRayQueryParameters2D.create(
+			global_position,
+			global_position + velocity.normalized() * 10
+		)
+		var result := space_state.intersect_ray(params)
+		if result.size() > 0:
+			_bounce(result.normal)
 
 func _process(delta: float) -> void:
 	if not hit_happened:
@@ -66,15 +67,27 @@ func _on_hitbox_entered(area: Area2D) -> void:
 		hit_happened = true
 		if can_spawn_range_slash:
 			_spawn_range_slash()
-		queue_free()
+		if should_explode:
+			_bomb_Duck()
+		else:
+			queue_free()
 
 func _on_timer_timeout() -> void:
 	if can_spawn_range_slash:
 		_spawn_range_slash()
-	queue_free()
+	if should_explode:
+		_bomb_Duck()
+	else:
+		queue_free()
 
 func _spawn_range_slash() -> void:
 	if range_slash_scene != null:
 		var slash := range_slash_scene.instantiate()
 		slash.global_position = hit_position
 		get_tree().current_scene.add_child(slash)
+
+func _bomb_Duck() -> void:
+	if animation_player:
+		animation_player.play("BombDuck")
+		await animation_player.animation_finished
+	queue_free()
