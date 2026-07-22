@@ -7,6 +7,8 @@ class_name MushDash
 func Enter() -> void:
 	parent.friction = 0.05
 	anim_player.play("Dash")
+	parent.hitboxes_array[0].damage = 5
+	parent.increment_damage(parent.main_game_node.enemy_damage_addition)
 
 func Exit() -> void:
 	parent.friction = 0.15
