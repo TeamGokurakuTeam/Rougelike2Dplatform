@@ -32,3 +32,4 @@ func _on_risk_return_selected(gain_resource_id : String, loss_resource_id : Stri
 	animation_player.play("End")
 	await animation_player.animation_finished
 	obelisk.animation_player.play("End")
+	queue_free()

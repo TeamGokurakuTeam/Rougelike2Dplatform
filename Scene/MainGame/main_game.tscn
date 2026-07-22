@@ -65,6 +65,9 @@ centered = false
 [node name="RichTextLabel" parent="PlayerUI/Parent/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]
 scroll_active = false
 
+[node name="ModifierList" parent="PlayerUI/WeaponModifierUI/Panel/ModifierPanel" parent_id_path=PackedInt32Array(1814325200, 1151445566, 627346171) index="0" unique_id=1191521356]
+mouse_filter = 1
+
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]

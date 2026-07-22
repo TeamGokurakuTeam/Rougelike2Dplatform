@@ -62,6 +62,7 @@ offset_right = -439.0
 offset_bottom = -268.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_tgmnv")
 
 [node name="Button" type="Button" parent="." unique_id=1963454213]

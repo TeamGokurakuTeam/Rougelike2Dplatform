@@ -3,8 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_wmro2"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="2_fp0gh"]
 [ext_resource type="PackedScene" uid="uid://b3ys5ty8jofad" path="res://Scene/Room/bounce_pad.tscn" id="3_o61kr"]
-[ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="4_xeuir"]
-[ext_resource type="PackedScene" uid="uid://esb02rh4pf7m" path="res://Scene/Room/ice_magic.tscn" id="5_t7iby"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="6_133g3"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="7_fj8hk"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="8_knxsy"]
@@ -35,20 +33,6 @@ position = Vector2(888, 256)
 position = Vector2(892, 431)
 scale = Vector2(1.5, 1.5)
 bounce_power = 800.0
-
-[node name="Launcher" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="7" unique_id=1827001644 instance=ExtResource("4_xeuir")]
-position = Vector2(112, 197)
-rotation = -1.5707964
-fire_interval = 5.0
-projectile_scene = ExtResource("5_t7iby")
-projectile_facing = Vector2(0, 1)
-
-[node name="Launcher3" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="8" unique_id=887947988 instance=ExtResource("4_xeuir")]
-position = Vector2(105, 413)
-rotation = -1.5707964
-fire_interval = 4.0
-projectile_scene = ExtResource("5_t7iby")
-projectile_facing = Vector2(0, 1)
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("6_133g3")]
 position = Vector2(416, 224)

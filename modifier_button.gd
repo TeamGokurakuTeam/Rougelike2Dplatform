@@ -12,8 +12,6 @@ func setup(mod_resource_id : String, mod_ui : WeaponModifierUI, mod_count : int)
 	weapon_modifier_ui = mod_ui
 	modifier_count = mod_count
 	modifier_resource = GlobalResourceLoader.item_cache[mod_resource_id]
-	print(modifier_resource)
-	print(modifier_resource.modifier_name)
 	label.text = modifier_resource.modifier_name
 	button.pressed.connect(_on_button_pressed)
 

@@ -4,6 +4,7 @@ class_name Room
 @export var can_spawn_enemy : bool = true
 @export var player_marker : Marker2D
 @export var battle_bgm_type : BGMChanger.BGMType = BGMChanger.BGMType.BATTLE
+@export var obelisk : RiskObelisk
 
 @onready var doors: Node2D = $Doors
 @onready var enemy_spawn_points: Node2D = $EnemySpawnPoints
@@ -17,6 +18,8 @@ func _ready() -> void:
 		var door : Door = node as Door
 		door.exit_door_player_entered.connect(_on_exit_door_player_entered)
 	hide_wall.player = main_game_node.player
+	if obelisk != null and enemy_count <= 0:
+		obelisk.is_obelisk_locked = false
 
 func _process(delta: float) -> void:
 	pass
@@ -57,3 +60,5 @@ func _on_enemy_is_dead() -> void:
 			door.animation_player.play("Open")
 		main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.STAGE)
 		GameEvents.battle_end.emit()
+		if obelisk != null:
+			obelisk.is_obelisk_locked = false
