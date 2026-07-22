@@ -9,7 +9,7 @@ const PLAYER_FALL_SLASH : PackedScene = preload("uid://bjj3tflijfk6o")
 
 const PLAYER_RANGESLASH : PackedScene = preload("uid://dds7cl7iiu2wf")
 #アヒル
-const DUCK_SLASH : PackedScene = preload("C:/Users/scar0/OneDrive/ドキュメント/GodotTeam制作/Rougelike2Dplatform/Scene/Player/Projectile/duck.tscn")
+const DUCK : PackedScene = preload("res://Scene/Player/Projectile/duck.tscn")
 
 @export var resource_id : String
 
@@ -374,7 +374,7 @@ func HeavyStrike() -> void:
 # アヒル
 func slashduck() -> void:
 	if randf() < 0.6:
-		var duck: DuckProjectile = DUCK_SLASH.instantiate()
+		var duck: DuckProjectile = DUCK.instantiate()
 		duck.duck_type = DuckProjectile.DuckType.NORMAL
 		duck.enable_bounce = false
 		duck.should_explode = modifiers_ids.has("Bomb_Duck")
@@ -388,7 +388,7 @@ func slashduck() -> void:
 
 # アヒルバウンス
 func bounceduck() -> void:
-	var duck: DuckProjectile = DUCK_SLASH.instantiate()
+	var duck: DuckProjectile = DUCK.instantiate()
 	duck.duck_type = DuckProjectile.DuckType.BOUNCE
 	duck.enable_bounce = true
 	duck.bounce_speed_multiplier = 1.1
