@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ctragr7dov227" path="res://Assets/Weapon/swords/tile014.png" id="1_p6bm0"]
 [ext_resource type="PackedScene" uid="uid://blisde623wdfe" path="res://Weapon/SilverSword.tscn" id="2_0wdlk"]
-[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_x44na"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/ResWeapon.gd" id="2_x44na"]
 
 [resource]
 script = ExtResource("2_x44na")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://ddw6jksv1chng"]
 
 [ext_resource type="Texture2D" uid="uid://cba2on58wibm" path="res://Assets/Weapon/エターナルソード.png" id="1_55guq"]
-[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_55guq"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/ResWeapon.gd" id="2_55guq"]
 [ext_resource type="PackedScene" uid="uid://ce1kjniwtv0vj" path="res://Weapon/New/eternal_sword.tscn" id="2_w2k5w"]
 
 [resource]

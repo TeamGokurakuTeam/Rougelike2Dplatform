@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_2ir46"]
 [ext_resource type="Script" uid="uid://bjf7wxt4iwfi" path="res://Scene/DarkSamurai.gd" id="2_65rjy"]
 [ext_resource type="Script" uid="uid://dcrfducj3u6yx" path="res://Scene/DarkSamuraiIdle.gd" id="3_lefgm"]
-[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_xclgv"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/ResWeapon.gd" id="3_xclgv"]
 [ext_resource type="Script" uid="uid://cpoltudiipp7m" path="res://Scene/DarkSamuraiWalk.gd" id="4_xclgv"]
 [ext_resource type="Script" uid="uid://bvakei6ebuv84" path="res://Scene/DarkSamuraiAttack.gd" id="5_tmy0u"]
 [ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="5_xclgv"]

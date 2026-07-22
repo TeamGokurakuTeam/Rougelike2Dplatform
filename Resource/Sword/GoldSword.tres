@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://c7ajsldtc2w58"]
 
 [ext_resource type="PackedScene" uid="uid://bi433fo8wl3ca" path="res://Weapon/Old/gold_sword.tscn" id="1_1j6ql"]
-[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_ww5hl"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/ResWeapon.gd" id="3_ww5hl"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sgrpx"]
 
