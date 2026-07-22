@@ -16,6 +16,9 @@ var transition_offset_tween : Tween
 var current_camera : Camera2D
 
 func _ready() -> void:
+	#Add
+	GameEvents.request_scene_change.connect(_on_request_scene_change)
+	
 	current_camera = main_camera
 	main_camera.make_current()
 	transition_tween = create_tween()
@@ -53,8 +56,17 @@ func change_camera(target_camera: Camera2D) -> void:
 	transition_offset_tween = create_tween()
 	transition_offset_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	transition_offset_tween.tween_property(target_camera, "offset", final_offset, 0.8)
-
 	current_camera = target_camera
+#Add(scene移動)
+func _on_request_scene_change(scene: PackedScene):
+	var transition := $PlayerUI/Parent/Transition
+	var tween := create_tween()
+	tween.tween_property(transition.material, "shader_parameter/progress", 1.0, 1.0)
+	await tween.finished
+	get_tree().change_scene_to_packed(scene)
+	var tween2 := create_tween()
+	tween2.tween_property(transition.material, "shader_parameter/progress", 0.0, 1.0)
+	await tween2.finished
 
 func _on_risk_selected(id : String) -> void:
 	if id == "EnemyAttackInc":

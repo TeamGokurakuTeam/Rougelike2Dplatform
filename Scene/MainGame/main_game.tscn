@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0f5n711eyibd" path="res://Assets/BackGround/1.png" id="7_2ns5o"]
 [ext_resource type="Texture2D" uid="uid://dvqkb5s8smq1p" path="res://Assets/BackGround/2.png" id="8_t5ou6"]
 [ext_resource type="Texture2D" uid="uid://clgkqf0rfktdb" path="res://Assets/BackGround/3.png" id="9_50dfd"]
+[ext_resource type="Script" uid="uid://ct166xnim5j78" path="res://Scene/MainGame/Parent.gd" id="9_n14k5"]
 [ext_resource type="Texture2D" uid="uid://d2hpdmvxqrhvk" path="res://Assets/BackGround/4.png" id="10_4lo75"]
 [ext_resource type="Texture2D" uid="uid://cy7y1qvpstcyl" path="res://Assets/BackGround/5.png" id="11_1shb2"]
 [ext_resource type="Script" uid="uid://bqa23sw42pwvk" path="res://Scene/MainGame/bgm_changer.gd" id="11_50dfd"]
@@ -16,6 +17,58 @@
 [ext_resource type="AudioStream" uid="uid://fmkya4o1cxob" path="res://Assets/Music/PerituneMaterial_Gothic_Dark_loop.mp3" id="13_4lo75"]
 [ext_resource type="AudioStream" uid="uid://cva8xydyvx4r8" path="res://Assets/Music/Yooh - Decoy.mp3" id="14_1shb2"]
 [ext_resource type="Script" uid="uid://c7ox6e5n2d6j1" path="res://camera.gd" id="16_1shb2"]
+
+[sub_resource type="Animation" id="Animation_5kq56"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n14k5"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ki1mi"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5kq56"]
+_data = {
+&"RESET": SubResource("Animation_5kq56"),
+&"fade_in": SubResource("Animation_n14k5"),
+&"fade_out": SubResource("Animation_ki1mi")
+}
 
 [node name="MainGame" type="Node2D" unique_id=334667216]
 script = ExtResource("1_ga214")
@@ -60,7 +113,14 @@ centered = false
 texture = ExtResource("12_n14k5")
 centered = false
 
+[node name="PlayerUI_Parent_Control#AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1390604606]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_5kq56")
+
 [node name="PlayerUI" parent="." unique_id=1814325200 instance=ExtResource("2_8fymo")]
+
+[node name="Parent" parent="PlayerUI" index="0" unique_id=559341666]
+script = ExtResource("9_n14k5")
 
 [node name="RichTextLabel" parent="PlayerUI/Parent/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]
 scroll_active = false

@@ -65,6 +65,7 @@ func room_generate() -> void:
 			room_data[i][j] = room_node
 			room_node.main_game_node = self.main_game_node
 			add_child(room_node)
+			
 			room_node.global_position = Vector2(j * ROOM_DISTANCE, i * ROOM_DISTANCE)
 		
 	for i in 3:

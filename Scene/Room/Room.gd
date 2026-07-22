@@ -16,7 +16,7 @@ func _ready() -> void:
 	for node in doors.get_children():
 		var door : Door = node as Door
 		door.exit_door_player_entered.connect(_on_exit_door_player_entered)
-	hide_wall.player = main_game_node.player
+	#hide_wall.player = main_game_node.player
 
 func _process(delta: float) -> void:
 	pass

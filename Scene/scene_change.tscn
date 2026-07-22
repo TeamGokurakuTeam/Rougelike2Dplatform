@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d3btq3qwnu4u3"]
+
+[ext_resource type="Script" path="res://SceneChange.gd" id="1_j64hr"]
+[ext_resource type="PackedScene" uid="uid://bxuh52qgeq7ed" path="res://Scene/Room/Floor1/enemy_room_006.tscn" id="2_3xfyc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgmmx"]
+size = Vector2(24, 32)
+
+[node name="SceneChange" type="StaticBody2D" unique_id=1582076124]
+script = ExtResource("1_j64hr")
+scene_to_load = ExtResource("2_3xfyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11463447]
+shape = SubResource("RectangleShape2D_75vwg")
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=1502509354]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=367383715]
+shape = SubResource("RectangleShape2D_lgmmx")
+debug_color = Color(0.60185444, 0.54280263, 0.02717, 0.41960785)
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

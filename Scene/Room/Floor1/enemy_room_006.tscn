@@ -54,3 +54,6 @@ is_random = true
 position = Vector2(576, 176)
 enemys = Array[PackedScene]([ExtResource("6_u0w5x"), ExtResource("5_6l0hs")])
 is_random = true
+
+[node name="SpawnPoint" type="Marker2D" parent="." index="3" unique_id=9615772]
+position = Vector2(78, 181)
