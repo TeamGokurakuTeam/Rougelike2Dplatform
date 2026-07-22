@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c3u1pnmy8cqbl"]
+
+[ext_resource type="Script" path="res://Scene/TeleportPoint.gd" id="1_ims8s"]
+[ext_resource type="PackedScene" uid="uid://bxuh52qgeq7ed" path="res://Scene/Room/Floor1/enemy_room_006.tscn" id="2_wrjel"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgmmx"]
+size = Vector2(32, 32)
+
+[node name="TeleportPoint" type="StaticBody2D" unique_id=795322288]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_ims8s")
+scene_to_load = ExtResource("2_wrjel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1702672483]
+shape = SubResource("RectangleShape2D_75vwg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=176520724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=675883668]
+shape = SubResource("RectangleShape2D_lgmmx")
+debug_color = Color(0.69174373, 0.4975158, 5.7756904e-07, 0.41960785)

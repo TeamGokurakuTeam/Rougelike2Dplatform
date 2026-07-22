@@ -13,6 +13,10 @@ var can_spawn_range_slash: bool = false
 var hit_position: Vector2 = Vector2.ZERO
 var hit_happened: bool = false
 
+# バウンド設定
+var bounce_speed_multiplier := 1.1
+var max_speed := 800
+
 func _ready() -> void:
 	if animation_player:
 		animation_player.play("RollDuck")
@@ -33,13 +37,28 @@ func _enable_spawn() -> void:
 	monitoring = true
 	monitorable = true
 
+
 func _physics_process(delta: float) -> void:
 	velocity.y += duck_gravity * delta
 	global_position += velocity * delta
+	var space_state := get_world_2d().direct_space_state
+	var params := PhysicsRayQueryParameters2D.create(
+		global_position,
+		global_position + velocity.normalized() * 10
+	)
+	var result := space_state.intersect_ray(params)
+	if result.size() > 0:
+		_bounce(result.normal)
 
 func _process(delta: float) -> void:
 	if not hit_happened:
 		hit_position = global_position
+
+func _bounce(normal: Vector2) -> void:
+	velocity = velocity.bounce(normal)
+	velocity *= bounce_speed_multiplier
+	if velocity.length() > max_speed:
+		velocity = velocity.normalized() * max_speed
 
 func _on_hitbox_entered(area: Area2D) -> void:
 	if area is Hurtbox:

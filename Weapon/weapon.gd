@@ -173,6 +173,10 @@ func attack_trigger_modifier() -> void:
 #アヒル
 	if modifiers_ids.has("Slash_Duck"):
 		slashduck()
+#アヒルバウンス
+	if modifiers_ids.has("Bounce_Duck"):
+		bounceduck()
+
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -376,6 +380,22 @@ func slashduck() -> void:
 		var random_y := randf_range(min_speed_y, max_speed_y)
 		duck.velocity = Vector2(random_x, random_y)
 		get_tree().root.add_child(duck)
+
+#アヒルバウンス
+func bounceduck() -> void:
+	var duck: Node2D = DUCK_SLASH.instantiate()
+	duck.global_position = player.global_position
+	var dir = sign(mouse_direction.x)
+	if dir == 0:
+		dir = 1
+	var random_x = randf_range(150, 300) * dir
+	var random_y := randf_range(-300, -150)
+	duck.velocity = Vector2(random_x, random_y)
+	duck.bounce_speed_multiplier = 1.1
+	duck.max_speed = 800
+
+	get_tree().root.add_child(duck)
+
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
