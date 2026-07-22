@@ -23,6 +23,31 @@
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="17_g65ee"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="18_eorfy"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="19_gtcqy"]
+[ext_resource type="Script" uid="uid://ch512uy2h46" path="res://Resource/HealItem.gd" id="20_3vkcm"]
+[ext_resource type="Texture2D" uid="uid://b4ajsbuis2dvs" path="res://Assets/heal.png" id="21_k6ln2"]
+[ext_resource type="Texture2D" uid="uid://bdlhjl0c6kuh2" path="res://Assets/MegaHeal.png" id="22_c1s7b"]
+[ext_resource type="Texture2D" uid="uid://qymevfk0llni" path="res://Assets/GoldenHeal.png" id="23_5fsnv"]
+
+[sub_resource type="Resource" id="Resource_k3wsv"]
+script = ExtResource("20_3vkcm")
+name = "回復の瓶"
+heal_amount = 10.0
+texture = ExtResource("21_k6ln2")
+id = "HealPotion"
+
+[sub_resource type="Resource" id="Resource_msd36"]
+script = ExtResource("20_3vkcm")
+name = "回復の大瓶"
+heal_amount = 25.0
+texture = ExtResource("22_c1s7b")
+id = "MegaHealPotion"
+
+[sub_resource type="Resource" id="Resource_7vq82"]
+script = ExtResource("20_3vkcm")
+name = "金色の回復の瓶"
+heal_amount = 50.0
+texture = ExtResource("23_5fsnv")
+id = "GoldenHealPotion"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eijg2"]
 atlas = ExtResource("3_50hei")
@@ -387,6 +412,7 @@ Jump_up = -350.0
 Jump_speed = 300.0
 frog = NodePath(".")
 mod_resource = Array[ExtResource("3_u54ru")]([ExtResource("4_7blbc"), ExtResource("5_xommu"), ExtResource("6_yu77f"), ExtResource("7_3vkcm"), ExtResource("8_k6ln2"), ExtResource("9_c1s7b"), ExtResource("10_5fsnv"), ExtResource("11_k3wsv"), ExtResource("12_msd36"), ExtResource("13_7vq82"), ExtResource("14_qwje7"), ExtResource("15_p1xvw"), ExtResource("16_wdhsk"), ExtResource("17_g65ee"), ExtResource("18_eorfy"), ExtResource("19_gtcqy")])
+heal_resource = Array[ExtResource("20_3vkcm")]([SubResource("Resource_k3wsv"), SubResource("Resource_msd36"), SubResource("Resource_7vq82")])
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")

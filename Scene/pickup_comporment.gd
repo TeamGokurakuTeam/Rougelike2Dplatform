@@ -19,7 +19,14 @@ func _process(delta: float) -> void:
 		collision_shape_2d.disabled = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is DropItem and character.weapon_resource_ids.size() <= 0:
+	if body is DropHealItem:
+		var drop_heal_item : DropHealItem = (body as DropHealItem)
+		if drop_heal_item == null and drop_heal_item.item_res == null:
+			return
+		character.hp_component.hp += drop_heal_item.item_res.heal_amount
+		DamageNumber.display_number(drop_heal_item.item_res.heal_amount, character.global_position, false, Color("00ffa7"))
+		body.queue_free()
+	elif body is DropItem and character.weapon_resource_ids.size() <= 0:
 		character.weapon_resource_ids.append((body as DropItem).resource.Id)
 		character.current_weapon = character.weapon_resource_ids.size() - 1
 		character.merge_weapon((body as DropItem).resource.Id)

@@ -3,6 +3,12 @@ class_name Enemy
 
 const DROP_ITEM = preload("uid://dy6pxaf7y18u7")
 const DROP_MODIFIER = preload("uid://b47iwp7p6b4wk")
+const DROP_HEAL_ITEM = preload("uid://d4cyex0no1ifo")
+
+const HEAL_POTION = preload("uid://bimvibq616b67")
+const MEGA_HEAL_POTION = preload("uid://c0b623boq2p7d")
+const GOLDEN_HEAL_POTION = preload("uid://bcx3wero7oylu")
+
 
 @export var item_resource : Array[ResourceItem]
 @export var mod_resource : Array[ModifierResource]
@@ -29,12 +35,12 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = true
 
 func _on_hp_component_is_dead() -> void:
-	#killed_drop_item()
+	killed_drop_item()
 	killed_drop_modifier()
 	queue_free()
 
 func killed_drop_modifier() -> void:
-	if mod_resource.size() <= 0:
+	if mod_resource.size() <= 0 and randi_range(1, 100) <= 90:
 		return
 	var drop_mod : DropModifier = DROP_MODIFIER.instantiate()
 	drop_mod.modifier = mod_resource.pick_random()
@@ -42,12 +48,23 @@ func killed_drop_modifier() -> void:
 	drop_mod.global_position = Vector2(self.global_position)
 
 func killed_drop_item() -> void:
+	if randi_range(1, 100) <= 30: #30は回復全体が出る確率
+		var drop_heal : DropHealItem = DROP_HEAL_ITEM.instantiate()
+		drop_heal.item_res = HEAL_POTION
+		if randi_range(1, 100) <= 40: #40より下はより高Tierな回復の抽選
+			drop_heal.item_res = MEGA_HEAL_POTION
+		if randi_range(1, 100) <= 2:
+			drop_heal.item_res = GOLDEN_HEAL_POTION
+		get_tree().root.add_child(drop_heal)
+		drop_heal.global_position = Vector2(global_position.x, global_position.y + 15)
+	
 	if item_resource.size() <= 0:
 		return
 	var drop_item : DropItem = DROP_ITEM.instantiate()
 	drop_item.resource = item_resource.pick_random()
 	get_tree().root.add_child(drop_item)
 	drop_item.global_position = Vector2(self.global_position.x, self.global_position.y + 15)
+		
 
 func increment_damage(value : float) -> void:
 	for i in hitboxes_array.size():

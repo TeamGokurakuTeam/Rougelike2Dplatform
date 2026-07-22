@@ -27,6 +27,31 @@
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="17_71v1d"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="18_wm8gy"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="19_nlvrf"]
+[ext_resource type="Script" uid="uid://ch512uy2h46" path="res://Resource/HealItem.gd" id="20_givpb"]
+[ext_resource type="Texture2D" uid="uid://b4ajsbuis2dvs" path="res://Assets/heal.png" id="21_agw15"]
+[ext_resource type="Texture2D" uid="uid://bdlhjl0c6kuh2" path="res://Assets/MegaHeal.png" id="22_ko1ff"]
+[ext_resource type="Texture2D" uid="uid://qymevfk0llni" path="res://Assets/GoldenHeal.png" id="23_i0jfb"]
+
+[sub_resource type="Resource" id="Resource_nd5ah"]
+script = ExtResource("20_givpb")
+name = "回復の瓶"
+heal_amount = 10.0
+texture = ExtResource("21_agw15")
+id = "HealPotion"
+
+[sub_resource type="Resource" id="Resource_x6id8"]
+script = ExtResource("20_givpb")
+name = "回復の大瓶"
+heal_amount = 25.0
+texture = ExtResource("22_ko1ff")
+id = "MegaHealPotion"
+
+[sub_resource type="Resource" id="Resource_ofyuj"]
+script = ExtResource("20_givpb")
+name = "金色の回復の瓶"
+heal_amount = 50.0
+texture = ExtResource("23_i0jfb")
+id = "GoldenHealPotion"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3uev"]
 atlas = ExtResource("9_ayh16")
@@ -247,6 +272,7 @@ radius = 84.095184
 z_index = 1
 script = ExtResource("2_utyoy")
 mod_resource = Array[ExtResource("3_6x5c0")]([ExtResource("4_31mju"), ExtResource("5_ij36c"), ExtResource("6_wp27o"), ExtResource("7_givpb"), ExtResource("8_agw15"), ExtResource("9_ko1ff"), ExtResource("10_i0jfb"), ExtResource("11_nd5ah"), ExtResource("12_x6id8"), ExtResource("13_ofyuj"), ExtResource("14_ir5dc"), ExtResource("15_6dg78"), ExtResource("16_ryqoi"), ExtResource("17_71v1d"), ExtResource("18_wm8gy"), ExtResource("19_nlvrf")])
+heal_resource = Array[ExtResource("20_givpb")]([SubResource("Resource_nd5ah"), SubResource("Resource_x6id8"), SubResource("Resource_ofyuj")])
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Wander")
