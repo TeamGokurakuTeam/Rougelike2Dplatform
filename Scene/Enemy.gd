@@ -4,7 +4,7 @@ class_name Enemy
 const DROP_ITEM = preload("uid://dy6pxaf7y18u7")
 const DROP_MODIFIER = preload("uid://b47iwp7p6b4wk")
 
-@export var item_resource : Array[ResourceItem]
+@export var item_resource : Array[ResourceWeapon]
 @export var mod_resource : Array[ModifierResource]
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -44,7 +44,7 @@ func killed_drop_modifier() -> void:
 func killed_drop_item() -> void:
 	if item_resource.size() <= 0:
 		return
-	var drop_item : DropItem = DROP_ITEM.instantiate()
+	var drop_item : DropWeapon = DROP_ITEM.instantiate()
 	drop_item.resource = item_resource.pick_random()
 	get_tree().root.add_child(drop_item)
 	drop_item.global_position = Vector2(self.global_position.x, self.global_position.y + 15)

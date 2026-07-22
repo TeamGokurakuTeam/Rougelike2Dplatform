@@ -1,7 +1,7 @@
 extends Panel
 class_name InventoryPanel
 
-@export var resource : ResourceItem
+@export var resource : ResourceWeapon
 
 @onready var select: Panel = $Select
 @onready var texture_rect: TextureRect = $TextureRect

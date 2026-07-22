@@ -1,7 +1,7 @@
 extends CharacterBody2D
-class_name DropItem
+class_name DropWeapon
 
-@export var resource : ResourceItem
+@export var resource : ResourceWeapon
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 

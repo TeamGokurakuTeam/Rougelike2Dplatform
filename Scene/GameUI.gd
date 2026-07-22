@@ -45,7 +45,7 @@ func _on_character_modifier_updated(player: Player) -> void:
 		if i >= player.weapon_resource_ids.size() or i < 0:
 			node.resource = null
 		else:
-			var resource : ResourceItem = GlobalResourceLoader.item_cache[player.weapon_resource_ids[i]]
+			var resource : ResourceWeapon = GlobalResourceLoader.item_cache[player.weapon_resource_ids[i]]
 			node.resource = resource
 		node.update(player.current_weapon == i)
 

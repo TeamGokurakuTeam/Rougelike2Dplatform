@@ -1,5 +1,5 @@
 extends Resource
-class_name ResourceItem
+class_name ResourceWeapon
 
 @export var Sprite : Texture ##武器の画像を貼る
 @export var Id : String ##参照するための武器のID。これは英名で書いてください。
