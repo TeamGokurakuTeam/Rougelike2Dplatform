@@ -216,10 +216,6 @@ func player_dash() -> void:
 	await get_tree().create_timer(0.4).timeout
 	current_acceleration = acceleration
 
-#Spikeダメージ
-func take_damage(amount : float) -> void:
-	hp_component.hp -= amount
-
 #region setter
 func _set_current_modifier(new_value : int) -> void:
 	if mod_resource_ids.size() <= 0:

@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://hesqia078ur6" path="res://Assets/lightning/lightning/lightning_v2_13.png" id="14_lvel1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
-size = Vector2(20, 16.882025)
+size = Vector2(20, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_quuo0"]
 atlas = ExtResource("2_88m6l")
@@ -267,6 +267,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Hitbox/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.53333336, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(20, 2.9494386), Vector2(20, 5.475657), Vector2(20, 11.37641), Vector2(20, 11.797757)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Hitbox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.40000004, 0.53333336, 0.6333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 61.5), Vector2(0, 56.493332), Vector2(0, 44.5), Vector2(0, 70), Vector2(0, 71)]
+}
 
 [sub_resource type="Animation" id="Animation_quuo0"]
 length = 0.001
@@ -294,6 +318,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Hitbox/CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Hitbox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 61.5)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3888f"]
 _data = {
@@ -312,8 +360,8 @@ collision_mask = 5
 is_continuous = true
 damage_multiplier = 0.0
 
-[node name="CollisionShape2D" parent="Pivot/Hitbox" index="0"]
-position = Vector2(0, 59.900013)
+[node name="CollisionShape2D" parent="Pivot/Hitbox" index="0" unique_id=1399399970]
+position = Vector2(0, 61.5)
 scale = Vector2(1, 7.1199975)
 shape = SubResource("RectangleShape2D_75vwg")
 

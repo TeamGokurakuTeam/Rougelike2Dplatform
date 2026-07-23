@@ -1,8 +1,6 @@
 extends Control
 class_name TitleUI
 
-const MAIN_GAME = preload("uid://b4i3w233507yf")
-
 @export var max_value_db : int = 3
 
 @onready var bgm_slider: HSlider = $OptionPanel/Sound/BGMSlider
@@ -21,7 +19,10 @@ var is_open : bool
 var option_tween : Tween
 var start_tween : Tween
 
+var main_game_scene : PackedScene
+
 func _ready() -> void:
+	main_game_scene = load("uid://b4i3w233507yf")
 	black.visible = false
 	(transition.material as ShaderMaterial).set_shader_parameter("progress", 0.0)
 	bgm_index = AudioServer.get_bus_index("BGM")
@@ -61,7 +62,7 @@ func _on_start_pressed() -> void:
 	start_tween.tween_property(audio_stream_player, "volume_db", -50, 0.5)
 	await start_tween.finished
 	black.visible = true
-	get_tree().change_scene_to_packed(MAIN_GAME)
+	get_tree().change_scene_to_packed(main_game_scene)
 
 func _on_vsync_toggled(toggled_on: bool) -> void:
 	if toggled_on:
