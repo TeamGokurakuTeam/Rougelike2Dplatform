@@ -1,27 +1,36 @@
 extends Area2D
 class_name DuckProjectile
 
-@export var timer: Timer
-@export var animation_player: AnimationPlayer
-@export var range_slash_scene: PackedScene
-@export var damage: float = 3.0
+@export var timer : Timer
+@export var animation_player : AnimationPlayer
+@export var range_slash_scene : PackedScene
+@export var damage: float = 1.0
+@export var is_explosion : bool = false
+@export var duck_gravity : float = 900.0
+@export var bounce_speed_multiplier : float = 1.1
+@export var max_speed : float = 800
+
 @onready var hitbox: Hitbox = $Hitbox
+
 enum DuckType { NORMAL, BOUNCE }
 var velocity: Vector2 = Vector2.ZERO
-var duck_gravity: float = 900.0
+
 var can_spawn_range_slash: bool = false
 var hit_position: Vector2 = Vector2.ZERO
 var hit_happened: bool = false
 var duck_type: DuckType = DuckType.NORMAL
 var should_explode: bool = false
-var bounce_speed_multiplier := 1.1
-var max_speed := 800
 var enable_bounce: bool = false
 
+
 func _ready() -> void:
+	if duck_type == DuckType.NORMAL:
+		enable_bounce = false
+	else:
+		enable_bounce = true
 	if animation_player:
 		animation_player.play("RollDuck")
-	timer.start(1.0)
+	timer.start()
 	hitbox.damage = damage
 	hitbox.area_entered.connect(_on_hitbox_entered)
 	var delay := Timer.new()
@@ -39,6 +48,8 @@ func _enable_spawn() -> void:
 	monitorable = true
 
 func _physics_process(delta: float) -> void:
+	if is_explosion:
+		return
 	velocity.y += duck_gravity * delta
 	global_position += velocity * delta
 	if enable_bounce and duck_type == DuckType.BOUNCE:
