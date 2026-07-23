@@ -12,6 +12,8 @@
 [ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="10_okfkp"]
 [ext_resource type="Texture2D" uid="uid://bt8qlx45e0a01" path="res://Assets/GameOver.png" id="11_okfkp"]
 [ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="12_1pgos"]
+[ext_resource type="AudioStream" uid="uid://bghhfikimshyj" path="res://Assets/SoundEffect/UIOpen.mp3" id="13_w7iic"]
+[ext_resource type="AudioStream" uid="uid://si6hgmjjstg3" path="res://Assets/SoundEffect/UIClick.mp3" id="14_mgl1o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
 bg_color = Color(0.21590185, 0.21590167, 0.2159017, 1)
@@ -524,6 +526,7 @@ text = ":武器ステータス"
 label_settings = SubResource("LabelSettings_5hoxb")
 
 [node name="GameOver" type="Panel" parent="." unique_id=1010778895]
+visible = false
 z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -578,6 +581,17 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_n2h2g")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_gwm8q")
 disabled = true
 text = "Title"
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="." unique_id=2132370499]
+stream = ExtResource("13_w7iic")
+volume_db = -15.0
+pitch_scale = 0.85
+bus = &"UISound"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1693963837]
+stream = ExtResource("14_mgl1o")
+volume_db = -15.0
+bus = &"UISound"
 
 [connection signal="timeout" from="Parent/ModifierExplanation/Timer" to="Parent/ModifierExplanation" method="_on_timer_timeout"]
 [connection signal="pressed" from="GameOver/Retry" to="." method="_on_retry_pressed"]

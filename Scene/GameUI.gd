@@ -18,6 +18,9 @@ const MAIN_GAME = preload("uid://b4i3w233507yf")
 @onready var title: Button = $GameOver/Title
 @onready var game_over_panel: Panel = $GameOver
 
+@onready var open_sound: AudioStreamPlayer = $OpenSound
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+
 var player : Player
 
 var tween : Tween
@@ -31,6 +34,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if player == null:
+		return
 	if Input.is_action_just_pressed("UI_scroll_left"):
 		player.current_modifier += 1
 		mod_ui.texture_update(player)
@@ -39,6 +44,7 @@ func _process(delta: float) -> void:
 		mod_ui.texture_update(player)
 	if Input.is_action_just_pressed("UI_ShowMod"):
 		is_show_mod_ui = !is_show_mod_ui
+		open_sound.play()
 		if is_show_mod_ui:
 			weapon_modifier_ui.init_ui()
 			weapon_modifier_ui.load_modifier(player)
@@ -72,7 +78,7 @@ func transition_start() -> void:
 		tween.kill()
 	tween = create_tween()
 	(transition.material as ShaderMaterial).set_shader_parameter("progress", .0)
-	tween.tween_property(transition.material, "shader_parameter/progress", 1.0, 0.8)
+	tween.tween_property(transition.material, "shader_parameter/progress", 1.0, 0.4)
 	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
 func transition_back() -> void:
@@ -108,7 +114,11 @@ func game_over() -> void:
 	title.disabled = false
 
 func _on_retry_pressed() -> void:
+	click_sound.play()
+	await click_sound.finished
 	get_tree().change_scene_to_packed(MAIN_GAME)
 
 func _on_title_pressed() -> void:
+	click_sound.play()
+	await click_sound.finished
 	get_tree().change_scene_to_packed(TITLE)

@@ -248,8 +248,8 @@ func _on_ghost_timer_timeout() -> void:
 
 func _on_hp_component_is_dead() -> void:
 	main_game_node.player_ui.game_over()
+	main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.GAMEOVER)
 	self.queue_free()
-	
 
 func _on_cutscene_started() -> void:
 	input_enabled = false

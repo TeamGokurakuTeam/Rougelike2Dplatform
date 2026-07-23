@@ -4,12 +4,14 @@ class_name BGMChanger
 enum BGMType{
 	STAGE,
 	BATTLE,
-	BOSS
+	BOSS,
+	GAMEOVER
 }
 
 @export var stage_bgm : AudioStreamPlayer
 @export var battle_bgm : AudioStreamPlayer
 @export var boss_bgm : AudioStreamPlayer
+@export var gameover_bgm : AudioStreamPlayer
 @export var currnet_bgm_type : BGMType = BGMType.STAGE
 
 var is_mute : bool = false
@@ -47,6 +49,8 @@ func bgmtype_to_audiostreamplayer(type : BGMType) -> AudioStreamPlayer:
 			return battle_bgm
 		BGMType.BOSS:
 			return boss_bgm
+		BGMType.GAMEOVER:
+			return gameover_bgm
 		_:
 			print("BGMTYPEの変換中に例外処理に入りました")
 			return null
