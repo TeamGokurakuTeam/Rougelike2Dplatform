@@ -251,7 +251,9 @@ func _on_ghost_timer_timeout() -> void:
 	_dodge_roll_effect()
 
 func _on_hp_component_is_dead() -> void:
+	main_game_node.player_ui.game_over()
 	self.queue_free()
+	
 
 func _on_cutscene_started() -> void:
 	input_enabled = false

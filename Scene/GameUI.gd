@@ -1,6 +1,9 @@
 extends CanvasLayer
 class_name GameUI
 
+const TITLE = preload("uid://d15a301cfnn87")
+const MAIN_GAME = preload("uid://b4i3w233507yf")
+
 @onready var hotbar: HBoxContainer = $Parent/Hotbar
 @onready var mod_ui: ModUI = $Parent/ModUI
 @onready var modifier_timer: ModifierTimer = $Parent/ModifierTimer
@@ -10,6 +13,10 @@ class_name GameUI
 @onready var transition: ColorRect = $Parent/Transition
 @onready var parent: Control = $Parent
 @onready var weapon_modifier_ui: WeaponModifierUI = $WeaponModifierUI
+@onready var game_over_animation_player: AnimationPlayer = $GameOver/AnimationPlayer
+@onready var retry: Button = $GameOver/Retry
+@onready var title: Button = $GameOver/Title
+@onready var game_over_panel: Panel = $GameOver
 
 var player : Player
 
@@ -20,7 +27,7 @@ var is_show_mod_ui : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	game_over_panel.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -91,3 +98,17 @@ func ui_fade_out() -> void:
 	parent.modulate = Color("ffffff00")
 	fade_tween.tween_property(parent, "modulate", Color("ffffff"), 1.0)
 	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+func game_over() -> void:
+	game_over_panel.visible = true
+	player.input_enabled = false
+	game_over_animation_player.play("Start")
+	await game_over_animation_player.animation_finished
+	retry.disabled = false
+	title.disabled = false
+
+func _on_retry_pressed() -> void:
+	get_tree().change_scene_to_packed(MAIN_GAME)
+
+func _on_title_pressed() -> void:
+	get_tree().change_scene_to_packed(TITLE)

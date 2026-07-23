@@ -44,5 +44,6 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 		StateTransitioned.emit(self, "Attack")
 
 func _on_chase_timer_timeout() -> void:
-	set_target(player.global_position)
-	move_toward_player()
+	if player != null:
+		set_target(player.global_position)
+		move_toward_player()

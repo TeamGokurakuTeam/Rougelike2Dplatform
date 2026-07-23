@@ -22,6 +22,7 @@ func _ready() -> void:
 	transition_offset_tween = create_tween()
 	transition_zoom_tween = create_tween()
 	room_generator.main_game_node = self
+	player.main_game_node = self
 	room_generator.room_generate()
 	player.global_position = room_generator.lobby_room.player_marker.global_position
 	player_ui.player = self.player
