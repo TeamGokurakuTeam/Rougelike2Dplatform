@@ -95,3 +95,6 @@ is_random = true
 position = Vector2(352, 96)
 enemys = Array[PackedScene]([ExtResource("7_p7wrq")])
 is_random = true
+
+[node name="OneWay9" parent="." index="11" unique_id=866453005 instance=ExtResource("3_mh06q")]
+position = Vector2(584, 216)

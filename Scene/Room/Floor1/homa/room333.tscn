@@ -234,6 +234,7 @@ position = Vector2(136, 568)
 
 [node name="BouncePad5" parent="." index="20" unique_id=974110899 instance=ExtResource("9_m0q2n")]
 position = Vector2(704, 520)
+bounce_power = 500.0
 
 [node name="Fan2" parent="." index="21" unique_id=1652657260 instance=ExtResource("4_b28q0")]
 position = Vector2(667, 441.00003)
