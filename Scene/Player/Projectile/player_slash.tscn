@@ -169,7 +169,7 @@ rect = Rect2(-10, -10, 14.285714, 20)
 [node name="Hitbox" parent="." index="3" unique_id=2085938192]
 damage = 1.0
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1848104248]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_blufh")
 debug_color = Color(0.9962476, 0, 0.19900262, 0.41960785)

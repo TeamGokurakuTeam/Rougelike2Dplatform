@@ -8,7 +8,8 @@ const NORMAL_RATE : float = 1.0
 const PLAYER_FALL_SLASH : PackedScene = preload("uid://bjj3tflijfk6o")
 
 const PLAYER_RANGESLASH : PackedScene = preload("uid://dds7cl7iiu2wf")
-
+#アヒル
+const DUCK : PackedScene = preload("res://Scene/Player/Projectile/duck.tscn")
 
 @export var resource_id : String
 
@@ -49,6 +50,12 @@ var base_stats : Array[HitboxStat] = []
 var modifier_use_count: int = 0
 #
 var fall_slash_cooldown := 0.0
+
+
+# バウンド設定
+var bounce_speed_multiplier := 1.1
+var max_speed := 800
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -173,6 +180,13 @@ func attack_trigger_modifier() -> void:
 #重撃
 	if modifiers_ids.has("HeavyStrike"):
 		HeavyStrike()
+#アヒル
+	if modifiers_ids.has("Slash_Duck"):
+		slashduck()
+#アヒルバウンス
+	if modifiers_ids.has("Bounce_Duck"):
+		bounceduck()
+#アヒル爆弾
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -360,6 +374,35 @@ func HeavyStrike() -> void:
 	animation_player.speed_scale = 1.0
 	for i in hitboxes.size():
 		hitboxes[i].damage = hitboxes[i].damage_multiplier
+
+# アヒル
+func slashduck() -> void:
+	if randf() < 0.6:
+		var duck: DuckProjectile = DUCK.instantiate()
+		duck.duck_type = DuckProjectile.DuckType.NORMAL
+		duck.should_explode = modifiers_ids.has("Bomb_Duck")
+		duck.global_position = player.global_position
+		var dir = sign(mouse_direction.x)
+		if dir == 0: dir = 1
+		var random_x: float = randf_range(100, 350) * dir
+		var random_y: float = randf_range(-350, -300)
+		duck.velocity = Vector2(random_x, random_y)
+		get_tree().root.add_child(duck)
+
+# アヒルバウンス
+func bounceduck() -> void:
+	var duck: DuckProjectile = DUCK.instantiate()
+	duck.duck_type = DuckProjectile.DuckType.BOUNCE
+	duck.bounce_speed_multiplier = 1.1
+	duck.max_speed = 800
+	duck.should_explode = modifiers_ids.has("Bomb_Duck")
+	duck.global_position = player.global_position
+	var dir = sign(mouse_direction.x)
+	if dir == 0: dir = 1
+	var random_x: float = randf_range(150, 300) * dir
+	var random_y: float = randf_range(-300, -150)
+	duck.velocity = Vector2(random_x, random_y)
+	get_tree().root.add_child(duck)
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
