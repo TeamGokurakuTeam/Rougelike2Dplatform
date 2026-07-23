@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cq67rdschcqqh"]
+
+[ext_resource type="Texture2D" uid="uid://icbmrklmhvc8" path="res://Assets/UI/ObeliskPanel.png" id="1_1kt8r"]
+[ext_resource type="Script" uid="uid://mmklm8e1o4dx" path="res://comment_monument.gd" id="1_jsrpc"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="3_i743h"]
+[ext_resource type="Texture2D" uid="uid://bldxpebbei5hi" path="res://Assets/Keyboard Letters and Symbols.png" id="4_j1rsw"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="4_pahh7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
+atlas = ExtResource("1_1kt8r")
+region = Rect2(0, 0, 64, 98)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jhy2k"]
+height = 44.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hoxb"]
+atlas = ExtResource("4_j1rsw")
+region = Rect2(33, 66, 13, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gj3l6"]
+font = ExtResource("4_pahh7")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("3_i743h")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+font = ExtResource("4_pahh7")
+font_size = 12
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Monument" type="Node2D" unique_id=1371788584]
+script = ExtResource("1_jsrpc")
+visible_second = 3.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=125403830]
+z_index = 4
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_jhy2k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=940449278]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=866674017]
+z_index = 4
+shape = SubResource("CapsuleShape2D_jhy2k")
+
+[node name="Panel" type="Panel" parent="." unique_id=619267015]
+z_index = 4
+offset_left = -57.0
+offset_top = -118.0
+offset_right = 64.0
+offset_bottom = -28.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1587647720]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 91.0
+offset_right = 8.642858
+offset_bottom = 100.0
+texture = SubResource("AtlasTexture_5hoxb")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel/TextureRect" unique_id=607836691]
+z_index = 4
+layout_mode = 0
+offset_left = 11.0
+offset_right = 51.0
+offset_bottom = 23.0
+text = ": Skip"
+label_settings = SubResource("LabelSettings_gj3l6")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1601453586]
+z_index = 4
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_jhy2k")
+autowrap_mode = 1
+
+[node name="Press" type="Label" parent="." unique_id=1058855850]
+z_index = 4
+offset_left = -31.0
+offset_top = -11.0
+offset_right = 36.0
+offset_bottom = 12.0
+text = "Press \"S\""
+label_settings = SubResource("LabelSettings_5hoxb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

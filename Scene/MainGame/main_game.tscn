@@ -109,6 +109,7 @@ position = Vector2(0, -38)
 energy = 0.16
 blend_mode = 1
 shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="TransitionCamera" type="Camera2D" parent="." unique_id=1248579436]
 position = Vector2(0, -38)
