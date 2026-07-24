@@ -5,9 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="1_nn2l1"]
 [ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="2_5qay0"]
 [ext_resource type="Texture2D" uid="uid://bjq1r0cdrogty" path="res://Assets/UI/FreeButtons.png" id="2_gcboo"]
-[ext_resource type="Texture2D" uid="uid://bv3ptchjq5mc1" path="res://Assets/Magic-Tower4.jpg" id="2_p5xl0"]
+[ext_resource type="Texture2D" uid="uid://brdx3ysls5v5c" path="res://Assets/BackGround/Title/Clouds 8/1.png" id="2_utuk5"]
+[ext_resource type="Texture2D" uid="uid://dsppl45ocqrxm" path="res://Assets/BackGround/Title/62_20260723152859.png" id="3_ug1v6"]
+[ext_resource type="Texture2D" uid="uid://y6ygprm1damj" path="res://Assets/BackGround/Title/Clouds 8/2.png" id="4_s62xd"]
+[ext_resource type="Texture2D" uid="uid://c64q85busmy0v" path="res://Assets/BackGround/Title/Clouds 8/3.png" id="5_ubkjg"]
+[ext_resource type="Texture2D" uid="uid://82ldxaulpjfy" path="res://Assets/BackGround/Title/62_20260723152921.png" id="6_lyk32"]
 [ext_resource type="AudioStream" uid="uid://ck34jd4lbre1h" path="res://Assets/Music/PerituneMaterial_Conjurer_loop.mp3" id="6_p6i14"]
 [ext_resource type="Shader" uid="uid://ces7mkd1ea685" path="res://Scene/Transition.gdshader" id="7_xriko"]
+[ext_resource type="Texture2D" uid="uid://dlhom3copqynk" path="res://Assets/BackGround/Title/62_20260723152912.png" id="7_yuseb"]
+[ext_resource type="Texture2D" uid="uid://crlm04ww6qakj" path="res://Assets/BackGround/Title/62_20260723152930.png" id="8_l6q45"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xijl7"]
 texture = ExtResource("1_nn2l1")
@@ -176,24 +182,62 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5qay0")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=127084988]
-self_modulate = Color(0.70380783, 0.70380783, 0.70380783, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.375
-anchor_top = -1.375
-anchor_right = 2.375
-anchor_bottom = 2.375
-offset_left = 704.0
-offset_top = 396.0
-offset_right = -704.0
-offset_bottom = -396.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_p5xl0")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
+[node name="Node2D" type="Node2D" parent="." unique_id=425569111]
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=1124963305]
+self_modulate = Color(0.61339027, 0.61339027, 0.61339027, 1)
+position = Vector2(264, 144)
+texture = ExtResource("2_utuk5")
+
+[node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=35140666]
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(5, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D" unique_id=757059633]
+position = Vector2(271, 144)
+texture = ExtResource("3_ug1v6")
+
+[node name="Parallax2D5" type="Parallax2D" parent="Node2D" unique_id=1318450245]
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D5" unique_id=1798784544]
+self_modulate = Color(0.33333334, 0.3254902, 0.47843137, 1)
+position = Vector2(261, 129)
+texture = ExtResource("4_s62xd")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Node2D" unique_id=1438066597]
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(12, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2" unique_id=547150314]
+self_modulate = Color(0.7357125, 0.9999997, 0.9810192, 1)
+position = Vector2(250, 129)
+texture = ExtResource("5_ubkjg")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Node2D" unique_id=1793008757]
+scroll_offset = Vector2(-45, 34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4" unique_id=667155554]
+position = Vector2(431, 109)
+texture = ExtResource("6_lyk32")
+
+[node name="Parallax2D6" type="Parallax2D" parent="Node2D" unique_id=351523850]
+scroll_offset = Vector2(-45, 34)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D6" unique_id=1674105334]
+position = Vector2(431, 109)
+texture = ExtResource("6_lyk32")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1368147883]
+self_modulate = Color(0.6645101, 0.66451, 0.66451, 1)
+position = Vector2(261, 152)
+texture = ExtResource("7_yuseb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=1328608685]
+position = Vector2(256, 144)
+scale = Vector2(1.03, 1.03)
+texture = ExtResource("8_l6q45")
 
 [node name="OptionPanel" type="Panel" parent="." unique_id=2140415352]
 layout_mode = 0

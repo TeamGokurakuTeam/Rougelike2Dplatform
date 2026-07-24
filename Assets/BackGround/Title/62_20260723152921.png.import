@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv3ptchjq5mc1"
-path="res://.godot/imported/Magic-Tower4.jpg-3dcb47309657052211e57274748be4f6.ctex"
+uid="uid://82ldxaulpjfy"
+path="res://.godot/imported/62_20260723152921.png-5ffaee6a3edeb932163dd741915ac546.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Magic-Tower4.jpg"
-dest_files=["res://.godot/imported/Magic-Tower4.jpg-3dcb47309657052211e57274748be4f6.ctex"]
+source_file="res://Assets/BackGround/Title/62_20260723152921.png"
+dest_files=["res://.godot/imported/62_20260723152921.png-5ffaee6a3edeb932163dd741915ac546.ctex"]
 
 [params]
 
