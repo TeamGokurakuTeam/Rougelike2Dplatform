@@ -8,6 +8,12 @@ class_name Hitbox
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+@export var is_active : bool = true :
+	set(value):
+		is_active = value
+		if collision_shape:
+			collision_shape.disabled = not value
+
 var knockback_direction : Vector2 = Vector2.ZERO
 var is_body_inside : bool = false
 
