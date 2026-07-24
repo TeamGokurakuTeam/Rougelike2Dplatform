@@ -106,35 +106,35 @@ position = Vector2(152, 208)
 rotation = 3.1415927
 scale = Vector2(2, 2)
 
-[node name="RotatingBeam" parent="." index="11" unique_id=1288819283 instance=ExtResource("9_xx3xj")]
-position = Vector2(496, 152)
-scale = Vector2(0.3, 0.3)
-
-[node name="RotatingBeam2" parent="." index="12" unique_id=1083255194 instance=ExtResource("9_xx3xj")]
-position = Vector2(304, 152)
-rotation = 2.1083577
-scale = Vector2(0.3, 0.3)
-
-[node name="RotatingBeam3" parent="." index="13" unique_id=660940887 instance=ExtResource("9_xx3xj")]
-position = Vector2(152, 152.00002)
-rotation = 3.5657077
-scale = Vector2(0.3, 0.3)
-
-[node name="RotatingBeam4" parent="." index="14" unique_id=1957107150 instance=ExtResource("9_xx3xj")]
-position = Vector2(160.00002, 56)
-rotation = -1.2601277
-scale = Vector2(0.3, 0.3)
-rotate_speed = 30.0
-
-[node name="Launcher" parent="." index="15" unique_id=1827001644 instance=ExtResource("10_3p2nw")]
-position = Vector2(24, 80)
-projectile_scene = ExtResource("11_7k0oi")
-projectile_facing = Vector2(0, 1)
-
-[node name="MoveTile" parent="." index="16" unique_id=971770846 instance=ExtResource("12_hy7k6")]
+[node name="MoveTile" parent="." index="11" unique_id=971770846 instance=ExtResource("12_hy7k6")]
 position = Vector2(320, 56)
 
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 152, 0)
+
+[node name="Launcher" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1827001644 instance=ExtResource("10_3p2nw")]
+position = Vector2(24, 80)
+projectile_scene = ExtResource("11_7k0oi")
+projectile_facing = Vector2(0, 1)
+
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1288819283 instance=ExtResource("9_xx3xj")]
+position = Vector2(496, 152)
+scale = Vector2(0.3, 0.3)
+
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="2" unique_id=1083255194 instance=ExtResource("9_xx3xj")]
+position = Vector2(304, 152)
+rotation = 2.1083577
+scale = Vector2(0.3, 0.3)
+
+[node name="RotatingBeam3" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="3" unique_id=660940887 instance=ExtResource("9_xx3xj")]
+position = Vector2(152, 152.00002)
+rotation = -2.7174776
+scale = Vector2(0.3, 0.3)
+
+[node name="RotatingBeam4" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="4" unique_id=1957107150 instance=ExtResource("9_xx3xj")]
+position = Vector2(160.00002, 56)
+rotation = -1.2601277
+scale = Vector2(0.29999998, 0.29999998)
+rotate_speed = 30.0
 
 [editable path="MoveTile"]

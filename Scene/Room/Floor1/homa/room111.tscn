@@ -82,49 +82,49 @@ move_speed = 0.3
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -208, 0)
 
-[node name="RotatingBeam" parent="." index="8" unique_id=1288819283 instance=ExtResource("11_eysye")]
-position = Vector2(896, 352)
-rotation = 3.8519416
-scale = Vector2(0.7, 0.7)
-
-[node name="RotatingBeam2" parent="." index="9" unique_id=1862642723 instance=ExtResource("11_eysye")]
-position = Vector2(768, 352)
-rotation = -0.50963616
-scale = Vector2(0.7, 0.7)
-
-[node name="OneWay" parent="." index="10" unique_id=610867179 instance=ExtResource("12_csisj")]
+[node name="OneWay" parent="." index="8" unique_id=610867179 instance=ExtResource("12_csisj")]
 position = Vector2(728, 400)
 
-[node name="OneWay2" parent="." index="11" unique_id=569316472 instance=ExtResource("12_csisj")]
+[node name="OneWay2" parent="." index="9" unique_id=569316472 instance=ExtResource("12_csisj")]
 position = Vector2(832, 400)
 
-[node name="OneWay3" parent="." index="12" unique_id=388453997 instance=ExtResource("12_csisj")]
+[node name="OneWay3" parent="." index="10" unique_id=388453997 instance=ExtResource("12_csisj")]
 position = Vector2(808, 352)
 
-[node name="OneWay4" parent="." index="13" unique_id=492918649 instance=ExtResource("12_csisj")]
+[node name="OneWay4" parent="." index="11" unique_id=492918649 instance=ExtResource("12_csisj")]
 position = Vector2(856, 352)
 
-[node name="OneWay5" parent="." index="14" unique_id=627407523 instance=ExtResource("12_csisj")]
+[node name="OneWay5" parent="." index="12" unique_id=627407523 instance=ExtResource("12_csisj")]
 position = Vector2(896, 312)
 
-[node name="OneWay6" parent="." index="15" unique_id=1239562676 instance=ExtResource("12_csisj")]
+[node name="OneWay6" parent="." index="13" unique_id=1239562676 instance=ExtResource("12_csisj")]
 position = Vector2(768, 312)
 
-[node name="OneWay7" parent="." index="16" unique_id=1430184883 instance=ExtResource("12_csisj")]
+[node name="OneWay7" parent="." index="14" unique_id=1430184883 instance=ExtResource("12_csisj")]
 position = Vector2(936, 400)
 
-[node name="OneWay8" parent="." index="17" unique_id=2020046290 instance=ExtResource("12_csisj")]
+[node name="OneWay8" parent="." index="15" unique_id=2020046290 instance=ExtResource("12_csisj")]
 position = Vector2(696, 352)
 
-[node name="OneWay9" parent="." index="18" unique_id=1852884396 instance=ExtResource("12_csisj")]
+[node name="OneWay9" parent="." index="16" unique_id=1852884396 instance=ExtResource("12_csisj")]
 position = Vector2(952, 352)
 
-[node name="MoveTile2" parent="." index="19" unique_id=2081462739 instance=ExtResource("8_dvasd")]
+[node name="MoveTile2" parent="." index="17" unique_id=2081462739 instance=ExtResource("8_dvasd")]
 position = Vector2(224, 328)
 move_speed = 0.3
 
 [node name="Line2D" parent="MoveTile2" index="3" unique_id=2081624802]
 points = PackedVector2Array(-104, 0, 152, 0)
+
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("11_eysye")]
+position = Vector2(896, 352)
+rotation = -2.4312437
+scale = Vector2(0.7, 0.7)
+
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1862642723 instance=ExtResource("11_eysye")]
+position = Vector2(768, 352)
+rotation = -0.50963616
+scale = Vector2(0.7, 0.7)
 
 [editable path="MoveTile"]
 [editable path="MoveTile2"]

@@ -190,47 +190,38 @@ move_speed = 0.7
 [node name="Line2D" parent="MoveTile3" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -80, 0)
 
-[node name="RotatingBeam" parent="." index="10" unique_id=1288819283 instance=ExtResource("8_nxo0y")]
-position = Vector2(304, 96)
-scale = Vector2(0.5, 0.5)
-
-[node name="BouncePad" parent="." index="11" unique_id=1611631856 instance=ExtResource("9_m0q2n")]
+[node name="BouncePad" parent="." index="10" unique_id=1611631856 instance=ExtResource("9_m0q2n")]
 position = Vector2(488, 104)
 
-[node name="BouncePad2" parent="." index="12" unique_id=1253530285 instance=ExtResource("9_m0q2n")]
+[node name="BouncePad2" parent="." index="11" unique_id=1253530285 instance=ExtResource("9_m0q2n")]
 position = Vector2(624, 104)
 
-[node name="Spike" parent="." index="13" unique_id=1527959688 instance=ExtResource("2_iqrax")]
+[node name="Spike" parent="." index="12" unique_id=1527959688 instance=ExtResource("2_iqrax")]
 position = Vector2(480, 16)
 rotation = 3.1415927
 
-[node name="Spike2" parent="." index="14" unique_id=1410302352 instance=ExtResource("2_iqrax")]
+[node name="Spike2" parent="." index="13" unique_id=1410302352 instance=ExtResource("2_iqrax")]
 position = Vector2(504, 16)
 rotation = 3.1415927
 
-[node name="Spike3" parent="." index="15" unique_id=1745515629 instance=ExtResource("2_iqrax")]
+[node name="Spike3" parent="." index="14" unique_id=1745515629 instance=ExtResource("2_iqrax")]
 position = Vector2(616, 16)
 rotation = 3.1415927
 
-[node name="Spike4" parent="." index="16" unique_id=1409230579 instance=ExtResource("2_iqrax")]
+[node name="Spike4" parent="." index="15" unique_id=1409230579 instance=ExtResource("2_iqrax")]
 position = Vector2(640, 16)
 rotation = 3.1415927
 
-[node name="Launcher" parent="." index="17" unique_id=784651057 instance=ExtResource("5_wmsef")]
-position = Vector2(8, 400)
-projectile_scene = ExtResource("6_a4h8d")
-projectile_facing = Vector2(0, 1)
-
-[node name="BouncePad3" parent="." index="18" unique_id=941075620 instance=ExtResource("9_m0q2n")]
+[node name="BouncePad3" parent="." index="16" unique_id=941075620 instance=ExtResource("9_m0q2n")]
 position = Vector2(160, 568)
 
-[node name="BouncePad4" parent="." index="19" unique_id=1454316864 instance=ExtResource("9_m0q2n")]
+[node name="BouncePad4" parent="." index="17" unique_id=1454316864 instance=ExtResource("9_m0q2n")]
 position = Vector2(136, 568)
 
-[node name="BouncePad5" parent="." index="20" unique_id=974110899 instance=ExtResource("9_m0q2n")]
+[node name="BouncePad5" parent="." index="18" unique_id=974110899 instance=ExtResource("9_m0q2n")]
 position = Vector2(704, 520)
 
-[node name="Fan2" parent="." index="21" unique_id=1652657260 instance=ExtResource("4_b28q0")]
+[node name="Fan2" parent="." index="19" unique_id=1652657260 instance=ExtResource("4_b28q0")]
 position = Vector2(667, 441.00003)
 rotation = -0.7819075
 scale = Vector2(0.5, 0.5)
@@ -238,14 +229,23 @@ pull_strength = 800.0
 on_time = 5.0
 off_time = 5.0
 
-[node name="OneWay" parent="." index="22" unique_id=1598827857 instance=ExtResource("3_flo5c")]
+[node name="OneWay" parent="." index="20" unique_id=1598827857 instance=ExtResource("3_flo5c")]
 position = Vector2(296, 632)
 
-[node name="OneWay2" parent="." index="23" unique_id=727300502 instance=ExtResource("3_flo5c")]
+[node name="OneWay2" parent="." index="21" unique_id=727300502 instance=ExtResource("3_flo5c")]
 position = Vector2(248, 584)
 
-[node name="OneWay3" parent="." index="24" unique_id=208879269 instance=ExtResource("3_flo5c")]
+[node name="OneWay3" parent="." index="22" unique_id=208879269 instance=ExtResource("3_flo5c")]
 position = Vector2(296, 528)
+
+[node name="Launcher" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=784651057 instance=ExtResource("5_wmsef")]
+position = Vector2(8, 400)
+projectile_scene = ExtResource("6_a4h8d")
+projectile_facing = Vector2(0, 1)
+
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1288819283 instance=ExtResource("8_nxo0y")]
+position = Vector2(304, 96)
+scale = Vector2(0.5, 0.5)
 
 [editable path="TileMaps/MoveTile"]
 [editable path="MoveTile2"]

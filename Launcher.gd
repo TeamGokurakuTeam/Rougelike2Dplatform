@@ -1,4 +1,4 @@
-extends Node2D
+extends ComponentHost
 class_name Launcher
 
 @export var fire_interval : float = 1.0
@@ -10,6 +10,7 @@ class_name Launcher
 @onready var timer: Timer = $FireTimer
 
 func _ready() -> void:
+	super()
 	timer.wait_time = fire_interval
 	timer.timeout.connect(_shoot)
 	timer.start()
@@ -24,3 +25,9 @@ func _shoot() -> void:
 	if "velocity" in bullet:
 		bullet.velocity = shoot_direction.normalized() * projectile_speed
 	get_tree().current_scene.add_child(bullet)
+
+func _on_trap_component_trap_enabled() -> void:
+	timer.start()
+
+func _on_trap_component_trap_disabled() -> void:
+	timer.stop()

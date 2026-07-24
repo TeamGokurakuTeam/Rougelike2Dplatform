@@ -9,6 +9,7 @@ class_name Room
 @onready var doors: Node2D = $Doors
 @onready var enemy_spawn_points: Node2D = $EnemySpawnPoints
 @onready var hide_wall: HideTileMap = $TileMaps/HideWall
+@onready var traps: Node2D = $Traps
 
 var enemy_count : int = 0
 var main_game_node : MainGame
@@ -45,7 +46,17 @@ func _on_exit_door_player_entered(player : Player) -> void:
 		var door : Door = node as Door
 		door.animation_player.play("Lock")
 	main_game_node.bgm_changer.change_bgm(battle_bgm_type)
-	
+
+func _turn_off_all_traps() -> void:
+	if traps == null:
+		return
+	for node in traps.get_children():
+		if node is not ComponentHost:
+			continue
+		var host : ComponentHost = node as ComponentHost
+		if not host.has_component("TrapComponent"):
+			continue
+		host.get_component("TrapComponent").is_active = false
 
 func _on_enemy_summoned(enemy : Enemy) -> void:
 	enemy.hp_component.is_dead.connect(_on_enemy_is_dead)
@@ -62,3 +73,4 @@ func _on_enemy_is_dead() -> void:
 		GameEvents.battle_end.emit()
 		if obelisk != null:
 			obelisk.is_obelisk_locked = false
+		_turn_off_all_traps()

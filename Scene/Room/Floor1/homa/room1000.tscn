@@ -77,11 +77,11 @@ position = Vector2(800, 208)
 enemys = Array[PackedScene]([ExtResource("8_knxsy"), ExtResource("9_njy20")])
 is_random = true
 
-[node name="RotatingBeam" parent="." index="3" unique_id=1288819283 instance=ExtResource("10_ipsyp")]
-position = Vector2(512, 360)
-scale = Vector2(0.5, 0.5)
-
-[node name="BouncePad" parent="." index="4" unique_id=2021110527 instance=ExtResource("3_o61kr")]
+[node name="BouncePad" parent="." index="3" unique_id=2021110527 instance=ExtResource("3_o61kr")]
 position = Vector2(122, 431)
 scale = Vector2(1.5, 1.5)
 bounce_power = 800.0
+
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("10_ipsyp")]
+position = Vector2(512, 360)
+scale = Vector2(0.5, 0.5)

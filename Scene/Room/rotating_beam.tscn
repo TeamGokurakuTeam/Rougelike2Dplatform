@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dbwkvs8odlok6" path="res://Assets/lightning/lightning/lightning_v2_11.png" id="12_6fomg"]
 [ext_resource type="Texture2D" uid="uid://bvlkonwsvnrxj" path="res://Assets/lightning/lightning/lightning_v2_12.png" id="13_ehiu4"]
 [ext_resource type="Texture2D" uid="uid://hesqia078ur6" path="res://Assets/lightning/lightning/lightning_v2_13.png" id="14_lvel1"]
+[ext_resource type="Script" uid="uid://cjslcyd3w0p2j" path="res://Script/Components/TrapComponent.gd" id="17_d7vrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
 size = Vector2(20, 10)
@@ -239,116 +240,6 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="Animation" id="Animation_88m6l"]
-resource_name = "Lightning"
-length = 0.65
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Hitbox/AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/Hitbox/CollisionShape2D:shape:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 0.53333336, 0.6333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(20, 2.9494386), Vector2(20, 5.475657), Vector2(20, 11.37641), Vector2(20, 11.797757)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Pivot/Hitbox/CollisionShape2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 0.40000004, 0.53333336, 0.6333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 61.5), Vector2(0, 56.493332), Vector2(0, 44.5), Vector2(0, 70), Vector2(0, 71)]
-}
-
-[sub_resource type="Animation" id="Animation_quuo0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/Hitbox/AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Pivot/Hitbox/CollisionShape2D:shape:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(20, 10)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Pivot/Hitbox/CollisionShape2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 61.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3888f"]
-_data = {
-&"Lightning": SubResource("Animation_88m6l"),
-&"RESET": SubResource("Animation_quuo0")
-}
-
 [node name="RotatingBeam" type="Node2D" unique_id=1288819283]
 script = ExtResource("1_g7huu")
 
@@ -370,15 +261,19 @@ shape = SubResource("RectangleShape2D_75vwg")
 position = Vector2(0, 64)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_2wgeh")
+frame_progress = 0.21761568
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1993432426]
 z_index = 2
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_5b3he")
+frame_progress = 0.10466921
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1021549150]
-libraries/ = SubResource("AnimationLibrary_3888f")
+[node name="TrapComponent" type="Node2D" parent="." unique_id=1643128376]
+script = ExtResource("17_d7vrv")
 
 [connection signal="body_entered" from="Pivot/Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="trap_disabled" from="TrapComponent" to="." method="_on_trap_component_trap_disabled"]
+[connection signal="trap_enabled" from="TrapComponent" to="." method="_on_trap_component_trap_enabled"]
 
 [editable path="Pivot/Hitbox"]
