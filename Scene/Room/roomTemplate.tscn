@@ -8703,4 +8703,6 @@ script = ExtResource("6_xyspu")
 
 [node name="EnemySpawnPoints" type="Node2D" parent="." unique_id=1286384951]
 
+[node name="Enemies" type="Node2D" parent="." unique_id=2057331071]
+
 [node name="Traps" type="Node2D" parent="." unique_id=348055510]
