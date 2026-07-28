@@ -15,7 +15,7 @@ func _summon() -> void:
 	if is_random:
 		enemys.shuffle()
 	if enemys.size() < 0:
-		print(self.name + " : 敵が設定されていません。")
+		printerr(self.name + " : 敵が設定されていません。")
 		return
 	enemy = enemys[0].instantiate()
 	if target_container:

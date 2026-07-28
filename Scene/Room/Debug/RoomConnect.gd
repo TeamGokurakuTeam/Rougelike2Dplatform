@@ -52,7 +52,6 @@ func room_generate() -> void:
 			var room_compare : Callable = func (res : RoomInfoResource):
 				return res.room_type == room_type
 			var room_res : RoomInfoResource = GlobalResourceLoader.room_cache[room_opening].filter(room_compare).pick_random()
-			print(room_res)
 			var room_node : Room = room_res.room_scene.instantiate()
 			room_data[i][j] = room_node
 			room_node.main_game_node = self.main_game_node

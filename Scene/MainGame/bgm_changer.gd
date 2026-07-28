@@ -52,5 +52,5 @@ func bgmtype_to_audiostreamplayer(type : BGMType) -> AudioStreamPlayer:
 		BGMType.GAMEOVER:
 			return gameover_bgm
 		_:
-			print("BGMTYPEの変換中に例外処理に入りました")
+			printerr("BGMTYPEの変換中に例外処理に入りました")
 			return null

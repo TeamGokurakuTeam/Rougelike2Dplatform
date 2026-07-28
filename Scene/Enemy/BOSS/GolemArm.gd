@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 		return
 	var target_velocity : Vector2 = (player.global_position - self.global_position).normalized() * speed
 	var vectorB : Vector2 = target_velocity - velocity
-	print(vectorB)
 	velocity += vectorB * acceleration * delta
 	velocity = velocity.limit_length(speed)
 	self.global_rotation = velocity.angle()

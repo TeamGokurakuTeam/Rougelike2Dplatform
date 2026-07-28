@@ -27,10 +27,7 @@ func _ready() -> void:
 	(transition.material as ShaderMaterial).set_shader_parameter("progress", 0.0)
 	bgm_index = AudioServer.get_bus_index("BGM")
 	bgm_slider.value_changed.connect(_on_bgm_value_changed)
-	#bgm_slider.max_value = db_to_linear(AudioServer.get_bus_volume_db(bgm_index)) + max_value_db
 	bgm_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bgm_index))
-	print(AudioServer.get_bus_volume_db(bgm_index))
-	#bgm_slider.min_value = db_to_linear(AudioServer.get_bus_volume_db(bgm_index)) - max_value_db
 
 func _on_bgm_value_changed(value : float) -> void:
 	AudioServer.set_bus_volume_db(bgm_index, linear_to_db(value))
