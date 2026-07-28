@@ -6,7 +6,6 @@ class_name MainGame
 @export var enemy_hp_addition : float
 
 @export_category("デバッグ専用")
-@export var is_debug_mode : bool = false
 @export var debug_input_buffer : String = ""
 
 @onready var player_ui: GameUI = $PlayerUI
@@ -79,7 +78,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		var key_event : InputEventKey = event
 
-		if is_debug_mode and key_event.keycode == KEY_K:
+		if Common.debug_mode and key_event.keycode == KEY_K:
+			Common.debug_print("敵全員殺すぜ")
 			kill_current_room_enemies()
 
 		# 押したキーを記録、最後がdebugだったらデバッグモードをON
@@ -88,7 +88,8 @@ func _input(event: InputEvent) -> void:
 			if key_char != "":
 				debug_input_buffer += key_char
 				if debug_input_buffer.ends_with("debug"):
-					is_debug_mode = true
+					Common.debug_mode = true
+					Common.debug_print("デバッグモード開始")
 					debug_input_buffer = ""
 
 				if debug_input_buffer.length() > 10:
