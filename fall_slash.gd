@@ -1,7 +1,6 @@
 extends Hitbox
 class_name PlayerFallProjecttile
 
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $Root/AnimatedSprite2D
 @onready var timer: Timer = $Timer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
