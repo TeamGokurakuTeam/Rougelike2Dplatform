@@ -8,6 +8,9 @@ const NORMAL_RATE : float = 1.0
 const PLAYER_FALL_SLASH : PackedScene = preload("uid://bjj3tflijfk6o")
 
 const PLAYER_RANGESLASH : PackedScene = preload("uid://dds7cl7iiu2wf")
+#起死回生な
+const RESURRECTION_EFFECT : PackedScene = preload("uid://dudbslj38v8v8")
+
 #アヒル
 const DUCK : PackedScene = preload("res://Scene/Player/Projectile/duck.tscn")
 
@@ -56,6 +59,8 @@ var fall_slash_cooldown := 0.0
 var bounce_speed_multiplier := 1.1
 var max_speed := 800
 
+#起死回生な
+var resurrection_used := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -144,7 +149,9 @@ func reset_modifier() -> void:
 	modifiers_ids.clear()
 
 func _physics_process(delta: float) -> void:
-	pass
+	#
+	if modifiers_ids.has("Resurrection"):
+		resurrection()
 
 func has_modifiers(name : String):
 	return modifiers_ids.has(name) or lock_modifiers_ids.has(name)
@@ -183,6 +190,9 @@ func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("Bounce_Duck"):
 		bounceduck()
 #アヒル爆弾
+#起死回生な
+	if modifiers_ids.has("Resurrection"):
+		resurrection()
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -399,6 +409,25 @@ func bounceduck() -> void:
 	var random_y: float = randf_range(-300, -150)
 	duck.velocity = Vector2(random_x, random_y)
 	get_tree().root.add_child(duck)
+
+
+#起死回生な
+func resurrection() -> void:
+	var current_hp := player.hp_component.hp
+	var max_hp := player.hp_component.max_hp
+	if current_hp <= 5 and not resurrection_used:
+		player.hp_component.hp = 10
+		current_hp = 10
+		var effect := RESURRECTION_EFFECT.instantiate()
+		effect.global_position = player.global_position
+		get_tree().current_scene.add_child(effect)
+		player.hurtbox.monitoring = false
+		await get_tree().create_timer(0.2).timeout
+		player.hurtbox.monitoring = true
+		resurrection_used = true
+	var hp_ratio := float(current_hp) / float(max_hp)
+
+
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
