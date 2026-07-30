@@ -24,7 +24,13 @@ enum Direction {
 func _ready() -> void:
 	exit_point = get_node("./ExitPoint")
 	if is_open:
-		animation_player.play("Open")
+		open()
+
+func open() -> void:
+	animation_player.play("Open")
+
+func lock() -> void:
+	animation_player.play("Lock")
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body is Player and teleport_to != null:

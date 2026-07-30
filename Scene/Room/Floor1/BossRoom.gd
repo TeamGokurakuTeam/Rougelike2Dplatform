@@ -9,6 +9,8 @@ const GOLEM_BOSS = preload("uid://bthj1ytrgopek")
 @onready var boss_room_camera: Camera = $BossRoomCamera
 
 func _ready() -> void:
+	super._ready()
+	auto_spawn_enemies = false
 	collision_shape_2d.disabled = false
 	boss_object.visible = true
 
@@ -28,7 +30,7 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 
 func boss_summon() -> void:
 	var boss : GolemBoss = GOLEM_BOSS.instantiate()
-	add_child(boss)
+	enemies.add_child(boss)
 	boss.main_game_node = main_game_node
 	boss.global_position = boss_object.global_position
 	boss.hp_component.is_dead.connect(_on_boss_is_dead)
@@ -37,10 +39,4 @@ func boss_summon() -> void:
 	GameEvents.battle_start.emit()
 
 func _on_boss_is_dead() -> void:
-	enemy_count -= 1
-	if enemy_count <= 0:
-		for node in doors.get_children():
-			var door : Door = node as Door
-			door.animation_player.play("Open")
-		main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.STAGE)
-		GameEvents.battle_end.emit()
+	_on_enemy_is_dead()

@@ -1,6 +1,7 @@
 extends Node2D
 class_name Room
 
+@export var auto_spawn_enemies : bool = true
 @export var can_spawn_enemy : bool = true
 @export var player_marker : Marker2D
 @export var battle_bgm_type : BGMChanger.BGMType = BGMChanger.BGMType.BATTLE
@@ -16,15 +17,18 @@ var enemy_count : int = 0
 var main_game_node : MainGame
 
 func _ready() -> void:
+	_initialize_room()
+
+func _initialize_room() -> void:
 	for node in doors.get_children():
 		var door : Door = node as Door
 		door.exit_door_player_entered.connect(_on_exit_door_player_entered)
-	hide_wall.player = main_game_node.player
+
+	if main_game_node and main_game_node.player:
+		hide_wall.player = main_game_node.player
+
 	if obelisk != null and enemy_count <= 0:
 		obelisk.is_obelisk_locked = false
-
-func _process(delta: float) -> void:
-	pass
 
 func get_door(direction : Door.Direction) -> Door:
 	for i in doors.get_children():
@@ -35,10 +39,11 @@ func get_door(direction : Door.Direction) -> Door:
 	return null
 
 func _on_exit_door_player_entered(player : Player) -> void:
-	spawn_enemies()
+	main_game_node.current_room = self
+	if auto_spawn_enemies:
+		spawn_enemies()
 
 func spawn_enemies() -> void:
-	main_game_node.current_room = self
 	if not can_spawn_enemy:
 		return
 	can_spawn_enemy = false
@@ -50,7 +55,7 @@ func spawn_enemies() -> void:
 		enemy_point.enemy_summoned.connect(_on_enemy_summoned)
 	for node in doors.get_children():
 		var door : Door = node as Door
-		door.animation_player.play("Lock")
+		door.lock()
 	main_game_node.bgm_changer.change_bgm(battle_bgm_type)
 
 func _turn_off_all_traps() -> void:
@@ -72,11 +77,14 @@ func _on_enemy_summoned(enemy : Enemy) -> void:
 func _on_enemy_is_dead() -> void:
 	enemy_count -= 1
 	if enemy_count <= 0:
-		for node in doors.get_children():
-			var door : Door = node as Door
-			door.animation_player.play("Open")
+		open_all_doors()
 		main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.STAGE)
 		GameEvents.battle_end.emit()
 		if obelisk != null:
 			obelisk.is_obelisk_locked = false
 		_turn_off_all_traps()
+
+func open_all_doors() -> void:
+	for node in doors.get_children():
+		var door : Door = node as Door
+		door.open()
