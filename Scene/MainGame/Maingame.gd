@@ -78,22 +78,38 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		var key_event : InputEventKey = event
 
-		if Common.debug_mode and key_event.keycode == KEY_K:
-			Common.debug_print("敵全員殺すぜ")
-			kill_current_room_enemies()
-
 		# 押したキーを記録、最後がdebugだったらデバッグモードをON
-		if key_event.keycode >= KEY_A and key_event.keycode <= KEY_Z:
-			var key_char : String = char(key_event.unicode).to_lower()
-			if key_char != "":
-				debug_input_buffer += key_char
-				if debug_input_buffer.ends_with("debug"):
-					Common.debug_mode = true
-					Common.debug_print("デバッグモード開始")
-					debug_input_buffer = ""
+		if not Common.debug_mode:
+			_record_pressed_key(key_event)
 
-				if debug_input_buffer.length() > 10:
-					debug_input_buffer = debug_input_buffer.right(5)
+		if not Common.debug_mode:
+			return
+
+		match key_event.keycode:
+			KEY_K:
+				Common.debug_print("敵全員殺すぜ")
+				kill_current_room_enemies()
+			KEY_T:
+				Common.debug_print("一番遠いドアにテレポート")
+				teleport_player_to_furthest_door()
+
+
+func _record_pressed_key(key_event : InputEventKey) -> void:
+	if key_event == null:
+		return
+	if key_event.keycode < KEY_A or key_event.keycode > KEY_Z:
+		return
+	var key_char : String = char(key_event.unicode).to_lower()
+	if key_char == "":
+		return
+	debug_input_buffer += key_char
+	if debug_input_buffer.ends_with("debug"):
+		Common.debug_mode = true
+		Common.debug_print("デバッグモード開始")
+		debug_input_buffer = ""
+
+	if debug_input_buffer.length() > 10:
+		debug_input_buffer = debug_input_buffer.right(5)
 
 func kill_current_room_enemies() -> void:
 	if current_room == null:
@@ -101,3 +117,24 @@ func kill_current_room_enemies() -> void:
 	for child in current_room.enemies.get_children():
 		if child is Enemy:
 			child.hp_component.hp = 0
+
+func teleport_player_to_furthest_door() -> void:
+	if player == null:
+		return
+	if current_room == null:
+		return
+
+	var furthest_door_index : int = -1
+	var furthest_distance : float = 0
+	for i in current_room.doors.get_child_count():
+		if current_room.doors.get_child(i) is not Door:
+			continue
+		var door : Door = current_room.doors.get_child(i) as Door
+		var distance : float = door.global_position.distance_to(player.global_position)
+		if distance > furthest_distance:
+			furthest_door_index = i
+			furthest_distance = distance
+
+	if furthest_door_index >= 0:
+		var furthest_door : Door = current_room.doors.get_child(furthest_door_index) as Door
+		player.global_position = furthest_door.exit_point.global_position
