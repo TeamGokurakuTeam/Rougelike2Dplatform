@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://crrgxcmvwd3d6"]
+
+[ext_resource type="PackedScene" uid="uid://c20v8nds53bgs" path="res://Scene/carouse_container.tscn" id="1_enmty"]
+
+[node name="WeaponSelectMenu" type="Control" unique_id=78172913]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CarouseContainer" parent="." unique_id=438782455 node_paths=PackedStringArray("position_offset_node") instance=ExtResource("1_enmty")]
+spacing = 0.795
+opacity_strength = 0.5
+position_offset_node = NodePath("Control")
+
+[node name="Control" type="Control" parent="CarouseContainer" unique_id=1012233295]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0

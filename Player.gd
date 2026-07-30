@@ -219,7 +219,7 @@ func player_dash() -> void:
 #region setter
 func _set_current_modifier(new_value : int) -> void:
 	if mod_resource_ids.size() <= 0:
-		current_modifier = 0
+		current_modifier = -1
 		return
 	current_modifier = new_value % mod_resource_ids.size()
 	if current_modifier < 0:
