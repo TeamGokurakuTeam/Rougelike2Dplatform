@@ -415,17 +415,20 @@ func bounceduck() -> void:
 func resurrection() -> void:
 	var current_hp := player.hp_component.hp
 	var max_hp := player.hp_component.max_hp
-	if current_hp <= 5 and not resurrection_used:
+	if current_hp <= 10 and not resurrection_used:
+		resurrection_used = true
 		player.hp_component.hp = 10
 		current_hp = 10
 		var effect := RESURRECTION_EFFECT.instantiate()
 		effect.global_position = player.global_position
 		get_tree().current_scene.add_child(effect)
+		if effect.has_node("AnimationPlayer"):
+			var animation_player := effect.get_node("AnimationPlayer")
+			if animation_player.has_animation("Resurrection"):
+				animation_player.play("Resurrection")
 		player.hurtbox.monitoring = false
 		await get_tree().create_timer(0.2).timeout
 		player.hurtbox.monitoring = true
-		resurrection_used = true
-	var hp_ratio := float(current_hp) / float(max_hp)
 
 
 
