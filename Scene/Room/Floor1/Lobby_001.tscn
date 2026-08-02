@@ -5,8 +5,6 @@
 [ext_resource type="Resource" uid="uid://ddw6jksv1chng" path="res://Resource/Sword/EternalSword.tres" id="4_nwjdp"]
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="4_tomr8"]
 [ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="5_y4w1a"]
-[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="7_iujhg"]
-[ext_resource type="Resource" uid="uid://3a1utb73e2lp" path="res://Resource/Modifier/Resurrection.tres" id="8_elah0"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="15_q8aav"]
 
 [node name="LobbyRoom001" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_lhnps")]
@@ -42,7 +40,3 @@ resource = ExtResource("5_y4w1a")
 
 [node name="Obelisk" parent="." index="6" unique_id=1340329694 instance=ExtResource("15_q8aav")]
 position = Vector2(621, 82)
-
-[node name="DropModifier" parent="." index="7" unique_id=1774769907 instance=ExtResource("7_iujhg")]
-position = Vector2(196, 157)
-modifier = ExtResource("8_elah0")
