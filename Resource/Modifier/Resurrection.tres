@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://3a1utb73e2lp"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_fb2yc"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_65vpo"]
+
+[resource]
+script = ExtResource("1_fb2yc")
+ModifierRank = 1
+texture = ExtResource("2_65vpo")
+modifier_id = "Resurrection"
+modifier_name = "起死回生な"
+color_rarity = Color(1, 0.101960786, 0.101960786, 1)
+explanation = "HPが10以下になるとき１度だけダメージを無効にする"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://cpvdfidpdiacj"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_vmqv3"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_pe4lm"]
+
+[resource]
+script = ExtResource("1_vmqv3")
+texture = ExtResource("2_pe4lm")
+modifier_id = "HeavyStrike"
+modifier_name = "重撃"
+explanation = "剣を振るスピードが遅くなる代わりにタメ攻撃の威力が２倍"
