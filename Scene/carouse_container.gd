@@ -1,5 +1,5 @@
 @tool
-extends Node2D
+extends Control
 class_name CarouseContainer
 
 @export var spacing : float = 20.0
@@ -51,8 +51,10 @@ func _process(delta: float) -> void:
 		
 		if control_node.get_index() == selected_index:
 			control_node.z_index = 1
+			control_node.button.mouse_filter = Control.MOUSE_FILTER_PASS
 		else:
 			control_node.z_index = -abs(control_node.get_index() - selected_index)
+			control_node.button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 		if follow_button_focus and control_node.has_focus():
 			selected_index = control_node.get_index()

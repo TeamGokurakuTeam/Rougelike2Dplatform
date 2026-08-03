@@ -11,3 +11,11 @@ Id = "NewWorld"
 Name = "新世界"
 WeaponScene = ExtResource("1_1ycfr")
 Rarities = "DreaM"
+explanation = "通常攻撃:
+二回攻撃する。
+チャージ攻撃:
+一閃を描くように縦に斬る。
+カウンター攻撃:
+突き出すように攻撃する。"
+flavor_text = "再び得た力と共に、新たな戦いが幕を開く。"
+unlock_text = "なし"

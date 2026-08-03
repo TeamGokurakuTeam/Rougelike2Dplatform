@@ -32,12 +32,12 @@ func texture_update(player : Player) -> void:
 			mod_container.get_child(total_panel_count - 1 - i).queue_free()
 	for i in player_mod_size:
 		var panel : ModifierUIPanel = mod_container.get_child(i)
-		panel.texture_rect.texture = GlobalResourceLoader.item_cache[player.mod_resource_ids[i]].texture
+		panel.texture_rect.texture = GlobalResourceLoader.modifier_cache[player.mod_resource_ids[i]].texture
 	
 	if player.current_modifier < 0:
 		mod_name.text = "なし"
 	else:
-		mod_res_name = GlobalResourceLoader.item_cache[player.mod_resource_ids[player.current_modifier]].modifier_name
+		mod_res_name = GlobalResourceLoader.modifier_cache[player.mod_resource_ids[player.current_modifier]].modifier_name
 		mod_name.text = mod_res_name
 	
 	carouse_container.selected_index = player.current_modifier

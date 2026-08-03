@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://muwqwwmrj617" path="res://Scene/Room/Room.gd" id="1_5disr"]
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="1_71uuk"]
 [ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="3_shxa2"]
-[ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/NewWorld.tres" id="4_12s50"]
+[ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/A_NewWorld.tres" id="4_12s50"]
 [ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="5_shxa2"]
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="6_ufdrf"]
 [ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="7_12s50"]

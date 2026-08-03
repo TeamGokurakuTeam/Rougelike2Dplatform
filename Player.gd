@@ -183,7 +183,7 @@ func update_weapon() -> void:
 	if current_weapon == -1:
 		for node in inventory.get_children():
 			node.queue_free()
-	var res : ResourceItem = GlobalResourceLoader.item_cache[weapon_resource_ids[current_weapon]]
+	var res : ResourceItem = GlobalResourceLoader.weapon_cache[weapon_resource_ids[current_weapon]]
 	weapon = res.WeaponScene.instantiate()
 	weapon.resource_id = res.Id
 	for node in inventory.get_children():
@@ -196,7 +196,7 @@ func update_modifier() -> void:
 	modifier_updated.emit(self)
 
 func merge_weapon(target_res_id : String) -> void:
-	var target_res : ResourceItem = GlobalResourceLoader.item_cache[target_res_id]
+	var target_res : ResourceItem = GlobalResourceLoader.weapon_cache[target_res_id]
 	var count : int = weapon_resource_ids.count(target_res.Id)
 	if count >= 2 and target_res.MergeResultWeaponId != "":
 		current_weapon = 0

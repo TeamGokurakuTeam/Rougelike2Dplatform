@@ -11,3 +11,14 @@ Id = "EternalSword"
 Name = "英知と追撃の宝剣"
 WeaponScene = ExtResource("2_w2k5w")
 Rarities = "Master"
+explanation = "この剣は修飾子の影響を受けない。
+
+通常攻撃:
+波動を含む二回攻撃をする。
+
+チャージ攻撃:
+チャージは5秒。修飾子の数だけ、
+自身の宝剣を降らせる。"
+flavor_text = "その剣は、物体を切り裂き、理すらも断つ。"
+unlock_text = "1Fにある隠し部屋を見つけよ。
+"

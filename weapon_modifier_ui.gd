@@ -58,7 +58,7 @@ func load_modifier(player : Player) -> void:
 		mod_button.setup(mod, self, player.weapon.get_modifiers_level(mod))
 	
 	weapon_sprite.texture = player.weapon.sprite_2d.texture
-	weapon_name.text = (GlobalResourceLoader.item_cache[player.weapon.resource_id] as ResourceItem).Name
+	weapon_name.text = (GlobalResourceLoader.weapon_cache[player.weapon.resource_id] as ResourceItem).Name
 
 func _ready() -> void:
 	panel.global_position = HIDE_POSITION
