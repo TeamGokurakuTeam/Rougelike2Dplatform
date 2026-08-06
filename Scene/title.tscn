@@ -14,7 +14,6 @@
 [ext_resource type="Shader" uid="uid://ces7mkd1ea685" path="res://Scene/Transition.gdshader" id="7_xriko"]
 [ext_resource type="Texture2D" uid="uid://dlhom3copqynk" path="res://Assets/BackGround/Title/62_20260723152912.png" id="7_yuseb"]
 [ext_resource type="Texture2D" uid="uid://crlm04ww6qakj" path="res://Assets/BackGround/Title/62_20260723152930.png" id="8_l6q45"]
-[ext_resource type="PackedScene" uid="uid://crrgxcmvwd3d6" path="res://Scene/UI/weapon_select_menu.tscn" id="15_ug1v6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xijl7"]
 texture = ExtResource("1_nn2l1")
@@ -426,6 +425,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Title/ColorRect" unique_id=1482537577]
@@ -462,9 +462,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="WeaponSelectMenu" parent="." unique_id=78172913 instance=ExtResource("15_ug1v6")]
-
 [connection signal="toggled" from="Title/OptionPanel/Sound/Check/FullScreen" to="." method="_on_full_screen_toggled"]
 [connection signal="toggled" from="Title/OptionPanel/Sound/Check/VSYNC" to="." method="_on_vsync_toggled"]
-[connection signal="pressed" from="Title/ButtonContainor/START" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Title/ButtonContainor/OPTION" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="Title/ButtonContainor/START" to="Title" method="_on_start_pressed"]
+[connection signal="pressed" from="Title/ButtonContainor/OPTION" to="Title" method="_on_option_pressed"]

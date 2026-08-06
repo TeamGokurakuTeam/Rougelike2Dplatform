@@ -2,17 +2,12 @@
 
 [ext_resource type="Script" uid="uid://b8q4omet6du0w" path="res://Scene/Room/Debug/RoomConnect.gd" id="1_4nic5"]
 [ext_resource type="Script" uid="uid://b383l3v25na7" path="res://Scene/MainGame/Maingame.gd" id="1_ga214"]
+[ext_resource type="PackedScene" uid="uid://cqx3pgdtlavyt" path="res://Scene/MainGame/Floor1_Background.tscn" id="2_2ns5o"]
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
 [ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="3_4x3oj"]
 [ext_resource type="PackedScene" uid="uid://cvnfa7dppgwhv" path="res://Scene/camera_2d.tscn" id="5_88yfh"]
-[ext_resource type="Texture2D" uid="uid://c0f5n711eyibd" path="res://Assets/BackGround/1.png" id="7_2ns5o"]
-[ext_resource type="Texture2D" uid="uid://dvqkb5s8smq1p" path="res://Assets/BackGround/2.png" id="8_t5ou6"]
-[ext_resource type="Texture2D" uid="uid://clgkqf0rfktdb" path="res://Assets/BackGround/3.png" id="9_50dfd"]
-[ext_resource type="Texture2D" uid="uid://d2hpdmvxqrhvk" path="res://Assets/BackGround/4.png" id="10_4lo75"]
-[ext_resource type="Texture2D" uid="uid://cy7y1qvpstcyl" path="res://Assets/BackGround/5.png" id="11_1shb2"]
 [ext_resource type="Script" uid="uid://bqa23sw42pwvk" path="res://Scene/MainGame/bgm_changer.gd" id="11_50dfd"]
 [ext_resource type="AudioStream" uid="uid://dl0tuiisa34l6" path="res://Assets/Music/IswearIsawit.ogg" id="11_t5ou6"]
-[ext_resource type="Texture2D" uid="uid://bypwuf60t74yf" path="res://Assets/BackGround/6.png" id="12_n14k5"]
 [ext_resource type="AudioStream" uid="uid://fmkya4o1cxob" path="res://Assets/Music/PerituneMaterial_Gothic_Dark_loop.mp3" id="13_4lo75"]
 [ext_resource type="AudioStream" uid="uid://cva8xydyvx4r8" path="res://Assets/Music/Yooh - Decoy.mp3" id="14_1shb2"]
 [ext_resource type="AudioStream" uid="uid://cgehgp2ywobdf" path="res://Assets/Music/GameOver3.mp3" id="15_n14k5"]
@@ -21,47 +16,15 @@
 [node name="MainGame" type="Node2D" unique_id=334667216]
 script = ExtResource("1_ga214")
 
-[node name="BackGround" type="Node2D" parent="." unique_id=1755069234]
-modulate = Color(0.42592907, 0.3903062, 0.4745459, 1)
-
-[node name="BackParallax2D" type="Parallax2D" parent="BackGround" unique_id=1960957557]
-scroll_scale = Vector2(0, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="BackGround/BackParallax2D" unique_id=554929006]
-texture = ExtResource("7_2ns5o")
-centered = false
-
-[node name="Sprite2D2" type="Sprite2D" parent="BackGround/BackParallax2D" unique_id=2125110980]
-texture = ExtResource("8_t5ou6")
-centered = false
-
-[node name="MiddleParallax2D" type="Parallax2D" parent="BackGround" unique_id=1507401849]
-scroll_scale = Vector2(0, 0)
-repeat_size = Vector2(576, 0)
-autoscroll = Vector2(11, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="BackGround/MiddleParallax2D" unique_id=1459665417]
-texture = ExtResource("9_50dfd")
-centered = false
-
-[node name="Sprite2D2" type="Sprite2D" parent="BackGround/MiddleParallax2D" unique_id=267959882]
-texture = ExtResource("10_4lo75")
-centered = false
-
-[node name="FrontParallax2D" type="Parallax2D" parent="BackGround" unique_id=403755846]
-scroll_scale = Vector2(0, 0)
-repeat_size = Vector2(576, 0)
-autoscroll = Vector2(3, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="BackGround/FrontParallax2D" unique_id=1573580807]
-texture = ExtResource("11_1shb2")
-centered = false
-
-[node name="Sprite2D2" type="Sprite2D" parent="BackGround/FrontParallax2D" unique_id=64919783]
-texture = ExtResource("12_n14k5")
-centered = false
+[node name="BackGround" parent="." unique_id=16215675 instance=ExtResource("2_2ns5o")]
 
 [node name="PlayerUI" parent="." unique_id=1814325200 instance=ExtResource("2_8fymo")]
+
+[node name="ModContainer" parent="PlayerUI/Parent/ModUI/Control/CarouseContainer" parent_id_path=PackedInt32Array(1814325200, 1180346681, 438782455) index="0" unique_id=154540731]
+offset_left = 0.0
+offset_top = 248.0
+offset_right = 40.000015
+offset_bottom = 288.0
 
 [node name="RichTextLabel" parent="PlayerUI/Parent/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]
 scroll_active = false

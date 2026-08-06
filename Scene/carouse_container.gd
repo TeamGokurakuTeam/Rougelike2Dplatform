@@ -49,12 +49,15 @@ func _process(delta: float) -> void:
 		target_opacity = clamp(target_opacity, 0.0, 1.0)
 		control_node.modulate.a = lerp(control_node.modulate.a, target_opacity, smoothing_speed * delta)
 		
+		
 		if control_node.get_index() == selected_index:
 			control_node.z_index = 1
-			control_node.button.mouse_filter = Control.MOUSE_FILTER_PASS
+			if control_node is WeaponSelectPanel:
+				control_node.button.mouse_filter = Control.MOUSE_FILTER_PASS
 		else:
 			control_node.z_index = -abs(control_node.get_index() - selected_index)
-			control_node.button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			if control_node is WeaponSelectPanel:
+				control_node.button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 		if follow_button_focus and control_node.has_focus():
 			selected_index = control_node.get_index()

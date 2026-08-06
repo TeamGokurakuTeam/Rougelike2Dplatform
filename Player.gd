@@ -196,7 +196,7 @@ func update_modifier() -> void:
 	modifier_updated.emit(self)
 
 func merge_weapon(target_res_id : String) -> void:
-	var target_res : ResourceItem = GlobalResourceLoader.weapon_cache[target_res_id]
+	var target_res : Resource = GlobalResourceLoader.weapon_cache[target_res_id]
 	var count : int = weapon_resource_ids.count(target_res.Id)
 	if count >= 2 and target_res.MergeResultWeaponId != "":
 		current_weapon = 0
