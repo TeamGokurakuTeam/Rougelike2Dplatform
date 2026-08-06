@@ -29,7 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 	elif body is DropItem and character.weapon_resource_ids.size() <= 0:
 		character.weapon_resource_ids.append((body as DropItem).resource.Id)
 		character.current_weapon = character.weapon_resource_ids.size() - 1
-		character.merge_weapon((body as DropItem).resource.Id)
+		#character.merge_weapon((body as DropItem).resource.Id)
 		character.update_weapon()
 		body.queue_free()
 	

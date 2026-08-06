@@ -78,7 +78,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/path = NodePath("Title/ColorRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -90,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/path = NodePath("Title/ColorRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -102,7 +102,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/path = NodePath("Title/AudioStreamPlayer:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -118,7 +118,7 @@ length = 3.0000000000000004
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/path = NodePath("Title/ColorRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -130,7 +130,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/path = NodePath("Title/ColorRect:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -142,7 +142,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/path = NodePath("Title/AudioStreamPlayer:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -173,7 +173,9 @@ shader_parameter/color_threshold = 0.6450000306375
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/seed = 0.705
 
-[node name="Title" type="Control" unique_id=1816576831]
+[node name="Canvas" type="CanvasLayer" unique_id=704734577]
+
+[node name="Title" type="Control" parent="." unique_id=1837758740]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,64 +184,64 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5qay0")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=425569111]
+[node name="Node2D" type="Node2D" parent="Title" unique_id=425569111]
 
-[node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=1124963305]
+[node name="Sprite2D3" type="Sprite2D" parent="Title/Node2D" unique_id=1124963305]
 self_modulate = Color(0.61339027, 0.61339027, 0.61339027, 1)
 position = Vector2(264, 144)
 texture = ExtResource("2_utuk5")
 
-[node name="Parallax2D" type="Parallax2D" parent="Node2D" unique_id=35140666]
+[node name="Parallax2D" type="Parallax2D" parent="Title/Node2D" unique_id=35140666]
 repeat_size = Vector2(576, 0)
 autoscroll = Vector2(5, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Parallax2D" unique_id=757059633]
+[node name="Sprite2D2" type="Sprite2D" parent="Title/Node2D/Parallax2D" unique_id=757059633]
 position = Vector2(271, 144)
 texture = ExtResource("3_ug1v6")
 
-[node name="Parallax2D5" type="Parallax2D" parent="Node2D" unique_id=1318450245]
+[node name="Parallax2D5" type="Parallax2D" parent="Title/Node2D" unique_id=1318450245]
 repeat_size = Vector2(576, 0)
 autoscroll = Vector2(20, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D5" unique_id=1798784544]
+[node name="Sprite2D" type="Sprite2D" parent="Title/Node2D/Parallax2D5" unique_id=1798784544]
 self_modulate = Color(0.33333334, 0.3254902, 0.47843137, 1)
 position = Vector2(261, 129)
 texture = ExtResource("4_s62xd")
 
-[node name="Parallax2D2" type="Parallax2D" parent="Node2D" unique_id=1438066597]
+[node name="Parallax2D2" type="Parallax2D" parent="Title/Node2D" unique_id=1438066597]
 repeat_size = Vector2(576, 0)
 autoscroll = Vector2(12, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D2" unique_id=547150314]
+[node name="Sprite2D" type="Sprite2D" parent="Title/Node2D/Parallax2D2" unique_id=547150314]
 self_modulate = Color(0.7357125, 0.9999997, 0.9810192, 1)
 position = Vector2(250, 129)
 texture = ExtResource("5_ubkjg")
 
-[node name="Parallax2D4" type="Parallax2D" parent="Node2D" unique_id=1793008757]
+[node name="Parallax2D4" type="Parallax2D" parent="Title/Node2D" unique_id=1793008757]
 scroll_offset = Vector2(-45, 34)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D4" unique_id=667155554]
+[node name="Sprite2D" type="Sprite2D" parent="Title/Node2D/Parallax2D4" unique_id=667155554]
 position = Vector2(431, 109)
 texture = ExtResource("6_lyk32")
 
-[node name="Parallax2D6" type="Parallax2D" parent="Node2D" unique_id=351523850]
+[node name="Parallax2D6" type="Parallax2D" parent="Title/Node2D" unique_id=351523850]
 scroll_offset = Vector2(-45, 34)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Parallax2D6" unique_id=1674105334]
+[node name="Sprite2D" type="Sprite2D" parent="Title/Node2D/Parallax2D6" unique_id=1674105334]
 position = Vector2(431, 109)
 texture = ExtResource("6_lyk32")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1368147883]
+[node name="Sprite2D" type="Sprite2D" parent="Title/Node2D" unique_id=1368147883]
 self_modulate = Color(0.6645101, 0.66451, 0.66451, 1)
 position = Vector2(261, 152)
 texture = ExtResource("7_yuseb")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=1328608685]
+[node name="Sprite2D2" type="Sprite2D" parent="Title/Node2D" unique_id=1328608685]
 position = Vector2(256, 144)
 scale = Vector2(1.03, 1.03)
 texture = ExtResource("8_l6q45")
 
-[node name="OptionPanel" type="Panel" parent="." unique_id=2140415352]
+[node name="OptionPanel" type="Panel" parent="Title" unique_id=2140415352]
 layout_mode = 0
 offset_left = 534.0
 offset_top = 11.0
@@ -247,12 +249,12 @@ offset_right = 714.0
 offset_bottom = 270.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xijl7")
 
-[node name="Sound" type="Control" parent="OptionPanel" unique_id=811094655]
+[node name="Sound" type="Control" parent="Title/OptionPanel" unique_id=811094655]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label2" type="Label" parent="OptionPanel/Sound" unique_id=177158817]
+[node name="Label2" type="Label" parent="Title/OptionPanel/Sound" unique_id=177158817]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 161.0
@@ -263,7 +265,7 @@ label_settings = SubResource("LabelSettings_5hoxb")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="OptionPanel/Sound" unique_id=973892336]
+[node name="Label3" type="Label" parent="Title/OptionPanel/Sound" unique_id=973892336]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 189.0
@@ -273,7 +275,7 @@ text = "VSYNC"
 label_settings = SubResource("LabelSettings_nn2l1")
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="OptionPanel/Sound" unique_id=1616732307]
+[node name="Label4" type="Label" parent="Title/OptionPanel/Sound" unique_id=1616732307]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 217.0
@@ -284,7 +286,7 @@ label_settings = SubResource("LabelSettings_5qay0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BGMSlider" type="HSlider" parent="OptionPanel/Sound" unique_id=1707275868]
+[node name="BGMSlider" type="HSlider" parent="Title/OptionPanel/Sound" unique_id=1707275868]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 33.0
@@ -293,7 +295,7 @@ offset_bottom = 49.0
 max_value = 1.0
 step = 0.01
 
-[node name="Label" type="Label" parent="OptionPanel/Sound/BGMSlider" unique_id=944430951]
+[node name="Label" type="Label" parent="Title/OptionPanel/Sound/BGMSlider" unique_id=944430951]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -22.0
@@ -304,7 +306,7 @@ label_settings = SubResource("LabelSettings_jhy2k")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SESlider" type="HSlider" parent="OptionPanel/Sound" unique_id=1431807342]
+[node name="SESlider" type="HSlider" parent="Title/OptionPanel/Sound" unique_id=1431807342]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 83.0
@@ -313,7 +315,7 @@ offset_bottom = 99.0
 max_value = 8.0
 step = 0.1
 
-[node name="Label" type="Label" parent="OptionPanel/Sound/SESlider" unique_id=2105425966]
+[node name="Label" type="Label" parent="Title/OptionPanel/Sound/SESlider" unique_id=2105425966]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -22.0
@@ -324,7 +326,7 @@ label_settings = SubResource("LabelSettings_jhy2k")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MasterSlider" type="HSlider" parent="OptionPanel/Sound" unique_id=917790538]
+[node name="MasterSlider" type="HSlider" parent="Title/OptionPanel/Sound" unique_id=917790538]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 133.0
@@ -333,7 +335,7 @@ offset_bottom = 149.0
 max_value = 8.0
 step = 0.1
 
-[node name="Label" type="Label" parent="OptionPanel/Sound/MasterSlider" unique_id=1065667565]
+[node name="Label" type="Label" parent="Title/OptionPanel/Sound/MasterSlider" unique_id=1065667565]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -22.0
@@ -343,24 +345,24 @@ text = "UI Vol"
 label_settings = SubResource("LabelSettings_jhy2k")
 vertical_alignment = 1
 
-[node name="Check" type="VBoxContainer" parent="OptionPanel/Sound" unique_id=1605716160]
+[node name="Check" type="VBoxContainer" parent="Title/OptionPanel/Sound" unique_id=1605716160]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 160.0
 offset_right = 56.0
 offset_bottom = 240.0
 
-[node name="FullScreen" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1941857583]
+[node name="FullScreen" type="CheckButton" parent="Title/OptionPanel/Sound/Check" unique_id=1941857583]
 layout_mode = 2
 
-[node name="VSYNC" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1486420566]
+[node name="VSYNC" type="CheckButton" parent="Title/OptionPanel/Sound/Check" unique_id=1486420566]
 layout_mode = 2
 
-[node name="CheckButton3" type="CheckButton" parent="OptionPanel/Sound/Check" unique_id=1935582231]
+[node name="CheckButton3" type="CheckButton" parent="Title/OptionPanel/Sound/Check" unique_id=1935582231]
 layout_mode = 2
 disabled = true
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1306227839]
+[node name="TextureRect" type="TextureRect" parent="Title" unique_id=1306227839]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 12.0
@@ -370,7 +372,7 @@ texture = ExtResource("1_75qdg")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ButtonContainor" type="VBoxContainer" parent="." unique_id=1555366325]
+[node name="ButtonContainor" type="VBoxContainer" parent="Title" unique_id=1555366325]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 125.0
@@ -378,7 +380,7 @@ offset_right = 136.0
 offset_bottom = 259.0
 alignment = 1
 
-[node name="START" type="Button" parent="ButtonContainor" unique_id=2015879748]
+[node name="START" type="Button" parent="Title/ButtonContainor" unique_id=2015879748]
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
@@ -387,7 +389,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
 text = "START"
 
-[node name="OPTION" type="Button" parent="ButtonContainor" unique_id=1973823877]
+[node name="OPTION" type="Button" parent="Title/ButtonContainor" unique_id=1973823877]
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
@@ -396,7 +398,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
 text = "OPTION"
 
-[node name="QUIT" type="Button" parent="ButtonContainor" unique_id=2144348159]
+[node name="QUIT" type="Button" parent="Title/ButtonContainor" unique_id=2144348159]
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
@@ -405,16 +407,17 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
 text = "QUIT"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=979635541]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Title" unique_id=979635541]
 stream = ExtResource("6_p6i14")
 volume_db = -25.0
 bus = &"BGM"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1337307510]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title" unique_id=1337307510]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_p5xl0")
 autoplay = &"START"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=982272086]
+[node name="ColorRect" type="ColorRect" parent="Title" unique_id=982272086]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -422,9 +425,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="ColorRect" unique_id=1482537577]
+[node name="Label" type="Label" parent="Title/ColorRect" unique_id=1482537577]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -440,14 +444,14 @@ grow_vertical = 2
 text = "Team 極楽"
 label_settings = SubResource("LabelSettings_gj3l6")
 
-[node name="Transition" type="ColorRect" parent="." unique_id=1091218178]
+[node name="Transition" type="ColorRect" parent="Title" unique_id=1091218178]
 material = SubResource("ShaderMaterial_jhy2k")
 layout_mode = 0
 offset_right = 512.0
 offset_bottom = 288.0
 mouse_filter = 2
 
-[node name="Black" type="ColorRect" parent="." unique_id=194255604]
+[node name="Black" type="ColorRect" parent="Title" unique_id=194255604]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -458,7 +462,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="toggled" from="OptionPanel/Sound/Check/FullScreen" to="." method="_on_full_screen_toggled"]
-[connection signal="toggled" from="OptionPanel/Sound/Check/VSYNC" to="." method="_on_vsync_toggled"]
-[connection signal="pressed" from="ButtonContainor/START" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ButtonContainor/OPTION" to="." method="_on_option_pressed"]
+[connection signal="toggled" from="Title/OptionPanel/Sound/Check/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="Title/OptionPanel/Sound/Check/VSYNC" to="." method="_on_vsync_toggled"]
+[connection signal="pressed" from="Title/ButtonContainor/START" to="Title" method="_on_start_pressed"]
+[connection signal="pressed" from="Title/ButtonContainor/OPTION" to="Title" method="_on_option_pressed"]

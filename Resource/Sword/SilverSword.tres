@@ -8,6 +8,14 @@
 script = ExtResource("2_x44na")
 Sprite = ExtResource("1_p6bm0")
 Id = "SilverSword"
-Name = "銀の剣"
+Name = "亜空の旅人"
 WeaponScene = ExtResource("2_0wdlk")
 Rarities = "rare"
+explanation = "通常攻撃:
+剣を二回振る
+チャージ攻撃:
+下から上へ切り裂く
+カウンター攻撃:
+十字斬りする"
+flavor_text = "次元の剣、それは「空間」をも超越する。"
+unlock_text = "1Fをクリアする"
