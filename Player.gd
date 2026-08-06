@@ -217,6 +217,8 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
 		parry_effect.emitting = true
 		is_just_dodgeroll = true
+		#致命的な
+		weapon.deadly_ready = true
 		counter_timer.start()
 	elif dodge_roll_cool_down_timer.is_stopped():
 		dodge_roll_cool_down_timer.start()

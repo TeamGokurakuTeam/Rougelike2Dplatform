@@ -61,7 +61,8 @@ var max_speed := 800
 
 #起死回生な
 var resurrection_used := false
-
+#致命的な
+var deadly_ready := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -193,6 +194,9 @@ func attack_trigger_modifier() -> void:
 #起死回生な
 	if modifiers_ids.has("Resurrection"):
 		resurrection()
+#致命的な
+	if modifiers_ids.has("Deadly"):
+		deadly()
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -430,6 +434,15 @@ func resurrection() -> void:
 		await get_tree().create_timer(0.2).timeout
 		player.hurtbox.monitoring = true
 
+#致命的な
+func deadly() -> void:
+	if deadly_ready:
+		var deadly_multiplier := 2.0
+		for i in hitboxes.size():
+			hitboxes[i].damage_multiplier = deadly_multiplier
+	else:
+		for i in hitboxes.size():
+			hitboxes[i].damage_multiplier = 1.0
 
 
 func start_modifier_timer() -> void:
