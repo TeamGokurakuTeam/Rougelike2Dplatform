@@ -47,6 +47,8 @@ var original_color: Color = Color.WHITE
 var is_dodgeroll : bool = false
 var dodgeroll_dir : Vector2 = Vector2.ZERO
 var is_just_dodgeroll : bool = false
+#
+var deadly_ready : bool = false
 var ghost_effect : GhostEffect
 var weapon : Weapon
 
@@ -218,7 +220,7 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 		parry_effect.emitting = true
 		is_just_dodgeroll = true
 		#致命的な
-		weapon.deadly_ready = true
+		deadly_ready = true
 		counter_timer.start()
 	elif dodge_roll_cool_down_timer.is_stopped():
 		dodge_roll_cool_down_timer.start()

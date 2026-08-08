@@ -62,7 +62,7 @@ var max_speed := 800
 #起死回生な
 var resurrection_used := false
 #致命的な
-var deadly_ready := false
+#var deadly_ready := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -436,7 +436,8 @@ func resurrection() -> void:
 
 #致命的な
 func deadly() -> void:
-	if deadly_ready:
+	if player.deadly_ready:
+		player.deadly_ready = false
 		var deadly_multiplier := 2.0
 		for i in hitboxes.size():
 			hitboxes[i].damage_multiplier = deadly_multiplier

@@ -10,4 +10,4 @@ texture = ExtResource("2_v5xrl")
 modifier_id = "Deadly"
 modifier_name = "致命的な"
 color_rarity = Color(1, 0.101960786, 0.101960786, 1)
-explanation = "ジャスト回避成功時この修飾子が無くなるまで攻撃倍率を２倍にする。"
+explanation = "ジャスト回避成功時次の攻撃倍率を２倍にする。"
