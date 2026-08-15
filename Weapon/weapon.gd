@@ -55,7 +55,8 @@ var fall_slash_cooldown := 0.0
 # バウンド設定
 var bounce_speed_multiplier := 1.1
 var max_speed := 800
-
+#ランク上昇
+var force_rank3_drop := false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -68,6 +69,8 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	GameEvents.battle_start.connect(_on_battle_start)
 	GameEvents.battle_end.connect(_on_battle_end)
+	#
+	get_tree().connect("node_added", Callable(self, "_on_node_added"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -187,6 +190,11 @@ func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("Bounce_Duck"):
 		bounceduck()
 #アヒル爆弾
+
+#幸運
+	if modifiers_ids.has("DropRateUP"):
+		droprateuP()
+
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -403,6 +411,30 @@ func bounceduck() -> void:
 	var random_y: float = randf_range(-300, -150)
 	duck.velocity = Vector2(random_x, random_y)
 	get_tree().root.add_child(duck)
+
+#幸運
+func _on_node_added(node):
+	if node is DropModifier and force_rank3_drop:
+		_force_rank3(node)
+		force_rank3_drop = false
+
+func _force_rank3(drop_mod: DropModifier) -> void:
+	var rank3_list := []
+	for modifierdeta in GlobalResourceLoader.modifier_cache.values():
+		if modifierdeta.ModifierRank == 2:
+			rank3_list.append(modifierdeta)
+	if rank3_list.size() > 0:
+		drop_mod.modifier = rank3_list.pick_random()
+
+func droprateuP() -> void:
+	modifier_count_timer.stop()
+	modifier_count_timer.wait_time = 0.0
+	modifier_count_timer.paused = false
+	modifier_count_timer.one_shot = true
+	reset_modifier()
+	force_rank3_drop = true
+
+
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
