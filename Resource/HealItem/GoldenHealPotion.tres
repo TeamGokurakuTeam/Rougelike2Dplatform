@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealItemRes" format=3 uid="uid://bcx3wero7oylu"]
+
+[ext_resource type="Script" uid="uid://ch512uy2h46" path="res://Resource/HealItem.gd" id="1_ono3c"]
+[ext_resource type="Texture2D" uid="uid://qymevfk0llni" path="res://Assets/GoldenHeal.png" id="2_ono3c"]
+
+[resource]
+script = ExtResource("1_ono3c")
+name = "金色の回復の瓶"
+heal_amount = 50.0
+texture = ExtResource("2_ono3c")
+id = "GoldenHealPotion"

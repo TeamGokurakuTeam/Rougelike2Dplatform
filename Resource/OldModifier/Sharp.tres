@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://df4dx0cnqot1s"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_7fguv"]
+
+[resource]
+script = ExtResource("1_7fguv")
+modifier_id = "Sharp"
+modifier_name = "鋭い"
+explanation = "・この修飾子がついた武器が\"剣\"だった時、攻撃力を+5する"

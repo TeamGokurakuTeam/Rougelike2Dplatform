@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://t2hcejxme7nh"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_pint0"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_nmmj4"]
+
+[resource]
+script = ExtResource("1_pint0")
+ModifierRank = 2
+texture = ExtResource("2_nmmj4")
+modifier_id = "DropRateUP"
+modifier_name = "幸運"
+color_rarity = Color(0.77254903, 0.85882354, 0, 1)
+explanation = "現在の剣についている修飾子を全て失う代わりに次敵からRankの３修飾子が出るようになる"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://t61niq7iam4g"]
+
+[ext_resource type="Texture2D" uid="uid://bo2f17yq3ud1" path="res://Assets/Weapon/バトライ刃.png" id="1_6nf0m"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_gqt1o"]
+
+[resource]
+script = ExtResource("3_gqt1o")
+Sprite = ExtResource("1_6nf0m")
+Id = "DragnerBlade"
+Name = "ドラグナーブレード"
+Rarities = "Master"
+explanation = "通常攻撃:
+???
+
+チャージ攻撃:
+???
+
+カウンター攻撃:
+???"
+flavor_text = "勝利はオレのためにある"
+unlock_text = "情報を閲覧することができない"
