@@ -21,9 +21,7 @@ script = ExtResource("1_ga214")
 [node name="PlayerUI" parent="." unique_id=1814325200 instance=ExtResource("2_8fymo")]
 
 [node name="ModContainer" parent="PlayerUI/Parent/ModUI/Control/CarouseContainer" parent_id_path=PackedInt32Array(1814325200, 1180346681, 438782455) index="0" unique_id=154540731]
-offset_left = 0.0
 offset_top = 248.0
-offset_right = 40.000015
 offset_bottom = 288.0
 
 [node name="RichTextLabel" parent="PlayerUI/Parent/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]

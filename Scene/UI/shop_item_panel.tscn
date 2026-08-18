@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dnwva6k65r1i6"]
+
+[ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="1_lhvj1"]
+[ext_resource type="Texture2D" uid="uid://bo2f17yq3ud1" path="res://Assets/Weapon/バトライ刃.png" id="2_dk31w"]
+[ext_resource type="Script" uid="uid://btt7gakn5472k" path="res://Scene/UI/shop_item_panel.gd" id="2_wxp40"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hoxb"]
+atlas = ExtResource("1_lhvj1")
+region = Rect2(768, 64, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jhy2k"]
+texture = SubResource("AtlasTexture_5hoxb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vx4me"]
+texture = SubResource("AtlasTexture_5hoxb")
+modulate_color = Color(0.5729883, 0.5729883, 0.5729883, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wxp40"]
+texture = SubResource("AtlasTexture_5hoxb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lg3j6"]
+texture = SubResource("AtlasTexture_5hoxb")
+modulate_color = Color(0.080783345, 0.080783345, 0.080783345, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdq5c"]
+atlas = ExtResource("1_lhvj1")
+region = Rect2(16, 272, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gj3l6"]
+texture = SubResource("AtlasTexture_qdq5c")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 1, 0, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="ShopItemPanel" type="Button" unique_id=1891378439]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vx4me")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wxp40")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_lg3j6")
+script = ExtResource("2_wxp40")
+
+[node name="Panel" type="Panel" parent="." unique_id=1197849414]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gj3l6")
+
+[node name="ItemSprite" type="TextureRect" parent="Panel" unique_id=617316542]
+custom_minimum_size = Vector2(34, 34)
+custom_maximum_size = Vector2(34, 34)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 37.0
+offset_bottom = 37.0
+texture = ExtResource("2_dk31w")
+stretch_mode = 4
+
+[node name="Panel2" type="Panel" parent="." unique_id=2092231688]
+visible = false
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")

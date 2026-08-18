@@ -13,6 +13,7 @@ var is_opening : bool = false
 var tween : Tween
 
 func _ready() -> void:
+	panel.visible = false
 	tween = create_tween()
 	_panel_init()
 

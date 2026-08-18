@@ -435,7 +435,9 @@ offset_bottom = -209.0
 
 [node name="ModContainer" parent="Parent/ModUI/Control/CarouseContainer" index="0" unique_id=154540731]
 layout_mode = 0
+offset_left = 0.0
 offset_top = 247.0
+offset_right = 40.000015
 offset_bottom = 287.0
 
 [node name="ModifierTimer" parent="Parent" unique_id=1389695203 instance=ExtResource("4_rj6n4")]
