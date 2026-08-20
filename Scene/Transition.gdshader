@@ -95,8 +95,16 @@ vec4 colormap(float x, vec2 uv) {
 
 void fragment()
 {
-	vec2 modifier = 1.0/(SCREEN_PIXEL_SIZE * pixelation);
+	vec2 modifier = 1.0 / (SCREEN_PIXEL_SIZE * pixelation);
 	vec2 uv = floor(UV * modifier) / modifier;
+
 	float shade = pattern(uv * zoom);
-	COLOR = colormap(shade, uv);
+	vec4 result = colormap(shade, uv);
+
+	float fade_in = smoothstep(0.35, 0.48, progress);
+	float fade_out = 1.0 - smoothstep(0.52, 0.65, progress);
+
+	float black_amount = min(fade_in, fade_out);
+
+	COLOR = mix(result, vec4(0.0, 0.0, 0.0, 1.0), black_amount);
 }

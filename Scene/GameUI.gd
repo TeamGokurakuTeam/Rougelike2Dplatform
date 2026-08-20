@@ -10,7 +10,7 @@ const MAIN_GAME = preload("uid://b4i3w233507yf")
 @onready var player_hp_ui: PlayerHpUI = $Parent/PlayerHpUI
 @onready var locked_mod_label: Label = $Parent/LockedModLabel
 @onready var modifier_explanation: ModifierExplanationUI = $Parent/ModifierExplanation
-@onready var transition: ColorRect = $Parent/Transition
+@onready var transition_rect: ColorRect = $Parent/Transition
 @onready var parent: Control = $Parent
 @onready var weapon_modifier_ui: WeaponModifierUI = $WeaponModifierUI
 @onready var game_over_animation_player: AnimationPlayer = $GameOver/AnimationPlayer
@@ -73,21 +73,37 @@ func _on_modifier_picked_up(mod_res : ModifierResource) -> void:
 	await modifier_explanation.animation_player.animation_finished
 	modifier_explanation.animation_player.play("End")
 
-func transition_start() -> void:
+func _execute_transition(from: float, to: float, duration: float) -> void:
 	if tween != null and tween.is_running():
 		tween.kill()
 	tween = create_tween()
-	(transition.material as ShaderMaterial).set_shader_parameter("progress", .0)
-	tween.tween_property(transition.material, "shader_parameter/progress", 1.0, 0.4)
-	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	var mat = transition_rect.material as ShaderMaterial
+	mat.set_shader_parameter("progress", from)
+	tween.tween_property(mat, "shader_parameter/progress", to, duration)
+	
+	if to > from:
+		tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	else:
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	await tween.finished
 
-func transition_back() -> void:
-	(transition.material as ShaderMaterial).set_shader_parameter("progress", 1.0)
-	if tween.is_running():
-		tween.kill()
-	tween = create_tween()
-	tween.tween_property(transition.material, "shader_parameter/progress", .0, 0.8)
-	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+func transition_fill_top_left(duration: float = 0.2) -> void:
+	await _execute_transition(0.0, 0.5, duration)
+
+func transition_clear_bottom_right(duration: float = 0.2) -> void:
+	await _execute_transition(0.5, 1.0, duration)
+
+func transition_fill_bottom_right(duration: float = 0.2) -> void:
+	await _execute_transition(1.0, 0.5, duration)
+
+func transition_clear_top_left(duration: float = 0.2) -> void:
+	await _execute_transition(0.5, 0.0, duration)
+
+func transition_in(duration : float = 0.4) -> void:
+	await _execute_transition(0.0, 1.0, duration)
+
+func transition_out(duration : float = 0.8) -> void:
+	await _execute_transition(1.0, 0.0, duration)
 
 func ui_fade_in() -> void:
 	if fade_tween != null and fade_tween.is_running():

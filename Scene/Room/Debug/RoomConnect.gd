@@ -83,3 +83,7 @@ func room_generate() -> void:
 		
 		if room_data[1][0]:
 			lobby_room = room_data[1][0] as Room
+
+func clear_rooms() -> void:
+	for node in get_children():
+		node.queue_free()
