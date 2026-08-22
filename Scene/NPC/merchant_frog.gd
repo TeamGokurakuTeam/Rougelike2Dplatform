@@ -1,11 +1,16 @@
 extends Character
 class_name MerchantFrog
 
+const SHOP_UI = preload("uid://ck5n0v7vducof")
+
+@export var item_list_tables : Array[ShopItemBuyList]
+
 @onready var shop_label: Label = $Controls/Shop
 @onready var talk_label: Label = $Controls/Talk
 @onready var talk_panel: Panel = $Controls/TalkPanel
 @onready var rich_text_label: RichTextLabel = $Controls/TalkPanel/RichTextLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var item_spawn_point: Marker2D = $ItemSpawnPoint
 
 var is_player_inside : bool = false
 var is_running : bool = false
@@ -13,6 +18,8 @@ var tween : Tween
 var propetytween : PropertyTweener
 var text_ratio_tween : Tween
 var talk_count : int = 0
+var item_table : ShopItemBuyList = null
+var sold_list : Array[bool]
 
 var texts : Array[String] = [
 "誰かが迎えに来てくれるまで、
@@ -59,13 +66,17 @@ func _ready() -> void:
 	talk_label.visible = false
 	talk_panel.visible = false
 	rich_text_label.text = ""
+	if item_table == null:
+		item_table = item_list_tables.pick_random()
+		for i in item_table.item_list.size():
+			sold_list.append(false)
 
 func _physics_process(delta: float) -> void:
 	if is_player_inside:
 		if Input.is_action_just_pressed("UI_Down") and not is_running:
 			visible_off()
 			is_running = true
-			await get_tree().create_timer(2.0).timeout
+			_open_shop_ui()
 			is_running = false
 			visible_on()
 			
@@ -145,3 +156,7 @@ func submit(text : String, scroll_second : float):
 	bar.modulate = Color("ffffff00")
 	await text_ratio_tween.finished
 	await get_tree().create_timer(3.0).timeout
+
+func _open_shop_ui() -> void:
+	GameEvents.shop_ui_opened.emit(self)
+	

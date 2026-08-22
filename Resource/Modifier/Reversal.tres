@@ -11,3 +11,4 @@ modifier_id = "Reversal"
 modifier_name = "反撃な"
 color_rarity = Color(1, 0.101960786, 0.101960786, 1)
 explanation = "HPが低くなるほど攻撃力が上昇する"
+price = 5

@@ -9,3 +9,4 @@ texture = ExtResource("2_pe4lm")
 modifier_id = "HeavyStrike"
 modifier_name = "重撃"
 explanation = "剣を振るスピードが遅くなる代わりにタメ攻撃の威力が２倍"
+price = 3

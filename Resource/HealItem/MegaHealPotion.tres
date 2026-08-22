@@ -9,3 +9,7 @@ name = "回復の大瓶"
 heal_amount = 25.0
 texture = ExtResource("2_fmuxk")
 id = "MegaHealPotion"
+price = 4
+explanation = "HPを25回復できる大型の回復瓶。
+かさばるのでみんなヒールポーションを良く買う。
+当然、ヒールよりも不人気である。"

@@ -11,3 +11,4 @@ modifier_id = "Slash_Pierce"
 modifier_name = "斬：貫通　"
 color_rarity = Color(0.774, 0.86, 0, 1)
 explanation = "プレイヤーが放つ斬撃(発射物)がある場合、剣から放った斬撃が地形を貫通する。"
+price = 3

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://clvhx3141ldqs" path="res://Scene/NPC/merchant_frog.gd" id="2_00u0e"]
 [ext_resource type="Texture2D" uid="uid://6dwvf8p1ajpv" path="res://Assets/NPC/frog_idle.png" id="2_38hjr"]
 [ext_resource type="Texture2D" uid="uid://b5mcpx1sa4cxa" path="res://Assets/NPC/frog_jump.png" id="3_00u0e"]
+[ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="3_w43dv"]
 [ext_resource type="Texture2D" uid="uid://bouqwgq3nn6x0" path="res://Assets/NPC/frog_chill.png" id="4_7pvvl"]
 [ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="6_7pvvl"]
 [ext_resource type="Texture2D" uid="uid://bldxpebbei5hi" path="res://Assets/Keyboard Letters and Symbols.png" id="7_f7dpi"]
@@ -348,6 +349,7 @@ texture_margin_bottom = 8.0
 
 [node name="MerchantFrog" unique_id=1094349948 instance=ExtResource("1_kc3y3")]
 script = ExtResource("2_00u0e")
+item_list_tables = Array[ExtResource("3_w43dv")]([])
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 z_index = 2
@@ -463,6 +465,9 @@ text = "...一回しかいわないから、
 この話はナイショなんだ..."
 scroll_following_visible_characters = true
 visible_characters_behavior = 1
+
+[node name="ItemSpawnPoint" type="Marker2D" parent="." index="8" unique_id=1892910652]
+position = Vector2(0, -55)
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
