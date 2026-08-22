@@ -30,8 +30,8 @@ func _ready() -> void:
 
 	room_generator.room_generate()
 	current_room = room_generator.lobby_room
+	_move_player_to_lobby()
 
-	player.global_position = room_generator.lobby_room.player_marker.global_position
 	player_ui.player = self.player
 	player_ui.player_hp_ui.player = self.player
 
@@ -40,6 +40,8 @@ func _ready() -> void:
 	player.applied_modifier.connect(player_ui.modifier_timer._on_player_applied_modifier)
 	player.hp_component.hp_changed.connect(player_ui.player_hp_ui._on_player_hp_changed)
 	player.modifier_picked_up.connect(player_ui._on_modifier_picked_up)
+
+	GameEvents.next_floor_entered.connect(_on_next_floor_entered)
 
 func change_camera(target_camera: Camera2D) -> void:
 	var final_transform := target_camera.global_transform
@@ -138,3 +140,23 @@ func teleport_player_to_furthest_door() -> void:
 	if furthest_door_index >= 0:
 		var furthest_door : Door = current_room.doors.get_child(furthest_door_index) as Door
 		player.global_position = furthest_door.exit_point.global_position
+
+func _on_next_floor_entered() -> void:
+	await player_ui.transition_fill_top_left()
+	_move_player_to_origin()
+	await get_tree().create_timer(0.5).timeout
+	room_generator.clear_rooms()
+	room_generator.room_generate()
+	_move_player_to_lobby()
+	current_room = room_generator.lobby_room
+	await player_ui.transition_clear_bottom_right()
+
+func _move_player_to_origin() -> void:
+	if player == null or room_generator.lobby_room == null:
+		return
+	player.global_position = Vector2.ZERO
+
+func _move_player_to_lobby() -> void:
+	if player == null or room_generator.lobby_room == null:
+		return
+	player.global_position = room_generator.lobby_room.player_marker.global_position

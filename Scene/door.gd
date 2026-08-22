@@ -34,7 +34,7 @@ func lock() -> void:
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body is Player and teleport_to != null:
-		main_game_node.player_ui.transition_start()
+		main_game_node.player_ui.transition_in()
 		await get_tree().create_timer(0.3).timeout
 		var player : Player = body as Player
 		player.global_position = teleport_to.exit_point.global_position
