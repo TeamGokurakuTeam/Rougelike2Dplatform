@@ -94,6 +94,10 @@ func _input(event: InputEvent) -> void:
 			KEY_T:
 				Common.debug_print("一番遠いドアにテレポート")
 				teleport_player_to_furthest_door()
+			KEY_J:
+				Common.debug_print("プレイヤーキル")
+				if player:
+					player.hp_component.hp = 0
 
 
 func _record_pressed_key(key_event : InputEventKey) -> void:

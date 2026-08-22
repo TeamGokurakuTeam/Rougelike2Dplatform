@@ -20,7 +20,7 @@ func _ready() -> void:
 		var panel_node : WeaponSelectPanel = WEAPON_SELECT_PANEL.instantiate()
 		panel_node.weapon_resource = GlobalResourceLoader.weapon_cache[key]
 		panel_container.add_child(panel_node)
-		if panel_node.weapon_resource.Id != "NewWorld":
+		if panel_node.weapon_resource.Id != "A_NewWorld":
 			panel_node.is_lock = true
 		
 	for node in panel_container.get_children():
