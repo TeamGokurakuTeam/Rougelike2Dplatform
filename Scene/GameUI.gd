@@ -3,6 +3,7 @@ class_name GameUI
 
 const TITLE = preload("uid://d15a301cfnn87")
 const MAIN_GAME = preload("uid://b4i3w233507yf")
+const SHOP_UI = preload("uid://ck5n0v7vducof")
 
 @onready var hotbar: HBoxContainer = $Parent/Hotbar
 @onready var mod_ui: ModUI = $Parent/ModUI
@@ -31,6 +32,8 @@ var is_show_mod_ui : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	game_over_panel.visible = false
+	GameEvents.shop_ui_opened.connect(_on_shop_ui_opened)
+	GameEvents.shop_ui_closed.connect(_on_shop_ui_closed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -120,6 +123,17 @@ func ui_fade_out() -> void:
 	parent.modulate = Color("ffffff00")
 	fade_tween.tween_property(parent, "modulate", Color("ffffff"), 1.0)
 	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+func _on_shop_ui_opened(npc : MerchantFrog) -> void:
+	ui_fade_in()
+	GameEvents.cutscene_started.emit()
+	var shop_ui : ShopUI = SHOP_UI.instantiate()
+	shop_ui.npc = npc
+	add_child(shop_ui)
+
+func _on_shop_ui_closed() -> void:
+	ui_fade_out()
+	GameEvents.cutscene_ended.emit()
 
 func game_over() -> void:
 	game_over_panel.visible = true

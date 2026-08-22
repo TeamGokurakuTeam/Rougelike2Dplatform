@@ -11,3 +11,4 @@ modifier_id = "SpeedingMoveExceed"
 modifier_name = "速度超過：移"
 color_rarity = Color(1, 0.101960786, 0.101960786, 1)
 explanation = "速度の上限を超過する時その超過した数値５ごとに速度が変わる"
+price = 5

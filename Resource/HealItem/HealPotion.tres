@@ -9,3 +9,7 @@ name = "回復の瓶"
 heal_amount = 10.0
 texture = ExtResource("2_asaqg")
 id = "HealPotion"
+price = 2
+explanation = "HPを10回復する一般的な回復瓶。
+市販に出回っているため、誰でも持っている。
+味が不味いので不人気だ。"

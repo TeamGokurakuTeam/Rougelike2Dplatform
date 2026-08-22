@@ -9,3 +9,4 @@ texture = ExtResource("2_bfmeb")
 modifier_id = "Slash_Duck"
 modifier_name = "アヒル"
 explanation = "剣を振るとアヒルが出現"
+price = 3

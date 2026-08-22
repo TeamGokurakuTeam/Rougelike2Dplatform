@@ -10,3 +10,4 @@ class_name ResourceItem
 @export_multiline var explanation : String ##武器の攻撃の説明
 @export_multiline var flavor_text : String ##武器のフレーバーテキスト
 @export_multiline var unlock_text : String ##武器の解禁条件
+@export var price : int = 1

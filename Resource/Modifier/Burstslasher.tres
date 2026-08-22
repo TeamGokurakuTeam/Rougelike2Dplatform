@@ -11,3 +11,4 @@ modifier_id = "Burstslasher"
 modifier_name = "破裂し斬撃する"
 color_rarity = Color(0.77254903, 0.85882354, 0, 1)
 explanation = "剣を振ると斬撃が発生し、壁に当たるときその場所に無数の斬撃を出現させる"
+price = 5

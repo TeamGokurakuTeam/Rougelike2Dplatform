@@ -9,3 +9,7 @@ name = "金色の回復の瓶"
 heal_amount = 50.0
 texture = ExtResource("2_ono3c")
 id = "GoldenHealPotion"
+price = 5
+explanation = "HPを半分回復出来る金色の瓶。
+よくわからないが、金色の装飾をしているため料金が少々高いそうだ。
+そのため、メガヒールよりも不人気だ。"

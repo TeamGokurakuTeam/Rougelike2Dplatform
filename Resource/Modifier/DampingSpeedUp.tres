@@ -11,3 +11,4 @@ modifier_id = "DampingSpeedUp"
 modifier_name = "衰退し加速する"
 color_rarity = Color(1, 0.101960786, 0.101960786, 1)
 explanation = "攻撃力が減少する代わりに剣を振る速度を上昇させる。"
+price = 3
