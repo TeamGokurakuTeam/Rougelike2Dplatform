@@ -406,6 +406,7 @@ _data = {
 }
 
 [node name="Fan" type="Node2D" unique_id=2135413050]
+process_mode = 1
 script = ExtResource("1_7ylyd")
 
 [node name="FanPoint" type="Node2D" parent="." unique_id=584250239]

@@ -4,6 +4,7 @@ class_name GameUI
 const TITLE = preload("uid://d15a301cfnn87")
 const MAIN_GAME = preload("uid://b4i3w233507yf")
 const SHOP_UI = preload("uid://ck5n0v7vducof")
+const PAUSE_MENU = preload("uid://bi80dehen74u6")
 
 @onready var hotbar: HBoxContainer = $Parent/Hotbar
 @onready var mod_ui: ModUI = $Parent/ModUI
@@ -39,6 +40,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player == null:
 		return
+	if Input.is_action_just_pressed("UI_Paused"):
+		get_tree().paused = true
+		var pause_menu : PauseMenuUI = PAUSE_MENU.instantiate()
+		add_child(pause_menu)
 	if Input.is_action_just_pressed("UI_scroll_left"):
 		player.current_modifier += 1
 		mod_ui.texture_update(player)

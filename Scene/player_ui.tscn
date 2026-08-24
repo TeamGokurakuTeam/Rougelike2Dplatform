@@ -379,6 +379,7 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=1814325200]
+process_mode = 3
 script = ExtResource("1_q25tn")
 
 [node name="Parent" type="Control" parent="." unique_id=559341666]

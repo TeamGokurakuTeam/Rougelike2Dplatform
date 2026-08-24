@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dris5yp7e3utg"]
 
-[ext_resource type="Script" uid="uid://bhkreq0eq5oo3" path="res://Scene/Player/ghost_effect.gd" id="1_85fvf"]
+[ext_resource type="Script" uid="uid://bhkreq0eq5oo3" path="res://Scene/Effect/ghost_effect.gd" id="1_85fvf"]
 
 [node name="GhostEffect" type="Sprite2D" unique_id=239333102]
+process_mode = 1
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
 z_index = 1
 script = ExtResource("1_85fvf")

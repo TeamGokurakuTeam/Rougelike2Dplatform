@@ -241,6 +241,7 @@ animations = [{
 }]
 
 [node name="RotatingBeam" type="Node2D" unique_id=1288819283]
+process_mode = 1
 script = ExtResource("1_g7huu")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=294448172]

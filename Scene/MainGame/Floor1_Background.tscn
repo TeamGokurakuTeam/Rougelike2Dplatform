@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bypwuf60t74yf" path="res://Assets/BackGround/Floor1/6.png" id="6_oofc2"]
 
 [node name="BackGround" type="Node2D" unique_id=16215675]
+process_mode = 1
 modulate = Color(0.42592907, 0.3903062, 0.4745459, 1)
 
 [node name="BackParallax2D" type="Parallax2D" parent="." unique_id=1196351124]

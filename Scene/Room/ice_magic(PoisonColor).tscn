@@ -3,7 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://esb02rh4pf7m" path="res://Scene/Room/ice_magic.tscn" id="1_gkqo7"]
 
 [node name="IceMagic" unique_id=1415965525 instance=ExtResource("1_gkqo7")]
+process_mode = 1
 modulate = Color(0.4509804, 0.80784315, 0.22352941, 1)
-
-[node name="AnimatedSprite2D" parent="." index="1" unique_id=836565103]
-z_index = 2

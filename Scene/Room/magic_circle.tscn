@@ -109,6 +109,7 @@ _data = {
 }
 
 [node name="MagicCircle" type="Area2D" unique_id=1791399160]
+process_mode = 1
 script = ExtResource("1_8l34s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1039089583]

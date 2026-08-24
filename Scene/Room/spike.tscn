@@ -22,6 +22,7 @@ animations = [{
 size = Vector2(20, 5.7842293)
 
 [node name="Spike" type="Area2D" unique_id=2129174175]
+process_mode = 1
 script = ExtResource("1_bw3ky")
 damage = 2.0
 

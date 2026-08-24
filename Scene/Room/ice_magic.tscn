@@ -635,6 +635,7 @@ _data = {
 }
 
 [node name="IceMagic" type="Area2D" unique_id=1415965525]
+process_mode = 1
 rotation = 1.5707964
 script = ExtResource("1_8d61u")
 
