@@ -10,4 +10,4 @@ texture = ExtResource("2_ieup5")
 modifier_id = "Afterimage"
 modifier_name = "残影な"
 color_rarity = Color(0.77254903, 0.85882354, 0, 1)
-explanation = "剣を1度振るごとに２回斬る"
+explanation = "攻撃時、斬撃がある場合、更に斬撃を放つ（重複しない）"

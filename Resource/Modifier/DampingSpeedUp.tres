@@ -10,5 +10,5 @@ texture = ExtResource("2_jetnr")
 modifier_id = "DampingSpeedUp"
 modifier_name = "衰退し加速する"
 color_rarity = Color(1, 0.101960786, 0.101960786, 1)
-explanation = "攻撃力が減少する代わりに剣を振る速度を上昇させる。"
+explanation = "全ての攻撃ダメージが半減する代わりに全ての攻撃速度を1.2倍上昇させる。（重複可能）"
 price = 3

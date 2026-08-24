@@ -78,8 +78,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("UI_Attack") and not animation_player.is_playing():
 		animation_player.play("Charge")
 	elif Input.is_action_just_released("UI_Attack"):
+		var speed_mults : AttackSpeedMultiplier = calculate_speed_multiplier()
+		var dmg_mults: AttackDamageMultiplier = calculate_damage_multiplier()
 		if animation_player.is_playing() and player.counter_timer.wait_time > 0 and not player.counter_timer.is_stopped():
 			player.counter_timer.stop()
+			animation_player.speed_scale = speed_mults.attack_speed_mult
 			animation_player.play("CounterAttack")
 			if player.is_just_dodgeroll:
 				player.is_just_dodgeroll = false
@@ -89,8 +92,14 @@ func _process(delta: float) -> void:
 			for i in hitboxes.size():
 				hitboxes[i].damage_multiplier = NORMAL_RATE
 		elif animation_player.is_playing() and animation_player.current_animation == "Charge":
+			for i in hitboxes.size():
+				hitboxes[i].damage_multiplier = dmg_mults.damage_mult
+			animation_player.speed_scale = speed_mults.attack_speed_mult
 			animation_player.play("Attack")
-		elif charge_particle.emitting:	
+		elif charge_particle.emitting:
+			for i in hitboxes.size():
+				hitboxes[i].damage_multiplier = dmg_mults.charge_damage_mult
+			animation_player.speed_scale = speed_mults.charge_attack_speed_mult
 			animation_player.play("StrongAttack")
 
 	mouse_direction = (get_global_mouse_position() - global_position).normalized()
@@ -154,7 +163,6 @@ func has_modifiers(name : String):
 	return modifiers_ids.has(name) or lock_modifiers_ids.has(name)
 
 func attack_trigger_modifier() -> void:
-	#
 	modifier_use_count += 1
 	
 	if modifiers_ids.has("Bloodletting"):
@@ -165,21 +173,12 @@ func attack_trigger_modifier() -> void:
 #残影な(Afterimage)
 	if has_modifiers("Afterimage"):
 		afterimage_slash()
-#反撃な（Reversal）
-	if has_modifiers("Reversal"):
-		reversal_up()
 #破裂し斬撃する(BurstSlasher)
 	if has_modifiers("Burstslasher"):
 		burst_slash()
 #斬：複製
 	if modifiers_ids.has("FallSlashing"):
 		fall_slashing()
-#攻撃速度ビルド
-	if modifiers_ids.has("DampingSpeedUp"):
-		damping_speedup(mouse_direction,offset_length)
-#重撃
-	if modifiers_ids.has("HeavyStrike"):
-		HeavyStrike()
 #アヒル
 	if modifiers_ids.has("Slash_Duck"):
 		slashduck()
@@ -224,15 +223,6 @@ func leap_forward() -> void:
 		return
 	var leap_power := 300.0 #跳躍の数値
 	player.velocity += mouse_direction * leap_power
-#反撃な
-func reversal_up() -> void:
-	var current_hp := player.hp_component.hp
-	var max_hp := player.hp_component.max_hp
-	current_hp = max(current_hp, 1)
-	var multiplier := pow(float(max_hp) / float(current_hp), 1.5)
-	for i in hitboxes.size():
-		var new_damage := base_stats[i].damage * multiplier
-		hitboxes[i].damage = base_stats[i].damage * multiplier
 ##破裂し斬撃する(BurstSlasher)
 func burst_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -292,19 +282,6 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		get_tree().root.add_child(slash)
 		DamageNumber.display_number(2, global_position, false, Color("6f0000ff"))
 		player.hp_component.hp -= 2 #2は自傷ダメージ
-#攻撃速度ビルド
-func damping_speedup(direction: Vector2, offset_Speed_Up: float) -> void:
-	var target_speed = 1.5#速度
-	animation_player.speed_scale = min(target_speed, max_speed_scale)
-	for i in range(hitboxes.size()):
-		var new_damage := 0.0
-		var min_damage := 1.0
-		new_damage = max(new_damage, min_damage)
-		if randf() < 0.5:
-			new_damage = 0.0
-		else:
-			new_damage = 1.0
-		hitboxes[i].damage = new_damage
 #自動攻撃
 func _try_auto_attack_speed_buff() -> void:
 	if auto_attack_speed_buff_active:
@@ -365,16 +342,6 @@ func _add_speed_move_exceed(exceed:float) -> void:
 		var add_speed = exceed * 10
 		player.current_acceleration += add_speed
 
-#重撃
-func HeavyStrike() -> void:
-	for i in hitboxes.size():
-		hitboxes[i].damage_multiplier = base_stats[i].damage * 0.1
-	animation_player.speed_scale = 0.4
-	await animation_player.animation_finished
-	animation_player.speed_scale = 1.0
-	for i in hitboxes.size():
-		hitboxes[i].damage = hitboxes[i].damage_multiplier
-
 # アヒル
 func slashduck() -> void:
 	if randf() < 0.6:
@@ -418,3 +385,57 @@ func _on_battle_start() -> void:
 
 func _on_battle_end() -> void:
 	modifier_count_timer.paused = true
+
+class AttackDamageMultiplier:
+	var damage_mult : float = 1.0			# ダメージの倍率
+	var charge_damage_mult : float = 1.0	# チャージダメージの倍率
+
+class AttackSpeedMultiplier:
+	var charge_speed_mult : float = 1.0			# チャージ速度
+	var attack_speed_mult : float = 1.0			# 攻撃速度
+	var charge_attack_speed_mult : float = 1.0	# チャージ攻撃速度
+
+func calculate_damage_multiplier() -> AttackDamageMultiplier:
+	var mults: AttackDamageMultiplier = AttackDamageMultiplier.new()
+
+	# 反撃な
+	if has_modifiers("Reversal"):
+		var hp_percent := float(player.hp_component.hp) / float(player.hp_component.max_hp)
+		# 10% 20% 30%... に変換する
+		var gated_hp : float = ceil(hp_percent * 10.0) / 10.0 
+		# HPが10%時2倍ダメージ
+		var reversal_mult: float = 1.0 + (1.0 - gated_hp) / 0.9
+		mults.damage_mult *= reversal_mult
+		mults.charge_damage_mult *= reversal_mult
+
+	# 衰退し加速する
+	if has_modifiers("DampingSpeedUp"):
+		var level : int = get_modifiers_level("DampingSpeedUp")
+		mults.damage_mult *= 0.5 ** level
+		mults.charge_damage_mult *= 0.5 ** level
+
+	# 重撃
+	if has_modifiers("HeavyStrike"):
+		var level : int = get_modifiers_level("HeavyStrike")
+		mults.charge_damage_mult *= (1 + 0.2 * level)
+		
+	return mults
+
+func calculate_speed_multiplier() -> AttackSpeedMultiplier:
+	var mults: AttackSpeedMultiplier = AttackSpeedMultiplier.new()
+
+	# 衰退し加速する
+	if has_modifiers("DampingSpeedUp"):
+		var level : int = get_modifiers_level("DampingSpeedUp")
+		mults.attack_speed_mult *= (1 + 0.2 * level)
+		mults.charge_attack_speed_mult *= (1 + 0.2 * level)
+	
+	# 重撃
+	if has_modifiers("HeavyStrike"):
+		var level : int = get_modifiers_level("HeavyStrike")
+		mults.attack_speed_mult *= 0.8 ** level
+
+	mults.attack_speed_mult = min(mults.attack_speed_mult, max_speed_scale)
+	mults.charge_attack_speed_mult = min(mults.charge_attack_speed_mult, max_speed_scale)
+
+	return mults

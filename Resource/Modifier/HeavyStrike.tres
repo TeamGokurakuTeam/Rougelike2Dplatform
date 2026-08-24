@@ -8,5 +8,5 @@ script = ExtResource("1_vmqv3")
 texture = ExtResource("2_pe4lm")
 modifier_id = "HeavyStrike"
 modifier_name = "重撃"
-explanation = "剣を振るスピードが遅くなる代わりにタメ攻撃の威力が２倍"
+explanation = "通常攻撃のスピードが 0.8 倍になる代わりにタメ攻撃の威力が 1.2 倍。（重複可能）"
 price = 3
