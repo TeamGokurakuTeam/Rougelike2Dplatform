@@ -10,6 +10,11 @@ const PLAYER_FALL_SLASH : PackedScene = preload("uid://bjj3tflijfk6o")
 const PLAYER_RANGESLASH : PackedScene = preload("uid://dds7cl7iiu2wf")
 #アヒル
 const DUCK : PackedScene = preload("res://Scene/Player/Projectile/duck.tscn")
+#チャージピッグ
+const CHARGE_PIG : PackedScene = preload("uid://b602fh2d4ti68")
+#チャージゴールドピッグ
+const CHARGE_GOLD_PIG : PackedScene = preload("uid://dynvgsvfc7wgo")
+
 
 @export var resource_id : String
 
@@ -57,7 +62,8 @@ var bounce_speed_multiplier := 1.1
 var max_speed := 800
 #ランク上昇
 var force_rank3_drop := false
-
+#ピッグクールタイム
+var pig_cooldown := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -194,6 +200,10 @@ func attack_trigger_modifier() -> void:
 #幸運
 	if modifiers_ids.has("DropRateUP"):
 		droprateuP()
+
+#チャージピッグ
+	if modifiers_ids.has("ChargePig"):
+		chargepig()
 
 
 func get_modifiers_level(name : String) -> int:
@@ -434,6 +444,39 @@ func droprateuP() -> void:
 	reset_modifier()
 	force_rank3_drop = true
 
+#チャージピッグ
+func chargepig() -> void:
+	if pig_cooldown:
+		return
+	var pig
+	var is_gold := false
+	if randf() < 0.1:
+		pig = CHARGE_GOLD_PIG.instantiate()
+		is_gold = true
+	else:
+		pig = CHARGE_PIG.instantiate()
+	var dir := mouse_direction.normalized()
+	dir.y = 0
+	dir = dir.normalized()
+	pig.global_position = player.global_position
+	if is_gold:
+		pig.velocity = dir * 200
+	else:
+		pig.velocity = dir * 100
+	if dir.x < 0:
+		pig.scale.x = -1
+	else:
+		pig.scale.x = 1
+	get_tree().root.add_child(pig)
+	pig_cooldown = true
+	var countdown := Timer.new()
+	countdown.wait_time = 1.5
+	countdown.one_shot = true
+	countdown.timeout.connect(func():
+		pig_cooldown = false
+		countdown.queue_free())
+	add_child(countdown)
+	countdown.start()
 
 
 func start_modifier_timer() -> void:

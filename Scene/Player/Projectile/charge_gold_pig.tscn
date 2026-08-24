@@ -1,0 +1,348 @@
+[gd_scene format=3 uid="uid://dynvgsvfc7wgo"]
+
+[ext_resource type="Texture2D" uid="uid://88hiykvq78rm" path="res://Assets/Weapon/Effect/WeaponEffect/golden_piggy_sheet.png" id="1_3qtwj"]
+[ext_resource type="Script" uid="uid://c1fekm5rt24hu" path="res://Scene/Player/Projectile/ChargeGoldPig.gd" id="1_8uj53"]
+[ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="1_oksod"]
+[ext_resource type="Texture2D" uid="uid://dc0dmc1x30rwa" path="res://Assets/Weapon/Effect/WeaponEffect/Preview C/Retro Impact Effect Pack 3/Retro Impact Effect Pack 3 C.png" id="4_8ghj4"]
+[ext_resource type="Texture2D" uid="uid://c08py6kjpmj34" path="res://Assets/Weapon/Effect/WeaponEffect/Preview C/Retro Impact Effect Pack 3/Retro Impact Effect Pack 3 B.png" id="5_50e4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uj53"]
+atlas = ExtResource("1_3qtwj")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ghj4"]
+atlas = ExtResource("1_3qtwj")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50e4v"]
+atlas = ExtResource("1_3qtwj")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8ll7"]
+atlas = ExtResource("1_3qtwj")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oksod"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uj53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ghj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50e4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8ll7")
+}],
+"loop": 1,
+"name": &"GoldPig",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sr8xb"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0akc"]
+radius = 13.038404
+
+[sub_resource type="Animation" id="Animation_3qtwj"]
+resource_name = "GoldPig"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"GoldPig", &"GoldPig"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Effect:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Effect:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"blue", &"blue"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Effect:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.13333334, 0.23333333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-13, 1.0000004), Vector2(-13, 1.0000004), Vector2(16.999998, 9.999999), Vector2(8.42857, 7.4285707), Vector2(-13, 1.0000005)]
+}
+
+[sub_resource type="Animation" id="Animation_8uj53"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"GoldPig"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Effect:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Effect:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"blue"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Effect:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-13, 1.0000004)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ghj4"]
+_data = {
+&"GoldPig": SubResource("Animation_3qtwj"),
+&"RESET": SubResource("Animation_8uj53")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr8xb"]
+atlas = ExtResource("4_8ghj4")
+region = Rect2(0, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0akc"]
+atlas = ExtResource("4_8ghj4")
+region = Rect2(32, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwelp"]
+atlas = ExtResource("4_8ghj4")
+region = Rect2(64, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x08d3"]
+atlas = ExtResource("4_8ghj4")
+region = Rect2(96, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cju37"]
+atlas = ExtResource("4_8ghj4")
+region = Rect2(128, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfip2"]
+atlas = ExtResource("4_8ghj4")
+region = Rect2(160, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mubqu"]
+atlas = ExtResource("5_50e4v")
+region = Rect2(0, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efskr"]
+atlas = ExtResource("5_50e4v")
+region = Rect2(32, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4g5f"]
+atlas = ExtResource("5_50e4v")
+region = Rect2(64, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksfjo"]
+atlas = ExtResource("5_50e4v")
+region = Rect2(96, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20efp"]
+atlas = ExtResource("5_50e4v")
+region = Rect2(128, 640, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s23os"]
+atlas = ExtResource("5_50e4v")
+region = Rect2(160, 640, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgmmx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr8xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0akc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwelp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x08d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cju37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfip2")
+}],
+"loop": 1,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mubqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efskr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4g5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksfjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20efp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s23os")
+}],
+"loop": 1,
+"name": &"purple",
+"speed": 5.0
+}]
+
+[node name="ChargeGoldPig" type="Area2D" unique_id=1826785874]
+collision_layer = 129
+collision_mask = 129
+script = ExtResource("1_8uj53")
+damage = 5.0
+
+[node name="Root" type="Node2D" parent="." unique_id=341630637]
+position = Vector2(0, -5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Root" unique_id=2118349660]
+sprite_frames = SubResource("SpriteFrames_oksod")
+animation = &"GoldPig"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=998342485]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_sr8xb")
+debug_color = Color(0, 0.6458101, 0.25869924, 0.41960785)
+
+[node name="Hitbox" parent="." unique_id=466385270 instance=ExtResource("1_oksod")]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1399399970]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_u0akc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=64183213]
+libraries/ = SubResource("AnimationLibrary_8ghj4")
+
+[node name="Timer" type="Timer" parent="." unique_id=700120051]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=45197100]
+
+[node name="Effect" type="AnimatedSprite2D" parent="." unique_id=834363053]
+position = Vector2(-13, 1.0000004)
+scale = Vector2(0.315, 0.315)
+sprite_frames = SubResource("SpriteFrames_lgmmx")
+animation = &"blue"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+
+[editable path="Hitbox"]

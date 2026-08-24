@@ -1,0 +1,171 @@
+[gd_scene format=3 uid="uid://b602fh2d4ti68"]
+
+[ext_resource type="Script" uid="uid://esbij5840vh7" path="res://Scene/Player/Projectile/ChargePig.gd" id="1_7e4ga"]
+[ext_resource type="Texture2D" uid="uid://da2b2ve6vbuod" path="res://Assets/Weapon/Effect/WeaponEffect/piggy_sheet.png" id="1_x7fwt"]
+[ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="2_1ucnj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e4ga"]
+atlas = ExtResource("1_x7fwt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efc0r"]
+atlas = ExtResource("1_x7fwt")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxmen"]
+atlas = ExtResource("1_x7fwt")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8q70"]
+atlas = ExtResource("1_x7fwt")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75vwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e4ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efc0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxmen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8q70")
+}],
+"loop": 1,
+"name": &"Pig",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ucnj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7fwt"]
+radius = 17.0
+
+[sub_resource type="Animation" id="Animation_jnrg8"]
+resource_name = "Pig"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Pig", &"Pig"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_1ucnj"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Pig"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vu6bm"]
+_data = {
+&"Pig": SubResource("Animation_jnrg8"),
+&"RESET": SubResource("Animation_1ucnj")
+}
+
+[node name="ChargePig" type="Area2D" unique_id=919551286]
+collision_layer = 129
+collision_mask = 129
+script = ExtResource("1_7e4ga")
+damage = 1.0
+
+[node name="Root" type="Node2D" parent="." unique_id=1286156143]
+position = Vector2(0, -5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Root" unique_id=762544371]
+sprite_frames = SubResource("SpriteFrames_75vwg")
+animation = &"Pig"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=92166312]
+position = Vector2(0, 1)
+scale = Vector2(1.4187998, 1.5612123)
+shape = SubResource("RectangleShape2D_1ucnj")
+debug_color = Color(0, 0.6414052, 0.33978754, 0.41960785)
+
+[node name="Hitbox" parent="." unique_id=466385270 instance=ExtResource("2_1ucnj")]
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1399399970]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_x7fwt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1766190963]
+libraries/ = SubResource("AnimationLibrary_vu6bm")
+
+[node name="Timer" type="Timer" parent="." unique_id=245860053]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1701357974]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+
+[editable path="Hitbox"]

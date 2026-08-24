@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://m6les3cj6u6b"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_odo1v"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_gkqui"]
+
+[resource]
+script = ExtResource("1_odo1v")
+texture = ExtResource("2_gkqui")
+modifier_id = "ChargePig"
+modifier_name = "チャージピッグ"
+explanation = "攻撃したとき前方に走るブタを召喚する。低確率で変ったブタを召喚する。"

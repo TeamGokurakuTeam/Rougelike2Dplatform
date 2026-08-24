@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="5_ffhxb"]
 [ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/A_NewWorld.tres" id="8_iujhg"]
 [ext_resource type="PackedScene" uid="uid://cq67rdschcqqh" path="res://CommentMonument.tscn" id="9_elah0"]
+[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="10_kf3hu"]
+[ext_resource type="Resource" uid="uid://m6les3cj6u6b" path="res://Resource/Modifier/ChargePig.tres" id="11_00i6c"]
 
 [sub_resource type="Shader" id="Shader_6avjc"]
 code = "shader_type canvas_item;
@@ -934,3 +936,7 @@ text = "勇者は、私の加護によってまたここへ舞い戻る...
 ここを抜け出せず、剣を取り、再び立ち上がることを強制する
 命ある限り、クリスタルの暴走を止めなければならない。
 さあ、進みなさい..."
+
+[node name="DropModifier" parent="." index="8" unique_id=1774769907 instance=ExtResource("10_kf3hu")]
+position = Vector2(286, 160)
+modifier = ExtResource("11_00i6c")
