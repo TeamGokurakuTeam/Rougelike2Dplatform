@@ -13,6 +13,7 @@ class_name MainGame
 @onready var room_generator: RoomGenerator = $RoomGenerator
 @onready var main_camera: Camera = $MainCamera
 @onready var bgm_changer: BGMChanger = $BGMChanger
+@onready var floor_progression: FloorProgression = $FloorProgression
 
 var transition_tween : Tween
 var transition_zoom_tween : Tween
@@ -28,9 +29,11 @@ func _ready() -> void:
 	room_generator.main_game_node = self
 	player.main_game_node = self
 
-	room_generator.room_generate()
-	current_room = room_generator.lobby_room
-	_move_player_to_lobby()
+	floor_progression.main_game_node = self
+	floor_progression.room_generator = room_generator
+	floor_progression.player = player
+	floor_progression.player_ui = player_ui
+	floor_progression.start_first_floor()
 
 	player_ui.player = self.player
 	player_ui.player_hp_ui.player = self.player
@@ -41,7 +44,7 @@ func _ready() -> void:
 	player.hp_component.hp_changed.connect(player_ui.player_hp_ui._on_player_hp_changed)
 	player.modifier_picked_up.connect(player_ui._on_modifier_picked_up)
 
-	GameEvents.next_floor_entered.connect(_on_next_floor_entered)
+	GameEvents.next_floor_entered.connect(floor_progression._on_next_floor_entered)
 
 	await Common.fade_in_from_black()
 
@@ -153,23 +156,3 @@ func teleport_player_to_furthest_door() -> void:
 	if furthest_door_index >= 0:
 		var furthest_door : Door = current_room.doors.get_child(furthest_door_index) as Door
 		player.global_position = furthest_door.exit_point.global_position
-
-func _on_next_floor_entered() -> void:
-	await Common.fade_out_to_black(get_tree())
-	_move_player_to_origin()
-	await get_tree().create_timer(0.5).timeout
-	room_generator.clear_rooms()
-	room_generator.room_generate()
-	_move_player_to_lobby()
-	current_room = room_generator.lobby_room
-	await Common.fade_in_from_black()
-
-func _move_player_to_origin() -> void:
-	if player == null or room_generator.lobby_room == null:
-		return
-	player.global_position = Vector2.ZERO
-
-func _move_player_to_lobby() -> void:
-	if player == null or room_generator.lobby_room == null:
-		return
-	player.global_position = room_generator.lobby_room.player_marker.global_position

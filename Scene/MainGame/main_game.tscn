@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bqa23sw42pwvk" path="res://Scene/MainGame/bgm_changer.gd" id="11_50dfd"]
 [ext_resource type="AudioStream" uid="uid://dl0tuiisa34l6" path="res://Assets/Music/IswearIsawit.ogg" id="11_t5ou6"]
 [ext_resource type="AudioStream" uid="uid://fmkya4o1cxob" path="res://Assets/Music/PerituneMaterial_Gothic_Dark_loop.mp3" id="13_4lo75"]
+[ext_resource type="Script" uid="uid://la7o43nqap4w" path="res://Scene/MainGame/RandomFloorProgression.gd" id="13_t5ou6"]
 [ext_resource type="AudioStream" uid="uid://cva8xydyvx4r8" path="res://Assets/Music/Yooh - Decoy.mp3" id="14_1shb2"]
 [ext_resource type="AudioStream" uid="uid://cgehgp2ywobdf" path="res://Assets/Music/GameOver3.mp3" id="15_n14k5"]
 [ext_resource type="Script" uid="uid://c7ox6e5n2d6j1" path="res://camera.gd" id="16_1shb2"]
@@ -88,6 +89,9 @@ process_mode = 1
 position = Vector2(0, -38)
 script = ExtResource("16_1shb2")
 metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
+
+[node name="FloorProgression" type="Node" parent="." unique_id=1678658979]
+script = ExtResource("13_t5ou6")
 
 [editable path="PlayerUI"]
 [editable path="PlayerUI/Parent/ModUI"]
