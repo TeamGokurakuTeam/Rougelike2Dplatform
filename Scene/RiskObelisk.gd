@@ -29,6 +29,7 @@ func _on_player_detector_body_exited(body: Node2D) -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("UI_Down") and !is_call and is_player_inside:
+		GameEvents.cutscene_started.emit()
 		collision_shape_2d.disabled = true
 		is_call = true
 		parent = get_tree().current_scene

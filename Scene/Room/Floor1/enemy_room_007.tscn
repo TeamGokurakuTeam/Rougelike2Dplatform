@@ -7,9 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_s504x"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="6_frkna"]
 [ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="7_s504x"]
+[ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="8_uvc4d"]
+[ext_resource type="Resource" uid="uid://gelko5u8afu3" path="res://Resource/ShopItemBuyList/Merchant/Merchant001.tres" id="9_la7sm"]
+[ext_resource type="Resource" uid="uid://djpmh3dydw550" path="res://Resource/ShopItemBuyList/Merchant/Merchant002.tres" id="10_taa81"]
+[ext_resource type="Resource" uid="uid://bsmq0t57vr6w2" path="res://Resource/ShopItemBuyList/Merchant/Merchant003.tres" id="11_esg7r"]
 
-[node name="Room" unique_id=423967005 node_paths=PackedStringArray("obelisk") instance=ExtResource("1_hjerf")]
-obelisk = NodePath("")
+[node name="Room" unique_id=423967005 instance=ExtResource("1_hjerf")]
 
 [node name="BackGround" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="0" unique_id=1098702387]
 modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
@@ -85,6 +88,7 @@ is_random = true
 
 [node name="MerchantFrog" parent="." index="6" unique_id=1094349948 instance=ExtResource("7_s504x")]
 position = Vector2(164, 176)
+item_list_tables = Array[ExtResource("8_uvc4d")]([ExtResource("9_la7sm"), ExtResource("10_taa81"), ExtResource("11_esg7r")])
 
 [node name="CollisionShape2D" parent="MerchantFrog/PlayerDetector" parent_id_path=PackedInt32Array(1094349948, 1358836863) index="0" unique_id=1294114517]
 position = Vector2(-27, -6)
