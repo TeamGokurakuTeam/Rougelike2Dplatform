@@ -5,10 +5,6 @@
 
 [node name="RoomConnectTest" type="Node2D" unique_id=1066049401]
 script = ExtResource("1_1hl1w")
-lobby_room_dir = "res://Scene/Room/DebugFloor/Lobby"
-enemy_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-boss_room_dir = "res://Scene/Room/DebugFloor/Boss"
-end_room_dir = "res://Scene/Room/DebugFloor/End"
 generate_room_value = 3
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("4_osm70")]
