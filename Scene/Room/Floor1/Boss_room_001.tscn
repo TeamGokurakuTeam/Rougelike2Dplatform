@@ -789,7 +789,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_top = 288.0
 offset_right = 512.0
-offset_bottom = 336.00006
+offset_bottom = 335.99994
 color = Color(0, 0, 0, 1)
 
 [node name="BossName" type="Label" parent="CanvasLayer/Control" index="2" unique_id=1371298869]
@@ -819,7 +819,7 @@ anchor_right = 0.5
 offset_left = -34.0
 offset_top = 16.0
 offset_right = 34.0
-offset_bottom = 39.00003
+offset_bottom = 39.00005
 grow_horizontal = 2
 text = "1F - Boss"
 label_settings = SubResource("LabelSettings_jhy2k")
