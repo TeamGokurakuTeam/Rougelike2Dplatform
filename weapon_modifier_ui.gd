@@ -53,7 +53,7 @@ func load_modifier(player : Player) -> void:
 		mod_container.add_child(lock_mod_button)
 		lock_mod_button.setup(mod, self, player.weapon.get_modifiers_level(mod))
 	for mod in modifier_ids:
-		var mod_button : ModifierButton = LOCK_MODIFIER_BUTTON.instantiate()
+		var mod_button : ModifierButton = MODIFIER_BUTTON.instantiate()
 		mod_container.add_child(mod_button)
 		mod_button.setup(mod, self, player.weapon.get_modifiers_level(mod))
 	
