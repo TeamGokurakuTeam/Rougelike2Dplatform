@@ -13,7 +13,11 @@ func _ready() -> void:
 	sensor.body_entered.connect(_on_body_entered)
 	sensor.body_exited.connect(_on_body_exited)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	_update_collision(delta)
+	_handle_pass_through_input()
+
+func _update_collision(_delta: float) -> void:
 	if player_inside and player_body:
 		var py: float = player_body.global_position.y
 		var top_offset: float = float(col.shape.extents.y)
@@ -21,6 +25,8 @@ func _process(delta: float) -> void:
 		col.disabled = py >= platform_top
 	else:
 		col.disabled = false
+
+func _handle_pass_through_input() -> void:
 	if player_touching and Input.is_action_just_pressed("UI_Down"):
 		set_collision_layer_value(8, false)
 		_restore_layer()

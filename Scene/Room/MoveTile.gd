@@ -10,36 +10,38 @@ var current_time : float = 0.0
 var points: Array[Vector2] = []
 var current_index: int = 0
 var next_index: int = 1
-var point_number: float = 0.0
+var trail_progress: float = 0.0
 var forward: bool = true
 var last_position: Vector2
-var floor_motion: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	last_position = global_position
-	points = []
 	for p in line.points:
 		points.append(line.to_global(p))
 	super()
 
-func _process(delta: float) -> void:
-	var prev_pos = global_position
+func _physics_process(delta: float) -> void:
+	var prev_pos : Vector2 = global_position
 	_move_along_line(delta)
-	floor_motion = global_position - prev_pos
+	var floor_motion : Vector2 = global_position - prev_pos
 	if player_inside and player_body:
-		player_body.floor_motion = floor_motion
-		super(delta)
-
-#func _restore_layer() -> void:
-	#await get_tree().create_timer(0.5).timeout
-	#set_collision_layer_value(8, true)
+		player_body.global_position += floor_motion
+	_update_collision(delta)
+	_handle_pass_through_input()
 
 func _move_along_line(delta: float) -> void:
 	if points.size() < 2:
 		return
-	point_number += delta * move_speed
-	while point_number >= 1.0:
-		point_number -= 1.0
+	_move_progress(delta)
+	var p1 : Vector2 = points[current_index]
+	var p2 : Vector2 = points[next_index]
+	var eased_progress := ease(trail_progress, 1.0)
+	position = p1.lerp(p2, eased_progress)
+
+func _move_progress(delta: float) -> void:
+	trail_progress += delta * move_speed
+	while trail_progress >= 1.0:
+		trail_progress -= 1.0
 		if forward:
 			current_index += 1
 			if current_index >= points.size() - 1:
@@ -51,22 +53,13 @@ func _move_along_line(delta: float) -> void:
 				current_index = 0
 				forward = true
 	next_index = current_index + (1 if forward else -1)
-	var p1 = points[current_index]
-	var p2 = points[next_index]
-	var eased_point_number := ease(point_number, 1.0)
-	position = p1.lerp(p2, eased_point_number)
+
+func _update_collision(delta: float) -> void:
 	if current_time > 0:
 		current_time -= delta
 		col.disabled = true
 		return
-	if player_inside and player_body:
-		var py = player_body.global_position.y
-		var platform_top = global_position.y - col.shape.extents.y
-		col.disabled = py >= platform_top
-	else:
-		col.disabled = false
-
-
+	super(delta)
 
 func _on_body_exited(body : Node2D) -> void:
 	if body is Player:
