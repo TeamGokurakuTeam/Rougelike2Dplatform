@@ -8,6 +8,9 @@ const GOLEM_BOSS = preload("uid://bthj1ytrgopek")
 @onready var boss_object: AnimatedSprite2D = $BossObject
 @onready var collision_shape_2d: CollisionShape2D = $PlayerDetector/CollisionShape2D
 @onready var boss_room_camera: Camera = $BossRoomCamera
+@onready var animation_player1: AnimationPlayer = $TileMaps/Decoration2/AnimationPlayer
+
+
 
 func _ready() -> void:
 	super._ready()
@@ -16,6 +19,7 @@ func _ready() -> void:
 	boss_object.visible = true
 	#デバック
 	animation_player.play("Start")
+	animation_player1.play("Bubble")
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	main_game_node.change_camera(boss_room_camera)
