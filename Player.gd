@@ -51,8 +51,6 @@ var jump_pressed_frame : int = 0
 #Fan
 var external_velocity : Vector2 = Vector2.ZERO
 var external_friction := 500.0
-#慣性
-var floor_motion: Vector2 = Vector2.ZERO
 #凍結ダメージ
 var dot_damage_per_second: float = 0.0
 var dot_timer: float = 0.0 
@@ -88,10 +86,6 @@ func _physics_process(delta: float) -> void:
 		return
 	#慣性
 	_get_input()
-	if floor_motion != Vector2.ZERO:
-		global_position += floor_motion
-		global_position.y += 0
-	floor_motion = Vector2.ZERO
 	var was_on_floor : bool = is_on_floor()
 	if was_on_floor && !is_on_floor():
 		coyote_timer.start()
