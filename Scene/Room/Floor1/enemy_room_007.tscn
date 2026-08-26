@@ -8,8 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="6_frkna"]
 [ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="7_s504x"]
 
-[node name="Room" unique_id=423967005 node_paths=PackedStringArray("obelisk") instance=ExtResource("1_hjerf")]
-obelisk = NodePath("")
+[node name="Room" unique_id=423967005 instance=ExtResource("1_hjerf")]
 
 [node name="BackGround" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="0" unique_id=1098702387]
 modulate = Color(0.45452422, 0.45452428, 0.45452422, 1)
