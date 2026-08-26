@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealItemRes" format=3 uid="uid://c0b623boq2p7d"]
+
+[ext_resource type="Script" uid="uid://ch512uy2h46" path="res://Resource/HealItem.gd" id="1_co1sm"]
+[ext_resource type="Texture2D" uid="uid://bdlhjl0c6kuh2" path="res://Assets/MegaHeal.png" id="2_fmuxk"]
+
+[resource]
+script = ExtResource("1_co1sm")
+name = "回復の大瓶"
+heal_amount = 25.0
+texture = ExtResource("2_fmuxk")
+id = "MegaHealPotion"

@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://b0ykb3t5ot3gm"]
 
 [ext_resource type="Script" uid="uid://b8q4omet6du0w" path="res://Scene/Room/Debug/RoomConnect.gd" id="1_1hl1w"]
-[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/player.tscn" id="4_osm70"]
+[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="4_osm70"]
 
 [node name="RoomConnectTest" type="Node2D" unique_id=1066049401]
 script = ExtResource("1_1hl1w")
-lobby_room_dir = "res://Scene/Room/DebugFloor/Lobby"
-enemy_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-boss_room_dir = "res://Scene/Room/DebugFloor/Boss"
-end_room_dir = "res://Scene/Room/DebugFloor/End"
 generate_room_value = 3
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("4_osm70")]

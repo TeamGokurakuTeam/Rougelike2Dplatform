@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealItemRes" format=3 uid="uid://bimvibq616b67"]
+
+[ext_resource type="Script" uid="uid://ch512uy2h46" path="res://Resource/HealItem.gd" id="1_2brqr"]
+[ext_resource type="Texture2D" uid="uid://b4ajsbuis2dvs" path="res://Assets/heal.png" id="2_asaqg"]
+
+[resource]
+script = ExtResource("1_2brqr")
+name = "回復の瓶"
+heal_amount = 10.0
+texture = ExtResource("2_asaqg")
+id = "HealPotion"

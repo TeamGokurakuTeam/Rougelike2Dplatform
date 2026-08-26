@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d4cyex0no1ifo"]
+
+[ext_resource type="Script" uid="uid://dochsodwqd47q" path="res://drop_heal_item.gd" id="1_mulmf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxrbv"]
+size = Vector2(35, 38)
+
+[node name="DropHealItem" type="CharacterBody2D" unique_id=1850648246]
+collision_layer = 64
+collision_mask = 128
+script = ExtResource("1_mulmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492288019]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_fxrbv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1741161222]
+z_index = 4
+scale = Vector2(1.2, 1.2)

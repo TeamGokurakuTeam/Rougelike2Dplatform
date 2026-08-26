@@ -1,22 +1,124 @@
 extends CanvasLayer
 class_name GameUI
 
-@onready var hotbar: HBoxContainer = $Hotbar
+const TITLE = preload("uid://d15a301cfnn87")
+const MAIN_GAME = preload("uid://b4i3w233507yf")
+
+@onready var hotbar: HBoxContainer = $Parent/Hotbar
+@onready var mod_ui: ModUI = $Parent/ModUI
+@onready var modifier_timer: ModifierTimer = $Parent/ModifierTimer
+@onready var player_hp_ui: PlayerHpUI = $Parent/PlayerHpUI
+@onready var locked_mod_label: Label = $Parent/LockedModLabel
+@onready var modifier_explanation: ModifierExplanationUI = $Parent/ModifierExplanation
+@onready var transition: ColorRect = $Parent/Transition
+@onready var parent: Control = $Parent
+@onready var weapon_modifier_ui: WeaponModifierUI = $WeaponModifierUI
+@onready var game_over_animation_player: AnimationPlayer = $GameOver/AnimationPlayer
+@onready var retry: Button = $GameOver/Retry
+@onready var title: Button = $GameOver/Title
+@onready var game_over_panel: Panel = $GameOver
+
+@onready var open_sound: AudioStreamPlayer = $OpenSound
+@onready var click_sound: AudioStreamPlayer = $ClickSound
+
+var player : Player
+
+var tween : Tween
+var fade_tween : Tween
+
+var is_show_mod_ui : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	game_over_panel.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if player == null:
+		return
+	if Input.is_action_just_pressed("UI_scroll_left"):
+		player.current_modifier += 1
+		mod_ui.texture_update(player)
+	if Input.is_action_just_pressed("UI_scroll_right"):
+		player.current_modifier -= 1
+		mod_ui.texture_update(player)
+	if Input.is_action_just_pressed("UI_ShowMod"):
+		is_show_mod_ui = !is_show_mod_ui
+		open_sound.play()
+		if is_show_mod_ui:
+			weapon_modifier_ui.init_ui()
+			weapon_modifier_ui.load_modifier(player)
+			weapon_modifier_ui.show_ui()
+		else:
+			weapon_modifier_ui.hide_ui()
 
-func _on_character_pickup_item(player: Player) -> void:
+func _on_character_modifier_updated(player: Player) -> void:
 	for i in hotbar.get_children().size():
 		var node : InventoryPanel = hotbar.get_child(i)
-		if i >= player.resource_ids.size() or i < 0:
+		if i >= player.weapon_resource_ids.size() or i < 0:
 			node.resource = null
 		else:
-			var resource : ResourceItem = GlobalResourceLoader.item_cache[player.resource_ids[i]]
+			var resource : ResourceItem = GlobalResourceLoader.weapon_cache[player.weapon_resource_ids[i]]
 			node.resource = resource
 		node.update(player.current_weapon == i)
+
+func _on_modifier_picked_up(mod_res : ModifierResource) -> void:
+	modifier_explanation.modifier_resource = mod_res
+	modifier_explanation.texture_rect.texture = mod_res.texture
+	modifier_explanation.submit(mod_res.explanation, 5.0)
+	if modifier_explanation.animation_player.is_playing():
+		modifier_explanation.animation_player.play("Normal")
+	else:
+		modifier_explanation.animation_player.play("Start")
+	await modifier_explanation.animation_player.animation_finished
+	modifier_explanation.animation_player.play("End")
+
+func transition_start() -> void:
+	if tween != null and tween.is_running():
+		tween.kill()
+	tween = create_tween()
+	(transition.material as ShaderMaterial).set_shader_parameter("progress", .0)
+	tween.tween_property(transition.material, "shader_parameter/progress", 1.0, 0.4)
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+
+func transition_back() -> void:
+	(transition.material as ShaderMaterial).set_shader_parameter("progress", 1.0)
+	if tween.is_running():
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property(transition.material, "shader_parameter/progress", .0, 0.8)
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func ui_fade_in() -> void:
+	if fade_tween != null and fade_tween.is_running():
+		fade_tween.kill()
+	fade_tween = create_tween()
+	parent.modulate = Color("ffffff")
+	fade_tween.tween_property(parent, "modulate", Color("ffffff00"), 1.0)
+	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+func ui_fade_out() -> void:
+	if fade_tween != null and fade_tween.is_running():
+		fade_tween.kill()
+	fade_tween = create_tween()
+	parent.modulate = Color("ffffff00")
+	fade_tween.tween_property(parent, "modulate", Color("ffffff"), 1.0)
+	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+func game_over() -> void:
+	game_over_panel.visible = true
+	player.input_enabled = false
+	game_over_animation_player.play("Start")
+	await game_over_animation_player.animation_finished
+	retry.disabled = false
+	title.disabled = false
+
+func _on_retry_pressed() -> void:
+	click_sound.play()
+	await click_sound.finished
+	get_tree().change_scene_to_packed(MAIN_GAME)
+
+func _on_title_pressed() -> void:
+	click_sound.play()
+	await click_sound.finished
+	get_tree().change_scene_to_packed(TITLE)

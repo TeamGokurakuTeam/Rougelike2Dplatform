@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="RoomInfoResource" format=3 uid="uid://be75i6nlttehc"]
+
+[ext_resource type="Script" uid="uid://d344k4o5vtrgi" path="res://Resource/RoomInfo/RoomInfoResource.gd" id="1_suh5s"]
+
+[resource]
+script = ExtResource("1_suh5s")

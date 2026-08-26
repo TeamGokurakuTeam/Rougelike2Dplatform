@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cqx3pgdtlavyt"]
+
+[ext_resource type="Texture2D" uid="uid://c0f5n711eyibd" path="res://Assets/BackGround/Floor1/1.png" id="1_o0ncv"]
+[ext_resource type="Texture2D" uid="uid://dvqkb5s8smq1p" path="res://Assets/BackGround/Floor1/2.png" id="2_8j5sb"]
+[ext_resource type="Texture2D" uid="uid://clgkqf0rfktdb" path="res://Assets/BackGround/Floor1/3.png" id="3_yt336"]
+[ext_resource type="Texture2D" uid="uid://d2hpdmvxqrhvk" path="res://Assets/BackGround/Floor1/4.png" id="4_oxjyn"]
+[ext_resource type="Texture2D" uid="uid://cy7y1qvpstcyl" path="res://Assets/BackGround/Floor1/5.png" id="5_qb5cd"]
+[ext_resource type="Texture2D" uid="uid://bypwuf60t74yf" path="res://Assets/BackGround/Floor1/6.png" id="6_oofc2"]
+
+[node name="BackGround" type="Node2D" unique_id=16215675]
+modulate = Color(0.42592907, 0.3903062, 0.4745459, 1)
+
+[node name="BackParallax2D" type="Parallax2D" parent="." unique_id=1196351124]
+scroll_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="BackParallax2D" unique_id=1657781399]
+texture = ExtResource("1_o0ncv")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="BackParallax2D" unique_id=1143309042]
+texture = ExtResource("2_8j5sb")
+centered = false
+
+[node name="MiddleParallax2D" type="Parallax2D" parent="." unique_id=471219965]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(11, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddleParallax2D" unique_id=1915121258]
+texture = ExtResource("3_yt336")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="MiddleParallax2D" unique_id=1315148198]
+texture = ExtResource("4_oxjyn")
+centered = false
+
+[node name="FrontParallax2D" type="Parallax2D" parent="." unique_id=355864032]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(576, 0)
+autoscroll = Vector2(3, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="FrontParallax2D" unique_id=1586907943]
+texture = ExtResource("5_qb5cd")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="FrontParallax2D" unique_id=515223624]
+texture = ExtResource("6_oofc2")
+centered = false

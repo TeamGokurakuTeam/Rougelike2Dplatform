@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dta4dgymexns7"]
+
+[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="1_kc5mm"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_ul7bi"]
+
+[sub_resource type="Animation" id="Animation_1sfy2"]
+resource_name = "Pickup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.40000004, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8, 0.8333334, 0.8666667, 0.90000004, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -9.111929), Vector2(0, -16.050152), Vector2(0, -21.191406), Vector2(0, -24.876543), Vector2(0, -27.410542), Vector2(0, -29.0625), Vector2(0, -30.065634), Vector2(0, -30.617285), Vector2(0, -30.878906), Vector2(0, -30.976082), Vector2(0, -30.998505), Vector2(0, -31), Vector2(0, -31), Vector2(0, -17.202799), Vector2(0, -8.823469), Vector2(0, -4.082306), Vector2(0, -1.6405888), Vector2(0, -0.5375881), Vector2(0, -0.1275711), Vector2(0, -0.016799927), Vector2(0, -0.0005245209), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8333333, 0.90000004, 0.93333334, 0.9666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.9960938, 0.9960938), Vector2(0.9375006, 0.9375006), Vector2(0.68359685, 0.68359685), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.8098328033672786, 1.563815184797619, 2.2619466761572227, 2.904228120086927, 3.490658767572654, 4.021238993121443, 4.495968234972736, 4.9148476166476485, 5.277876014625065, 5.585053428904985, 5.836381357515563, 6.031858302428645, 6.171484263644231, 6.255259990176398, 6.2831855, 6.2831855]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_lwni1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_winpp"]
+_data = {
+&"Pickup": SubResource("Animation_1sfy2"),
+&"RESET": SubResource("Animation_lwni1")
+}
+
+[node name="DropModifier" unique_id=1774769907 instance=ExtResource("1_kc5mm")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1827699005]
+texture = ExtResource("2_ul7bi")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=902723879]
+libraries/ = SubResource("AnimationLibrary_winpp")

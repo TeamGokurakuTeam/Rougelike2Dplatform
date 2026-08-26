@@ -5,3 +5,7 @@
 [node name="GlobalResourceLoader" type="Node" unique_id=1231656520]
 script = ExtResource("1_in0ha")
 items_folder = Array[String](["res://Resource/Sword"])
+room_folder = Array[String](["res://Resource/RoomInfo/Floor1/Boss", "res://Resource/RoomInfo/Floor1/End", "res://Resource/RoomInfo/Floor1/Enemy", "res://Resource/RoomInfo/Floor1/Lobby", "res://Resource/RoomInfo/Floor1/Shop"])
+gain_folder = Array[String](["res://Resource/Obelisk/Gain"])
+loss_folder = Array[String](["res://Resource/Obelisk/Loss"])
+modifier_folder = Array[String](["res://Resource/Modifier"])

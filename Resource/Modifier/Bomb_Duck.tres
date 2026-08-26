@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://b2uifpttrq0xu"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_02joq"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_0vcjs"]
+
+[resource]
+script = ExtResource("1_02joq")
+ModifierRank = 2
+texture = ExtResource("2_0vcjs")
+modifier_id = "Bomb_Duck"
+modifier_name = "アヒル爆弾"
+color_rarity = Color(0.7529412, 0.85882354, 0, 1)
+explanation = "アヒルが消えるときに爆発する"
