@@ -47,3 +47,6 @@ func _on_chase_timer_timeout() -> void:
 	if player != null:
 		set_target(player.global_position)
 		move_toward_player()
+
+func _on_hp_component_hp_changed() -> void:
+	StateTransitioned.emit(self , "Hsurt")

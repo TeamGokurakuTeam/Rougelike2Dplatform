@@ -30,3 +30,7 @@ func _on_timer_timeout() -> void:
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body is Player:
 		StateTransitioned.emit(self, "Dash")
+
+
+func _on_hp_component_hp_changed() -> void:
+	StateTransitioned.emit(self , "Hurt")

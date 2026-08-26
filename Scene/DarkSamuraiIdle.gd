@@ -16,3 +16,6 @@ func Update(delta) -> void:
 
 func Physics_Update(delta) -> void:
 	pass
+
+func _on_hp_component_hp_changed() -> void:
+	StateTransitioned.emit(self , "Hurt")

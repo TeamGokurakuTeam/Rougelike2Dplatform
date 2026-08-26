@@ -24,31 +24,43 @@
 [ext_resource type="Resource" uid="uid://tbq5gx41ix3b" path="res://Resource/Modifier/Speedingexceed.tres" id="16_k06lf"]
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="17_07y1s"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="18_56gdg"]
-[ext_resource type="Script" uid="uid://ch512uy2h46" path="res://Resource/HealItem.gd" id="20_ceye3"]
-[ext_resource type="Texture2D" uid="uid://b4ajsbuis2dvs" path="res://Assets/heal.png" id="21_8s3b1"]
-[ext_resource type="Texture2D" uid="uid://bdlhjl0c6kuh2" path="res://Assets/MegaHeal.png" id="22_h3tvw"]
-[ext_resource type="Texture2D" uid="uid://qymevfk0llni" path="res://Assets/GoldenHeal.png" id="23_w8n0y"]
+[ext_resource type="Script" uid="uid://b2d27ccdjwxqa" path="res://Scene/Enemy/Mushroom/MushHurt.gd" id="23_eaq36"]
 
-[sub_resource type="Resource" id="Resource_6wiw0"]
-script = ExtResource("20_ceye3")
-name = "回復の瓶"
-heal_amount = 10.0
-texture = ExtResource("21_8s3b1")
-id = "HealPotion"
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaq36"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="Resource" id="Resource_k06lf"]
-script = ExtResource("20_ceye3")
-name = "回復の大瓶"
-heal_amount = 25.0
-texture = ExtResource("22_h3tvw")
-id = "MegaHealPotion"
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0ky5"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(48, 0, 48, 48)
 
-[sub_resource type="Resource" id="Resource_07y1s"]
-script = ExtResource("20_ceye3")
-name = "金色の回復の瓶"
-heal_amount = 50.0
-texture = ExtResource("23_w8n0y")
-id = "GoldenHealPotion"
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl6yf"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceye3"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s3b1"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3tvw"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8n0y"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wiw0"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k06lf"]
+atlas = ExtResource("2_7kuqn")
+region = Rect2(384, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6rvn"]
 atlas = ExtResource("2_7kuqn")
@@ -104,6 +116,38 @@ region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_45uc2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaq36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0ky5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl6yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceye3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s3b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3tvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8n0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wiw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k06lf")
+}],
+"loop": 1,
+"name": &"Hurt",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y6rvn")
@@ -231,6 +275,46 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, true, false, false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_eaq36"]
+resource_name = "Hurt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Hurt", &"Hurt"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.027908156, 0.16666667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1.353, 1.353, 1.353, 1), Color(8.91, 8.91, 8.91, 1), Color(1.212041, 1.212041, 1.212041, 1), Color(1.212041, 1.212041, 1.212041, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_4kjkg"]
@@ -394,6 +478,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7kuqn"]
 _data = {
 &"Dash": SubResource("Animation_y6rvn"),
+&"Hurt": SubResource("Animation_eaq36"),
 &"Idle": SubResource("Animation_4kjkg"),
 &"RESET": SubResource("Animation_7kuqn"),
 &"Walk": SubResource("Animation_f1xg0")
@@ -403,7 +488,6 @@ _data = {
 script = ExtResource("2_x8iq2")
 dash_speed = 400.0
 mod_resource = Array[ExtResource("5_8uh7s")]([ExtResource("4_7tu8e"), ExtResource("5_eaq36"), ExtResource("4_joaa4"), ExtResource("7_n0ky5"), ExtResource("8_sl6yf"), ExtResource("7_a5qlg"), ExtResource("10_ceye3"), ExtResource("11_8s3b1"), ExtResource("12_h3tvw"), ExtResource("13_w8n0y"), ExtResource("14_6wiw0"), ExtResource("6_rfp0g"), ExtResource("16_k06lf"), ExtResource("17_07y1s"), ExtResource("18_56gdg"), ExtResource("5_ahoh3")])
-heal_resource = Array[ExtResource("20_ceye3")]([SubResource("Resource_6wiw0"), SubResource("Resource_k06lf"), SubResource("Resource_07y1s")])
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")
@@ -422,6 +506,12 @@ metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="Dash" type="Node" parent="StateMachine" index="2" unique_id=2071179426 node_paths=PackedStringArray("parent", "anim_player")]
 script = ExtResource("4_2ao2u")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="Hurt" type="Node" parent="StateMachine" index="3" unique_id=695833149 node_paths=PackedStringArray("parent", "anim_player")]
+script = ExtResource("23_eaq36")
 parent = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
@@ -463,6 +553,9 @@ libraries/ = SubResource("AnimationLibrary_7kuqn")
 wait_time = 1.6
 one_shot = true
 
+[connection signal="hp_changed" from="HPComponent" to="StateMachine/Idle" method="_on_hp_component_hp_changed"]
+[connection signal="hp_changed" from="HPComponent" to="StateMachine/Wander" method="_on_hp_component_hp_changed"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Idle" method="_on_player_detector_body_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Wander" method="_on_player_detector_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Hurt" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="WanderTimer" to="StateMachine/Wander" method="_on_timer_timeout"]

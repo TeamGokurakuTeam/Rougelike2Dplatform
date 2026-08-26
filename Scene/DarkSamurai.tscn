@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="19_5t2v2"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="20_7cwa8"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="21_wlmng"]
+[ext_resource type="Script" uid="uid://bdb4qg6am43bt" path="res://Scene/DarkSamuraiHurt.gd" id="24_4l2dx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s685e"]
 atlas = ExtResource("6_riyji")
@@ -437,6 +438,34 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_4l2dx"]
+resource_name = "Hurt"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Hurt", &"Hurt"]
+}
+
 [sub_resource type="Animation" id="Animation_lefgm"]
 resource_name = "Idle"
 length = 0.8
@@ -573,6 +602,7 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xclgv"]
 _data = {
 &"Attack": SubResource("Animation_riyji"),
+&"Hurt": SubResource("Animation_4l2dx"),
 &"Idle": SubResource("Animation_lefgm"),
 &"RESET": SubResource("Animation_xclgv"),
 &"Walk": SubResource("Animation_tmy0u")
@@ -606,6 +636,12 @@ metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 script = ExtResource("5_tmy0u")
 animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="Hurt" type="Node" parent="StateMachine" index="3" unique_id=946596958 node_paths=PackedStringArray("parent", "animation_player")]
+script = ExtResource("24_4l2dx")
+parent = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
@@ -659,6 +695,9 @@ libraries/ = SubResource("AnimationLibrary_xclgv")
 [node name="ChaseTimer" type="Timer" parent="." index="9" unique_id=269855137]
 wait_time = 0.1
 
+[connection signal="hp_changed" from="HPComponent" to="StateMachine/Idle" method="_on_hp_component_hp_changed"]
+[connection signal="hp_changed" from="HPComponent" to="StateMachine/Chase" method="_on_hp_component_hp_changed"]
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Chase" method="_on_player_detector_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Hurt" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="ChaseTimer" to="StateMachine/Chase" method="_on_chase_timer_timeout"]
