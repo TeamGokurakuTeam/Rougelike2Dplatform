@@ -29,6 +29,7 @@ var tween : Tween
 var fade_tween : Tween
 
 var is_show_mod_ui : bool = false
+var is_paused : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,9 +41,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player == null:
 		return
-	if Input.is_action_just_pressed("UI_Paused"):
+	if Input.is_action_just_pressed("UI_Paused") and not is_paused:
+		is_paused = true
 		get_tree().paused = true
 		var pause_menu : PauseMenuUI = PAUSE_MENU.instantiate()
+		pause_menu.player_ui = self
 		add_child(pause_menu)
 	if Input.is_action_just_pressed("UI_scroll_left"):
 		player.current_modifier += 1
