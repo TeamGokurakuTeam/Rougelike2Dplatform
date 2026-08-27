@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="6_jcmuv"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="7_4hsgg"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="8_4hsgg"]
+[ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="9_vfqk6"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_60fg2")]
 
@@ -122,6 +123,12 @@ position = Vector2(328, 328)
 
 [node name="OneWay7" parent="." index="14" unique_id=1444281045 instance=ExtResource("4_2nxob")]
 position = Vector2(280, 328)
+
+[node name="OneWay8" parent="." index="17" unique_id=945658903 instance=ExtResource("4_2nxob")]
+position = Vector2(352, 264)
+
+[node name="Obelisk" parent="." index="18" unique_id=1340329694 instance=ExtResource("9_vfqk6")]
+position = Vector2(352, 216)
 
 [editable path="MoveTile"]
 [editable path="MoveTile2"]
