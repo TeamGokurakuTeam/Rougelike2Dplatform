@@ -9,6 +9,8 @@ class_name DuckProjectile
 @export var duck_gravity : float = 900.0
 @export var bounce_speed_multiplier : float = 1.1
 @export var max_speed : float = 800
+@export var split_enabled: bool = false
+@export var duck_scene: PackedScene
 
 @onready var hitbox: Hitbox = $Hitbox
 
@@ -21,7 +23,7 @@ var hit_happened: bool = false
 var duck_type: DuckType = DuckType.NORMAL
 var should_explode: bool = false
 var enable_bounce: bool = false
-
+var split_spawned := false
 
 func _ready() -> void:
 	if duck_type == DuckType.NORMAL:
@@ -71,6 +73,23 @@ func _bounce(normal: Vector2) -> void:
 	velocity *= bounce_speed_multiplier
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
+	if duck_type == DuckType.BOUNCE and split_enabled:
+		_split_duck()
+
+func _split_duck() -> void:
+	if split_spawned:
+		return
+	split_spawned = true
+	for i in range(2):
+		var child: DuckProjectile = duck_scene.instantiate()
+		child.duck_type = DuckType.BOUNCE
+		child.scale = self.scale * 0.6
+		child.global_position = global_position
+		var dir := velocity.rotated(randf_range(-0.5, 0.5)).normalized()
+		child.velocity = dir * velocity.length() * 1.5
+		child.should_explode = should_explode
+		child.timer.wait_time = timer.wait_time
+		get_tree().root.add_child(child)
 
 func _on_hitbox_entered(area: Area2D) -> void:
 	if area is Hurtbox:

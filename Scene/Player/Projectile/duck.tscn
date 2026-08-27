@@ -230,6 +230,8 @@ is_explosion = false
 duck_gravity = 800.0
 bounce_speed_multiplier = 0.9
 max_speed = 600.0
+split_enabled = false
+duck_scene = null
 
 [node name="AnimatedSprite2D" parent="VisualRoot" parent_id_path=PackedInt32Array(1505287453) index="0" unique_id=1699136720]
 position = Vector2(0, -10)
@@ -241,7 +243,7 @@ frame_progress = 0.38272443
 scale = Vector2(0.8882998, 0.9)
 shape = SubResource("CircleShape2D_fkg5h")
 
-[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2085938192) index="0" unique_id=1848104248]
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2085938192) index="0" unique_id=1399399970]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_b6qlu")
 debug_color = Color(0.99290496, 0, 0.25197035, 0.41960785)

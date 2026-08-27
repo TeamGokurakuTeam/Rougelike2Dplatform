@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://c5dd6lmhy7gri"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_ppke2"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_yx7cb"]
+
+[resource]
+script = ExtResource("1_ppke2")
+ModifierRank = 2
+texture = ExtResource("2_yx7cb")
+modifier_id = "Evasion_Duck"
+modifier_name = "アヒル回避"
+color_rarity = Color(0.77254903, 0.85882354, 0, 1)
+explanation = "カウンターアタック成功時から5秒間剣からアヒルを出す"

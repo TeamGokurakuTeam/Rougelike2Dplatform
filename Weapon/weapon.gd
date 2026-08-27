@@ -56,6 +56,12 @@ var fall_slash_cooldown := 0.0
 var bounce_speed_multiplier := 1.1
 var max_speed := 800
 
+#アヒル回避
+var evasion_duck = false
+var evasion_duck_ready := true        # 回避成功時に発動できるか
+var evasion_duck_active := false      # 5秒間の発動状態
+var evasion_duck_duration := 5.0      # 発動時間
+var evasion_duck_interval := 1.0      # 1秒ごとにアヒル生成
 
 
 # Called when the node enters the scene tree for the first time.
@@ -84,6 +90,8 @@ func _process(delta: float) -> void:
 			player.counter_timer.stop()
 			animation_player.speed_scale = speed_mults.attack_speed_mult
 			animation_player.play("CounterAttack")
+			#アヒル回避追加
+			evasion_duck = true
 			if player.is_just_dodgeroll:
 				player.is_just_dodgeroll = false
 				for i in hitboxes.size():
@@ -101,7 +109,6 @@ func _process(delta: float) -> void:
 				hitboxes[i].damage_multiplier = dmg_mults.charge_damage_mult
 			animation_player.speed_scale = speed_mults.charge_attack_speed_mult
 			animation_player.play("StrongAttack")
-
 	mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
 		rotation = mouse_direction.angle()
@@ -185,7 +192,13 @@ func attack_trigger_modifier() -> void:
 #アヒルバウンス
 	if modifiers_ids.has("Bounce_Duck"):
 		bounceduck()
-#アヒル爆弾
+#アヒル回避
+	if modifiers_ids.has("Evasion_Duck"):
+		evasionduck()
+#分裂アヒル
+	if modifiers_ids.has("Split_Duck"):
+		split_duck()
+
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -370,6 +383,66 @@ func bounceduck() -> void:
 	var random_y: float = randf_range(-300, -150)
 	duck.velocity = Vector2(random_x, random_y)
 	get_tree().root.add_child(duck)
+
+# アヒル回避クールダウン
+func evasionduck() -> void:
+	if not evasion_duck:
+		return
+	if not evasion_duck_ready:
+		return
+	if evasion_duck_active:
+		return
+	evasion_duck_ready = false
+	evasion_duck_active = true
+	var interval_timer := Timer.new()
+	interval_timer.wait_time = evasion_duck_interval
+	interval_timer.one_shot = false
+	add_child(interval_timer)
+	interval_timer.timeout.connect(func():
+		_spawn_evasion_duck())
+	interval_timer.start()
+	var stop_timer := Timer.new()
+	stop_timer.wait_time = evasion_duck_duration
+	stop_timer.one_shot = true
+	add_child(stop_timer)
+	stop_timer.timeout.connect(func():
+		evasion_duck_active = false
+		evasion_duck_ready = true
+		evasion_duck = false
+		interval_timer.stop()
+		interval_timer.queue_free()
+		stop_timer.queue_free())
+	stop_timer.start()
+
+func _spawn_evasion_duck() -> void:
+	var duck: DuckProjectile = DUCK.instantiate()
+	duck.duck_type = DuckProjectile.DuckType.NORMAL
+	duck.global_position = player.global_position
+	var dir = sign(mouse_direction.x)
+	if dir == 0:
+		dir = 1
+	var random_x: float = randf_range(100, 350) * dir
+	var random_y: float = randf_range(-350, -300)
+	duck.velocity = Vector2(random_x, random_y)
+	get_tree().root.add_child(duck)
+
+#分裂アヒル
+func split_duck() -> void:
+	var duck: DuckProjectile = DUCK.instantiate()
+	duck.duck_type = DuckProjectile.DuckType.BOUNCE
+	duck.bounce_speed_multiplier = 1.1
+	duck.max_speed = 800
+	duck.should_explode = modifiers_ids.has("Bomb_Duck")
+	duck.split_enabled = true
+	duck.duck_scene = DUCK
+	duck.global_position = player.global_position
+	var dir = sign(mouse_direction.x)
+	if dir == 0: dir = 1
+	var random_x: float = randf_range(150, 300) * dir
+	var random_y: float = randf_range(-300, -150)
+	duck.velocity = Vector2(random_x, random_y)
+	get_tree().root.add_child(duck)
+
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
