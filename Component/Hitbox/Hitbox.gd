@@ -14,6 +14,8 @@ class_name Hitbox
 		if collision_shape:
 			collision_shape.disabled = not value
 
+signal damage_dealt
+
 var knockback_direction : Vector2 = Vector2.ZERO
 var is_body_inside : bool = false
 

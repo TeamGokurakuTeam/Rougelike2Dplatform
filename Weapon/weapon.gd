@@ -56,7 +56,10 @@ var fall_slash_cooldown := 0.0
 var bounce_speed_multiplier := 1.1
 var max_speed := 800
 
-
+# 連撃修飾子
+@onready var rampage_timer: Timer = $RampageTimer
+const max_rampage_stack : int = 5
+var rampage_stack : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,6 +68,7 @@ func _ready() -> void:
 			var hitbox : Hitbox = (node as Hitbox)
 			hitboxes.append(node)
 			base_stats.append(HitboxStat.new_stat(hitbox.damage, hitbox.knockback_force))
+			hitbox.damage_dealt.connect(_on_hitbox_damage_dealt)
 	player = get_tree().get_first_node_in_group("Player")
 	GameEvents.battle_start.connect(_on_battle_start)
 	GameEvents.battle_end.connect(_on_battle_end)
@@ -152,9 +156,11 @@ func reset_modifier() -> void:
 	for i in hitboxes.size():
 		hitboxes[i].damage = base_stats[i].damage
 		hitboxes[i].knockback_force = base_stats[i].knockback_force
-		#
 		hitboxes[i].damage_multiplier = 1.0
 	modifiers_ids.clear()
+	# 修飾子専用
+	rampage_stack = 0
+	rampage_timer.stop()
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -418,7 +424,12 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 	if has_modifiers("HeavyStrike"):
 		var level : int = get_modifiers_level("HeavyStrike")
 		mults.charge_damage_mult *= (1 + 0.2 * level)
-		
+
+	# 連撃
+	if has_modifiers("Rampage"):
+		mults.damage_mult *= (1 + 0.2 * rampage_stack)
+		mults.charge_damage_mult *= (1 + 0.2 * rampage_stack)
+
 	return mults
 
 func calculate_speed_multiplier() -> AttackSpeedMultiplier:
@@ -439,3 +450,11 @@ func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	mults.charge_attack_speed_mult = min(mults.charge_attack_speed_mult, max_speed_scale)
 
 	return mults
+
+func _on_hitbox_damage_dealt() -> void:
+	assert(rampage_timer != null, "rampage_timer is null")
+	rampage_stack = min(rampage_stack + 1, max_rampage_stack)
+	rampage_timer.start()
+
+func _on_rampage_timer_timeout() -> void:
+	rampage_stack = 0
