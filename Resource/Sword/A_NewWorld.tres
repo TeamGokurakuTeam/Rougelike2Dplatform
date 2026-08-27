@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://bnaoxtnetcaqi"]
+
+[ext_resource type="Texture2D" uid="uid://cdgsbs0n55y61" path="res://Assets/Weapon/swords/tile015.png" id="1_mp7sv"]
+[ext_resource type="PackedScene" uid="uid://b1p2q5ig7avft" path="res://Weapon/New/NewWorldBlade.tscn" id="2_nttgi"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_8ed4i"]
+
+[resource]
+script = ExtResource("3_8ed4i")
+Sprite = ExtResource("1_mp7sv")
+Id = "A_NewWorld"
+Name = "新世界"
+WeaponScene = ExtResource("2_nttgi")
+Rarities = "DreaM"
+explanation = "通常攻撃:
+二回攻撃する。
+チャージ攻撃:
+一閃を描くように縦に斬る。
+カウンター攻撃:
+突き出すように攻撃する。"
+flavor_text = "再び得た力と共に、新たな戦いが幕を開く。"
+unlock_text = "なし"

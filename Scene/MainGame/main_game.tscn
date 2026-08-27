@@ -2,38 +2,96 @@
 
 [ext_resource type="Script" uid="uid://b8q4omet6du0w" path="res://Scene/Room/Debug/RoomConnect.gd" id="1_4nic5"]
 [ext_resource type="Script" uid="uid://b383l3v25na7" path="res://Scene/MainGame/Maingame.gd" id="1_ga214"]
+[ext_resource type="PackedScene" uid="uid://cqx3pgdtlavyt" path="res://Scene/MainGame/Floor1_Background.tscn" id="2_2ns5o"]
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
-[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/player.tscn" id="3_4x3oj"]
-[ext_resource type="AudioStream" uid="uid://c0lx114m7xfjt" path="res://Assets/Music/397 [Misc Extras] bgm_space_upbeat_F.ogg" id="5_g7el7"]
+[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="3_4x3oj"]
+[ext_resource type="PackedScene" uid="uid://cvnfa7dppgwhv" path="res://Scene/camera_2d.tscn" id="5_88yfh"]
+[ext_resource type="Script" uid="uid://bqa23sw42pwvk" path="res://Scene/MainGame/bgm_changer.gd" id="11_50dfd"]
+[ext_resource type="AudioStream" uid="uid://dl0tuiisa34l6" path="res://Assets/Music/IswearIsawit.ogg" id="11_t5ou6"]
+[ext_resource type="AudioStream" uid="uid://fmkya4o1cxob" path="res://Assets/Music/PerituneMaterial_Gothic_Dark_loop.mp3" id="13_4lo75"]
+[ext_resource type="AudioStream" uid="uid://cva8xydyvx4r8" path="res://Assets/Music/Yooh - Decoy.mp3" id="14_1shb2"]
+[ext_resource type="AudioStream" uid="uid://cgehgp2ywobdf" path="res://Assets/Music/GameOver3.mp3" id="15_n14k5"]
+[ext_resource type="Script" uid="uid://c7ox6e5n2d6j1" path="res://camera.gd" id="16_1shb2"]
 
 [node name="MainGame" type="Node2D" unique_id=334667216]
 script = ExtResource("1_ga214")
 
+[node name="BackGround" parent="." unique_id=16215675 instance=ExtResource("2_2ns5o")]
+
 [node name="PlayerUI" parent="." unique_id=1814325200 instance=ExtResource("2_8fymo")]
 
-[node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
-script = ExtResource("1_4nic5")
-lobby_room_dir = "res://Scene/Room/DebugFloor/Lobby"
-enemy_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-bonus_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-shop_room_dir = "res://Scene/Room/DebugFloor/Enemy"
-boss_room_dir = "res://Scene/Room/DebugFloor/Boss"
-end_room_dir = "res://Scene/Room/DebugFloor/End"
-generate_room_value = 3
+[node name="ModContainer" parent="PlayerUI/Parent/ModUI/Control/CarouseContainer" parent_id_path=PackedInt32Array(1814325200, 1180346681, 438782455) index="0" unique_id=154540731]
+offset_top = 248.0
+offset_bottom = 288.0
+
+[node name="RichTextLabel" parent="PlayerUI/Parent/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]
+scroll_active = false
+
+[node name="ModifierList" parent="PlayerUI/WeaponModifierUI/Panel/ModifierPanel" parent_id_path=PackedInt32Array(1814325200, 1151445566, 627346171) index="0" unique_id=1191521356]
+mouse_filter = 1
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
-position = Vector2(184, 263)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=779157867]
-position = Vector2(0, 1)
-limit_smoothed = true
-position_smoothing_enabled = true
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
+position = Vector2(0, -38)
+remote_path = NodePath("../../MainCamera")
 
-[node name="Stage" type="AudioStreamPlayer" parent="." unique_id=1112841277]
-stream = ExtResource("5_g7el7")
-volume_db = -20.0
-autoplay = true
+[node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
+process_mode = 1
+script = ExtResource("1_4nic5")
+generate_room_value = 10
+
+[node name="BGMChanger" type="Node2D" parent="." unique_id=9408269 node_paths=PackedStringArray("stage_bgm", "battle_bgm", "boss_bgm", "gameover_bgm")]
+process_mode = 1
+script = ExtResource("11_50dfd")
+stage_bgm = NodePath("Stage")
+battle_bgm = NodePath("Battle")
+boss_bgm = NodePath("Boss")
+gameover_bgm = NodePath("GameOver")
+
+[node name="Stage" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1112841277]
+stream = ExtResource("11_t5ou6")
+volume_db = -25.0
+bus = &"BGM"
+parameters/looping = true
+
+[node name="Battle" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1791616548]
+stream = ExtResource("13_4lo75")
+volume_db = -25.0
+bus = &"BGM"
+parameters/looping = true
+
+[node name="Boss" type="AudioStreamPlayer" parent="BGMChanger" unique_id=965717512]
+stream = ExtResource("14_1shb2")
+volume_db = -25.0
+bus = &"BGM"
+parameters/looping = true
+
+[node name="GameOver" type="AudioStreamPlayer" parent="BGMChanger" unique_id=152440250]
+stream = ExtResource("15_n14k5")
+volume_db = -25.0
+bus = &"BGM"
+parameters/looping = true
+
+[node name="MainCamera" parent="." unique_id=1883637712 instance=ExtResource("5_88yfh")]
+process_mode = 1
+position = Vector2(0, -38)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=193283993]
+energy = 0.16
+blend_mode = 1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="TransitionCamera" type="Camera2D" parent="." unique_id=1248579436]
+process_mode = 1
+position = Vector2(0, -38)
+script = ExtResource("16_1shb2")
+metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 
 [editable path="PlayerUI"]
+[editable path="PlayerUI/Parent/ModUI"]
+[editable path="PlayerUI/Parent/PlayerHpUI"]
+[editable path="PlayerUI/WeaponModifierUI"]
 [editable path="Player"]
 [editable path="Player/PickupComponent"]
