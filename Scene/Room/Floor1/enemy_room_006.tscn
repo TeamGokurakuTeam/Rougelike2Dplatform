@@ -59,3 +59,4 @@ is_random = true
 
 [node name="Obelisk" parent="." index="3" unique_id=1340329694 instance=ExtResource("7_6l0hs")]
 position = Vector2(585, 178)
+is_obelisk_locked = false

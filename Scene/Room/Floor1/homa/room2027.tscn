@@ -74,3 +74,4 @@ rotation = -0.7347836
 
 [node name="Obelisk" parent="." index="7" unique_id=1340329694 instance=ExtResource("8_u7256")]
 position = Vector2(1008, 216)
+is_obelisk_locked = false

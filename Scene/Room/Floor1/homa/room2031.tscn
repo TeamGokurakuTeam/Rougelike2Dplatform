@@ -60,6 +60,7 @@ item_list_tables = Array[ExtResource("4_dlwqo")]([ExtResource("5_73e2m"), ExtRes
 
 [node name="Obelisk" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="16" unique_id=1340329694 instance=ExtResource("8_dlwqo")]
 position = Vector2(616, 152)
+is_obelisk_locked = false
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("3_3m31o")]
 position = Vector2(32, 64)

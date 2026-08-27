@@ -129,6 +129,7 @@ position = Vector2(352, 264)
 
 [node name="Obelisk" parent="." index="18" unique_id=1340329694 instance=ExtResource("9_vfqk6")]
 position = Vector2(352, 216)
+is_obelisk_locked = false
 
 [editable path="MoveTile"]
 [editable path="MoveTile2"]
