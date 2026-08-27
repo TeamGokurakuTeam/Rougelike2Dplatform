@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="8_babd2"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="9_sp5rt"]
 [ext_resource type="PackedScene" uid="uid://esb02rh4pf7m" path="res://Scene/Room/ice_magic.tscn" id="10_ahypv"]
+[ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="11_35ere"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_e8x7o")]
 
@@ -255,6 +256,9 @@ is_random = true
 
 [node name="IceMagic" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="9" unique_id=1415965525 instance=ExtResource("10_ahypv")]
 position = Vector2(624, 584)
+
+[node name="MerchantFrog" parent="." index="5" unique_id=1094349948 instance=ExtResource("11_35ere")]
+position = Vector2(612, 80)
 
 [editable path="TileMaps/MoveTile2"]
 [editable path="TileMaps/MoveTile8"]

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_u7256"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="6_ymq0p"]
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="7_0ks5q"]
+[ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="8_u7256"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_rwp5d")]
 
@@ -70,3 +71,6 @@ rotation = -1.8849556
 [node name="RotatingBeam2" parent="." index="6" unique_id=420189795 instance=ExtResource("7_0ks5q")]
 position = Vector2(1160, 240)
 rotation = -0.7347836
+
+[node name="Obelisk" parent="." index="7" unique_id=1340329694 instance=ExtResource("8_u7256")]
+position = Vector2(1008, 216)
