@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="9_sp5rt"]
 [ext_resource type="PackedScene" uid="uid://esb02rh4pf7m" path="res://Scene/Room/ice_magic.tscn" id="10_ahypv"]
 [ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="11_35ere"]
+[ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="12_4xy5d"]
+[ext_resource type="Resource" uid="uid://gelko5u8afu3" path="res://Resource/ShopItemBuyList/Merchant/Merchant001.tres" id="13_ircd3"]
+[ext_resource type="Resource" uid="uid://djpmh3dydw550" path="res://Resource/ShopItemBuyList/Merchant/Merchant002.tres" id="14_rhyml"]
+[ext_resource type="Resource" uid="uid://bsmq0t57vr6w2" path="res://Resource/ShopItemBuyList/Merchant/Merchant003.tres" id="15_dwqpw"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_e8x7o")]
 
@@ -259,6 +263,7 @@ position = Vector2(624, 584)
 
 [node name="MerchantFrog" parent="." index="5" unique_id=1094349948 instance=ExtResource("11_35ere")]
 position = Vector2(612, 80)
+item_list_tables = Array[ExtResource("12_4xy5d")]([ExtResource("13_ircd3"), ExtResource("14_rhyml"), ExtResource("15_dwqpw")])
 
 [editable path="TileMaps/MoveTile2"]
 [editable path="TileMaps/MoveTile8"]

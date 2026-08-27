@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="6_bu022"]
 [ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="7_p7wrq"]
 [ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="8_bu022"]
+[ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="9_17sau"]
+[ext_resource type="Resource" uid="uid://gelko5u8afu3" path="res://Resource/ShopItemBuyList/Merchant/Merchant001.tres" id="10_g77a1"]
+[ext_resource type="Resource" uid="uid://djpmh3dydw550" path="res://Resource/ShopItemBuyList/Merchant/Merchant002.tres" id="11_0tma1"]
+[ext_resource type="Resource" uid="uid://bsmq0t57vr6w2" path="res://Resource/ShopItemBuyList/Merchant/Merchant003.tres" id="12_yxniu"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_4xbar")]
 
@@ -99,3 +103,4 @@ is_random = true
 
 [node name="MerchantFrog" parent="." index="13" unique_id=1094349948 instance=ExtResource("8_bu022")]
 position = Vector2(55, 80)
+item_list_tables = Array[ExtResource("9_17sau")]([ExtResource("10_g77a1"), ExtResource("11_0tma1"), ExtResource("12_yxniu")])
