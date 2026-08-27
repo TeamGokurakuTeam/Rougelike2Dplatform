@@ -56,6 +56,8 @@ var fall_slash_cooldown := 0.0
 var bounce_speed_multiplier := 1.1
 var max_speed := 800
 
+#ストック重撃
+var heavy_charge_time := 0.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -77,8 +79,19 @@ func _process(delta: float) -> void:
 		fall_slash_cooldown -= delta
 	if Input.is_action_just_pressed("UI_Attack") and not animation_player.is_playing():
 		animation_player.play("Charge")
+		#追加
+		heavy_charge_time = 0.0
+		#追加
+		if modifiers_ids.has("ChargeHeavyStrike"):
+			chargeheavystrike()
+		#追加
+		if animation_player.current_animation == "Charge":
+			heavy_charge_time += delta
+		
 	elif Input.is_action_just_released("UI_Attack"):
 		if animation_player.is_playing() and player.counter_timer.wait_time > 0 and not player.counter_timer.is_stopped():
+			#重撃
+			animation_player.speed_scale = 1.0
 			player.counter_timer.stop()
 			animation_player.play("CounterAttack")
 			if player.is_just_dodgeroll:
@@ -92,7 +105,6 @@ func _process(delta: float) -> void:
 			animation_player.play("Attack")
 		elif charge_particle.emitting:	
 			animation_player.play("StrongAttack")
-
 	mouse_direction = (get_global_mouse_position() - global_position).normalized()
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
 		rotation = mouse_direction.angle()
@@ -187,6 +199,9 @@ func attack_trigger_modifier() -> void:
 	if modifiers_ids.has("Bounce_Duck"):
 		bounceduck()
 #アヒル爆弾
+#重撃速度UP
+	if modifiers_ids.has("ChargeHeavyStrike"):
+		chargeheavystrike()
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -223,7 +238,7 @@ func leap_forward() -> void:
 	if player == null:
 		return
 	var leap_power := 300.0 #跳躍の数値
-	player.velocity += mouse_direction * leap_power
+	player.velocity -= mouse_direction * leap_power
 #反撃な
 func reversal_up() -> void:
 	var current_hp := player.hp_component.hp
@@ -374,6 +389,14 @@ func HeavyStrike() -> void:
 	animation_player.speed_scale = 1.0
 	for i in hitboxes.size():
 		hitboxes[i].damage = hitboxes[i].damage_multiplier
+
+#重撃速度UP
+func chargeheavystrike() -> void:
+	if animation_player.current_animation == "Charge":
+		var lv := get_modifiers_level("ChargeHeavyStrike")
+		var speed := 1.5 + lv * 0.5
+		animation_player.speed_scale = speed
+
 
 # アヒル
 func slashduck() -> void:

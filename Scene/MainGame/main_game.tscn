@@ -32,6 +32,9 @@ mouse_filter = 1
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
 
+[node name="CollisionShape2D2" parent="Player/Hurtbox" parent_id_path=PackedInt32Array(1094349948, 1912714286) index="3" unique_id=1329737567]
+visible = false
+
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
 position = Vector2(0, -38)
 remote_path = NodePath("../../MainCamera")

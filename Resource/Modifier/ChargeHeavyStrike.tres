@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://bava6yfk65aib"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_jx0qa"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_258i0"]
+
+[resource]
+script = ExtResource("1_jx0qa")
+ModifierRank = 1
+texture = ExtResource("2_258i0")
+modifier_id = "ChargeHeavyStrike"
+modifier_name = "重撃速度UP"
+color_rarity = Color(1, 0.101960786, 0.101960786, 1)
+explanation = "重撃と重撃までの時間を早くする"
