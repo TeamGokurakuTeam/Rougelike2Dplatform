@@ -21,3 +21,6 @@ func Physics_Update(delta) -> void:
 
 func _on_idle_timer_timeout() -> void:
 	StateTransitioned.emit(self, "Walk")
+
+func _on_player_detector_body_entered(body: Node2D) -> void:
+	StateTransitioned.emit(self, "Attack")

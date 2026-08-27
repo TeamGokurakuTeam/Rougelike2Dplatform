@@ -393,11 +393,11 @@ size = Vector2(44, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmf2r"]
 radius = 13.0
-height = 54.0
+height = 60.0
 
 [sub_resource type="Animation" id="Animation_l03q4"]
 resource_name = "Attack"
-length = 1.9000000000000001
+length = 1.9
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -434,6 +434,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, true, false, false, true, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"modifier_random_delete"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_w5ysb"]
@@ -621,22 +635,38 @@ _data = {
 &"Walk": SubResource("Animation_i5yl7")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jhy2k"]
+radius = 13.0
+height = 106.0
+
 [node name="HedoroSlime" unique_id=1094349948 instance=ExtResource("1_kmf2r")]
 script = ExtResource("2_m2euu")
+acceleration = 20
 
-[node name="Idle" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1396875699) index="0" unique_id=83929570]
+[node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=83929570 node_paths=PackedStringArray("parent", "anim_player", "idle_timer")]
 script = ExtResource("2_8gn3p")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+idle_timer = NodePath("../../IdleTimer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Walk" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1396875699) index="1" unique_id=2086992204]
+[node name="Walk" type="Node" parent="StateMachine" index="1" unique_id=2086992204 node_paths=PackedStringArray("parent", "anim_player", "walk_timer")]
 script = ExtResource("3_m2euu")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+walk_timer = NodePath("../../WalkTimer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Attack" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1396875699) index="2" unique_id=1886615157]
+[node name="Attack" type="Node" parent="StateMachine" index="2" unique_id=1886615157 node_paths=PackedStringArray("parent", "anim_player")]
 script = ExtResource("4_gi4oo")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Dead" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(1396875699) index="3" unique_id=1487332042]
+[node name="Dead" type="Node" parent="StateMachine" index="3" unique_id=1487332042]
 script = ExtResource("5_oi7po")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
@@ -658,10 +688,11 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_kmf2r")
 
 [node name="Hitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="0" unique_id=195243888]
+collision_mask = 9
 damage = 1.0
 
 [node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
-position = Vector2(32, -4)
+position = Vector2(29, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kmf2r")
 
@@ -676,5 +707,17 @@ one_shot = true
 wait_time = 4.0
 one_shot = true
 
+[node name="PlayerDetector" type="Area2D" parent="." index="10" unique_id=2078238082]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=819951973]
+position = Vector2(0, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jhy2k")
+
+[connection signal="body_entered" from="Hitboxes/Hitbox" to="StateMachine/Attack" method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitboxes/Hitbox" to="StateMachine/Attack" method="_on_hitbox_body_exited"]
 [connection signal="timeout" from="IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="WalkTimer" to="StateMachine/Walk" method="_on_walk_timer_timeout"]
+[connection signal="body_entered" from="PlayerDetector" to="StateMachine/Idle" method="_on_player_detector_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="StateMachine/Walk" method="_on_player_detector_body_entered"]
