@@ -205,7 +205,7 @@ tile_map_data = PackedByteArray("AAAAADUABAAMAAYAAAAAADYABAAMAAcAAAABADUABAANAAY
 
 [node name="Trap" type="TileMapLayer" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="4" unique_id=1985479465]
 modulate = Color(4.605, 7.911, 2.55, 1)
-tile_map_data = PackedByteArray("AAAeADgAAAAMAAgAAGAeADcAAAANAAgAAGAfADgAAAAMAAkAAGAfADcAAAANAAkAAGAhADUAAAAMAAgAAFAhADYAAAANAAgAAFAgADUAAAAMAAkAAFAgADYAAAANAAkAAFAgADgAAAANAAgAADAgADcAAAANAAkAADAhADgAAAAMAAgAADAhADcAAAAMAAkAADAkABkAAAAPAAkAAFAlABkAAAAPAAgAAFAiABkAAAAPAAkAAFAjABkAAAAPAAgAAFAgABkAAAAPAAkAAFAhABkAAAAPAAgAAFAEAAsAAAAPAAkAAFAFAAsAAAAPAAgAAFAGAAsAAAAPAAkAAFAHAAsAAAAPAAgAAFAIAAsAAAAPAAkAAFAJAAsAAAAPAAgAAFACAA4AAAAPAAkAAFADAA4AAAAPAAgAAFA=")
+tile_map_data = PackedByteArray("AAAeADgAAAAMAAgAAGAeADcAAAANAAgAAGAfADgAAAAMAAkAAGAfADcAAAANAAkAAGAhADUAAAAMAAgAAFAhADYAAAANAAgAAFAgADUAAAAMAAkAAFAgADYAAAANAAkAAFAgADgAAAANAAgAADAgADcAAAANAAkAADAhADgAAAAMAAgAADAhADcAAAAMAAkAADAkABkAAAAPAAkAAFAlABkAAAAPAAgAAFAiABkAAAAPAAkAAFAjABkAAAAPAAgAAFAEAAsAAAAPAAkAAFAFAAsAAAAPAAgAAFAGAAsAAAAPAAkAAFAHAAsAAAAPAAgAAFACAA4AAAAPAAkAAFADAA4AAAAPAAgAAFA=")
 tile_set = SubResource("TileSet_yf5fn")
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("3_1yneo")]
@@ -257,41 +257,28 @@ position = Vector2(560, 408)
 projectile_scene = ExtResource("6_ubvv5")
 shoot_direction = Vector2(0, 1)
 
-[node name="Launcher3" parent="." index="5" unique_id=1511843658 instance=ExtResource("5_i2aaa")]
-position = Vector2(528, 408)
-fire_interval = 4.0
-projectile_scene = ExtResource("6_ubvv5")
-shoot_direction = Vector2(0, 1)
-
-[node name="Launcher7" parent="." index="6" unique_id=400196513 instance=ExtResource("5_i2aaa")]
+[node name="Launcher7" parent="." index="5" unique_id=400196513 instance=ExtResource("5_i2aaa")]
 position = Vector2(80, 184)
 fire_interval = 2.0
 projectile_scene = ExtResource("6_ubvv5")
 shoot_direction = Vector2(0, 1)
 projectile_speed = 200.0
 
-[node name="Launcher11" parent="." index="7" unique_id=1790553777 instance=ExtResource("5_i2aaa")]
+[node name="Launcher11" parent="." index="6" unique_id=1790553777 instance=ExtResource("5_i2aaa")]
 position = Vector2(48, 232)
 fire_interval = 4.2
 projectile_scene = ExtResource("6_ubvv5")
 shoot_direction = Vector2(0, 1)
 projectile_speed = 200.0
 
-[node name="Launcher12" parent="." index="8" unique_id=121118440 instance=ExtResource("5_i2aaa")]
-position = Vector2(144, 184)
-fire_interval = 4.8
-projectile_scene = ExtResource("6_ubvv5")
-shoot_direction = Vector2(0, 1)
-projectile_speed = 200.0
-
-[node name="Launcher13" parent="." index="9" unique_id=805505947 instance=ExtResource("5_i2aaa")]
+[node name="Launcher13" parent="." index="7" unique_id=805505947 instance=ExtResource("5_i2aaa")]
 position = Vector2(112, 184)
 fire_interval = 3.6
 projectile_scene = ExtResource("6_ubvv5")
 shoot_direction = Vector2(0, 1)
 projectile_speed = 200.0
 
-[node name="Spike" parent="." index="10" unique_id=2129174175 instance=ExtResource("7_ply2r")]
+[node name="Spike" parent="." index="8" unique_id=2129174175 instance=ExtResource("7_ply2r")]
 position = Vector2(88, 760)
 
 [node name="AnimatedSprite2D" parent="Spike" index="0" unique_id=571216221]
@@ -301,7 +288,7 @@ visible = false
 position = Vector2(8, -0.8125)
 shape = SubResource("RectangleShape2D_rds1i")
 
-[node name="Spike2" parent="." index="11" unique_id=105396866 instance=ExtResource("7_ply2r")]
+[node name="Spike2" parent="." index="9" unique_id=105396866 instance=ExtResource("7_ply2r")]
 position = Vector2(88, 760)
 
 [node name="AnimatedSprite2D" parent="Spike2" index="0" unique_id=571216221]
@@ -311,21 +298,21 @@ visible = false
 position = Vector2(488, 190.125)
 shape = SubResource("RectangleShape2D_i2aaa")
 
-[node name="MoveTile" parent="." index="12" unique_id=971770846 instance=ExtResource("9_rds1i")]
+[node name="MoveTile" parent="." index="10" unique_id=971770846 instance=ExtResource("9_rds1i")]
 position = Vector2(56, 672)
 move_speed = 0.5
 
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 80, 0)
 
-[node name="MoveTile2" parent="." index="13" unique_id=1736872709 instance=ExtResource("9_rds1i")]
+[node name="MoveTile2" parent="." index="11" unique_id=1736872709 instance=ExtResource("9_rds1i")]
 position = Vector2(136, 536)
 move_speed = 0.5
 
 [node name="Line2D" parent="MoveTile2" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -80, 0)
 
-[node name="MoveTile3" parent="." index="14" unique_id=377597149 instance=ExtResource("9_rds1i")]
+[node name="MoveTile3" parent="." index="12" unique_id=377597149 instance=ExtResource("9_rds1i")]
 position = Vector2(96, 392)
 
 [editable path="Spike"]
