@@ -47,12 +47,12 @@ position = Vector2(-40, 0)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("5_5aphh")]
 position = Vector2(496, 720)
-enemys = Array[PackedScene]([ExtResource("6_yf100"), ExtResource("7_kksm6"), null])
+enemys = Array[PackedScene]([ExtResource("6_yf100"), ExtResource("7_kksm6")])
 is_random = true
 
 [node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=622565349 instance=ExtResource("5_5aphh")]
 position = Vector2(456, 432)
-enemys = Array[PackedScene]([ExtResource("6_yf100"), ExtResource("7_kksm6"), null])
+enemys = Array[PackedScene]([ExtResource("6_yf100"), ExtResource("7_kksm6")])
 is_random = true
 
 [node name="RotatingBeam3" parent="." index="3" unique_id=1288819283 instance=ExtResource("2_culsw")]
