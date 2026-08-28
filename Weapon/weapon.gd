@@ -61,6 +61,10 @@ var max_speed := 800
 const max_rampage_stack : int = 5
 var rampage_stack : int = 0
 
+# 逆転こそ修飾子
+var cumulated_damage : float = 0.0
+var is_countering : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for node in root.get_children():
@@ -88,6 +92,7 @@ func _process(delta: float) -> void:
 			player.counter_timer.stop()
 			animation_player.speed_scale = speed_mults.attack_speed_mult
 			animation_player.play("CounterAttack")
+			is_countering = true
 			if player.is_just_dodgeroll:
 				player.is_just_dodgeroll = false
 				for i in hitboxes.size():
@@ -95,6 +100,7 @@ func _process(delta: float) -> void:
 			await animation_player.animation_finished
 			for i in hitboxes.size():
 				hitboxes[i].damage_multiplier = NORMAL_RATE
+			is_countering = false
 		elif animation_player.is_playing() and animation_player.current_animation == "Charge":
 			for i in hitboxes.size():
 				hitboxes[i].damage_multiplier = dmg_mults.damage_mult
@@ -161,6 +167,7 @@ func reset_modifier() -> void:
 	# 修飾子専用
 	rampage_stack = 0
 	rampage_timer.stop()
+	cumulated_damage = 0.0
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -451,10 +458,22 @@ func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 
 	return mults
 
-func _on_hitbox_damage_dealt() -> void:
+func _on_hitbox_damage_dealt(hurtbox : Hurtbox) -> void:
 	assert(rampage_timer != null, "rampage_timer is null")
 	rampage_stack = min(rampage_stack + 1, max_rampage_stack)
 	rampage_timer.start()
+	if is_countering:
+		trigger_modifier_when_counter(hurtbox)
 
 func _on_rampage_timer_timeout() -> void:
 	rampage_stack = 0
+
+func trigger_modifier_when_receive_damage(damage : float) -> void:
+	if has_modifiers("RevengeSlash"):
+		cumulated_damage += damage
+
+func trigger_modifier_when_counter(hurtbox : Hurtbox) -> void:
+	if has_modifiers("RevengeSlash") and cumulated_damage > 0.0:
+		var release_damage : float = cumulated_damage / 3.0
+		cumulated_damage -= release_damage
+		hurtbox.apply_extra_damage(release_damage)

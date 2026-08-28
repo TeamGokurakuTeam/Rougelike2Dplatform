@@ -20,6 +20,7 @@ collision_layer = 4
 collision_mask = 0
 damage = 5.0
 knockback_force = 10.0
+damage_source_type = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Root/Hitbox" unique_id=722522530]
 z_index = 1
