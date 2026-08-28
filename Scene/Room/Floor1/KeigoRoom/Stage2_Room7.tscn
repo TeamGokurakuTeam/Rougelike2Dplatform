@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_p3t12"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_klkk5"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="5_ycasu"]
+[ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="6_0sidc"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_qx4h5")]
 
@@ -142,3 +143,7 @@ position = Vector2(776, -248)
 
 [node name="MoveTile12" parent="MoveTiles" index="17" unique_id=264780794 instance=ExtResource("5_ycasu")]
 position = Vector2(896, -240)
+
+[node name="Obelisk" parent="." index="6" unique_id=1340329694 instance=ExtResource("6_0sidc")]
+position = Vector2(376, -320)
+is_obelisk_locked = false
