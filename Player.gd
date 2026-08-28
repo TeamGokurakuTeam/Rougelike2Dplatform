@@ -225,6 +225,8 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	if not is_dodgeroll:
 		hp_component.hp -= damage
 		DamageNumber.display_number(damage, global_position, false, Color("ff0000"))
+		if weapon:
+			weapon.trigger_modifier_when_receive_damage(damage)
 	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
 		parry_effect.emitting = true
 		is_just_dodgeroll = true

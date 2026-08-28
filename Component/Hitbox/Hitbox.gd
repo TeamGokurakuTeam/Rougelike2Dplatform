@@ -14,7 +14,15 @@ class_name Hitbox
 		if collision_shape:
 			collision_shape.disabled = not value
 
-signal damage_dealt
+@export var damage_source_type : DamageSourceType = DamageSourceType.Enemy
+
+signal damage_dealt(hurtbox : Hurtbox)
+
+enum DamageSourceType {
+	Player,
+	Enemy,
+	Trap,
+}
 
 var knockback_direction : Vector2 = Vector2.ZERO
 var is_body_inside : bool = false
