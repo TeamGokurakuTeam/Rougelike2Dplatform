@@ -98,6 +98,13 @@ func _input(event: InputEvent) -> void:
 				Common.debug_print("プレイヤーキル")
 				if player:
 					player.hp_component.hp = 0
+			KEY_U:
+				Common.debug_print("UIの表示を切り替えました。 現在の状態 : " + str(player_ui.visible))
+				player_ui.visible = !player_ui.visible
+				if not player_ui.visible:
+					Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+				else:
+					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func _record_pressed_key(key_event : InputEventKey) -> void:

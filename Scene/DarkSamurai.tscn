@@ -651,7 +651,6 @@ position = Vector2(4, 3.5)
 shape = SubResource("RectangleShape2D_44hyy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7" unique_id=1628444027]
-debug_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8" unique_id=187047511]
 libraries/ = SubResource("AnimationLibrary_xclgv")
