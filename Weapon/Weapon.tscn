@@ -44,5 +44,9 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="StillbladeTimer" type="Timer" parent="." unique_id=1564281823]
+wait_time = 5.0
+
 [connection signal="timeout" from="ModifierCountTimer" to="." method="_on_modifier_count_timer_timeout"]
 [connection signal="timeout" from="RampageTimer" to="." method="_on_rampage_timer_timeout"]
+[connection signal="timeout" from="StillbladeTimer" to="." method="_on_stillblade_timer_timeout"]

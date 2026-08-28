@@ -5,6 +5,7 @@ class_name Hitbox
 @export var knockback_force : float = 0 ##ノックバック力
 @export var is_continuous : bool = false ##継続ダメージか
 @export var damage_multiplier : float = 1.0
+@export var damage_plus : float = 0.0
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
