@@ -306,7 +306,7 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 			slash.set_collision_mask_value(8, false)
 		get_tree().root.add_child(slash)
 		DamageNumber.display_number(2, global_position, false, Color("6f0000ff"))
-		player.hp_component.hp -= 2 #2は自傷ダメージ
+		player.hp_component.hp -= 1 #1は自傷ダメージ
 #自動攻撃
 func _try_auto_attack_speed_buff() -> void:
 	if auto_attack_speed_buff_active:

@@ -42,9 +42,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fkg5h"]
-radius = 15.033297
+radius = 10.192457
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6qlu"]
+radius = 7.363574
 
 [sub_resource type="Animation" id="Animation_j6ikh"]
 resource_name = "BombDuck"
@@ -227,9 +228,9 @@ animation_player = NodePath("AnimationPlayer")
 range_slash_scene = null
 damage = 1.0
 is_explosion = false
-duck_gravity = 800.0
-bounce_speed_multiplier = 0.9
-max_speed = 600.0
+duck_gravity = 700.0
+bounce_speed_multiplier = -0.5
+max_speed = 300.0
 
 [node name="AnimatedSprite2D" parent="VisualRoot" parent_id_path=PackedInt32Array(1505287453) index="0" unique_id=1699136720]
 position = Vector2(0, -10)
@@ -241,7 +242,10 @@ frame_progress = 0.38272443
 scale = Vector2(0.8882998, 0.9)
 shape = SubResource("CircleShape2D_fkg5h")
 
-[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(2085938192) index="0" unique_id=1848104248]
+[node name="Hitbox" parent="." index="3" unique_id=2085938192]
+damage = 2.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1399399970]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_b6qlu")
 debug_color = Color(0.99290496, 0, 0.25197035, 0.41960785)

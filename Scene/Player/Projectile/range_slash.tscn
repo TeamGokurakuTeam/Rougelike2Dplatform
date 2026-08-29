@@ -246,10 +246,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ida"]
-size = Vector2(43, 40)
+size = Vector2(38, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hhey"]
-size = Vector2(43, 40)
+size = Vector2(36, 30)
 
 [sub_resource type="Animation" id="Animation_lqnvk"]
 length = 0.4
@@ -407,7 +407,7 @@ z_index = 2
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6vg6p")
 animation = &"Slash4"
-frame = 3
+frame = 2
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Root" unique_id=1927194245]
 z_index = 2
@@ -416,16 +416,18 @@ sprite_frames = SubResource("SpriteFrames_6vg6p")
 animation = &"Slash5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004457754]
-position = Vector2(1.5, -4)
+position = Vector2(-16, -1)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_e4ida")
 
 [node name="Hitbox" parent="." unique_id=1262991984 instance=ExtResource("2_ae02g")]
-collision_layer = 4
-collision_mask = 32
+collision_layer = 20
+collision_mask = 40
+damage = 1.0
+is_continuous = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=137438726]
-position = Vector2(1.5, -4)
+position = Vector2(-16, 0)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_7hhey")
 debug_color = Color(0.064074494, 0.65005255, 3.85046e-07, 0.41960785)
