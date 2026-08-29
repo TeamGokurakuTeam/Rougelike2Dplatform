@@ -45,7 +45,6 @@ var original_multipliers: Array[float] = []
 #
 var original_acceleration := 0.0
 
-var base_stats : Array[HitboxStat] = []
 #使用した修飾子の数
 var modifier_use_count: int = 0
 #
@@ -57,9 +56,14 @@ var bounce_speed_multiplier := 1.1
 var max_speed := 800
 
 # 連撃修飾子
-@onready var rampage_timer: Timer = $RampageTimer
+@onready var rampage_timer : Timer = $RampageTimer
 const max_rampage_stack : int = 5
 var rampage_stack : int = 0
+
+# 剣の不動修飾子
+@onready var stillblade_timer : Timer = $StillbladeTimer
+const max_stillblade_stack : int = 5
+var stillblade_stack : int = 0
 
 # 逆転こそ修飾子
 var cumulated_damage : float = 0.0
@@ -71,7 +75,6 @@ func _ready() -> void:
 		if node is Hitbox:
 			var hitbox : Hitbox = (node as Hitbox)
 			hitboxes.append(node)
-			base_stats.append(HitboxStat.new_stat(hitbox.damage, hitbox.knockback_force))
 			hitbox.damage_dealt.connect(_on_hitbox_damage_dealt)
 	player = get_tree().get_first_node_in_group("Player")
 	GameEvents.battle_start.connect(_on_battle_start)
@@ -103,11 +106,13 @@ func _process(delta: float) -> void:
 			is_countering = false
 		elif animation_player.is_playing() and animation_player.current_animation == "Charge":
 			for i in hitboxes.size():
+				hitboxes[i].damage_plus = dmg_mults.damage_plus
 				hitboxes[i].damage_multiplier = dmg_mults.damage_mult
 			animation_player.speed_scale = speed_mults.attack_speed_mult
 			animation_player.play("Attack")
 		elif charge_particle.emitting:
 			for i in hitboxes.size():
+				hitboxes[i].damage_plus = dmg_mults.charge_damage_plus
 				hitboxes[i].damage_multiplier = dmg_mults.charge_damage_mult
 			animation_player.speed_scale = speed_mults.charge_attack_speed_mult
 			animation_player.play("StrongAttack")
@@ -150,23 +155,30 @@ func add_modifier(id : String, count : int = 1) -> void:
 		modifiers_ids[id] += count
 	else:
 		modifiers_ids[id] = count
-	#ModifierLibrary.apply_sharp(self)
+	_start_stillblade_timer(id)
 
 func add_lock_modifier(id : String, count : int = 1) -> void:
 	if lock_modifiers_ids.has(id):
 		lock_modifiers_ids[id] += count
 	else:
 		lock_modifiers_ids[id] = count
+	_start_stillblade_timer(id)
+
+func _start_stillblade_timer(id : String) -> void:
+	if id == "Stillblade" and stillblade_timer.is_stopped():
+		stillblade_timer.start()
 
 func reset_modifier() -> void:
 	for i in hitboxes.size():
-		hitboxes[i].damage = base_stats[i].damage
-		hitboxes[i].knockback_force = base_stats[i].knockback_force
+		hitboxes[i].damage_plus = 0.0
 		hitboxes[i].damage_multiplier = 1.0
 	modifiers_ids.clear()
 	# 修飾子専用
 	rampage_stack = 0
 	rampage_timer.stop()
+	stillblade_stack = 0
+	stillblade_timer.stop()
+	
 	cumulated_damage = 0.0
 
 func _physics_process(delta: float) -> void:
@@ -400,6 +412,8 @@ func _on_battle_end() -> void:
 	modifier_count_timer.paused = true
 
 class AttackDamageMultiplier:
+	var damage_plus : float = 0.0
+	var charge_damage_plus : float = 0.0
 	var damage_mult : float = 1.0			# ダメージの倍率
 	var charge_damage_mult : float = 1.0	# チャージダメージの倍率
 
@@ -437,6 +451,12 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 		mults.damage_mult *= (1 + 0.2 * rampage_stack)
 		mults.charge_damage_mult *= (1 + 0.2 * rampage_stack)
 
+	if has_modifiers("Stillblade"):
+		mults.damage_plus += 1 * stillblade_stack
+		mults.charge_damage_plus += 1 * stillblade_stack
+		stillblade_stack = 0
+		stillblade_timer.start()
+
 	return mults
 
 func calculate_speed_multiplier() -> AttackSpeedMultiplier:
@@ -468,6 +488,11 @@ func _on_hitbox_damage_dealt(hurtbox : Hurtbox) -> void:
 func _on_rampage_timer_timeout() -> void:
 	rampage_stack = 0
 
+func _on_stillblade_timer_timeout() -> void:
+	stillblade_stack = min(stillblade_stack + 1, max_stillblade_stack)
+	if stillblade_stack >= max_stillblade_stack:
+		stillblade_timer.stop()
+		
 func trigger_modifier_when_receive_damage(damage : float) -> void:
 	if has_modifiers("RevengeSlash"):
 		cumulated_damage += damage
