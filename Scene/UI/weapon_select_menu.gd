@@ -37,6 +37,7 @@ func _on_panel_button_pressed() -> void:
 	await start_tween.finished
 	animation_player.play("End")
 	await animation_player.animation_finished
+	await Common.fade_out_to_black(get_tree())
 	get_tree().change_scene_to_packed(main_game_scene)
 
 func _on_left_pressed() -> void:

@@ -43,6 +43,8 @@ func _ready() -> void:
 
 	GameEvents.next_floor_entered.connect(_on_next_floor_entered)
 
+	await Common.fade_in_from_black()
+
 func change_camera(target_camera: Camera2D) -> void:
 	var final_transform := target_camera.global_transform
 	var final_zoom := target_camera.zoom
@@ -153,14 +155,14 @@ func teleport_player_to_furthest_door() -> void:
 		player.global_position = furthest_door.exit_point.global_position
 
 func _on_next_floor_entered() -> void:
-	await player_ui.transition_fill_top_left()
+	await Common.fade_out_to_black(get_tree())
 	_move_player_to_origin()
 	await get_tree().create_timer(0.5).timeout
 	room_generator.clear_rooms()
 	room_generator.room_generate()
 	_move_player_to_lobby()
 	current_room = room_generator.lobby_room
-	await player_ui.transition_clear_bottom_right()
+	await Common.fade_in_from_black()
 
 func _move_player_to_origin() -> void:
 	if player == null or room_generator.lobby_room == null:
