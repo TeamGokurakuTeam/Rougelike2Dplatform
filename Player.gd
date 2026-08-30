@@ -29,12 +29,12 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @export var just_dodgeroll_time : float = 0.09
 
 enum PlayerState { 
- IDLE,
- WALK,
- JUMP_START,
- JUMPING,
- JUMP_END,
- DODGE_ROLL 
+	IDLE,
+	WALK,
+	JUMP_START,
+	JUMPING,
+	JUMP_END,
+	DODGE_ROLL 
 }
 
 var current_state : PlayerState = PlayerState.IDLE
@@ -70,6 +70,11 @@ func _ready() -> void:
 	super()
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
+	
+	if GlobalGameState.current_selected_weapon != "":
+		weapon_resource_ids.append(GlobalGameState.current_selected_weapon)
+		current_weapon = 0
+		update_weapon()
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()

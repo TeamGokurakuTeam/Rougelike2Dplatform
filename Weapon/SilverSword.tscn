@@ -176,6 +176,20 @@ tracks/12/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack_trigger_modifier"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_2bg5t"]
 resource_name = "Charge"

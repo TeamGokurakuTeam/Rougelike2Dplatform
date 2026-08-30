@@ -1,14 +1,18 @@
 extends FloorProgression
 class_name RandomFloorProgression
 
+var current_floor : int = 1
+
 func start_first_floor() -> void:
-	super.start_first_floor()
+	current_floor = 1
 	room_generator.room_generate(null, _get_current_floor_type())
 	main_game_node.current_room = room_generator.lobby_room
 	_move_player_to_lobby()
 
 func _on_next_floor_entered() -> void:
-	super._on_next_floor_entered()
+	GlobalGameState.furthest_clear_floor = max(GlobalGameState.furthest_clear_floor, current_floor)
+	current_floor += 1
+	GameEvents.floor_changed.emit(current_floor)
 	await Common.fade_out_to_black(main_game_node.get_tree())
 	_move_player_to_origin()
 	await main_game_node.get_tree().create_timer(0.5).timeout

@@ -4,10 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="2_6avjc"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_fgpll"]
 [ext_resource type="Texture2D" uid="uid://ciohbcdkapsop" path="res://Assets/TileMap/CastleTiles.png" id="3_oqmah"]
-[ext_resource type="PackedScene" uid="uid://dy6pxaf7y18u7" path="res://drop_item.tscn" id="4_tomr8"]
 [ext_resource type="Texture2D" uid="uid://diedq27yg6hso" path="res://Assets/TileMap/ExtraTiles1.png" id="4_v0sef"]
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="5_ffhxb"]
-[ext_resource type="Resource" uid="uid://bnaoxtnetcaqi" path="res://Resource/Sword/A_NewWorld.tres" id="8_iujhg"]
 [ext_resource type="PackedScene" uid="uid://cq67rdschcqqh" path="res://CommentMonument.tscn" id="9_elah0"]
 
 [sub_resource type="Shader" id="Shader_6avjc"]
@@ -923,11 +921,7 @@ position = Vector2(-40, 8)
 [node name="PlayerMarker" type="Marker2D" parent="." index="2" unique_id=642251857]
 position = Vector2(56, 144)
 
-[node name="DropItem2" parent="." index="3" unique_id=1569758340 instance=ExtResource("4_tomr8")]
-position = Vector2(682, 115)
-resource = ExtResource("8_iujhg")
-
-[node name="Monument" parent="." index="5" unique_id=1371788584 instance=ExtResource("9_elah0")]
+[node name="Monument" parent="." index="4" unique_id=1371788584 instance=ExtResource("9_elah0")]
 position = Vector2(207, 151)
 text = "勇者は、私の加護によってまたここへ舞い戻る...
 あなたの使命を果たさぬ限り、

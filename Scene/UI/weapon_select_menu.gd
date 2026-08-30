@@ -20,17 +20,31 @@ func _ready() -> void:
 		var panel_node : WeaponSelectPanel = WEAPON_SELECT_PANEL.instantiate()
 		panel_node.weapon_resource = GlobalResourceLoader.weapon_cache[key]
 		panel_container.add_child(panel_node)
-		if panel_node.weapon_resource.Id != "A_NewWorld":
-			panel_node.is_lock = true
+		_unlock_weapon(panel_node)
 		
 	for node in panel_container.get_children():
 		var panel : WeaponSelectPanel = node as WeaponSelectPanel
 		panel.button.pressed.connect(_on_panel_button_pressed)
 
+func _unlock_weapon(panel : WeaponSelectPanel) -> void:
+	panel.is_lock = true
+	if panel.weapon_resource.Id == "A_NewWorld":
+		panel.is_lock = false
+	elif panel.weapon_resource.Id == "SilverSword":
+		if GlobalGameState.furthest_clear_floor >= 1:
+			panel.is_lock = false
+
 func _on_panel_button_pressed() -> void:
+	var selected_id : String = ""
 	for node in panel_container.get_children():
 		var panel : WeaponSelectPanel = node as WeaponSelectPanel
+		if panel.button.has_focus() or panel.button.is_pressed():
+			selected_id = panel.weapon_resource.Id
 		panel.button.disabled = true
+	
+	if selected_id != "":
+		GlobalGameState.current_selected_weapon = selected_id
+	
 	var start_tween : Tween = create_tween()
 	start_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	start_tween.tween_property(title.audio_stream_player, "volume_db", -80, 0.5)
