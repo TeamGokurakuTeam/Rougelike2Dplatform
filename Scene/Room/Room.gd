@@ -24,6 +24,15 @@ func _initialize_room() -> void:
 		var door : Door = node as Door
 		door.exit_door_player_entered.connect(_on_exit_door_player_entered)
 
+	for node in get_children():
+		if node is Character:
+			node.room = self
+	
+	if enemies:
+		for node in enemies.get_children():
+			if node is Character:
+				node.room = self
+
 	if main_game_node and main_game_node.player:
 		hide_wall.player = main_game_node.player
 
@@ -70,6 +79,7 @@ func _turn_off_all_traps() -> void:
 		host.get_component("TrapComponent").is_active = false
 
 func _on_enemy_summoned(enemy : Enemy) -> void:
+	enemy.room = self
 	enemy.hp_component.is_dead.connect(_on_enemy_is_dead)
 	enemy_count += 1
 	GameEvents.battle_start.emit()

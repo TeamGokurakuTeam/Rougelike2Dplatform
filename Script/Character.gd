@@ -16,6 +16,7 @@ var move_direction : Vector2 = Vector2.ZERO #移動する方向
 var main_game_node : MainGame
 
 var is_damaged : bool = false
+var room : Room
 
 func _ready() -> void:
 	current_acceleration = acceleration
