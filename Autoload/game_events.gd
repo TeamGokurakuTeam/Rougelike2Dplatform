@@ -10,3 +10,4 @@ signal shop_ui_opened(npc : MerchantFrog)
 signal shop_ui_closed()
 
 signal next_floor_entered()
+signal floor_changed(floor_number : int)

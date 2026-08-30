@@ -1,4 +1,4 @@
-﻿extends Resource
+extends Resource
 class_name FloorLayoutResource
 
 @export var rows : int = 3

@@ -9,13 +9,13 @@ const ROOM_DISTANCE : int = 5000
 var lobby_room : Room
 var main_game_node : MainGame
 
-func room_generate(floor_layout : FloorLayoutResource = null) -> void:
+func room_generate(floor_layout : FloorLayoutResource = null, floor_type : Variant = null) -> void:
 	if floor_layout != null:
 		_generate_from_layout(floor_layout)
 	else:
-		_generate_random_floor()
+		_generate_random_floor(floor_type)
 
-func _generate_random_floor() -> void:
+func _generate_random_floor(floor_type : Variant = null) -> void:
 	var lobby_index : int = 0
 	var exit_index : int = generate_room_value - 1
 	var boss_index : int = exit_index - 1
@@ -57,9 +57,12 @@ func _generate_random_floor() -> void:
 					room_type = RoomInfoResource.RoomType.BOSS_ROOM
 				_: #これがmatchにおけるdefault
 					room_type = RoomInfoResource.RoomType.ENEMY_ROOM
-			var room_compare : Callable = func (res : RoomInfoResource):
-				return res.room_type == room_type
-			var room_res : RoomInfoResource = GlobalResourceLoader.room_cache[room_opening].filter(room_compare).pick_random()
+
+			var query : Array = GlobalResourceLoader.room_cache.query(room_type, floor_type, room_opening)
+			if query.is_empty() and floor_type != null:
+				query = GlobalResourceLoader.room_cache.query(room_type, null, room_opening)
+
+			var room_res : RoomInfoResource = query.pick_random()
 			var room_node : Room = _place_room(room_res.room_scene, i, j)
 			room_data[i][j] = room_node
 			if room_type == RoomInfoResource.RoomType.LOBBY_ROOM:

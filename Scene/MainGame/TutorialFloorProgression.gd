@@ -1,4 +1,4 @@
-﻿extends FloorProgression
+extends FloorProgression
 class_name TutorialFloorProgression
 
 @export var tutorial_floor_layout : FloorLayoutResource

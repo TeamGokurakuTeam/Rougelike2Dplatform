@@ -14,6 +14,13 @@ enum RoomType {
 	END_ROOM
 }
 
+enum FloorType {
+	ANY,
+	FLOOR1,
+	FLOOR2,
+	FLOOR3,
+}
+
 @export var up : bool
 @export var down : bool
 @export var left : bool
