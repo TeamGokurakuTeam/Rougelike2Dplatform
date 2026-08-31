@@ -44,6 +44,7 @@ var mod_resource_ids : Array[String] = []
 var current_weapon : int = -1
 var current_modifier : int = -1 : set = _set_current_modifier
 var coyote_time_activated : bool = false
+var jump_away_from_floor : bool = false # 自分のジャンプで地面から離れたかどうか
 var fall_through_time : float = 0.5
 var fall_timer : float = 0.0
 #ジャンプのジャストタイミング
@@ -125,6 +126,8 @@ func apply_dot(dps: float, duration: float) -> void:
 func _get_input() -> void:
 	move_direction = Vector2.ZERO
 	move_direction.x = Input.get_axis(&"UI_left", &"UI_right")
+	if is_on_floor():
+		jump_away_from_floor = false
 	if abs(move_direction.x) > 0 and Input.is_action_just_pressed("UI_DodgeRoll") and not is_dodgeroll:
 		if dodge_roll_cool_down_timer.time_left <= 0.0:
 			is_dodgeroll = true
@@ -142,6 +145,7 @@ func _get_input() -> void:
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = jump_velocity
 			current_state = PlayerState.JUMP_START
+			jump_away_from_floor = true
 
 		ghost_timer.stop()
 	if is_on_floor():
@@ -149,7 +153,8 @@ func _get_input() -> void:
 			coyote_time_activated = false
 			coyote_timer.stop()
 	else:
-		if !coyote_time_activated:
+		# coyoteまだ起動してない＋プレイヤーは地面にいない＋ジャンプによって地面から離れたわけじゃない
+		if !coyote_time_activated and not jump_away_from_floor:
 			coyote_timer.start()
 			coyote_time_activated = true
 		if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
@@ -158,6 +163,7 @@ func _get_input() -> void:
 			velocity.y = jump_velocity
 			coyote_timer.stop()
 			coyote_time_activated = true
+			jump_away_from_floor = true
 	if Input.is_action_just_pressed("UI_Apply"):
 		if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
 			return
