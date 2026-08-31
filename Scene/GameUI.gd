@@ -23,6 +23,7 @@ const PAUSE_MENU = preload("uid://bi80dehen74u6")
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 
 var player : Player
+var merchant : MerchantFrog
 
 var fade_tween : Tween
 
@@ -99,6 +100,7 @@ func ui_fade_out() -> void:
 	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 
 func _on_shop_ui_opened(npc : MerchantFrog) -> void:
+	merchant = npc
 	ui_fade_in()
 	GameEvents.cutscene_started.emit()
 	var shop_ui : ShopUI = SHOP_UI.instantiate()
@@ -106,6 +108,7 @@ func _on_shop_ui_opened(npc : MerchantFrog) -> void:
 	add_child(shop_ui)
 
 func _on_shop_ui_closed() -> void:
+	merchant.is_running = false
 	ui_fade_out()
 	GameEvents.cutscene_ended.emit()
 

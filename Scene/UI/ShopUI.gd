@@ -41,6 +41,7 @@ func _ready() -> void:
 func _on_exit_button_pressed() -> void:
 	animation_player.play("End")
 	GameEvents.shop_ui_closed.emit()
+	GameEvents.cutscene_ended.emit()
 
 func _on_shop_item_panel_clicked(index : int) -> void:
 	var res = npc.item_table.item_list[index]

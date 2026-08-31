@@ -77,8 +77,6 @@ func _physics_process(delta: float) -> void:
 			visible_off()
 			is_running = true
 			_open_shop_ui()
-			is_running = false
-			visible_on()
 			
 		elif Input.is_action_just_pressed("UI_Up") and not is_running:
 			visible_off()
@@ -159,4 +157,5 @@ func submit(text : String, scroll_second : float):
 
 func _open_shop_ui() -> void:
 	GameEvents.shop_ui_opened.emit(self)
+	GameEvents.cutscene_started.emit()
 	
