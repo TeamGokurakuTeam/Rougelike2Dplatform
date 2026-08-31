@@ -81,7 +81,7 @@ enemys = Array[PackedScene]([ExtResource("4_epq8v")])
 position = Vector2(328, 224)
 
 [node name="MoveTile5" parent="." index="4" unique_id=1906568216 instance=ExtResource("5_ae4gh")]
-position = Vector2(560, 424)
+position = Vector2(560, 416)
 
 [node name="MoveTile6" parent="." index="5" unique_id=651081832 instance=ExtResource("5_ae4gh")]
 position = Vector2(560, 336)

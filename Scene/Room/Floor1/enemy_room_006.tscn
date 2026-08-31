@@ -60,3 +60,9 @@ is_random = true
 [node name="Obelisk" parent="." index="3" unique_id=1340329694 instance=ExtResource("7_6l0hs")]
 position = Vector2(585, 178)
 is_obelisk_locked = false
+
+[node name="OneWay" parent="." index="6" unique_id=1587673782 instance=ExtResource("2_f7qbm")]
+position = Vector2(504, 112)
+
+[node name="OneWay2" parent="." index="7" unique_id=1501588257 instance=ExtResource("2_f7qbm")]
+position = Vector2(152, 112)

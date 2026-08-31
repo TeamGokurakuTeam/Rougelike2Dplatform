@@ -20,12 +20,14 @@ tile_map_data = PackedByteArray("AAAHAPP/BAAMAAYAAAAHAPT/BAAMAAcAAAAIAPP/BAANAAY
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("2_cm200")]
 position = Vector2(16, -32)
+dir = 3
 
 [node name="ExitPoint" type="Marker2D" parent="Doors/Door" index="5" unique_id=1820472421]
 position = Vector2(16, 16)
 
 [node name="Door2" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="1" unique_id=1199021062 instance=ExtResource("2_cm200")]
-position = Vector2(328, -256)
+position = Vector2(336, -256)
+dir = 4
 
 [node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="5" unique_id=439341420]
 position = Vector2(-32, 16)
@@ -81,7 +83,7 @@ position = Vector2(120, -64)
 position = Vector2(256, -344)
 rotate_speed = 20.0
 
-[node name="CollisionShape2D" parent="RotatingBeam/Pivot/Hitbox" parent_id_path=PackedInt32Array(1288819283, 1299649668) index="0"]
+[node name="CollisionShape2D" parent="RotatingBeam/Pivot/Hitbox" parent_id_path=PackedInt32Array(1288819283, 1299649668) index="0" unique_id=1399399970]
 position = Vector2(-0.017691135, 164.92424)
 scale = Vector2(1, 22)
 
