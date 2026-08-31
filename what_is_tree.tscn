@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://be76cm77gy4pc" path="res://windsway.gdshader" id="2_rpe4i"]
 [ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="3_h3bdo"]
 [ext_resource type="Texture2D" uid="uid://bldxpebbei5hi" path="res://Assets/Keyboard Letters and Symbols.png" id="4_28spo"]
+[ext_resource type="AudioStream" uid="uid://de3lw3apsncg4" path="res://Assets/SoundEffect/エタソ出現.mp3" id="6_a7exv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvxgu"]
 shader = ExtResource("2_rpe4i")
@@ -84,6 +85,11 @@ visible_characters_behavior = 1
 [node name="S" type="Sprite2D" parent="." unique_id=1649745771]
 position = Vector2(0, 56)
 texture = SubResource("AtlasTexture_jhy2k")
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=615213187]
+stream = ExtResource("6_a7exv")
+volume_db = -16.0
+pitch_scale = 0.8
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -5,6 +5,7 @@ class_name WhatIsTree
 
 @onready var rich_text_label: RichTextLabel = $RichTextLabel
 @onready var key_s_sprite: Sprite2D = $S
+@onready var sound: AudioStreamPlayer = $Sound
 
 var text_ratio_tween : Tween
 var is_player_inside : bool = false
@@ -46,6 +47,7 @@ func submit(text : String, scroll_second : float):
 	await text_ratio_tween.finished
 	await get_tree().create_timer(3.0).timeout
 	GlobalGameState.found_floor1_secret_room = true
+	sound.play()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

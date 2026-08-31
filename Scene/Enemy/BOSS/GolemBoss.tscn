@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="1_5b40q"]
 [ext_resource type="Script" uid="uid://bl7femyrep4k3" path="res://Scene/Enemy/BOSS/GolemBoss.gd" id="2_g1ujj"]
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="3_kbcm7"]
 [ext_resource type="Script" uid="uid://cj6wjugp0lj8" path="res://Scene/Enemy/BOSS/GolemBossMove.gd" id="3_t5hy6"]
+[ext_resource type="Resource" uid="uid://csnxinxfnxpyt" path="res://Resource/Modifier/RevengeSlash.tres" id="4_4bs8o"]
 [ext_resource type="Script" uid="uid://ncteui0x5rir" path="res://Scene/Enemy/BOSS/GolemBossFly.gd" id="4_oaa17"]
 [ext_resource type="Script" uid="uid://7dvclidi08dr" path="res://Scene/Enemy/BOSS/GolemBossAttack.gd" id="5_4bl0x"]
 [ext_resource type="Texture2D" uid="uid://dktuj0ydds5j2" path="res://Assets/BOSS/Character_sheet.png" id="6_5nfcm"]
@@ -1256,6 +1258,7 @@ _data = {
 script = ExtResource("2_g1ujj")
 dash_speed = 1500.0
 can_move = true
+mod_resource = Array[ExtResource("3_kbcm7")]([ExtResource("4_4bs8o")])
 jump_velocity = 0.0
 max_speed = 300.0
 acceleration = 3
