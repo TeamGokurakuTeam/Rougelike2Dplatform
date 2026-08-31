@@ -801,15 +801,19 @@ vframes = 2
 [node name="SilverSword1段目" type="AudioStreamPlayer" parent="." index="9" unique_id=310085602]
 stream = ExtResource("9_2bg5t")
 volume_db = -18.0
+bus = &"SoundEffect"
 
 [node name="SilverSword2段目" type="AudioStreamPlayer" parent="." index="10" unique_id=1913787946]
 stream = ExtResource("10_oks0n")
 volume_db = -18.0
+bus = &"SoundEffect"
 
 [node name="SilverSword溜め" type="AudioStreamPlayer" parent="." index="11" unique_id=1156693587]
 stream = ExtResource("11_oks0n")
 volume_db = -18.0
+bus = &"SoundEffect"
 
 [node name="SilverSwordカウンター" type="AudioStreamPlayer" parent="." index="12" unique_id=1682830865]
 stream = ExtResource("12_imffo")
 volume_db = -18.0
+bus = &"SoundEffect"

@@ -467,7 +467,9 @@ vframes = 2
 [node name="Attack" type="AudioStreamPlayer" parent="." index="6" unique_id=2135258592]
 stream = ExtResource("8_ff81a")
 volume_db = -10.0
+bus = &"SoundEffect"
 
 [node name="StrongAttack" type="AudioStreamPlayer" parent="." index="7" unique_id=1565475423]
 stream = ExtResource("9_bcbfq")
-volume_db = -25.0
+volume_db = -20.0
+bus = &"SoundEffect"

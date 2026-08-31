@@ -34,6 +34,7 @@ debug_color = Color(0.9987715, 0, 0.14525625, 0.41960785)
 
 [node name="Charge" type="AudioStreamPlayer" parent="." unique_id=1009231787]
 stream = ExtResource("3_l4m4n")
+volume_db = -10.0
 pitch_scale = 1.1
 bus = &"SoundEffect"
 

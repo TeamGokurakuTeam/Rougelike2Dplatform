@@ -17,6 +17,9 @@ const WEAPON_SELECT_MENU = preload("uid://crrgxcmvwd3d6")
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var bgm_index : int
+var se_index : int
+var master_index : int
+
 var is_open : bool
 var option_tween : Tween
 var start_tween : Tween
@@ -25,11 +28,23 @@ func _ready() -> void:
 	black.visible = false
 	(transition.material as ShaderMaterial).set_shader_parameter("progress", 0.0)
 	bgm_index = AudioServer.get_bus_index("BGM")
+	se_index = AudioServer.get_bus_index("SoundEffect")
+	master_index = AudioServer.get_bus_index("Master")
 	bgm_slider.value_changed.connect(_on_bgm_value_changed)
+	se_slider.value_changed.connect(_on_se_value_changed)
+	master_slider.value_changed.connect(_on_master_value_changed)
 	bgm_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bgm_index))
+	se_slider.value = db_to_linear(AudioServer.get_bus_volume_db(se_index))
+	master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(master_index))
 
 func _on_bgm_value_changed(value : float) -> void:
 	AudioServer.set_bus_volume_db(bgm_index, linear_to_db(value))
+
+func _on_se_value_changed(value : float) -> void:
+	AudioServer.set_bus_volume_db(se_index, linear_to_db(value))
+
+func _on_master_value_changed(value : float) -> void:
+	AudioServer.set_bus_volume_db(master_index, linear_to_db(value))
 
 func _on_option_pressed() -> void:
 	if not is_open:

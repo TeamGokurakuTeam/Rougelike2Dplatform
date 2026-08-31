@@ -341,7 +341,7 @@ offset_left = 1.0
 offset_top = -22.0
 offset_right = 58.0
 offset_bottom = 1.0
-text = "UI Vol"
+text = "MASTER Vol"
 label_settings = SubResource("LabelSettings_jhy2k")
 vertical_alignment = 1
 

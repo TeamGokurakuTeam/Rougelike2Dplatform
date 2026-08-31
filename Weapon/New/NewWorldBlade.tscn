@@ -676,8 +676,10 @@ process_material = ExtResource("4_jvk8i")
 
 [node name="Slash" type="AudioStreamPlayer" parent="." index="6" unique_id=1256548935]
 stream = ExtResource("7_opn06")
+volume_db = -10.0
 bus = &"SoundEffect"
 
 [node name="Slash2" type="AudioStreamPlayer" parent="." index="7" unique_id=1092666201]
 stream = ExtResource("8_ylik5")
+volume_db = -10.0
 bus = &"SoundEffect"
