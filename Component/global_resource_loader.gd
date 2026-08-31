@@ -52,7 +52,7 @@ func _file_load(folder_path : String, res_cache : Dictionary) -> void:
 
 #room専用のファイル読み込み関数
 func _file_room_load(floor_type : RoomInfoResource.FloorType, folder_path : String, res_cache : RoomDatabase) -> void:
-	const subfolder_names : Array[String] = ["Boss", "End", "Enemy", "Lobby", "Shop"]
+	const subfolder_names : Array[String] = ["Boss", "End", "Enemy", "Lobby", "Shop", "Secret"]
 
 	for subfolder_name in subfolder_names:
 		var current_folder_path : String = "%s/%s" % [folder_path, subfolder_name]

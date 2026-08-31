@@ -33,6 +33,9 @@ func _unlock_weapon(panel : WeaponSelectPanel) -> void:
 	elif panel.weapon_resource.Id == "SilverSword":
 		if GlobalGameState.furthest_clear_floor >= 1:
 			panel.is_lock = false
+	elif panel.weapon_resource.Id == "EternalSword":
+		if GlobalGameState.found_floor1_secret_room:
+			panel.is_lock = false
 
 func _on_panel_button_pressed() -> void:
 	var selected_id : String = ""

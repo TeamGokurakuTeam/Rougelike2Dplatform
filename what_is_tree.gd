@@ -45,6 +45,7 @@ func submit(text : String, scroll_second : float):
 	bar.modulate = Color("ffffff00")
 	await text_ratio_tween.finished
 	await get_tree().create_timer(3.0).timeout
+	GlobalGameState.found_floor1_secret_room = true
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

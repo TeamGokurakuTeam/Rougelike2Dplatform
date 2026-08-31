@@ -11,7 +11,8 @@ enum RoomType {
 	BONUS_ROOM,
 	SHOP_ROOM,
 	BOSS_ROOM,
-	END_ROOM
+	END_ROOM,
+	SECRET_ROOM
 }
 
 enum FloorType {
