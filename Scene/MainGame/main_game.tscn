@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
 [ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="3_4x3oj"]
 [ext_resource type="PackedScene" uid="uid://cvnfa7dppgwhv" path="res://Scene/camera_2d.tscn" id="5_88yfh"]
+[ext_resource type="AudioStream" uid="uid://qu4moyxe85w4" path="res://Assets/Music/mizunishizumupiano.mp3" id="11_4lo75"]
 [ext_resource type="Script" uid="uid://bqa23sw42pwvk" path="res://Scene/MainGame/bgm_changer.gd" id="11_50dfd"]
 [ext_resource type="AudioStream" uid="uid://dl0tuiisa34l6" path="res://Assets/Music/IswearIsawit.ogg" id="11_t5ou6"]
 [ext_resource type="AudioStream" uid="uid://fmkya4o1cxob" path="res://Assets/Music/PerituneMaterial_Gothic_Dark_loop.mp3" id="13_4lo75"]
@@ -71,6 +72,12 @@ parameters/looping = true
 [node name="GameOver" type="AudioStreamPlayer" parent="BGMChanger" unique_id=152440250]
 stream = ExtResource("15_n14k5")
 volume_db = -25.0
+bus = &"BGM"
+parameters/looping = true
+
+[node name="SECRET" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1685054457]
+stream = ExtResource("11_4lo75")
+volume_db = -20.0
 bus = &"BGM"
 parameters/looping = true
 
