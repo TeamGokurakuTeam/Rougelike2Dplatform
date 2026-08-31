@@ -7,6 +7,7 @@ class_name Door
 @export var dir : Direction = Direction.NONE #NONEは初期値用
 @export var is_open : bool = false
 
+var current_room : Room
 var teleport_to : Door
 var exit_point : Marker2D
 var main_game_node : MainGame
@@ -40,9 +41,38 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 
 	if body is Player and teleport_to != null:
 		is_door_running = true
+		var target_door : Door = teleport_to
+
+		var progression : RandomFloorProgression = main_game_node.floor_progression as RandomFloorProgression
+		if progression and progression.current_floor == 1 and \
+		   main_game_node.is_killed_floor_boss and not GlobalGameState.found_floor1_secret_room:
+
+			var connect_to_lobby : bool = (
+				current_room.room_type == RoomInfoResource.RoomType.LOBBY_ROOM or
+				target_door.current_room.room_type == RoomInfoResource.RoomType.LOBBY_ROOM
+			) and current_room.room_type != RoomInfoResource.RoomType.SECRET_ROOM
+
+			if connect_to_lobby and randf() < 0.05:
+				var secret : Room = main_game_node.room_generator.secret_room
+				if secret and secret.doors.get_child_count() > 0:
+					target_door = secret.doors.get_child(0)
+
+		
 		await Common.fade_out_to_black(get_tree())
+
 		var player : Player = body as Player
-		player.global_position = teleport_to.exit_point.global_position
+		player.global_position = target_door.exit_point.global_position
+
+		var is_going_in_secret_room : bool = target_door.current_room.room_type == RoomInfoResource.RoomType.SECRET_ROOM
+		var is_coming_out_sceret_room : bool = (
+			current_room.room_type == RoomInfoResource.RoomType.SECRET_ROOM and
+			target_door.current_room.room_type != RoomInfoResource.RoomType.SECRET_ROOM
+		)
+		if is_going_in_secret_room :
+			main_game_node.player_ui.ui_fade_in()
+		elif is_coming_out_sceret_room:
+			main_game_node.player_ui.ui_fade_out()
+
 		await Common.fade_in_from_black()
 		is_door_running = false
 		teleport_to.exit_door_player_entered.emit(player)

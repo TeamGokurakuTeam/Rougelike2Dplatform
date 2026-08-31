@@ -7,6 +7,7 @@ const ROOM_DISTANCE : int = 5000
 @export var generate_room_value : int = 6
 
 var lobby_room : Room
+var secret_room : Room
 var main_game_node : MainGame
 
 func room_generate(floor_layout : FloorLayoutResource = null, floor_type : Variant = null) -> void:
@@ -64,12 +65,25 @@ func _generate_random_floor(floor_type : Variant = null) -> void:
 
 			var room_res : RoomInfoResource = query.pick_random()
 			var room_node : Room = _place_room(room_res.room_scene, i, j)
+			room_node.room_type = room_type
 			room_data[i][j] = room_node
 			if room_type == RoomInfoResource.RoomType.LOBBY_ROOM:
 				found_lobby_room = room_node
 
 	_connect_rooms(room_data)
 	lobby_room = found_lobby_room
+
+	if floor_type == RoomInfoResource.FloorType.FLOOR1:
+		var query = GlobalResourceLoader.room_cache.query(RoomInfoResource.RoomType.SECRET_ROOM, floor_type)
+		if not query.is_empty():
+			var secret_res = query.pick_random()
+			secret_room = _place_room(secret_res.room_scene, -1, -1)
+			secret_room.room_type = RoomInfoResource.RoomType.SECRET_ROOM
+			
+			var lobby_door : Door = found_lobby_room.get_door(Door.Direction.RIGHT)
+			var secret_door : Door = secret_room.doors.get_child(0)
+			if secret_door and lobby_door:
+				secret_door.teleport_to = lobby_door
 
 # 固定ステージの生成
 func _generate_from_layout(layout : FloorLayoutResource) -> void:
@@ -88,6 +102,7 @@ func _generate_from_layout(layout : FloorLayoutResource) -> void:
 		room_data[entry.row][entry.column] = room_node
 		if entry.is_lobby:
 			found_lobby_room = room_node
+		room_node.room_type = entry.room_info.room_type
 
 	_connect_rooms(room_data)
 	lobby_room = found_lobby_room

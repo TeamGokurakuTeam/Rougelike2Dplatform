@@ -15,6 +15,7 @@ class_name Room
 
 var enemy_count : int = 0
 var main_game_node : MainGame
+var room_type : RoomInfoResource.RoomType
 
 func _ready() -> void:
 	_initialize_room()
@@ -22,6 +23,8 @@ func _ready() -> void:
 func _initialize_room() -> void:
 	for node in doors.get_children():
 		var door : Door = node as Door
+		door.main_game_node = main_game_node
+		door.current_room = self
 		door.exit_door_player_entered.connect(_on_exit_door_player_entered)
 
 	for node in get_children():
