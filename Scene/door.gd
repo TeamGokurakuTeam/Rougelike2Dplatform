@@ -11,6 +11,8 @@ var teleport_to : Door
 var exit_point : Marker2D
 var main_game_node : MainGame
 
+var is_door_running : bool = false
+
 signal exit_door_player_entered(player : Player)
 
 enum Direction {
@@ -33,11 +35,16 @@ func lock() -> void:
 	animation_player.play("Lock")
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
+	if is_door_running:
+		return
+
 	if body is Player and teleport_to != null:
+		is_door_running = true
 		await Common.fade_out_to_black(get_tree())
 		var player : Player = body as Player
 		player.global_position = teleport_to.exit_point.global_position
 		await Common.fade_in_from_black()
+		is_door_running = false
 		teleport_to.exit_door_player_entered.emit(player)
 
 static func get_opposite_dirction(dir : Direction) -> Direction:
