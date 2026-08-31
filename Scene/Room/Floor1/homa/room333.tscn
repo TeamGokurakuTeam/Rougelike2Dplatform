@@ -235,6 +235,7 @@ position = Vector2(296, 528)
 [node name="Launcher" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=784651057 instance=ExtResource("5_wmsef")]
 position = Vector2(8, 400)
 projectile_scene = ExtResource("6_a4h8d")
+projectile_speed = 100.0
 projectile_facing = Vector2(0, 1)
 
 [node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1288819283 instance=ExtResource("8_nxo0y")]

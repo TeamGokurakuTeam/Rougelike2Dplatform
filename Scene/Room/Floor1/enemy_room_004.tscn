@@ -52,7 +52,7 @@ position = Vector2(776, 368)
 position = Vector2(760, 432)
 
 [node name="OneWay4" parent="." index="5" unique_id=1529776516 instance=ExtResource("3_swvev")]
-position = Vector2(40, 400)
+position = Vector2(88, 400)
 
 [node name="OneWay5" parent="." index="6" unique_id=1274106697 instance=ExtResource("3_swvev")]
 position = Vector2(192, 400)
