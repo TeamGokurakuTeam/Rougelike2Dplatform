@@ -39,4 +39,5 @@ func boss_summon() -> void:
 	GameEvents.battle_start.emit()
 
 func _on_boss_is_dead() -> void:
+	main_game_node.is_killed_floor_boss = true
 	_on_enemy_is_dead()

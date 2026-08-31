@@ -22,6 +22,9 @@ var current_camera : Camera2D
 
 var current_room : Room
 
+#game flag
+var is_killed_floor_boss : bool = false
+
 func _ready() -> void:
 	set_process_input(true)
 	current_camera = main_camera
