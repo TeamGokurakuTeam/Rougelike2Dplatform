@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RoomInfoResource" format=3 uid="uid://d0m5ithyat1qt"]
 
-[ext_resource type="PackedScene" uid="uid://c6ohnr7lciiqo" path="res://Scene/Room/Floor1/KeigoRoom/Stage2_Room8.tscn" id="1_wltwv"]
+[ext_resource type="PackedScene" uid="uid://c6ohnr7lciiqo" path="res://Scene/Room/Floor2/enemy_room_208.tscn" id="1_wltwv"]
 [ext_resource type="Script" uid="uid://d344k4o5vtrgi" path="res://Resource/RoomInfo/RoomInfoResource.gd" id="2_mxp64"]
 
 [resource]

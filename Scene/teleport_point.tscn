@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c3u1pnmy8cqbl"]
 
 [ext_resource type="Script" path="res://Scene/TeleportPoint.gd" id="1_ims8s"]
-[ext_resource type="PackedScene" uid="uid://bxuh52qgeq7ed" path="res://Scene/Room/Floor1/enemy_room_006.tscn" id="2_wrjel"]
+[ext_resource type="PackedScene" uid="uid://bxuh52qgeq7ed" path="res://Scene/Room/Floor1/enemy_room_106.tscn" id="2_wrjel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
 
