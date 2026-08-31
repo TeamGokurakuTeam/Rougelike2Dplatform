@@ -13,7 +13,7 @@ shader_parameter/wind_strength = 2.0
 shader_parameter/wind_scale = 10.0
 shader_parameter/wind_speed = 0.1
 shader_parameter/wind_height_start = 0.0
-shader_parameter/sway_strength = 0.050000002375
+shader_parameter/sway_strength = 0.130000006175
 shader_parameter/sway_speed = 0.28
 shader_parameter/sway_height_start = 0.210000009975
 

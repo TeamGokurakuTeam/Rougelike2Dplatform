@@ -2,14 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_j2u58"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_80pk7"]
-[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="3_am6n5"]
 [ext_resource type="Script" uid="uid://cf8in0mmih3iy" path="res://Scene/Room/next_floor_detector.gd" id="4_yujx7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jhy2k"]
 height = 384.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
-font = ExtResource("3_am6n5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jv1ba"]
 size = Vector2(53, 43)
@@ -44,20 +40,18 @@ position = Vector2(-144, 144)
 shape = SubResource("CapsuleShape2D_jhy2k")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="1" unique_id=469603870]
-position = Vector2(176, 144)
+position = Vector2(343, 144)
 shape = SubResource("CapsuleShape2D_jhy2k")
 
-[node name="Label" type="Label" parent="." index="4" unique_id=922390300]
-offset_left = 48.0
-offset_top = 176.0
-offset_right = 145.0
-offset_bottom = 199.0
-text = "Coming Soon!"
-label_settings = SubResource("LabelSettings_jhy2k")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" index="2" unique_id=1745494405]
+position = Vector2(212, 266)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_jhy2k")
 
-[node name="NextFloorDetector" type="Area2D" parent="." index="7" unique_id=1948666156]
-position = Vector2(147, 234)
+[node name="NextFloorDetector" type="Area2D" parent="." index="6" unique_id=1948666156 node_paths=PackedStringArray("end_room")]
+position = Vector2(306, 234)
 script = ExtResource("4_yujx7")
+end_room = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextFloorDetector" index="0" unique_id=1908728711]
 shape = SubResource("RectangleShape2D_jv1ba")
