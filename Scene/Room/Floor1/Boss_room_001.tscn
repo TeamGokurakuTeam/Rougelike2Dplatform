@@ -1177,6 +1177,7 @@ libraries/ = SubResource("AnimationLibrary_ymlor")
 
 [node name="BossObject" type="AnimatedSprite2D" parent="." index="5" unique_id=228109572]
 visible = false
+z_index = 1
 position = Vector2(416, 218)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jhy2k")
