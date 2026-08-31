@@ -48,6 +48,25 @@ func _on_option_pressed() -> void:
 		option_tween.tween_property(option_panel, "global_position", Vector2(534.0, 11.0), 0.5)
 
 func _on_start_pressed() -> void:
+	_start_tween_transition()
+	var weapon_select_menu : WeaponSelectMenu = WEAPON_SELECT_MENU.instantiate()
+	weapon_select_menu.title = self
+	get_tree().current_scene.add_child(weapon_select_menu)
+	#get_tree().change_scene_to_packed(main_game_scene)
+
+func _end_tween_transition() -> void:
+	start.disabled = false
+	(transition.material as ShaderMaterial).set_shader_parameter("progress", 0.0)
+	if start_tween.is_running() or start_tween != null:
+		start_tween.kill()
+	black.visible = false
+	start_tween = create_tween()
+	start_tween.parallel()
+	start_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	start_tween.tween_property(transition.material, "shader_parameter/progress", 1.0, 0.8)
+	await start_tween.finished
+
+func _start_tween_transition() -> void:
 	start.disabled = true
 	if start_tween != null and start_tween.is_running():
 		start_tween.kill()
@@ -56,10 +75,6 @@ func _on_start_pressed() -> void:
 	start_tween.tween_property(transition.material, "shader_parameter/progress", 0.49, 0.8)
 	await start_tween.finished
 	black.visible = true
-	var weapon_select_menu : WeaponSelectMenu = WEAPON_SELECT_MENU.instantiate()
-	weapon_select_menu.title = self
-	get_tree().current_scene.add_child(weapon_select_menu)
-	#get_tree().change_scene_to_packed(main_game_scene)
 
 func _on_vsync_toggled(toggled_on: bool) -> void:
 	if toggled_on:

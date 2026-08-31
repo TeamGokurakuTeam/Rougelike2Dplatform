@@ -61,4 +61,7 @@ func _on_right_pressed() -> void:
 	carouse_container.right()
 
 func _on_back_pressed() -> void:
+	title._end_tween_transition()
 	queue_free()
+	
+	
