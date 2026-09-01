@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_pqj2a"]
 [ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="5_khehm"]
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="6_lxn0i"]
-[ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="7_6gpgf"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="7_ddtxc"]
+[ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="8_l3u5t"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_ddtxc")]
 
@@ -105,23 +105,24 @@ rotate_speed = 20.0
 [node name="MoveTiles" type="Node2D" parent="." index="12" unique_id=375544945]
 position = Vector2(1000, -352)
 
-[node name="MoveTile2" parent="MoveTiles" index="0" unique_id=971770846 instance=ExtResource("7_6gpgf")]
-position = Vector2(48, 0)
-
-[node name="MoveTile" parent="MoveTiles" index="1" unique_id=1819524902 instance=ExtResource("7_6gpgf")]
-
-[node name="MoveTile3" parent="MoveTiles" index="2" unique_id=1059067181 instance=ExtResource("7_6gpgf")]
-position = Vector2(160, 80)
-
-[node name="MoveTile4" parent="MoveTiles" index="3" unique_id=1780565422 instance=ExtResource("7_6gpgf")]
-position = Vector2(96, 144)
-
-[node name="MoveTile5" parent="MoveTiles" index="4" unique_id=1685369102 instance=ExtResource("7_6gpgf")]
-position = Vector2(-80, 208)
-
-[node name="MoveTile6" parent="MoveTiles" index="5" unique_id=468236344 instance=ExtResource("7_6gpgf")]
-position = Vector2(0, 272)
-
 [node name="Obelisk" parent="." index="15" unique_id=1340329694 instance=ExtResource("7_ddtxc")]
 position = Vector2(792, -56)
 is_obelisk_locked = false
+
+[node name="OneWay" parent="." index="16" unique_id=610867179 instance=ExtResource("8_l3u5t")]
+position = Vector2(1000, -352)
+
+[node name="OneWay2" parent="." index="17" unique_id=611493700 instance=ExtResource("8_l3u5t")]
+position = Vector2(1048, -352)
+
+[node name="OneWay3" parent="." index="18" unique_id=1193899694 instance=ExtResource("8_l3u5t")]
+position = Vector2(1160, -272)
+
+[node name="OneWay4" parent="." index="19" unique_id=196946925 instance=ExtResource("8_l3u5t")]
+position = Vector2(1096, -208)
+
+[node name="OneWay5" parent="." index="20" unique_id=1292036488 instance=ExtResource("8_l3u5t")]
+position = Vector2(920, -144)
+
+[node name="OneWay6" parent="." index="21" unique_id=1671654517 instance=ExtResource("8_l3u5t")]
+position = Vector2(1000, -80)

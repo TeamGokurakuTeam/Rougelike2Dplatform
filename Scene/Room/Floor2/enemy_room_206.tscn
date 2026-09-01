@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_crtah"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_c3hi6"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_v8s4o"]
-[ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="5_o22m4"]
 [ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="7_v8s4o"]
 [ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="8_tpap5"]
 [ext_resource type="Resource" uid="uid://gelko5u8afu3" path="res://Resource/ShopItemBuyList/Merchant/Merchant001.tres" id="9_dkhw0"]
 [ext_resource type="Resource" uid="uid://djpmh3dydw550" path="res://Resource/ShopItemBuyList/Merchant/Merchant002.tres" id="10_1q44w"]
+[ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="11_8j3v2"]
 [ext_resource type="Resource" uid="uid://bsmq0t57vr6w2" path="res://Resource/ShopItemBuyList/Merchant/Merchant003.tres" id="11_o72xn"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_06ts6")]
@@ -130,46 +130,46 @@ enemys = Array[PackedScene]([ExtResource("4_v8s4o")])
 
 [node name="MoveTiles" type="Node2D" parent="." index="3" unique_id=1984805103]
 
-[node name="MoveTile" parent="MoveTiles" index="0" unique_id=971770846 instance=ExtResource("5_o22m4")]
-position = Vector2(200, 208)
-
-[node name="MoveTile2" parent="MoveTiles" index="1" unique_id=526953606 instance=ExtResource("5_o22m4")]
-position = Vector2(200, 264)
-
-[node name="MoveTile3" parent="MoveTiles" index="2" unique_id=813309384 instance=ExtResource("5_o22m4")]
-position = Vector2(-200, -160)
-
-[node name="MoveTile4" parent="MoveTiles" index="3" unique_id=1120393553 instance=ExtResource("5_o22m4")]
-position = Vector2(200, -96)
-
-[node name="MoveTile13" parent="MoveTiles" index="4" unique_id=26894312 instance=ExtResource("5_o22m4")]
-position = Vector2(216, 0)
-
-[node name="MoveTile5" parent="MoveTiles" index="5" unique_id=1216891664 instance=ExtResource("5_o22m4")]
-position = Vector2(8, -232)
-
-[node name="MoveTile8" parent="MoveTiles" index="6" unique_id=534469624 instance=ExtResource("5_o22m4")]
-position = Vector2(-184, -336)
-
-[node name="MoveTile9" parent="MoveTiles" index="7" unique_id=1116062718 instance=ExtResource("5_o22m4")]
-position = Vector2(344, -336)
-
-[node name="MoveTile11" parent="MoveTiles" index="8" unique_id=1244972894 instance=ExtResource("5_o22m4")]
-position = Vector2(344, -576)
-
-[node name="MoveTile12" parent="MoveTiles" index="9" unique_id=1842772747 instance=ExtResource("5_o22m4")]
-position = Vector2(344, -504)
-
-[node name="MoveTile10" parent="MoveTiles" index="10" unique_id=1922738650 instance=ExtResource("5_o22m4")]
-position = Vector2(616, -336)
-
-[node name="MoveTile7" parent="MoveTiles" index="11" unique_id=1030440253 instance=ExtResource("5_o22m4")]
-position = Vector2(600, -64)
-
-[node name="MoveTile6" parent="MoveTiles" index="12" unique_id=636223800 instance=ExtResource("5_o22m4")]
-position = Vector2(600, -192)
-
 [node name="MerchantFrog" parent="." index="6" unique_id=1094349948 instance=ExtResource("7_v8s4o")]
 z_index = -1
 position = Vector2(208, -256)
 item_list_tables = Array[ExtResource("8_tpap5")]([ExtResource("9_dkhw0"), ExtResource("10_1q44w"), ExtResource("11_o72xn")])
+
+[node name="OneWay" parent="." index="7" unique_id=610867179 instance=ExtResource("11_8j3v2")]
+position = Vector2(200, 264)
+
+[node name="OneWay2" parent="." index="8" unique_id=1939556764 instance=ExtResource("11_8j3v2")]
+position = Vector2(200, 208)
+
+[node name="OneWay3" parent="." index="9" unique_id=489027976 instance=ExtResource("11_8j3v2")]
+position = Vector2(216, 0)
+
+[node name="OneWay4" parent="." index="10" unique_id=234815353 instance=ExtResource("11_8j3v2")]
+position = Vector2(200, -96)
+
+[node name="OneWay5" parent="." index="11" unique_id=650912328 instance=ExtResource("11_8j3v2")]
+position = Vector2(600, -64)
+
+[node name="OneWay6" parent="." index="12" unique_id=677794466 instance=ExtResource("11_8j3v2")]
+position = Vector2(600, -192)
+
+[node name="OneWay7" parent="." index="13" unique_id=1360930411 instance=ExtResource("11_8j3v2")]
+position = Vector2(616, -336)
+
+[node name="OneWay8" parent="." index="14" unique_id=1870172550 instance=ExtResource("11_8j3v2")]
+position = Vector2(344, -336)
+
+[node name="OneWay9" parent="." index="15" unique_id=1013900737 instance=ExtResource("11_8j3v2")]
+position = Vector2(8, -232)
+
+[node name="OneWay10" parent="." index="16" unique_id=1669976351 instance=ExtResource("11_8j3v2")]
+position = Vector2(-200, -160)
+
+[node name="OneWay11" parent="." index="17" unique_id=1430596501 instance=ExtResource("11_8j3v2")]
+position = Vector2(-184, -336)
+
+[node name="OneWay12" parent="." index="18" unique_id=1076054408 instance=ExtResource("11_8j3v2")]
+position = Vector2(344, -504)
+
+[node name="OneWay13" parent="." index="19" unique_id=1397450029 instance=ExtResource("11_8j3v2")]
+position = Vector2(344, -576)

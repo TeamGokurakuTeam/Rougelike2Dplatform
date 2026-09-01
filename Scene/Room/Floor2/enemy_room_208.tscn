@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_uy1dm"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_wapdq"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="5_x5vjl"]
+[ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="6_1esss"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_71x5e")]
 
@@ -100,43 +101,43 @@ enemys = Array[PackedScene]([ExtResource("4_wapdq")])
 
 [node name="MoveTiles" type="Node2D" parent="." index="3" unique_id=1364701461]
 
-[node name="MoveTile" parent="MoveTiles" index="0" unique_id=971770846 instance=ExtResource("5_x5vjl")]
-position = Vector2(152, -240)
-
-[node name="MoveTile2" parent="MoveTiles" index="1" unique_id=1228752891 instance=ExtResource("5_x5vjl")]
-position = Vector2(488, -240)
-
-[node name="MoveTile3" parent="MoveTiles" index="2" unique_id=431864026 instance=ExtResource("5_x5vjl")]
-position = Vector2(152, -320)
-
-[node name="MoveTile4" parent="MoveTiles" index="3" unique_id=779247880 instance=ExtResource("5_x5vjl")]
-position = Vector2(488, -320)
-
-[node name="MoveTile5" parent="MoveTiles" index="4" unique_id=1259140064 instance=ExtResource("5_x5vjl")]
-position = Vector2(152, -544)
-
-[node name="MoveTile6" parent="MoveTiles" index="5" unique_id=1842247526 instance=ExtResource("5_x5vjl")]
-position = Vector2(488, -544)
-
-[node name="MoveTile7" parent="MoveTiles" index="6" unique_id=535791042 instance=ExtResource("5_x5vjl")]
-position = Vector2(152, -624)
-
-[node name="MoveTile8" parent="MoveTiles" index="7" unique_id=507262540 instance=ExtResource("5_x5vjl")]
-position = Vector2(488, -624)
-
-[node name="MoveTile9" parent="MoveTiles" index="8" unique_id=1731164138 instance=ExtResource("5_x5vjl")]
+[node name="MoveTile9" parent="MoveTiles" index="0" unique_id=1731164138 instance=ExtResource("5_x5vjl")]
 position = Vector2(272, -376)
 
 [node name="Line2D" parent="MoveTiles/MoveTile9" index="3" unique_id=2081624802]
 position = Vector2(-72, 0)
 points = PackedVector2Array(72, 0, -64, 0, -64, -112, 72, -112)
 
-[node name="MoveTile10" parent="MoveTiles" index="9" unique_id=52931969 instance=ExtResource("5_x5vjl")]
+[node name="MoveTile10" parent="MoveTiles" index="1" unique_id=52931969 instance=ExtResource("5_x5vjl")]
 position = Vector2(368, -488)
 
 [node name="Line2D" parent="MoveTiles/MoveTile10" index="3" unique_id=2081624802]
 position = Vector2(-72, 0)
 points = PackedVector2Array(72, 0, 216, 0, 216, 112, 72, 112)
+
+[node name="OneWay" parent="." index="6" unique_id=610867179 instance=ExtResource("6_1esss")]
+position = Vector2(152, -320)
+
+[node name="OneWay2" parent="." index="7" unique_id=764169175 instance=ExtResource("6_1esss")]
+position = Vector2(488, -320)
+
+[node name="OneWay3" parent="." index="8" unique_id=1073415263 instance=ExtResource("6_1esss")]
+position = Vector2(152, -240)
+
+[node name="OneWay4" parent="." index="9" unique_id=118485239 instance=ExtResource("6_1esss")]
+position = Vector2(488, -240)
+
+[node name="OneWay5" parent="." index="10" unique_id=1439104465 instance=ExtResource("6_1esss")]
+position = Vector2(152, -544)
+
+[node name="OneWay6" parent="." index="11" unique_id=1906539394 instance=ExtResource("6_1esss")]
+position = Vector2(152, -624)
+
+[node name="OneWay7" parent="." index="12" unique_id=1193757291 instance=ExtResource("6_1esss")]
+position = Vector2(488, -544)
+
+[node name="OneWay8" parent="." index="13" unique_id=1443208401 instance=ExtResource("6_1esss")]
+position = Vector2(488, -624)
 
 [editable path="MoveTiles/MoveTile9"]
 [editable path="MoveTiles/MoveTile10"]
