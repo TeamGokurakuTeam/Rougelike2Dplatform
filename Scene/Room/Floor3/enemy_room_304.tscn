@@ -55,64 +55,64 @@ position = Vector2(456, 432)
 enemys = Array[PackedScene]([ExtResource("6_yf100"), ExtResource("7_kksm6")])
 is_random = true
 
-[node name="RotatingBeam3" parent="." index="3" unique_id=1288819283 instance=ExtResource("2_culsw")]
-position = Vector2(416, 384)
-scale = Vector2(1.9, 1.9)
-rotate_speed = 20.0
-
-[node name="RotatingBeam4" parent="." index="4" unique_id=141167097 instance=ExtResource("2_culsw")]
-position = Vector2(416, 384)
-rotation = 3.1415927
-scale = Vector2(1.9, 1.9)
-rotate_speed = 20.0
-
-[node name="OneWay" parent="." index="5" unique_id=610867179 instance=ExtResource("3_4tivf")]
+[node name="OneWay" parent="." index="3" unique_id=610867179 instance=ExtResource("3_4tivf")]
 position = Vector2(248, 448)
 
-[node name="OneWay2" parent="." index="6" unique_id=1446524062 instance=ExtResource("3_4tivf")]
+[node name="OneWay2" parent="." index="4" unique_id=1446524062 instance=ExtResource("3_4tivf")]
 position = Vector2(584, 552)
 
-[node name="OneWay3" parent="." index="7" unique_id=1531999456 instance=ExtResource("3_4tivf")]
+[node name="OneWay3" parent="." index="5" unique_id=1531999456 instance=ExtResource("3_4tivf")]
 position = Vector2(312, 288)
 
-[node name="OneWay4" parent="." index="8" unique_id=1576924692 instance=ExtResource("3_4tivf")]
+[node name="OneWay4" parent="." index="6" unique_id=1576924692 instance=ExtResource("3_4tivf")]
 position = Vector2(520, 288)
 
-[node name="OneWay5" parent="." index="9" unique_id=617771879 instance=ExtResource("3_4tivf")]
+[node name="OneWay5" parent="." index="7" unique_id=617771879 instance=ExtResource("3_4tivf")]
 position = Vector2(584, 296)
 
-[node name="OneWay7" parent="." index="10" unique_id=988929909 instance=ExtResource("3_4tivf")]
+[node name="OneWay7" parent="." index="8" unique_id=988929909 instance=ExtResource("3_4tivf")]
 position = Vector2(248, 296)
 
-[node name="MoveTile" parent="." index="11" unique_id=971770846 instance=ExtResource("4_sea4e")]
+[node name="MoveTile" parent="." index="9" unique_id=971770846 instance=ExtResource("4_sea4e")]
 position = Vector2(248, 384)
 move_speed = 0.2
 
-[node name="MoveTile2" parent="." index="12" unique_id=841766104 instance=ExtResource("4_sea4e")]
+[node name="MoveTile2" parent="." index="10" unique_id=841766104 instance=ExtResource("4_sea4e")]
 position = Vector2(248, 336)
 move_speed = 0.2
 
-[node name="RotatingBeam" parent="." index="13" unique_id=263940490 instance=ExtResource("2_culsw")]
-position = Vector2(336, 720)
-rotation = 4.4505897
-
-[node name="RotatingBeam2" parent="." index="14" unique_id=688025858 instance=ExtResource("2_culsw")]
-position = Vector2(336, 720)
-rotation = 1.3089969
-
-[node name="BouncePad" parent="." index="15" unique_id=959474663 instance=ExtResource("3_sea4e")]
+[node name="BouncePad" parent="." index="11" unique_id=959474663 instance=ExtResource("3_sea4e")]
 position = Vector2(520, 440)
 scale = Vector2(2, 2)
 bounce_power = 800.0
 
-[node name="OneWay6" parent="." index="16" unique_id=1414568980 instance=ExtResource("3_4tivf")]
+[node name="OneWay6" parent="." index="12" unique_id=1414568980 instance=ExtResource("3_4tivf")]
 position = Vector2(336, 408)
 
-[node name="OneWay8" parent="." index="17" unique_id=2010305629 instance=ExtResource("3_4tivf")]
+[node name="OneWay8" parent="." index="13" unique_id=2010305629 instance=ExtResource("3_4tivf")]
 position = Vector2(496, 400)
 
-[node name="OneWay9" parent="." index="18" unique_id=92570309 instance=ExtResource("3_4tivf")]
+[node name="OneWay9" parent="." index="14" unique_id=92570309 instance=ExtResource("3_4tivf")]
 position = Vector2(336, 352)
 
-[node name="OneWay10" parent="." index="19" unique_id=104239092 instance=ExtResource("3_4tivf")]
+[node name="OneWay10" parent="." index="15" unique_id=104239092 instance=ExtResource("3_4tivf")]
 position = Vector2(496, 352)
+
+[node name="RotatingBeam3" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("2_culsw")]
+position = Vector2(416, 384)
+scale = Vector2(1.9, 1.9)
+rotate_speed = 20.0
+
+[node name="RotatingBeam4" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=141167097 instance=ExtResource("2_culsw")]
+position = Vector2(416, 384)
+rotation = -3.1415925
+scale = Vector2(1.9, 1.9)
+rotate_speed = 20.0
+
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="2" unique_id=263940490 instance=ExtResource("2_culsw")]
+position = Vector2(336, 720)
+rotation = -1.8325956
+
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="3" unique_id=688025858 instance=ExtResource("2_culsw")]
+position = Vector2(336, 720)
+rotation = 1.3089969

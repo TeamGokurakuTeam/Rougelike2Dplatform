@@ -53,14 +53,14 @@ position = Vector2(784, 96)
 enemys = Array[PackedScene]([ExtResource("5_11dgc"), ExtResource("6_ps1b1")])
 is_random = true
 
-[node name="RotatingBeam" parent="." index="5" unique_id=1288819283 instance=ExtResource("3_080cq")]
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("3_080cq")]
 position = Vector2(328, 200)
 
-[node name="RotatingBeam2" parent="." index="6" unique_id=1950855061 instance=ExtResource("3_080cq")]
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1950855061 instance=ExtResource("3_080cq")]
 position = Vector2(824, 200)
 
-[node name="Spike" parent="." index="7" unique_id=2129174175 instance=ExtResource("4_cbmbj")]
+[node name="Spike" parent="." index="5" unique_id=2129174175 instance=ExtResource("4_cbmbj")]
 position = Vector2(360, 176)
 
-[node name="Spike2" parent="." index="8" unique_id=2001378418 instance=ExtResource("4_cbmbj")]
+[node name="Spike2" parent="." index="6" unique_id=2001378418 instance=ExtResource("4_cbmbj")]
 position = Vector2(384, 176)

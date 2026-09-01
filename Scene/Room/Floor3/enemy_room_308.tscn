@@ -48,53 +48,57 @@ position = Vector2(416, 520)
 enemys = Array[PackedScene]([ExtResource("4_jwn8k"), ExtResource("5_whrwy")])
 is_random = true
 
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("7_p3r4m")]
+position = Vector2(344, 416)
+rotation = -0.32637656
+scale = Vector2(0.49999997, 0.49999997)
+
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1518085911 instance=ExtResource("7_p3r4m")]
+position = Vector2(552, 248)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+rotate_speed = 60.0
+
+[node name="RotatingBeam4" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="2" unique_id=1158421940 instance=ExtResource("7_p3r4m")]
+position = Vector2(552, 248)
+rotation = -2.3561945
+rotate_speed = 60.0
+
+[node name="RotatingBeam5" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="3" unique_id=1222568572 instance=ExtResource("7_p3r4m")]
+position = Vector2(552, 248)
+rotation = 2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+rotate_speed = 60.0
+
+[node name="RotatingBeam6" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="4" unique_id=521344424 instance=ExtResource("7_p3r4m")]
+position = Vector2(552, 248)
+rotation = -0.7853983
+rotate_speed = 60.0
+
+[node name="RotatingBeam3" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="5" unique_id=544580373 instance=ExtResource("7_p3r4m")]
+position = Vector2(96, 256)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+rotate_speed = 60.0
+
+[node name="RotatingBeam7" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="6" unique_id=367401667 instance=ExtResource("7_p3r4m")]
+position = Vector2(96, 256)
+rotation = 2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+rotate_speed = 60.0
+
+[node name="RotatingBeam8" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="7" unique_id=1526862277 instance=ExtResource("7_p3r4m")]
+position = Vector2(96, 256)
+rotation = -2.3561945
+rotate_speed = 60.0
+
+[node name="RotatingBeam9" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="8" unique_id=299173920 instance=ExtResource("7_p3r4m")]
+position = Vector2(96, 256)
+rotation = -0.7853983
+rotate_speed = 60.0
+
 [node name="Spike" parent="." index="5" unique_id=2129174175 instance=ExtResource("6_qnejp")]
 position = Vector2(536, 464)
 
 [node name="Spike2" parent="." index="6" unique_id=1542288780 instance=ExtResource("6_qnejp")]
 position = Vector2(152, 560)
-
-[node name="RotatingBeam" parent="." index="7" unique_id=1288819283 instance=ExtResource("7_p3r4m")]
-position = Vector2(344, 416)
-rotation = -0.32637656
-scale = Vector2(0.5, 0.5)
-
-[node name="RotatingBeam2" parent="." index="8" unique_id=1518085911 instance=ExtResource("7_p3r4m")]
-position = Vector2(552, 248)
-rotation = 0.7853982
-rotate_speed = 60.0
-
-[node name="RotatingBeam4" parent="." index="9" unique_id=1158421940 instance=ExtResource("7_p3r4m")]
-position = Vector2(552, 248)
-rotation = 3.9269907
-rotate_speed = 60.0
-
-[node name="RotatingBeam5" parent="." index="10" unique_id=1222568572 instance=ExtResource("7_p3r4m")]
-position = Vector2(552, 248)
-rotation = 2.3561945
-rotate_speed = 60.0
-
-[node name="RotatingBeam6" parent="." index="11" unique_id=521344424 instance=ExtResource("7_p3r4m")]
-position = Vector2(552, 248)
-rotation = 5.497787
-rotate_speed = 60.0
-
-[node name="RotatingBeam3" parent="." index="12" unique_id=544580373 instance=ExtResource("7_p3r4m")]
-position = Vector2(96, 256)
-rotation = 0.7853982
-rotate_speed = 60.0
-
-[node name="RotatingBeam7" parent="." index="13" unique_id=367401667 instance=ExtResource("7_p3r4m")]
-position = Vector2(96, 256)
-rotation = 2.3561945
-rotate_speed = 60.0
-
-[node name="RotatingBeam8" parent="." index="14" unique_id=1526862277 instance=ExtResource("7_p3r4m")]
-position = Vector2(96, 256)
-rotation = 3.9269907
-rotate_speed = 60.0
-
-[node name="RotatingBeam9" parent="." index="15" unique_id=299173920 instance=ExtResource("7_p3r4m")]
-position = Vector2(96, 256)
-rotation = 5.497787
-rotate_speed = 60.0

@@ -260,36 +260,36 @@ enemys = Array[PackedScene]([ExtResource("5_u2b1m")])
 position = Vector2(672, 64)
 enemys = Array[PackedScene]([ExtResource("5_u2b1m")])
 
-[node name="Launcher" parent="." index="3" unique_id=1827001644 instance=ExtResource("2_ux4bx")]
+[node name="Launcher" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1827001644 instance=ExtResource("2_ux4bx")]
 position = Vector2(504, 160)
 projectile_scene = ExtResource("3_wbnsp")
 projectile_facing = Vector2(0, 1)
 
-[node name="Launcher2" parent="." index="4" unique_id=334228471 instance=ExtResource("2_ux4bx")]
+[node name="Launcher2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=334228471 instance=ExtResource("2_ux4bx")]
 position = Vector2(224, 152)
 projectile_scene = ExtResource("3_wbnsp")
 shoot_direction = Vector2(0, 1)
 
-[node name="Launcher3" parent="." index="5" unique_id=1522161050 instance=ExtResource("2_ux4bx")]
+[node name="Launcher3" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="2" unique_id=1522161050 instance=ExtResource("2_ux4bx")]
 position = Vector2(160, 120)
 projectile_scene = ExtResource("3_wbnsp")
 shoot_direction = Vector2(0, 1)
 
-[node name="Launcher4" parent="." index="6" unique_id=805606437 instance=ExtResource("2_ux4bx")]
+[node name="Launcher4" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="3" unique_id=805606437 instance=ExtResource("2_ux4bx")]
 position = Vector2(64, 168)
 projectile_scene = ExtResource("3_wbnsp")
 shoot_direction = Vector2(0, 1)
 
-[node name="RotatingBeam" parent="." index="7" unique_id=1288819283 instance=ExtResource("4_ed4fc")]
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="4" unique_id=1288819283 instance=ExtResource("4_ed4fc")]
 position = Vector2(128, 232)
 
-[node name="RotatingBeam2" parent="." index="8" unique_id=1560829191 instance=ExtResource("4_ed4fc")]
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="5" unique_id=1560829191 instance=ExtResource("4_ed4fc")]
 position = Vector2(680, 296)
 
-[node name="RotatingBeam3" parent="." index="9" unique_id=61971390 instance=ExtResource("4_ed4fc")]
+[node name="RotatingBeam3" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="6" unique_id=61971390 instance=ExtResource("4_ed4fc")]
 position = Vector2(416, 352)
 
-[node name="MerchantFrog" parent="." index="12" unique_id=1094349948 instance=ExtResource("9_u2b1m")]
+[node name="MerchantFrog" parent="." index="5" unique_id=1094349948 instance=ExtResource("9_u2b1m")]
 z_index = -1
 position = Vector2(672, 80)
 item_list_tables = Array[ExtResource("10_6itqm")]([ExtResource("11_2nbbm"), ExtResource("12_4egyx"), ExtResource("13_7b48b")])

@@ -64,14 +64,15 @@ position = Vector2(368, 136)
 enemys = Array[PackedScene]([ExtResource("5_u7256"), ExtResource("6_ymq0p")])
 is_random = true
 
-[node name="RotatingBeam" parent="." index="5" unique_id=1288819283 instance=ExtResource("7_0ks5q")]
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("7_0ks5q")]
 position = Vector2(800, 288)
 rotation = -1.8849556
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="RotatingBeam2" parent="." index="6" unique_id=420189795 instance=ExtResource("7_0ks5q")]
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=420189795 instance=ExtResource("7_0ks5q")]
 position = Vector2(1160, 240)
 rotation = -0.7347836
 
-[node name="Obelisk" parent="." index="7" unique_id=1340329694 instance=ExtResource("8_u7256")]
+[node name="Obelisk" parent="." index="5" unique_id=1340329694 instance=ExtResource("8_u7256")]
 position = Vector2(1008, 208)
 is_obelisk_locked = false

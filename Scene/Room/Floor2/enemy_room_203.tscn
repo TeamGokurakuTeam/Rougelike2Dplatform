@@ -77,42 +77,42 @@ enemys = Array[PackedScene]([ExtResource("4_epq8v")])
 position = Vector2(240, 200)
 enemys = Array[PackedScene]([ExtResource("4_epq8v")])
 
-[node name="RotatingBeam" parent="." index="3" unique_id=1288819283 instance=ExtResource("6_ghu3t")]
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("6_ghu3t")]
 position = Vector2(503.99997, 384)
 scale = Vector2(0.7, 0.7)
 
-[node name="RotatingBeam2" parent="." index="4" unique_id=1975887647 instance=ExtResource("6_ghu3t")]
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1975887647 instance=ExtResource("6_ghu3t")]
 position = Vector2(503.99997, 384)
 rotation = -1.5707964
 scale = Vector2(0.7, 0.7)
 
-[node name="RotatingBeam3" parent="." index="5" unique_id=502983159 instance=ExtResource("6_ghu3t")]
+[node name="RotatingBeam3" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="2" unique_id=502983159 instance=ExtResource("6_ghu3t")]
 position = Vector2(504, 384.00003)
-rotation = -3.1415927
+rotation = 3.1415925
 scale = Vector2(0.7, 0.7)
 
-[node name="RotatingBeam4" parent="." index="6" unique_id=236477784 instance=ExtResource("6_ghu3t")]
+[node name="RotatingBeam4" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="3" unique_id=236477784 instance=ExtResource("6_ghu3t")]
 position = Vector2(503.99997, 384)
-rotation = -4.712389
+rotation = 1.5707964
 scale = Vector2(0.7, 0.7)
 
-[node name="OneWay" parent="." index="9" unique_id=610867179 instance=ExtResource("11_hasj0")]
+[node name="OneWay" parent="." index="5" unique_id=610867179 instance=ExtResource("11_hasj0")]
 position = Vector2(328, 224)
 
-[node name="OneWay2" parent="." index="10" unique_id=2124527558 instance=ExtResource("11_hasj0")]
+[node name="OneWay2" parent="." index="6" unique_id=2124527558 instance=ExtResource("11_hasj0")]
 position = Vector2(56, 112)
 
-[node name="OneWay3" parent="." index="11" unique_id=1076710897 instance=ExtResource("11_hasj0")]
+[node name="OneWay3" parent="." index="7" unique_id=1076710897 instance=ExtResource("11_hasj0")]
 position = Vector2(560, 416)
 
-[node name="OneWay4" parent="." index="12" unique_id=960767925 instance=ExtResource("11_hasj0")]
+[node name="OneWay4" parent="." index="8" unique_id=960767925 instance=ExtResource("11_hasj0")]
 position = Vector2(560, 336)
 
-[node name="OneWay5" parent="." index="13" unique_id=416907068 instance=ExtResource("11_hasj0")]
+[node name="OneWay5" parent="." index="9" unique_id=416907068 instance=ExtResource("11_hasj0")]
 position = Vector2(560, 256)
 
-[node name="OneWay6" parent="." index="14" unique_id=537636779 instance=ExtResource("11_hasj0")]
+[node name="OneWay6" parent="." index="10" unique_id=537636779 instance=ExtResource("11_hasj0")]
 position = Vector2(560, 176)
 
-[node name="OneWay7" parent="." index="15" unique_id=774437898 instance=ExtResource("11_hasj0")]
+[node name="OneWay7" parent="." index="11" unique_id=774437898 instance=ExtResource("11_hasj0")]
 position = Vector2(560, 96)

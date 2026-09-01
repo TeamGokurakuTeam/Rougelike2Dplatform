@@ -74,6 +74,17 @@ position = Vector2(360, 144)
 enemys = Array[PackedScene]([ExtResource("4_yncs1"), ExtResource("5_gktvu")])
 is_random = true
 
+[node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("3_wxnhs")]
+position = Vector2(920, 48)
+
+[node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1224061250 instance=ExtResource("3_wxnhs")]
+position = Vector2(752, 16)
+rotation = 1.4224434
+
+[node name="RotatingBeam3" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="2" unique_id=611496930 instance=ExtResource("3_wxnhs")]
+position = Vector2(832.00006, 336)
+scale = Vector2(0.7, 0.7)
+
 [node name="OneWay15" parent="." index="5" unique_id=610867179 instance=ExtResource("2_4eghm")]
 position = Vector2(1048, 200)
 
@@ -119,36 +130,25 @@ position = Vector2(216, 80)
 [node name="OneWay14" parent="." index="19" unique_id=897487712 instance=ExtResource("2_4eghm")]
 position = Vector2(168, 80)
 
-[node name="RotatingBeam" parent="." index="20" unique_id=1288819283 instance=ExtResource("3_wxnhs")]
-position = Vector2(920, 48)
-
-[node name="RotatingBeam2" parent="." index="21" unique_id=1224061250 instance=ExtResource("3_wxnhs")]
-position = Vector2(752, 16)
-rotation = 1.4224434
-
-[node name="BouncePad" parent="." index="22" unique_id=1611631856 instance=ExtResource("4_ytgcr")]
+[node name="BouncePad" parent="." index="20" unique_id=1611631856 instance=ExtResource("4_ytgcr")]
 position = Vector2(528, 488)
 scale = Vector2(2, 2)
 bounce_power = 1000.0
 
-[node name="RotatingBeam3" parent="." index="23" unique_id=611496930 instance=ExtResource("3_wxnhs")]
-position = Vector2(832.00006, 336)
-scale = Vector2(0.7, 0.7)
-
-[node name="MoveTile" parent="." index="24" unique_id=971770846 instance=ExtResource("9_yncs1")]
+[node name="MoveTile" parent="." index="21" unique_id=971770846 instance=ExtResource("9_yncs1")]
 position = Vector2(328, 400)
 move_speed = 0.1
 
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -200, 0)
 
-[node name="Spike" parent="." index="25" unique_id=2129174175 instance=ExtResource("10_gktvu")]
+[node name="Spike" parent="." index="22" unique_id=2129174175 instance=ExtResource("10_gktvu")]
 position = Vector2(968, 400)
 
-[node name="OneWay16" parent="." index="26" unique_id=23407671 instance=ExtResource("2_4eghm")]
+[node name="OneWay16" parent="." index="23" unique_id=23407671 instance=ExtResource("2_4eghm")]
 position = Vector2(760, 112)
 
-[node name="MerchantFrog" parent="." index="27" unique_id=1094349948 instance=ExtResource("11_gktvu")]
+[node name="MerchantFrog" parent="." index="24" unique_id=1094349948 instance=ExtResource("11_gktvu")]
 position = Vector2(656, 160)
 item_list_tables = Array[ExtResource("12_3p8go")]([ExtResource("13_id3ra"), ExtResource("14_xu68w"), ExtResource("15_mfah0")])
 
