@@ -5,11 +5,20 @@
 [ext_resource type="Script" uid="uid://bs6vojdg42nmi" path="res://Scene/Enemy/HedoroSlime/HedoroSlimeIdle.gd" id="2_8gn3p"]
 [ext_resource type="Script" uid="uid://15lsuxoousu1" path="res://Scene/Enemy/HedoroSlime/hedoro_slime.gd" id="2_m2euu"]
 [ext_resource type="Texture2D" uid="uid://p3adacts236g" path="res://Assets/Enemy/Slime/death.png" id="3_1wkqs"]
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="3_bkc7b"]
 [ext_resource type="Script" uid="uid://dpde8n8oc4x2t" path="res://Scene/Enemy/HedoroSlime/HedoroSlimeWalk.gd" id="3_m2euu"]
 [ext_resource type="Script" uid="uid://bkh7cnbx46yf1" path="res://Scene/Enemy/HedoroSlime/HedoroSlimeAttack.gd" id="4_gi4oo"]
+[ext_resource type="Resource" uid="uid://q17v86qdk2us" path="res://Resource/Modifier/AutoAttack.tres" id="4_tx5eq"]
 [ext_resource type="Texture2D" uid="uid://6xldiehvqdt0" path="res://Assets/Enemy/Slime/idle.png" id="4_xd35d"]
 [ext_resource type="Texture2D" uid="uid://bjodjnbv5hvku" path="res://Assets/Enemy/Slime/walk.png" id="5_8gn3p"]
+[ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="5_fomdd"]
 [ext_resource type="Script" uid="uid://c5o2oeurspfsn" path="res://Scene/Enemy/HedoroSlime/HedoroSlimeDead.gd" id="5_oi7po"]
+[ext_resource type="Resource" uid="uid://b2uifpttrq0xu" path="res://Resource/Modifier/Bomb_Duck.tres" id="6_ehmcq"]
+[ext_resource type="Resource" uid="uid://u0vmblouv423" path="res://Resource/Modifier/Rampage.tres" id="7_gppl3"]
+[ext_resource type="Resource" uid="uid://dif27orikbsbn" path="res://Resource/Modifier/Stillblade.tres" id="8_igxen"]
+[ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="9_ehmcq"]
+[ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="10_gppl3"]
+[ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="11_igxen"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4cq6"]
 atlas = ExtResource("2_5qgaf")
@@ -641,6 +650,7 @@ height = 106.0
 
 [node name="HedoroSlime" unique_id=1094349948 instance=ExtResource("1_kmf2r")]
 script = ExtResource("2_m2euu")
+mod_resource = Array[ExtResource("3_bkc7b")]([ExtResource("4_tx5eq"), ExtResource("5_fomdd"), ExtResource("6_ehmcq"), ExtResource("7_gppl3"), ExtResource("8_igxen"), ExtResource("9_ehmcq"), ExtResource("10_gppl3"), ExtResource("11_igxen")])
 acceleration = 20
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
@@ -695,6 +705,10 @@ damage = 1.0
 position = Vector2(29, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kmf2r")
+
+[node name="NavigationAgent2D" parent="." index="6" unique_id=1628444027]
+debug_enabled = true
+debug_use_custom = true
 
 [node name="AnimationPlayer" parent="." index="7" unique_id=559520988]
 libraries/ = SubResource("AnimationLibrary_5m5w6")

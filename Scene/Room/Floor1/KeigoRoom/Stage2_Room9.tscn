@@ -4,8 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_cm200"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_i34s2"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_6yjig"]
+[ext_resource type="PackedScene" uid="uid://wl86qbcex6dm" path="res://Scene/Enemy/PoisonMush/PoisonMush.tscn" id="5_6yjig"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="5_nn5vx"]
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="6_n0opa"]
+[ext_resource type="PackedScene" uid="uid://brj530xnbbxho" path="res://Scene/Enemy/frog.tscn" id="6_nn5vx"]
+[ext_resource type="PackedScene" uid="uid://cuhgb0dmmo2dk" path="res://Scene/Enemy/HedoroSlime/HedoroSlime.tscn" id="7_n0opa"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_4qwg4")]
 
@@ -34,27 +37,33 @@ position = Vector2(-32, 16)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("3_i34s2")]
 position = Vector2(240, -88)
-enemys = Array[PackedScene]([ExtResource("4_6yjig")])
+enemys = Array[PackedScene]([ExtResource("4_6yjig"), ExtResource("5_6yjig"), ExtResource("6_nn5vx"), ExtResource("7_n0opa")])
+is_random = true
 
 [node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=170639535 instance=ExtResource("3_i34s2")]
 position = Vector2(304, -168)
-enemys = Array[PackedScene]([ExtResource("4_6yjig")])
+enemys = Array[PackedScene]([ExtResource("4_6yjig"), ExtResource("5_6yjig"), ExtResource("6_nn5vx"), ExtResource("7_n0opa")])
+is_random = true
 
 [node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=972356493 instance=ExtResource("3_i34s2")]
 position = Vector2(136, -168)
-enemys = Array[PackedScene]([ExtResource("4_6yjig")])
+enemys = Array[PackedScene]([ExtResource("4_6yjig"), ExtResource("5_6yjig"), ExtResource("6_nn5vx"), ExtResource("7_n0opa")])
+is_random = true
 
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=1556115255 instance=ExtResource("3_i34s2")]
 position = Vector2(168, -248)
-enemys = Array[PackedScene]([ExtResource("4_6yjig")])
+enemys = Array[PackedScene]([ExtResource("4_6yjig"), ExtResource("5_6yjig"), ExtResource("6_nn5vx"), ExtResource("7_n0opa")])
+is_random = true
 
 [node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=225519591 instance=ExtResource("3_i34s2")]
 position = Vector2(248, -424)
-enemys = Array[PackedScene]([ExtResource("4_6yjig")])
+enemys = Array[PackedScene]([ExtResource("4_6yjig"), ExtResource("5_6yjig"), ExtResource("6_nn5vx"), ExtResource("7_n0opa")])
+is_random = true
 
 [node name="EnemySpawnPoint6" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="5" unique_id=1235628104 instance=ExtResource("3_i34s2")]
 position = Vector2(240, -512)
-enemys = Array[PackedScene]([ExtResource("4_6yjig")])
+enemys = Array[PackedScene]([ExtResource("4_6yjig"), ExtResource("5_6yjig"), ExtResource("6_nn5vx"), ExtResource("7_n0opa")])
+is_random = true
 
 [node name="MoveTiles" type="Node2D" parent="." index="3" unique_id=1254191810]
 

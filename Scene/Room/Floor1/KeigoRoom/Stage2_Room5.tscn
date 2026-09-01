@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_ddtxc"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_khehm"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_gpld1"]
-[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_pqj2a"]
-[ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="5_khehm"]
+[ext_resource type="PackedScene" uid="uid://cuhgb0dmmo2dk" path="res://Scene/Enemy/HedoroSlime/HedoroSlime.tscn" id="4_gpld1"]
+[ext_resource type="PackedScene" uid="uid://wl86qbcex6dm" path="res://Scene/Enemy/PoisonMush/PoisonMush.tscn" id="5_lmqin"]
+[ext_resource type="PackedScene" uid="uid://brj530xnbbxho" path="res://Scene/Enemy/frog.tscn" id="6_fgtcb"]
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="6_lxn0i"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="7_6gpgf"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="7_ddtxc"]
@@ -36,27 +37,26 @@ position = Vector2(-32, 16)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("3_gpld1")]
 position = Vector2(480, -256)
-enemys = Array[PackedScene]([ExtResource("4_pqj2a")])
+enemys = Array[PackedScene]([ExtResource("4_gpld1"), ExtResource("5_lmqin")])
 is_random = true
 
 [node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=302774402 instance=ExtResource("3_gpld1")]
 position = Vector2(392, -24)
-enemys = Array[PackedScene]([ExtResource("4_pqj2a")])
+enemys = Array[PackedScene]([ExtResource("5_lmqin"), ExtResource("4_gpld1")])
 is_random = true
 
 [node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=1487892690 instance=ExtResource("3_gpld1")]
 position = Vector2(1136, -384)
-enemys = Array[PackedScene]([ExtResource("4_pqj2a")])
+enemys = Array[PackedScene]([ExtResource("4_gpld1"), ExtResource("5_lmqin")])
 is_random = true
 
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=244758385 instance=ExtResource("3_gpld1")]
 position = Vector2(960, -32)
-enemys = Array[PackedScene]([ExtResource("4_pqj2a")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("5_lmqin")])
 
 [node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=874707894 instance=ExtResource("3_gpld1")]
 position = Vector2(656, -24)
-enemys = Array[PackedScene]([ExtResource("5_khehm")])
+enemys = Array[PackedScene]([ExtResource("5_lmqin"), ExtResource("6_fgtcb"), ExtResource("4_gpld1")])
 is_random = true
 
 [node name="RotatingBeam3" parent="." index="3" unique_id=928347718 instance=ExtResource("6_lxn0i")]

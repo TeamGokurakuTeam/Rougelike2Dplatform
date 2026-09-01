@@ -6,8 +6,19 @@
 [ext_resource type="Script" uid="uid://dawlyn5o8v5v7" path="res://Scene/Enemy/PoisonMush/PoisonMush.gd" id="2_dukoi"]
 [ext_resource type="Script" uid="uid://rq2gpi6843ha" path="res://Scene/Enemy/PoisonMush/PoisonMushWander.gd" id="3_0mabg"]
 [ext_resource type="Texture2D" uid="uid://de463hvsu46qk" path="res://Assets/Enemy/PoisonMush/cute shroom green walk.png" id="3_76t13"]
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="3_irj1s"]
 [ext_resource type="Script" uid="uid://kauv2wajy21e" path="res://Scene/Enemy/PoisonMushChase.gd" id="4_tsy8m"]
+[ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="4_w7c4d"]
+[ext_resource type="Resource" uid="uid://q17v86qdk2us" path="res://Resource/Modifier/AutoAttack.tres" id="5_gvdcu"]
 [ext_resource type="Script" uid="uid://bp1t3i6gkn42e" path="res://Scene/Enemy/PoisonMush/PoisonMushJump.gd" id="5_tsy8m"]
+[ext_resource type="Resource" uid="uid://bhwuiry4se62y" path="res://Resource/Modifier/Burstslasher.tres" id="6_07xud"]
+[ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="7_xeg83"]
+[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="8_hxrle"]
+[ext_resource type="Resource" uid="uid://u0vmblouv423" path="res://Resource/Modifier/Rampage.tres" id="9_yhivg"]
+[ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="10_ixt7p"]
+[ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="11_cxehs"]
+[ext_resource type="Resource" uid="uid://dif27orikbsbn" path="res://Resource/Modifier/Stillblade.tres" id="12_ufd7s"]
+[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="13_nbsl7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0mabg"]
 atlas = ExtResource("2_cjn5o")
@@ -298,6 +309,7 @@ radius = 52.03845
 
 [node name="PoisonMush" unique_id=1094349948 instance=ExtResource("1_cp727")]
 script = ExtResource("2_dukoi")
+mod_resource = Array[ExtResource("3_irj1s")]([ExtResource("4_w7c4d"), ExtResource("5_gvdcu"), ExtResource("6_07xud"), ExtResource("7_xeg83"), ExtResource("8_hxrle"), ExtResource("9_yhivg"), ExtResource("10_ixt7p"), ExtResource("11_cxehs"), ExtResource("12_ufd7s"), ExtResource("13_nbsl7")])
 max_speed = 100.0
 acceleration = 20
 
@@ -333,8 +345,8 @@ anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 20.0
-hp = 20.0
+max_hp = 25.0
+hp = 25.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 rotation = -0.14835298

@@ -8,46 +8,17 @@
 [ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="4_7blbc"]
 [ext_resource type="Script" uid="uid://bggc6mtm1iubv" path="res://Scene/Enemy/FrogJump.gd" id="4_50hei"]
 [ext_resource type="Script" uid="uid://bh5qfwy664h1l" path="res://Scene/Enemy/FrogAttack.gd" id="5_b2r6q"]
-[ext_resource type="Resource" uid="uid://q17v86qdk2us" path="res://Resource/Modifier/AutoAttack.tres" id="5_xommu"]
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="6_yu77f"]
-[ext_resource type="Resource" uid="uid://bhwuiry4se62y" path="res://Resource/Modifier/Burstslasher.tres" id="7_3vkcm"]
-[ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="8_k6ln2"]
 [ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="9_c1s7b"]
 [ext_resource type="Resource" uid="uid://cycf0m4pavf61" path="res://Resource/Modifier/FallSlashing.tres" id="10_5fsnv"]
-[ext_resource type="Resource" uid="uid://cpvdfidpdiacj" path="res://Resource/Modifier/HeavyStrike.tres" id="11_k3wsv"]
-[ext_resource type="Resource" uid="uid://b52pjp0l061t6" path="res://Resource/Modifier/Leap.tres" id="12_msd36"]
 [ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="13_7vq82"]
+[ext_resource type="Resource" uid="uid://u0vmblouv423" path="res://Resource/Modifier/Rampage.tres" id="14_2j3ox"]
 [ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="14_qwje7"]
+[ext_resource type="Resource" uid="uid://dif27orikbsbn" path="res://Resource/Modifier/Stillblade.tres" id="15_668xu"]
 [ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="15_p1xvw"]
-[ext_resource type="Resource" uid="uid://tbq5gx41ix3b" path="res://Resource/Modifier/Speedingexceed.tres" id="16_wdhsk"]
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="17_g65ee"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="18_eorfy"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="19_gtcqy"]
-[ext_resource type="Script" uid="uid://ch512uy2h46" path="res://Resource/HealItem.gd" id="20_3vkcm"]
-[ext_resource type="Texture2D" uid="uid://b4ajsbuis2dvs" path="res://Assets/heal.png" id="21_k6ln2"]
-[ext_resource type="Texture2D" uid="uid://bdlhjl0c6kuh2" path="res://Assets/MegaHeal.png" id="22_c1s7b"]
-[ext_resource type="Texture2D" uid="uid://qymevfk0llni" path="res://Assets/GoldenHeal.png" id="23_5fsnv"]
-
-[sub_resource type="Resource" id="Resource_k3wsv"]
-script = ExtResource("20_3vkcm")
-name = "回復の瓶"
-heal_amount = 10.0
-texture = ExtResource("21_k6ln2")
-id = "HealPotion"
-
-[sub_resource type="Resource" id="Resource_msd36"]
-script = ExtResource("20_3vkcm")
-name = "回復の大瓶"
-heal_amount = 25.0
-texture = ExtResource("22_c1s7b")
-id = "MegaHealPotion"
-
-[sub_resource type="Resource" id="Resource_7vq82"]
-script = ExtResource("20_3vkcm")
-name = "金色の回復の瓶"
-heal_amount = 50.0
-texture = ExtResource("23_5fsnv")
-id = "GoldenHealPotion"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eijg2"]
 atlas = ExtResource("3_50hei")
@@ -233,7 +204,7 @@ size = Vector2(14, 16)
 size = Vector2(21, 20.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1yf7"]
-size = Vector2(37.804848, 20)
+size = Vector2(33.72, 25.635)
 
 [sub_resource type="Animation" id="Animation_wq62e"]
 resource_name = "Attack"
@@ -257,10 +228,10 @@ tracks/1/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0053672, 0.7567752, 0.7728768),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.23333333, 0.56666666, 0.6, 0.7728768),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false, true]
+"values": [true, true, false, false, true, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -403,7 +374,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
-size = Vector2(188, 28)
+size = Vector2(150, 35)
 
 [node name="Frog" unique_id=1094349948 node_paths=PackedStringArray("frog") instance=ExtResource("1_mhyku")]
 scale = Vector2(2, 2)
@@ -411,8 +382,7 @@ script = ExtResource("2_4xo4e")
 Jump_up = -350.0
 Jump_speed = 300.0
 frog = NodePath(".")
-mod_resource = Array[ExtResource("3_u54ru")]([ExtResource("4_7blbc"), ExtResource("5_xommu"), ExtResource("6_yu77f"), ExtResource("7_3vkcm"), ExtResource("8_k6ln2"), ExtResource("9_c1s7b"), ExtResource("10_5fsnv"), ExtResource("11_k3wsv"), ExtResource("12_msd36"), ExtResource("13_7vq82"), ExtResource("14_qwje7"), ExtResource("15_p1xvw"), ExtResource("16_wdhsk"), ExtResource("17_g65ee"), ExtResource("18_eorfy"), ExtResource("19_gtcqy")])
-heal_resource = Array[ExtResource("20_3vkcm")]([SubResource("Resource_k3wsv"), SubResource("Resource_msd36"), SubResource("Resource_7vq82")])
+mod_resource = Array[ExtResource("3_u54ru")]([ExtResource("4_7blbc"), ExtResource("6_yu77f"), ExtResource("9_c1s7b"), ExtResource("10_5fsnv"), ExtResource("13_7vq82"), ExtResource("14_qwje7"), ExtResource("15_p1xvw"), ExtResource("17_g65ee"), ExtResource("18_eorfy"), ExtResource("19_gtcqy"), ExtResource("14_2j3ox"), ExtResource("15_668xu")])
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")
@@ -437,8 +407,8 @@ animation_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 10.0
-hp = 10.0
+max_hp = 20.0
+hp = 20.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 sprite_frames = SubResource("SpriteFrames_u1yf7")

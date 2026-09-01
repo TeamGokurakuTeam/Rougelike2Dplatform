@@ -20,7 +20,7 @@ const GOLDEN_HEAL_POTION = preload("uid://bcx3wero7oylu")
 
 var hitboxes_array : Array[Hitbox]
 
-
+												  
 func _ready() -> void:
 	for node in hitboxes.get_children():
 		if node is not Hitbox:

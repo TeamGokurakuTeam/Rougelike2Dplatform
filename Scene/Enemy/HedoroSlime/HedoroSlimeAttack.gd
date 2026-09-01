@@ -10,7 +10,6 @@ func Enter() -> void:
 		parent.hitbox.scale.x = 1
 	elif parent.player_dir() < 0:
 		parent.hitbox.scale.x = -1
-		parent.sprite.flip_h = true
 
 func Exit() -> void:
 	pass

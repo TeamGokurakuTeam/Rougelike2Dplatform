@@ -415,15 +415,7 @@ layout_mode = 2
 layout_mode = 1
 mouse_filter = 1
 
-[node name="CarouseContainer" parent="Parent/ModUI/Control" parent_id_path=PackedInt32Array(1180346681, 2009876980) index="0" unique_id=438782455]
-layout_mode = 0
-offset_left = 80.0
-offset_top = -209.0
-offset_right = 80.0
-offset_bottom = -209.0
-
-[node name="ModContainer" parent="Parent/ModUI/Control/CarouseContainer" index="0" unique_id=154540731]
-layout_mode = 0
+[node name="ModContainer" parent="Parent/ModUI/Control/CarouseContainer" parent_id_path=PackedInt32Array(1180346681, 438782455) index="0" unique_id=154540731]
 offset_left = 0.0
 offset_top = 247.0
 offset_right = 40.000015
