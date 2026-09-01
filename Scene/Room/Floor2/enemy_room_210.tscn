@@ -84,11 +84,11 @@ is_random = true
 [node name="MoveTiles" type="Node2D" parent="." index="3" unique_id=295877757]
 
 [node name="MoveTile" parent="." index="6" unique_id=1543984856 instance=ExtResource("7_y83es")]
-position = Vector2(472, 256)
+position = Vector2(472, 232)
 script = ExtResource("8_rpjro")
 
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
-points = PackedVector2Array(0, 0, 0, -144)
+points = PackedVector2Array(0, 0, 0, -120)
 
 [node name="OneWay" parent="." index="7" unique_id=610867179 instance=ExtResource("9_dd4lr")]
 position = Vector2(360, 200)
