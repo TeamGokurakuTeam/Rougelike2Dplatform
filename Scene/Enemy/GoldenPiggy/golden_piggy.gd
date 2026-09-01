@@ -49,11 +49,6 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 
 func _on_death_timeout() -> void:
 	$StateMachine.current_state.StateTransitioned.emit($StateMachine.current_state, "Disappear")
-	_queue()
-
-func _queue() -> void:
-	queue_free() 
-
 
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	if is_in_hit:
@@ -62,7 +57,6 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	_start_death_timer()
 	killed_drop_modifier()
 	$StateMachine.current_state.StateTransitioned.emit($StateMachine.current_state, "Hit")
-
 func _start_death_timer() -> void:
 	if death_timer.is_stopped():
 		death_timer.start()

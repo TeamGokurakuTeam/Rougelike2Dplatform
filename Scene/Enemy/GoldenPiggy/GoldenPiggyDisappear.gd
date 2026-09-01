@@ -6,14 +6,7 @@ class_name GoldenPiggyDisappear
 
 func Enter() -> void:
 	animation_player.play("Disappear")
-	
 
-func Exit() -> void:
-	pass
-
-func Update(delta) -> void:
-	if not animation_player.is_playing():
-		StateTransitioned.emit(self, "Run")
-
-func Physics_Update(delta) -> void:
-	pass
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Disappear":
+		parent.queue_free()
