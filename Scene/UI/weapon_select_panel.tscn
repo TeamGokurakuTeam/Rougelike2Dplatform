@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://bj4lwbxdk6ctk"]
+
+[ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="1_b3ddb"]
+[ext_resource type="Script" uid="uid://dx3575m7bnxwp" path="res://Scene/UI/weapon_select_panel.gd" id="2_m8ija"]
+[ext_resource type="Texture2D" uid="uid://p561qyuetbh2" path="res://icon.svg" id="3_hckvd"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="3_m8ija"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="5_hckvd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hoxb"]
+atlas = ExtResource("1_b3ddb")
+region = Rect2(560, 16, 48, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jhy2k"]
+texture = SubResource("AtlasTexture_5hoxb")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("3_m8ija")
+font_color = Color(0.7992307, 0.5148504, 0.2554017, 1)
+outline_size = 4
+outline_color = Color(0.2477363, 0.14048883, 0.03992542, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v6ehm"]
+font = ExtResource("3_m8ija")
+font_size = 7
+font_color = Color(0.15487596, 0.154876, 0.15487596, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1286"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0a6w"]
+bg_color = Color(0.5921569, 0.69803923, 0, 0.28235295)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lu1bg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdq5c"]
+bg_color = Color(0.027140377, 0.0019234187, 0.001923274, 0.8980392)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gj3l6"]
+font = ExtResource("5_hckvd")
+font_size = 32
+outline_size = 4
+outline_color = Color(0.7943986, 3.2247603e-06, 9.62615e-07, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+font = ExtResource("3_m8ija")
+outline_size = 4
+outline_color = Color(0.6455512, 2.5629624e-06, 4.813075e-07, 1)
+
+[node name="WeaponSelectPanel" type="Panel" unique_id=1201900185]
+offset_right = 212.0
+offset_bottom = 266.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jhy2k")
+script = ExtResource("2_m8ija")
+
+[node name="WeaponTextureRect" type="TextureRect" parent="." unique_id=938021864]
+custom_minimum_size = Vector2(64, 64)
+custom_maximum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -82.0
+offset_right = 32.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+texture = ExtResource("3_hckvd")
+
+[node name="Name" type="Label" parent="." unique_id=2121089501]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 23.0
+offset_right = 200.0
+offset_bottom = 46.0
+text = "WeaponName"
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="explain" type="RichTextLabel" parent="." unique_id=1875271019]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 122.0
+offset_right = 188.0
+offset_bottom = 227.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_m8ija")
+theme_override_font_sizes/normal_font_size = 9
+text = "explain"
+
+[node name="flavor" type="Label" parent="." unique_id=441432534]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 232.0
+offset_right = 199.0
+offset_bottom = 251.0
+text = "flavor"
+label_settings = SubResource("LabelSettings_v6ehm")
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=752549079]
+z_index = 1
+layout_mode = 0
+offset_right = 212.0
+offset_bottom = 266.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e1286")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_l0a6w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lu1bg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qdq5c")
+
+[node name="LockedLabel" type="Label" parent="Button" unique_id=637157896]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -69.0
+offset_right = 52.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LOCKED"
+label_settings = SubResource("LabelSettings_gj3l6")
+
+[node name="UnlockTitle" type="Label" parent="Button" unique_id=604357522]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "--解禁条件--"
+label_settings = SubResource("LabelSettings_5hoxb")
+
+[node name="UnlockExplain" type="RichTextLabel" parent="Button" unique_id=1405526245]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 11.0
+offset_right = 77.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.44705883, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("3_m8ija")
+theme_override_font_sizes/normal_font_size = 12
+text = "unlock_text"
+horizontal_alignment = 1
+vertical_alignment = 1

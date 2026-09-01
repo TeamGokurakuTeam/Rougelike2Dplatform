@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="1_fwiay"]
 [ext_resource type="Script" uid="uid://b1ykrropp7hsc" path="res://Weapon/weapon.gd" id="1_l4m4n"]
+[ext_resource type="AudioStream" uid="uid://b73ml3ifqp014" path="res://Assets/SoundEffect/チャージ完了.mp3" id="3_l4m4n"]
 
 [node name="Weapon" type="Node2D" unique_id=1591556401]
 script = ExtResource("1_l4m4n")
@@ -9,7 +10,7 @@ script = ExtResource("1_l4m4n")
 [node name="Root" type="Node2D" parent="." unique_id=1850941881]
 
 [node name="Sprite2D" type="Sprite2D" parent="Root" unique_id=141181324]
-z_index = 1
+z_index = 4
 texture_filter = 1
 
 [node name="Hitbox" parent="Root" unique_id=1964246491 instance=ExtResource("1_fwiay")]
@@ -19,6 +20,7 @@ collision_layer = 4
 collision_mask = 0
 damage = 5.0
 knockback_force = 10.0
+damage_source_type = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Root/Hitbox" unique_id=722522530]
 z_index = 1
@@ -29,3 +31,23 @@ debug_color = Color(0.9987715, 0, 0.14525625, 0.41960785)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2014526289]
 
 [node name="ChargeParticle" type="GPUParticles2D" parent="." unique_id=359079536]
+
+[node name="Charge" type="AudioStreamPlayer" parent="." unique_id=1009231787]
+stream = ExtResource("3_l4m4n")
+pitch_scale = 1.1
+bus = &"SoundEffect"
+
+[node name="ModifierCountTimer" type="Timer" parent="." unique_id=991766433]
+wait_time = 30.0
+one_shot = true
+
+[node name="RampageTimer" type="Timer" parent="." unique_id=1082383728]
+wait_time = 2.0
+one_shot = true
+
+[node name="StillbladeTimer" type="Timer" parent="." unique_id=1564281823]
+wait_time = 5.0
+
+[connection signal="timeout" from="ModifierCountTimer" to="." method="_on_modifier_count_timer_timeout"]
+[connection signal="timeout" from="RampageTimer" to="." method="_on_rampage_timer_timeout"]
+[connection signal="timeout" from="StillbladeTimer" to="." method="_on_stillblade_timer_timeout"]

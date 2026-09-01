@@ -1,121 +1,134 @@
 extends Node2D
-class_name RoomConnect
+class_name RoomGenerator
 
-@export_category("各部屋のディレクトリ")
-@export_dir var lobby_room_dir ## 必ず最初に生成する部屋
-@export_dir var enemy_room_dir ## 道中に生成される部屋
-@export_dir var bonus_room_dir ## 一定確率で生成される部屋
-@export_dir var shop_room_dir ## どこかで必ず生成されるショップ
-@export_dir var boss_room_dir ## 最上階に必ず生成するショップ
-@export_dir var end_room_dir ## ボスを倒した後に到達できる部屋(次のステージへ)
+const ROOM_DISTANCE : int = 5000
 
 @export_category("生成する部屋の数")
 @export var generate_room_value : int = 6
 
-var current_generate_room_value : int
+var lobby_room : Room
+var main_game_node : MainGame
 
-#var lobby_room_scenes : Array[PackedScene]
-#var enemy_room_scenes : Array[PackedScene]
-#var bonus_room_scenes : Array[PackedScene]
-#var shop_room_scenes : Array[PackedScene]
-#var boss_room_scenes : Array[PackedScene]
+func room_generate(floor_layout : FloorLayoutResource = null, floor_type : Variant = null) -> void:
+	if floor_layout != null:
+		_generate_from_layout(floor_layout)
+	else:
+		_generate_random_floor(floor_type)
 
-enum RoomType {
-	Lobby,
-	Enemy,
-	Bonus,
-	Shop,
-	Boss,
-	End
-}
-
-var room_dictionary : Dictionary[RoomType, Array]
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if lobby_room_dir:
-		_load_room(lobby_room_dir, RoomType.Lobby)
-	if enemy_room_dir:
-		_load_room(enemy_room_dir, RoomType.Enemy)
-	if bonus_room_dir:
-		_load_room(bonus_room_dir, RoomType.Bonus)
-	if shop_room_dir:
-		_load_room(shop_room_dir, RoomType.Shop)
-	if boss_room_dir:
-		_load_room(boss_room_dir, RoomType.Boss)
-	if end_room_dir:
-		_load_room(end_room_dir, RoomType.End)
+func _generate_random_floor(floor_type : Variant = null) -> void:
+	var lobby_index : int = 0
+	var exit_index : int = generate_room_value - 1
+	var boss_index : int = exit_index - 1
 	
-	_generate_room()
-
-func _load_room(directory : String, type : RoomType) -> void:
-	room_dictionary[type] = []
-	var folder : DirAccess = DirAccess.open(directory)
-	folder.list_dir_begin()
-	var file_name : String = folder.get_next()
-	while file_name != "":
-		var scene : PackedScene = load(directory + "/" + file_name)
-		room_dictionary[type].append(scene)
-		file_name = folder.get_next()
-
-func _generate_room() -> void:
-	if room_dictionary[RoomType.Lobby] == null:
-		return
-	var lobby_room_path : PackedScene = room_dictionary[RoomType.Lobby].pick_random()
-	var lobby_room_node : Room = lobby_room_path.instantiate()
-	add_child(lobby_room_node)
-	if lobby_room_node.ExitPoint == null:
-		return
-	if room_dictionary[RoomType.Enemy] == null:
-		return
-	room_dictionary[RoomType.Enemy].shuffle()
-	var prev_room : Room
-	var prev_connect_point : Vector2
+	var room_grid : Array[Array] = []
+	var room_data : Array[Array] = []
+	
+	#二重配列を3行として扱い、forループでルームの初期化を行う
+	for i in 3:
+		room_grid.append([])
+		room_data.append([])
+		for j in generate_room_value:
+			room_grid[i].append(0)
+			room_data[i].append(null)
+	
+	#最初の部屋ではなかったら左の道を、最後の部屋ではなかったら右の道を作る
 	for i in generate_room_value:
-		var enemy_room_path : PackedScene = room_dictionary[RoomType.Enemy][i]
-		var enemy_room_node : Room = enemy_room_path.instantiate()
-		if i == 0:
-			prev_connect_point = lobby_room_node.ExitPoint.global_position
-			prev_room = enemy_room_node
-			add_child(enemy_room_node)
-		else:
-			prev_connect_point = prev_room.ExitPoint.global_position
-			add_child(enemy_room_node)
-			prev_room = enemy_room_node
-		var next_connect_point : Vector2 = Vector2(prev_connect_point.x, prev_connect_point.y - 16)
-		var init_point : Vector2 = next_connect_point - enemy_room_node.StartPoint.global_position
-		enemy_room_node.global_position = init_point
-	#ここに全生成した後BossRoomを生成
-	if room_dictionary[RoomType.Boss] == null:
-		return
-	prev_connect_point = prev_room.ExitPoint.global_position
-	var boss_room_scene : PackedScene = room_dictionary[RoomType.Boss].pick_random()
-	var boss_room : Room = boss_room_scene.instantiate()
-	add_child(boss_room)
-	var next_connect_point : Vector2 = Vector2(prev_connect_point.x, prev_connect_point.y - 16)
-	var init_point : Vector2 = next_connect_point - boss_room.StartPoint.global_position
-	boss_room.global_position = init_point
-	prev_room = boss_room
-	#BossRoomを生成した後、EndRoomを生成する
-	if end_room_dir == null:
-		return
-	if room_dictionary[RoomType.End] == null:
-		return
-	prev_connect_point = prev_room.ExitPoint.global_position
-	var end_room_scene : PackedScene = room_dictionary[RoomType.End].pick_random()
-	var end_room : Room = end_room_scene.instantiate()
-	add_child(end_room)
-	next_connect_point = Vector2(prev_connect_point.x, prev_connect_point.y - 16)
-	init_point = next_connect_point - end_room.StartPoint.global_position
-	end_room.global_position = init_point
-	prev_room = end_room
-	
-	#var second_room_node : Room = second_room.instantiate()
-	#var prev_connect_point : Vector2 = first_room_node.ExitPoint.global_position
-	##prev_connect_point = first_room_node.to_local(prev_connect_point)
-	#add_child(second_room_node)
-	 #
-	
-	
-	
-	
+		if i != generate_room_value - 1:
+			room_grid[1][i] |= Common.RIGHT_MASK
+		if i != 0:
+			room_grid[1][i] |= Common.LEFT_MASK
+
+	var found_lobby_room : Room = null
+
+	for i in 3:
+		for j in generate_room_value:
+			var room_opening : int = room_grid[i][j]
+			if room_opening == 0:
+				continue
+			var room_type : RoomInfoResource.RoomType = RoomInfoResource.RoomType.EMPTY
+
+			#j(横)によって部屋のタイプを決める処理
+			match j:
+				lobby_index:
+					room_type = RoomInfoResource.RoomType.LOBBY_ROOM
+				exit_index:
+					room_type = RoomInfoResource.RoomType.END_ROOM
+				boss_index:
+					room_type = RoomInfoResource.RoomType.BOSS_ROOM
+				_: #これがmatchにおけるdefault
+					room_type = RoomInfoResource.RoomType.ENEMY_ROOM
+
+			var query : Array = GlobalResourceLoader.room_cache.query(room_type, floor_type, room_opening)
+			if query.is_empty() and floor_type != null:
+				query = GlobalResourceLoader.room_cache.query(room_type, null, room_opening)
+
+			var room_res : RoomInfoResource = query.pick_random()
+			var room_node : Room = _place_room(room_res.room_scene, i, j)
+			room_data[i][j] = room_node
+			if room_type == RoomInfoResource.RoomType.LOBBY_ROOM:
+				found_lobby_room = room_node
+
+	_connect_rooms(room_data)
+	lobby_room = found_lobby_room
+
+# 固定ステージの生成
+func _generate_from_layout(layout : FloorLayoutResource) -> void:
+	var room_data : Array[Array] = []
+	for i in layout.rows:
+		room_data.append([])
+		for j in layout.columns:
+			room_data[i].append(null)
+
+	var found_lobby_room : Room = null
+
+	for entry in layout.room_entries:
+		if entry.room_info == null or entry.room_info.room_scene == null:
+			continue
+		var room_node : Room = _place_room(entry.room_info.room_scene, entry.row, entry.column)
+		room_data[entry.row][entry.column] = room_node
+		if entry.is_lobby:
+			found_lobby_room = room_node
+
+	_connect_rooms(room_data)
+	lobby_room = found_lobby_room
+
+func _place_room(room_scene : PackedScene, row : int, column : int) -> Room:
+	var room_node : Room = room_scene.instantiate()
+	room_node.main_game_node = self.main_game_node
+	add_child(room_node)
+	room_node.global_position = Vector2(column * ROOM_DISTANCE, row * ROOM_DISTANCE)
+	return room_node
+
+#room_dataの中身をドアでつなぐ(ランダム生成/固定フロア共通)
+func _connect_rooms(room_data : Array[Array]) -> void:
+	var rows_count : int = room_data.size()
+	for i in rows_count:
+		var columns_count : int = room_data[i].size()
+		for j in columns_count: #今回のケースはiが縦、jが横
+			var room : Room = room_data[i][j]
+			if room == null:
+				continue
+			for k in room.doors.get_children():
+				var door : Door = k as Door
+				var other_room : Room = null
+				match door.dir:
+					Door.Direction.UP:
+						if i - 1 >= 0:
+							other_room = room_data[i - 1][j]
+					Door.Direction.DOWN:
+						if i + 1 < rows_count:
+							other_room = room_data[i + 1][j]
+					Door.Direction.LEFT:
+						if j - 1 >= 0:
+							other_room = room_data[i][j - 1]
+					Door.Direction.RIGHT:
+						if j + 1 < columns_count:
+							other_room = room_data[i][j + 1]
+				if other_room == null:
+					continue
+				var other_door : Door = other_room.get_door(Door.get_opposite_dirction(door.dir))
+				Door.connect_door(door, other_door)
+
+func clear_rooms() -> void:
+	for node in get_children():
+		node.queue_free()

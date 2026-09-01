@@ -4,11 +4,27 @@
 [ext_resource type="Script" uid="uid://bjf7wxt4iwfi" path="res://Scene/DarkSamurai.gd" id="2_65rjy"]
 [ext_resource type="Script" uid="uid://dcrfducj3u6yx" path="res://Scene/DarkSamuraiIdle.gd" id="3_lefgm"]
 [ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_xclgv"]
-[ext_resource type="Resource" uid="uid://d0k4uk0wkq46k" path="res://Resource/Sword/WoodenSword.tres" id="4_tmy0u"]
 [ext_resource type="Script" uid="uid://cpoltudiipp7m" path="res://Scene/DarkSamuraiWalk.gd" id="4_xclgv"]
 [ext_resource type="Script" uid="uid://bvakei6ebuv84" path="res://Scene/DarkSamuraiAttack.gd" id="5_tmy0u"]
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="5_xclgv"]
+[ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="6_4l2dx"]
 [ext_resource type="Texture2D" uid="uid://ba8mc06cxwtds" path="res://Assets/Enemy/DarkSamurai (64x64).png" id="6_riyji"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="7_inab3"]
+[ext_resource type="Resource" uid="uid://q17v86qdk2us" path="res://Resource/Modifier/AutoAttack.tres" id="7_kusi2"]
+[ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="8_np5u4"]
+[ext_resource type="Resource" uid="uid://bhwuiry4se62y" path="res://Resource/Modifier/Burstslasher.tres" id="9_cvtlj"]
+[ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="10_k3f1e"]
+[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="11_k11ql"]
+[ext_resource type="Resource" uid="uid://cycf0m4pavf61" path="res://Resource/Modifier/FallSlashing.tres" id="12_82dk4"]
+[ext_resource type="Resource" uid="uid://cpvdfidpdiacj" path="res://Resource/Modifier/HeavyStrike.tres" id="13_74faj"]
+[ext_resource type="Resource" uid="uid://b52pjp0l061t6" path="res://Resource/Modifier/Leap.tres" id="14_w58ag"]
+[ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="15_5u8ms"]
+[ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="16_3wn6q"]
+[ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="17_cb8o2"]
+[ext_resource type="Resource" uid="uid://tbq5gx41ix3b" path="res://Resource/Modifier/Speedingexceed.tres" id="18_yntsn"]
+[ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="19_5t2v2"]
+[ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="20_7cwa8"]
+[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="21_wlmng"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s685e"]
 atlas = ExtResource("6_riyji")
@@ -201,7 +217,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hti8k")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Attack",
 "speed": 5.0
 }, {
@@ -248,7 +264,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0dgtb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dead",
 "speed": 5.0
 }, {
@@ -265,7 +281,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ivm4r")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Fall",
 "speed": 5.0
 }, {
@@ -276,7 +292,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qwgcx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Hurt",
 "speed": 5.0
 }, {
@@ -305,7 +321,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k0grh")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -322,7 +338,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1q7u0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Jump",
 "speed": 5.0
 }, {
@@ -351,7 +367,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bvxej")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 5.0
 }]
@@ -399,7 +415,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -452,7 +468,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -491,7 +507,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -544,7 +560,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape2D2:disabled")
+tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -565,11 +581,10 @@ _data = {
 [node name="DarkSamurai" unique_id=1094349948 instance=ExtResource("1_2ir46")]
 collision_layer = 2
 script = ExtResource("2_65rjy")
-item_resource = Array[ExtResource("3_xclgv")]([ExtResource("4_tmy0u")])
+item_resource = Array[ExtResource("3_xclgv")]([])
+mod_resource = Array[ExtResource("5_xclgv")]([ExtResource("6_4l2dx"), ExtResource("7_kusi2"), ExtResource("8_np5u4"), ExtResource("9_cvtlj"), ExtResource("10_k3f1e"), ExtResource("11_k11ql"), ExtResource("12_82dk4"), ExtResource("13_74faj"), ExtResource("14_w58ag"), ExtResource("15_5u8ms"), ExtResource("16_3wn6q"), ExtResource("17_cb8o2"), ExtResource("18_yntsn"), ExtResource("19_5t2v2"), ExtResource("20_7cwa8"), ExtResource("21_wlmng")])
 jump_velocity = -300.0
 max_speed = 100.0
-speed = 15.0
-accerelation = 15
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Chase")
@@ -580,8 +595,9 @@ animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Chase" type="Node" parent="StateMachine" index="1" unique_id=678420001 node_paths=PackedStringArray("animation_player", "parent") groups=["Enemy"]]
+[node name="Chase" type="Node" parent="StateMachine" index="1" unique_id=678420001 node_paths=PackedStringArray("chase_timer", "animation_player", "parent") groups=["Enemy"]]
 script = ExtResource("4_xclgv")
+chase_timer = NodePath("../../ChaseTimer")
 animation_player = NodePath("../../AnimationPlayer")
 parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
@@ -614,9 +630,14 @@ position = Vector2(-1, 2.5)
 shape = SubResource("RectangleShape2D_0qcj2")
 debug_color = Color(0, 1, 0.69803923, 0.41960785)
 
-[node name="Hitbox" parent="." index="5" unique_id=195243888 instance=ExtResource("7_inab3")]
+[node name="Hitboxes" type="Node2D" parent="." index="5" unique_id=1518591342]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1" unique_id=235091233]
+[node name="Hitbox" parent="Hitboxes" index="0" unique_id=195243888 instance=ExtResource("7_inab3")]
+collision_layer = 16
+collision_mask = 8
+damage = 2.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
 position = Vector2(4.5, 4.5)
 shape = SubResource("RectangleShape2D_n6qjc")
 disabled = true
@@ -630,10 +651,13 @@ position = Vector2(4, 3.5)
 shape = SubResource("RectangleShape2D_44hyy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7" unique_id=1628444027]
-debug_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8" unique_id=187047511]
 libraries/ = SubResource("AnimationLibrary_xclgv")
 
+[node name="ChaseTimer" type="Timer" parent="." index="9" unique_id=269855137]
+wait_time = 0.1
+
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Chase" method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="ChaseTimer" to="StateMachine/Chase" method="_on_chase_timer_timeout"]
