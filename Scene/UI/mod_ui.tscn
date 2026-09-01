@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://by2ky6pvgepnf" path="res://Scene/UI/mod_ui.gd" id="1_werfn"]
 [ext_resource type="PackedScene" uid="uid://c20v8nds53bgs" path="res://Scene/carouse_container.tscn" id="2_jnadk"]
-[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="3_hb4w0"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="3_jnadk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4lqv"]
 bg_color = Color(0.18000486, 0.1800049, 0.18000478, 1)
@@ -16,10 +16,10 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_67pkm"]
-font = ExtResource("3_hb4w0")
+font = ExtResource("3_jnadk")
 font_size = 12
 font_color = Color(0, 0, 0, 1)
-outline_size = 4
+outline_size = 2
 
 [node name="ModUI" type="Control" unique_id=1180346681]
 layout_mode = 3
@@ -38,14 +38,17 @@ offset_right = 181.0
 offset_bottom = 262.0
 
 [node name="CarouseContainer" parent="Control" unique_id=438782455 node_paths=PackedStringArray("position_offset_node") instance=ExtResource("2_jnadk")]
-position = Vector2(80, -209)
+layout_mode = 0
+offset_left = 80.0
+offset_top = -209.0
+offset_right = 80.0
+offset_bottom = -209.0
 spacing = 0.0
 opacity_strength = 0.5
 scale_strength = 0.2
 position_offset_node = NodePath("ModContainer")
 
 [node name="ModContainer" type="Control" parent="Control/CarouseContainer" unique_id=154540731]
-layout_mode = 3
 anchors_preset = 0
 offset_left = -20.0
 offset_top = 242.0
