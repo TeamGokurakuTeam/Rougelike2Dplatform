@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dkxbmaoyq1r3"]
+
+[ext_resource type="Script" uid="uid://evc7u5dvk7sk" path="res://Launcher.gd" id="1_1b2oy"]
+[ext_resource type="Script" uid="uid://cjslcyd3w0p2j" path="res://Script/Components/TrapComponent.gd" id="2_wdp66"]
+
+[node name="Launcher" type="Node2D" unique_id=1827001644]
+process_mode = 1
+script = ExtResource("1_1b2oy")
+fire_interval = 3.0
+
+[node name="FireTimer" type="Timer" parent="." unique_id=1098391806]
+
+[node name="FirePoint" type="Marker2D" parent="." unique_id=266672875]
+
+[node name="TrapComponent" type="Node2D" parent="." unique_id=1068183230]
+script = ExtResource("2_wdp66")
+metadata/_custom_type_script = "uid://cjslcyd3w0p2j"
+
+[connection signal="trap_disabled" from="TrapComponent" to="." method="_on_trap_component_trap_disabled"]
+[connection signal="trap_enabled" from="TrapComponent" to="." method="_on_trap_component_trap_enabled"]
