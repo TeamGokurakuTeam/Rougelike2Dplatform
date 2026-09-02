@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://csnxinxfnxpyt"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_vf0rx"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_pridh"]
+
+[resource]
+script = ExtResource("1_vf0rx")
+texture = ExtResource("2_pridh")
+modifier_id = "RevengeSlash"
+modifier_name = "逆転こそ…！"
+explanation = "敵からダメージを食らうたびにスタックを蓄積しチャージ攻撃時開放して大ダメージを与える"
+metadata/_custom_type_script = "uid://cwogrmg4kjfqg"
