@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RoomInfoResource" format=3 uid="uid://ceph5j05tdwv3"]
+
+[ext_resource type="PackedScene" uid="uid://dfywmrfjtrcil" path="res://Scene/Room/Floor1/KeigoRoom/Stage2_Room1.tscn" id="1_ktrb6"]
+[ext_resource type="Script" uid="uid://d344k4o5vtrgi" path="res://Resource/RoomInfo/RoomInfoResource.gd" id="2_vpdpe"]
+
+[resource]
+script = ExtResource("2_vpdpe")
+room_scene = ExtResource("1_ktrb6")
+room_type = 2
+floor_type = 2
+up = null
+down = null
+left = true
+right = true

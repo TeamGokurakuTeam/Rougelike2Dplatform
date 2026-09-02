@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://b6vh5w3ybhsjo"]
+
+[ext_resource type="Script" uid="uid://by2ky6pvgepnf" path="res://Scene/UI/mod_ui.gd" id="1_werfn"]
+[ext_resource type="PackedScene" uid="uid://c20v8nds53bgs" path="res://Scene/carouse_container.tscn" id="2_jnadk"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="3_jnadk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4lqv"]
+bg_color = Color(0.18000486, 0.1800049, 0.18000478, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_67pkm"]
+font = ExtResource("3_jnadk")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
+[node name="ModUI" type="Control" unique_id=1180346681]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_werfn")
+
+[node name="Control" type="Control" parent="." unique_id=2009876980]
+clip_contents = true
+anchors_preset = 0
+offset_top = 204.0
+offset_right = 181.0
+offset_bottom = 262.0
+
+[node name="CarouseContainer" parent="Control" unique_id=438782455 node_paths=PackedStringArray("position_offset_node") instance=ExtResource("2_jnadk")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = -209.0
+offset_right = 80.0
+offset_bottom = -209.0
+spacing = 0.0
+opacity_strength = 0.5
+scale_strength = 0.2
+position_offset_node = NodePath("ModContainer")
+
+[node name="ModContainer" type="Control" parent="Control/CarouseContainer" unique_id=154540731]
+anchors_preset = 0
+offset_left = -20.0
+offset_top = 242.0
+offset_right = 20.000015
+offset_bottom = 282.0
+
+[node name="Panel4" type="Panel" parent="." unique_id=907094898]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -227.0
+offset_top = -25.0
+offset_right = -127.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j4lqv")
+
+[node name="ModName" type="Label" parent="Panel4" unique_id=1119051682]
+custom_minimum_size = Vector2(96, 17)
+clip_contents = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 98.0
+offset_bottom = 19.0
+text = "test"
+label_settings = SubResource("LabelSettings_67pkm")
+horizontal_alignment = 1
+vertical_alignment = 1
