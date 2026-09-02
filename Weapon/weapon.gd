@@ -125,7 +125,7 @@ func _process(delta: float) -> void:
 		elif scale.y == -1 and mouse_direction.x > 0:
 			scale.y = 1
 	#自動攻撃
-	if modifiers_ids.has("AutoAttack"):
+	if has_modifiers("AutoAttack"):
 		if Input.is_action_pressed("UI_Attack"):
 			if not animation_player.is_playing():
 				animation_player.play("Attack")
@@ -190,7 +190,7 @@ func has_modifiers(name : String):
 func attack_trigger_modifier() -> void:
 	modifier_use_count += 1
 	
-	if modifiers_ids.has("Bloodletting"):
+	if has_modifiers("Bloodletting"):
 		bloodletting(mouse_direction, offset_length)
 #跳躍(Leap)
 	if has_modifiers("Leap"):
@@ -202,13 +202,13 @@ func attack_trigger_modifier() -> void:
 	if has_modifiers("Burstslasher"):
 		burst_slash()
 #斬：複製
-	if modifiers_ids.has("FallSlashing"):
+	if has_modifiers("FallSlashing"):
 		fall_slashing()
 #アヒル
-	if modifiers_ids.has("Slash_Duck"):
+	if has_modifiers("Slash_Duck"):
 		slashduck()
 #アヒルバウンス
-	if modifiers_ids.has("Bounce_Duck"):
+	if has_modifiers("Bounce_Duck"):
 		bounceduck()
 #アヒル爆弾
 
@@ -302,7 +302,7 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 			slash.scale += Vector2(0.2, 0.2)
 		if get_modifiers_level("Swift"):
 			slash.speed += 20
-		if modifiers_ids.has("Slash_Pierce"):
+		if has_modifiers("Slash_Pierce"):
 			slash.set_collision_mask_value(8, false)
 		get_tree().root.add_child(slash)
 		DamageNumber.display_number(2, global_position, false, Color("6f0000ff"))
@@ -319,23 +319,23 @@ func _start_auto_attack_speed_buff() -> void:
 	auto_attack_original_speed = animation_player.speed_scale
 	var auto_speed = 1.3
 	var damping_speed = 0.0
-	if modifiers_ids.has("DampingSpeedUp"):
+	if has_modifiers("DampingSpeedUp"):
 		damping_speed = 1.5
 	var raw_speed = auto_speed + damping_speed
 	var final_speed = min(raw_speed, max_speed_scale)
 	animation_player.speed_scale = final_speed
 	var need_save := false
-	if modifiers_ids.has("Speedingexceed") or modifiers_ids.has("SpeedingMoveExceed"):
+	if has_modifiers("Speedingexceed") or has_modifiers("SpeedingMoveExceed"):
 		need_save = true
 	if need_save:
 		original_multipliers.clear()
 		for i in range(hitboxes.size()):
 			original_multipliers.append(hitboxes[i].damage_multiplier)
-	if modifiers_ids.has("Speedingexceed"):
+	if has_modifiers("Speedingexceed"):
 		var exceed = raw_speed - max_speed_scale
 		if exceed > 0:
 			_add_speed_exceed_damage(exceed)
-	if modifiers_ids.has("SpeedingMoveExceed"):
+	if has_modifiers("SpeedingMoveExceed"):
 		var exceed = raw_speed - max_speed_scale
 		if exceed > 0:
 			original_acceleration = player.current_acceleration
@@ -372,7 +372,7 @@ func slashduck() -> void:
 	if randf() < 0.6:
 		var duck: DuckProjectile = DUCK.instantiate()
 		duck.duck_type = DuckProjectile.DuckType.NORMAL
-		duck.should_explode = modifiers_ids.has("Bomb_Duck")
+		duck.should_explode = has_modifiers("Bomb_Duck")
 		duck.global_position = player.global_position
 		var dir = sign(mouse_direction.x)
 		if dir == 0: dir = 1
@@ -387,7 +387,7 @@ func bounceduck() -> void:
 	duck.duck_type = DuckProjectile.DuckType.BOUNCE
 	duck.bounce_speed_multiplier = 1.1
 	duck.max_speed = 800
-	duck.should_explode = modifiers_ids.has("Bomb_Duck")
+	duck.should_explode = has_modifiers("Bomb_Duck")
 	duck.global_position = player.global_position
 	var dir = sign(mouse_direction.x)
 	if dir == 0: dir = 1
