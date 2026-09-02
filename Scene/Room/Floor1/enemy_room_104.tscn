@@ -28,6 +28,12 @@ tile_map_data = PackedByteArray("AAAWABMAAAABAAIAAAAXABQAAAABAAIAAAAXABUAAAABAAI
 [node name="Area2D" parent="TileMaps/HideWall" index="0" unique_id=482470592]
 collision_layer = 0
 
+[node name="OneWay" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="5" unique_id=610867179 instance=ExtResource("3_swvev")]
+position = Vector2(288, 336)
+
+[node name="OneWay2" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="6" unique_id=1221264387 instance=ExtResource("3_swvev")]
+position = Vector2(528, 336)
+
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("2_isv3k")]
 position = Vector2(16, 288)
 dir = 3
@@ -42,7 +48,7 @@ dir = 4
 [node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="3" unique_id=1866473318]
 position = Vector2(-41, 9)
 
-[node name="OneWay" parent="." index="2" unique_id=610867179 instance=ExtResource("3_swvev")]
+[node name="OneWay" parent="." index="2" unique_id=1292358961 instance=ExtResource("3_swvev")]
 position = Vector2(728, 304)
 
 [node name="OneWay2" parent="." index="3" unique_id=1846399325 instance=ExtResource("3_swvev")]

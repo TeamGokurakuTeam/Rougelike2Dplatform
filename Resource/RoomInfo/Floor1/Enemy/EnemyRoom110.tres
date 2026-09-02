@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RoomInfoResource" format=3 uid="uid://di6hd8tidkyn6"]
 
-[ext_resource type="PackedScene" uid="uid://du2c1vv40fn52" path="res://Scene/Room/Floor1/homa/room1000.tscn" id="1_ny6hf"]
+[ext_resource type="PackedScene" uid="uid://du2c1vv40fn52" path="res://Scene/Room/Floor1/enemy_room_110.tscn" id="1_ny6hf"]
 [ext_resource type="Script" uid="uid://d344k4o5vtrgi" path="res://Resource/RoomInfo/RoomInfoResource.gd" id="2_qmvtu"]
 
 [resource]

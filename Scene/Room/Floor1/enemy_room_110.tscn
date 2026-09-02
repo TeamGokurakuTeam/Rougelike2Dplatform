@@ -84,4 +84,4 @@ bounce_power = 800.0
 
 [node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("10_ipsyp")]
 position = Vector2(512, 360)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7, 0.7)

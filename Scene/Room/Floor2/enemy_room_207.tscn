@@ -4,11 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_0sidc"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_p3t12"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_klkk5"]
-[ext_resource type="PackedScene" uid="uid://brj530xnbbxho" path="res://Scene/Enemy/frog.tscn" id="5_10dpl"]
-[ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="5_ycasu"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="6_0sidc"]
-[ext_resource type="PackedScene" uid="uid://wl86qbcex6dm" path="res://Scene/Enemy/PoisonMush/PoisonMush.tscn" id="6_742ai"]
-[ext_resource type="PackedScene" uid="uid://cuhgb0dmmo2dk" path="res://Scene/Enemy/HedoroSlime/HedoroSlime.tscn" id="7_trm0g"]
+[ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="6_gjkdm"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_qx4h5")]
 
@@ -37,28 +34,23 @@ position = Vector2(-32, 16)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("3_p3t12")]
 position = Vector2(136, -120)
-enemys = Array[PackedScene]([ExtResource("4_klkk5"), ExtResource("5_10dpl")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=1083609993 instance=ExtResource("3_p3t12")]
 position = Vector2(312, -24)
-enemys = Array[PackedScene]([ExtResource("4_klkk5"), ExtResource("5_10dpl")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=623029515 instance=ExtResource("3_p3t12")]
 position = Vector2(584, -40)
-enemys = Array[PackedScene]([ExtResource("4_klkk5"), ExtResource("5_10dpl")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=1651399353 instance=ExtResource("3_p3t12")]
 position = Vector2(464, -24)
-enemys = Array[PackedScene]([ExtResource("4_klkk5"), ExtResource("5_10dpl")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=826029019 instance=ExtResource("3_p3t12")]
 position = Vector2(96, -288)
-enemys = Array[PackedScene]([ExtResource("4_klkk5"), ExtResource("5_10dpl")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint6" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="5" unique_id=1475054525 instance=ExtResource("3_p3t12")]
 position = Vector2(216, -488)
@@ -67,27 +59,22 @@ enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 [node name="EnemySpawnPoint7" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="6" unique_id=646750201 instance=ExtResource("3_p3t12")]
 position = Vector2(344, -488)
 enemys = Array[PackedScene]([ExtResource("4_klkk5")])
-is_random = true
 
 [node name="EnemySpawnPoint8" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="7" unique_id=1116717339 instance=ExtResource("3_p3t12")]
 position = Vector2(248, -560)
 enemys = Array[PackedScene]([ExtResource("4_klkk5")])
-is_random = true
 
 [node name="EnemySpawnPoint9" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="8" unique_id=351535628 instance=ExtResource("3_p3t12")]
 position = Vector2(744, -584)
-enemys = Array[PackedScene]([ExtResource("5_10dpl"), ExtResource("6_742ai"), ExtResource("7_trm0g")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint10" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="9" unique_id=893045780 instance=ExtResource("3_p3t12")]
 position = Vector2(584, -568)
-enemys = Array[PackedScene]([ExtResource("5_10dpl"), ExtResource("6_742ai"), ExtResource("7_trm0g")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint11" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="10" unique_id=930279063 instance=ExtResource("3_p3t12")]
 position = Vector2(640, -512)
-enemys = Array[PackedScene]([ExtResource("5_10dpl"), ExtResource("6_742ai"), ExtResource("7_trm0g")])
-is_random = true
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint12" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="11" unique_id=903384215 instance=ExtResource("3_p3t12")]
 position = Vector2(480, -296)
@@ -99,64 +86,64 @@ enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="EnemySpawnPoint14" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="13" unique_id=2084988455 instance=ExtResource("3_p3t12")]
 position = Vector2(816, -200)
-enemys = Array[PackedScene]([ExtResource("7_trm0g")])
+enemys = Array[PackedScene]([ExtResource("4_klkk5")])
 
 [node name="MoveTiles" type="Node2D" parent="." index="3" unique_id=1586399939]
 
-[node name="MoveTile" parent="MoveTiles" index="0" unique_id=971770846 instance=ExtResource("5_ycasu")]
+[node name="Obelisk" parent="." index="6" unique_id=1340329694 instance=ExtResource("6_0sidc")]
+position = Vector2(376, -328)
+is_obelisk_locked = false
+
+[node name="OneWay" parent="." index="7" unique_id=610867179 instance=ExtResource("6_gjkdm")]
 position = Vector2(88, -56)
 
-[node name="MoveTile2" parent="MoveTiles" index="1" unique_id=969933983 instance=ExtResource("5_ycasu")]
+[node name="OneWay2" parent="." index="8" unique_id=960723992 instance=ExtResource("6_gjkdm")]
 position = Vector2(88, -96)
 
-[node name="MoveTile3" parent="MoveTiles" index="2" unique_id=1697265597 instance=ExtResource("5_ycasu")]
+[node name="OneWay3" parent="." index="9" unique_id=1555010443 instance=ExtResource("6_gjkdm")]
 position = Vector2(40, -168)
 
-[node name="MoveTile4" parent="MoveTiles" index="3" unique_id=928273373 instance=ExtResource("5_ycasu")]
+[node name="OneWay4" parent="." index="10" unique_id=1873236954 instance=ExtResource("6_gjkdm")]
 position = Vector2(40, -256)
 
-[node name="MoveTile5" parent="MoveTiles" index="4" unique_id=56602403 instance=ExtResource("5_ycasu")]
+[node name="OneWay5" parent="." index="11" unique_id=1922897223 instance=ExtResource("6_gjkdm")]
 position = Vector2(152, -344)
 
-[node name="MoveTile6" parent="MoveTiles" index="5" unique_id=2100497022 instance=ExtResource("5_ycasu")]
+[node name="OneWay6" parent="." index="12" unique_id=1917327167 instance=ExtResource("6_gjkdm")]
 position = Vector2(152, -464)
 
-[node name="MoveTile13" parent="MoveTiles" index="6" unique_id=1591731988 instance=ExtResource("5_ycasu")]
+[node name="OneWay7" parent="." index="13" unique_id=1212904004 instance=ExtResource("6_gjkdm")]
 position = Vector2(248, -520)
 
-[node name="MoveTile14" parent="MoveTiles" index="7" unique_id=1611771578 instance=ExtResource("5_ycasu")]
-position = Vector2(584, -536)
-
-[node name="MoveTile7" parent="MoveTiles" index="8" unique_id=2087575684 instance=ExtResource("5_ycasu")]
+[node name="OneWay8" parent="." index="14" unique_id=577000218 instance=ExtResource("6_gjkdm")]
 position = Vector2(392, -464)
 
-[node name="MoveTile8" parent="MoveTiles" index="9" unique_id=1607947269 instance=ExtResource("5_ycasu")]
+[node name="OneWay9" parent="." index="15" unique_id=1466338872 instance=ExtResource("6_gjkdm")]
 position = Vector2(632, -272)
 
-[node name="MoveTile9" parent="MoveTiles" index="10" unique_id=168902136 instance=ExtResource("5_ycasu")]
-position = Vector2(632, -136)
-
-[node name="MoveTile18" parent="MoveTiles" index="11" unique_id=693354370 instance=ExtResource("5_ycasu")]
+[node name="OneWay10" parent="." index="16" unique_id=868735466 instance=ExtResource("6_gjkdm")]
 position = Vector2(632, -200)
 
-[node name="MoveTile10" parent="MoveTiles" index="12" unique_id=1496915561 instance=ExtResource("5_ycasu")]
+[node name="OneWay11" parent="." index="17" unique_id=201007360 instance=ExtResource("6_gjkdm")]
+position = Vector2(632, -136)
+
+[node name="OneWay12" parent="." index="18" unique_id=787176055 instance=ExtResource("6_gjkdm")]
 position = Vector2(312, -56)
 
-[node name="MoveTile11" parent="MoveTiles" index="13" unique_id=166846074 instance=ExtResource("5_ycasu")]
+[node name="OneWay13" parent="." index="19" unique_id=111191166 instance=ExtResource("6_gjkdm")]
+position = Vector2(584, -536)
+
+[node name="OneWay14" parent="." index="20" unique_id=1683124582 instance=ExtResource("6_gjkdm")]
 position = Vector2(776, -464)
 
-[node name="MoveTile15" parent="MoveTiles" index="14" unique_id=1060830178 instance=ExtResource("5_ycasu")]
+[node name="OneWay15" parent="." index="21" unique_id=2107563349 instance=ExtResource("6_gjkdm")]
 position = Vector2(776, -392)
 
-[node name="MoveTile16" parent="MoveTiles" index="15" unique_id=1528860062 instance=ExtResource("5_ycasu")]
+[node name="OneWay16" parent="." index="22" unique_id=1495554058 instance=ExtResource("6_gjkdm")]
 position = Vector2(776, -320)
 
-[node name="MoveTile17" parent="MoveTiles" index="16" unique_id=1879505916 instance=ExtResource("5_ycasu")]
+[node name="OneWay17" parent="." index="23" unique_id=2113388415 instance=ExtResource("6_gjkdm")]
 position = Vector2(776, -248)
 
-[node name="MoveTile12" parent="MoveTiles" index="17" unique_id=264780794 instance=ExtResource("5_ycasu")]
+[node name="OneWay18" parent="." index="24" unique_id=70789727 instance=ExtResource("6_gjkdm")]
 position = Vector2(896, -240)
-
-[node name="Obelisk" parent="." index="6" unique_id=1340329694 instance=ExtResource("6_0sidc")]
-position = Vector2(376, -320)
-is_obelisk_locked = false
