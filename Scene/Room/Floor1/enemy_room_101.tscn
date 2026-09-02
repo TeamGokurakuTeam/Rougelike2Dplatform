@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="3_xm662"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_l4p15"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_mulfa"]
+[ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="6_ekm1w"]
 [ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="6_mulfa"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="7_ptp4h"]
 
@@ -44,24 +45,27 @@ position = Vector2(-56, 8)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("4_l4p15")]
 position = Vector2(136, 144)
-enemys = Array[PackedScene]([ExtResource("5_mulfa")])
+enemys = Array[PackedScene]([ExtResource("5_mulfa"), ExtResource("6_ekm1w")])
+is_random = true
 
 [node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=1113582952 instance=ExtResource("4_l4p15")]
 position = Vector2(448, 144)
-enemys = Array[PackedScene]([ExtResource("5_mulfa")])
+enemys = Array[PackedScene]([ExtResource("5_mulfa"), ExtResource("6_ekm1w")])
+is_random = true
 
 [node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=371609780 instance=ExtResource("4_l4p15")]
 position = Vector2(288, 88)
-enemys = Array[PackedScene]([ExtResource("5_mulfa")])
+enemys = Array[PackedScene]([ExtResource("5_mulfa"), ExtResource("6_ekm1w")])
+is_random = true
 
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=109083243 instance=ExtResource("4_l4p15")]
 position = Vector2(149, 88)
-enemys = Array[PackedScene]([ExtResource("5_mulfa"), ExtResource("6_mulfa")])
+enemys = Array[PackedScene]([ExtResource("6_mulfa")])
 is_random = true
 
 [node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=1383265873 instance=ExtResource("4_l4p15")]
 position = Vector2(436, 88)
-enemys = Array[PackedScene]([ExtResource("5_mulfa"), ExtResource("6_mulfa")])
+enemys = Array[PackedScene]([ExtResource("6_mulfa")])
 is_random = true
 
 [node name="Obelisk" parent="." index="5" unique_id=1340329694 instance=ExtResource("7_ptp4h")]
