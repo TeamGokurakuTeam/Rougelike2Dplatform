@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b3ys5ty8jofad"]
 
 [ext_resource type="Script" uid="uid://cfrb45i68p58p" path="res://BouncePad.gd" id="1_d5dlu"]
-[ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="2_ts161"]
+[ext_resource type="Texture2D" uid="uid://7c4wjpdpu754" path="res://Assets/TileMap/castle-tileset.png" id="2_ts161"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y75to"]
 atlas = ExtResource("2_ts161")
-region = Rect2(104, 154, 26, 22)
+region = Rect2(48, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ts161"]
 animations = [{
@@ -19,11 +19,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y75to"]
-size = Vector2(20, 10)
+size = Vector2(16, 8)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwn8x"]
 radius = 4.0246716
-height = 26.0
+height = 15.9998045
 
 [node name="BouncePad" type="StaticBody2D" unique_id=1611631856]
 process_mode = 1
@@ -31,10 +31,11 @@ collision_layer = 129
 script = ExtResource("1_d5dlu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1154956590]
+modulate = Color(0, 0.81960785, 1, 1)
 sprite_frames = SubResource("SpriteFrames_ts161")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1556642312]
-position = Vector2(3, 6)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_y75to")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=271624135]
@@ -42,8 +43,7 @@ position = Vector2(0, -13)
 rotation = -1.5757405
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2116160229]
-position = Vector2(-11.014698, 2.945578)
-rotation = -0.16761401
+position = Vector2(-12.999842, -0.06427336)
 shape = SubResource("CapsuleShape2D_vwn8x")
 debug_color = Color(0.2496807, 0.630383, 0.24396122, 0.41960785)
 
