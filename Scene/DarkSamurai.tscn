@@ -609,8 +609,8 @@ parent = NodePath("../..")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 5.0
-hp = 5.0
+max_hp = 50.0
+hp = 50.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 sprite_frames = SubResource("SpriteFrames_6rpt5")

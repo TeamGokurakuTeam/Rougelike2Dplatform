@@ -681,8 +681,8 @@ script = ExtResource("5_oi7po")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 25.0
-hp = 25.0
+max_hp = 250.0
+hp = 250.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 sprite_frames = SubResource("SpriteFrames_nd50y")
@@ -707,7 +707,6 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kmf2r")
 
 [node name="NavigationAgent2D" parent="." index="6" unique_id=1628444027]
-debug_enabled = true
 debug_use_custom = true
 
 [node name="AnimationPlayer" parent="." index="7" unique_id=559520988]

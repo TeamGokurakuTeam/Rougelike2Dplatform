@@ -672,7 +672,7 @@ _data = {
 collision_layer = 4
 collision_mask = 32
 script = ExtResource("1_xhnku")
-damage = 1.0
+damage = 10.0
 metadata/_custom_type_script = "uid://xchyfr3avu0m"
 
 [node name="Root" type="Node2D" parent="." unique_id=1658067509]
@@ -707,7 +707,7 @@ debug_color = Color(0.99294, 0, 0.25148305, 0.41960785)
 collision_layer = 4
 collision_mask = 32
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1399399970]
 visible = false
 rotation = -0.49741438
 shape = SubResource("RectangleShape2D_lgmmx")

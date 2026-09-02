@@ -6,6 +6,7 @@ class_name PlayerRangeProjecttile
 @onready var hitbox: Hitbox = $Hitbox
 @export var damage : float = 1.0
 
+
 # 継続ダメージ用
 var continuous_targets: Array[Hurtbox] = []
 var continuous_timer: Timer

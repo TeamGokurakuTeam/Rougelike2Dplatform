@@ -282,7 +282,7 @@ func fall_slashing() -> void:
 		randomspeed.tween_callback(func ():
 			var slash := PLAYER_FALL_SLASH.instantiate()
 			slash.direction = dir
-			slash.damage = 3
+			slash.damage = 10
 			var offset := Vector2(
 				randf_range(50, range_x) * dir,
 				randf_range(range_y_min, range_y_max)

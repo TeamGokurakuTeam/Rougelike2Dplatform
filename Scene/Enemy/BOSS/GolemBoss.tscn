@@ -1301,8 +1301,8 @@ anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="2" unique_id=456158778]
-max_hp = 250.0
-hp = 250.0
+max_hp = 2500.0
+hp = 2500.0
 
 [node name="AnimatedSprite2D" parent="." index="3" unique_id=1883945263]
 scale = Vector2(2, 2)

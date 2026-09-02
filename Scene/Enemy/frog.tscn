@@ -407,8 +407,8 @@ animation_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 20.0
-hp = 20.0
+max_hp = 200.0
+hp = 200.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 sprite_frames = SubResource("SpriteFrames_u1yf7")
@@ -422,7 +422,10 @@ shape = SubResource("RectangleShape2D_obqtb")
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_swp8o")
 
-[node name="CollisionShape2D2" parent="Hitboxes/Hitbox" parent_id_path=PackedInt32Array(195243888) index="1" unique_id=235091233]
+[node name="Hitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="0" unique_id=195243888]
+damage = 4.0
+
+[node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
 position = Vector2(0, 0)
 scale = Vector2(1.6400013, 1)
 shape = SubResource("RectangleShape2D_u1yf7")
