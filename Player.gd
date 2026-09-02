@@ -16,6 +16,11 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @onready var hurtbox: Hurtbox = $Hurtbox
 @onready var remote_transform: RemoteTransform2D = $RemoteTransform2D
 
+## SOUND EFFECT ##
+@onready var dodge_roll: AudioStreamPlayer = $Sound/DodgeRoll
+@onready var just_dodge: AudioStreamPlayer = $Sound/JustDodge
+@onready var jump: AudioStreamPlayer = $Sound/Jump
+
 @export var input_enabled : bool = true #どうせいいの思いつかないしtrueが操作できてfalseができない
 @export var max_jump_pressed_frame : int = 5
 @export_category("プレイヤーステータス")
@@ -84,6 +89,7 @@ func _process(delta: float) -> void:
 	elif mouse_direction.x < 0 and not animated_sprite_2d.flip_h:
 		#マウスの方向が左側にあったら
 		animated_sprite_2d.flip_h = true
+	
 
 func _physics_process(delta: float) -> void:
 	super(delta)
@@ -146,6 +152,7 @@ func _get_input() -> void:
 			velocity.y = jump_velocity
 			current_state = PlayerState.JUMP_START
 			jump_away_from_floor = true
+			jump.play()
 
 		ghost_timer.stop()
 	if is_on_floor():
@@ -158,12 +165,14 @@ func _get_input() -> void:
 			coyote_timer.start()
 			coyote_time_activated = true
 		if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
+			jump.play()
 			jump_pressed_frame = max_jump_pressed_frame
 			current_state = PlayerState.JUMP_START
 			velocity.y = jump_velocity
 			coyote_timer.stop()
 			coyote_time_activated = true
 			jump_away_from_floor = true
+			
 	if Input.is_action_just_pressed("UI_Apply"):
 		if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
 			return
@@ -241,8 +250,10 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
 		parry_effect.emitting = true
 		is_just_dodgeroll = true
+		just_dodge.play()
 		counter_timer.start()
 	elif dodge_roll_cool_down_timer.is_stopped():
+		dodge_roll.play()
 		dodge_roll_cool_down_timer.start()
 		counter_timer.start()
 

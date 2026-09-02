@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b383l3v25na7" path="res://Scene/MainGame/Maingame.gd" id="1_ga214"]
 [ext_resource type="PackedScene" uid="uid://cqx3pgdtlavyt" path="res://Scene/MainGame/Floor1_Background.tscn" id="2_2ns5o"]
 [ext_resource type="PackedScene" uid="uid://dvx3iti4h218x" path="res://Scene/player_ui.tscn" id="2_8fymo"]
+[ext_resource type="PackedScene" uid="uid://cq67rdschcqqh" path="res://CommentMonument.tscn" id="3_4lo75"]
 [ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="3_4x3oj"]
 [ext_resource type="PackedScene" uid="uid://cvnfa7dppgwhv" path="res://Scene/camera_2d.tscn" id="5_88yfh"]
 [ext_resource type="AudioStream" uid="uid://bc5d4phqrui8x" path="res://Assets/Music/PerituneMaterial_Puppeteer_loop.mp3" id="9_50dfd"]
@@ -23,6 +24,14 @@ script = ExtResource("1_ga214")
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
 position = Vector2(0, -38)
 remote_path = NodePath("../../MainCamera")
+
+[node name="Monument" parent="Player" unique_id=1371788584 instance=ExtResource("3_4lo75")]
+position = Vector2(304, 72)
+visible_second = 5.0
+text = "第二層。
+上層の屋敷から流れ出る排水口の役割をになっている階層。
+とても汚い水で、体に有害だ。
+そのせいでここに住んでいた生物は全員毒を持ってしまった..."
 
 [node name="BackGround" parent="." unique_id=16215675 instance=ExtResource("2_2ns5o")]
 
