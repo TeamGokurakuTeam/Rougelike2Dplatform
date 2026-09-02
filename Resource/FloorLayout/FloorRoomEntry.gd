@@ -1,4 +1,4 @@
-﻿extends Resource
+extends Resource
 class_name FloorRoomEntry
 
 @export var row : int = 0

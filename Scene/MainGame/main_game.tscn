@@ -18,6 +18,12 @@
 [node name="MainGame" type="Node2D" unique_id=334667216]
 script = ExtResource("1_ga214")
 
+[node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
+position = Vector2(0, -38)
+remote_path = NodePath("../../MainCamera")
+
 [node name="BackGround" parent="." unique_id=16215675 instance=ExtResource("2_2ns5o")]
 
 [node name="PlayerUI" parent="." unique_id=1814325200 instance=ExtResource("2_8fymo")]
@@ -31,12 +37,6 @@ scroll_active = false
 
 [node name="ModifierList" parent="PlayerUI/WeaponModifierUI/Panel/ModifierPanel" parent_id_path=PackedInt32Array(1814325200, 1151445566, 627346171) index="0" unique_id=1191521356]
 mouse_filter = 1
-
-[node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
-position = Vector2(0, -38)
-remote_path = NodePath("../../MainCamera")
 
 [node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
 process_mode = 1
@@ -100,9 +100,9 @@ metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 [node name="FloorProgression" type="Node" parent="." unique_id=1678658979]
 script = ExtResource("13_t5ou6")
 
+[editable path="Player"]
+[editable path="Player/PickupComponent"]
 [editable path="PlayerUI"]
 [editable path="PlayerUI/Parent/ModUI"]
 [editable path="PlayerUI/Parent/PlayerHpUI"]
 [editable path="PlayerUI/WeaponModifierUI"]
-[editable path="Player"]
-[editable path="Player/PickupComponent"]
