@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="7_4hsgg"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="8_4hsgg"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="9_vfqk6"]
+[ext_resource type="Script" uid="uid://cra6q5avtvxge" path="res://Scene/Room/TouchTriggerMoveTile.gd" id="10_b1aju"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_60fg2")]
 
@@ -84,54 +85,54 @@ off_time = 5.0
 [node name="OneWay" parent="." index="6" unique_id=2916441 instance=ExtResource("4_2nxob")]
 position = Vector2(920, 288)
 
-[node name="MoveTile" parent="." index="7" unique_id=1545503070 instance=ExtResource("2_mhbjb")]
-position = Vector2(872, 288)
-move_speed = 0.2
-
-[node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
-points = PackedVector2Array(0, 0, 0, 128)
-
-[node name="MoveTile2" parent="." index="8" unique_id=795468603 instance=ExtResource("2_mhbjb")]
+[node name="MoveTile2" parent="." index="7" unique_id=795468603 instance=ExtResource("2_mhbjb")]
 position = Vector2(616, 288)
 move_speed = 0.2
 
 [node name="Line2D" parent="MoveTile2" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 128)
 
-[node name="MoveTile3" parent="." index="9" unique_id=971770846 instance=ExtResource("2_mhbjb")]
+[node name="MoveTile3" parent="." index="8" unique_id=971770846 instance=ExtResource("2_mhbjb")]
 position = Vector2(152, 288)
 move_speed = 0.2
 
 [node name="Line2D" parent="MoveTile3" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 128)
 
-[node name="MoveTile4" parent="." index="10" unique_id=876171695 instance=ExtResource("2_mhbjb")]
+[node name="MoveTile4" parent="." index="9" unique_id=876171695 instance=ExtResource("2_mhbjb")]
 position = Vector2(40, 96)
 move_speed = 0.2
 
 [node name="Line2D" parent="MoveTile4" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 80)
 
-[node name="OneWay4" parent="." index="11" unique_id=783340421 instance=ExtResource("4_2nxob")]
+[node name="OneWay4" parent="." index="10" unique_id=783340421 instance=ExtResource("4_2nxob")]
 position = Vector2(424, 328)
 
-[node name="OneWay5" parent="." index="12" unique_id=911024983 instance=ExtResource("4_2nxob")]
+[node name="OneWay5" parent="." index="11" unique_id=911024983 instance=ExtResource("4_2nxob")]
 position = Vector2(376, 328)
 
-[node name="OneWay6" parent="." index="13" unique_id=1221912175 instance=ExtResource("4_2nxob")]
+[node name="OneWay6" parent="." index="12" unique_id=1221912175 instance=ExtResource("4_2nxob")]
 position = Vector2(328, 328)
 
-[node name="OneWay7" parent="." index="14" unique_id=1444281045 instance=ExtResource("4_2nxob")]
+[node name="OneWay7" parent="." index="13" unique_id=1444281045 instance=ExtResource("4_2nxob")]
 position = Vector2(280, 328)
 
-[node name="OneWay8" parent="." index="17" unique_id=945658903 instance=ExtResource("4_2nxob")]
+[node name="OneWay8" parent="." index="16" unique_id=945658903 instance=ExtResource("4_2nxob")]
 position = Vector2(352, 264)
 
-[node name="Obelisk" parent="." index="18" unique_id=1340329694 instance=ExtResource("9_vfqk6")]
+[node name="Obelisk" parent="." index="17" unique_id=1340329694 instance=ExtResource("9_vfqk6")]
 position = Vector2(352, 216)
 is_obelisk_locked = false
 
-[editable path="MoveTile"]
+[node name="MoveTile" parent="." index="18" unique_id=1837527314 instance=ExtResource("2_mhbjb")]
+position = Vector2(872, 384)
+script = ExtResource("10_b1aju")
+
+[node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
+points = PackedVector2Array(0, 0, 0, -64)
+
 [editable path="MoveTile2"]
 [editable path="MoveTile3"]
 [editable path="MoveTile4"]
+[editable path="MoveTile"]

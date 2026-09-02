@@ -28,7 +28,7 @@ scale = Vector2(1.5, 1.5)
 bounce_power = 650.0
 
 [node name="Obelisk" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="6" unique_id=1340329694 instance=ExtResource("3_yf100")]
-position = Vector2(464, 248)
+position = Vector2(472, 248)
 is_obelisk_locked = false
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("4_wvgo6")]

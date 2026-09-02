@@ -60,16 +60,22 @@ position = Vector2(192, 400)
 [node name="OneWay8" parent="." index="7" unique_id=1428247777 instance=ExtResource("3_swvev")]
 position = Vector2(240, 400)
 
-[node name="OneWay9" parent="." index="8" unique_id=1231262558 instance=ExtResource("3_swvev")]
+[node name="OneWay12" parent="." index="8" unique_id=1765257435 instance=ExtResource("3_swvev")]
+position = Vector2(288, 304)
+
+[node name="OneWay13" parent="." index="9" unique_id=533359467 instance=ExtResource("3_swvev")]
+position = Vector2(528, 304)
+
+[node name="OneWay9" parent="." index="10" unique_id=1231262558 instance=ExtResource("3_swvev")]
 position = Vector2(288, 400)
 
-[node name="OneWay6" parent="." index="9" unique_id=957425443 instance=ExtResource("3_swvev")]
+[node name="OneWay6" parent="." index="11" unique_id=957425443 instance=ExtResource("3_swvev")]
 position = Vector2(576, 400)
 
-[node name="OneWay11" parent="." index="10" unique_id=1910589133 instance=ExtResource("3_swvev")]
+[node name="OneWay11" parent="." index="12" unique_id=1910589133 instance=ExtResource("3_swvev")]
 position = Vector2(624, 400)
 
-[node name="OneWay10" parent="." index="11" unique_id=80285088 instance=ExtResource("3_swvev")]
+[node name="OneWay10" parent="." index="13" unique_id=80285088 instance=ExtResource("3_swvev")]
 position = Vector2(528, 400)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("4_fmtm0")]
