@@ -96,5 +96,8 @@ rotate_speed = 20.0
 position = Vector2(-0.017691135, 164.92424)
 scale = Vector2(1, 22)
 
+[node name="TrapComponent" parent="RotatingBeam" index="2" unique_id=1643128376]
+scale = Vector2(1.5, 1.5)
+
 [editable path="RotatingBeam"]
 [editable path="RotatingBeam/Pivot/Hitbox"]
