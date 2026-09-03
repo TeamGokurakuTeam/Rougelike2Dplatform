@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="6_jcmuv"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="7_4hsgg"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="8_4hsgg"]
+[ext_resource type="Script" uid="uid://cra6q5avtvxge" path="res://Scene/Room/TouchTriggerMoveTile.gd" id="9_udhhi"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="9_vfqk6"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_60fg2")]
@@ -85,11 +86,11 @@ off_time = 5.0
 position = Vector2(920, 288)
 
 [node name="MoveTile" parent="." index="7" unique_id=1545503070 instance=ExtResource("2_mhbjb")]
-position = Vector2(872, 288)
-move_speed = 0.2
+position = Vector2(872, 392)
+script = ExtResource("9_udhhi")
 
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
-points = PackedVector2Array(0, 0, 0, 128)
+points = PackedVector2Array(0, 0, 0, -120)
 
 [node name="MoveTile2" parent="." index="8" unique_id=795468603 instance=ExtResource("2_mhbjb")]
 position = Vector2(616, 288)
@@ -125,10 +126,10 @@ position = Vector2(328, 328)
 position = Vector2(280, 328)
 
 [node name="OneWay8" parent="." index="17" unique_id=945658903 instance=ExtResource("4_2nxob")]
-position = Vector2(352, 264)
+position = Vector2(296, 192)
 
 [node name="Obelisk" parent="." index="18" unique_id=1340329694 instance=ExtResource("9_vfqk6")]
-position = Vector2(352, 216)
+position = Vector2(296, 144)
 is_obelisk_locked = false
 
 [editable path="MoveTile"]

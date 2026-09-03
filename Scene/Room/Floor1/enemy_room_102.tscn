@@ -61,7 +61,7 @@ enemys = Array[PackedScene]([ExtResource("4_a2n61"), ExtResource("5_cabvo")])
 is_random = true
 
 [node name="BouncePad" parent="." index="3" unique_id=1611631856 instance=ExtResource("6_8r7xl")]
-position = Vector2(496, 424)
+position = Vector2(504, 424)
 bounce_power = 800.0
 
 [node name="BouncePad2" parent="." index="4" unique_id=1688363949 instance=ExtResource("6_8r7xl")]
