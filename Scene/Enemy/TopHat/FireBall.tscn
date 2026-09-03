@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dyk06yx10ak4q" path="res://Component/Projectile/CharacterProjectile/character_projectile.tscn" id="1_jmtpa"]
 [ext_resource type="Texture2D" uid="uid://x7wtbx3ax2jf" path="res://Assets/Effect/Fire/1.png" id="2_dmwu6"]
+[ext_resource type="Script" uid="uid://dh4njmi7grc51" path="res://Scene/Enemy/TopHat/fire_ball.gd" id="2_hhf0u"]
 [ext_resource type="Texture2D" uid="uid://c43l6yayiu3uq" path="res://Assets/Effect/Fire/2.png" id="3_hhf0u"]
 [ext_resource type="Texture2D" uid="uid://c8vy06f3w5t7a" path="res://Assets/Effect/Fire/3.png" id="4_rlb12"]
 [ext_resource type="Texture2D" uid="uid://rn6j7rktpu85" path="res://Assets/Effect/Fire/4.png" id="5_c2s6a"]
@@ -317,6 +318,11 @@ _data = {
 }
 
 [node name="FireBall" unique_id=1749592914 instance=ExtResource("1_jmtpa")]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("2_hhf0u")
+speed = 500.0
+fire_angle = 45.0
 is_gravity = true
 
 [node name="AnimatedSprite2D" parent="VisualRoot" parent_id_path=PackedInt32Array(227830311) index="0" unique_id=1769133107]
@@ -326,7 +332,12 @@ sprite_frames = SubResource("SpriteFrames_jaa30")
 position = Vector2(7, 0)
 shape = SubResource("CircleShape2D_jhy2k")
 
-[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(556284651) index="0" unique_id=338653067]
+[node name="Hitbox" parent="." index="2" unique_id=556284651]
+collision_layer = 16
+collision_mask = 9
+damage = 10.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=338653067]
 z_index = 1
 position = Vector2(8, 0)
 shape = SubResource("CircleShape2D_g1aw3")
@@ -334,3 +345,10 @@ shape = SubResource("CircleShape2D_g1aw3")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=445325800]
 libraries/ = SubResource("AnimationLibrary_f82r1")
 autoplay = &"Fire"
+
+[node name="Timer" type="Timer" parent="." index="4" unique_id=606412595]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
