@@ -1,30 +1,31 @@
 [gd_scene format=4 uid="uid://bm7ml2ln0ohsp"]
 
-[ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_hui7o"]
-[ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="2_drutf"]
-[ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="2_nah53"]
-[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="3_i2t08"]
-[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="3_t4ejg"]
-[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="4_1mpkr"]
-[ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="4_7j4t5"]
-[ext_resource type="Texture2D" uid="uid://b6fpp52qvfsp6" path="res://Assets/Keyboard Extras (1).png" id="5_4qsxf"]
-[ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="5_7j4t5"]
-[ext_resource type="Texture2D" uid="uid://bldxpebbei5hi" path="res://Assets/Keyboard Letters and Symbols.png" id="6_slbss"]
-[ext_resource type="Script" uid="uid://cra6q5avtvxge" path="res://Scene/Room/TouchTriggerMoveTile.gd" id="7_1mpkr"]
-[ext_resource type="Texture2D" uid="uid://cdgsbs0n55y61" path="res://Assets/Weapon/swords/tile015.png" id="7_ponlk"]
-[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="8_3pdk2"]
-[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="9_kssva"]
-[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="10_fymy8"]
-[ext_resource type="PackedScene" uid="uid://2qtbep42c1xh" path="res://pickup_weapon.tscn" id="11_4qsxf"]
-[ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="12_chx6u"]
-[ext_resource type="PackedScene" uid="uid://cq67rdschcqqh" path="res://CommentMonument.tscn" id="18_ponlk"]
-[ext_resource type="PackedScene" uid="uid://t6aylwfhobjb" path="res://Scene/Player/player.tscn" id="19_3pdk2"]
-[ext_resource type="Texture2D" uid="uid://icbmrklmhvc8" path="res://Assets/UI/ObeliskPanel.png" id="19_71bsh"]
-[ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="20_fymy8"]
-[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="21_71bsh"]
+[ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_4xvur"]
+[ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="2_lw7fi"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="3_kjgrl"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="4_u4uiy"]
+[ext_resource type="Texture2D" uid="uid://b6fpp52qvfsp6" path="res://Assets/Keyboard Extras (1).png" id="5_2afhj"]
+[ext_resource type="Texture2D" uid="uid://bldxpebbei5hi" path="res://Assets/Keyboard Letters and Symbols.png" id="6_6oeuv"]
+[ext_resource type="Texture2D" uid="uid://cdgsbs0n55y61" path="res://Assets/Weapon/swords/tile015.png" id="7_77751"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="8_h7l4e"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="9_hcgl5"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="10_4q2y5"]
+[ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="11_e6jb0"]
+[ext_resource type="Script" uid="uid://cra6q5avtvxge" path="res://Scene/Room/TouchTriggerMoveTile.gd" id="12_ocyd2"]
+[ext_resource type="PackedScene" uid="uid://b47iwp7p6b4wk" path="res://Scene/DropModifier/drop_modifier.tscn" id="13_nlt4n"]
+[ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="14_dvrgk"]
+[ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="15_1or60"]
+[ext_resource type="PackedScene" uid="uid://2qtbep42c1xh" path="res://pickup_weapon.tscn" id="16_l6om5"]
+[ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="17_kvcnb"]
+[ext_resource type="PackedScene" uid="uid://cq67rdschcqqh" path="res://CommentMonument.tscn" id="18_l7fqn"]
+[ext_resource type="Texture2D" uid="uid://icbmrklmhvc8" path="res://Assets/UI/ObeliskPanel.png" id="19_1jqyj"]
+[ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="20_edw5f"]
+[ext_resource type="PackedScene" uid="uid://d06f08i6bmh5t" path="res://Scene/Room/room_enter_detector.tscn" id="20_lw7fi"]
+[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="21_gmmhl"]
+[ext_resource type="PackedScene" uid="uid://dfg54e0pp0rie" path="res://Scene/Room/next_floor_detector.tscn" id="23_kjgrl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5hoxb"]
-atlas = ExtResource("2_nah53")
+atlas = ExtResource("2_lw7fi")
 region = Rect2(721, 65, 46, 46)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jhy2k"]
@@ -49,14 +50,14 @@ atlas = SubResource("CompressedTexture2D_sr7jk")
 region = Rect2(49, 34, 13, 12)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
-font = ExtResource("3_i2t08")
+font = ExtResource("3_kjgrl")
 
 [sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
-font = ExtResource("4_1mpkr")
+font = ExtResource("4_u4uiy")
 font_size = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_fymy8"]
-font = ExtResource("4_1mpkr")
+font = ExtResource("4_u4uiy")
 font_size = 12
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fymy8"]
@@ -67,53 +68,50 @@ atlas = SubResource("CompressedTexture2D_fymy8")
 region = Rect2(64, 32, 32, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tckwt"]
-font = ExtResource("4_1mpkr")
+font = ExtResource("4_u4uiy")
 font_size = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v8c7e"]
-atlas = ExtResource("5_4qsxf")
+atlas = ExtResource("5_2afhj")
 region = Rect2(2, 18, 28, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sr7jk"]
-atlas = ExtResource("6_slbss")
+atlas = ExtResource("6_6oeuv")
 region = Rect2(1, 34, 13, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71bsh"]
-atlas = ExtResource("6_slbss")
+atlas = ExtResource("6_6oeuv")
 region = Rect2(49, 34, 13, 12)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2m1aj"]
-font = ExtResource("3_i2t08")
+font = ExtResource("3_kjgrl")
 font_size = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_mbaql"]
-font = ExtResource("4_1mpkr")
+font = ExtResource("4_u4uiy")
 font_size = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_5h6n3"]
-font = ExtResource("4_1mpkr")
+font = ExtResource("4_u4uiy")
 font_size = 24
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbaql"]
-atlas = ExtResource("19_71bsh")
+atlas = ExtResource("19_1jqyj")
 region = Rect2(64, 0, 72, 98)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5h6n3"]
-atlas = ExtResource("19_71bsh")
+atlas = ExtResource("19_1jqyj")
 region = Rect2(64, 0, 72, 98)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpjav"]
-atlas = ExtResource("19_71bsh")
+atlas = ExtResource("19_1jqyj")
 region = Rect2(64, 0, 72, 98)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muxke"]
-atlas = ExtResource("19_71bsh")
+atlas = ExtResource("19_1jqyj")
 region = Rect2(64, 0, 72, 98)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhy2k"]
-size = Vector2(242, 250)
-
-[node name="TutorialRoom" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_hui7o")]
+[node name="TutorialRoom" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_4xvur")]
 player_marker = NodePath("PlayerMarker")
 
 [node name="Control" type="Control" parent="." index="0" unique_id=563969730]
@@ -311,7 +309,7 @@ offset_left = 18.0
 offset_top = 62.0
 offset_right = 45.0
 offset_bottom = 89.0
-texture = ExtResource("7_ponlk")
+texture = ExtResource("7_77751")
 expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="Control/ModifierUI" index="3" unique_id=79967788]
@@ -320,7 +318,7 @@ offset_left = 69.0
 offset_top = 62.0
 offset_right = 96.0
 offset_bottom = 89.0
-texture = ExtResource("8_3pdk2")
+texture = ExtResource("8_h7l4e")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Control/ModifierUI" index="4" unique_id=1735279484]
@@ -329,7 +327,7 @@ offset_left = 87.0
 offset_top = 62.0
 offset_right = 114.0
 offset_bottom = 89.0
-texture = ExtResource("9_kssva")
+texture = ExtResource("9_hcgl5")
 expand_mode = 1
 
 [node name="TextureRect4" type="TextureRect" parent="Control/ModifierUI" index="5" unique_id=316973602]
@@ -338,7 +336,7 @@ offset_left = 105.0
 offset_top = 62.0
 offset_right = 132.0
 offset_bottom = 89.0
-texture = ExtResource("10_fymy8")
+texture = ExtResource("10_4q2y5")
 expand_mode = 1
 
 [node name="Modifier2UI" type="Panel" parent="Control" index="5" unique_id=166798184]
@@ -378,15 +376,39 @@ tile_map_data = PackedByteArray("AACSAOv/AAACAAUAAACSAOz/AAACAAYAAACSAO3/AAACAAc
 [node name="Decoration" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="3" unique_id=1904370471]
 tile_map_data = PackedByteArray("AACUAO//AAAFAAoAAACUAPD/AAAFAAsAAACUAOv/AAAFAAkAAACUAOz/AAAFAAoAAACEAPD/AAAHAAoAAACrAOP/AAAHAAoAAADCAOb/AAAHAAoAAABNAPT/AAAHAAoAAAB0APD/AAAEAA0AAAB1APD/AAAFAA0AAAB2APD/AAAGAA0AAAB+APD/AAAEAA0AAAB/APD/AAAFAA0AAACAAPD/AAAGAA0AAACxAOP/AAAFAA0AAAC4AOj/AAAEAA0AAAC5AOj/AAAFAA0AAAC6AOj/AAAGAA0AAACzANz/AAAKAA4AAAC0ANz/AAALAA4AAAC1ANz/AAAMAA4AAAC2ANz/AAANAA4AAAB1AOv/AAANAA4AAABeAPD/AAAIAAwAAABeAPH/AAAIAA0AAABoAO3/AAAIAAwAAABoAO7/AAAIAA0AAAB0AOz/AAAIAAwAAAB0AO3/AAAIAA0AAACBAOv/AAAIAAwAAACBAOz/AAAIAA0AAAC9AN//AAAIAAwAAAC9AOD/AAAIAA0AAADKAOL/AAAIAAwAAADKAOP/AAAIAA0AAABuAPD/BQAAABoAAABuAPH/BQAAABsAAABvAPD/BQABABoAAABvAPH/BQABABsAAACuAOL/BQAAABoAAACuAOP/BQAAABsAAACvAOL/BQABABoAAACvAOP/BQABABsAAABUAPT/AAAEAA0AAABVAPT/AAAFAA0AAABWAPT/AAAGAA0AAAB+AO7/BQAFACoAAAC1AOT/BQADACsAAAC1AOX/BQADACwAAAC2AOT/BQAEACsAAAC2AOX/BQAEACwAAACHAO7/AAAEAAwAAACIAO7/AAAFAAwAAACJAO7/AAAGAAwAAABhAO//AAAGAAwAAABWAPH/AAAEAAwAAABXAPH/AAAFAAwAAABYAPH/AAAGAAwAAACqAOD/AAAEAAwAAADDAOL/AAAEAAwAAADEAOL/AAAFAAwAAADFAOL/AAAGAAwAAACkAOH/AAAKAAoAAAClAOH/AAAKAAoAAACmAOH/AAAKAAoAAAClAOD/AAAKAAoAAACmAOD/AAAKAAoAAAClAN//AAAKAAoAAACSANL/AAACAAwAAACSANP/AAACAAwAAACSANT/AAACAAwAAACSANX/AAACAAwAAACSANb/AAACAAwAAACRANf/AAAHAAwAAACRANj/AAAHAA0AAACSANf/AAAIAAwAAACSANj/AAAIAA0AAACTANf/AAAJAAwAAACTANj/AAAJAA0AAACYANX/AAAHAAwAAACYANb/AAAHAA0AAACZANX/AAAIAAwAAACZANb/AAAIAA0AAACaANX/AAAJAAwAAACaANb/AAAJAA0AAACdANT/AAAHAAwAAACdANX/AAAHAA0AAACeANT/AAAIAAwAAACeANX/AAAIAA0AAACfANT/AAAHAA0AAACfANX/AAAJAA0AAACfANP/AAAHAAwAAACgANP/AAAIAAwAAACgANT/AAAIAA0AAAChANP/AAAJAAwAAAChANT/AAAHAAwAAAChANX/AAAHAA0AAACiANT/AAAIAAwAAACiANX/AAAIAA0AAACjANT/AAAJAAwAAACjANX/AAAJAA0AAACkANX/AAAHAAwAAACkANb/AAAHAA0AAAClANX/AAAIAAwAAAClANb/AAAIAA0AAACmANX/AAAJAAwAAACmANb/AAAJAA0AAACZANT/AAACAAwAAACZANP/AAACAAwAAACZANL/AAACAAwAAACeANP/AAACAAwAAACeANL/AAACAAwAAACgANL/AAACAAwAAACiANP/AAACAAwAAACiANL/AAACAAwAAAClANT/AAACAAwAAAClANP/AAACAAwAAAClANL/AAACAAwAAACUANP/AAAHAAwAAACVANP/AAAIAAwAAACWANP/AAAJAAwAAACUANT/AAAHAA0AAACVANT/AAAIAA0AAACWANT/AAAJAA0AAACXAN7/BQAEACUAAACXAN//BQAEACYAAACYAN7/BQAFACUAAACYAN//BQAFACYAAACaAN7/BQAAACMAAACaAN//BQAAACQAAACbAN7/BQABACMAAACbAN//BQABACQAAACfAN//BQAAACMAABCeAN//BQABACMAABCfAOD/BQABACIAAACeAOD/BQAAACIAAACiAOD/BQAAACIAABChAOD/BQABACIAABCiAN//BQAAACMAABChAN//BQABACMAABCnAOP/BQAGACcAAACoAOP/BQAGACcAABCoAOH/BQAFACkAAACcANv/BQADACkAAACcANz/BQADACoAAACdANv/BQAEACkAAACdANz/BQAEACoAAACmANv/BQADACkAAACmANz/BQADACoAAACnANv/BQAEACkAAACnANz/BQAEACoAAACTANv/BQADACkAAACTANz/BQADACoAAACUANv/BQAEACkAAACUANz/BQAEACoAAACYAOX/AgANAAYAAACYAOb/AgANAAcAAACYAOP/AgANAAYAAACYAOT/AgANAAcAAACaAOT/AgAMAAQAAACaAOX/AgAMAAUAAACaAOb/AgAMAAYAAACaAOf/AgAMAAcAAAA=")
 
-[node name="MoveTile" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=971770846 instance=ExtResource("2_drutf")]
+[node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("17_kvcnb")]
+position = Vector2(1216, -208)
+disable_collider_on_open = true
+
+[node name="Door2" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="1" unique_id=1339823600 instance=ExtResource("17_kvcnb")]
+position = Vector2(1824, -272)
+is_open = true
+disable_collider_on_open = true
+
+[node name="Door3" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="2" unique_id=1797052444 instance=ExtResource("17_kvcnb")]
+position = Vector2(2144, -272)
+is_open = true
+disable_collider_on_open = true
+
+[node name="Door4" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="3" unique_id=658487031 instance=ExtResource("17_kvcnb")]
+position = Vector2(2848, -480)
+is_open = true
+disable_collider_on_open = true
+
+[node name="Door5" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="4" unique_id=1252156771 instance=ExtResource("17_kvcnb")]
+position = Vector2(3232, -464)
+is_open = true
+disable_collider_on_open = true
+
+[node name="MoveTile" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=971770846 instance=ExtResource("11_e6jb0")]
 position = Vector2(504, 128)
 
 [node name="Line2D" parent="Traps/MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 80)
 
-[node name="MoveTile2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1051889666 instance=ExtResource("2_drutf")]
+[node name="MoveTile2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1051889666 instance=ExtResource("11_e6jb0")]
 position = Vector2(920, 192)
-script = ExtResource("7_1mpkr")
+script = ExtResource("12_ocyd2")
 
 [node name="Line2D" parent="Traps/MoveTile2" index="3" unique_id=2081624802]
 position = Vector2(0, -80)
@@ -413,14 +435,14 @@ offset_right = 2928.0
 offset_bottom = -393.0
 text = "Battle2"
 
-[node name="DropModifier" parent="." index="9" unique_id=1774769907 instance=ExtResource("3_t4ejg")]
+[node name="DropModifier" parent="." index="9" unique_id=1774769907 instance=ExtResource("13_nlt4n")]
 position = Vector2(2720, -464)
-modifier = ExtResource("4_7j4t5")
+modifier = ExtResource("14_dvrgk")
 
-[node name="OneWay" parent="." index="10" unique_id=610867179 instance=ExtResource("5_7j4t5")]
+[node name="OneWay" parent="." index="10" unique_id=610867179 instance=ExtResource("15_1or60")]
 position = Vector2(2536, -296)
 
-[node name="MoveTile" parent="." index="11" unique_id=655839382 instance=ExtResource("2_drutf")]
+[node name="MoveTile" parent="." index="11" unique_id=655839382 instance=ExtResource("11_e6jb0")]
 position = Vector2(2328, -448)
 move_speed = 0.2
 
@@ -430,31 +452,12 @@ points = PackedVector2Array(0, 0, 0, 64)
 [node name="PlayerMarker" type="Marker2D" parent="." index="12" unique_id=534369705]
 position = Vector2(-480, 208)
 
-[node name="PickupWeapon" parent="." index="13" unique_id=1811123941 node_paths=PackedStringArray("panel", "door") instance=ExtResource("11_4qsxf")]
+[node name="PickupWeapon" parent="." index="13" unique_id=1811123941 node_paths=PackedStringArray("panel", "door") instance=ExtResource("16_l6om5")]
 position = Vector2(1112, -184)
 panel = NodePath("../Control/PickUI")
-door = NodePath("../Door")
+door = NodePath("../Doors/Door")
 
-[node name="Door" parent="." index="14" unique_id=611324660 instance=ExtResource("12_chx6u")]
-position = Vector2(1216, -208)
-
-[node name="Door2" parent="." index="15" unique_id=1339823600 instance=ExtResource("12_chx6u")]
-position = Vector2(1824, -272)
-is_open = true
-
-[node name="Door3" parent="." index="16" unique_id=1797052444 instance=ExtResource("12_chx6u")]
-position = Vector2(2144, -272)
-is_open = true
-
-[node name="Door4" parent="." index="17" unique_id=658487031 instance=ExtResource("12_chx6u")]
-position = Vector2(2848, -480)
-is_open = true
-
-[node name="Door5" parent="." index="18" unique_id=1252156771 instance=ExtResource("12_chx6u")]
-position = Vector2(3232, -464)
-is_open = true
-
-[node name="TutorialMonument" parent="." index="19" unique_id=1371788584 instance=ExtResource("18_ponlk")]
+[node name="TutorialMonument" parent="." index="14" unique_id=1371788584 instance=ExtResource("18_l7fqn")]
 position = Vector2(-135, 212)
 visible_second = 6.0
 text = "勇者パーティが魔王を倒しにここへ来た。一人は剣士、もう一人は魔法使い、もう一人は僧侶、そして最後に王国の騎士。
@@ -464,7 +467,7 @@ text = "勇者パーティが魔王を倒しにここへ来た。一人は剣士
 [node name="Sprite2D" parent="TutorialMonument" index="0" unique_id=125403830]
 texture = SubResource("AtlasTexture_mbaql")
 
-[node name="TutorialMonument2" parent="." index="20" unique_id=1519172165 instance=ExtResource("18_ponlk")]
+[node name="TutorialMonument2" parent="." index="15" unique_id=1519172165 instance=ExtResource("18_l7fqn")]
 position = Vector2(353, 100)
 text = "勇者パーティは進んだ。
 魔物を蹴散らし、
@@ -475,7 +478,7 @@ text = "勇者パーティは進んだ。
 [node name="Sprite2D" parent="TutorialMonument2" index="0" unique_id=125403830]
 texture = SubResource("AtlasTexture_5h6n3")
 
-[node name="TutorialMonument3" parent="." index="21" unique_id=1549146359 instance=ExtResource("18_ponlk")]
+[node name="TutorialMonument3" parent="." index="16" unique_id=1549146359 instance=ExtResource("18_l7fqn")]
 position = Vector2(865, -138)
 text = "勇者は殺され、魔法使いは結晶へと変えられ、僧侶は魔物へと堕ちた。
 そして...
@@ -485,7 +488,7 @@ text = "勇者は殺され、魔法使いは結晶へと変えられ、僧侶は
 [node name="Sprite2D" parent="TutorialMonument3" index="0" unique_id=125403830]
 texture = SubResource("AtlasTexture_xpjav")
 
-[node name="TutorialMonument4" parent="." index="22" unique_id=230731508 instance=ExtResource("18_ponlk")]
+[node name="TutorialMonument4" parent="." index="17" unique_id=230731508 instance=ExtResource("18_l7fqn")]
 position = Vector2(1576, -186)
 text = "一度は魔王に敗れ、声を奪われ、地上へと落とされたハーレー。
 
@@ -499,35 +502,28 @@ text = "一度は魔王に敗れ、声を奪われ、地上へと落とされた
 [node name="Sprite2D" parent="TutorialMonument4" index="0" unique_id=125403830]
 texture = SubResource("AtlasTexture_muxke")
 
-[node name="Player" parent="." index="23" unique_id=1094349948 instance=ExtResource("19_3pdk2")]
-position = Vector2(-466, 191)
-
-[node name="Camera2D" type="Camera2D" parent="Player" index="14" unique_id=524271089]
-
-[node name="PlayerDetector" type="Area2D" parent="." index="24" unique_id=1742297819]
+[node name="RoomEnterDetector" parent="." index="18" unique_id=154671304 node_paths=PackedStringArray("doors") instance=ExtResource("20_lw7fi")]
 position = Vector2(1979, -294)
+doors = [NodePath("../Doors/Door2"), NodePath("../Doors/Door3")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=860248265]
-position = Vector2(-4, 0)
-shape = SubResource("RectangleShape2D_jhy2k")
+[node name="EnemySpawnPoint" parent="RoomEnterDetector/EnemySpawnPoints" parent_id_path=PackedInt32Array(154671304, 1617348518) index="0" unique_id=441511218 instance=ExtResource("20_edw5f")]
+position = Vector2(101, 14)
+enemys = Array[PackedScene]([ExtResource("21_gmmhl")])
 
-[node name="PlayerDetector2" type="Area2D" parent="." index="25" unique_id=2092369981]
+[node name="RoomEnterDetector2" parent="." index="19" unique_id=674154199 node_paths=PackedStringArray("doors") instance=ExtResource("20_lw7fi")]
 position = Vector2(3022, -454)
+doors = [NodePath("../Doors/Door4"), NodePath("../Doors/Door5")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector2" index="0" unique_id=277517878]
-shape = SubResource("RectangleShape2D_jhy2k")
+[node name="EnemySpawnPoint2" parent="RoomEnterDetector2/EnemySpawnPoints" parent_id_path=PackedInt32Array(674154199, 1617348518) index="0" unique_id=1271865656 instance=ExtResource("20_edw5f")]
+position = Vector2(98, 30)
+enemys = Array[PackedScene]([ExtResource("21_gmmhl")])
 
-[node name="EnemySpawnPoint" parent="." index="26" unique_id=441511218 instance=ExtResource("20_fymy8")]
-position = Vector2(2080, -280)
-enemys = Array[PackedScene]([ExtResource("21_71bsh")])
+[node name="EnemySpawnPoint3" parent="RoomEnterDetector2/EnemySpawnPoints" parent_id_path=PackedInt32Array(674154199, 1617348518) index="1" unique_id=1361215906 instance=ExtResource("20_edw5f")]
+position = Vector2(18, 38)
+enemys = Array[PackedScene]([ExtResource("21_gmmhl")])
 
-[node name="EnemySpawnPoint2" parent="." index="27" unique_id=1271865656 instance=ExtResource("20_fymy8")]
-position = Vector2(3120, -424)
-enemys = Array[PackedScene]([ExtResource("21_71bsh")])
-
-[node name="EnemySpawnPoint3" parent="." index="28" unique_id=1361215906 instance=ExtResource("20_fymy8")]
-position = Vector2(3040, -416)
-enemys = Array[PackedScene]([ExtResource("21_71bsh")])
+[node name="NextFloorDetector" parent="." index="21" unique_id=1352035702 instance=ExtResource("23_kjgrl")]
+position = Vector2(3566, -484)
 
 [editable path="Traps/MoveTile"]
 [editable path="Traps/MoveTile2"]
@@ -536,3 +532,5 @@ enemys = Array[PackedScene]([ExtResource("21_71bsh")])
 [editable path="TutorialMonument2"]
 [editable path="TutorialMonument3"]
 [editable path="TutorialMonument4"]
+[editable path="RoomEnterDetector"]
+[editable path="RoomEnterDetector2"]
