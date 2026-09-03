@@ -218,10 +218,14 @@ position = Vector2(640, 16)
 rotation = 3.1415927
 
 [node name="BouncePad3" parent="." index="16" unique_id=941075620 instance=ExtResource("9_m0q2n")]
-position = Vector2(160, 568)
+position = Vector2(168, 568)
+scale = Vector2(2, 2)
+bounce_power = 800.0
 
 [node name="BouncePad4" parent="." index="17" unique_id=1454316864 instance=ExtResource("9_m0q2n")]
 position = Vector2(136, 568)
+scale = Vector2(2, 2)
+bounce_power = 800.0
 
 [node name="OneWay" parent="." index="18" unique_id=1598827857 instance=ExtResource("3_flo5c")]
 position = Vector2(296, 632)

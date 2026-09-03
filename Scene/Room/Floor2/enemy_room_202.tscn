@@ -270,7 +270,8 @@ is_random = true
 [node name="Launcher" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1827001644 instance=ExtResource("2_ux4bx")]
 position = Vector2(504, 160)
 projectile_scene = ExtResource("3_wbnsp")
-projectile_facing = Vector2(0, 1)
+shoot_direction = Vector2(-1, 0)
+projectile_facing = Vector2(0, 0)
 
 [node name="Launcher2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=334228471 instance=ExtResource("2_ux4bx")]
 position = Vector2(224, 152)

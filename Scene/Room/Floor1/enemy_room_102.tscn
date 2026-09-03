@@ -61,11 +61,13 @@ enemys = Array[PackedScene]([ExtResource("4_a2n61"), ExtResource("5_cabvo")])
 is_random = true
 
 [node name="BouncePad" parent="." index="3" unique_id=1611631856 instance=ExtResource("6_8r7xl")]
-position = Vector2(504, 424)
+position = Vector2(496, 424)
+scale = Vector2(2, 2)
 bounce_power = 800.0
 
 [node name="BouncePad2" parent="." index="4" unique_id=1688363949 instance=ExtResource("6_8r7xl")]
-position = Vector2(584, 424)
+position = Vector2(592, 424)
+scale = Vector2(2, 2)
 bounce_power = 800.0
 
 [node name="Spike" parent="." index="5" unique_id=2129174175 instance=ExtResource("7_d024q")]
@@ -109,7 +111,7 @@ position = Vector2(344, 432)
 
 [node name="Launcher" parent="." index="16" unique_id=1827001644 instance=ExtResource("10_aw1c5")]
 position = Vector2(376, 264)
-fire_interval = 5.0
+fire_interval = 10.0
 projectile_scene = ExtResource("11_bjgou")
 shoot_direction = Vector2(-1, 1)
 projectile_speed = 30.0
@@ -117,6 +119,7 @@ projectile_facing = Vector2(1, -1)
 
 [node name="Launcher2" parent="." index="17" unique_id=1207621235 instance=ExtResource("10_aw1c5")]
 position = Vector2(408, 280)
+fire_interval = 8.0
 projectile_scene = ExtResource("11_bjgou")
 shoot_direction = Vector2(-1, 1)
 projectile_speed = 40.0
