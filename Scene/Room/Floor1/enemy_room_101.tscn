@@ -69,5 +69,5 @@ enemys = Array[PackedScene]([ExtResource("6_mulfa")])
 is_random = true
 
 [node name="Obelisk" parent="." index="5" unique_id=1340329694 instance=ExtResource("7_ptp4h")]
-position = Vector2(288, 200)
+position = Vector2(288, 192)
 is_obelisk_locked = false
