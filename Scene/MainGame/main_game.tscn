@@ -19,6 +19,7 @@
 script = ExtResource("1_ga214")
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
+spawn_weapon_on_spawn = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
 position = Vector2(0, -38)
