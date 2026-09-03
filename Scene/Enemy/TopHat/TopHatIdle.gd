@@ -6,7 +6,7 @@ class_name TopHatIdle
 @export var idle_timer : Timer
 
 func Enter() -> void:
-	idle_timer.wait_time = randf_range(1.0, 3.0)
+	idle_timer.wait_time = randf_range(3.0, 6.0)
 	idle_timer.start()
 	animation_player.play("Idle")
 

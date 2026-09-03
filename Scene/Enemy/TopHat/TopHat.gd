@@ -10,8 +10,6 @@ const FIRE_BALL = preload("uid://bmyrk7jftdcqv")
 @export var drop_speed : float = 900.0
 
 var bullet_num : int = 4
-var min_angle : float = -25
-var max_angle : float = 25
 var texture : Texture2D
 var center : Vector2
 
@@ -57,10 +55,10 @@ func _jump_to(target_position : Vector2) -> void:
 
 func on_slam_landed() -> void:
 	main_game_node.main_camera.shake_fade = 2
-	main_game_node.main_camera.apply_shake(12)
+	main_game_node.main_camera.apply_shake(6)
 
 func _spawn_bullet(pos : Vector2, angle : float):
-	var bullet : CharaProjectile = FIRE_BALL.instantiate()
+	var bullet : FireBall = FIRE_BALL.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = pos
 	bullet.fire_angle = angle
