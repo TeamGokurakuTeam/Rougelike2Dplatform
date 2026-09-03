@@ -114,7 +114,7 @@ position = Vector2(376, 264)
 fire_interval = 10.0
 projectile_scene = ExtResource("11_bjgou")
 shoot_direction = Vector2(-1, 1)
-projectile_speed = 30.0
+projectile_speed = 60.0
 projectile_facing = Vector2(1, -1)
 
 [node name="Launcher2" parent="." index="17" unique_id=1207621235 instance=ExtResource("10_aw1c5")]
@@ -122,5 +122,5 @@ position = Vector2(408, 280)
 fire_interval = 8.0
 projectile_scene = ExtResource("11_bjgou")
 shoot_direction = Vector2(-1, 1)
-projectile_speed = 40.0
+projectile_speed = 80.0
 projectile_facing = Vector2(1, -1)
