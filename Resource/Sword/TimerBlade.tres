@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://x1v0iys1qeuc"]
+
+[ext_resource type="Texture2D" uid="uid://bwqtl6ulf1ouk" path="res://Assets/Weapon/swords/tile006.png" id="1_ody1n"]
+[ext_resource type="PackedScene" uid="uid://bcuivphju44r3" path="res://Weapon/TimeBlade.tscn" id="2_r7sl3"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_7keds"]
+
+[resource]
+script = ExtResource("3_7keds")
+Sprite = ExtResource("1_ody1n")
+Id = "TimerBlade"
+Name = "時の剣"
+WeaponScene = ExtResource("2_r7sl3")
+Rarities = "Master"
+explanation = "通常：
+1回攻撃
+チャージ攻撃：
+時計のように一回転に斬る。チャージ攻撃をしない間チャージ攻撃の回数を最大5回までストックする
+カウンター：
+カウンター成功時に次の行うチャージ攻撃の速度を50%増加
+
+
+"
+flavor_text = "時が過ぎるほどにその剣の真価は発揮される"
+unlock_text = "？？？"
