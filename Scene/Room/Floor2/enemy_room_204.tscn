@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_jp1v6"]
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="2_jgvbo"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_gyqbp"]
+[ext_resource type="PackedScene" uid="uid://wl86qbcex6dm" path="res://Scene/Enemy/PoisonMush/PoisonMush.tscn" id="5_dfcw7"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_l3i00"]
+[ext_resource type="PackedScene" uid="uid://cuhgb0dmmo2dk" path="res://Scene/Enemy/HedoroSlime/HedoroSlime.tscn" id="6_2acjt"]
 [ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="8_053uu"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="9_l3i00"]
 [ext_resource type="PackedScene" uid="uid://c7k2yh3ls1mvg" path="res://Scene/Room/ice_magic(PoisonColor).tscn" id="9_tjo2l"]
@@ -199,27 +201,22 @@ tile_set = SubResource("TileSet_yf5fn")
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("4_gyqbp")]
 position = Vector2(600, -472)
-enemys = Array[PackedScene]([ExtResource("5_l3i00")])
+enemys = Array[PackedScene]([ExtResource("5_l3i00"), ExtResource("5_dfcw7"), ExtResource("6_2acjt")])
 is_random = true
 
 [node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=530162980 instance=ExtResource("4_gyqbp")]
-position = Vector2(704, -472)
+position = Vector2(288, -96)
 enemys = Array[PackedScene]([ExtResource("5_l3i00")])
 is_random = true
 
 [node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=643699783 instance=ExtResource("4_gyqbp")]
 position = Vector2(280, -584)
-enemys = Array[PackedScene]([ExtResource("5_l3i00")])
+enemys = Array[PackedScene]([ExtResource("5_l3i00"), ExtResource("5_dfcw7"), ExtResource("6_2acjt")])
 is_random = true
 
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=943322564 instance=ExtResource("4_gyqbp")]
 position = Vector2(512, -640)
-enemys = Array[PackedScene]([ExtResource("5_l3i00")])
-is_random = true
-
-[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=1048993679 instance=ExtResource("4_gyqbp")]
-position = Vector2(384, -704)
-enemys = Array[PackedScene]([ExtResource("5_l3i00")])
+enemys = Array[PackedScene]([ExtResource("5_dfcw7")])
 is_random = true
 
 [node name="Launcher" parent="." index="3" unique_id=1827001644 instance=ExtResource("8_053uu")]
