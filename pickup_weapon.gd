@@ -4,6 +4,7 @@ class_name PickupWeapon
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var panel : Panel
+@export var door : Door
 
 var player : Player
 var is_player_entered : bool
@@ -15,6 +16,9 @@ func _process(delta: float) -> void:
 		GameEvents.cutscene_started.emit()
 		animation_player.play("Start")
 		await animation_player.animation_finished
+		GameEvents.cutscene_ended.emit()
+		door.is_open = true
+		panel.visible = false
 		#playerに初期武器を追加する処理
 		#目の前のDoorを開ける処理
 
