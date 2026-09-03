@@ -3,9 +3,11 @@ class_name Door
 
 @onready var player_detector: Area2D = $PlayerDetector
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 @export var dir : Direction = Direction.NONE #NONEは初期値用
 @export var is_open : bool = false
+@export var disable_collider_on_open : bool = false
 
 var current_room : Room
 var teleport_to : Door
@@ -31,9 +33,15 @@ func _ready() -> void:
 
 func open() -> void:
 	animation_player.play("Open")
+	# _try_disable_colliderはアニメーション中実行
+	# ドアが開いた瞬間にdisable_collider_on_openがtrueの場合コライダーをオフにする
 
 func lock() -> void:
 	animation_player.play("Lock")
+
+func _try_disable_collider() -> void:
+	if disable_collider_on_open:
+		collision_shape.disabled = true
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if is_door_running:
@@ -45,7 +53,7 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 
 		var progression : RandomFloorProgression = main_game_node.floor_progression as RandomFloorProgression
 		if progression and progression.current_floor == 1 and \
-		   main_game_node.is_killed_floor_boss and not GlobalGameState.found_floor1_secret_room:
+			GlobalGameState.is_current_floor_boss_killed and not GlobalGameState.found_floor1_secret_room:
 
 			var connect_to_lobby : bool = (
 				current_room.room_type == RoomInfoResource.RoomType.LOBBY_ROOM or
