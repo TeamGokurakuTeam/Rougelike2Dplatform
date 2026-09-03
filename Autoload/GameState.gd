@@ -6,3 +6,4 @@ var found_floor1_secret_room : bool = false
 var current_selected_weapon : String = "A_NewWorld"
 var is_in_secret_room : bool = false
 var has_played_tutorial : bool = false
+var is_current_floor_boss_killed : bool = false

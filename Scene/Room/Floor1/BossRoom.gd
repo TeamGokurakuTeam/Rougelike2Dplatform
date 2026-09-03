@@ -38,4 +38,4 @@ func boss_summon() -> void:
 	encounter_component.register_enemy(boss)
 
 func _on_boss_is_dead() -> void:
-	main_game_node.is_killed_floor_boss = true
+	GlobalGameState.is_current_floor_boss_killed = true
