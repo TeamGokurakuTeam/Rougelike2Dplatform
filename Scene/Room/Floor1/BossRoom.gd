@@ -35,9 +35,7 @@ func boss_summon() -> void:
 	boss.global_position = boss_object.global_position
 	boss.hp_component.is_dead.connect(_on_boss_is_dead)
 	boss_object.visible = false
-	enemy_count += 1
-	GameEvents.battle_start.emit()
+	encounter_component.register_enemy(boss)
 
 func _on_boss_is_dead() -> void:
 	main_game_node.is_killed_floor_boss = true
-	_on_enemy_is_dead()

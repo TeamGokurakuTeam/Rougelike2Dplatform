@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d06f08i6bmh5t"]
+
+[ext_resource type="Script" uid="uid://dml366atve853" path="res://Scene/Room/room_enter_detector.gd" id="1_tgin6"]
+[ext_resource type="Script" uid="uid://crrfgv7fubohe" path="res://Script/Components/EncounterComponent.gd" id="2_n3tc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhy2k"]
+size = Vector2(242, 250)
+
+[node name="RoomEnterDetector" type="Area2D" unique_id=154671304]
+script = ExtResource("1_tgin6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1265304443]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_jhy2k")
+
+[node name="EncounterComponent" type="Node2D" parent="." unique_id=926091923]
+script = ExtResource("2_n3tc3")
+metadata/_custom_type_script = "uid://crrfgv7fubohe"
+
+[node name="EnemySpawnPoints" type="Node2D" parent="." unique_id=1617348518]

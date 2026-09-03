@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bjeqw5iu0387e" path="res://Assets/TileMap/spr_torch.png" id="7_h6fnw"]
 [ext_resource type="Texture2D" uid="uid://7c4wjpdpu754" path="res://Assets/TileMap/castle-tileset.png" id="8_h6fnw"]
 [ext_resource type="Texture2D" uid="uid://cawpl3cn1bsgo" path="res://Assets/TileMap/bw.png" id="9_jkrnq"]
+[ext_resource type="Script" uid="uid://crrfgv7fubohe" path="res://Script/Components/EncounterComponent.gd" id="12_6mwqc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -10438,3 +10439,8 @@ script = ExtResource("6_xyspu")
 [node name="Enemies" type="Node2D" parent="." unique_id=2057331071]
 
 [node name="Traps" type="Node2D" parent="." unique_id=348055510]
+
+[node name="EncounterComponent" type="Node2D" parent="." unique_id=1470905180]
+script = ExtResource("12_6mwqc")
+component_id = "EncounterComponent"
+metadata/_custom_type_script = "uid://crrfgv7fubohe"
