@@ -2,10 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://b0q0muwi4157i" path="res://Scene/enemy.tscn" id="1_jaa30"]
 [ext_resource type="Texture2D" uid="uid://p4hg6pmnv1t4" path="res://Assets/Enemy/Top Hat Mimic Assets/Attack01/Top Hat Mimic First Attack 1.png" id="2_3p8c0"]
+[ext_resource type="Script" uid="uid://dcxd7bl7wrho6" path="res://Scene/Enemy/TopHat/TopHat.gd" id="2_cqjqm"]
 [ext_resource type="Texture2D" uid="uid://duk7styc3yvnv" path="res://Assets/Enemy/Top Hat Mimic Assets/Attack01/Top Hat Mimic First Attack 2.png" id="3_cqjqm"]
+[ext_resource type="Script" uid="uid://yb0x5bwjnil7" path="res://Scene/Enemy/TopHat/TopHatIdle.gd" id="3_txbyp"]
 [ext_resource type="Texture2D" uid="uid://xbv5q5ttjjld" path="res://Assets/Enemy/Top Hat Mimic Assets/Attack01/Top Hat Mimic First Attack 3.png" id="4_2x5tp"]
+[ext_resource type="Script" uid="uid://bdirmyiw35hh4" path="res://Scene/Enemy/TopHat/TopHatAttack.gd" id="4_d72rp"]
+[ext_resource type="Script" uid="uid://23xitv2qbq4u" path="res://Scene/Enemy/TopHat/TopHatSmash.gd" id="4_txbyp"]
 [ext_resource type="Texture2D" uid="uid://d2rsg4l5vuefs" path="res://Assets/Enemy/Top Hat Mimic Assets/Attack01/Top Hat Mimic First Attack 4.png" id="5_txbyp"]
 [ext_resource type="Texture2D" uid="uid://dlshgt0gukygb" path="res://Assets/Enemy/Top Hat Mimic Assets/Attack01/Top Hat Mimic First Attack 5.png" id="6_d72rp"]
+[ext_resource type="Script" uid="uid://5no0h7ph7dod" path="res://Scene/Enemy/TopHat/TopHatHurt.gd" id="6_r4yci"]
 [ext_resource type="Texture2D" uid="uid://bp32enucgypfq" path="res://Assets/Enemy/Top Hat Mimic Assets/Attack01/Top Hat Mimic First Attack 6.png" id="7_r4yci"]
 [ext_resource type="Texture2D" uid="uid://f1q4htq4aoip" path="res://Assets/Enemy/Top Hat Mimic Assets/Death/Top Hat Mimic Death1.png" id="8_oh3xw"]
 [ext_resource type="Texture2D" uid="uid://b4ftqdxly0flv" path="res://Assets/Enemy/Top Hat Mimic Assets/Death/Top Hat Mimic Death2.png" id="9_vvesd"]
@@ -214,6 +219,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_3p8c0"]
 resource_name = "Hurt"
@@ -300,6 +317,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_cqjqm"]
 resource_name = "Smash"
@@ -328,10 +357,33 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 5]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.90000004, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_jaa30"]
 resource_name = "Walk"
-length = 0.39999999999999997
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -369,6 +421,40 @@ _data = {
 }
 
 [node name="TopHat" unique_id=1094349948 instance=ExtResource("1_jaa30")]
+script = ExtResource("2_cqjqm")
+jump_height_offset = 120.0
+jump_peak_offset = 150.0
+jump_duration = 0.6
+hover_duration = 0.3
+drop_speed = 900.0
+
+[node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0" unique_id=1050399846 node_paths=PackedStringArray("parent", "animation_player", "idle_timer")]
+script = ExtResource("3_txbyp")
+parent = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+idle_timer = NodePath("../../IdleTimer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="Attack" type="Node" parent="StateMachine" index="1" unique_id=1623430867 node_paths=PackedStringArray("parent", "animation_player")]
+script = ExtResource("4_d72rp")
+parent = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="Smash" type="Node" parent="StateMachine" index="2" unique_id=1607206275 node_paths=PackedStringArray("parent", "animation_player")]
+script = ExtResource("4_txbyp")
+parent = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
+[node name="Hurt" type="Node" parent="StateMachine" index="3" unique_id=1492642961 node_paths=PackedStringArray("parent", "animation_player")]
+script = ExtResource("6_r4yci")
+parent = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 sprite_frames = SubResource("SpriteFrames_nd50y")
@@ -385,6 +471,12 @@ knockback_force = 100.0
 [node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
 position = Vector2(-1, 10)
 shape = SubResource("CapsuleShape2D_jaa30")
+disabled = false
 
 [node name="AnimationPlayer" parent="." index="7" unique_id=559520988]
 libraries/ = SubResource("AnimationLibrary_s2mlw")
+
+[node name="IdleTimer" type="Timer" parent="." index="8" unique_id=621717911]
+one_shot = true
+
+[connection signal="timeout" from="IdleTimer" to="StateMachine/Idle" method="_on_timer_timeout"]
