@@ -12,8 +12,8 @@ class_name Room
 @onready var hide_wall: HideTileMap = $TileMaps/HideWall
 @onready var enemies: Node2D = $Enemies
 @onready var traps: Node2D = $Traps
+@onready var encounter_component : EncounterComponent = $EncounterComponent
 
-var enemy_count : int = 0
 var main_game_node : MainGame
 var room_type : RoomInfoResource.RoomType
 
@@ -30,7 +30,9 @@ func _initialize_room() -> void:
 	for node in get_children():
 		if node is Character:
 			node.room = self
-	
+		elif node is RoomEnterDetector:
+			node.setup(self)
+
 	if enemies:
 		for node in enemies.get_children():
 			if node is Character:
@@ -39,7 +41,14 @@ func _initialize_room() -> void:
 	if main_game_node and main_game_node.player:
 		hide_wall.player = main_game_node.player
 
-	if obelisk != null and enemy_count <= 0:
+	encounter_component.doors.assign(doors.get_children())
+	encounter_component.spawn_points.assign(enemy_spawn_points.get_children())
+	encounter_component.target_container = enemies
+	encounter_component.main_game_node = main_game_node
+	encounter_component.room = self
+	encounter_component.encounter_cleared.connect(_on_encounter_cleared)
+
+	if obelisk != null and encounter_component.enemy_count <= 0:
 		obelisk.is_obelisk_locked = false
 
 func get_door(direction : Door.Direction) -> Door:
@@ -59,15 +68,7 @@ func spawn_enemies() -> void:
 	if not can_spawn_enemy:
 		return
 	can_spawn_enemy = false
-	for point in enemy_spawn_points.get_children():
-		var enemy_point : EnemySpawnPoint = point as EnemySpawnPoint
-		enemy_point.main_game_node = self.main_game_node
-		enemy_point.target_container = enemies
-		enemy_point.animation_player.play("Spawn")
-		enemy_point.enemy_summoned.connect(_on_enemy_summoned)
-	for node in doors.get_children():
-		var door : Door = node as Door
-		door.lock()
+	encounter_component.trigger()
 	main_game_node.bgm_changer.change_bgm(battle_bgm_type)
 
 func _turn_off_all_traps() -> void:
@@ -81,23 +82,12 @@ func _turn_off_all_traps() -> void:
 			continue
 		host.get_component("TrapComponent").is_active = false
 
-func _on_enemy_summoned(enemy : Enemy) -> void:
-	enemy.room = self
-	enemy.hp_component.is_dead.connect(_on_enemy_is_dead)
-	enemy_count += 1
-	GameEvents.battle_start.emit()
-
-func _on_enemy_is_dead() -> void:
-	enemy_count -= 1
-	if enemy_count <= 0:
-		open_all_doors()
-		main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.STAGE)
-		GameEvents.battle_end.emit()
-		if obelisk != null:
-			obelisk.is_obelisk_locked = false
-		_turn_off_all_traps()
+func _on_encounter_cleared() -> void:
+	main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.STAGE)
+	GameEvents.battle_end.emit()
+	if obelisk != null:
+		obelisk.is_obelisk_locked = false
+	_turn_off_all_traps()
 
 func open_all_doors() -> void:
-	for node in doors.get_children():
-		var door : Door = node as Door
-		door.open()
+	encounter_component.open_doors()
