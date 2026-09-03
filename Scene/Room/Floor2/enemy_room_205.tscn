@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_ddtxc"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_khehm"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_gpld1"]
+[ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="4_003cm"]
 [ext_resource type="PackedScene" uid="uid://cuhgb0dmmo2dk" path="res://Scene/Enemy/HedoroSlime/HedoroSlime.tscn" id="4_gpld1"]
 [ext_resource type="PackedScene" uid="uid://wl86qbcex6dm" path="res://Scene/Enemy/PoisonMush/PoisonMush.tscn" id="5_lmqin"]
 [ext_resource type="PackedScene" uid="uid://brj530xnbbxho" path="res://Scene/Enemy/frog.tscn" id="6_fgtcb"]
@@ -37,7 +38,7 @@ position = Vector2(-32, 16)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("3_gpld1")]
 position = Vector2(480, -256)
-enemys = Array[PackedScene]([ExtResource("4_gpld1"), ExtResource("5_lmqin")])
+enemys = Array[PackedScene]([ExtResource("4_003cm")])
 is_random = true
 
 [node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=302774402 instance=ExtResource("3_gpld1")]
@@ -52,7 +53,8 @@ is_random = true
 
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=244758385 instance=ExtResource("3_gpld1")]
 position = Vector2(960, -32)
-enemys = Array[PackedScene]([ExtResource("5_lmqin")])
+enemys = Array[PackedScene]([ExtResource("5_lmqin"), ExtResource("4_gpld1")])
+is_random = true
 
 [node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=874707894 instance=ExtResource("3_gpld1")]
 position = Vector2(656, -24)
@@ -64,22 +66,27 @@ position = Vector2(1000, -352)
 
 [node name="RotatingBeam3" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=928347718 instance=ExtResource("6_lxn0i")]
 position = Vector2(544, -368)
+rotation = 2.284636
 scale = Vector2(0.5, 0.5)
 
 [node name="RotatingBeam4" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1801534232 instance=ExtResource("6_lxn0i")]
 position = Vector2(600, -112)
+rotation = -0.9250245
 scale = Vector2(0.5, 0.5)
 
 [node name="RotatingBeam7" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="2" unique_id=785204981 instance=ExtResource("6_lxn0i")]
 position = Vector2(664, -360)
+rotation = 1.3805554
 scale = Vector2(0.5, 0.5)
 
 [node name="RotatingBeam6" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="3" unique_id=1928073647 instance=ExtResource("6_lxn0i")]
 position = Vector2(656, -192)
+rotation = 4.406956
 scale = Vector2(0.5, 0.5)
 
 [node name="RotatingBeam5" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="4" unique_id=876544519 instance=ExtResource("6_lxn0i")]
 position = Vector2(408, -288)
+rotation = -0.16406095
 scale = Vector2(0.5, 0.5)
 
 [node name="RotatingBeam8" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="5" unique_id=1660721226 instance=ExtResource("6_lxn0i")]
