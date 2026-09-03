@@ -14,6 +14,9 @@ static func debug_print(msg : String) -> void:
 	if debug_mode == true:
 		print("[DEBUG][%s] %s " % [Time.get_datetime_string_from_system(), msg])
 
+static func error_print(msg : String) -> void:
+	print("[ERROR][%s] %s " % [Time.get_datetime_string_from_system(), msg])
+
 # 画面を黒にトランジションする
 static func fade_out_to_black(tree : SceneTree, duration : float = 0.8) -> void:
 	var overlay : ColorRect = TRANSITION_SCENE.instantiate()
