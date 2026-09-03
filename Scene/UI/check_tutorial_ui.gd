@@ -1,6 +1,9 @@
 extends Control
 class_name CheckTutorialUI
 
+@export_category("デバッグ")
+@export var start_on_ready : bool = true
+
 @onready var do_it: Button = $Panel/DoIt
 @onready var not_doing: Button = $Panel/NotDoing
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -8,7 +11,14 @@ class_name CheckTutorialUI
 var ui_tween : Tween = null
 
 func _ready() -> void:
+	if start_on_ready:
+		animation_player.play("Start")
+
+func show_ui() -> void:
 	animation_player.play("Start")
+
+func hide_ui() -> void:
+	animation_player.play("End")
 
 #region Signal
 

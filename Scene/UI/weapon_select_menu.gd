@@ -9,12 +9,15 @@ const WEAPON_SELECT_PANEL = preload("uid://bj4lwbxdk6ctk")
 @onready var carouse_container: CarouseContainer = $CarouseContainer
 @onready var panel_container: Control = $CarouseContainer/PanelContainer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var check_tutorial_ui: CheckTutorialUI = $CheckTutorialUI
 
 var title : TitleUI
 var main_game_scene : PackedScene
+var tutorial_game_scene : PackedScene
 
 func _ready() -> void:
 	animation_player.play("Start")
+	tutorial_game_scene = load("uid://cskviypw4dau5")
 	main_game_scene = load("uid://b4i3w233507yf")
 	for key in GlobalResourceLoader.weapon_cache.keys():
 		var panel_node : WeaponSelectPanel = WEAPON_SELECT_PANEL.instantiate()
@@ -47,7 +50,14 @@ func _on_panel_button_pressed() -> void:
 	
 	if selected_id != "":
 		GlobalGameState.current_selected_weapon = selected_id
-	
+
+	if not GlobalGameState.has_played_tutorial:
+		check_tutorial_ui.show_ui()
+	else:
+		_change_to_game_scene(main_game_scene)
+
+
+func _change_to_game_scene(game_scene : PackedScene) -> void:
 	var start_tween : Tween = create_tween()
 	start_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	start_tween.tween_property(title.audio_stream_player, "volume_db", -80, 0.5)
@@ -55,7 +65,7 @@ func _on_panel_button_pressed() -> void:
 	animation_player.play("End")
 	await animation_player.animation_finished
 	await Common.fade_out_to_black(get_tree())
-	get_tree().change_scene_to_packed(main_game_scene)
+	get_tree().change_scene_to_packed(game_scene)
 
 func _on_left_pressed() -> void:
 	carouse_container.left()
@@ -66,5 +76,11 @@ func _on_right_pressed() -> void:
 func _on_back_pressed() -> void:
 	title._end_tween_transition()
 	queue_free()
-	
-	
+
+func _on_tutorial_do_it_pressed() -> void:
+	GlobalGameState.has_played_tutorial = true
+	_change_to_game_scene(tutorial_game_scene)
+
+func _on_tutorial_not_do_it_pressed() -> void:
+	GlobalGameState.has_played_tutorial = true
+	_change_to_game_scene(main_game_scene)
