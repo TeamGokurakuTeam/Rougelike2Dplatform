@@ -185,7 +185,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s7xgc"]
-radius = 22.0
+radius = 23.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jaa30"]
 size = Vector2(42, 49)
@@ -197,6 +197,7 @@ height = 54.0
 [sub_resource type="Animation" id="Animation_2x5tp"]
 resource_name = "Attack"
 length = 0.6
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -263,6 +264,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 0, 1, 2]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_q4qjw"]
 resource_name = "Idle"
@@ -292,6 +305,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_hkueo"]
@@ -327,6 +352,18 @@ tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -368,21 +405,22 @@ tracks/2/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.90000004, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.5, 1.5, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, false, true]
+"values": [true, true, false, false, true, true]
 }
-tracks/3/type = "method"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".")
+tracks/3/path = NodePath("CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_jaa30"]
@@ -413,6 +451,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s2mlw"]
 _data = {
@@ -431,6 +481,9 @@ jump_peak_offset = 150.0
 jump_duration = 0.5
 hover_duration = 0.4
 drop_speed = 900.0
+friction = 0.3
+max_speed = 180.0
+acceleration = 25
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")
@@ -442,10 +495,11 @@ animation_player = NodePath("../../AnimationPlayer")
 idle_timer = NodePath("../../IdleTimer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Attack" type="Node" parent="StateMachine" index="1" unique_id=1623430867 node_paths=PackedStringArray("parent", "animation_player")]
+[node name="Attack" type="Node" parent="StateMachine" index="1" unique_id=1623430867 node_paths=PackedStringArray("parent", "animation_player", "attack_timer")]
 script = ExtResource("4_d72rp")
 parent = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
+attack_timer = NodePath("../../AttackTimer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="Smash" type="Node" parent="StateMachine" index="2" unique_id=1607206275 node_paths=PackedStringArray("parent", "animation_player")]
@@ -487,4 +541,11 @@ libraries/ = SubResource("AnimationLibrary_s2mlw")
 [node name="IdleTimer" type="Timer" parent="." index="8" unique_id=621717911]
 one_shot = true
 
+[node name="AttackTimer" type="Timer" parent="." index="9" unique_id=203121200]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="recieved_damage" from="Hurtbox" to="StateMachine/Idle" method="_on_hurtbox_recieved_damage"]
+[connection signal="recieved_damage" from="Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_recieved_damage"]
 [connection signal="timeout" from="IdleTimer" to="StateMachine/Idle" method="_on_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="StateMachine/Attack" method="_on_attack_timer_timeout"]

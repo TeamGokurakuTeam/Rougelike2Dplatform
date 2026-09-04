@@ -9,7 +9,7 @@ const FIRE_BALL = preload("uid://bmyrk7jftdcqv")
 @export var hover_duration : float = 0.3
 @export var drop_speed : float = 900.0
 
-var bullet_num : int = 4
+var bullet_num : int = 5
 var texture : Texture2D
 var center : Vector2
 
@@ -64,3 +64,18 @@ func _spawn_bullet(pos : Vector2, angle : float):
 	bullet.fire_angle = angle
 	main_game_node.main_camera.shake_fade = 2
 	main_game_node.main_camera.apply_shake(8)
+
+func set_target(target_pos : Vector2) -> void:
+	navigation_agent.target_position = target_pos
+
+func move_toward_player() -> void:
+	if navigation_agent.is_navigation_finished():
+		return
+	
+	var next_pos : Vector2 = navigation_agent.get_next_path_position()
+	var dir : Vector2 = (next_pos - global_position).normalized()
+	
+	velocity.x = dir.x * max_speed
+	
+	if dir.y < -0.9 and is_on_floor():
+		velocity.y = jump_velocity
