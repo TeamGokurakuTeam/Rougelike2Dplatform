@@ -8,13 +8,9 @@ func _on_player_detecotor_body_entered(body: Node2D) -> void:
 	if body is Player:
 		GameEvents.cutscene_started.emit()
 		main_game_node.player_ui.ui_fade_in()
-		await get_tree().create_timer(1.0).timeout
+		await Common.fade_out_to_black(get_tree())
 		main_game_node.change_camera(camera_2d)
-		main_game_node.player_ui.ui_fade_out()
-		main_game_node.player_ui.visible = false
-		await get_tree().create_timer(1.0).timeout
+		await Common.fade_in_from_black()
 		animation_player.play("CutScene")
 		await animation_player.animation_finished
-		main_game_node.player_ui.ui_fade_in()
-		await get_tree().create_timer(1.0).timeout
 		GameEvents.next_floor_entered.emit()

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b4i3w233507yf" path="res://Scene/MainGame/main_game.tscn" id="1_b4jyo"]
 [ext_resource type="Script" uid="uid://d4c0pohskoxsr" path="res://Scene/MainGame/TutorialFloorProgression.gd" id="2_3ybuh"]
+[ext_resource type="AudioStream" uid="uid://b5yklftetsrfb" path="res://Assets/Music/373 [Misc Extras] bgm_gojira_battle_A.ogg" id="2_mdu5u"]
 [ext_resource type="Script" uid="uid://cx4wnjkqat3tv" path="res://Resource/FloorLayout/FloorRoomEntry.gd" id="3_mdu5u"]
 [ext_resource type="Resource" uid="uid://b5rmuesk4bkqi" path="res://Resource/RoomInfo/Tutorial/tutorial_room.tres" id="4_d7tow"]
 [ext_resource type="Script" uid="uid://mos58qf0i3m8" path="res://Resource/FloorLayout/FloorLayoutResource.gd" id="5_3bwi5"]
@@ -23,6 +24,10 @@ metadata/_custom_type_script = "uid://mos58qf0i3m8"
 
 [node name="Player" parent="." index="0" unique_id=1094349948]
 spawn_weapon_on_spawn = false
+
+[node name="Stage" parent="BGMChanger" parent_id_path=PackedInt32Array(9408269) index="0" unique_id=1112841277]
+stream = ExtResource("2_mdu5u")
+volume_db = -20.0
 
 [node name="FloorProgression" parent="." index="8" unique_id=1678658979]
 script = ExtResource("2_3ybuh")
