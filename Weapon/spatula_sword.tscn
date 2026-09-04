@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://bd5n5mee0e1i1"]
+[gd_scene format=3 uid="uid://bwxqa5e7epo7n"]
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_8k8ak"]
-[ext_resource type="Texture2D" uid="uid://c1wqyyp2r6b8w" path="res://Assets/Image/swords/Hera.png" id="2_jlkn3"]
+[ext_resource type="Texture2D" path="res://Assets/Image/swords/Hera.png" id="2_jlkn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72ssk"]
 size = Vector2(15.290501, 12.113258)
@@ -107,3 +107,6 @@ shape = SubResource("RectangleShape2D_72ssk")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]
 libraries/ = SubResource("AnimationLibrary_qf3e1")
+
+[node name="Charge" parent="." index="3" unique_id=1009231787]
+bus = &"Master"

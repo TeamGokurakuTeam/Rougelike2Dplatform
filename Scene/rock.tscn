@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dqiu3v1k0xk63"]
+
+[ext_resource type="PackedScene" uid="uid://dyk06yx10ak4q" path="res://Component/Projectile/CharacterProjectile/character_projectile.tscn" id="1_7tgmd"]
+[ext_resource type="Texture2D" uid="uid://dufs6hyelkf5p" path="res://Assets/Blighted_Stone_Catalyst.png" id="2_jf6km"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qkuds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jf6km")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uo1lp"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxg33"]
+
+[node name="Rock" unique_id=2047208876 instance=ExtResource("1_7tgmd")]
+collision_layer = 0
+collision_mask = 8
+speed = 500.0
+fire_angle = 45.0
+is_gravity = true
+
+[node name="AnimatedSprite2D" parent="VisualRoot" parent_id_path=PackedInt32Array(227830311) index="0" unique_id=1769133107]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_qkuds")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1836529520]
+shape = SubResource("CapsuleShape2D_uo1lp")
+
+[node name="Hitbox" parent="." index="2" unique_id=556284651]
+collision_layer = 16
+collision_mask = 8
+damage = 3.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=338653067]
+shape = SubResource("RectangleShape2D_pxg33")
+
+[node name="Timer" type="Timer" parent="." index="3" unique_id=1879135262]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
