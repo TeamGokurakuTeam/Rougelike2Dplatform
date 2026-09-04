@@ -2,6 +2,8 @@ extends Weapon
 class_name TimeBlade
 
 @onready var charge_particle_2: GPUParticles2D = $ChargeParticle2
+@onready var charge_particle_3: GPUParticles2D = $ChargeParticle3
+
 
 var strong_attack_count := 0
 var strong_attack_queue := 0
@@ -69,6 +71,7 @@ func _on_animation_started(anim_name: StringName) -> void:
 		is_playing_multi_strong = true
 		strong_attack_count = 0
 		charge_particle_2.emitting = false
+		charge_particle_3.emitting = false
 		if apply_counter_speed_once:
 			animation_player.speed_scale += counter_speed_bonus
 			apply_counter_speed_once = false
@@ -87,7 +90,10 @@ func _on_auto_counter_timeout() -> void:
 	strong_attack_count += 1
 	if strong_attack_count > 5:
 		strong_attack_count = 5
+	if strong_attack_count == 3:
+		charge_particle_3.emitting = true
 	if strong_attack_count == 5:
+		charge_particle_3.emitting = false
 		charge_particle_2.emitting = true
 
 func _apply_weapon_strongattack_modifiers() -> void:
