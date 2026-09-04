@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_jp1v6"]
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="2_jgvbo"]
+[ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="3_2acjt"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_gyqbp"]
 [ext_resource type="PackedScene" uid="uid://wl86qbcex6dm" path="res://Scene/Enemy/PoisonMush/PoisonMush.tscn" id="5_dfcw7"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_l3i00"]
@@ -198,6 +199,20 @@ tile_map_data = PackedByteArray("AAAUAN7/BAAOAAgAAAAUAN//BAAOAAkAAAASAN7/BAAOAAo
 self_modulate = Color(0, 18.892157, 0, 1)
 tile_map_data = PackedByteArray("AAAXAN3/AAAOAAsAAGAWAN3/AAAOAAoAAGAZAN3/AAAJAA0AAAAYAN3/AAAIAA0AAAAbAN3/AAAOAA0AAGAaAN3/AAAOAAwAAGAYANr/AAAMAAgAABAXANr/AAANAAgAABAWANr/AAAOAAgAABAVANr/AAAPAAgAABAYANv/AAAMAAkAABAXANv/AAANAAkAABAWANv/AAAOAAkAABAVANv/AAAPAAkAABAZANv/AAAOAAoAAGAZANr/AAAPAAoAAGAaANv/AAAOAAsAAGAaANr/AAAPAAsAAGAbANv/AAAOAAwAAGAbANr/AAAPAAwAAGAcANv/AAAOAA0AAGAcANr/AAAPAA0AAGAbANz/AAAPAA0AAGAaANz/AAAPAAwAAGAZANz/AAAJAAwAAAAYANz/AAAIAAwAAAAXANz/AAAPAAsAAGAWANz/AAAPAAoAAGAMANH/AAAOAAoAABALANH/AAAPAAoAABAMANL/AAAOAAsAABALANL/AAAPAAsAABAMANX/AAAOAAoAABALANX/AAAPAAoAABAMANb/AAAOAAsAABALANb/AAAPAAsAABALANf/AAAKAAwAAAALANj/AAAKAA0AAAAMANf/AAALAAwAAAAMANj/AAALAA0AAAALANP/AAAOAAwAAAALANT/AAAOAA0AAAAMANP/AAAPAAwAAAAMANT/AAAPAA0AAAA=")
 tile_set = SubResource("TileSet_yf5fn")
+
+[node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("3_2acjt")]
+position = Vector2(16, -32)
+dir = 3
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door" index="5" unique_id=49890039]
+position = Vector2(24, 0)
+
+[node name="Door2" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="1" unique_id=631507377 instance=ExtResource("3_2acjt")]
+position = Vector2(336, -416)
+dir = 4
+
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="5" unique_id=1537373561]
+position = Vector2(-40, 0)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("4_gyqbp")]
 position = Vector2(600, -472)
