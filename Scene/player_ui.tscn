@@ -14,6 +14,18 @@
 [ext_resource type="AudioStream" uid="uid://bghhfikimshyj" path="res://Assets/SoundEffect/UIOpen.mp3" id="13_w7iic"]
 [ext_resource type="AudioStream" uid="uid://si6hgmjjstg3" path="res://Assets/SoundEffect/UIClick.mp3" id="14_mgl1o"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
+atlas = ExtResource("9_0pu00")
+region = Rect2(4, 2, 24, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+font = ExtResource("10_okfkp")
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(1, 1, 1, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
 bg_color = Color(0.21590185, 0.21590167, 0.2159017, 1)
 border_width_left = 1
@@ -195,18 +207,6 @@ _data = {
 font_size = 12
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
-atlas = ExtResource("9_0pu00")
-region = Rect2(4, 2, 24, 12)
-
-[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
-font = ExtResource("10_okfkp")
-font_size = 12
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 2
-shadow_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gj3l6"]
 bg_color = Color(0, 0, 0, 0.8117647)
@@ -415,6 +415,25 @@ layout_mode = 2
 layout_mode = 1
 mouse_filter = 1
 
+[node name="TAB" type="TextureRect" parent="Parent/ModUI" unique_id=378722646]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 271.0
+offset_right = 418.47617
+offset_bottom = 287.0
+texture = SubResource("AtlasTexture_jhy2k")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Parent/ModUI/TAB" unique_id=586158396]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 1.0
+offset_right = 121.0
+offset_bottom = 24.0
+text = ":武器ステータス"
+label_settings = SubResource("LabelSettings_5hoxb")
+
 [node name="ModContainer" parent="Parent/ModUI/Control/CarouseContainer" parent_id_path=PackedInt32Array(1180346681, 438782455) index="0" unique_id=154540731]
 offset_left = 0.0
 offset_top = 247.0
@@ -492,24 +511,6 @@ clip_text = true
 layout_mode = 1
 
 [node name="WeaponModifierUI" parent="." unique_id=1151445566 instance=ExtResource("8_yegcq")]
-
-[node name="TAB" type="TextureRect" parent="." unique_id=378722646]
-offset_left = 388.0
-offset_top = 271.0
-offset_right = 418.47617
-offset_bottom = 287.0
-texture = SubResource("AtlasTexture_jhy2k")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="TAB" unique_id=586158396]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 1.0
-offset_right = 121.0
-offset_bottom = 24.0
-text = ":武器ステータス"
-label_settings = SubResource("LabelSettings_5hoxb")
 
 [node name="GameOver" type="Panel" parent="." unique_id=1010778895]
 visible = false
