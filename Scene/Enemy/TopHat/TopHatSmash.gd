@@ -4,10 +4,11 @@ class_name TopHatSmash
 @export var parent : TopHat
 @export var animation_player : AnimationPlayer
 
-var min_angle : float = -25
-var max_angle : float = 25
+var min_angle : float = -30
+var max_angle : float = 30
 
 func Enter() -> void:
+	parent.sprite.self_modulate = Color("ffffff")
 	var player : Player = get_tree().get_first_node_in_group("Player")
 	animation_player.play("Smash")
 	parent.jump_slam_attack(player)
@@ -15,7 +16,7 @@ func Enter() -> void:
 	StateTransitioned.emit(self, "Idle")
 
 func Exit() -> void:
-	pass
+	parent.sprite.self_modulate = Color("ffffff")
 
 func Update(delta) -> void:
 	pass
