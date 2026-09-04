@@ -8,8 +8,9 @@
 [ext_resource type="Material" uid="uid://d2b7yscsepnje" path="res://Weapon/New/Charge.tres" id="4_7oc6y"]
 [ext_resource type="Texture2D" uid="uid://cq8b4v8smvl6g" path="res://Assets/Weapon/Effect/SlashBomb/TimerEffects/pipo-btleffect212_192.png" id="4_mga5i"]
 [ext_resource type="Texture2D" uid="uid://ctgsmkr4wjh74" path="res://Assets/Weapon/Effect/SlashBomb/TimerEffects/pipo-btleffect213_192.png" id="5_irivq"]
-[ext_resource type="AudioStream" uid="uid://c7gtjb55lijbn" path="res://Assets/SoundEffect/TimerBlade斬る.mp3" id="9_p2ltp"]
+[ext_resource type="AudioStream" uid="uid://dkmxj1ia2fkra" path="res://Assets/SoundEffect/Gosuperu.mp3" id="9_0b1pf"]
 [ext_resource type="AudioStream" uid="uid://bkpljy6wg6b1g" path="res://Assets/SoundEffect/TimerBlade時計の針.mp3" id="10_0b1pf"]
+[ext_resource type="AudioStream" uid="uid://cdujlm6lahshx" path="res://Assets/SoundEffect/Dasuperu.mp3" id="10_4tmch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78bwo"]
 size = Vector2(12, 46)
@@ -272,10 +273,10 @@ tracks/0/path = NodePath("Root:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.40000004, 0.5, 0.6, 0.70000005, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.0379913047817837, 0.13940144424587686, 0.7853982, 1.4313950198871694, 1.6087876752880703, 1.5707964, 1.5446245846898563, 1.6668284694894595, 2.1118484139442444, 2.556868422897459, 2.6790722431986325, 2.6790721, 6.2831855]
+"values": [0.0, 1.5707964, 1.5707964, 3.1415927, 3.1415927, 4.712389, 4.712389, 6.2831855, 6.2831855]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -388,38 +389,14 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Slash:playing")
+tracks/10/path = NodePath("NormalAttack:playing")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Slash:pitch_scale")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.4, 1.4]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Slash:volume_db")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-16.0, -16.0]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_7oc6y"]
@@ -476,58 +453,46 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Slash:pitch_scale")
+tracks/4/path = NodePath("Root:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3000001, 1.3333334, 1.3666667, 1.4, 1.4333334, 1.4666667, 1.5, 1.5333333, 1.5666667, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8000001, 1.8333334, 1.8666667, 1.9, 1.9333334, 1.9666667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [3.21, 3.21]
+"values": [0.0, 0.7853982, 1.5707964, 1.5707964, 2.3561945, 2.3615567585621093, 2.336160661918811, 2.488401927693907, 2.74889375902383, 3.009385473320293, 3.161626622061931, 3.136230455198558, 3.1415927, 3.1481452551102223, 3.1304793407957163, 3.1121063105397297, 3.177441084950445, 3.2894220345942387, 3.4369008832942143, 3.631682605170141, 3.7791615240901706, 3.891142473733965, 3.9564771779246257, 3.938104147668639, 3.920438233354133, 3.9269907, 3.9370419085597206, 3.90023558806854, 3.924735606333641, 4.041321177767948, 4.2066793897226304, 4.432700373445414, 4.598058538586713, 4.714644180241095, 4.7391441516928126, 4.702337831201632, 4.712389, 4.729231605013098, 4.674397684644589, 4.672321323837622, 4.851790540761527, 5.1197110240550785, 5.497787424420892, 5.875863731159939, 6.14378421445349, 6.323253244123862, 6.321176602436594, 6.266342962948386, 6.2831855]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Root:rotation")
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.33333334, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3000001, 1.3333334, 1.3666667, 1.4, 1.4333334, 1.4666667, 1.5, 1.5333333, 1.5666667, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8000001, 1.8333334, 1.8666667, 1.9, 1.9333334, 1.9666667, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.7853982, 1.5707964, 2.3561945, 2.3615567585621093, 2.336160661918811, 2.488401927693907, 2.7488937590238294, 3.009385473320293, 3.161626622061931, 3.1362304551985574, 3.1415927, 3.1481452551102223, 3.1304793407957163, 3.1121063105397297, 3.177441084950445, 3.2894220345942387, 3.4369008832942143, 3.631682605170141, 3.7791615240901706, 3.8911424737339644, 3.9564771779246257, 3.938104147668639, 3.920438233354133, 3.9269907, 3.9370419085597206, 3.90023558806854, 3.924735606333641, 4.041321177767948, 4.2066793897226304, 4.432700373445414, 4.598058538586713, 4.714644180241095, 4.7391441516928126, 4.702337831201632, 4.712389, 4.729231605013098, 4.674397684644589, 4.672321323837622, 4.851790540761527, 5.1197110240550785, 5.497787424420892, 5.875863731159939, 6.14378421445349, 6.323253244123862, 6.321176602436594, 6.266342962948386, 6.2831855]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.43333334, 0.5, 0.7089763, 0.9, 1.1167946, 1.3, 1.5057904, 1.6940142, 1.8885121),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, false, true, false, true, false, true, false, true, false]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("AudioStreamPlayer:pitch_scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.7, 1.7]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("AudioStreamPlayer:volume_db")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -1022,7 +987,7 @@ tracks/20/keys = {
 }
 tracks/21/type = "value"
 tracks/21/imported = false
-tracks/21/enabled = true
+tracks/21/enabled = false
 tracks/21/path = NodePath("AudioStreamPlayer:playing")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
@@ -1034,7 +999,7 @@ tracks/21/keys = {
 }
 tracks/22/type = "value"
 tracks/22/imported = false
-tracks/22/enabled = true
+tracks/22/enabled = false
 tracks/22/path = NodePath("AudioStreamPlayer:pitch_scale")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
@@ -1046,7 +1011,7 @@ tracks/22/keys = {
 }
 tracks/23/type = "value"
 tracks/23/imported = false
-tracks/23/enabled = true
+tracks/23/enabled = false
 tracks/23/path = NodePath("AudioStreamPlayer:volume_db")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
@@ -1055,18 +1020,6 @@ tracks/23/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-3.0]
-}
-tracks/24/type = "value"
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/path = NodePath("Slash:volume_db")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-11.616]
 }
 
 [sub_resource type="Animation" id="Animation_mga5i"]
@@ -1183,50 +1136,38 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Root/Hitbox:damage")
+tracks/9/path = NodePath("Slash:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 1.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [10.0, 10.0]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Slash:playing")
+tracks/10/path = NodePath("Slash:pitch_scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.35),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Slash:pitch_scale")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "times": PackedFloat32Array(0, 1.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.4, 1.4]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Slash:volume_db")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0, 1.3),
-"transitions": PackedFloat32Array(1, 1),
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Root/Hitbox:damage")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-11.616, -11.616]
+"values": [5.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kv42n"]
@@ -1298,11 +1239,15 @@ texture = ExtResource("3_jbkln")
 process_material = ExtResource("4_7oc6y")
 
 [node name="Slash" type="AudioStreamPlayer" parent="." index="7" unique_id=1267870820]
-stream = ExtResource("9_p2ltp")
-volume_db = -11.616
+stream = ExtResource("9_0b1pf")
+volume_db = -16.0
 pitch_scale = 1.4
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="8" unique_id=175229747]
+[node name="NormalAttack" type="AudioStreamPlayer" parent="." index="8" unique_id=717225301]
+stream = ExtResource("10_4tmch")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9" unique_id=175229747]
 stream = ExtResource("10_0b1pf")
-volume_db = -3.0
-pitch_scale = 1.39
+volume_db = -2.0
+pitch_scale = 1.7
