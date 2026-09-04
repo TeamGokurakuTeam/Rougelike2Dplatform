@@ -2,23 +2,27 @@ extends CharacterBody2D
 class_name CharaProjectile
 
 @export var speed : float = 200
-@export var direction : Vector2 = Vector2.LEFT
+@export var direction : Vector2 = Vector2.UP
+@export var fire_angle : float = 30 :
+	set(value):
+		velocity = speed * direction.rotated(deg_to_rad(value))
+@export var is_gravity : bool = false
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $VisualRoot/AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hitbox: Hitbox = $Hitbox
+
+func _ready() -> void:
+	velocity = speed * direction.rotated(deg_to_rad(fire_angle))
 
 func _physics_process(delta: float) -> void:
 	#position += speed * direction * delta
-	velocity = speed * direction
-	velocity = velocity.limit_length(speed)
+	if is_gravity:
+		var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
+		velocity.y += gravity_value * delta
+		
 	sprite.rotation = direction.angle()
-	
-	var collided : KinematicCollision2D = move_and_collide(velocity)
-	if collided:
-		var normal : Vector2 = collided.get_normal()
-		direction = velocity.bounce(normal).normalized()
+	move_and_slide()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	self.queue_free()
@@ -38,4 +42,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func destory() -> void:
 	speed = 0
-	animation_player.play(&"destroy")
+	queue_free()
+
+func _on_timer_timeout() -> void:
+	destory()

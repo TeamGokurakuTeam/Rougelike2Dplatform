@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://byoe8yma55ih3"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_fte5j"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_jetnr"]
+
+[resource]
+script = ExtResource("1_fte5j")
+ModifierRank = 1
+texture = ExtResource("2_jetnr")
+modifier_id = "DampingSpeedUp"
+modifier_name = "衰退し加速する"
+color_rarity = Color(1, 0.101960786, 0.101960786, 1)
+explanation = "全ての攻撃ダメージが半減する代わりに全ての攻撃速度を1.2倍上昇させる。（重複可能）"
+price = 3
