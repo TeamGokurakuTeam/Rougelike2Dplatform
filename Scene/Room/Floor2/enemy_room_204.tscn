@@ -272,20 +272,14 @@ projectile_scene = ExtResource("9_tjo2l")
 projectile_speed = 100.0
 projectile_facing = Vector2(0, 1)
 
-[node name="MoveTile2" parent="." index="9" unique_id=314708039 instance=ExtResource("10_atxd6")]
-position = Vector2(600, -528)
-
-[node name="Line2D" parent="MoveTile2" index="3" unique_id=2081624802]
-points = PackedVector2Array(0, 0, 0, 56)
-
-[node name="MoveTile6" parent="." index="10" unique_id=1614813917 instance=ExtResource("10_atxd6")]
+[node name="MoveTile6" parent="." index="9" unique_id=1614813917 instance=ExtResource("10_atxd6")]
 position = Vector2(376, -136)
 move_speed = 0.4
 
 [node name="Line2D" parent="MoveTile6" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, 72)
 
-[node name="MoveTile7" parent="." index="11" unique_id=762623052 instance=ExtResource("10_atxd6")]
+[node name="MoveTile7" parent="." index="10" unique_id=762623052 instance=ExtResource("10_atxd6")]
 position = Vector2(440, -200)
 move_speed = 0.4
 
@@ -293,48 +287,41 @@ move_speed = 0.4
 position = Vector2(8, 24)
 points = PackedVector2Array(-8, -24, -8, 40, -72, -24)
 
-[node name="OneWay2" parent="MoveTile7" index="4" unique_id=610867179 instance=ExtResource("9_l3i00")]
-position = Vector2(232, -328)
-
-[node name="OneWay3" parent="MoveTile7" index="5" unique_id=1317637291 instance=ExtResource("9_l3i00")]
-position = Vector2(160, -408)
-
-[node name="OneWay4" parent="MoveTile7" index="6" unique_id=1429703687 instance=ExtResource("9_l3i00")]
-position = Vector2(-240, -360)
-
-[node name="OneWay5" parent="MoveTile7" index="7" unique_id=1651488721 instance=ExtResource("9_l3i00")]
-position = Vector2(-240, -296)
-
-[node name="OneWay6" parent="MoveTile7" index="8" unique_id=713332669 instance=ExtResource("9_l3i00")]
-position = Vector2(-240, -232)
-
-[node name="MoveTile8" parent="." index="12" unique_id=1337649389 instance=ExtResource("10_atxd6")]
+[node name="MoveTile8" parent="." index="11" unique_id=1337649389 instance=ExtResource("10_atxd6")]
 position = Vector2(376, -288)
 move_speed = 0.4
 
 [node name="Line2D" parent="MoveTile8" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 64, 0, 0, 56)
 
-[node name="MoveTile9" parent="." index="13" unique_id=1811318939 instance=ExtResource("10_atxd6")]
+[node name="MoveTile9" parent="." index="12" unique_id=1811318939 instance=ExtResource("10_atxd6")]
 position = Vector2(440, -376)
 move_speed = 0.4
 
 [node name="Line2D" parent="MoveTile9" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -64, 40, -64, -40)
 
-[node name="MoveTile10" parent="." index="14" unique_id=1995425460 instance=ExtResource("10_atxd6")]
+[node name="MoveTile10" parent="." index="13" unique_id=1995425460 instance=ExtResource("10_atxd6")]
 position = Vector2(376, -448)
 
-[node name="OneWay" parent="." index="17" unique_id=1332753047 instance=ExtResource("9_l3i00")]
-position = Vector2(200, -432)
-
-[node name="OneWay2" parent="." index="18" unique_id=1280586019 instance=ExtResource("9_l3i00")]
-position = Vector2(200, -496)
-
-[node name="OneWay3" parent="." index="19" unique_id=578216218 instance=ExtResource("9_l3i00")]
+[node name="OneWay3" parent="." index="16" unique_id=578216218 instance=ExtResource("9_l3i00")]
 position = Vector2(200, -56)
 
-[editable path="MoveTile2"]
+[node name="OneWay2" parent="." index="17" unique_id=610867179 instance=ExtResource("9_l3i00")]
+position = Vector2(672, -528)
+
+[node name="OneWay4" parent="." index="18" unique_id=1317637291 instance=ExtResource("9_l3i00")]
+position = Vector2(600, -608)
+
+[node name="OneWay5" parent="." index="19" unique_id=1429703687 instance=ExtResource("9_l3i00")]
+position = Vector2(200, -560)
+
+[node name="OneWay6" parent="." index="20" unique_id=1651488721 instance=ExtResource("9_l3i00")]
+position = Vector2(200, -496)
+
+[node name="OneWay7" parent="." index="21" unique_id=713332669 instance=ExtResource("9_l3i00")]
+position = Vector2(200, -432)
+
 [editable path="MoveTile6"]
 [editable path="MoveTile7"]
 [editable path="MoveTile8"]
