@@ -21,12 +21,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6180"]
 size = Vector2(20, 5.7842293)
 
-[node name="Spike" type="Area2D" unique_id=2129174175]
+[node name="Spike" type="Area2D" unique_id=761134789]
 process_mode = 1
 collision_layer = 16
 collision_mask = 8
 script = ExtResource("1_bw3ky")
 damage = 2.0
+is_continuous = true
+damage_source_type = 2
+metadata/_custom_type_script = "uid://xchyfr3avu0m"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=571216221]
 z_index = 2
