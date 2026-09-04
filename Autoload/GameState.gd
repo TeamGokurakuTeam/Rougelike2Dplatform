@@ -1,4 +1,4 @@
-﻿extends Node
+extends Node
 class_name GameState
 
 var furthest_clear_floor : int = 0
