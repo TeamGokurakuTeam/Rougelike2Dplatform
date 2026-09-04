@@ -2,6 +2,7 @@ extends Node2D
 class_name PickupWeapon
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var key_s: TextureRect = $KeyS
 
 @export var panel : Panel
 @export var door : Door
@@ -11,6 +12,7 @@ var is_player_entered : bool
 var is_event_triggered : bool
 
 func _ready() -> void:
+	key_s.visible = true
 	set_process_input(true)
 
 func _input(event: InputEvent) -> void:
@@ -18,6 +20,7 @@ func _input(event: InputEvent) -> void:
 		is_event_triggered = true
 		GameEvents.cutscene_started.emit()
 		animation_player.play("Start")
+		key_s.visible = false
 		await animation_player.animation_finished
 		GameEvents.cutscene_ended.emit()
 		door.is_open = true
