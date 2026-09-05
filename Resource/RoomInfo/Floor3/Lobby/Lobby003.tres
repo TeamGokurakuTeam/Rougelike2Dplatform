@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RoomInfoResource" format=3 uid="uid://bwyyfgcybjejo"]
+
+[ext_resource type="PackedScene" uid="uid://ba1hm22y3sk4m" path="res://Scene/Room/Floor1/Lobby_003.tscn" id="1_te86o"]
+[ext_resource type="Script" uid="uid://d344k4o5vtrgi" path="res://Resource/RoomInfo/RoomInfoResource.gd" id="2_o70ks"]
+
+[resource]
+script = ExtResource("2_o70ks")
+room_scene = ExtResource("1_te86o")
+room_type = 1
+right = true
