@@ -10,12 +10,14 @@ Sprite = ExtResource("1_jbqdl")
 Id = "CurseDagger"
 Name = "呪の短剣"
 WeaponScene = ExtResource("2_2tm3j")
-Rarities = "rare"
+Rarities = "Master"
 explanation = "通常攻撃：
 一回斬る
 カウンターアタック：
 一回転して斬る
 チャージ攻撃：
-重く剣を振り下ろす"
+重く剣を振り下ろす
+特殊効果：
+チャージ攻が敵に命中するごとにチャージ攻撃のダメージが上昇する(最大＋２０)"
 flavor_text = "積み重ねた呪いが背筋を伝う"
 unlock_text = "ステージ２の敵を２０体倒す"
