@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://cruaxnbgliac1"]
+
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="1_lbi80"]
+[ext_resource type="Texture2D" uid="uid://d15mpa62voogr" path="res://Assets/Weapon/swords/Crystal.png" id="1_niqv6"]
+[ext_resource type="PackedScene" uid="uid://ccrx5cvsu1ki5" path="res://Weapon/CrystalBlade.tscn" id="2_o70dx"]
+
+[resource]
+script = ExtResource("1_lbi80")
+Sprite = ExtResource("1_niqv6")
+Id = "CrystalBlade"
+Name = "クリスタルブレード"
+WeaponScene = ExtResource("2_o70dx")
+Rarities = "uncommon"
+explanation = "通常攻撃：
+一回斬る
+チャージ攻撃：
+前方にビームを発射
+カウンター攻撃：
+前方に3連続でビームを発射"
+flavor_text = "持っているだけで謎のパワーを感じる不思議な剣"
+unlock_text = "武器の解禁条件２つ以上クリア"
