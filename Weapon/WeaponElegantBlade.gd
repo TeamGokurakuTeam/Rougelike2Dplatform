@@ -1,15 +1,14 @@
 extends Weapon
 class_name ElegantBlade
 
-var original_scale := Vector2.ONE
-var charge_scale := Vector2.ONE
-
 @export var max_charge_scale := 1.5
 @export var charge_speed := 0.5
 @export var charge_delay := 0.15
 @export var charge_particle_2: GPUParticles2D
 
 var charge_time := 0.0
+var original_scale := Vector2.ONE
+var charge_scale := Vector2.ONE
 
 func _ready() -> void:
 	super._ready()
