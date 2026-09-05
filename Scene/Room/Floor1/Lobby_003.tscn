@@ -55,11 +55,12 @@ position = Vector2(400, 256)
 
 [node name="Monument" parent="." index="10" unique_id=1371788584 instance=ExtResource("6_gh4py")]
 position = Vector2(400, 344)
-text = "勇者は、私の加護によってまたここへ舞い戻る...
-あなたの使命を果たさぬ限り、
-ここを抜け出せず、剣を取り、再び立ち上がることを強制する
-命ある限り、クリスタルの暴走を止めなければならない。
-さあ、進みなさい..."
+text = "第三層。
+かつてこの層には１人の住人がいたらしい。
+ しかしクリスタルの力が歪みを生み出し、ここにあるモノは姿を変えられてしまった...
+勇者よ、偽りの姿に惑わされてはならない。
+奴らはとても凶悪だ...
+"
 
 [editable path="MoveTile"]
 [editable path="MoveTile2"]
