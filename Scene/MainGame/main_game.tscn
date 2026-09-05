@@ -55,7 +55,6 @@ gameover_bgm = NodePath("GameOver")
 [node name="Stage" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1112841277]
 stream = ExtResource("11_t5ou6")
 volume_db = -25.0
-stream_paused = true
 bus = &"BGM"
 parameters/looping = true
 
