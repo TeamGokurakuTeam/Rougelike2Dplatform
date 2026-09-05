@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="11_m0q2n"]
 [ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="13_xoj6o"]
 [ext_resource type="Script" uid="uid://cra6q5avtvxge" path="res://Scene/Room/TouchTriggerMoveTile.gd" id="15_mnkuo"]
+[ext_resource type="PackedScene" uid="uid://biowumdi4hwcl" path="res://Scene/Enemy/SkullWolf/SkullWolf.tscn" id="16_wyd3j"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_lfuwl")]
 
@@ -112,19 +113,14 @@ position = Vector2(448, 384)
 enemys = Array[PackedScene]([ExtResource("10_nxo0y"), ExtResource("11_m0q2n")])
 is_random = true
 
-[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=1640166030 instance=ExtResource("9_dd2au")]
-position = Vector2(448, 640)
-enemys = Array[PackedScene]([ExtResource("10_nxo0y"), ExtResource("11_m0q2n")])
-is_random = true
-
-[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=2060066207 instance=ExtResource("9_dd2au")]
+[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=2060066207 instance=ExtResource("9_dd2au")]
 position = Vector2(216, 640)
 enemys = Array[PackedScene]([ExtResource("10_nxo0y"), ExtResource("11_m0q2n")])
 is_random = true
 
-[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=967666902 instance=ExtResource("9_dd2au")]
+[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=967666902 instance=ExtResource("9_dd2au")]
 position = Vector2(576, 640)
-enemys = Array[PackedScene]([ExtResource("10_nxo0y"), ExtResource("11_m0q2n")])
+enemys = Array[PackedScene]([ExtResource("16_wyd3j")])
 is_random = true
 
 [node name="Spike5" parent="." index="3" unique_id=677923059 instance=ExtResource("2_iqrax")]

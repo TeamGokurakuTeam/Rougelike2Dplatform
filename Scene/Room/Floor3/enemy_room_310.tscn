@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://djpmh3dydw550" path="res://Resource/ShopItemBuyList/Merchant/Merchant002.tres" id="6_oog0o"]
 [ext_resource type="Resource" uid="uid://bsmq0t57vr6w2" path="res://Resource/ShopItemBuyList/Merchant/Merchant003.tres" id="7_w40lw"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="8_dlwqo"]
+[ext_resource type="PackedScene" uid="uid://biowumdi4hwcl" path="res://Scene/Enemy/SkullWolf/SkullWolf.tscn" id="13_dxx17"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_fwtpf")]
 
@@ -93,15 +94,5 @@ is_random = true
 
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=1897186730 instance=ExtResource("4_l6cn0")]
 position = Vector2(280, 344)
-enemys = Array[PackedScene]([ExtResource("5_h8idl"), ExtResource("6_h3t6h")])
-is_random = true
-
-[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=1526969151 instance=ExtResource("4_l6cn0")]
-position = Vector2(472, 344)
-enemys = Array[PackedScene]([ExtResource("5_h8idl"), ExtResource("6_h3t6h")])
-is_random = true
-
-[node name="EnemySpawnPoint6" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="5" unique_id=121405256 instance=ExtResource("4_l6cn0")]
-position = Vector2(520, 440)
-enemys = Array[PackedScene]([ExtResource("5_h8idl"), ExtResource("6_h3t6h")])
+enemys = Array[PackedScene]([ExtResource("13_dxx17")])
 is_random = true

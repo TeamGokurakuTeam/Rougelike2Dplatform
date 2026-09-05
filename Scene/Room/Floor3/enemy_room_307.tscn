@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="3_oy2d7"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_4ndrb"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="5_6wjkm"]
+[ext_resource type="PackedScene" uid="uid://dd42ojjg2ndhb" path="res://Scene/Enemy/TopHat/TopHat.tscn" id="6_ormh1"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="6_uy752"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="8_6wjkm"]
 
@@ -39,17 +40,12 @@ position = Vector2(128, 232)
 enemys = Array[PackedScene]([ExtResource("5_6wjkm"), ExtResource("6_uy752")])
 is_random = true
 
-[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=1106482284 instance=ExtResource("4_4ndrb")]
-position = Vector2(88, 432)
-enemys = Array[PackedScene]([ExtResource("5_6wjkm"), ExtResource("6_uy752")])
+[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=237182062 instance=ExtResource("4_4ndrb")]
+position = Vector2(256, 440)
+enemys = Array[PackedScene]([ExtResource("6_ormh1")])
 is_random = true
 
-[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=237182062 instance=ExtResource("4_4ndrb")]
-position = Vector2(424, 432)
-enemys = Array[PackedScene]([ExtResource("5_6wjkm"), ExtResource("6_uy752")])
-is_random = true
-
-[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=2052957378 instance=ExtResource("4_4ndrb")]
+[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=2052957378 instance=ExtResource("4_4ndrb")]
 position = Vector2(384, 232)
 enemys = Array[PackedScene]([ExtResource("5_6wjkm"), ExtResource("6_uy752")])
 is_random = true
