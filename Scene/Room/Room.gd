@@ -34,6 +34,7 @@ func _initialize_room() -> void:
 	if enemies:
 		for node in enemies.get_children():
 			if node is Character:
+				node.main_game_node = main_game_node
 				node.room = self
 
 	if main_game_node and main_game_node.player:
