@@ -18,6 +18,7 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 
 @export var input_enabled : bool = true #どうせいいの思いつかないしtrueが操作できてfalseができない
 @export var max_jump_pressed_frame : int = 5
+@export var spawn_weapon_on_spawn : bool = true
 @export_category("プレイヤーステータス")
 @export var defense_power : float = 10
 @export var critical_chance : float = .0
@@ -72,10 +73,8 @@ func _ready() -> void:
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
 	
-	if GlobalGameState.current_selected_weapon != "":
-		weapon_resource_ids.append(GlobalGameState.current_selected_weapon)
-		current_weapon = 0
-		update_weapon()
+	if spawn_weapon_on_spawn and GlobalGameState.current_selected_weapon != "":
+		set_player_default_weapon(GlobalGameState.current_selected_weapon)
 
 func _process(delta: float) -> void:
 	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -304,3 +303,11 @@ func _play_state_animation() -> void:
 			animation_player.play("JumpEnd")
 		PlayerState.DODGE_ROLL:
 			animation_player.play("DodgeRoll")
+
+func set_player_default_weapon(weapon_id : String) -> void:
+	if not GlobalResourceLoader.weapon_cache.has(weapon_id):
+		Common.error_print("武器\"%s\"は存在しない" % weapon_id)
+		return
+	weapon_resource_ids.append(weapon_id)
+	current_weapon = weapon_resource_ids.size() - 1
+	update_weapon()

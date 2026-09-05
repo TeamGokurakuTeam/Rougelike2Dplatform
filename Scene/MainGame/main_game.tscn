@@ -19,6 +19,7 @@
 script = ExtResource("1_ga214")
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
+spawn_weapon_on_spawn = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
 position = Vector2(0, -38)
@@ -54,6 +55,7 @@ gameover_bgm = NodePath("GameOver")
 [node name="Stage" type="AudioStreamPlayer" parent="BGMChanger" unique_id=1112841277]
 stream = ExtResource("11_t5ou6")
 volume_db = -25.0
+stream_paused = true
 bus = &"BGM"
 parameters/looping = true
 

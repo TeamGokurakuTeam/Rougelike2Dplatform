@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://i37x2xnu1k2l"]
+[gd_scene format=3 uid="uid://2qtbep42c1xh"]
 
 [ext_resource type="Texture2D" uid="uid://cdgsbs0n55y61" path="res://Assets/Weapon/swords/tile015.png" id="1_bxcnu"]
-[ext_resource type="Script" path="res://pickup_weapon.gd" id="1_qxhbd"]
+[ext_resource type="Script" uid="uid://8vs7g1kv6q2j" path="res://pickup_weapon.gd" id="1_qxhbd"]
 [ext_resource type="Texture2D" uid="uid://ciohbcdkapsop" path="res://Assets/TileMap/CastleTiles.png" id="2_tbsf2"]
 [ext_resource type="Texture2D" uid="uid://x7amrwqju0u0" path="res://Assets/Particle/32x32_Star_5.png" id="3_tbsf2"]
 [ext_resource type="Texture2D" uid="uid://bldxpebbei5hi" path="res://Assets/Keyboard Letters and Symbols.png" id="5_e11dr"]

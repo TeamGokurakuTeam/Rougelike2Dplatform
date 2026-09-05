@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cskviypw4dau5"]
+
+[ext_resource type="PackedScene" uid="uid://b4i3w233507yf" path="res://Scene/MainGame/main_game.tscn" id="1_b4jyo"]
+[ext_resource type="Script" uid="uid://d4c0pohskoxsr" path="res://Scene/MainGame/TutorialFloorProgression.gd" id="2_3ybuh"]
+[ext_resource type="AudioStream" uid="uid://b5yklftetsrfb" path="res://Assets/Music/373 [Misc Extras] bgm_gojira_battle_A.ogg" id="2_mdu5u"]
+[ext_resource type="Script" uid="uid://cx4wnjkqat3tv" path="res://Resource/FloorLayout/FloorRoomEntry.gd" id="3_mdu5u"]
+[ext_resource type="Resource" uid="uid://b5rmuesk4bkqi" path="res://Resource/RoomInfo/Tutorial/tutorial_room.tres" id="4_d7tow"]
+[ext_resource type="Script" uid="uid://mos58qf0i3m8" path="res://Resource/FloorLayout/FloorLayoutResource.gd" id="5_3bwi5"]
+
+[sub_resource type="Resource" id="Resource_qc20l"]
+script = ExtResource("3_mdu5u")
+room_info = ExtResource("4_d7tow")
+is_lobby = true
+metadata/_custom_type_script = "uid://cx4wnjkqat3tv"
+
+[sub_resource type="Resource" id="Resource_wmmh0"]
+script = ExtResource("5_3bwi5")
+rows = 1
+columns = 1
+room_entries = Array[ExtResource("3_mdu5u")]([SubResource("Resource_qc20l")])
+metadata/_custom_type_script = "uid://mos58qf0i3m8"
+
+[node name="MainGame" unique_id=334667216 instance=ExtResource("1_b4jyo")]
+
+[node name="Player" parent="." index="0" unique_id=1094349948]
+spawn_weapon_on_spawn = false
+
+[node name="Stage" parent="BGMChanger" parent_id_path=PackedInt32Array(9408269) index="0" unique_id=1112841277]
+stream = ExtResource("2_mdu5u")
+volume_db = -20.0
+
+[node name="FloorProgression" parent="." index="8" unique_id=1678658979]
+script = ExtResource("2_3ybuh")
+tutorial_floor_layout = SubResource("Resource_wmmh0")
+main_game_scene = ExtResource("1_b4jyo")
+
+[editable path="Player"]
+[editable path="Player/PickupComponent"]
+[editable path="PlayerUI"]
+[editable path="PlayerUI/Parent/ModUI"]
+[editable path="PlayerUI/Parent/PlayerHpUI"]
+[editable path="PlayerUI/WeaponModifierUI"]
