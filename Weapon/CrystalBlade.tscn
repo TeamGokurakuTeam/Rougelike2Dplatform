@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccrx5cvsu1ki5"]
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_afa2q"]
+[ext_resource type="Script" uid="uid://co51lwp7ek7h6" path="res://Weapon/WeaponCrystalBlade.gd" id="2_njd54"]
 [ext_resource type="Texture2D" uid="uid://d15mpa62voogr" path="res://Assets/Weapon/swords/Crystal.png" id="2_npelb"]
 [ext_resource type="Texture2D" uid="uid://qs3rv042lg5l" path="res://Assets/Weapon/Effect/231.png" id="3_2ky33"]
 [ext_resource type="Texture2D" uid="uid://5futa8f7kict" path="res://Assets/Particle/2.png" id="3_bm0dt"]
@@ -1377,6 +1378,7 @@ _data = {
 size = Vector2(16.687449, 28.01206)
 
 [node name="CrystalBlade" unique_id=1591556401 instance=ExtResource("1_afa2q")]
+script = ExtResource("2_njd54")
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
 position = Vector2(0, -30)
