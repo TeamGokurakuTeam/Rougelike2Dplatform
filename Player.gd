@@ -118,9 +118,10 @@ func add_external_force(force: Vector2) -> void:
 #凍結
 func apply_dot(dps: float, duration: float) -> void:
 	dot_damage_per_second = dps
+	if dot_timer <= 0:
+		original_color = animated_sprite_2d.modulate
 	dot_timer = duration
-	original_color = animated_sprite_2d.modulate
-	animated_sprite_2d.modulate = Color(0.2,0.8,2.0)
+	animated_sprite_2d.modulate = Color(0.2, 0.8, 2.0)
 
 func _get_input() -> void:
 	move_direction = Vector2.ZERO
