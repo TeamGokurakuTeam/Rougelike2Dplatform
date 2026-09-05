@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://cajmmwwv6qshi"]
+
+[ext_resource type="Texture2D" uid="uid://cmi86jautgg0q" path="res://Assets/Weapon/swords/Lantern.png" id="1_e26qc"]
+[ext_resource type="PackedScene" uid="uid://b4esxu1p57c1t" path="res://Weapon/LanternMace.tscn" id="2_8w2og"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_qpcke"]
+
+[resource]
+script = ExtResource("3_qpcke")
+Sprite = ExtResource("1_e26qc")
+Id = "LanternMace"
+Name = "ランタンメイス"
+WeaponScene = ExtResource("2_8w2og")
+Rarities = "Master"
+explanation = "通常攻撃：
+一回振る
+チャージアタック：
+前方にメイスを突き出す
+カウンターアタック：
+前方にランタンが出現し、回転しながら攻撃する
+
+"
+flavor_text = "常に淡くなにかを照らし続けている武器、原理などはいまだ不明"
+unlock_text = "武器の解禁４つ以上"
