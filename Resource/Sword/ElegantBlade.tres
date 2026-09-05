@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://c7r60hit44odm"]
+
+[ext_resource type="Texture2D" uid="uid://ourlt14st5ft" path="res://Assets/Weapon/swords/ElegantBlade.png" id="1_uqnmu"]
+[ext_resource type="PackedScene" uid="uid://yr8xkm0bnjl8" path="res://Weapon/ElegantBlade.tscn" id="2_x3f8w"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_c2bwl"]
+
+[resource]
+script = ExtResource("3_c2bwl")
+Sprite = ExtResource("1_uqnmu")
+Id = "ElegantBlade"
+Name = "エレガントブレード"
+WeaponScene = ExtResource("2_x3f8w")
+Rarities = "rare"
