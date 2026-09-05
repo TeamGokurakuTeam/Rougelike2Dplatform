@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://vj71n0lnc320"]
+
+[ext_resource type="Texture2D" uid="uid://bi4tcyd5sl2mw" path="res://Assets/Weapon/swords/Weapon1.png" id="1_jbqdl"]
+[ext_resource type="PackedScene" uid="uid://bxct5yu1uqh0k" path="res://Weapon/CurseDagger.tscn" id="2_2tm3j"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_qs8ap"]
+
+[resource]
+script = ExtResource("3_qs8ap")
+Sprite = ExtResource("1_jbqdl")
+Id = "CurseDagger"
+Name = "呪の短剣"
+WeaponScene = ExtResource("2_2tm3j")
+Rarities = "Master"
+explanation = "通常攻撃：
+一回斬る
+カウンターアタック：
+一回転して斬る
+チャージ攻撃：
+重く剣を振り下ろす
+特殊効果：
+チャージ攻が敵に命中するごとにチャージ攻撃のダメージが上昇する(最大＋２０)"
+flavor_text = "積み重ねた呪いが背筋を伝う"
+unlock_text = "ステージ２の敵を２０体倒す"
