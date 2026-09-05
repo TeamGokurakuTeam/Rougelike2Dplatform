@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://tbq5gx41ix3b"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_5qk3q"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_3qap4"]
+
+[resource]
+script = ExtResource("1_5qk3q")
+ModifierRank = 2
+texture = ExtResource("2_3qap4")
+modifier_id = "Speedingexceed"
+modifier_name = "超過速度な"
+color_rarity = Color(0.77254903, 0.85882354, 0, 1)
+explanation = "速度上限以上の超過した分の速度を攻撃力に加算する"
+price = 5

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://11552kg7s1wm" path="res://Component/HP/hp_component.tscn" id="2_wfnr8"]
 
 [node name="Character" type="CharacterBody2D" unique_id=1094349948 node_paths=PackedStringArray("hp_component")]
+process_mode = 1
 collision_layer = 0
 collision_mask = 128
 platform_floor_layers = 4294901888

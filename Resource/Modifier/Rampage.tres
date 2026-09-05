@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://u0vmblouv423"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_k5pma"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_pkcxn"]
+
+[resource]
+script = ExtResource("1_k5pma")
+texture = ExtResource("2_pkcxn")
+modifier_id = "Rampage"
+modifier_name = "連撃"
+explanation = "攻撃を当て続けるとどんどん強くなるコンボ"
+metadata/_custom_type_script = "uid://cwogrmg4kjfqg"
