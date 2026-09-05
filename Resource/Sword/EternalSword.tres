@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://ddw6jksv1chng"]
+
+[ext_resource type="Texture2D" uid="uid://cba2on58wibm" path="res://Assets/Weapon/エターナルソード.png" id="1_55guq"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="2_55guq"]
+[ext_resource type="PackedScene" uid="uid://ce1kjniwtv0vj" path="res://Weapon/New/eternal_sword.tscn" id="2_w2k5w"]
+
+[resource]
+script = ExtResource("2_55guq")
+Sprite = ExtResource("1_55guq")
+Id = "EternalSword"
+Name = "英知と追撃の宝剣"
+WeaponScene = ExtResource("2_w2k5w")
+Rarities = "Master"
+explanation = "この剣は修飾子の影響を受けない。
+
+通常攻撃:
+波動を含む二回攻撃をする。
+
+チャージ攻撃:
+チャージは5秒。修飾子の数だけ、
+自身の宝剣を降らせる。"
+flavor_text = "その剣は、物体を切り裂き、理すらも断つ。"
+unlock_text = "1Fにある隠し部屋を見つけよ。
+"

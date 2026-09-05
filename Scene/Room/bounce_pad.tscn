@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y75to")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -26,6 +26,8 @@ radius = 4.0246716
 height = 26.0
 
 [node name="BouncePad" type="StaticBody2D" unique_id=1611631856]
+process_mode = 1
+collision_layer = 129
 script = ExtResource("1_d5dlu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1154956590]

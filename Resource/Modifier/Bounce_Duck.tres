@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://byyrtyhe8h857"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_hp51w"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_wiytt"]
+
+[resource]
+script = ExtResource("1_hp51w")
+ModifierRank = 2
+texture = ExtResource("2_wiytt")
+modifier_id = "Bounce_Duck"
+modifier_name = "アヒルバウンス"
+color_rarity = Color(0.77254903, 0.85882354, 0, 1)
+explanation = "壁に触れるごとに加速して跳ねる。"
