@@ -9,6 +9,8 @@
 [ext_resource type="Material" uid="uid://d2b7yscsepnje" path="res://Weapon/New/Charge.tres" id="4_wpml0"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="5_ll4re"]
 [ext_resource type="Texture2D" uid="uid://bu3fa2285n5js" path="res://Assets/Weapon/Effect/448.png" id="8_xcboi"]
+[ext_resource type="AudioStream" uid="uid://dx4llw74e37qg" path="res://Assets/SoundEffect/AliveBlade斬る.mp3" id="9_0ddrw"]
+[ext_resource type="AudioStream" uid="uid://cfmk2wu7ogkk3" path="res://Assets/SoundEffect/AliveBlade斬る２.mp3" id="10_7qutt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbgx5"]
 size = Vector2(15, 46)
@@ -358,6 +360,42 @@ tracks/6/keys = {
 "update": 1,
 "values": [false, false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Slash:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.018),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Slash:pitch_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.96, 0.96]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Root:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_t513p"]
 resource_name = "Charge"
@@ -409,6 +447,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Slash:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.9521618),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Slash:pitch_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.23, 1.23]
 }
 
 [sub_resource type="Animation" id="Animation_xcboi"]
@@ -533,6 +595,30 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Slash:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.28),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Slash:pitch_scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, 0.8]
 }
 
 [sub_resource type="Animation" id="Animation_wpml0"]
@@ -801,6 +887,54 @@ tracks/21/keys = {
 "update": 1,
 "values": [&"default"]
 }
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Slash:playing")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Slash:pitch_scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.23]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Slash2:playing")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Slash2:pitch_scale")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.23]
+}
 
 [sub_resource type="Animation" id="Animation_ll4re"]
 resource_name = "StrongAttack"
@@ -995,6 +1129,54 @@ tracks/15/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, true, false, false, true, true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Slash:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.01),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Slash:pitch_scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.86, 0.86]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Slash2:playing")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Slash2:pitch_scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.23, 1.23]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wpml0"]
@@ -1237,7 +1419,15 @@ emitting = false
 texture = ExtResource("3_lqx03")
 process_material = ExtResource("4_wpml0")
 
-[node name="Hitbox2" parent="." index="10" unique_id=398807878 instance=ExtResource("5_ll4re")]
+[node name="Slash" type="AudioStreamPlayer" parent="." index="7" unique_id=350680650]
+stream = ExtResource("9_0ddrw")
+pitch_scale = 1.23
+
+[node name="Slash2" type="AudioStreamPlayer" parent="." index="8" unique_id=546124740]
+stream = ExtResource("10_7qutt")
+pitch_scale = 1.23
+
+[node name="Hitbox2" parent="." index="12" unique_id=398807878 instance=ExtResource("5_ll4re")]
 texture_filter = 1
 collision_layer = 4
 collision_mask = 0
@@ -1250,13 +1440,13 @@ scale = Vector2(3.24, 1.6799994)
 shape = SubResource("RectangleShape2D_ngikh")
 disabled = true
 
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." index="11" unique_id=1398466225]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." index="13" unique_id=1398466225]
 visible = false
 modulate = Color(0.69803923, 0, 0.94509804, 1)
 position = Vector2(48, 12)
 sprite_frames = SubResource("SpriteFrames_gnvy4")
 
-[node name="Hitbox3" parent="." index="12" unique_id=1638156824 instance=ExtResource("5_ll4re")]
+[node name="Hitbox3" parent="." index="14" unique_id=1638156824 instance=ExtResource("5_ll4re")]
 collision_layer = 4
 collision_mask = 0
 damage = 5.0
@@ -1268,7 +1458,7 @@ scale = Vector2(3, 1.48)
 shape = SubResource("RectangleShape2D_ll4re")
 disabled = true
 
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." index="13" unique_id=1821633425]
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." index="15" unique_id=1821633425]
 visible = false
 modulate = Color(0.48753977, 0, 0.009768545, 1)
 position = Vector2(71, 10)
