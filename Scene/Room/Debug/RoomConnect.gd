@@ -72,6 +72,7 @@ func _generate_random_floor(floor_type : Variant = null) -> void:
 
 	_connect_rooms(room_data)
 	lobby_room = found_lobby_room
+	_assign_room_depth()
 
 	if floor_type == RoomInfoResource.FloorType.FLOOR1:
 		var query = GlobalResourceLoader.room_cache.query(RoomInfoResource.RoomType.SECRET_ROOM, floor_type)
@@ -147,3 +148,23 @@ func _connect_rooms(room_data : Array[Array]) -> void:
 func clear_rooms() -> void:
 	for node in get_children():
 		node.queue_free()
+
+func _reset_room_depth() -> void:
+	for node in get_children():
+		if node is Room:
+			(node as Room).depth = -1
+
+func _dfs_depth(room : Room, current_depth : int) -> void:
+	if room == null or (room.depth >= 0 and room.depth <= current_depth):
+		return
+	room.depth = current_depth
+	for node in room.doors.get_children():
+		if node is not Door:
+			return
+		var door : Door = node as Door
+		if door.teleport_to and door.teleport_to.current_room:
+			_dfs_depth(door.teleport_to.current_room, current_depth + 1)
+
+func _assign_room_depth() -> void:
+	_reset_room_depth()
+	_dfs_depth(lobby_room, 0)

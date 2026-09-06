@@ -4,6 +4,8 @@ class_name Door
 @onready var player_detector: Area2D = $PlayerDetector
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var gate_sprite: Sprite2D = $Gate
+@onready var sprite: Sprite2D = $Sprite2D
 
 @export var dir : Direction = Direction.NONE #NONEは初期値用
 @export var is_open : bool = false
@@ -28,6 +30,7 @@ enum Direction {
 
 func _ready() -> void:
 	exit_point = get_node("./ExitPoint")
+	hide_outline()
 	if is_open:
 		open()
 
@@ -102,3 +105,15 @@ static func connect_door(door_a : Door, door_b : Door) -> void:
 		return
 	door_a.teleport_to = door_b
 	door_b.teleport_to = door_a
+
+func show_outline() -> void:
+	if gate_sprite.material is ShaderMaterial:
+		(gate_sprite.material as ShaderMaterial).set_shader_parameter("outline_thickness", 1)
+	if sprite.material is ShaderMaterial:
+		(sprite.material as ShaderMaterial).set_shader_parameter("outline_thickness", 1)
+
+func hide_outline():
+	if gate_sprite.material is ShaderMaterial:
+		(gate_sprite.material as ShaderMaterial).set_shader_parameter("outline_thickness", 0)
+	if sprite.material is ShaderMaterial:
+		(sprite.material as ShaderMaterial).set_shader_parameter("outline_thickness", 0)

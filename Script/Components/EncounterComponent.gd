@@ -32,8 +32,13 @@ func trigger() -> void:
 	encounter_started.emit()
 
 func open_doors() -> void:
-	for door in doors:
+	for node in doors:
+		var door : Door = node as Door
 		door.open()
+		if door.teleport_to and door.teleport_to.current_room:
+			var target_room : Room = door.teleport_to.current_room
+			if target_room.depth > room.depth and main_game_node.current_room == room:
+				door.show_outline()
 
 func register_enemy(enemy : Enemy) -> void:
 	_on_enemy_summoned(enemy)
