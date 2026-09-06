@@ -3,8 +3,8 @@ class_name BossRoom
 
 const GOLEM_BOSS = preload("uid://bthj1ytrgopek")
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var boss_object: AnimatedSprite2D = $BossObject
+@onready var animation_player: AnimationPlayer = $DefeatedScene/AnimationPlayer
+@onready var boss_object: AnimatedSprite2D = $DefeatedScene/BossObject
 @onready var collision_shape_2d: CollisionShape2D = $PlayerDetector/CollisionShape2D
 @onready var boss_room_camera: Camera = $BossRoomCamera
 
@@ -39,3 +39,16 @@ func boss_summon() -> void:
 
 func _on_boss_is_dead() -> void:
 	GlobalGameState.is_current_floor_boss_killed = true
+	main_game_node.player_ui.ui_fade_in()
+	await Common.fade_out_to_black(main_game_node.get_tree())
+	main_game_node.change_camera(boss_room_camera)
+	await Common.fade_in_from_black()
+	animation_player.play("Defeated")
+	GameEvents.cutscene_started.emit()
+	await animation_player.animation_finished
+	await Common.fade_out_to_black(main_game_node.get_tree())
+	GameEvents.cutscene_ended.emit()
+	main_game_node.player_ui.ui_fade_out()
+	main_game_node.change_camera(main_game_node.main_camera)
+	await Common.fade_in_from_black()
+	

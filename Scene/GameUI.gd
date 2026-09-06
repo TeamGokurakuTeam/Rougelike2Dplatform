@@ -90,6 +90,7 @@ func ui_fade_in() -> void:
 	parent.modulate = Color("ffffff")
 	fade_tween.tween_property(parent, "modulate", Color("ffffff00"), 1.0)
 	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	await fade_tween.finished
 
 func ui_fade_out() -> void:
 	if fade_tween != null and fade_tween.is_running():
@@ -98,6 +99,7 @@ func ui_fade_out() -> void:
 	parent.modulate = Color("ffffff00")
 	fade_tween.tween_property(parent, "modulate", Color("ffffff"), 1.0)
 	fade_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	await fade_tween.finished
 
 func _on_shop_ui_opened(npc : MerchantFrog) -> void:
 	merchant = npc
