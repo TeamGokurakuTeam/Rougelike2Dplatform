@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://dk8f2y7j17yc1"]
+
+[ext_resource type="Texture2D" uid="uid://6d7a2i4514ju" path="res://Assets/Weapon/swords/AliveBlade.png" id="1_wbrjc"]
+[ext_resource type="PackedScene" uid="uid://bu1mtmox8oisj" path="res://Weapon/AliveBlade.tscn" id="2_pmeay"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="3_6m1qm"]
+
+[resource]
+script = ExtResource("3_6m1qm")
+Sprite = ExtResource("1_wbrjc")
+Id = "AliveBlade"
+Name = "剣"
+WeaponScene = ExtResource("2_pmeay")
+Rarities = "Master"
+explanation = "通常攻撃：
+一回斬る
+チャージ攻撃：
+一回斬った後に斬撃を3つ発生
+カウンター：
+一回斬る
+特殊効果：
+チャージ攻撃を敵に当てたときプレイヤーのHPを３回復、外したら３ダメージ"
+flavor_text = "その強さ故に自らの肉体を滅ぼす"
+unlock_text = "プレイヤーのHP２０以下でステージ２のボスクリア"
