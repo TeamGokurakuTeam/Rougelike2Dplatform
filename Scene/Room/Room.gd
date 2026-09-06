@@ -16,6 +16,7 @@ class_name Room
 
 var main_game_node : MainGame
 var room_type : RoomInfoResource.RoomType
+var depth : int = -1
 
 func _ready() -> void:
 	_initialize_room()
