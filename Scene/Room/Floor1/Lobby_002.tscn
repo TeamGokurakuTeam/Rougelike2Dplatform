@@ -8,6 +8,7 @@
 size = Vector2(250, 656)
 
 [node name="Room" unique_id=423967005 node_paths=PackedStringArray("player_marker") instance=ExtResource("1_irqoh")]
+can_spawn_enemy = false
 player_marker = NodePath("PlayerMarker")
 
 [node name="BackGround" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="0" unique_id=1098702387]

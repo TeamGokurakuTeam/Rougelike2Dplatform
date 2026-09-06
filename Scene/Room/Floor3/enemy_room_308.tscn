@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_dss2f"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="2_pujog"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="3_nqr1t"]
-[ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="4_jwn8k"]
-[ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="5_whrwy"]
+[ext_resource type="PackedScene" uid="uid://dd42ojjg2ndhb" path="res://Scene/Enemy/TopHat/TopHat.tscn" id="5_0c3pt"]
+[ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="5_f8l1h"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="7_0c3pt"]
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="7_p3r4m"]
 
@@ -36,14 +36,19 @@ dir = 4
 [node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="5" unique_id=665258873]
 position = Vector2(-40, 0)
 
-[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=439291008 instance=ExtResource("3_nqr1t")]
-position = Vector2(296, 520)
-enemys = Array[PackedScene]([ExtResource("4_jwn8k"), ExtResource("5_whrwy")])
+[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=1534311721 instance=ExtResource("3_nqr1t")]
+position = Vector2(344, 512)
+enemys = Array[PackedScene]([ExtResource("5_0c3pt")])
 is_random = true
 
-[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=1534311721 instance=ExtResource("3_nqr1t")]
-position = Vector2(416, 520)
-enemys = Array[PackedScene]([ExtResource("4_jwn8k"), ExtResource("5_whrwy")])
+[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=441511218 instance=ExtResource("3_nqr1t")]
+position = Vector2(256, 384)
+enemys = Array[PackedScene]([ExtResource("5_f8l1h")])
+is_random = true
+
+[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=875826200 instance=ExtResource("3_nqr1t")]
+position = Vector2(448, 384)
+enemys = Array[PackedScene]([ExtResource("5_f8l1h")])
 is_random = true
 
 [node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1518085911 instance=ExtResource("7_p3r4m")]

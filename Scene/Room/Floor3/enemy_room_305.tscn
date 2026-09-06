@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="4_yncs1"]
 [ext_resource type="PackedScene" uid="uid://b3ys5ty8jofad" path="res://Scene/Room/bounce_pad.tscn" id="4_ytgcr"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_gktvu"]
+[ext_resource type="PackedScene" uid="uid://biowumdi4hwcl" path="res://Scene/Enemy/SkullWolf/SkullWolf.tscn" id="6_vgv18"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="9_yncs1"]
 [ext_resource type="PackedScene" uid="uid://dofccvw7xhhbj" path="res://Scene/Room/spike.tscn" id="10_gktvu"]
 [ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="11_gktvu"]
@@ -55,8 +56,8 @@ enemys = Array[PackedScene]([ExtResource("5_gktvu"), ExtResource("4_yncs1")])
 is_random = true
 
 [node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=82409068 instance=ExtResource("3_n478c")]
-position = Vector2(816, 448)
-enemys = Array[PackedScene]([ExtResource("5_gktvu"), ExtResource("4_yncs1")])
+position = Vector2(832, 448)
+enemys = Array[PackedScene]([ExtResource("6_vgv18")])
 is_random = true
 
 [node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=2095486523 instance=ExtResource("3_n478c")]
@@ -131,7 +132,7 @@ position = Vector2(216, 80)
 position = Vector2(168, 80)
 
 [node name="BouncePad" parent="." index="20" unique_id=1611631856 instance=ExtResource("4_ytgcr")]
-position = Vector2(528, 488)
+position = Vector2(536, 488)
 scale = Vector2(2, 2)
 bounce_power = 1000.0
 

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_u7256"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="6_ymq0p"]
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="7_0ks5q"]
+[ext_resource type="PackedScene" uid="uid://biowumdi4hwcl" path="res://Scene/Enemy/SkullWolf/SkullWolf.tscn" id="7_2s7bt"]
 [ext_resource type="PackedScene" uid="uid://mlja1j7v8m6w" path="res://Scene/obelisk.tscn" id="8_u7256"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_rwp5d")]
@@ -61,7 +62,7 @@ is_random = true
 
 [node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=553579415 instance=ExtResource("4_0ks5q")]
 position = Vector2(368, 136)
-enemys = Array[PackedScene]([ExtResource("5_u7256"), ExtResource("6_ymq0p")])
+enemys = Array[PackedScene]([ExtResource("7_2s7bt")])
 is_random = true
 
 [node name="RotatingBeam" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1288819283 instance=ExtResource("7_0ks5q")]
