@@ -11,3 +11,14 @@ Id = "MoonKnife"
 Name = "月のナイフ"
 WeaponScene = ExtResource("2_snshq")
 Rarities = "Master"
+explanation = "通常攻撃：
+一回斬る
+カウンター攻撃：
+一回転して斬る
+チャージ攻撃：
+一回斬った後追加で月の斬撃を発生させる
+
+"
+flavor_text = "綺麗に輝いたナイフはまるで月のようであった....
+"
+unlock_text = "ステージ２にある特殊エリアに行く"
