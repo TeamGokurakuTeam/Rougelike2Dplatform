@@ -1,7 +1,7 @@
-﻿extends Node
+extends Node
 class_name GameState
 
 var furthest_clear_floor : int = 0
 var found_floor1_secret_room : bool = false
-var current_selected_weapon : String = "A_NewWorld"
+var current_selected_weapon : String = "AegisSpear"
 var is_in_secret_room : bool = false
