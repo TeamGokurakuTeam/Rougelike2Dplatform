@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResourceItem" format=3 uid="uid://diypkktmbjwl7"]
+
+[ext_resource type="Texture2D" uid="uid://bj6x4csoy1xk8" path="res://Assets/Weapon/swords/MoonKnife.png" id="1_7j767"]
+[ext_resource type="Script" uid="uid://b721e7uiihkfo" path="res://Resource/Item.gd" id="1_oeb03"]
+[ext_resource type="PackedScene" uid="uid://86ipqpthspuh" path="res://Weapon/MoonKnife.tscn" id="2_snshq"]
+
+[resource]
+script = ExtResource("1_oeb03")
+Sprite = ExtResource("1_7j767")
+Id = "MoonKnife"
+Name = "月のナイフ"
+WeaponScene = ExtResource("2_snshq")
+Rarities = "Master"
