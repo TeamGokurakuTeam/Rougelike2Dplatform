@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://draxp6q5yqqw5" path="res://RotatingBeam.gd" id="1_g7huu"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="2_5b3he"]
 [ext_resource type="Texture2D" uid="uid://cf2q2qtc4fjka" path="res://Assets/Pixel Holy Spell Effect 32x32 Pack 3/00.png" id="2_wsodn"]
-[ext_resource type="Texture2D" uid="uid://dpj3rbpw64phq" path="res://Assets/lightning/lightning/lightning_v2_5.png" id="6_3888f"]
 [ext_resource type="Texture2D" uid="uid://dnf8ndeicbhgl" path="res://Assets/lightning/lightning/lightning_v2_6.png" id="7_k5enn"]
 [ext_resource type="Texture2D" uid="uid://bp2qqbj20igge" path="res://Assets/lightning/lightning/lightning_v2_7.png" id="8_vtsu2"]
 [ext_resource type="Texture2D" uid="uid://b7ei6a4at1dhe" path="res://Assets/lightning/lightning/lightning_v2_8.png" id="9_134cp"]
@@ -11,10 +10,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
 size = Vector2(20, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_134cp"]
-atlas = ExtResource("6_3888f")
-region = Rect2(0, 0, 104, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ape4"]
 atlas = ExtResource("7_k5enn")
@@ -31,9 +26,6 @@ region = Rect2(0, 0, 104, 22)
 [sub_resource type="SpriteFrames" id="SpriteFrames_2wgeh"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_134cp")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7ape4")
 }, {
@@ -190,7 +182,7 @@ shape = SubResource("RectangleShape2D_75vwg")
 position = Vector2(0, 64)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_2wgeh")
-frame_progress = 0.4649118
+frame_progress = 0.31120092
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1993432426]
 z_index = 2

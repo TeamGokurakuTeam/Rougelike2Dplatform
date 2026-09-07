@@ -150,7 +150,7 @@ points = PackedVector2Array(0, 0, -80, 0)
 position = Vector2(488, 104)
 
 [node name="BouncePad2" parent="." index="9" unique_id=1253530285 instance=ExtResource("9_m0q2n")]
-position = Vector2(624, 104)
+position = Vector2(632, 104)
 
 [node name="Spike" parent="." index="10" unique_id=1527959688 instance=ExtResource("2_iqrax")]
 position = Vector2(480, 16)
@@ -161,11 +161,11 @@ position = Vector2(504, 16)
 rotation = 3.1415927
 
 [node name="Spike3" parent="." index="12" unique_id=1745515629 instance=ExtResource("2_iqrax")]
-position = Vector2(616, 16)
+position = Vector2(624, 16)
 rotation = 3.1415927
 
 [node name="Spike4" parent="." index="13" unique_id=1409230579 instance=ExtResource("2_iqrax")]
-position = Vector2(640, 16)
+position = Vector2(648, 16)
 rotation = 3.1415927
 
 [node name="BouncePad3" parent="." index="14" unique_id=941075620 instance=ExtResource("9_m0q2n")]
@@ -214,15 +214,15 @@ move_speed = 0.5
 [node name="Line2D" parent="MoveTile2" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -88, 0)
 
-[node name="MoveTile" parent="MoveTile2" index="4" unique_id=612056633 instance=ExtResource("7_dd2au")]
-position = Vector2(-128, 0)
-move_speed = 0.8
+[node name="MoveTile4" parent="." index="23" unique_id=612056633 instance=ExtResource("7_dd2au")]
+position = Vector2(424, 272)
+script = ExtResource("15_mnkuo")
 
-[node name="Line2D" parent="MoveTile2/MoveTile" index="3" unique_id=2081624802]
+[node name="Line2D" parent="MoveTile4" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -112, 0, -112, 32, 0, 32, 0, -32, -112, -32)
 
 [editable path="TileMaps/MoveTile"]
 [editable path="MoveTile3"]
 [editable path="MoveTile"]
 [editable path="MoveTile2"]
-[editable path="MoveTile2/MoveTile"]
+[editable path="MoveTile4"]
