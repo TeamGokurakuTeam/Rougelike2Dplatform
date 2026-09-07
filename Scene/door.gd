@@ -108,9 +108,9 @@ static func connect_door(door_a : Door, door_b : Door) -> void:
 
 func show_outline() -> void:
 	if gate_sprite.material is ShaderMaterial:
-		(gate_sprite.material as ShaderMaterial).set_shader_parameter("outline_thickness", 1)
+		(gate_sprite.material as ShaderMaterial).set_shader_parameter("outline_thickness", 2)
 	if sprite.material is ShaderMaterial:
-		(sprite.material as ShaderMaterial).set_shader_parameter("outline_thickness", 1)
+		(sprite.material as ShaderMaterial).set_shader_parameter("outline_thickness", 2)
 
 func hide_outline():
 	if gate_sprite.material is ShaderMaterial:
