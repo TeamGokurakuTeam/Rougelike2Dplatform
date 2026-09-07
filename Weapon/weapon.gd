@@ -71,12 +71,13 @@ var is_countering : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("Player")
 	for node in root.get_children():
 		if node is Hitbox:
 			var hitbox : Hitbox = (node as Hitbox)
 			hitboxes.append(node)
 			hitbox.damage_dealt.connect(_on_hitbox_damage_dealt)
-	player = get_tree().get_first_node_in_group("Player")
+			hitbox.knockback_source = player
 	GameEvents.battle_start.connect(_on_battle_start)
 	GameEvents.battle_end.connect(_on_battle_end)
 

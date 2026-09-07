@@ -3,6 +3,7 @@ class_name Hitbox
 
 @export var damage : float = 0 : set = _set_damage , get = _get_damage
 @export var knockback_force : float = 0 ##ノックバック力
+@export var can_apply_knockback : bool = true
 @export var is_continuous : bool = false ##継続ダメージか
 @export var damage_multiplier : float = 1.0
 @export var damage_plus : float = 0.0
@@ -26,6 +27,7 @@ enum DamageSourceType {
 }
 
 var knockback_direction : Vector2 = Vector2.ZERO
+var knockback_source : Node2D = null
 var is_body_inside : bool = false
 
 func _set_damage(new_dmg : float) -> void:

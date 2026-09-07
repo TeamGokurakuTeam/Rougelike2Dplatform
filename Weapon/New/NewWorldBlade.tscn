@@ -642,7 +642,7 @@ texture = ExtResource("2_srm4q")
 
 [node name="Hitbox" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="1" unique_id=1964246491]
 damage = 20.0
-knockback_force = 50.0
+knockback_force = 100.0
 
 [node name="CollisionShape2D2" parent="Root/Hitbox" index="1" unique_id=722522530]
 position = Vector2(-9.536743e-07, 44.02569)

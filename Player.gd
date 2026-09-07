@@ -55,9 +55,6 @@ var fall_through_time : float = 0.5
 var fall_timer : float = 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
-#Fan
-var external_velocity : Vector2 = Vector2.ZERO
-var external_friction := 500.0
 #凍結ダメージ
 var dot_damage_per_second: float = 0.0
 var dot_timer: float = 0.0 
@@ -103,9 +100,6 @@ func _physics_process(delta: float) -> void:
 	if jump_pressed_frame > 0:
 		jump_pressed_frame -= 1
 
-	#Fan
-	velocity += external_velocity
-	external_velocity = external_velocity.move_toward(Vector2.ZERO, external_friction * delta)
 	#凍結ダメージ
 	if dot_timer > 0:
 		dot_timer -= delta
@@ -118,9 +112,6 @@ func _physics_process(delta: float) -> void:
 
 func external_bounce_jump(power: float) -> void:
 	velocity.y = -power
-#Fan
-func add_external_force(force: Vector2) -> void:
-	external_velocity += force
 #凍結
 func apply_dot(dps: float, duration: float) -> void:
 	dot_damage_per_second = dps
@@ -247,6 +238,7 @@ func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 		DamageNumber.display_number(damage, global_position, false, Color("ff0000"))
 		if weapon:
 			weapon.trigger_modifier_when_receive_damage(damage)
+		apply_knockback(knockback_dir)
 	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
 		parry_effect.emitting = true
 		is_just_dodgeroll = true
