@@ -707,10 +707,6 @@ position = Vector2(29, -4)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kmf2r")
 
-[node name="NavigationAgent2D" parent="." index="6" unique_id=1628444027]
-debug_enabled = true
-debug_use_custom = true
-
 [node name="AnimationPlayer" parent="." index="7" unique_id=559520988]
 libraries/ = SubResource("AnimationLibrary_5m5w6")
 

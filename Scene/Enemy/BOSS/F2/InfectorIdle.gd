@@ -19,4 +19,4 @@ func Physics_Update(delta) -> void:
 	pass
 
 func _on_idle_timer_timeout() -> void:
-	StateTransitioned.emit(self, "Shoot")
+	StateTransitioned.emit(self, "Slam")
