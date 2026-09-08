@@ -283,7 +283,7 @@ func fall_slashing() -> void:
 		randomspeed.tween_callback(func ():
 			var slash := PLAYER_FALL_SLASH.instantiate()
 			slash.direction = dir
-			slash.damage = 4
+			slash.damage = 5
 			var offset := Vector2(
 				randf_range(50, range_x) * dir,
 				randf_range(range_y_min, range_y_max)
@@ -494,6 +494,7 @@ func _on_stillblade_timer_timeout() -> void:
 	if stillblade_stack >= max_stillblade_stack:
 		stillblade_timer.stop()
 		
+
 func trigger_modifier_when_receive_damage(damage : float) -> void:
 	if has_modifiers("RevengeSlash"):
 		cumulated_damage += damage
