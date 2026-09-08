@@ -384,7 +384,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [5.0, 5.0]
+"values": [50.0, 50.0]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -1164,10 +1164,10 @@ tracks/11/path = NodePath("Root/Hitbox:damage")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [5.0]
+"values": [100.0, 100.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kv42n"]
@@ -1249,5 +1249,5 @@ volume_db = -15.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9" unique_id=175229747]
 stream = ExtResource("10_0b1pf")
-volume_db = -2.0
-pitch_scale = 1.7
+volume_db = -5.0
+pitch_scale = 1.39
