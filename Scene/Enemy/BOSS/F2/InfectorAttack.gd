@@ -6,10 +6,10 @@ class_name InfectorAttack
 
 
 func Enter() -> void:
-	pass
+	parent.flip_character()
 
 func Exit() -> void:
-	pass
+	parent.flip_character()
 
 func Update(delta) -> void:
 	pass

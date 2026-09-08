@@ -932,4 +932,4 @@ text = "勇者は、私の加護によってまたここへ舞い戻る...
 さあ、進みなさい..."
 
 [node name="Infector" parent="Enemies" parent_id_path=PackedInt32Array(2057331071) index="0" unique_id=1094349948 instance=ExtResource("8_iujhg")]
-position = Vector2(285, 153)
+position = Vector2(359, 140)

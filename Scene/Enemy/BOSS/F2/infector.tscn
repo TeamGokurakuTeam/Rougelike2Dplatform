@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://vc25tfsttb6g" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_attack1.png" id="8_vsncb"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="9_hwsjm"]
 [ext_resource type="Texture2D" uid="uid://cmo0lb77fb68y" path="res://Assets/Particle/13(for particle trails).png" id="16_kg0s2"]
+[ext_resource type="Texture2D" uid="uid://dlnsmtnyh2ny" path="res://Assets/Particle/Free Smoke Fx  Pixel 05.png" id="17_ppkyb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg0s2"]
 atlas = ExtResource("2_hwsjm")
@@ -266,13 +267,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_56pq6"]
-height = 48.0
+radius = 15.0
+height = 52.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7xe3"]
-size = Vector2(50, 47)
+size = Vector2(54, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwsjm"]
-size = Vector2(43, 31)
+size = Vector2(85, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0k4l"]
 size = Vector2(54, 43)
@@ -475,10 +477,22 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("SlamEffect:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ujgx8"]
 resource_name = "Rush"
-length = 0.8
+length = 1.2
 loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
@@ -500,10 +514,10 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 0, 1, 2, 3]
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -516,6 +530,23 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_rush_attack"
+}, {
+"args": [],
+"method": &"_rush_attack"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_gc521"]
@@ -637,6 +668,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SlamEffect:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wg0aw"]
 _data = {
@@ -677,8 +720,74 @@ color_ramp = SubResource("GradientTexture1D_gj3l6")
 hue_variation_min = -0.20000002
 hue_variation_max = 0.119999975
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hoxb"]
+atlas = ExtResource("17_ppkyb")
+region = Rect2(141, 141, 38, 38)
+
+[sub_resource type="Curve" id="Curve_2s5yq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75229365, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -13.880158, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_u42ec"]
+curve = SubResource("Curve_2s5yq")
+
+[sub_resource type="Gradient" id="Gradient_vaj8c"]
+colors = PackedColorArray(1, 1, 1, 1, 0.50534403, 0.5053441, 0.50534403, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kxojx"]
+gradient = SubResource("Gradient_vaj8c")
+
+[sub_resource type="Curve" id="Curve_kxojx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.4857416, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vaj8c"]
+curve = SubResource("Curve_kxojx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gj3l6"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(40, 7.38, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.0728835e-05
+angle_max = 191.30002
+initial_velocity_max = 46.879997
+angular_velocity_min = 50.629982
+angular_velocity_max = 140.62997
+orbit_velocity_min = -0.029999906
+orbit_velocity_max = 0.048000097
+radial_velocity_min = 54.689976
+radial_velocity_max = 156.24997
+gravity = Vector3(0, 130, 0)
+linear_accel_min = -13.280002
+linear_accel_max = 11.719997
+radial_accel_min = 45.309998
+radial_accel_max = 56.229996
+tangential_accel_min = 13.279998
+tangential_accel_max = 17.969997
+damping_min = 40.234
+damping_max = 40.234
+scale_min = 0.19999999
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_vaj8c")
+scale_over_velocity_max = 42.969997
+color = Color(0.41333976, 0.7398829, 0.20094898, 1)
+color_ramp = SubResource("GradientTexture1D_kxojx")
+alpha_curve = SubResource("CurveTexture_u42ec")
+hue_variation_min = 0.079999976
+hue_variation_max = 0.079999976
+collision_mode = 1
+collision_friction = 0.1
+collision_bounce = 0.13
+
 [node name="Infector" unique_id=1094349948 instance=ExtResource("1_a7xe3")]
 script = ExtResource("2_vsncb")
+friction = 0.05
+acceleration = 35
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")
@@ -708,23 +817,26 @@ parent = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Shoot" type="Node" parent="StateMachine" index="4" unique_id=272152956 node_paths=PackedStringArray("parent", "anim_player")]
+[node name="Shoot" type="Node" parent="StateMachine" index="4" unique_id=272152956 node_paths=PackedStringArray("parent", "anim_player", "idle_timer")]
 script = ExtResource("6_vsncb")
 parent = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
+idle_timer = NodePath("../../IdleTimer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
-position = Vector2(-14, -28)
+position = Vector2(0, -52)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_nd50y")
 animation = &"Attack"
+offset = Vector2(-8, 0)
 
 [node name="CollisionShape2D" parent="." index="3" unique_id=879731102]
-position = Vector2(5, -4)
+position = Vector2(5, -6)
 shape = SubResource("CapsuleShape2D_56pq6")
 
 [node name="CollisionShape2D2" parent="Hurtbox" parent_id_path=PackedInt32Array(1912714286) index="3" unique_id=1329737567]
-position = Vector2(8, -3.5)
+position = Vector2(6, -12.5)
 shape = SubResource("RectangleShape2D_a7xe3")
 
 [node name="Hitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="0" unique_id=195243888]
@@ -732,7 +844,7 @@ damage = 10.0
 knockback_force = 250.0
 
 [node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
-position = Vector2(-26.5, 4.5)
+position = Vector2(-42.5, 4.5)
 shape = SubResource("RectangleShape2D_hwsjm")
 
 [node name="Hitbox2" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="1" unique_id=466385270 groups=["Enemy"] instance=ExtResource("9_hwsjm")]
@@ -751,13 +863,27 @@ debug_color = Color(0.99215686, 0, 0, 0.41960785)
 libraries/ = SubResource("AnimationLibrary_wg0aw")
 
 [node name="IdleTimer" type="Timer" parent="." index="8" unique_id=395097699]
-wait_time = 3.0
+wait_time = 5.0
+one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." index="9" unique_id=1786451970]
 position = Vector2(-29, 9)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="10" unique_id=1311730843]
+emitting = false
 texture = ExtResource("16_kg0s2")
 process_material = SubResource("ParticleProcessMaterial_jhy2k")
+
+[node name="GhostTimer" type="Timer" parent="." index="11" unique_id=1470045639]
+
+[node name="SlamEffect" type="GPUParticles2D" parent="." index="12" unique_id=105991764]
+position = Vector2(-70, 13)
+emitting = false
+amount = 60
+texture = SubResource("AtlasTexture_5hoxb")
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gj3l6")
 
 [connection signal="timeout" from="IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
