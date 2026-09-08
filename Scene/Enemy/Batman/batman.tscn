@@ -247,6 +247,7 @@ radius = 84.095184
 z_index = 1
 script = ExtResource("2_utyoy")
 mod_resource = Array[ExtResource("3_6x5c0")]([ExtResource("4_31mju"), ExtResource("5_ij36c"), ExtResource("6_wp27o"), ExtResource("7_givpb"), ExtResource("8_agw15"), ExtResource("9_ko1ff"), ExtResource("10_i0jfb"), ExtResource("11_nd5ah"), ExtResource("12_x6id8"), ExtResource("13_ofyuj"), ExtResource("14_ir5dc"), ExtResource("15_6dg78"), ExtResource("16_ryqoi"), ExtResource("17_71v1d"), ExtResource("18_wm8gy"), ExtResource("19_nlvrf")])
+max_speed = 150.0
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Wander")
@@ -301,7 +302,7 @@ shape = SubResource("CircleShape2D_0kgfv")
 position = Vector2(0, -5)
 
 [node name="Hitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="0" unique_id=195243888]
-damage = 3.0
+damage = 2.0
 knockback_force = 40.0
 
 [node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
