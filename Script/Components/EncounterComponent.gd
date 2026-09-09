@@ -34,6 +34,7 @@ func trigger() -> void:
 func open_doors() -> void:
 	for node in doors:
 		var door : Door = node as Door
+		door.open()
 
 func register_enemy(enemy : Enemy) -> void:
 	_on_enemy_summoned(enemy)
