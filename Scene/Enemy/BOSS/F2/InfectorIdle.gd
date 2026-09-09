@@ -19,4 +19,10 @@ func Physics_Update(delta) -> void:
 	pass
 
 func _on_idle_timer_timeout() -> void:
-	StateTransitioned.emit(self, "Slam")
+	if randi_range(0, 100) <= 50:
+		StateTransitioned.emit(self, "Slam")
+	else:
+		parent.a_rush_effect.emitting = true
+		parent.b_rush_effect.emitting = false
+		await get_tree().create_timer(1.0).timeout
+		StateTransitioned.emit(self, "Rush")
