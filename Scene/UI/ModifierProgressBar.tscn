@@ -1,22 +1,13 @@
 [gd_scene format=3 uid="uid://cuc66hry0j4hn"]
 
 [ext_resource type="Script" uid="uid://ba3ijvw3ximb2" path="res://Scene/UI/modifier_timer.gd" id="1_d637d"]
-[ext_resource type="StyleBox" uid="uid://811t80uoagdn" path="res://Resource/UI_Tres/progress_bar_green.tres" id="2_yli2d"]
+[ext_resource type="Texture2D" uid="uid://scx5fn0u2sm6" path="res://Assets/UI/2.png" id="2_qj88r"]
+[ext_resource type="StyleBox" uid="uid://d3pyu3kphs1q2" path="res://Resource/UI_Tres/ProgressBarDarkRed.tres" id="3_qj88r"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqte1"]
+texture = ExtResource("2_qj88r")
+texture_margin_left = 4.0
+texture_margin_right = 4.0
 
 [sub_resource type="Animation" id="Animation_d637d"]
 length = 0.001
@@ -117,9 +108,10 @@ layout_mode = 0
 offset_left = -560.0
 offset_right = -390.0
 offset_bottom = 27.0
-theme_override_styles/background = SubResource("StyleBoxFlat_jhy2k")
-theme_override_styles/fill = ExtResource("2_yli2d")
+theme_override_styles/background = SubResource("StyleBoxTexture_lqte1")
+theme_override_styles/fill = ExtResource("3_qj88r")
 max_value = 1.0
+show_percentage = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1492804379]
 libraries/ = SubResource("AnimationLibrary_qj88r")

@@ -4,13 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://dbhq8ra3djg46" path="res://inventory_panel.tscn" id="2_00pm1"]
 [ext_resource type="PackedScene" uid="uid://h1mtavafjl0i" path="res://Scene/UI/player_hp_ui.tscn" id="2_5xwoe"]
 [ext_resource type="PackedScene" uid="uid://b6vh5w3ybhsjo" path="res://Scene/UI/mod_ui.tscn" id="3_00pm1"]
+[ext_resource type="PackedScene" uid="uid://eba7bld3s5r6" path="res://Scene/UI/modifier_ui_panel.tscn" id="4_mgl1o"]
 [ext_resource type="PackedScene" uid="uid://cuc66hry0j4hn" path="res://Scene/UI/ModifierProgressBar.tscn" id="4_rj6n4"]
 [ext_resource type="Script" uid="uid://de1nov8m6sb05" path="res://Scene/modifier_explanation.gd" id="6_a57nb"]
+[ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="8_cxaj8"]
 [ext_resource type="PackedScene" uid="uid://cox1a8khttces" path="res://weapon_modifier_ui.tscn" id="8_yegcq"]
 [ext_resource type="Texture2D" uid="uid://b6fpp52qvfsp6" path="res://Assets/Keyboard Extras (1).png" id="9_0pu00"]
 [ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="10_okfkp"]
+[ext_resource type="Shader" uid="uid://difua20qbqo3n" path="res://Assets/Effect/outline.gdshader" id="10_oyl28"]
+[ext_resource type="Texture2D" uid="uid://004c4a4aa07q" path="res://Assets/UI/4back.png" id="11_lxwu3"]
 [ext_resource type="Texture2D" uid="uid://bt8qlx45e0a01" path="res://Assets/GameOver.png" id="11_okfkp"]
 [ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="12_1pgos"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="12_468ky"]
 [ext_resource type="AudioStream" uid="uid://bghhfikimshyj" path="res://Assets/SoundEffect/UIOpen.mp3" id="13_w7iic"]
 [ext_resource type="AudioStream" uid="uid://si6hgmjjstg3" path="res://Assets/SoundEffect/UIClick.mp3" id="14_mgl1o"]
 
@@ -26,28 +31,28 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 2
 shadow_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhy2k"]
-bg_color = Color(0.21590185, 0.21590167, 0.2159017, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6q0k"]
+atlas = ExtResource("8_cxaj8")
+region = Rect2(768, 64, 48, 48)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hoxb"]
-bg_color = Color(0.41981313, 0.41981313, 0.41981304, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4lo75"]
+texture = SubResource("AtlasTexture_r6q0k")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kq56"]
+shader = ExtResource("10_oyl28")
+shader_parameter/allow_out_of_bounds = true
+shader_parameter/outline_thickness = 2.0
+shader_parameter/outline_color = Color(0.64705884, 0.47058824, 0.33333334, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_50dfd"]
+texture = ExtResource("11_lxwu3")
+region_rect = Rect2(6, 4, 55, 57)
 
 [sub_resource type="Animation" id="Animation_a57nb"]
 resource_name = "End"
@@ -58,10 +63,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.40000004, 0.43333337, 0.4666667, 0.50000006, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8000001, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.23333332, 0.26666665, 0.29999998, 0.3333333, 0.36666664, 0.39999998, 0.43333334, 0.46666664, 0.5, 0.5333333, 0.56666666, 0.59999996, 0.6333333, 0.6666666, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(152.5, 243), Vector2(152.5, 243), Vector2(152.5, 254.48727), Vector2(152.5, 264.06482), Vector2(152.5, 271.90625), Vector2(152.5, 278.18518), Vector2(152.5, 283.07523), Vector2(152.5, 286.75), Vector2(152.5, 289.38312), Vector2(152.5, 291.14813), Vector2(152.5, 292.21875), Vector2(152.5, 292.76852), Vector2(152.5, 292.97107), Vector2(152.5, 293), Vector2(152.5, 293)]
+"values": [Vector2(188, 227), Vector2(188, 227), Vector2(188, 226.72194), Vector2(188, 225.98369), Vector2(188, 224.9291), Vector2(188, 223.70201), Vector2(188, 222.4463), Vector2(188, 221.30583), Vector2(188, 220.42445), Vector2(188, 219.94603), Vector2(188, 220.01442), Vector2(188, 220.77348), Vector2(188, 222.36707), Vector2(188, 224.93904), Vector2(188, 228.63327), Vector2(188, 233.59361), Vector2(188, 239.96393), Vector2(188, 247.88805), Vector2(188, 257.50986), Vector2(188, 268.97324), Vector2(188, 282.422), Vector2(188, 298), Vector2(188, 298)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -70,10 +75,10 @@ tracks/1/path = NodePath(".:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 0.8666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.93333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, true, false, false]
+"values": [true, true, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -101,7 +106,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(152.5, 243)]
+"values": [Vector2(188, 227)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -161,38 +166,38 @@ length = 5.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.13333334, 0.16666667, 0.2, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 5.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(152.5, 296), Vector2(152.5, 296), Vector2(152.5, 276.9724), Vector2(152.5, 269.55896), Vector2(152.5, 264.2), Vector2(152.5, 259.96692), Vector2(152.5, 256.49612), Vector2(152.5, 253.6), Vector2(152.5, 251.16702), Vector2(152.5, 249.12503), Vector2(152.5, 247.4247), Vector2(152.5, 246.03113), Vector2(152.5, 244.91919), Vector2(152.5, 244.07082), Vector2(152.5, 243.47322), Vector2(152.5, 243.1179), Vector2(152.5, 243), Vector2(152.5, 243)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.10000001, 5.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, true]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 5.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(188, 309), Vector2(188, 309), Vector2(188, 291.24915), Vector2(188, 276.71478), Vector2(188, 264.93848), Vector2(188, 255.50769), Vector2(188, 248.05316), Vector2(188, 242.24661), Vector2(188, 237.79836), Vector2(188, 234.45477), Vector2(188, 231.996), Vector2(188, 230.23355), Vector2(188, 229.00778), Vector2(188, 228.18558), Vector2(188, 227.65791), Vector2(188, 227.33745), Vector2(188, 227.15613), Vector2(188, 227.06274), Vector2(188, 227.02057), Vector2(188, 227.00488), Vector2(188, 227.00064), Vector2(188, 227.00003), Vector2(188, 227)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_adel5"]
@@ -382,6 +387,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 
 [node name="Hotbar" type="HBoxContainer" parent="Parent" unique_id=1910330715]
+visible = false
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 1
 anchors_preset = 7
@@ -415,6 +421,59 @@ layout_mode = 2
 layout_mode = 1
 mouse_filter = 1
 
+[node name="Control" parent="Parent/ModUI" index="0" unique_id=2009876980]
+offset_top = 211.0
+offset_bottom = 283.0
+
+[node name="CarouseContainer" parent="Parent/ModUI/Control" index="0" unique_id=438782455]
+offset_left = 73.0
+offset_top = -205.0
+offset_right = 73.0
+offset_bottom = -205.0
+selected_index = 0
+
+[node name="ModContainer" parent="Parent/ModUI/Control/CarouseContainer" index="0" unique_id=154540731]
+offset_left = -31.0
+offset_top = 240.0
+offset_right = 9.000015
+offset_bottom = 280.0
+
+[node name="ModifierUIPanel" parent="Parent/ModUI/Control/CarouseContainer/ModContainer" index="0" unique_id=2037691825 instance=ExtResource("4_mgl1o")]
+z_index = 1
+layout_mode = 0
+offset_top = -31.0
+offset_bottom = 31.0
+pivot_offset = Vector2(31, 31)
+
+[node name="ModifierUIPanel2" parent="Parent/ModUI/Control/CarouseContainer/ModContainer" index="1" unique_id=301000932 instance=ExtResource("4_mgl1o")]
+modulate = Color(1, 1, 1, 0.5)
+z_index = -1
+layout_mode = 0
+offset_left = 62.0
+offset_top = -31.0
+offset_right = 124.0
+offset_bottom = 31.0
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(31, 31)
+
+[node name="ModifierUIPanel3" parent="Parent/ModUI/Control/CarouseContainer/ModContainer" index="2" unique_id=887723899 instance=ExtResource("4_mgl1o")]
+modulate = Color(1, 1, 1, 0)
+z_index = -2
+layout_mode = 0
+offset_left = 124.0
+offset_top = -31.0
+offset_right = 186.0
+offset_bottom = 31.0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(31, 31)
+
+[node name="Panel4" parent="Parent/ModUI" index="1" unique_id=907094898]
+z_index = 10
+offset_left = -231.0
+offset_top = -83.0
+offset_right = -136.55556
+offset_bottom = -66.0
+
 [node name="TAB" type="TextureRect" parent="Parent/ModUI" unique_id=378722646]
 layout_mode = 0
 offset_left = 388.0
@@ -434,23 +493,19 @@ offset_bottom = 24.0
 text = ":武器ステータス"
 label_settings = SubResource("LabelSettings_5hoxb")
 
-[node name="ModContainer" parent="Parent/ModUI/Control/CarouseContainer" parent_id_path=PackedInt32Array(1180346681, 438782455) index="0" unique_id=154540731]
-offset_left = 0.0
-offset_top = 247.0
-offset_right = 40.000015
-offset_bottom = 287.0
-
 [node name="ModifierTimer" parent="Parent" unique_id=1389695203 instance=ExtResource("4_rj6n4")]
+z_index = 10
 layout_mode = 1
-offset_left = 29.0
-offset_top = 200.0
-offset_right = 29.0
-offset_bottom = 200.0
+offset_left = 22.0
+offset_top = 268.0
+offset_right = 22.0
+offset_bottom = 268.0
 scale = Vector2(0.6, 0.6)
 mouse_filter = 1
 
 [node name="ModifierExplanation" type="Panel" parent="Parent" unique_id=20382060]
 visible = false
+z_index = 10
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -459,35 +514,45 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -103.5
 offset_top = 8.0
-offset_right = 103.5
-offset_bottom = 47.999878
+offset_right = 96.34268
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_jhy2k")
+theme_override_styles/panel = SubResource("StyleBoxTexture_4lo75")
 script = ExtResource("6_a57nb")
 
 [node name="Icon" type="Panel" parent="Parent/ModifierExplanation" unique_id=1562886830]
+material = SubResource("ShaderMaterial_5kq56")
 layout_mode = 0
-offset_left = 0.5
-offset_top = 1.0
-offset_right = 38.5
-offset_bottom = 39.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5hoxb")
+offset_left = -21.0
+offset_top = 6.0
+offset_right = 17.0
+offset_bottom = 44.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_50dfd")
 
 [node name="TextureRect" type="TextureRect" parent="Parent/ModifierExplanation/Icon" unique_id=1375634436]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 38.0
-offset_bottom = 37.0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 27.0
+offset_bottom = 29.0
+texture = ExtResource("12_468ky")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Parent/ModifierExplanation" unique_id=542273533]
 layout_mode = 0
-offset_left = 41.5
-offset_top = 2.0
-offset_right = 204.5
-offset_bottom = 38.0
-theme_override_font_sizes/normal_font_size = 8
+offset_left = 21.0
+offset_top = 7.0
+offset_right = 191.0
+offset_bottom = 44.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_fonts/normal_font = ExtResource("10_okfkp")
+theme_override_font_sizes/normal_font_size = 10
+text = "斬撃の速さに応じて、一秒ごとの斬撃の大きさが+0.02ずつ大きくなっていく"
+scroll_following_visible_characters = true
 
 [node name="Timer" type="Timer" parent="Parent/ModifierExplanation" unique_id=458784596]
 wait_time = 3.0
@@ -585,5 +650,6 @@ bus = &"UISound"
 [connection signal="pressed" from="GameOver/Title" to="." method="_on_title_pressed"]
 
 [editable path="Parent/ModUI"]
+[editable path="Parent/ModifierTimer"]
 [editable path="Parent/PlayerHpUI"]
 [editable path="WeaponModifierUI"]
