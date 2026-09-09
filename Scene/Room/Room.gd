@@ -63,6 +63,7 @@ func get_door(direction : Door.Direction) -> Door:
 
 func _on_exit_door_player_entered(player : Player) -> void:
 	main_game_node.current_room = self
+	highlight_next_doors()
 	if auto_spawn_enemies:
 		spawn_enemies()
 
@@ -91,5 +92,10 @@ func _on_encounter_cleared() -> void:
 		obelisk.is_obelisk_locked = false
 	_turn_off_all_traps()
 
-func open_all_doors() -> void:
-	encounter_component.open_doors()
+func highlight_next_doors() -> void:
+	for node in doors.get_children():
+		var door : Door = node as Door
+		if door.teleport_to and door.teleport_to.current_room:
+			var target_room : Room = door.teleport_to.current_room
+			if target_room.depth > depth and main_game_node.current_room == self:
+				door.show_outline()
