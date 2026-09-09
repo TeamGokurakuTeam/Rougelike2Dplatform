@@ -49,17 +49,24 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("UI_scroll_left"):
 		player.current_modifier += 1
 		mod_ui.texture_update(player)
+		if not player.current_modifier < 0:
+			_on_modifier_picked_up(GlobalResourceLoader.modifier_cache[player.mod_resource_ids[player.current_modifier]])
+		
 	if Input.is_action_just_pressed("UI_scroll_right"):
 		player.current_modifier -= 1
 		mod_ui.texture_update(player)
+		if not player.current_modifier < 0:
+			_on_modifier_picked_up(GlobalResourceLoader.modifier_cache[player.mod_resource_ids[player.current_modifier]])
 	if Input.is_action_just_pressed("UI_ShowMod"):
 		is_show_mod_ui = !is_show_mod_ui
 		open_sound.play()
 		if is_show_mod_ui:
+			GameEvents.cutscene_started.emit()
 			weapon_modifier_ui.init_ui()
 			weapon_modifier_ui.load_modifier(player)
 			weapon_modifier_ui.show_ui()
 		else:
+			GameEvents.cutscene_ended.emit()
 			weapon_modifier_ui.hide_ui()
 
 func _on_character_modifier_updated(player: Player) -> void:
