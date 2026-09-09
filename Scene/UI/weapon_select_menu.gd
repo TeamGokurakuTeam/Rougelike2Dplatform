@@ -19,26 +19,54 @@ func _ready() -> void:
 	animation_player.play("Start")
 	tutorial_game_scene = load("uid://cskviypw4dau5")
 	main_game_scene = load("uid://b4i3w233507yf")
+	var unlock_states : Dictionary[String, bool] = _get_unlocked_weapon_states()
 	for key in GlobalResourceLoader.weapon_cache.keys():
 		var panel_node : WeaponSelectPanel = WEAPON_SELECT_PANEL.instantiate()
 		panel_node.weapon_resource = GlobalResourceLoader.weapon_cache[key]
 		panel_container.add_child(panel_node)
-		_unlock_weapon(panel_node)
-		
+
+		var weapon_id : String = panel_node.weapon_resource.Id
+		panel_node.is_lock = not unlock_states.get(weapon_id, false)
+
 	for node in panel_container.get_children():
 		var panel : WeaponSelectPanel = node as WeaponSelectPanel
 		panel.button.pressed.connect(_on_panel_button_pressed)
 
-func _unlock_weapon(panel : WeaponSelectPanel) -> void:
-	panel.is_lock = true
-	if panel.weapon_resource.Id == "A_NewWorld":
-		panel.is_lock = false
-	elif panel.weapon_resource.Id == "SilverSword":
-		if GlobalGameState.furthest_clear_floor >= 1:
-			panel.is_lock = false
-	elif panel.weapon_resource.Id == "EternalSword":
-		if GlobalGameState.found_floor1_secret_room:
-			panel.is_lock = false
+func _get_unlocked_weapon_states() -> Dictionary[String, bool]:
+	var unlock_states : Dictionary[String, bool] = {}
+
+	for key in GlobalResourceLoader.weapon_cache.keys():
+		var weapon_resource : Resource = GlobalResourceLoader.weapon_cache[key]
+		var weapon_id : String = weapon_resource.Id
+		unlock_states[weapon_id] = _should_weapon_be_unlocked_by_progress(weapon_id)
+
+	var unlocked_weapon_count : int = 0
+	for is_unlocked in unlock_states.values():
+		if is_unlocked:
+			unlocked_weapon_count += 1
+
+	for key in GlobalResourceLoader.weapon_cache.keys():
+		var weapon_resource : Resource = GlobalResourceLoader.weapon_cache[key]
+		var weapon_id : String = weapon_resource.Id
+		if weapon_id == "CrystalBlade":
+			unlock_states[weapon_id] = unlocked_weapon_count >= 2
+		if weapon_id == "LanternMace":
+			unlock_states[weapon_id] = unlocked_weapon_count >= 4
+
+	return unlock_states
+
+func _should_weapon_be_unlocked_by_progress(weapon_id : String) -> bool:
+	match weapon_id:
+		"A_NewWorld":
+			return true
+		"SilverSword":
+			return GlobalGameState.furthest_clear_floor >= 1
+		"EternalSword":
+			return GlobalGameState.found_floor1_secret_room
+		"TimerBlade":
+			var floor2_clear_time : int = GlobalGameState.get_best_floor_clear_time(2)
+			return floor2_clear_time > 0 and floor2_clear_time <= 240_000
+	return false
 
 func _on_panel_button_pressed() -> void:
 	var selected_id : String = ""

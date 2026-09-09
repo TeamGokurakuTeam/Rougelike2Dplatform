@@ -8,9 +8,11 @@ func start_first_floor() -> void:
 	room_generator.room_generate(null, _get_current_floor_type())
 	main_game_node.current_room = room_generator.lobby_room
 	_move_player_to_lobby()
+	GlobalGameState.start_floor_timer()
 
 func _on_next_floor_entered() -> void:
 	GlobalGameState.furthest_clear_floor = max(GlobalGameState.furthest_clear_floor, current_floor)
+	GlobalGameState.record_best_floor_clear_time(current_floor)
 	current_floor += 1
 	GameEvents.floor_changed.emit(current_floor)
 	await Common.fade_out_to_black(main_game_node.get_tree())
@@ -21,6 +23,7 @@ func _on_next_floor_entered() -> void:
 	_move_player_to_lobby()
 	main_game_node.current_room = room_generator.lobby_room
 	await Common.fade_in_from_black()
+	GlobalGameState.start_floor_timer()
 
 func _get_current_floor_type() -> Variant:
 	if current_floor == 1:
