@@ -9,6 +9,6 @@ texture = ExtResource("2_2pa64")
 modifier_id = "Stillblade"
 modifier_name = "剣の不動"
 explanation = "剣を振らない時間が長いほど全てのダメージ量が上昇
-(5秒ごとに全てのダメージが1ずつ上がる)"
+(5秒ごとにダメージが1上昇)"
 price = 3
 metadata/_custom_type_script = "uid://cwogrmg4kjfqg"

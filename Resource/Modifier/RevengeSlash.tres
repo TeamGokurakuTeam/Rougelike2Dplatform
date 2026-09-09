@@ -8,5 +8,5 @@ script = ExtResource("1_vf0rx")
 texture = ExtResource("2_pridh")
 modifier_id = "RevengeSlash"
 modifier_name = "逆転こそ…！"
-explanation = "敵からダメージを食らうたびにスタックを蓄積しチャージ攻撃時開放して大ダメージを与える"
+explanation = "ダメージを食らうたびにスタックを蓄積しチャージ攻撃で大ダメージを与える"
 metadata/_custom_type_script = "uid://cwogrmg4kjfqg"

@@ -10,6 +10,6 @@ texture = ExtResource("2_h7iuu")
 modifier_id = "Bloodletting"
 modifier_name = "自傷斬撃"
 color_rarity = Color(1, 0.100000024, 0.100000024, 1)
-explanation = "プレイヤーが剣で通常攻撃時、自身の体力を\"1\"減らして斬撃(発射物)を出す。
-ただし、プレイヤーの体力が10以下なら、この斬撃は出ない。"
+explanation = "通常攻撃時、体力を\"1\"減らして斬撃を出す。
+ただし、体力が10以下なら、この斬撃は出ない。"
 price = 2

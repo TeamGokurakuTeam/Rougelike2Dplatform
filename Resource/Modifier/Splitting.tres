@@ -8,7 +8,7 @@ script = ExtResource("1_6cpuy")
 texture = ExtResource("2_7vbor")
 modifier_id = "Splitting"
 modifier_name = "増殖する"
-explanation = "プレイヤーが放つ斬撃(発射物)がある場合、敵に斬撃が当たると、斬撃の数が+1されるが、サイズが-0.1される。
-(斬撃のサイズは最小1.0で、1.0を下回る場合はそれ以上小さくならず、斬撃の数は増えない)
+explanation = "敵に斬撃が当たると、斬撃の数が+1され、サイズが小さくなる
+
 
 --- ヤツを1匹見たら、30匹はいると思え…"

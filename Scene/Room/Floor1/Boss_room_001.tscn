@@ -132,7 +132,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0.1, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 1.5, 1.6, 1.7, 1.8000001, 1.9, 2, 3.4, 3.7, 4.1, 4.2000003, 4.3, 5.3, 5.4, 5.5, 5.6, 5.7000003, 5.8, 5.9, 6, 6.1, 6.2000003),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [-0.2617994, -0.2617994, -0.07062116888993941, 0.057531247643245464, 0.13526304349515517, 0.17517935355031078, 0.18988536678869394, 0.19198622, 0.0, 0.061086524, 0.0, -0.10471976, 0.0, 0.0, 0.0, 0.12217305, 0.12217305, -0.20071286, 0.0, 0.0, 0.07853982, -0.05235988, 0.27052602, 0.015707964, 0.07853982, -0.05235988, -0.05235988, 0.27052602, 0.015707964]
+"values": [-0.2617994, -0.2617994, -0.07062116888993941, 0.05753124764324546, 0.13526304349515517, 0.17517935355031078, 0.18988536678869392, 0.19198622, 0.0, 0.061086524, 0.0, -0.10471976, 0.0, 0.0, 0.0, 0.12217305, 0.12217305, -0.20071286, 0.0, 0.0, 0.07853982, -0.05235988, 0.27052602, 0.015707964, 0.07853982, -0.05235988, -0.05235988, 0.27052602, 0.015707964]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -325,6 +325,18 @@ tracks/23/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 13.613568]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Sound/Flash:volume_db")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-12.0, -12.0]
 }
 
 [sub_resource type="Animation" id="Animation_ymlor"]
@@ -940,6 +952,18 @@ tracks/50/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("Sound/Flash:volume_db")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-12.0]
 }
 
 [sub_resource type="Animation" id="Animation_dci1e"]
@@ -2131,7 +2155,7 @@ metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 
 [node name="Flash" type="AudioStreamPlayer" parent="Sound" index="0" unique_id=965587861]
 stream = ExtResource("17_stfpc")
-volume_db = -5.0
+volume_db = -12.0
 bus = &"SoundEffect"
 
 [node name="Awake" type="AudioStreamPlayer" parent="Sound" index="1" unique_id=2127768954]

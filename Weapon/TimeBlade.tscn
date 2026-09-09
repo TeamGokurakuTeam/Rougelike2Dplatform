@@ -398,6 +398,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("NormalAttack:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-22.0, -22.0]
+}
 
 [sub_resource type="Animation" id="Animation_7oc6y"]
 resource_name = "Charge"
@@ -1021,6 +1033,30 @@ tracks/23/keys = {
 "update": 0,
 "values": [-3.0]
 }
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("NormalAttack:volume_db")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-22.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Slash:volume_db")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-28.0]
+}
 
 [sub_resource type="Animation" id="Animation_mga5i"]
 resource_name = "StrongAttack"
@@ -1169,6 +1205,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [40.0, 40.0]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Slash:volume_db")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-28.0, -28.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kv42n"]
 _data = {
@@ -1240,14 +1288,14 @@ process_material = ExtResource("4_7oc6y")
 
 [node name="Slash" type="AudioStreamPlayer" parent="." index="7" unique_id=1267870820]
 stream = ExtResource("9_0b1pf")
-volume_db = -16.0
+volume_db = -28.0
 pitch_scale = 1.4
 
 [node name="NormalAttack" type="AudioStreamPlayer" parent="." index="8" unique_id=717225301]
 stream = ExtResource("10_4tmch")
-volume_db = -15.0
+volume_db = -22.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9" unique_id=175229747]
 stream = ExtResource("10_0b1pf")
-volume_db = -5.0
-pitch_scale = 1.8
+volume_db = -2.0
+pitch_scale = 1.7

@@ -8,4 +8,4 @@ script = ExtResource("1_brm14")
 texture = ExtResource("2_nuv2l")
 modifier_id = "Resonating"
 modifier_name = "呼応する"
-explanation = "プレイヤーが放つ斬撃(発射物)がある場合、斬撃の速さに応じて、一秒ごとの斬撃の大きさが+0.02ずつ大きくなっていく"
+explanation = "斬撃の速さに応じて、斬撃が大きくなる"
