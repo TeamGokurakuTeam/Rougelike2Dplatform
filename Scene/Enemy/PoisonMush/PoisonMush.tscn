@@ -312,6 +312,7 @@ script = ExtResource("2_dukoi")
 mod_resource = Array[ExtResource("3_irj1s")]([ExtResource("4_w7c4d"), ExtResource("5_gvdcu"), ExtResource("6_07xud"), ExtResource("7_xeg83"), ExtResource("8_hxrle"), ExtResource("9_yhivg"), ExtResource("10_ixt7p"), ExtResource("11_cxehs"), ExtResource("12_ufd7s"), ExtResource("13_nbsl7")])
 max_speed = 100.0
 acceleration = 20
+knockback_friction = 200.0
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")
@@ -345,8 +346,8 @@ anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 25.0
-hp = 25.0
+max_hp = 130.0
+hp = 130.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 rotation = -0.14835298

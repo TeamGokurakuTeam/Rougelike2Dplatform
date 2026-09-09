@@ -71,12 +71,13 @@ var is_countering : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("Player")
 	for node in root.get_children():
 		if node is Hitbox:
 			var hitbox : Hitbox = (node as Hitbox)
 			hitboxes.append(node)
 			hitbox.damage_dealt.connect(_on_hitbox_damage_dealt)
-	player = get_tree().get_first_node_in_group("Player")
+			hitbox.knockback_source = player
 	GameEvents.battle_start.connect(_on_battle_start)
 	GameEvents.battle_end.connect(_on_battle_end)
 
@@ -282,7 +283,7 @@ func fall_slashing() -> void:
 		randomspeed.tween_callback(func ():
 			var slash := PLAYER_FALL_SLASH.instantiate()
 			slash.direction = dir
-			slash.damage = 3
+			slash.damage = 5
 			var offset := Vector2(
 				randf_range(50, range_x) * dir,
 				randf_range(range_y_min, range_y_max)
@@ -493,6 +494,7 @@ func _on_stillblade_timer_timeout() -> void:
 	if stillblade_stack >= max_stillblade_stack:
 		stillblade_timer.stop()
 		
+
 func trigger_modifier_when_receive_damage(damage : float) -> void:
 	if has_modifiers("RevengeSlash"):
 		cumulated_damage += damage

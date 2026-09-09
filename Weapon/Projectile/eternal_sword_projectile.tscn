@@ -487,9 +487,9 @@ texture = ExtResource("4_eo6j5")
 shape = SubResource("RectangleShape2D_11cdg")
 
 [node name="Hitbox" parent="." index="3" unique_id=2085938192]
-damage = 2.0
+damage = 100.0
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1399399970]
 shape = SubResource("RectangleShape2D_bkb4b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=650834487]

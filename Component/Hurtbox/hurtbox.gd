@@ -12,7 +12,14 @@ signal recieved_damage(damage : float, knockback_dir : Vector2)
 
 func _apply_damage(hitbox : Hitbox) -> void:
 	if hitbox:
-		recieved_damage.emit((hitbox.damage + hitbox.damage_plus) * hitbox.damage_multiplier, hitbox.knockback_force * hitbox.knockback_direction)
+		var knockback_dir : Vector2 = Vector2.ZERO
+		if hitbox.can_apply_knockback:
+			var dir : Vector2 = hitbox.knockback_direction
+			if dir.is_zero_approx():
+				var source_position : Vector2 = hitbox.knockback_source.global_position if hitbox.knockback_source else hitbox.global_position
+				dir = (global_position - source_position).normalized()
+			knockback_dir = hitbox.knockback_force * dir
+		recieved_damage.emit((hitbox.damage + hitbox.damage_plus) * hitbox.damage_multiplier, knockback_dir)
 		hitbox.damage_dealt.emit(self)
 
 func apply_extra_damage(amount : float) -> void:

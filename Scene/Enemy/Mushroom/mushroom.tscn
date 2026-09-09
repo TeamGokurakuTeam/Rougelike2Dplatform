@@ -207,6 +207,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [true, true, false, false, true, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:knockback_immune")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="Animation" id="Animation_4kjkg"]
 resource_name = "Idle"
@@ -260,6 +272,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:knockback_immune")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
 
 [sub_resource type="Animation" id="Animation_7kuqn"]
 length = 0.001
@@ -310,6 +334,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:knockback_immune")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_f1xg0"]
@@ -365,6 +401,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:knockback_immune")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7kuqn"]
 _data = {
@@ -400,10 +448,6 @@ parent = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 10.0
-hp = 10.0
-
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 sprite_frames = SubResource("SpriteFrames_45uc2")
 animation = &"Idle"
@@ -418,6 +462,7 @@ shape = SubResource("RectangleShape2D_4kjkg")
 
 [node name="Hitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="0" unique_id=195243888]
 damage = 5.0
+knockback_force = 130.0
 
 [node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
 position = Vector2(0, 1)
