@@ -135,23 +135,23 @@ func _process(delta: float) -> void:
 				_try_auto_attack_speed_buff()
 	return
 
+func _is_one_time_modifier(id : String) -> bool:
+	return id == "RevolutionResolve"
 
-#func move(mouse_direction: Vector2) -> void:
-	#if ranged_weapon:
-		#rotation_degrees = rad_to_deg(mouse_direction.angle()) + rotation_offset
-	#else:
-		#if not animation_player.is_playing() or animation_player.current_animation == "charge":
-			#rotation = mouse_direction.angle()
-			#hitbox.knockback_direction = mouse_direction
-			#if scale.y == 1 and mouse_direction.x < 0:
-				#scale.y = -1
-			#elif scale.y == -1 and mouse_direction.x > 0:
-				#scale.y = 1
+func apply_instant_modifier(id : String) -> void:
+	if id == "RevolutionResolve":
+		if player.mod_resource_ids.size() == 1 and player.hp_component.hp <= 10:
+			player.hp_component.restore_hp()
+
 func decrease_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
 		modifiers_ids[id] = max(0, modifiers_ids[id] - count)
 
 func add_modifier(id : String, count : int = 1) -> void:
+	if _is_one_time_modifier(id):
+		apply_instant_modifier(id)
+		return
+
 	if modifiers_ids.has(id):
 		modifiers_ids[id] += count
 	else:
@@ -159,6 +159,10 @@ func add_modifier(id : String, count : int = 1) -> void:
 	trigger_modifier_when_added(id)
 
 func add_lock_modifier(id : String, count : int = 1) -> void:
+	if _is_one_time_modifier(id):
+		apply_instant_modifier(id)
+		return
+
 	if lock_modifiers_ids.has(id):
 		lock_modifiers_ids[id] += count
 	else:
