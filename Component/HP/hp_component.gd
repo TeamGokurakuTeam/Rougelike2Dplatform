@@ -1,6 +1,8 @@
 extends Node2D
 class_name HPComponent
 
+@onready var dead: AudioStreamPlayer = $"../Dead"
+
 @export var max_hp : float = 100
 @export var hp : float = 100 : set = _set_hp #setterは変数を使うときに呼び出される関数
 
@@ -16,6 +18,6 @@ func _set_hp(new_hp : float) -> void:
 	hp_changed.emit()
 	if hp <= 0:
 		is_dead.emit()
-
+		dead.play()
 func restore_hp() -> void:
 	hp = max_hp #初期化用の関数

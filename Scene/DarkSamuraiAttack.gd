@@ -1,12 +1,13 @@
 extends State
 class_name DarkSamuraiAttack
+@onready var attack: AudioStreamPlayer = $"../../Attack"
 
 @export var animation_player : AnimationPlayer
 @export var parent : DarkSamurai
 
 func Enter() -> void:
 	animation_player.play("Attack")
-
+	attack.play()
 func Exit() -> void:
 	pass
 

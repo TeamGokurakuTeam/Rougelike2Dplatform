@@ -25,6 +25,8 @@
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="19_5t2v2"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="20_7cwa8"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="21_wlmng"]
+[ext_resource type="AudioStream" uid="uid://caje4oopapdyd" path="res://Assets/Enemy/samurai_1.mp3" id="26_4l2dx"]
+[ext_resource type="AudioStream" uid="uid://c8y0uqagl4u03" path="res://Assets/Enemy/samurai_2.mp3" id="27_kusi2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s685e"]
 atlas = ExtResource("6_riyji")
@@ -657,6 +659,15 @@ libraries/ = SubResource("AnimationLibrary_xclgv")
 
 [node name="ChaseTimer" type="Timer" parent="." index="9" unique_id=269855137]
 wait_time = 0.1
+
+[node name="Dead" type="AudioStreamPlayer" parent="." index="10" unique_id=718081992]
+stream = ExtResource("26_4l2dx")
+volume_db = -10.0
+
+[node name="Attack" type="AudioStreamPlayer" parent="." index="11" unique_id=937905096]
+stream = ExtResource("27_kusi2")
+volume_db = -10.0
+bus = &"SoundEffect"
 
 [connection signal="is_dead" from="HPComponent" to="." method="_on_hp_component_is_dead"]
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Chase" method="_on_player_detector_body_entered"]
