@@ -40,7 +40,7 @@ func _on_hp_component_is_dead() -> void:
 	queue_free()
 
 func killed_drop_modifier() -> void:
-	if mod_resource.size() <= 0 and randi_range(1, 100) <= 90:
+	if mod_resource.size() <= 0 or randi_range(1, 100) <= 50:
 		return
 	var drop_mod : DropModifier = DROP_MODIFIER.instantiate()
 	drop_mod.modifier = mod_resource.pick_random()
@@ -49,10 +49,10 @@ func killed_drop_modifier() -> void:
 	drop_mod.global_position = Vector2(self.global_position)
 
 func killed_drop_item() -> void:
-	if randi_range(1, 100) <= 30: #30は回復全体が出る確率
+	if randi_range(1, 100) <= 20: #20は回復全体が出る確率
 		var drop_heal : DropHealItem = DROP_HEAL_ITEM.instantiate()
 		drop_heal.item_res = HEAL_POTION
-		if randi_range(1, 100) <= 40: #40より下はより高Tierな回復の抽選
+		if randi_range(1, 100) <= 30: #40より下はより高Tierな回復の抽選
 			drop_heal.item_res = MEGA_HEAL_POTION
 		if randi_range(1, 100) <= 2:
 			drop_heal.item_res = GOLDEN_HEAL_POTION
