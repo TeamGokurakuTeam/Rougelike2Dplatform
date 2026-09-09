@@ -5,11 +5,15 @@ class_name Infector
 @onready var slam_collision: CollisionShape2D = $Hitboxes/Hitbox/CollisionShape2D2
 @onready var ghost_timer: Timer = $GhostTimer
 @onready var slam_effect: GPUParticles2D = $SlamEffect
+@onready var a_rush_effect: GPUParticles2D = $Rush
+@onready var b_rush_effect: GPUParticles2D = $Rush2
 
 const HEDORO_GEAR = preload("uid://02rhrcwex5jr")
 const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 
 func _ready() -> void:
+	a_rush_effect.emitting = false
+	b_rush_effect.emitting = false
 	player_dir()
 
 func _physics_process(delta: float) -> void:
@@ -53,6 +57,7 @@ func player_dir() -> float:
 func add_ghost_effect() -> void:
 	var ghost : GhostEffect = GHOST_EFFECT.instantiate()
 	ghost.set_propety(position, sprite.scale)
+	ghost.z_index = 3
 	get_tree().current_scene.add_child(ghost)
 
 func _on_ghost_timer_timeout() -> void:

@@ -274,7 +274,7 @@ height = 52.0
 size = Vector2(54, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwsjm"]
-size = Vector2(85, 31)
+size = Vector2(62, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0k4l"]
 size = Vector2(54, 43)
@@ -330,6 +330,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(62, 31), Vector2(62, 31)]
 }
 
 [sub_resource type="Animation" id="Animation_syfht"]
@@ -488,6 +500,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(62, 31)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [108]
 }
 
 [sub_resource type="Animation" id="Animation_ujgx8"]
@@ -680,6 +716,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitboxes/Hitbox/CollisionShape2D2:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(83, 31), Vector2(83, 31)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.39999998, 0.5, 0.59999996, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [108, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wg0aw"]
 _data = {
@@ -784,6 +844,84 @@ collision_mode = 1
 collision_friction = 0.1
 collision_bounce = 0.13
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ppkyb"]
+load_path = "res://.godot/imported/Free Smoke Fx  Pixel 06.png-02f6da1083f56caad7ce0a919a5836c9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
+atlas = SubResource("CompressedTexture2D_ppkyb")
+region = Rect2(273, 1106, 36, 33)
+
+[sub_resource type="Curve" id="Curve_n2h2g"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4174312, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gwm8q"]
+curve = SubResource("Curve_n2h2g")
+
+[sub_resource type="Curve" id="Curve_u42ec"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -28.314575), 0.0, 0.0, 0, 0, Vector2(1, 4.044983), 62.985443, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gj3l6"]
+curve = SubResource("Curve_u42ec")
+
+[sub_resource type="Gradient" id="Gradient_2s5yq"]
+offsets = PackedFloat32Array(0, 0.796875, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.16750336, 0.8978685, 0, 1, 0, 0.22352941, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xijl7"]
+gradient = SubResource("Gradient_2s5yq")
+
+[sub_resource type="Curve" id="Curve_xb15r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.694765, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qdq5c"]
+curve = SubResource("Curve_xb15r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5hoxb"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 10, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -9.9999895
+angle_max = 15.0000105
+angle_curve = SubResource("CurveTexture_gj3l6")
+spread = 69.545
+flatness = 0.17
+initial_velocity_min = 97.659996
+initial_velocity_max = 128.91
+angular_velocity_min = 50.629982
+angular_velocity_max = 95.61998
+orbit_velocity_min = -0.20299992
+orbit_velocity_max = 0.5620001
+radial_velocity_min = -62.50002
+radial_velocity_max = 15.619977
+gravity = Vector3(0, 98, 0)
+linear_accel_min = 5.4699974
+linear_accel_max = 14.839997
+radial_accel_min = 7.029998
+radial_accel_max = 16.409998
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = 10.159998
+damping_min = 17.187
+damping_max = 17.187
+scale_min = 0.39999998
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_qdq5c")
+color = Color(0, 0.8527348, 0, 1)
+color_ramp = SubResource("GradientTexture1D_xijl7")
+alpha_curve = SubResource("CurveTexture_gwm8q")
+anim_speed_max = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pvk54"]
+load_path = "res://.godot/imported/Free Smoke Fx  Pixel 06.png-02f6da1083f56caad7ce0a919a5836c9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6ow2"]
+atlas = SubResource("CompressedTexture2D_pvk54")
+region = Rect2(205, 1171, 33, 36)
+
 [node name="Infector" unique_id=1094349948 instance=ExtResource("1_a7xe3")]
 script = ExtResource("2_vsncb")
 friction = 0.05
@@ -805,10 +943,12 @@ parent = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
-[node name="Rush" type="Node" parent="StateMachine" index="2" unique_id=1185091767 node_paths=PackedStringArray("parent", "anim_player")]
+[node name="Rush" type="Node" parent="StateMachine" index="2" unique_id=1185091767 node_paths=PackedStringArray("parent", "anim_player", "rush_timer", "ghost_timer")]
 script = ExtResource("4_fjlxk")
 parent = NodePath("../..")
 anim_player = NodePath("../../AnimationPlayer")
+rush_timer = NodePath("../../RushTimer")
+ghost_timer = NodePath("../../GhostTimer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="Slam" type="Node" parent="StateMachine" index="3" unique_id=1280680660 node_paths=PackedStringArray("parent", "anim_player")]
@@ -831,7 +971,15 @@ sprite_frames = SubResource("SpriteFrames_nd50y")
 animation = &"Attack"
 offset = Vector2(-8, 0)
 
-[node name="CollisionShape2D" parent="." index="3" unique_id=879731102]
+[node name="Sprite2D" type="Sprite2D" parent="." index="3" unique_id=2139733523]
+position = Vector2(-45.000008, 19)
+scale = Vector2(1.555, 1.555)
+texture = ExtResource("17_ppkyb")
+hframes = 11
+vframes = 15
+frame = 108
+
+[node name="CollisionShape2D" parent="." index="4" unique_id=879731102]
 position = Vector2(5, -6)
 shape = SubResource("CapsuleShape2D_56pq6")
 
@@ -844,7 +992,7 @@ damage = 10.0
 knockback_force = 250.0
 
 [node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
-position = Vector2(-42.5, 4.5)
+position = Vector2(-41.5, 4.5)
 shape = SubResource("RectangleShape2D_hwsjm")
 
 [node name="Hitbox2" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="1" unique_id=466385270 groups=["Enemy"] instance=ExtResource("9_hwsjm")]
@@ -859,24 +1007,25 @@ position = Vector2(6, -1.5)
 shape = SubResource("RectangleShape2D_w0k4l")
 debug_color = Color(0.99215686, 0, 0, 0.41960785)
 
-[node name="AnimationPlayer" parent="." index="7" unique_id=559520988]
+[node name="AnimationPlayer" parent="." index="8" unique_id=559520988]
 libraries/ = SubResource("AnimationLibrary_wg0aw")
 
-[node name="IdleTimer" type="Timer" parent="." index="8" unique_id=395097699]
+[node name="IdleTimer" type="Timer" parent="." index="9" unique_id=395097699]
 wait_time = 5.0
 one_shot = true
 
-[node name="Marker2D" type="Marker2D" parent="." index="9" unique_id=1786451970]
+[node name="Marker2D" type="Marker2D" parent="." index="10" unique_id=1786451970]
 position = Vector2(-29, 9)
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="10" unique_id=1311730843]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="11" unique_id=1311730843]
 emitting = false
 texture = ExtResource("16_kg0s2")
 process_material = SubResource("ParticleProcessMaterial_jhy2k")
 
-[node name="GhostTimer" type="Timer" parent="." index="11" unique_id=1470045639]
+[node name="GhostTimer" type="Timer" parent="." index="12" unique_id=1470045639]
+wait_time = 0.8
 
-[node name="SlamEffect" type="GPUParticles2D" parent="." index="12" unique_id=105991764]
+[node name="SlamEffect" type="GPUParticles2D" parent="." index="13" unique_id=105991764]
 position = Vector2(-70, 13)
 emitting = false
 amount = 60
@@ -886,4 +1035,22 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_gj3l6")
 
+[node name="Rush" type="GPUParticles2D" parent="." index="14" unique_id=307017372]
+emitting = false
+amount = 15
+texture = SubResource("AtlasTexture_jhy2k")
+process_material = SubResource("ParticleProcessMaterial_5hoxb")
+
+[node name="Rush2" type="GPUParticles2D" parent="." index="15" unique_id=1911229835]
+position = Vector2(43, -22)
+emitting = false
+texture = SubResource("AtlasTexture_i6ow2")
+process_material = SubResource("ParticleProcessMaterial_5hoxb")
+
+[node name="RushTimer" type="Timer" parent="." index="16" unique_id=102817885]
+wait_time = 8.0
+one_shot = true
+
 [connection signal="timeout" from="IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="GhostTimer" to="StateMachine/Rush" method="_on_ghost_timer_timeout"]
+[connection signal="timeout" from="RushTimer" to="StateMachine/Rush" method="_on_rush_timer_timeout"]
