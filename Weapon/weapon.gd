@@ -33,17 +33,9 @@ var hitboxes : Array[Hitbox] = []
 var modifiers_ids : Dictionary[String, int] = {}
 var lock_modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
-#自動攻撃
-var auto_attack_speed_buff_active := false
-var auto_attack_original_speed := 1.0
-var base_speed_scale = 1.0 #現在の速度
 
 #速度上限
 var max_speed_scale := 2.5
-#
-var original_multipliers: Array[float] = []
-#
-var original_acceleration := 0.0
 
 #使用した修飾子の数
 var modifier_use_count: int = 0
@@ -129,10 +121,13 @@ func _process(delta: float) -> void:
 	if has_modifiers("AutoAttack"):
 		if Input.is_action_pressed("UI_Attack"):
 			if not animation_player.is_playing():
+				var speed_mults : AttackSpeedMultiplier = calculate_speed_multiplier()
+				var dmg_mults : AttackDamageMultiplier = calculate_damage_multiplier()
+				for i in hitboxes.size():
+					hitboxes[i].damage_plus = dmg_mults.damage_plus
+					hitboxes[i].damage_multiplier = dmg_mults.damage_mult
+				animation_player.speed_scale = speed_mults.attack_speed_mult
 				animation_player.play("Attack")
-				await animation_player.animation_started
-				base_speed_scale = animation_player.speed_scale
-				_try_auto_attack_speed_buff()
 	return
 
 func _is_one_time_modifier(id : String) -> bool:
@@ -328,66 +323,6 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		get_tree().root.add_child(slash)
 		DamageNumber.display_number(2, global_position, false, Color("6f0000ff"))
 		player.hp_component.hp -= 1 #1は自傷ダメージ
-#自動攻撃
-func _try_auto_attack_speed_buff() -> void:
-	if auto_attack_speed_buff_active:
-		return
-	if randf() < 0.1:
-		_start_auto_attack_speed_buff()
-#自動攻撃
-func _start_auto_attack_speed_buff() -> void:
-	auto_attack_speed_buff_active = true
-	auto_attack_original_speed = animation_player.speed_scale
-	var auto_speed = 1.3
-	var damping_speed = 0.0
-	if has_modifiers("DampingSpeedUp"):
-		damping_speed = 1.5
-	var raw_speed = auto_speed + damping_speed
-	var final_speed = min(raw_speed, max_speed_scale)
-	animation_player.speed_scale = final_speed
-	var need_save := false
-	if has_modifiers("Speedingexceed") or has_modifiers("SpeedingMoveExceed"):
-		need_save = true
-	if need_save:
-		original_multipliers.clear()
-		for i in range(hitboxes.size()):
-			original_multipliers.append(hitboxes[i].damage_multiplier)
-	if has_modifiers("Speedingexceed"):
-		var exceed = raw_speed - max_speed_scale
-		if exceed > 0:
-			_add_speed_exceed_damage(exceed)
-	if has_modifiers("SpeedingMoveExceed"):
-		var exceed = raw_speed - max_speed_scale
-		if exceed > 0:
-			original_acceleration = player.current_acceleration
-			_add_speed_move_exceed(exceed)
-	var timer := Timer.new()
-	timer.wait_time = 0.5
-	timer.one_shot = true
-	add_child(timer)
-	timer.timeout.connect(func():
-		animation_player.speed_scale = auto_attack_original_speed
-		auto_attack_speed_buff_active = false
-		if original_multipliers.size() == hitboxes.size():
-			for i in range(hitboxes.size()):
-				hitboxes[i].damage_multiplier = original_multipliers[i]
-		original_multipliers.clear()
-		if original_acceleration != 0.0:
-			player.current_acceleration = original_acceleration
-			original_acceleration = 0.0
-		timer.queue_free())
-	timer.start()
-
-#超過速度な
-func _add_speed_exceed_damage(exceed: float) -> void:
-	for i in range(hitboxes.size()):
-		hitboxes[i].damage_multiplier += exceed
-#
-func _add_speed_move_exceed(exceed:float) -> void:
-	if exceed > 0:
-		var add_speed = exceed * 10
-		player.current_acceleration += add_speed
-
 # アヒル
 func slashduck() -> void:
 	if randf() < 0.6:

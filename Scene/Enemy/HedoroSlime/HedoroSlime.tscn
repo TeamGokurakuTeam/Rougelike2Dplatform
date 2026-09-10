@@ -16,7 +16,6 @@
 [ext_resource type="Resource" uid="uid://b2uifpttrq0xu" path="res://Resource/Modifier/Bomb_Duck.tres" id="6_ehmcq"]
 [ext_resource type="Resource" uid="uid://u0vmblouv423" path="res://Resource/Modifier/Rampage.tres" id="7_gppl3"]
 [ext_resource type="Resource" uid="uid://dif27orikbsbn" path="res://Resource/Modifier/Stillblade.tres" id="8_igxen"]
-[ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="9_ehmcq"]
 [ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="10_gppl3"]
 [ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="11_igxen"]
 [ext_resource type="AudioStream" uid="uid://dk8pm5ae7ua6w" path="res://Assets/Enemy/Slime/suraimu_atk.mp3" id="20_gppl3"]
@@ -651,7 +650,7 @@ height = 106.0
 
 [node name="HedoroSlime" unique_id=1094349948 instance=ExtResource("1_kmf2r")]
 script = ExtResource("2_m2euu")
-mod_resource = Array[ExtResource("3_bkc7b")]([ExtResource("4_tx5eq"), ExtResource("5_fomdd"), ExtResource("6_ehmcq"), ExtResource("7_gppl3"), ExtResource("8_igxen"), ExtResource("9_ehmcq"), ExtResource("10_gppl3"), ExtResource("11_igxen")])
+mod_resource = Array[ExtResource("3_bkc7b")]([ExtResource("4_tx5eq"), ExtResource("5_fomdd"), ExtResource("6_ehmcq"), ExtResource("7_gppl3"), ExtResource("8_igxen"), ExtResource("10_gppl3"), ExtResource("11_igxen")])
 acceleration = 20
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
