@@ -23,13 +23,17 @@ func Enter() -> void:
 		await get_tree().create_timer(0.5).timeout
 		parent.spawn_slam_custom_bullet(randi_range(10, 20))
 		await anim_player.animation_finished
-	StateTransitioned.emit(self, "Idle")
+	if parent.is_rage:
+		StateTransitioned.emit(self, "Attack")
+	else:
+		StateTransitioned.emit(self, "Idle")
+		
 
 func Exit() -> void:
 	parent.flip_character()
 
 func Update(delta) -> void:
-	if parent.hp_component.hp <= parent.hp_component.max_hp / 2 and not parent.is_rage:
+	if parent.hp_component.hp <= parent.hp_component.max_hp / 3 and not parent.is_rage:
 		parent.is_rage = true
 		StateTransitioned.emit(self, "Rage")
 

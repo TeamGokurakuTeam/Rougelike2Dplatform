@@ -21,7 +21,7 @@ func Exit() -> void:
 	ghost_timer.stop()
 
 func Update(delta) -> void:
-	if parent.hp_component.hp <= parent.hp_component.max_hp / 2 and not parent.is_rage:
+	if parent.hp_component.hp <= parent.hp_component.max_hp / 3 and not parent.is_rage:
 		parent.is_rage = true
 		StateTransitioned.emit(self, "Rage")
 
@@ -32,4 +32,7 @@ func _on_ghost_timer_timeout() -> void:
 	parent.add_ghost_effect()
 
 func _on_rush_timer_timeout() -> void:
-	StateTransitioned.emit(self, "Shoot")
+	if randi_range(0, 100) <= 50:
+		StateTransitioned.emit(self, "Shoot")
+	else:
+		StateTransitioned.emit(self, "Attack")

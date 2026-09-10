@@ -10,8 +10,6 @@ const GOLEM_BOSS = preload("uid://bthj1ytrgopek")
 @onready var boss_room_camera: Camera = $BossRoomCamera
 @onready var animation_player1: AnimationPlayer = $TileMaps/Decoration2/AnimationPlayer
 
-
-
 func _ready() -> void:
 	super._ready()
 	auto_spawn_enemies = false
@@ -42,8 +40,9 @@ func boss_summon() -> void:
 	boss.global_position = boss_object.global_position
 	boss.hp_component.is_dead.connect(_on_boss_is_dead)
 	boss_object.visible = false
-	enemy_count += 1
+	#enemy_count += 1
 	GameEvents.battle_start.emit()
 
 func _on_boss_is_dead() -> void:
-	_on_enemy_is_dead()
+	#_on_enemy_is_dead()
+	pass

@@ -21,8 +21,10 @@ func Physics_Update(delta) -> void:
 	pass
 
 func _on_idle_timer_timeout() -> void:
-	if randi_range(0, 100) <= 100:
+	if randi_range(0, 100) <= 50:
 		StateTransitioned.emit(self, "Slam")
+	elif parent.is_rage and randi_range(0, 100) <= 30:
+		StateTransitioned.emit(self, "Attack")
 	else:
 		parent.a_rush_effect.emitting = true
 		parent.b_rush_effect.emitting = false
