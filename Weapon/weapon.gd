@@ -326,6 +326,17 @@ func bounceduck() -> void:
 	duck.velocity = Vector2(random_x, random_y)
 	get_tree().root.add_child(duck)
 
+func charge_split_slash() -> void:
+	if player.hp_component.hp <= 5:
+		return
+	for i in range(-2, 3):	# [-2, -1, 0, 1, 2]
+		var slash : PlayerSlashProjectile = PLAYER_SLASH.instantiate()
+		var rotate_angle : float = deg_to_rad(i * 10)
+		slash.direction = mouse_direction.normalized().rotated(rotate_angle)
+		slash.global_position = global_position
+		get_tree().current_scene.add_child(slash)
+	player.hp_component.apply_damage(5, DamageNumber.COLOR_DAMAGE_SELF)
+
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
 
@@ -454,7 +465,8 @@ func trigger_modifier_when_attack() -> void:
 	#アヒル爆弾
 
 func trigger_modifier_when_strong_attack() -> void:
-	pass
+	if has_modifiers("ChargeSplitSlash"):
+		charge_split_slash()
 
 func trigger_modifier_when_receive_damage(damage : float) -> void:
 	if has_modifiers("RevengeSlash"):

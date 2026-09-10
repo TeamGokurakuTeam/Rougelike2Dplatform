@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://0hu4fi4qle3m"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_8xwnc"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_o8who"]
+
+[resource]
+script = ExtResource("1_8xwnc")
+texture = ExtResource("2_o8who")
+modifier_id = "ChargeSplitSlash"
+explanation = "チャージ攻撃時、自身のHPを5消費して5つの斬撃を放つ。"
+metadata/_custom_type_script = "uid://cwogrmg4kjfqg"
