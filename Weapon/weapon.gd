@@ -135,52 +135,72 @@ func _process(delta: float) -> void:
 				_try_auto_attack_speed_buff()
 	return
 
+func _is_one_time_modifier(id : String) -> bool:
+	return id == "RevolutionResolve"
 
-#func move(mouse_direction: Vector2) -> void:
-	#if ranged_weapon:
-		#rotation_degrees = rad_to_deg(mouse_direction.angle()) + rotation_offset
-	#else:
-		#if not animation_player.is_playing() or animation_player.current_animation == "charge":
-			#rotation = mouse_direction.angle()
-			#hitbox.knockback_direction = mouse_direction
-			#if scale.y == 1 and mouse_direction.x < 0:
-				#scale.y = -1
-			#elif scale.y == -1 and mouse_direction.x > 0:
-				#scale.y = 1
+func apply_instant_modifier(id : String) -> void:
+	if id == "RevolutionResolve":
+		if player.mod_resource_ids.size() == 1 and player.hp_component.hp <= 10:
+			player.hp_component.restore_hp()
+
 func decrease_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
 		modifiers_ids[id] = max(0, modifiers_ids[id] - count)
 
 func add_modifier(id : String, count : int = 1) -> void:
+	if _is_one_time_modifier(id):
+		apply_instant_modifier(id)
+		return
+
 	if modifiers_ids.has(id):
 		modifiers_ids[id] += count
 	else:
 		modifiers_ids[id] = count
-	_start_stillblade_timer(id)
+	trigger_modifier_when_added(id)
 
 func add_lock_modifier(id : String, count : int = 1) -> void:
+	if _is_one_time_modifier(id):
+		apply_instant_modifier(id)
+		return
+
 	if lock_modifiers_ids.has(id):
 		lock_modifiers_ids[id] += count
 	else:
 		lock_modifiers_ids[id] = count
-	_start_stillblade_timer(id)
+	trigger_modifier_when_added(id)
 
-func _start_stillblade_timer(id : String) -> void:
+func trigger_modifier_when_added(id : String) -> void:
 	if id == "Stillblade" and stillblade_timer.is_stopped():
 		stillblade_timer.start()
+	if id == "RebirthResolve":
+		_try_rebirth_resolve()
+
+# 修飾子が10以上剣についている時、通常修飾子を全て消す代わりに攻撃力+50・体力全回復し、固定修飾子になる
+func _try_rebirth_resolve() -> void:
+	# 修飾子が足りない、不発
+	if get_all_modifier_levels_sum() < 10:
+		return
+	modifiers_ids.clear()
+	_reset_non_locked_modifier_states()
+	add_lock_modifier("RebirthResolve")
+	player.hp_component.restore_hp()
+
+func _reset_non_locked_modifier_states() -> void:
+	if not has_modifiers("Rampage"):
+		rampage_stack = 0
+		rampage_timer.stop()
+	if not has_modifiers("Stillblade"):
+		stillblade_stack = 0
+		stillblade_timer.stop()
+	if not has_modifiers("RevengeSlash"):
+		cumulated_damage = 0.0
 
 func reset_modifier() -> void:
 	for i in hitboxes.size():
 		hitboxes[i].damage_plus = 0.0
 		hitboxes[i].damage_multiplier = 1.0
 	modifiers_ids.clear()
-	# 修飾子専用
-	rampage_stack = 0
-	rampage_timer.stop()
-	stillblade_stack = 0
-	stillblade_timer.stop()
-	
-	cumulated_damage = 0.0
+	_reset_non_locked_modifier_states()
 
 func _physics_process(delta: float) -> void:
 	pass
@@ -457,6 +477,11 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 		mults.charge_damage_plus += 1 * stillblade_stack
 		stillblade_stack = 0
 		stillblade_timer.start()
+
+	# 転生の覚悟
+	if has_modifiers("RebirthResolve"):
+		mults.damage_plus += 50
+		mults.charge_damage_plus += 50
 
 	return mults
 

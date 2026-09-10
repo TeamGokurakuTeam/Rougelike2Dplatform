@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://dc6oxaw2a6iw3"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_0hsaa"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_kqxby"]
+
+[resource]
+script = ExtResource("1_0hsaa")
+texture = ExtResource("2_kqxby")
+modifier_id = "RebirthResolve"
+modifier_name = "転生の覚悟"
+explanation = "修飾子が10以上剣についていて、それらを全て消す代わりに、攻撃力を+50し、体力を全て回復する"
+metadata/_custom_type_script = "uid://cwogrmg4kjfqg"
