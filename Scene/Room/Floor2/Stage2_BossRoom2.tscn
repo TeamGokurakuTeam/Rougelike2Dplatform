@@ -4,10 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="2_d2goy"]
 [ext_resource type="Script" uid="uid://cg3uwojruxkh6" path="res://Scene/Room/Floor1/BossRoom.gd" id="2_u4t2k"]
 [ext_resource type="Shader" uid="uid://c0x1wgglr8op4" path="res://Liquid.gdshader" id="2_vp6os"]
+[ext_resource type="Shader" uid="uid://blmyceae2jy2n" path="res://Scene/Room/Floor2/vignette.gdshader" id="3_2dpp0"]
+[ext_resource type="PackedScene" uid="uid://cjmxy80ehd1ov" path="res://Scene/Enemy/BOSS/F2/infector.tscn" id="3_a6g8l"]
 [ext_resource type="Texture2D" uid="uid://p561qyuetbh2" path="res://icon.svg" id="3_nktad"]
 [ext_resource type="Texture2D" uid="uid://bjeqw5iu0387e" path="res://Assets/TileMap/spr_torch.png" id="3_tna0x"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="4_1fpfe"]
 [ext_resource type="Texture2D" uid="uid://ciohbcdkapsop" path="res://Assets/TileMap/CastleTiles.png" id="4_ujs4k"]
 [ext_resource type="Script" uid="uid://cwoo88xalmchy" path="res://Scene/Room/Liquid.gd" id="4_vp6os"]
+[ext_resource type="Shader" uid="uid://gyiypsc3tqw2" path="res://Scene/Room/Floor2/JostarShader.gdshader" id="4_wagxx"]
 [ext_resource type="Texture2D" uid="uid://diedq27yg6hso" path="res://Assets/TileMap/ExtraTiles1.png" id="5_u8m8y"]
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="6_7tpdf"]
 [ext_resource type="Texture2D" uid="uid://cpbgrn6frtnjs" path="res://Assets/TileMap/Tileset2.png" id="7_e7mul"]
@@ -17,6 +21,51 @@
 [ext_resource type="PackedScene" uid="uid://d0073orlcwy78" path="res://Scene/Particle/swim_particles.tscn" id="12_beadn"]
 [ext_resource type="Shader" uid="uid://8xusv2nkr67n" path="res://Scene/Room/Wave.gdshader" id="13_u8m8y"]
 [ext_resource type="Script" uid="uid://c7ox6e5n2d6j1" path="res://camera.gd" id="14_e7jyo"]
+[ext_resource type="Texture2D" uid="uid://dnfq1j2cs2duh" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_walk.png" id="15_o5pat"]
+[ext_resource type="Texture2D" uid="uid://b5drt4ofb1x7w" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_attack3.png" id="16_f4rc6"]
+[ext_resource type="Texture2D" uid="uid://3m7hndvvxape" path="res://Assets/Particle/Free Smoke Fx  Pixel 06.png" id="19_ibu66"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hoxb"]
+shader = ExtResource("4_wagxx")
+shader_parameter/color_fondo = Color(0.14901961, 0.5882353, 0, 0)
+shader_parameter/color_linea = Color(1, 1, 1, 0)
+shader_parameter/color_picos = Color(0, 0, 0, 1)
+shader_parameter/tamano_cuadros = 0.00999999977648
+shader_parameter/grosor_linea = 0.005
+shader_parameter/velocidad_fondo = Vector2(0.1, 0.05)
+shader_parameter/rotacion_cuadricula = 0.0
+shader_parameter/cantidad_picos = 1.61600002926
+shader_parameter/vel_picos_arriba = 1.4000005415000008
+shader_parameter/vel_picos_abajo = -1.3999995915000003
+shader_parameter/inclinacion_punta = 0.5
+shader_parameter/intensidad_picos = 0.0
+shader_parameter/cierre_picos = 0.0
+shader_parameter/rotacion_picos = 8.549999989782009e-06
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("4_1fpfe")
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(1, 1, 1, 0.61960787)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o5pat"]
+font = ExtResource("4_1fpfe")
+font_size = 32
+font_color = Color(0, 0.50383776, 6.738305e-07, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(1, 1, 1, 0.61960787)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhy2k"]
+shader = ExtResource("3_2dpp0")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0, 0, 0, 0.6627451)
+shader_parameter/MULTIPLIER = 4.005
+shader_parameter/SCALE = 4.165
+shader_parameter/SOFTNESS = 2.955
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -2058,6 +2107,179 @@ sources/8 = SubResource("TileSetAtlasSource_qa7qy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhy2k"]
 size = Vector2(819, 221)
 
+[sub_resource type="Animation" id="Animation_a6g8l"]
+resource_name = "Defeated"
+length = 10.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossObject:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3, 1.3333334, 1.3666667, 1.4, 1.4333334, 1.4666667, 1.5, 2, 9.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(645, -200), Vector2(645, -200), Vector2(667.5673, -200), Vector2(685.8592, -200), Vector2(700.68567, -200), Vector2(712.70325, -200), Vector2(722.44403, -200), Vector2(730.3394, -200), Vector2(736.739, -200), Vector2(741.9262, -200), Vector2(746.1307, -200), Vector2(749.5386, -200), Vector2(752.30084, -200), Vector2(754.5398, -200), Vector2(756.3546, -200), Vector2(757.82556, -200), Vector2(759.0178, -200), Vector2(759.98425, -200), Vector2(760.7676, -200), Vector2(761.4025, -200), Vector2(761.9171, -200), Vector2(762.3343, -200), Vector2(762.67236, -200), Vector2(762.9464, -200), Vector2(763.1686, -200), Vector2(763.34863, -200), Vector2(763.49457, -200), Vector2(763.61285, -200), Vector2(763.70874, -200), Vector2(763.78644, -200), Vector2(763.8494, -200), Vector2(763.9005, -200), Vector2(763.9419, -200), Vector2(763.9754, -200), Vector2(763.99994, -200), Vector2(763.99994, -200), Vector2(763.99994, -200), Vector2(763.99994, -118.000015)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossObject:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 2, 2.4, 7.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"Idle", &"Hurt", &"Hurt", &"Idle", &"Awake"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossObject:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001, 1.4000001, 1.5, 2, 2.1000001, 2.2, 2.3, 2.4, 2.5, 2.6000001, 2.7, 2.8, 2.9, 3, 3.1000001, 3.2, 3.3000002, 3.4, 3.5000002, 7, 7.1, 7.2000003, 7.3, 7.4, 7.5, 7.6, 7.7000003, 7.8, 7.9, 8, 8.506686, 8.6, 8.7, 8.8, 8.900001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 3, 0, 1, 2, 1, 0, 1, 0, 1, 0, 1, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BossRoomCamera:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.39, 1.39), Vector2(1.4800376, 1.4800376), Vector2(1.5305696, 1.5305696), Vector2(1.5589296, 1.5589296), Vector2(1.5748461, 1.5748461), Vector2(1.583779, 1.583779), Vector2(1.5887923, 1.5887923), Vector2(1.591606, 1.591606), Vector2(1.5931852, 1.5931852), Vector2(1.5940714, 1.5940714), Vector2(1.5945688, 1.5945688), Vector2(1.5948479, 1.5948479), Vector2(1.595, 1.595)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../BossRoomCamera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(648, -146), Vector2(648, -146), Vector2(697.7409, -146), Vector2(732.33527, -146), Vector2(755.54004, -146), Vector2(770.4321, -146), Vector2(779.4764, -146), Vector2(784.59375, -146), Vector2(787.22925, -146), Vector2(788.41974, -146), Vector2(788.8623, -146), Vector2(788.9819, -146), Vector2(788.99945, -146), Vector2(789, -146)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GPUParticles2D2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.9, 1, 1.9, 2, 2.7, 2.8, 3, 3.1, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false, true, true, false, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GPUParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.9, 4, 7, 7.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GPUParticles2D3:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.9, 4, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossObject:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BossObject:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 8, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../CanvasLayer/ColorRect:material:shader_parameter/SCALE")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.4, 3, 4, 6, 7.1, 8.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [4.165, 0.91, 0.91, 0.91, 0.91, 0.615, 0.615, 3.495]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../PlayerDetector/CollisionShape2D:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../CanvasLayer/ColorRect2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 9.900001, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../CanvasLayer/ColorRect:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 9.900001, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
 [sub_resource type="Animation" id="Animation_wagxx"]
 length = 0.001
 tracks/0/type = "value"
@@ -2087,7 +2309,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../BossCamera:position")
+tracks/2/path = NodePath("../BossRoomCamera:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2099,7 +2321,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../BossCamera:zoom")
+tracks/3/path = NodePath("../BossRoomCamera:zoom")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2228,10 +2450,226 @@ tracks/13/keys = {
 "update": 1,
 "values": [&"Awake"]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BossObject:flip_h")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BossObject:self_modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../CanvasLayer/ColorRect:material:shader_parameter/SCALE")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.165]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../CanvasLayer/ColorRect2:material:shader_parameter/intensidad_picos")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../CanvasLayer/ColorRect2:material:shader_parameter/rotacion_picos")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8.549999989782009e-06]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../CanvasLayer/ColorRect2:material:shader_parameter/cierre_picos")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../CanvasLayer/ColorRect2:material:shader_parameter/color_fondo")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.14901961, 0.5882353, 0, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../CanvasLayer/ColorRect2/Label2:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(209, 249.00002)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../CanvasLayer/ColorRect2/Label2:visible_ratio")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("../CanvasLayer/ColorRect2/Label:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-202, 8)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("../CanvasLayer/ColorRect2/Label:visible_ratio")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("GPUParticles2D2:emitting")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("GPUParticles2D:emitting")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("GPUParticles2D3:emitting")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("BossObject:visible")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../PlayerDetector/CollisionShape2D:disabled")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("../CanvasLayer/ColorRect2:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("../CanvasLayer/ColorRect:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1fpfe"]
 resource_name = "Start"
-length = 20.0
+length = 22.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2240,10 +2678,10 @@ tracks/0/path = NodePath("BossObject:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 15.5, 15.6, 15.7, 15.8, 15.900001, 16),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 14, 14.4, 14.8, 15.2, 15.6, 15.7, 15.8, 15.900001, 16, 16.300001, 16.4, 16.5, 16.6, 16.7, 16.8, 16.9, 17, 17.1, 17.199999, 17.3, 17.4, 17.5, 17.599998, 17.699999, 17.8, 17.9, 17.999998, 18.099998, 18.199999, 18.300001, 18.4, 18.5, 18.6, 18.7, 18.8, 18.9, 19, 19.1, 19.199999, 19.3, 19.4, 19.5, 19.599998, 19.699999, 19.8, 19.9, 19.999998, 20.099998, 20.199999, 20.300001, 20.4, 20.5, 20.6, 20.7, 20.8, 20.9, 21, 21.1, 21.199999, 21.3, 21.4, 21.5, 21.599998, 21.699999, 21.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [5, 5, 5, 4, 3, 2, 1, 0]
+"values": [3, 3, 4, 3, 4, 4, 3, 2, 1, 0, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -2252,19 +2690,19 @@ tracks/1/path = NodePath("BossObject:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8000001, 10, 10.033334, 10.066667, 10.1, 10.133333, 10.166667, 10.2, 10.233334, 10.266666, 10.3, 10.333333, 10.366667, 10.4, 10.433333, 10.466666, 10.5, 10.533334, 10.566667, 10.6, 10.633333, 10.666667, 10.7, 10.733334, 10.766666, 10.8, 10.833333, 10.866667, 10.9, 10.933333, 10.966666, 11, 11.5, 11.533334, 11.566667, 11.6, 11.633333, 11.666667, 11.7, 11.733334, 11.766666, 11.8, 11.833333, 11.866667, 11.9, 11.933333, 11.966666, 12, 12.033334, 12.066667, 12.1, 12.133333, 12.166667, 12.2, 12.233334, 12.266666, 12.3, 12.333333, 12.366667, 12.4, 12.433333, 12.466666, 12.5, 12.533334, 12.566667, 12.6, 12.633333, 12.666667, 12.7, 12.733334, 12.766666, 12.8, 12.833333, 12.866667, 12.9, 12.933333, 12.966666, 13, 17),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8000001, 1.8333334, 1.8666667, 1.9, 1.9333334, 1.9666667, 2, 2.0333333, 2.0666666, 2.1, 2.1333334, 2.1666667, 2.2, 2.2333333, 2.2666667, 2.3, 2.3333333, 2.3666668, 2.4, 2.4333334, 2.4666667, 2.5, 2.5333333, 2.5666666, 2.6, 2.6333334, 2.6666667, 2.7, 2.7333333, 2.7666667, 2.8, 2.8333333, 2.8666668, 2.9, 2.9333334, 2.9666667, 3, 3.0333333, 3.0666666, 3.1000001, 3.1333334, 3.1666667, 3.2, 3.2333333, 3.2666667, 3.3, 3.3333333, 3.3666668, 3.4, 3.4333334, 3.4666667, 3.5, 3.5333333, 3.5666666, 3.6000001, 3.6333334, 3.6666667, 3.7, 3.7333333, 3.7666667, 3.8, 3.8333333, 3.8666668, 3.9, 3.9333334, 3.9666667, 4, 5, 5.0333333, 5.0666666, 5.1, 5.133333, 5.1666665, 5.2, 5.233333, 5.266667, 5.3, 5.3333335, 5.366667, 5.4, 5.4333334, 5.4666667, 5.5, 5.5333333, 5.5666666, 5.6, 5.633333, 5.6666665, 5.7, 5.733333, 5.766667, 5.8, 5.8333335, 5.866667, 5.9, 5.9333334, 5.9666667, 6, 6.0333333, 6.0666666, 6.1, 6.133333, 6.1666665, 6.2, 6.233333, 6.266667, 6.3, 6.3333335, 6.366667, 6.4, 6.4333334, 6.4666667, 6.5, 6.5333333, 6.5666666, 6.6, 6.633333, 6.6666665, 6.7, 6.733333, 6.766667, 6.8, 6.8333335, 6.866667, 6.9, 6.9333334, 6.9666667, 7, 7.5, 7.5333333, 7.5666666, 7.6, 7.633333, 7.6666665, 7.7, 7.733333, 7.766667, 7.8, 7.8333335, 7.866667, 7.9, 7.9333334, 7.9666667, 8, 8.033334, 8.066667, 8.1, 8.133333, 8.166667, 8.2, 8.233334, 8.266666, 8.3, 8.333333, 8.366667, 8.4, 8.433333, 8.466666, 8.5, 8.533334, 8.566667, 8.6, 8.633333, 8.666667, 8.7, 8.733334, 8.766666, 8.8, 8.833333, 8.866667, 8.9, 8.933333, 8.966666, 9, 9.5, 9.533334, 9.566667, 9.6, 9.633333, 9.666667, 9.7, 9.733334, 9.766666, 9.8, 9.833333, 9.866667, 9.9, 9.933333, 9.966666, 10, 10.033334, 10.066667, 10.1, 10.133333, 10.166667, 10.2, 10.233334, 10.266666, 10.3, 10.333333, 10.366667, 10.4, 10.433333, 10.466666, 10.5, 10.533334, 10.566667, 10.6, 10.633333, 10.666667, 10.7, 10.733334, 10.766666, 10.8, 10.833333, 10.866667, 10.9, 10.933333, 10.966666, 11, 11.033334, 11.066667, 11.1, 11.133333, 11.166667, 11.2, 11.233334, 11.266666, 11.3, 11.333333, 11.366667, 11.4, 11.433333, 11.466666, 11.5, 11.533334, 11.566667, 11.6, 11.633333, 11.666667, 11.7, 11.733334, 11.766666, 11.8, 11.833333, 11.866667, 11.9, 11.933333, 11.966666, 12, 12.033334, 12.066667, 12.1, 12.133333, 12.166667, 12.2, 12.233334, 12.266666, 12.3, 12.333333, 12.366667, 12.4, 12.433333, 12.466666, 12.5, 12.533334, 12.566667, 12.6, 12.633333, 12.666667, 12.7, 12.733334, 12.766666, 12.8, 12.833333, 12.866667, 12.9, 12.933333, 12.966666, 13, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(652, -56), Vector2(652, -56), Vector2(652, -56), Vector2(651.54114, -69.50445), Vector2(651.0978, -82.55111), Vector2(650.67, -95.14), Vector2(650.25775, -107.27112), Vector2(649.8611, -118.94445), Vector2(649.48, -130.16), Vector2(649.11444, -140.91779), Vector2(648.76447, -151.21777), Vector2(648.43, -161.06001), Vector2(648.1111, -170.44446), Vector2(647.8078, -179.37111), Vector2(647.52, -187.84001), Vector2(647.2478, -195.8511), Vector2(646.9911, -203.40445), Vector2(646.75, -210.5), Vector2(646.5244, -217.13779), Vector2(646.31445, -223.31778), Vector2(646.12, -229.04001), Vector2(645.9411, -234.30444), Vector2(645.7778, -239.1111), Vector2(645.63, -243.45999), Vector2(645.4978, -247.35112), Vector2(645.3811, -250.78445), Vector2(645.28, -253.76001), Vector2(645.19446, -256.27777), Vector2(645.12445, -258.33777), Vector2(645.07, -259.94), Vector2(645.0311, -261.08444), Vector2(645.00775, -261.77112), Vector2(645, -262), Vector2(645, -262), Vector2(645, -256.26273), Vector2(645, -250.78043), Vector2(645, -245.54726), Vector2(645, -240.55745), Vector2(645, -235.8052), Vector2(645, -231.28474), Vector2(645, -226.99025), Vector2(645, -222.91592), Vector2(645, -219.056), Vector2(645, -215.40466), Vector2(645, -211.95612), Vector2(645, -208.70459), Vector2(645, -205.64426), Vector2(645, -202.76936), Vector2(645, -200.07407), Vector2(645, -197.55261), Vector2(645, -195.19919), Vector2(645, -193.008), Vector2(645, -190.97325), Vector2(645, -189.08917), Vector2(645, -187.34993), Vector2(645, -185.74976), Vector2(645, -184.28284), Vector2(645, -182.9434), Vector2(645, -181.72565), Vector2(645, -180.62378), Vector2(645, -179.632), Vector2(645, -178.7445), Vector2(645, -177.95554), Vector2(645, -177.25925), Vector2(645, -176.6499), Vector2(645, -176.12166), Vector2(645, -175.66873), Vector2(645, -175.28535), Vector2(645, -174.9657), Vector2(645, -174.70401), Vector2(645, -174.49445), Vector2(645, -174.33124), Vector2(645, -174.20859), Vector2(645, -174.12071), Vector2(645, -174.0618), Vector2(645, -174.02608), Vector2(645, -174.00772), Vector2(645, -174.00096), Vector2(645, -174), Vector2(645, -174)]
+"values": [Vector2(1042, -110.00001), Vector2(1042, -110.00001), Vector2(1041.8325, -110.00001), Vector2(1041.3302, -110.00001), Vector2(1040.493, -110.00001), Vector2(1039.321, -110.00001), Vector2(1037.8141, -110.00001), Vector2(1035.9722, -110.00001), Vector2(1033.7955, -110.00001), Vector2(1031.2839, -110.00001), Vector2(1028.4375, -110.00001), Vector2(1025.2562, -110.00001), Vector2(1021.74, -110.00001), Vector2(1017.8889, -110.00001), Vector2(1013.70294, -110.00001), Vector2(1009.1821, -110.00001), Vector2(1004.3264, -110.00001), Vector2(999.1358, -110.00001), Vector2(993.61035, -110.00001), Vector2(987.75, -110.00001), Vector2(981.5548, -110.00001), Vector2(975.0247, -110.00001), Vector2(968.1597, -110.00001), Vector2(960.9599, -110.00001), Vector2(953.4252, -110.00001), Vector2(945.55554, -110.00001), Vector2(937.3511, -110.00001), Vector2(928.81177, -110.00001), Vector2(919.9375, -110.00001), Vector2(910.7284, -110.00001), Vector2(901.18445, -110.00001), Vector2(891.30554, -110.00001), Vector2(881.09186, -110.00001), Vector2(870.5432, -110.00001), Vector2(859.6597, -110.00001), Vector2(848.44135, -110.00001), Vector2(836.8882, -110.00001), Vector2(825, -110.00001), Vector2(812.777, -110.00001), Vector2(800.2192, -110.00001), Vector2(787.3264, -110.00001), Vector2(774.09875, -110.00001), Vector2(760.53625, -110.00001), Vector2(746.6389, -110.00001), Vector2(732.40674, -110.00001), Vector2(717.8395, -110.00001), Vector2(702.9375, -110.00001), Vector2(687.7007, -110.00001), Vector2(672.12885, -110.00001), Vector2(656.2223, -110.00001), Vector2(639.9808, -110.00001), Vector2(623.40436, -110.00001), Vector2(606.49304, -110), Vector2(589.24695, -110), Vector2(571.6659, -110), Vector2(553.75006, -110), Vector2(535.4992, -110), Vector2(516.91364, -110), Vector2(497.9931, -110), Vector2(478.73767, -110), Vector2(459.1474, -110), Vector2(439.22223, -110), Vector2(418.96228, -110), Vector2(398.36737, -110), Vector2(377.43762, -110), Vector2(356.17285, -110), Vector2(334.5733, -110), Vector2(312.63892, -110), Vector2(290.36963, -110), Vector2(267.76544, -110), Vector2(244.82654, -110), Vector2(221.55261, -110), Vector2(197.94379, -110), Vector2(174, -110), Vector2(174, -110), Vector2(174.13083, -110), Vector2(174.52333, -110), Vector2(175.1775, -110), Vector2(176.09334, -110), Vector2(177.27083, -110), Vector2(178.71, -110), Vector2(180.41083, -110), Vector2(182.37334, -110), Vector2(184.5975, -110), Vector2(187.08333, -110), Vector2(189.83084, -110), Vector2(192.84, -110), Vector2(196.11084, -110), Vector2(199.64334, -110), Vector2(203.4375, -110), Vector2(207.49335, -110), Vector2(211.81084, -110), Vector2(216.39, -110), Vector2(221.23083, -110), Vector2(226.33334, -110), Vector2(231.6975, -110), Vector2(237.32333, -110), Vector2(243.21083, -110), Vector2(249.36002, -110), Vector2(255.77083, -110), Vector2(262.44333, -110), Vector2(269.3775, -110), Vector2(276.57333, -110), Vector2(284.03082, -110), Vector2(291.75, -110), Vector2(299.73083, -110), Vector2(307.97336, -110), Vector2(316.4775, -110), Vector2(325.24335, -110), Vector2(334.2708, -110), Vector2(343.56, -110), Vector2(353.11084, -110), Vector2(362.92334, -110), Vector2(372.9975, -110), Vector2(383.33334, -110), Vector2(393.93085, -110), Vector2(404.78998, -110), Vector2(415.91083, -110), Vector2(427.29333, -110), Vector2(438.9375, -110), Vector2(450.84332, -110), Vector2(463.01086, -110), Vector2(475.44003, -110), Vector2(488.13083, -110), Vector2(501.0833, -110), Vector2(514.2975, -110), Vector2(527.7733, -110), Vector2(541.51086, -110), Vector2(555.51, -110), Vector2(569.7709, -110), Vector2(584.29333, -110), Vector2(599.0775, -110), Vector2(614.1233, -110), Vector2(629.43085, -110), Vector2(645, -110), Vector2(645, -110), Vector2(645, -109.99999), Vector2(645, -109.9999), Vector2(645, -109.99949), Vector2(645, -109.998375), Vector2(645, -109.99604), Vector2(645, -109.99178), Vector2(645, -109.98478), Vector2(645, -109.97403), Vector2(645, -109.9584), Vector2(645, -109.93659), Vector2(645, -109.907166), Vector2(645, -109.86852), Vector2(645, -109.81891), Vector2(645, -109.756424), Vector2(645, -109.679016), Vector2(645, -109.58447), Vector2(645, -109.470436), Vector2(645, -109.3344), Vector2(645, -109.1737), Vector2(645, -108.98552), Vector2(645, -108.76689), Vector2(645, -108.5147), Vector2(645, -108.22567), Vector2(645, -107.89638), Vector2(645, -107.52325), Vector2(645, -107.10255), Vector2(645, -106.6304), Vector2(645, -106.102776), Vector2(645, -105.51549), Vector2(645, -104.8642), Vector2(645, -104.14442), Vector2(645, -103.35151), Vector2(645, -102.48067), Vector2(645, -101.52696), Vector2(645, -100.48529), Vector2(645, -99.3504), Vector2(645, -98.11689), Vector2(645, -96.7792), Vector2(645, -95.331635), Vector2(645, -93.768326), Vector2(645, -92.08327), Vector2(645, -90.2703), Vector2(645, -88.323105), Vector2(645, -86.23521), Vector2(645, -84), Vector2(645, -84), Vector2(645, -93.630646), Vector2(645, -99.69758), Vector2(645, -103.5195), Vector2(645, -105.92716), Vector2(645, -107.44389), Vector2(645, -108.399376), Vector2(645, -109.00129), Vector2(645, -109.38047), Vector2(645, -109.61934), Vector2(645, -109.76982), Vector2(645, -109.86462), Vector2(645, -109.92433), Vector2(645, -109.96196), Vector2(645, -109.98566), Vector2(645, -110), Vector2(645, -118.26077), Vector2(645, -126.24624), Vector2(645, -133.961), Vector2(645, -141.40977), Vector2(645, -148.59721), Vector2(645, -155.52802), Vector2(645, -162.20676), Vector2(645, -168.6382), Vector2(645, -174.827), Vector2(645, -180.77777), Vector2(645, -186.49521), Vector2(645, -191.98398), Vector2(645, -197.24878), Vector2(645, -202.29422), Vector2(645, -207.12498), Vector2(645, -211.74576), Vector2(645, -216.1612), Vector2(645, -220.37598), Vector2(645, -224.39476), Vector2(645, -228.22221), Vector2(645, -231.86298), Vector2(645, -235.32175), Vector2(645, -238.6032), Vector2(645, -241.71198), Vector2(645, -244.65276), Vector2(645, -247.43019), Vector2(645, -250.04897), Vector2(645, -252.51375), Vector2(645, -254.8292), Vector2(645, -256.99997), Vector2(645, -259.03076), Vector2(645, -260.9262), Vector2(645, -262.69098), Vector2(645, -264.32977), Vector2(645, -265.84717), Vector2(645, -267.248), Vector2(645, -268.53674), Vector2(645, -269.7182), Vector2(645, -270.79697), Vector2(645, -271.77777), Vector2(645, -272.6652), Vector2(645, -273.464), Vector2(645, -274.17874), Vector2(645, -274.8142), Vector2(645, -275.37497), Vector2(645, -275.86572), Vector2(645, -276.2912), Vector2(645, -276.65594), Vector2(645, -276.96475), Vector2(645, -277.2222), Vector2(645, -277.43298), Vector2(645, -277.60175), Vector2(645, -277.7332), Vector2(645, -277.83197), Vector2(645, -277.90274), Vector2(645, -277.9502), Vector2(645, -277.97897), Vector2(645, -277.99374), Vector2(645, -277.9992), Vector2(645, -277.99997), Vector2(645, -277.34454), Vector2(645, -275.3783), Vector2(645, -272.10123), Vector2(645, -267.5133), Vector2(645, -261.61456), Vector2(645, -254.40498), Vector2(645, -245.88457), Vector2(645, -236.05331), Vector2(645, -224.91124), Vector2(645, -212.45831), Vector2(645, -200.64458), Vector2(645, -207.01999), Vector2(645, -212.08458), Vector2(645, -215.83833), Vector2(645, -218.28125), Vector2(645, -219.41333), Vector2(645, -219.23457), Vector2(645, -217.745), Vector2(645, -214.94458), Vector2(645, -210.83333), Vector2(645, -205.41125), Vector2(645, -200.62833), Vector2(645, -203.30957), Vector2(645, -204.68), Vector2(645, -204.73958), Vector2(645, -203.48833), Vector2(645, -200.92625), Vector2(645, -200.95334), Vector2(645, -201.13208), Vector2(645, -200), Vector2(645, -200)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../BossCamera:position")
+tracks/2/path = NodePath("../BossRoomCamera:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3, 1.3333334, 1.3666667, 1.4, 1.4333334, 1.4666667, 1.5, 1.5333333, 1.5666667, 1.6000001, 3.5, 3.5333333, 3.5666666, 3.6, 3.6333334, 3.6666667, 3.7, 3.7333333, 3.7666667, 3.8, 3.8333333, 3.8666666, 3.9, 3.9333334, 3.9666667, 4, 8, 8.033334, 8.066667, 8.1, 8.133333, 8.166667, 8.2, 8.233334, 8.266666, 8.3, 8.333333, 8.366667, 8.4, 8.433333, 8.466666, 8.5, 8.533334, 8.566667, 8.6, 9.5, 9.533334, 9.566667, 9.6, 9.633333, 9.666667, 9.7, 9.733334, 9.766666, 9.8, 9.833333, 9.866667, 9.9, 9.933333, 9.966666, 10, 15, 15.033334, 15.066667, 15.1, 15.133333, 15.166667, 15.2, 15.233334, 15.266666, 15.3, 15.333333, 15.366667, 15.4, 15.433333, 15.466666, 15.5, 15.533334, 15.566667, 15.6, 15.633333, 15.666667, 15.7, 15.733334, 15.766666, 15.8, 15.833333, 15.866667, 15.9, 15.933333, 15.966666, 16),
+"times": PackedFloat32Array(0, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3, 1.3333334, 1.3666667, 1.4, 1.4333334, 1.4666667, 1.5, 1.5333333, 1.5666667, 1.6000001, 3.5, 3.5333333, 3.5666666, 3.6, 3.6333334, 3.6666667, 3.7, 3.7333333, 3.7666667, 3.8, 3.8333333, 3.8666666, 3.9, 3.9333334, 3.9666667, 4, 7.2666674, 7.300001, 7.333334, 7.3666677, 7.4000006, 7.4333344, 7.466667, 7.500001, 7.533334, 7.5666676, 7.6000004, 7.633334, 7.666667, 7.700001, 7.7333336, 7.7666674, 7.800001, 7.833334, 7.8666677, 8.766667, 8.800001, 8.833334, 8.866668, 8.900001, 8.933334, 8.966667, 9.000001, 9.033334, 9.066668, 9.1, 9.133334, 9.166667, 9.200001, 9.233334, 9.266667, 15, 15.033334, 15.066667, 15.1, 15.133333, 15.166667, 15.2, 15.233334, 15.266666, 15.3, 15.333333, 15.366667, 15.4, 15.433333, 15.466666, 15.5, 15.533334, 15.566667, 15.6, 15.633333, 15.666667, 15.7, 15.733334, 15.766666, 15.8, 15.833333, 15.866667, 15.9, 15.933333, 15.966666, 16),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(651, -167), Vector2(651, -167), Vector2(651, -167), Vector2(651, -166.99985), Vector2(651, -166.99887), Vector2(651, -166.99524), Vector2(651, -166.98547), Vector2(651, -166.96387), Vector2(651, -166.9219), Vector2(651, -166.84773), Vector2(651, -166.72562), Vector2(651, -166.53532), Vector2(651, -166.25165), Vector2(651, -165.84375), Vector2(651, -165.2747), Vector2(651, -164.50089), Vector2(651, -163.4714), Vector2(651, -162.12758), Vector2(651, -160.40234), Vector2(651, -158.21973), Vector2(651, -155.4943), Vector2(651, -152.13054), Vector2(651, -148.02238), Vector2(651, -143.05258), Vector2(651, -137.09222), Vector2(651, -130), Vector2(651, -130), Vector2(632.95557, -130), Vector2(616.1556, -130), Vector2(600.6, -130), Vector2(586.2889, -130), Vector2(573.2222, -130), Vector2(561.4, -130), Vector2(550.8222, -130), Vector2(541.4889, -130), Vector2(533.4, -130), Vector2(526.55554, -130), Vector2(520.95557, -130), Vector2(516.6, -130), Vector2(513.4889, -130), Vector2(511.62222, -130), Vector2(511, -130), Vector2(511, -130), Vector2(525.7994, -130), Vector2(539.75305, -130), Vector2(552.8611, -130), Vector2(565.1234, -130), Vector2(576.5401, -130), Vector2(587.1111, -130), Vector2(596.83636, -130), Vector2(605.716, -130), Vector2(613.74994, -130), Vector2(620.93823, -130), Vector2(627.2808, -130), Vector2(632.7777, -130), Vector2(637.42896, -130), Vector2(641.23456, -130), Vector2(644.1944, -130), Vector2(646.3086, -130), Vector2(647.57715, -130), Vector2(648, -130), Vector2(648, -130), Vector2(648, -133.86667), Vector2(648, -137.46667), Vector2(648, -140.8), Vector2(648, -143.86667), Vector2(648, -146.66667), Vector2(648, -149.2), Vector2(648, -151.46667), Vector2(648, -153.46667), Vector2(648, -155.2), Vector2(648, -156.66666), Vector2(648, -157.86667), Vector2(648, -158.8), Vector2(648, -159.46666), Vector2(648, -159.86667), Vector2(648, -160), Vector2(648, -160), Vector2(648, -157.10892), Vector2(648, -154.81427), Vector2(648, -152.993), Vector2(648, -151.54745), Vector2(648, -150.40013), Vector2(648, -149.4895), Vector2(648, -148.76672), Vector2(648, -148.19307), Vector2(648, -147.73775), Vector2(648, -147.37636), Vector2(648, -147.08954), Vector2(648, -146.86188), Vector2(648, -146.68118), Vector2(648, -146.53777), Vector2(648, -146.42393), Vector2(648, -146.33359), Vector2(648, -146.26189), Vector2(648, -146.20497), Vector2(648, -146.15979), Vector2(648, -146.12395), Vector2(648, -146.09549), Vector2(648, -146.07289), Vector2(648, -146.05498), Vector2(648, -146.04074), Vector2(648, -146.02945), Vector2(648, -146.02048), Vector2(648, -146.01337), Vector2(648, -146.00772), Vector2(648, -146.00323), Vector2(648, -146)]
@@ -2272,7 +2710,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../BossCamera:zoom")
+tracks/3/path = NodePath("../BossRoomCamera:zoom")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2288,10 +2726,10 @@ tracks/4/path = NodePath("SwimParticles/GPUParticles2D:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 4, 5.4, 5.5, 8, 8.1, 10, 10.1, 11.000001, 11.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 5.4, 5.5, 8, 10, 10.1, 11.000001, 11.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, false, true, true, false, false, true, true, false, false, true, true, false]
+"values": [false, false, true, true, false, true, true, false, true, true, false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -2300,10 +2738,10 @@ tracks/5/path = NodePath("SwimParticles/GPUParticles2D3:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 4, 5.4, 5.5, 8.2, 8.3, 10, 10.1, 11.000001, 11.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 5.4, 5.5, 8.2, 10, 10.1, 11.000001, 11.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, false, true, true, false, false, true, true, false, false, true, true, false]
+"values": [false, false, true, true, false, true, true, false, true, true, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -2312,10 +2750,10 @@ tracks/6/path = NodePath("SwimParticles/GPUParticles2D2:emitting")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 4, 5.4, 5.5, 8.4, 8.5, 10, 10.1, 11.000001, 11.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 5.4, 5.5, 8.4, 10, 10.1, 11.000001, 11.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, false, true, true, false, false, true, true, false, false, true, true, false]
+"values": [false, false, true, true, false, true, true, false, true, true, false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -2339,7 +2777,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8000001, 1.8333334, 1.8666667, 1.9, 1.9333334, 1.9666667, 2, 2.0333333, 2.0666666, 2.1, 2.1333334, 2.1666667, 2.2, 2.2333333, 2.2666667, 2.3, 2.3333333, 2.3666668, 2.4, 2.4333334, 2.4666667, 2.5, 2.5333333, 2.5666666, 2.6, 2.6333334, 2.6666667, 2.7, 2.7333333, 2.7666667, 2.8, 2.8333333, 2.8666668, 2.9, 2.9333334, 2.9666667, 3, 3.0333333, 3.0666666, 3.1, 3.1333334, 3.1666667, 3.2, 3.2333333, 3.2666667, 3.3, 3.3333333, 3.3666666, 3.4, 3.4333334, 3.4666667, 3.5, 3.5333333, 3.5666666, 3.6, 3.6333334, 3.6666667, 3.7, 3.7333333, 3.7666667, 3.8, 3.8333333, 3.8666666, 3.9, 3.9333334, 3.9666667, 4, 5.5, 5.5333333, 5.5666666, 5.6, 5.633333, 5.6666665, 5.7, 5.733333, 5.766667, 5.8, 5.8333335, 5.866667, 5.9, 5.9333334, 5.9666667, 6, 6.0333333, 6.0666666, 6.1, 6.133333, 6.1666665, 6.2, 6.233333, 6.266667, 6.3, 6.6, 6.633333, 6.6666665, 6.7, 6.733333, 6.7666664, 6.7999997, 6.833333, 6.866667, 6.9, 6.9333334, 6.9666667, 7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 0.026462569047433604, 0.051058025451128586, 0.07387643347255768, 0.09500543712145593, 0.11453065494865733, 0.1325352509234463, 0.14910041505092408, 0.16430491708445416, 0.1782254498237812, 0.19093638880634778, 0.2025098781318242, 0.21301593345154402, 0.22252233897906848, 0.23109454450075084, 0.23879587135460767, 0.2456874094408832, 0.2518280172220493, 0.25727433888771145, 0.26208078718970285, 0.2662995606069902, 0.269980626180768, 0.27317175384427017, 0.2759184649280524, 0.2782640836547099, 0.28024968564415964, 0.28191414940835813, 0.2832941220214895, 0.28442403628487156, 0.2853360935620497, 0.28606028094370295, 0.286624354082738, 0.28705385435919517, 0.2873721260451543, 0.2876002648100169, 0.2877571348854122, 0.2878593862301031, 0.28792148885979785, 0.28795564702262055, 0.28797183352892297, 0.2879778584109083, 0.2879792487682895, 0.28797933, 0.2691006887338321, 0.25086199777181895, 0.2332632617067798, 0.21630447195626168, 0.19998564139394404, 0.18430677860227984, 0.16926785783391018, 0.15486887908883507, 0.14110985953196042, 0.12799080774573923, 0.11551171514771852, 0.1036725474080864, 0.09247337318646665, 0.08191412382323549, 0.07199483, 0.06271548549646866, 0.054076113697838935, 0.04607668392250375, 0.03871723050027498, 0.03199771910134075, 0.025918149725701056, 0.0204785223733559, 0.015678871374117165, 0.011519162398172966, 0.007999412610429246, 0.005119639175791946, 0.0028797905995432416, 0.001279918376400957, 0.00031998817655320977, 0.0, 0.0, -0.1583525303502782, -0.33519903430414644, -0.4166463438978454, -0.3958360131262282, -0.3300829354265673, -0.2784359951756734, -0.2655977954778699, -0.28221932757555024, -0.3054325812539318, -0.31846058839486346, -0.31797982540252434, -0.3102050387257478, -0.3029870217624939, -0.3003988609184738, -0.3019571716521625, -0.30491054706712006, -0.3068803317917528, -0.3071199122590045, -0.30624511585988756, -0.30526818827374314, -0.30481824668953905, -0.30493319433925237, -0.3052964427483005, -0.30543262, -0.30543262, -0.19768452483875976, -0.12274654007843822, -0.07248062829754787, -0.04022160992257895, -0.020630026444287353, -0.009544787507213215, -0.0038358362044021987, -0.001256923603342841, -0.00029827404, -3.9286827380635714e-05, -1.2197485794729346e-06, 0.0]
+"values": [0.0, 0.0, 0.0264625690474336, 0.05105802545112858, 0.07387643347255768, 0.09500543712145593, 0.11453065494865731, 0.1325352509234463, 0.14910041505092408, 0.16430491708445416, 0.1782254498237812, 0.19093638880634775, 0.2025098781318242, 0.213015933451544, 0.22252233897906848, 0.23109454450075084, 0.23879587135460767, 0.2456874094408832, 0.2518280172220493, 0.25727433888771145, 0.26208078718970285, 0.2662995606069902, 0.269980626180768, 0.27317175384427017, 0.2759184649280524, 0.2782640836547099, 0.28024968564415964, 0.28191414940835813, 0.2832941220214895, 0.28442403628487156, 0.2853360935620497, 0.28606028094370295, 0.286624354082738, 0.28705385435919517, 0.2873721260451543, 0.2876002648100169, 0.2877571348854122, 0.2878593862301031, 0.28792148885979785, 0.28795564702262055, 0.28797183352892297, 0.2879778584109083, 0.2879792487682895, 0.28797933, 0.2691006887338321, 0.25086199777181895, 0.2332632617067798, 0.21630447195626168, 0.19998564139394404, 0.18430677860227984, 0.16926785783391018, 0.1548688790888351, 0.14110985953196042, 0.12799080774573923, 0.11551171514771852, 0.1036725474080864, 0.09247337318646665, 0.08191412382323549, 0.07199483, 0.06271548549646866, 0.05407611369783893, 0.04607668392250375, 0.03871723050027498, 0.03199771910134075, 0.02591814972570105, 0.0204785223733559, 0.01567887137411716, 0.01151916239817296, 0.00799941261042924, 0.00511963917579194, 0.00287979059954324, 0.00127991837640095, 0.0003199881765532, 0.0, 0.0, -0.1583525303502782, -0.33519903430414644, -0.4166463438978454, -0.3958360131262282, -0.3300829354265673, -0.2784359951756734, -0.2655977954778699, -0.28221932757555024, -0.3054325812539318, -0.31846058839486346, -0.31797982540252434, -0.3102050387257478, -0.3029870217624939, -0.3003988609184738, -0.3019571716521625, -0.30491054706712006, -0.3068803317917528, -0.3071199122590045, -0.30624511585988756, -0.30526818827374314, -0.30481824668953905, -0.30493319433925237, -0.3052964427483005, -0.30543262, -0.30543262, -0.19768452483875976, -0.12274654007843822, -0.07248062829754787, -0.04022160992257895, -0.02063002644428735, -0.00954478750721321, -0.00383583620440219, -0.00125692360334284, -0.00029827404, -3.9286827380635714e-05, -1.2197485794729346e-06, 0.0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -2387,7 +2825,7 @@ tracks/12/keys = {
 "times": PackedFloat32Array(10, 10.2, 10.233334, 10.266666, 10.3, 10.333333, 10.366667, 10.4, 10.433333, 10.466666, 10.5, 10.533333, 10.566667, 10.599999, 10.633333, 10.666666, 10.7, 10.733334, 10.766666, 10.8, 10.833333, 10.866667, 10.9, 10.933333, 10.966666, 11, 11.033333, 11.066667, 11.099999, 11.133333, 11.166666, 11.2, 11.233334, 11.266666, 11.3, 11.333333, 11.366667, 11.4, 11.433333, 11.466666, 11.5, 11.533333, 11.566667, 11.599999, 11.633333, 11.666666, 11.7, 11.733334, 11.766666, 11.8, 11.833333, 11.866667, 11.9, 11.933333, 11.966666, 12, 12.033333, 12.066667, 12.099999, 12.133333, 12.166666, 12.2, 12.233334, 12.266666, 12.3, 12.333333, 12.366667, 12.4, 12.433333, 12.466666, 12.5, 12.533333, 12.566667, 12.599999, 12.633333, 12.666666, 12.7, 12.733334, 12.766666, 12.8, 12.833333, 12.866667, 12.9, 12.933333, 12.966666, 13, 17),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 1.9332540197567027, 2.725836935294055, 3.328382246148607, 3.8316200873079254, 4.270802244565601, 4.6640544840883535, 5.022182831971236, 5.35224000476731, 5.659139534824504, 5.946469574080737, 6.216941178989259, 6.472670314318805, 6.715341887236548, 6.946322099419717, 7.166744209167462, 7.377553472245495, 7.579552082730743, 7.7734268865322065, 7.959769604771054, 8.139100802231098, 8.311872883415106, 8.4784865708545, 8.639299144264214, 8.794627436599, 8.944757571236437, 9.089948707047313, 9.230431540367476, 9.366419540208994, 9.498105203189766, 9.625665296632064, 9.749260858562536, 9.869042440810745, 9.985147112952859, 10.09769996033981, 10.20681932719583, 10.312614569576226, 10.415187553395526, 10.514631156399332, 10.611035260276935, 10.704479260520543, 10.795042552622363, 10.88279629291975, 10.967807143665596, 11.050139520070559, 11.129851845232679, 11.207000295207763, 11.281639548023463, 11.353815293538503, 11.423576217667915, 11.490967261256344, 11.556028122049895, 11.618799246808749, 11.679317337222699, 11.737615349911152, 11.793729237549826, 11.847687462673662, 11.899521483873912, 11.949257516643286, 11.996921776474494, 12.042539729846169, 12.086133847180633, 12.127725100872055, 12.167336710356835, 12.204985153944676, 12.240689156987514, 12.274467444837285, 12.306333499747382, 12.33630305101343, 12.36439107891698, 12.390608818669193, 12.414968254495307, 12.437482119634637, 12.458157155213883, 12.477006094472358, 12.494034180508606, 12.509251150505634, 12.522661498547905, 12.534272714776193, 12.544089293274965, 12.552114979114606, 12.558354266379581, 12.562808653098045, 12.565480386312231, 12.566371, 12.566371]
+"values": [0.0, 0.0, 1.9332540197567027, 2.725836935294055, 3.328382246148607, 3.831620087307926, 4.270802244565601, 4.6640544840883535, 5.022182831971236, 5.35224000476731, 5.659139534824504, 5.946469574080737, 6.216941178989259, 6.472670314318805, 6.715341887236548, 6.946322099419717, 7.166744209167462, 7.377553472245495, 7.579552082730743, 7.7734268865322065, 7.959769604771054, 8.139100802231098, 8.311872883415106, 8.4784865708545, 8.639299144264214, 8.794627436599, 8.944757571236437, 9.089948707047313, 9.230431540367476, 9.366419540208994, 9.498105203189766, 9.625665296632064, 9.749260858562536, 9.869042440810745, 9.98514711295286, 10.09769996033981, 10.20681932719583, 10.312614569576226, 10.415187553395526, 10.514631156399332, 10.611035260276935, 10.704479260520545, 10.795042552622364, 10.88279629291975, 10.967807143665596, 11.05013952007056, 11.12985184523268, 11.207000295207765, 11.281639548023463, 11.353815293538505, 11.423576217667916, 11.490967261256344, 11.556028122049897, 11.618799246808749, 11.6793173372227, 11.737615349911152, 11.793729237549826, 11.847687462673662, 11.899521483873912, 11.949257516643286, 11.996921776474494, 12.042539729846167, 12.086133847180632, 12.127725100872055, 12.167336710356835, 12.204985153944676, 12.240689156987514, 12.274467444837285, 12.306333499747382, 12.33630305101343, 12.36439107891698, 12.390608818669191, 12.414968254495308, 12.437482119634636, 12.458157155213884, 12.477006094472358, 12.494034180508606, 12.509251150505634, 12.522661498547905, 12.534272714776192, 12.544089293274965, 12.552114979114606, 12.55835426637958, 12.562808653098044, 12.565480386312233, 12.566371, 12.566371]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -2396,14 +2834,231 @@ tracks/13/path = NodePath("BossObject:animation")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(15.5, 17),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 16.2, 16.300001, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [&"Awake", &"Awake"]
+"values": [&"Awake", &"Awake", &"Idle", &"Idle"]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BossObject:flip_h")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 5, 5.1, 11, 11.1, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BossObject:self_modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 14.8, 17, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("../CanvasLayer/ColorRect:material:shader_parameter/SCALE")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3, 1.3333334, 1.3666667, 1.4, 1.4333333, 1.4666667, 1.5, 1.5333333, 1.5666667, 1.6, 1.6333333, 1.6666666, 1.7, 1.7333333, 1.7666667, 1.8, 1.8333334, 1.8666667, 1.9, 1.9333333, 1.9666667, 2, 10, 10.033334, 10.066667, 10.1, 10.133333, 10.166667, 10.2, 10.233334, 10.266666, 10.3, 10.333333, 10.366667, 10.4, 10.433333, 10.466666, 10.5, 10.533334, 10.566667, 10.6, 10.633333, 10.666667, 10.7, 10.733334, 10.766666, 10.8, 10.833333, 10.866667, 10.9, 10.933333, 10.966666, 11, 12.8, 14, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [4.165, 4.164999996496912, 4.164999887901209, 4.164999148749944, 4.164996412838693, 4.164989052852792, 4.164972759998211, 4.1649411236233576, 4.164885210838183, 4.164793146201031, 4.164649691289349, 4.164435824385611, 4.1641283199427415, 4.1636993284558415, 4.163115955947433, 4.16233984375, 4.161326746821869, 4.160026118246838, 4.1583806784329935, 4.156326012059115, 4.153790121259168, 4.150693042229861, 4.146946380339563, 4.142452937200665, 4.137106238167733, 4.130790175899863, 4.123378510586917, 4.114734545223415, 4.104710590317845, 4.09314768229425, 4.079875, 4.064709621161223, 4.0474558982998134, 4.027905316665769, 4.0058357838988305, 3.9810113661885262, 3.953181709855795, 3.922082102239132, 3.887432385891676, 3.8489368976950646, 3.8062838802933694, 3.7591457053422928, 3.707177351355553, 3.6500168299078943, 3.5872841708660124, 3.51858203125, 3.4434939904212953, 3.3615845094919203, 3.2723996213674544, 3.175464820027351, 3.0702856287956237, 2.9563465449810025, 2.8331123387813566, 2.700025130748749, 2.5565054471492767, 2.4019510834217073, 2.235738890171051, 2.057220876455307, 1.865725833415985, 1.6605581977367398, 1.441, 1.441, 1.3718865281939507, 1.3095648572444916, 1.2535744539499285, 1.2034715146422386, 1.158827925682068, 1.1192320106029512, 1.0842880753278732, 1.0536167005300523, 1.0268544817566871, 1.00365428930521, 0.9836851058006286, 0.966632026195526, 0.95219622528553, 0.9400952175855636, 0.9300625, 0.9218478116989136, 0.9152169716954232, 0.9099520087838172, 0.905851031601429, 0.9027283910512924, 0.9004144853949547, 0.8987559551596642, 0.8976154882311821, 0.8968720147609711, 0.8964205122590065, 0.8961722329854965, 0.8960545090436935, 0.8960107523798942, 0.8960006821751595, 0.896, 0.896, 4.71, 4.71]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../CanvasLayer/ColorRect2:material:shader_parameter/intensidad_picos")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 16, 16.033333, 16.066666, 16.1, 16.133333, 16.166668, 16.2, 16.233334, 16.266666, 16.3, 16.333332, 16.366667, 16.4, 16.433334, 16.466667, 16.5, 16.533333, 16.566666, 16.6, 16.633333, 16.666668, 16.7, 16.733334, 16.766666, 16.8, 16.833332, 16.866667, 16.9, 16.933334, 16.966667, 17, 17.033333, 17.066666, 17.1, 17.133333, 17.166668, 17.2, 19.5, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.05364625807116351, 0.09789694833849744, 0.13439759994172032, 0.1645055289922578, 0.189340401702447, 0.20982570536219017, 0.22672319273231809, 0.24066128932161607, 0.25215825694497723, 0.2616416729990772, 0.2694641524994825, 0.27591662608878903, 0.2812390098645896, 0.2856292336954473, 0.28925055506878455, 0.2922376326852648, 0.2947015604289112, 0.2967339529080716, 0.2984104108696308, 0.29979322057429136, 0.3009338890206545, 0.3018747672181935, 0.30265083761142586, 0.3032910090504873, 0.3038190469812621, 0.30425461306964713, 0.30461390356732715, 0.30491025119950665, 0.30515470881361934, 0.3053563412036824, 0.30552266284682894, 0.305659875010596, 0.3057730299041239, 0.3058663772195778, 0.30594336413214734, 0.306000014535, 0.306000014535, 0.0, 0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../CanvasLayer/ColorRect2:material:shader_parameter/rotacion_picos")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 15.990002, 16.023335, 16.056667, 16.09, 16.123333, 16.156668, 16.19, 16.223335, 16.256668, 16.29, 16.323334, 16.356667, 16.39, 16.423334, 16.456667, 16.490002, 16.523335, 16.556667, 16.59, 16.623333, 16.656668, 16.69, 16.723335, 16.756668, 16.79, 16.823334, 16.856667, 16.89, 16.923334, 16.956667, 16.990002, 17.023335, 17.056667, 17.09, 17.123333, 17.156668, 17.19, 19.5, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [8.549999989782009e-06, 8.549999989782009e-06, -0.6714462487338521, -1.2253029275700889, -1.6821574884862425, -2.0589985612429684, -2.3698402686940288, -2.6262412916248, -2.8377359864862037, -3.0121899405287245, -3.156089894768833, -3.274787553223743, -3.3726963652713, -3.45345771771262, -3.520074481965287, -3.575024015534519, -3.620349704619099, -3.657736983282888, -3.688576340335717, -3.714014455352659, -3.734997572976096, -3.752305289214167, -3.7665822831670135, -3.778358634463008, -3.788072195267191, -3.79608479857309, -3.80269390077854, -3.8081455939763, -3.8126425959570662, -3.816351783640882, -3.8194114982227494, -3.821935197745434, -3.8240169359586735, -3.825734330034581, -3.8271506151398498, -3.828318981865955, -3.8292825762291622, -3.829991631924998, -3.829991631924998, 8.549999989782009e-06, 8.549999989782009e-06]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("../CanvasLayer/ColorRect2:material:shader_parameter/cierre_picos")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 15.990002, 16.023335, 16.056667, 16.09, 16.123333, 16.156668, 16.19, 16.223335, 16.256668, 16.29, 16.323334, 16.356667, 16.39, 16.423334, 16.456667, 16.490002, 16.523335, 16.556667, 16.59, 16.623333, 16.656668, 16.69, 16.723335, 16.756668, 16.79, 16.823334, 16.856667, 16.89, 16.923334, 16.956667, 16.990002, 17.023335, 17.056667, 17.09, 17.123333, 17.156668, 17.19, 19.5, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.05592534746634367, 0.10205596901954474, 0.14010730190002868, 0.171494325975589, 0.1973842749773876, 0.21873986931548584, 0.23635522379610935, 0.25088546174377624, 0.2628708626321822, 0.2727571689108027, 0.28091197597168277, 0.28763857425595984, 0.29318707237517677, 0.2977638089831624, 0.3015389773429486, 0.30465295694967154, 0.3072215613621656, 0.3093402973126629, 0.31108797734448446, 0.3125295338666632, 0.3137186620836235, 0.3146995122307311, 0.3155085529347871, 0.31617592119969096, 0.31672639211445297, 0.3171804626445014, 0.31755501711757306, 0.31786395468183865, 0.3181187977501456, 0.3183289962221395, 0.3185023838174459, 0.3186454252561442, 0.3187633873837109, 0.31886070043478865, 0.3189409580331863, 0.3190000151525, 0.3190000151525, 0.0, 0.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("../CanvasLayer/ColorRect2:material:shader_parameter/color_fondo")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.14901961, 0.5882353, 0, 0), Color(0.14901961, 0.5882353, 0, 0), Color(0.14901961, 0.5882353, 0, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("../CanvasLayer/ColorRect2/Label2:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 16.466667, 16.5, 16.533335, 16.566668, 16.6, 16.633333, 16.666668, 16.7, 16.733334, 16.766666, 16.800001, 16.833334, 16.866667, 16.9, 16.933334, 16.966667, 17, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(209, 309), Vector2(209, 309), Vector2(209, 294.04776), Vector2(209, 281.97842), Vector2(209, 272.3952), Vector2(209, 264.93073), Vector2(209, 259.24692), Vector2(209, 255.03522), Vector2(209, 252.01636), Vector2(209, 249.94049), Vector2(209, 248.58722), Vector2(209, 247.76544), Vector2(209, 247.31354), Vector2(209, 247.09921), Vector2(209, 247.0196), Vector2(209, 247.00124), Vector2(209, 247.00002), Vector2(176.00002, 247.00002), Vector2(176.00002, 247.00002)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("../CanvasLayer/ColorRect2/Label2:visible_ratio")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 16.96667, 17.8, 19.5, 19.533333, 19.566668, 19.6, 19.633333, 19.666666, 19.7, 19.733334, 19.766666, 19.8, 19.833334, 19.866667, 19.9, 19.933332, 19.966667, 20, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0, 0.7588346, 0.5641679000000001, 0.40960002, 0.28920496, 0.1975308, 0.12960005, 0.080908656, 0.047427177, 0.025600016, 0.012345672, 0.0050567985, 0.0016000271, 0.00031602383, 1.9729137e-05, 0.0, 0.0]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("../CanvasLayer/ColorRect2/Label:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 16.2, 16.233334, 16.266668, 16.300001, 16.333334, 16.366667, 16.400002, 16.433334, 16.466667, 16.5, 16.533335, 16.566668, 16.6, 16.633333, 16.666668, 16.7, 16.733334, 16.766668, 16.800001, 16.833334, 16.866667, 16.900002, 16.933334, 16.966667, 17, 19.5, 19.533333, 19.566668, 19.6, 19.633333, 19.666666, 19.7, 19.733334, 19.766666, 19.8, 19.833334, 19.866667, 19.9, 19.933332, 19.966667, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-202, 8), Vector2(-202, 8), Vector2(-168.34468, 8), Vector2(-138.80429, 8), Vector2(-113.02899, 8), Vector2(-90.68432, 8), Vector2(-71.45152, 8), Vector2(-55.027283, 8), Vector2(-41.123825, 8), Vector2(-29.469055, 8), Vector2(-19.806335, 8), Vector2(-11.894577, 8), Vector2(-5.5082703, 8), Vector2(-0.43746948, 8), Vector2(3.5122528, 8), Vector2(6.519745, 8), Vector2(8.748306, 8), Vector2(10.345688, 8), Vector2(11.444092, 8), Vector2(12.160156, 8), Vector2(12.594986, 8), Vector2(12.834091, 8), Vector2(12.9474945, 8), Vector2(12.989624, 8), Vector2(12.999329, 8), Vector2(12.999985, 8), Vector2(12.999985, 8), Vector2(-51.873497, 8), Vector2(-104.23883, 8), Vector2(-145.8176, 8), Vector2(-178.20386, 8), Vector2(-202.8642, 8), Vector2(-221.13757, 8), Vector2(-234.23557, 8), Vector2(-243.24208, 8), Vector2(-249.11357, 8), Vector2(-252.679, 8), Vector2(-254.6397, 8), Vector2(-255.56956, 8), Vector2(-255.91496, 8), Vector2(-255.99467, 8), Vector2(-255.99998, 8)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("../CanvasLayer/ColorRect2/Label:visible_ratio")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 16.2, 17, 20, 21, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.0, 0.0, 0.0]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("BossObject:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("GPUParticles2D:emitting")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("GPUParticles2D3:emitting")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("GPUParticles2D2:emitting")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../PlayerDetector/CollisionShape2D:disabled")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("../CanvasLayer/ColorRect2:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 0.1, 21.9, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("../CanvasLayer/ColorRect:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 0.1, 21.9, 22),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o5pat"]
 _data = {
+&"Defeated": SubResource("Animation_a6g8l"),
 &"RESET": SubResource("Animation_wagxx"),
 &"Start": SubResource("Animation_1fpfe")
 }
@@ -2432,6 +3087,38 @@ region = Rect2(384, 0, 96, 96)
 atlas = ExtResource("11_beadn")
 region = Rect2(480, 0, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_row1a"]
+atlas = ExtResource("16_f4rc6")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8icjn"]
+atlas = ExtResource("16_f4rc6")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qycj6"]
+atlas = ExtResource("16_f4rc6")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08pld"]
+atlas = ExtResource("16_f4rc6")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehy3x"]
+atlas = ExtResource("15_o5pat")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sskq3"]
+atlas = ExtResource("15_o5pat")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sch0"]
+atlas = ExtResource("15_o5pat")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sxql"]
+atlas = ExtResource("15_o5pat")
+region = Rect2(288, 0, 96, 96)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_u4t2k"]
 animations = [{
 "frames": [{
@@ -2456,7 +3143,157 @@ animations = [{
 "loop": 1,
 "name": &"Awake",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_row1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8icjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qycj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08pld")
+}],
+"loop": 1,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehy3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sskq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sch0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sxql")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
+atlas = ExtResource("19_ibu66")
+region = Rect2(143, 655, 34, 34)
+
+[sub_resource type="Gradient" id="Gradient_f4rc6"]
+offsets = PackedFloat32Array(0, 0.859375, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.34631497, 0.28234324, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t5edb"]
+gradient = SubResource("Gradient_f4rc6")
+
+[sub_resource type="Curve" id="Curve_ibu66"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.3761468, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ngegg"]
+curve = SubResource("Curve_ibu66")
+
+[sub_resource type="Curve" id="Curve_lueov"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jn7wj"]
+curve = SubResource("Curve_lueov")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_reo30"]
+lifetime_randomness = 0.12
+particle_flag_disable_z = true
+angle_min = -119.99999
+angle_max = 120.000015
+inherit_velocity_ratio = 0.239
+angular_velocity_min = -78.750015
+angular_velocity_max = -78.750015
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 109.379974
+gravity = Vector3(0, 200, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+damping_min = 39.453003
+damping_max = 49.609
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_ngegg")
+scale_over_velocity_min = 156.25
+scale_over_velocity_max = 312.5
+color = Color(0.4387899, 0.89050734, 2.3102762e-06, 1)
+color_ramp = SubResource("GradientTexture1D_t5edb")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.13999997
+turbulence_noise_scale = 3.149
+turbulence_initial_displacement_min = -80.5
+turbulence_initial_displacement_max = -24.499998
+turbulence_influence_over_life = SubResource("CurveTexture_jn7wj")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_507yi"]
+load_path = "res://.godot/imported/Free Smoke Fx  Pixel 06.png-02f6da1083f56caad7ce0a919a5836c9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv431"]
+atlas = SubResource("CompressedTexture2D_507yi")
+region = Rect2(147, 598, 29, 22)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jv431"]
+load_path = "res://.godot/imported/Free Smoke Fx  Pixel 06.png-02f6da1083f56caad7ce0a919a5836c9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw74o"]
+atlas = SubResource("CompressedTexture2D_jv431")
+region = Rect2(340, 1301, 23, 27)
+
+[sub_resource type="Curve" id="Curve_qqjot"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.86697257, 0.011235952), -3.4514806, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_il756"]
+curve = SubResource("Curve_qqjot")
+
+[sub_resource type="Gradient" id="Gradient_yw74o"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5052083)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0.39215687, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j4a5i"]
+gradient = SubResource("Gradient_yw74o")
+
+[sub_resource type="Curve" id="Curve_tf2cg"]
+_data = [Vector2(0, 1), 0.0, 0.023327975, 0, 0, Vector2(0.54128444, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.078651786), -3.8675368, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f266r"]
+curve = SubResource("Curve_tf2cg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5hoxb"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 18.45
+angle_min = -67.49999
+angle_max = 61.900013
+inherit_velocity_ratio = 0.235
+direction = Vector3(1, 0, 1)
+spread = 90.0
+flatness = 0.12
+initial_velocity_min = 27.34
+initial_velocity_max = 74.22
+angular_velocity_min = -112.500015
+angular_velocity_max = 78.749985
+radial_velocity_min = 7.8099775
+radial_velocity_max = 46.849976
+gravity = Vector3(0, 150, 0)
+scale_min = 0.5
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_f266r")
+scale_over_velocity_max = 66.409996
+color = Color(0.4387899, 0.89050734, 2.3102762e-06, 1)
+color_ramp = SubResource("GradientTexture1D_j4a5i")
+alpha_curve = SubResource("CurveTexture_il756")
+hue_variation_min = 0.19999997
+hue_variation_max = 0.19999997
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2j2di"]
 noise_type = 0
@@ -2472,7 +3309,7 @@ noise = SubResource("FastNoiseLite_7numd")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("2_vp6os")
 shader_parameter/scale = Vector2(0.25000012, 2.1875)
-shader_parameter/zoom = 1.5026295
+shader_parameter/zoom = 1.0
 shader_parameter/refraction_map = SubResource("NoiseTexture2D_33x8s")
 shader_parameter/water_mask = SubResource("NoiseTexture2D_fcnqv")
 shader_parameter/gap_stretch = Vector2(0.8, 0.05)
@@ -2502,7 +3339,55 @@ shader_parameter/bubble_speed = 0.5
 
 [node name="BossRoom" unique_id=423967005 instance=ExtResource("1_wr2wl")]
 script = ExtResource("2_u4t2k")
-boss_scene = null
+boss_scene = ExtResource("3_a6g8l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="0" unique_id=1263637024]
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" index="0" unique_id=966712979]
+visible = false
+material = SubResource("ShaderMaterial_5hoxb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect2" index="0" unique_id=2073648643]
+layout_mode = 0
+offset_left = -202.0
+offset_top = 8.0
+offset_right = -18.0
+offset_bottom = 41.0
+rotation = -0.015380681
+text = "Floor 2 Boss"
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/ColorRect2" index="1" unique_id=141498974]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 249.00002
+offset_right = 536.0
+offset_bottom = 282.00018
+rotation = -0.015380681
+text = "Plauge Infector M.R.H."
+label_settings = SubResource("LabelSettings_o5pat")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="1" unique_id=1527008777]
+visible = false
+material = SubResource("ShaderMaterial_jhy2k")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
 
 [node name="BackGround" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="0" unique_id=1098702387]
 tile_map_data = PackedByteArray("AAAHAP7/BAALAAoAAAAIAP7/BAALAAoAAAAIAP//BAALAAoAAAAEAPv/BAALAAoAAAAEAPz/BAALAAoAAAAFAPv/BAALAAoAAAAHAPj/BAALAAoAAAAIAPj/BAALAAoAAAAIAPn/BAALAAoAAAARAPH/BAALAAoAAAASAPD/BAALAAoAAAATAO//BAALAAoAAAAUAO//BAALAAoAAAAVAO//BAALAAoAAAAWAO//BAALAAoAAAAXAO//BAALAAoAAAAYAO//BAALAAoAAAAZAO//BAALAAoAAAAaAO//BAALAAoAAAAbAO//BAALAAoAAAAcAO//BAALAAoAAAAdAO//BAALAAoAAAAeAO//BAALAAoAAAAfAO//BAALAAoAAAAgAO//BAALAAoAAAAhAO//BAALAAoAAAAiAO//BAALAAoAAAAjAO//BAALAAoAAAAkAO//BAALAAoAAAAlAO//BAALAAoAAAAmAO//BAALAAoAAAAnAO//BAALAAoAAAAoAO//BAALAAoAAAApAO//BAALAAoAAAAqAO//BAALAAoAAAArAO//BAALAAoAAAAsAO//BAALAAoAAAAtAO//BAALAAoAAAAuAO//BAALAAoAAAAvAO//BAALAAoAAAAwAO//BAALAAoAAAAxAO//BAALAAoAAAAyAO//BAALAAoAAAAzAO//BAALAAoAAAA0AO//BAALAAoAAAA1AO//BAALAAoAAAA2AO//BAALAAoAAAA3AO//BAALAAoAAAA4AO//BAALAAoAAAA5AO//BAALAAoAAAA6AO//BAALAAoAAAA7AO//BAALAAoAAAA8AO//BAALAAoAAAA9AO//BAALAAoAAAA+AO//BAALAAoAAAA/APD/BAALAAoAAABAAPH/BAALAAoAAABOAPb/BAALAAoAAABPAPb/BAALAAoAAABPAPf/BAALAAoAAABMAPP/BAALAAoAAABLAPP/BAALAAoAAABLAPT/BAALAAoAAABPAPD/BAALAAoAAABOAPD/BAALAAoAAABPAPH/BAALAAoAAABSAOz/BAALAAoAAAAAAP3/BAALAAoAAAAAAP7/BAALAAoAAAAAAP//BAALAAoAAAABAP3/BAALAAoAAAABAP7/BAALAAoAAAABAP//BAALAAoAAAACAP3/BAALAAoAAAACAP7/BAALAAoAAAACAP//BAALAAoAAAADAP3/BAALAAoAAAADAP7/BAALAAoAAAADAP//BAALAAoAAAAEAP3/BAALAAoAAAAEAP7/BAALAAoAAAAEAP//BAALAAoAAAAFAP3/BAALAAoAAAAFAP7/BAALAAoAAAAFAP//BAALAAoAAAAGAP3/BAALAAoAAAAGAP7/BAALAAoAAAAGAP//BAALAAoAAAAHAP3/BAALAAoAAAAHAP//BAALAAoAAAAIAP3/BAALAAoAAAAEAPX/BAALAAoAAAAEAPb/BAALAAoAAAAEAPf/BAALAAoAAAAEAPj/BAALAAoAAAAEAPn/BAALAAoAAAAEAPr/BAALAAoAAAAFAPX/BAALAAoAAAAFAPb/BAALAAoAAAAFAPf/BAALAAoAAAAFAPj/BAALAAoAAAAFAPn/BAALAAoAAAAFAPr/BAALAAoAAAAFAPz/BAALAAoAAAAGAPX/BAALAAoAAAAGAPb/BAALAAoAAAAGAPf/BAALAAoAAAAGAPj/BAALAAoAAAAGAPn/BAALAAoAAAAGAPr/BAALAAoAAAAGAPv/BAALAAoAAAAGAPz/BAALAAoAAAAHAPX/BAALAAoAAAAHAPb/BAALAAoAAAAHAPf/BAALAAoAAAAHAPn/BAALAAoAAAAHAPr/BAALAAoAAAAHAPv/BAALAAoAAAAHAPz/BAALAAoAAAAIAPX/BAALAAoAAAAIAPb/BAALAAoAAAAIAPf/BAALAAoAAAAIAPr/BAALAAoAAAAIAPv/BAALAAoAAAAIAPz/BAALAAoAAAAJAPX/BAALAAoAAAAJAPb/BAALAAoAAAAJAPf/BAALAAoAAAAKAPX/BAALAAoAAAAKAPb/BAALAAoAAAAKAPf/BAALAAoAAAALAPX/BAALAAoAAAALAPb/BAALAAoAAAALAPf/BAALAAoAAAAMAPX/BAALAAoAAAAMAPb/BAALAAoAAAAMAPf/BAALAAoAAAANAPX/BAALAAoAAAANAPb/BAALAAoAAAANAPf/BAALAAoAAAAOAPX/BAALAAoAAAAOAPb/BAALAAoAAAAOAPf/BAALAAoAAAAPAPX/BAALAAoAAAAPAPb/BAALAAoAAAAPAPf/BAALAAoAAAAQAPX/BAALAAoAAAAQAPb/BAALAAoAAAAQAPf/BAALAAoAAAARAPX/BAAIAAoAAAARAPb/BAAIAAsAAAARAPf/BAALAAoAAAASAPX/BAAJAAoAAAASAPb/BAAJAAsAAAASAPf/BAALAAoAAAATAPX/BAALAAoAAAATAPb/BAALAAoAAAATAPf/BAALAAoAAAAUAPX/BAALAAoAAAAUAPb/BAALAAoAAAAUAPf/BAALAAoAAAAVAPX/BAALAAoAAAAVAPb/BAALAAoAAAAVAPf/BAALAAoAAAAWAPX/BAALAAoAAAAWAPb/BAALAAoAAAAWAPf/BAALAAoAAAAXAPX/BAALAAoAAAAXAPb/BAALAAoAAAAXAPf/BAALAAoAAAAYAPX/BAALAAoAAAAYAPb/BAALAAoAAAAYAPf/BAALAAoAAAAZAPX/BAAIAAoAAAAZAPb/BAAIAAsAAAAZAPf/BAALAAoAAAAaAPX/BAAJAAoAAAAaAPb/BAAJAAsAAAAaAPf/BAALAAoAAAAbAPX/BAALAAoAAAAbAPb/BAALAAoAAAAbAPf/BAALAAoAAAAcAPX/BAALAAoAAAAcAPb/BAALAAoAAAAcAPf/BAALAAoAAAAdAPX/BAALAAoAAAAdAPb/BAALAAoAAAAdAPf/BAALAAoAAAAeAPX/BAALAAoAAAAeAPb/BAALAAoAAAAeAPf/BAALAAoAAAAfAPX/BAALAAoAAAAfAPb/BAALAAoAAAAfAPf/BAALAAoAAAAgAPX/BAALAAoAAAAgAPb/BAALAAoAAAAgAPf/BAALAAoAAAAhAPX/BAAIAAoAAAAhAPb/BAAIAAsAAAAhAPf/BAALAAoAAAAiAPX/BAAJAAoAAAAiAPb/BAAJAAsAAAAiAPf/BAALAAoAAAAjAPX/BAALAAoAAAAjAPb/BAALAAoAAAAjAPf/BAALAAoAAAAkAPX/BAALAAoAAAAkAPb/BAALAAoAAAAkAPf/BAALAAoAAAAlAPX/BAALAAoAAAAlAPb/BAALAAoAAAAlAPf/BAALAAoAAAAmAPX/BAALAAoAAAAmAPb/BAALAAoAAAAmAPf/BAALAAoAAAAnAPX/BAALAAoAAAAnAPb/BAALAAoAAAAnAPf/BAALAAoAAAAoAPX/BAALAAoAAAAoAPb/BAALAAoAAAAoAPf/BAALAAoAAAATAPD/BAALAAoAAAATAPH/BAALAAoAAAATAPL/BAALAAoAAAATAPP/BAALAAoAAAATAPT/BAALAAoAAAAUAPD/BAALAAoAAAAUAPH/BAALAAoAAAAUAPL/BAALAAoAAAAUAPP/BAALAAoAAAAUAPT/BAALAAoAAAAVAPD/BAALAAoAAAAVAPH/BAALAAoAAAAVAPL/BAALAAoAAAAVAPP/BAALAAoAAAAVAPT/BAALAAoAAAAWAPD/BAALAAoAAAAWAPH/BAALAAoAAAAWAPL/BAALAAoAAAAWAPP/BAALAAoAAAAWAPT/BAALAAoAAAAXAPD/BAALAAoAAAAXAPH/BAALAAoAAAAXAPL/BAALAAoAAAAXAPP/BAALAAoAAAAXAPT/BAALAAoAAAAYAPD/BAALAAoAAAAYAPH/BAALAAoAAAAYAPL/BAALAAoAAAAYAPP/BAALAAoAAAAYAPT/BAALAAoAAAAZAPD/BAALAAoAAAAZAPH/BAALAAoAAAAZAPL/BAALAAoAAAAZAPP/BAALAAoAAAAZAPT/BAALAAoAAAAaAPD/BAALAAoAAAAaAPH/BAALAAoAAAAaAPL/BAALAAoAAAAaAPP/BAALAAoAAAAaAPT/BAALAAoAAAAbAPD/BAALAAoAAAAbAPH/BAALAAoAAAAbAPL/BAALAAoAAAAbAPP/BAALAAoAAAAbAPT/BAALAAoAAAAcAPD/BAALAAoAAAAcAPH/BAALAAoAAAAcAPL/BAALAAoAAAAcAPP/BAALAAoAAAAcAPT/BAALAAoAAAAdAPD/BAALAAoAAAAdAPH/BAALAAoAAAAdAPL/BAALAAoAAAAdAPP/BAALAAoAAAAdAPT/BAALAAoAAAAeAPD/BAALAAoAAAAeAPH/BAALAAoAAAAeAPL/BAALAAoAAAAeAPP/BAALAAoAAAAeAPT/BAALAAoAAAAfAPD/BAALAAoAAAAfAPH/BAALAAoAAAAfAPL/BAALAAoAAAAfAPP/BAALAAoAAAAfAPT/BAALAAoAAAAgAPD/BAALAAoAAAAgAPH/BAALAAoAAAAgAPL/BAALAAoAAAAgAPP/BAALAAoAAAAgAPT/BAALAAoAAAAhAPD/BAALAAoAAAAhAPH/BAALAAoAAAAhAPL/BAALAAoAAAAhAPP/BAALAAoAAAAhAPT/BAALAAoAAAAiAPD/BAALAAoAAAAiAPH/BAALAAoAAAAiAPL/BAALAAoAAAAiAPP/BAALAAoAAAAiAPT/BAALAAoAAAAjAPD/BAALAAoAAAAjAPH/BAALAAoAAAAjAPL/BAALAAoAAAAjAPP/BAALAAoAAAAjAPT/BAALAAoAAAAkAPD/BAALAAoAAAAkAPH/BAALAAoAAAAkAPL/BAALAAoAAAAkAPP/BAALAAoAAAAkAPT/BAALAAoAAAAlAPD/BAALAAoAAAAlAPH/BAALAAoAAAAlAPL/BAALAAoAAAAlAPP/BAALAAoAAAAlAPT/BAALAAoAAAAmAPD/BAALAAoAAAAmAPH/BAALAAoAAAAmAPL/BAALAAoAAAAmAPP/BAALAAoAAAAmAPT/BAALAAoAAAAnAPD/BAALAAoAAAAnAPH/BAALAAoAAAAnAPL/BAALAAoAAAAnAPP/BAALAAoAAAAnAPT/BAALAAoAAAAoAPD/BAALAAoAAAAoAPH/BAALAAoAAAAoAPL/BAALAAoAAAAoAPP/BAALAAoAAAAoAPT/BAALAAoAAAApAPD/BAALAAoAAAApAPH/BAALAAoAAAApAPL/BAALAAoAAAApAPP/BAALAAoAAAApAPT/BAALAAoAAAApAPX/BAAIAAoAAAApAPb/BAAIAAsAAAApAPf/BAALAAoAAAAqAPD/BAALAAoAAAAqAPH/BAALAAoAAAAqAPL/BAALAAoAAAAqAPP/BAALAAoAAAAqAPT/BAALAAoAAAAqAPX/BAAJAAoAAAAqAPb/BAAJAAsAAAAqAPf/BAALAAoAAAArAPD/BAALAAoAAAArAPH/BAALAAoAAAArAPL/BAALAAoAAAArAPP/BAALAAoAAAArAPT/BAALAAoAAAArAPX/BAALAAoAAAArAPb/BAALAAoAAAArAPf/BAALAAoAAAAsAPD/BAALAAoAAAAsAPH/BAALAAoAAAAsAPL/BAALAAoAAAAsAPP/BAALAAoAAAAsAPT/BAALAAoAAAAsAPX/BAALAAoAAAAsAPb/BAALAAoAAAAsAPf/BAALAAoAAAAtAPD/BAALAAoAAAAtAPH/BAALAAoAAAAtAPL/BAALAAoAAAAtAPP/BAALAAoAAAAtAPT/BAALAAoAAAAtAPX/BAALAAoAAAAtAPb/BAALAAoAAAAtAPf/BAALAAoAAAAuAPD/BAALAAoAAAAuAPH/BAALAAoAAAAuAPL/BAALAAoAAAAuAPP/BAALAAoAAAAuAPT/BAALAAoAAAAuAPX/BAALAAoAAAAuAPb/BAALAAoAAAAuAPf/BAALAAoAAAAvAPD/BAALAAoAAAAvAPH/BAALAAoAAAAvAPL/BAALAAoAAAAvAPP/BAALAAoAAAAvAPT/BAALAAoAAAAvAPX/BAALAAoAAAAvAPb/BAALAAoAAAAvAPf/BAALAAoAAAAwAPD/BAALAAoAAAAwAPH/BAALAAoAAAAwAPL/BAALAAoAAAAwAPP/BAALAAoAAAAwAPT/BAALAAoAAAAwAPX/BAALAAoAAAAwAPb/BAALAAoAAAAwAPf/BAALAAoAAAAxAPD/BAALAAoAAAAxAPH/BAALAAoAAAAxAPL/BAALAAoAAAAxAPP/BAALAAoAAAAxAPT/BAALAAoAAAAxAPX/BAAIAAoAAAAxAPb/BAAIAAsAAAAxAPf/BAALAAoAAAAyAPD/BAALAAoAAAAyAPH/BAALAAoAAAAyAPL/BAALAAoAAAAyAPP/BAALAAoAAAAyAPT/BAALAAoAAAAyAPX/BAAJAAoAAAAyAPb/BAAJAAsAAAAyAPf/BAALAAoAAAAzAPD/BAALAAoAAAAzAPH/BAALAAoAAAAzAPL/BAALAAoAAAAzAPP/BAALAAoAAAAzAPT/BAALAAoAAAAzAPX/BAALAAoAAAAzAPb/BAALAAoAAAAzAPf/BAALAAoAAAASAPH/BAALAAoAAAASAPL/BAALAAoAAAASAPP/BAALAAoAAAASAPT/BAALAAoAAAAQAPL/BAALAAoAAAAQAPP/BAALAAoAAAAQAPT/BAALAAoAAAARAPL/BAALAAoAAAARAPP/BAALAAoAAAARAPT/BAALAAoAAAAPAPT/BAALAAoAAAA0APD/BAALAAoAAAA0APH/BAALAAoAAAA0APL/BAALAAoAAAA0APP/BAALAAoAAAA0APT/BAALAAoAAAA0APX/BAALAAoAAAA0APb/BAALAAoAAAA0APf/BAALAAoAAAA1APD/BAALAAoAAAA1APH/BAALAAoAAAA1APL/BAALAAoAAAA1APP/BAALAAoAAAA1APT/BAALAAoAAAA1APX/BAALAAoAAAA1APb/BAALAAoAAAA1APf/BAALAAoAAAA2APD/BAALAAoAAAA2APH/BAALAAoAAAA2APL/BAALAAoAAAA2APP/BAALAAoAAAA2APT/BAALAAoAAAA2APX/BAALAAoAAAA2APb/BAALAAoAAAA2APf/BAALAAoAAAA3APD/BAALAAoAAAA3APH/BAALAAoAAAA3APL/BAALAAoAAAA3APP/BAALAAoAAAA3APT/BAALAAoAAAA3APX/BAALAAoAAAA3APb/BAALAAoAAAA3APf/BAALAAoAAAA4APD/BAALAAoAAAA4APH/BAALAAoAAAA4APL/BAALAAoAAAA4APP/BAALAAoAAAA4APT/BAALAAoAAAA4APX/BAALAAoAAAA4APb/BAALAAoAAAA4APf/BAALAAoAAAA5APD/BAALAAoAAAA5APH/BAALAAoAAAA5APL/BAALAAoAAAA5APP/BAALAAoAAAA5APT/BAALAAoAAAA5APX/BAAIAAoAAAA5APb/BAAIAAsAAAA5APf/BAALAAoAAAA6APD/BAALAAoAAAA6APH/BAALAAoAAAA6APL/BAALAAoAAAA6APP/BAALAAoAAAA6APT/BAALAAoAAAA6APX/BAAJAAoAAAA6APb/BAAJAAsAAAA6APf/BAALAAoAAAA7APD/BAALAAoAAAA7APH/BAALAAoAAAA7APL/BAALAAoAAAA7APP/BAALAAoAAAA7APT/BAALAAoAAAA7APX/BAALAAoAAAA7APb/BAALAAoAAAA7APf/BAALAAoAAAA8APD/BAALAAoAAAA8APH/BAALAAoAAAA8APL/BAALAAoAAAA8APP/BAALAAoAAAA8APT/BAALAAoAAAA8APX/BAALAAoAAAA8APb/BAALAAoAAAA8APf/BAALAAoAAAA9APD/BAALAAoAAAA9APH/BAALAAoAAAA9APL/BAALAAoAAAA9APP/BAALAAoAAAA9APT/BAALAAoAAAA9APX/BAALAAoAAAA9APb/BAALAAoAAAA9APf/BAALAAoAAAA+APD/BAALAAoAAAA+APH/BAALAAoAAAA+APL/BAALAAoAAAA+APP/BAALAAoAAAA+APT/BAALAAoAAAA+APX/BAALAAoAAAA+APb/BAALAAoAAAA+APf/BAALAAoAAAA/APH/BAALAAoAAAA/APL/BAALAAoAAAA/APP/BAALAAoAAAA/APT/BAALAAoAAAA/APX/BAALAAoAAAA/APb/BAALAAoAAAA/APf/BAALAAoAAABAAPL/BAALAAoAAABAAPP/BAALAAoAAABAAPT/BAALAAoAAABAAPX/BAALAAoAAABAAPb/BAALAAoAAABAAPf/BAALAAoAAABBAPL/BAALAAoAAABBAPP/BAALAAoAAABBAPT/BAALAAoAAABBAPX/BAAIAAoAAABBAPb/BAAIAAsAAABBAPf/BAALAAoAAABCAPT/BAALAAoAAABCAPX/BAAJAAoAAABCAPb/BAAJAAsAAABCAPf/BAALAAoAAABDAPX/BAALAAoAAABDAPb/BAALAAoAAABDAPf/BAALAAoAAABEAPX/BAALAAoAAABEAPb/BAALAAoAAABEAPf/BAALAAoAAABFAPX/BAALAAoAAABFAPb/BAALAAoAAABFAPf/BAALAAoAAABGAPX/BAALAAoAAABGAPb/BAALAAoAAABGAPf/BAALAAoAAABHAPX/BAALAAoAAABHAPb/BAALAAoAAABHAPf/BAALAAoAAABIAPX/BAALAAoAAABIAPb/BAALAAoAAABIAPf/BAALAAoAAABJAPX/BAALAAoAAABJAPb/BAALAAoAAABJAPf/BAALAAoAAABKAPX/BAALAAoAAABKAPb/BAALAAoAAABKAPf/BAALAAoAAABLAPX/BAALAAoAAABLAPb/BAALAAoAAABLAPf/BAALAAoAAABMAPX/BAALAAoAAABMAPb/BAALAAoAAABMAPf/BAALAAoAAABNAPX/BAALAAoAAABNAPb/BAALAAoAAABNAPf/BAALAAoAAABOAPX/BAALAAoAAABOAPf/BAALAAoAAABPAPX/BAALAAoAAABLAOz/BAALAAoAAABLAO3/BAALAAoAAABLAO7/BAALAAoAAABLAO//BAALAAoAAABMAOz/BAALAAoAAABMAO3/BAALAAoAAABMAO7/BAALAAoAAABMAO//BAALAAoAAABNAOz/BAALAAoAAABNAO3/BAALAAoAAABNAO7/BAALAAoAAABNAO//BAALAAoAAABOAOz/BAALAAoAAABOAO3/BAALAAoAAABOAO7/BAALAAoAAABOAO//BAALAAoAAABPAOz/BAALAAoAAABPAO3/BAALAAoAAABPAO7/BAALAAoAAABPAO//BAALAAoAAABQAOz/BAALAAoAAABQAO3/BAALAAoAAABQAO7/BAALAAoAAABQAO//BAALAAoAAABRAOz/BAALAAoAAABRAO3/BAALAAoAAABRAO7/BAALAAoAAABRAO//BAALAAoAAABSAO3/BAALAAoAAABSAO7/BAALAAoAAABSAO//BAALAAoAAABLAPD/BAALAAoAAABLAPH/BAALAAoAAABLAPL/BAALAAoAAABMAPD/BAALAAoAAABMAPH/BAALAAoAAABMAPL/BAALAAoAAABMAPT/BAALAAoAAABNAPD/BAALAAoAAABNAPH/BAALAAoAAABNAPL/BAALAAoAAABNAPP/BAALAAoAAABNAPT/BAALAAoAAABOAPH/BAALAAoAAABOAPL/BAALAAoAAABOAPP/BAALAAoAAABOAPT/BAALAAoAAABPAPL/BAALAAoAAABPAPP/BAALAAoAAABPAPT/BAALAAoAAAAUAOz/BAALAAoAAAAUAO3/BAALAAoAAAAUAO7/BAALAAoAAAAVAOz/BAALAAoAAAAVAO3/BAALAAoAAAAVAO7/BAALAAoAAAAWAOz/BAALAAoAAAAWAO3/BAALAAoAAAAWAO7/BAALAAoAAAAXAOz/BAALAAoAAAAXAO3/BAALAAoAAAAXAO7/BAALAAoAAAAYAOz/BAALAAoAAAAYAO3/BAALAAoAAAAYAO7/BAALAAoAAAAZAOz/BAALAAoAAAAZAO3/BAALAAoAAAAZAO7/BAALAAoAAAAaAOz/BAALAAoAAAAaAO3/BAALAAoAAAAaAO7/BAALAAoAAAAbAOz/BAALAAoAAAAbAO3/BAALAAoAAAAbAO7/BAALAAoAAAAcAOz/BAALAAoAAAAcAO3/BAALAAoAAAAcAO7/BAALAAoAAAAdAOz/BAALAAoAAAAdAO3/BAALAAoAAAAdAO7/BAALAAoAAAARAPD/BAALAAoAAAAYAOv/BAALAAoAAAAZAOv/BAALAAoAAAAaAOv/BAALAAoAAAAbAOv/BAALAAoAAAAcAOv/BAALAAoAAAAdAOv/BAALAAoAAAAeAOv/BAALAAoAAAAeAOz/BAALAAoAAAAeAO3/BAALAAoAAAAeAO7/BAALAAoAAAAfAOv/BAALAAoAAAAfAOz/BAALAAoAAAAfAO3/BAALAAoAAAAfAO7/BAALAAoAAAAgAOv/BAALAAoAAAAgAOz/BAALAAoAAAAgAO3/BAALAAoAAAAgAO7/BAALAAoAAAAhAOv/BAALAAoAAAAhAOz/BAALAAoAAAAhAO3/BAALAAoAAAAhAO7/BAALAAoAAAAiAOv/BAALAAoAAAAiAOz/BAALAAoAAAAiAO3/BAALAAoAAAAiAO7/BAALAAoAAAAjAOv/BAALAAoAAAAjAOz/BAALAAoAAAAjAO3/BAALAAoAAAAjAO7/BAALAAoAAAAkAOv/BAALAAoAAAAkAOz/BAALAAoAAAAkAO3/BAALAAoAAAAkAO7/BAALAAoAAAAlAOv/BAALAAoAAAAlAOz/BAALAAoAAAAlAO3/BAALAAoAAAAlAO7/BAALAAoAAAAmAOv/BAALAAoAAAAmAOz/BAALAAoAAAAmAO3/BAALAAoAAAAmAO7/BAALAAoAAAAnAOv/BAALAAoAAAAnAOz/BAALAAoAAAAnAO3/BAALAAoAAAAnAO7/BAALAAoAAAAoAOv/BAALAAoAAAAoAOz/BAALAAoAAAAoAO3/BAALAAoAAAAoAO7/BAALAAoAAAApAOv/BAALAAoAAAApAOz/BAALAAoAAAApAO3/BAALAAoAAAApAO7/BAALAAoAAAAqAOv/BAALAAoAAAAqAOz/BAALAAoAAAAqAO3/BAALAAoAAAAqAO7/BAALAAoAAAArAOv/BAALAAoAAAArAOz/BAALAAoAAAArAO3/BAALAAoAAAArAO7/BAALAAoAAAAsAOv/BAALAAoAAAAsAOz/BAALAAoAAAAsAO3/BAALAAoAAAAsAO7/BAALAAoAAAAtAOv/BAALAAoAAAAtAOz/BAALAAoAAAAtAO3/BAALAAoAAAAtAO7/BAALAAoAAAAuAOv/BAALAAoAAAAuAOz/BAALAAoAAAAuAO3/BAALAAoAAAAuAO7/BAALAAoAAAAvAOv/BAALAAoAAAAvAOz/BAALAAoAAAAvAO3/BAALAAoAAAAvAO7/BAALAAoAAAAwAOv/BAALAAoAAAAwAOz/BAALAAoAAAAwAO3/BAALAAoAAAAwAO7/BAALAAoAAAAxAOv/BAALAAoAAAAxAOz/BAALAAoAAAAxAO3/BAALAAoAAAAxAO7/BAALAAoAAAAyAOv/BAALAAoAAAAyAOz/BAALAAoAAAAyAO3/BAALAAoAAAAyAO7/BAALAAoAAAAzAOv/BAALAAoAAAAzAOz/BAALAAoAAAAzAO3/BAALAAoAAAAzAO7/BAALAAoAAAA0AOv/BAALAAoAAAA0AOz/BAALAAoAAAA0AO3/BAALAAoAAAA0AO7/BAALAAoAAAA1AOv/BAALAAoAAAA1AOz/BAALAAoAAAA1AO3/BAALAAoAAAA1AO7/BAALAAoAAAA2AOv/BAALAAoAAAA2AOz/BAALAAoAAAA2AO3/BAALAAoAAAA2AO7/BAALAAoAAAA3AOv/BAALAAoAAAA3AOz/BAALAAoAAAA3AO3/BAALAAoAAAA3AO7/BAALAAoAAAA4AOv/BAALAAoAAAA4AOz/BAALAAoAAAA4AO3/BAALAAoAAAA4AO7/BAALAAoAAAA5AOv/BAALAAoAAAA5AOz/BAALAAoAAAA5AO3/BAALAAoAAAA5AO7/BAALAAoAAAA6AOz/BAALAAoAAAA6AO3/BAALAAoAAAA6AO7/BAALAAoAAAA7AOz/BAALAAoAAAA7AO3/BAALAAoAAAA7AO7/BAALAAoAAAA8AOz/BAALAAoAAAA8AO3/BAALAAoAAAA8AO7/BAALAAoAAAA9AOz/BAALAAoAAAA9AO3/BAALAAoAAAA9AO7/BAALAAoAAABAAPD/BAALAAoAAAADAO7/BAALAAoAAAAEAO7/BAALAAoAAAAFAO7/BAALAAoAAAAMAO3/BAALAAoAAAANAO3/BAALAAoAAAAOAO3/BAALAAoAAAAIAPD/BAALAAoAAAAJAPD/BAALAAoAAAAKAPn/BAALAAoAAAALAPn/BAALAAoAAAAMAPn/BAALAAoAAAANAPn/BAALAAoAAAAOAPn/BAALAAoAAAAPAPn/BAALAAoAAAAQAPn/BAALAAoAAAARAPn/BAALAAoAAAASAPn/BAALAAoAAAATAPn/BAALAAoAAAAUAPn/BAALAAoAAAAVAPn/BAALAAoAAAAWAPn/BAALAAoAAAAXAPn/BAALAAoAAAAYAPn/BAALAAoAAAAZAPn/BAALAAoAAAAaAPn/BAALAAoAAAAbAPn/BAALAAoAAAAcAPn/BAALAAoAAAAdAPn/BAALAAoAAAAeAPn/BAALAAoAAAAfAPn/BAALAAoAAAAgAPn/BAALAAoAAAAhAPn/BAALAAoAAAAiAPn/BAALAAoAAAAjAPn/BAALAAoAAAAkAPn/BAALAAoAAAAlAPn/BAALAAoAAAAmAPn/BAALAAoAAAAnAPn/BAALAAoAAAAoAPn/BAALAAoAAAApAPn/BAALAAoAAAAqAPn/BAALAAoAAAArAPn/BAALAAoAAAAsAPn/BAALAAoAAAAtAPn/BAALAAoAAAAuAPn/BAALAAoAAAAvAPn/BAALAAoAAAAwAPn/BAALAAoAAAAxAPn/BAALAAoAAAAyAPn/BAALAAoAAAAzAPn/BAALAAoAAAA0APn/BAALAAoAAAA1APn/BAALAAoAAAA2APn/BAALAAoAAAA3APn/BAALAAoAAAA4APn/BAALAAoAAAA5APn/BAALAAoAAAA6APn/BAALAAoAAAA7APn/BAALAAoAAAA8APn/BAALAAoAAAA9APn/BAALAAoAAAA+APn/BAALAAoAAAA/APn/BAALAAoAAABAAPn/BAALAAoAAABBAPn/BAALAAoAAABCAPn/BAALAAoAAABDAPn/BAALAAoAAABEAPn/BAALAAoAAABFAPn/BAALAAoAAABGAPn/BAALAAoAAABHAPn/BAALAAoAAABIAPn/BAALAAoAAABJAPn/BAALAAoAAABKAPn/BAALAAoAAABLAPn/BAALAAoAAABMAPn/BAALAAoAAABNAPn/BAALAAoAAABOAPn/BAALAAoAAABPAPn/BAALAAoAAABQAPn/BAALAAoAAABAAOv/BAALAAoAAABBAOv/BAALAAoAAABCAOv/BAALAAoAAABDAO//BAALAAoAAABEAO//BAALAAoAAABHAPH/BAALAAoAAABIAPH/BAALAAoAAABJAPH/BAALAAoAAAA=")
@@ -2519,27 +3404,31 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAWAPX/BQAFAAQAAAAWAPb/BQAFAAQAAAAWAPf/BQAFAAUAAAAXAPX/BQAGAAQAAAAXAPb/BQAGAAQAAAAXAPf/BQAGAAUAAAAWAPL/BQAFAAMAAAAWAPP/BQAFAAQAAAAWAPT/BQAFAAQAAAAXAPL/BQAGAAMAAAAXAPP/BQAGAAQAAAAXAPT/BQAGAAQAAAAWAO//BQAFAAQAAAAWAPD/BQAFAAQAAAAWAPH/BQAFAAMAACAXAO//BQAGAAQAAAAXAPD/BQAGAAQAAAAXAPH/BQAGAAMAACAWAOz/BQAFAAUAACAWAO3/BQAFAAQAAAAWAO7/BQAFAAQAAAAXAOz/BQAGAAUAACAXAO3/BQAGAAQAAAAXAO7/BQAGAAQAAAAlAPf/BQAFAAUAAAAmAPf/BQAGAAUAAAAlAPb/BQAFAAQAAAAmAPb/BQAGAAQAAAAlAPX/BQAFAAQAAAAmAPX/BQAGAAQAAAAlAPT/BQAFAAQAAAAmAPT/BQAGAAQAAAAlAPP/BQAFAAQAAAAmAPP/BQAGAAQAAAAlAPL/BQAFAAMAAAAmAPL/BQAGAAMAAAAlAPH/BQAFAAMAACAmAPH/BQAGAAMAACAlAPD/BQAFAAQAAAAmAPD/BQAGAAQAAAAlAO//BQAFAAQAAAAmAO//BQAGAAQAAAAlAO7/BQAFAAQAAAAmAO7/BQAGAAQAAAAlAO3/BQAFAAQAAAAmAO3/BQAGAAQAAAAlAOz/BQAFAAQAAAAmAOz/BQAGAAQAAAAlAOv/BQAFAAUAACAmAOv/BQAGAAUAACA1APf/BQAFAAUAAAA2APf/BQAGAAUAAAA1APb/BQAFAAQAAAA2APb/BQAGAAQAAAA1APX/BQAFAAQAAAA2APX/BQAGAAQAAAA1APT/BQAFAAQAAAA2APT/BQAGAAQAAAA1APP/BQAFAAQAAAA2APP/BQAGAAQAAAA1APL/BQAFAAMAAAA2APL/BQAGAAMAAAA1APH/BQAFAAMAACA2APH/BQAGAAMAACA1APD/BQAFAAQAAAA2APD/BQAGAAQAAAA1AO//BQAFAAQAAAA2AO//BQAGAAQAAAA1AO7/BQAFAAQAAAA2AO7/BQAGAAQAAAA1AO3/BQAFAAQAAAA2AO3/BQAGAAQAAAA1AOz/BQAFAAQAAAA2AOz/BQAGAAQAAAA1AOv/BQAFAAUAACA2AOv/BQAGAAUAACAEAPX/BAAMAAYAAAAEAPb/BAAMAAcAAAAFAPX/BAANAAYAAAAFAPb/BAANAAcAAAA=")
 tile_set = SubResource("TileSet_08wr4")
 
-[node name="PlayerDetector" type="Area2D" parent="." index="1" unique_id=54745096]
+[node name="PlayerDetector" type="Area2D" parent="." index="2" unique_id=54745096]
 position = Vector2(659, -224)
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=2007943897]
 position = Vector2(5.5, -10.5)
 shape = SubResource("RectangleShape2D_jhy2k")
+disabled = true
 
-[node name="BossCamera" type="Camera2D" parent="." index="2" unique_id=780064455]
+[node name="BossRoomCamera" type="Camera2D" parent="." index="3" unique_id=780064455]
 position = Vector2(651, -167)
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("14_e7jyo")
 metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 
-[node name="DefeatedScene" type="Node2D" parent="." index="3" unique_id=1798097123]
+[node name="DefeatedScene" type="Node2D" parent="." index="4" unique_id=1798097123]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DefeatedScene" index="0" unique_id=1762951562]
 libraries/ = SubResource("AnimationLibrary_o5pat")
 
 [node name="BossObject" type="AnimatedSprite2D" parent="DefeatedScene" index="1" unique_id=1620462867]
+self_modulate = Color(0, 0, 0, 1)
 z_index = 2
 position = Vector2(652, -56)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_u4t2k")
 animation = &"Awake"
 frame = 5
@@ -2556,6 +3445,34 @@ position = Vector2(5, -37)
 [node name="GPUParticles2D2" parent="DefeatedScene/SwimParticles" index="2" unique_id=1258971152]
 position = Vector2(13, -34)
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="DefeatedScene" index="3" unique_id=2013525088]
+z_index = 3
+position = Vector2(773, -177)
+emitting = false
+amount = 120
+texture = SubResource("AtlasTexture_jhy2k")
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_reo30")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="DefeatedScene" index="4" unique_id=332635350]
+z_index = 3
+position = Vector2(773, -177)
+emitting = false
+amount = 80
+texture = SubResource("AtlasTexture_jv431")
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_reo30")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="DefeatedScene" index="5" unique_id=918855894]
+z_index = 3
+position = Vector2(773, -182)
+emitting = false
+amount = 12
+texture = SubResource("AtlasTexture_yw74o")
+process_material = SubResource("ParticleProcessMaterial_5hoxb")
+
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("9_ujs4k")]
 position = Vector2(1328, -288)
 dir = 4
@@ -2570,7 +3487,7 @@ dir = 3
 [node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="5" unique_id=21501033]
 position = Vector2(16, 16)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="9" unique_id=1244888292]
+[node name="Sprite2D" type="Sprite2D" parent="." index="10" unique_id=1244888292]
 z_index = 2
 material = SubResource("ShaderMaterial_g4v7s")
 position = Vector2(192.00002, -196)
@@ -2578,7 +3495,7 @@ scale = Vector2(0.25000012, 2.1875002)
 texture = ExtResource("3_nktad")
 script = ExtResource("4_vp6os")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." index="10" unique_id=1612820998]
+[node name="Sprite2D2" type="Sprite2D" parent="." index="11" unique_id=1612820998]
 z_index = 2
 material = SubResource("ShaderMaterial_g4v7s")
 position = Vector2(1104, -196)
@@ -2586,11 +3503,13 @@ scale = Vector2(0.25000012, 2.1875)
 texture = ExtResource("3_nktad")
 script = ExtResource("4_vp6os")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." index="11" unique_id=1150414620]
+[node name="Sprite2D3" type="Sprite2D" parent="." index="12" unique_id=1150414620]
 z_index = 2
 material = SubResource("ShaderMaterial_yf5fn")
 position = Vector2(728, -84)
 scale = Vector2(8.875, 1.3125)
 texture = ExtResource("3_nktad")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
 [editable path="DefeatedScene/SwimParticles"]

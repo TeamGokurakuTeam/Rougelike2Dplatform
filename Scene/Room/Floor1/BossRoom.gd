@@ -25,6 +25,7 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 	animation_player.play("Start")
 	main_game_node.player_ui.ui_fade_in()
 	await animation_player.animation_finished
+	boss_object.visible = false
 	main_game_node.player_ui.ui_fade_out()
 	boss_summon()
 	GameEvents.cutscene_ended.emit()
@@ -32,7 +33,7 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 
 func boss_summon() -> void:
 	var boss = boss_scene.instantiate()
-	enemies.add_child(boss.instantiate())
+	enemies.add_child(boss)
 	boss.main_game_node = main_game_node
 	boss.global_position = boss_object.global_position
 	boss.hp_component.is_dead.connect(_on_boss_is_dead)
@@ -40,6 +41,7 @@ func boss_summon() -> void:
 	encounter_component.register_enemy(boss)
 
 func _on_boss_is_dead() -> void:
+	main_game_node.player.visible = false
 	GlobalGameState.is_current_floor_boss_killed = true
 	main_game_node.player_ui.ui_fade_in()
 	await Common.fade_out_to_black(main_game_node.get_tree())
@@ -53,4 +55,4 @@ func _on_boss_is_dead() -> void:
 	main_game_node.player_ui.ui_fade_out()
 	main_game_node.change_camera(main_game_node.main_camera)
 	await Common.fade_in_from_black()
-	
+	main_game_node.player.visible = true

@@ -62,7 +62,8 @@ func shoot() -> void:
 	gear.global_position = marker.global_position
 
 func player_dir() -> float:
-	var player : Player = get_tree().get_nodes_in_group("Player")[0]
+	var player : Player
+	player = get_tree().get_first_node_in_group("Player")
 	if player == null:
 		return 0
 	navigation_agent.target_position = player.global_position
