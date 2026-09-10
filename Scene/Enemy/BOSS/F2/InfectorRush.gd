@@ -7,6 +7,8 @@ class_name InfectorRush
 @export var ghost_timer : Timer
 
 func Enter() -> void:
+	if parent.is_rage:
+		parent.rush_speed = parent.max_speed + 60
 	parent.flip_character()
 	anim_player.play("Rush")
 	rush_timer.start()
@@ -19,7 +21,9 @@ func Exit() -> void:
 	ghost_timer.stop()
 
 func Update(delta) -> void:
-	pass
+	if parent.hp_component.hp <= parent.hp_component.max_hp / 2 and not parent.is_rage:
+		parent.is_rage = true
+		StateTransitioned.emit(self, "Rage")
 
 func Physics_Update(delta) -> void:
 	pass

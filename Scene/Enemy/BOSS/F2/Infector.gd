@@ -7,9 +7,13 @@ class_name Infector
 @onready var slam_effect: GPUParticles2D = $SlamEffect
 @onready var a_rush_effect: GPUParticles2D = $Rush
 @onready var b_rush_effect: GPUParticles2D = $Rush2
+@onready var shout: GPUParticles2D = $Shout
 
 const HEDORO_GEAR = preload("uid://02rhrcwex5jr")
 const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
+
+var is_rage : bool = false
+var rush_speed : float = max_speed
 
 func _ready() -> void:
 	a_rush_effect.emitting = false
@@ -31,14 +35,19 @@ func flip_character() -> void:
 		sprite.offset.x = 16.0
 		slam_collision.scale = -Vector2(1.5, 1.5)
 		slam_effect.position.x = 70
+		shout.position.x = 69.0
 	elif player_dir() < 0 and sprite.flip_h:
 		sprite.flip_h = false
 		sprite.offset.x = -8.0
 		slam_collision.scale = Vector2(1.5, 1.5)
 		slam_effect.position.x = -70
+		shout.position.x = -46.0
 
 func shoot() -> void:
 	var gear : HedoroGear = HEDORO_GEAR.instantiate()
+	gear.speed = randf_range(250, 350)
+	gear.direction = Vector2(player_dir(), randf_range(-1.0, 0))
+	gear.bounce_speed_multi = randf_range(0.3, 0.7)
 	get_tree().current_scene.add_child(gear)
 	gear.global_position = marker.global_position
 
@@ -72,7 +81,6 @@ func _rush_attack() -> void:
 		return
 	
 	flip_character()
-	var rush_speed : float = max_speed + 50
 	var dir : Vector2 = global_position.direction_to(target.global_position)
 	tween.tween_property(self, "velocity:x", dir.x * rush_speed, 0.5).set_trans(tween.TRANS_BOUNCE).set_ease(tween.EASE_OUT)
 	tween.tween_property(self, "velocity", Vector2.ZERO, 0.1)

@@ -13,10 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://5nlc00tdp2gx" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_run.png" id="6_fjlxk"]
 [ext_resource type="Script" uid="uid://yqvjec7bupnk" path="res://Scene/Enemy/BOSS/F2/InfectorShoot.gd" id="6_vsncb"]
 [ext_resource type="Texture2D" uid="uid://25h4al3l6nam" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_sneer.png" id="7_f36w6"]
+[ext_resource type="Script" uid="uid://do6bquxfqgube" path="res://Scene/Enemy/BOSS/F2/InfectorRage.gd" id="8_kxojx"]
 [ext_resource type="Texture2D" uid="uid://vc25tfsttb6g" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_attack1.png" id="8_vsncb"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="9_hwsjm"]
 [ext_resource type="Texture2D" uid="uid://cmo0lb77fb68y" path="res://Assets/Particle/13(for particle trails).png" id="16_kg0s2"]
 [ext_resource type="Texture2D" uid="uid://dlnsmtnyh2ny" path="res://Assets/Particle/Free Smoke Fx  Pixel 05.png" id="17_ppkyb"]
+[ext_resource type="Texture2D" uid="uid://b8mylfl7mui5d" path="res://Assets/Particle/46.png" id="18_vaj8c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg0s2"]
 atlas = ExtResource("2_hwsjm")
@@ -343,6 +345,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(62, 31), Vector2(62, 31)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_syfht"]
 resource_name = "Death"
@@ -396,6 +410,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_35pdj"]
 resource_name = "Idle"
@@ -437,6 +463,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_3ehhh"]
@@ -525,6 +563,42 @@ tracks/6/keys = {
 "update": 1,
 "values": [108]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Shout:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ujgx8"]
 resource_name = "Rush"
@@ -583,6 +657,18 @@ tracks/3/keys = {
 "args": [],
 "method": &"_rush_attack"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_gc521"]
@@ -650,6 +736,83 @@ tracks/4/keys = {
 "args": [],
 "method": &"shoot"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vaj8c"]
+resource_name = "Shout"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5, 1.6, 1.7, 1.8000001, 1.9, 2, 2.1000001, 3, 3.1000001, 3.2, 3.3, 3.4, 3.5, 3.6000001, 3.7, 3.8, 3.9, 4, 4.1, 4.2000003, 4.3, 4.4, 4.5, 4.7000003, 4.8, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 3, 2, 3, 2, 3, 3, 2, 1, 0, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 1, 1.5, 1.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.882902, 0, 0.17040825, 1), Color(0.882902, 0, 0.17040825, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Attack", &"Dance"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shout:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_w8k11"]
@@ -735,10 +898,22 @@ tracks/6/path = NodePath("Sprite2D:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.39999998, 0.5, 0.59999996, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.29999998, 0.4, 0.49999997, 0.6, 0.70000005, 0.79999995, 0.9, 1, 1.1, 1.1999999),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [108, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hurtbox/CollisionShape2D2:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wg0aw"]
@@ -749,6 +924,7 @@ _data = {
 &"RESET": SubResource("Animation_3ehhh"),
 &"Rush": SubResource("Animation_ujgx8"),
 &"Shoot": SubResource("Animation_gc521"),
+&"Shout": SubResource("Animation_vaj8c"),
 &"Slam": SubResource("Animation_w8k11")
 }
 
@@ -922,6 +1098,53 @@ load_path = "res://.godot/imported/Free Smoke Fx  Pixel 06.png-02f6da1083f56caad
 atlas = SubResource("CompressedTexture2D_pvk54")
 region = Rect2(205, 1171, 33, 36)
 
+[sub_resource type="Gradient" id="Gradient_kxojx"]
+offsets = PackedFloat32Array(0.017482517, 1)
+colors = PackedColorArray(0, 0.9529412, 0.49803922, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ujs0i"]
+gradient = SubResource("Gradient_kxojx")
+
+[sub_resource type="Gradient" id="Gradient_u42ec"]
+offsets = PackedFloat32Array(0, 0.23426573, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n2h2g"]
+gradient = SubResource("Gradient_u42ec")
+
+[sub_resource type="Curve" id="Curve_pvk54"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_uw2dd"]
+curve = SubResource("Curve_pvk54")
+
+[sub_resource type="Curve" id="Curve_a2ase"]
+_data = [Vector2(0, 0), 0.0, 1.946501, 0, 0, Vector2(1, 1), 0.16360657, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m4d75"]
+curve = SubResource("Curve_a2ase")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qdq5c"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 49.279995
+radial_accel_max = 77.299995
+tangential_accel_min = 27.049997
+tangential_accel_max = 52.649998
+scale_min = 0.5
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_m4d75")
+scale_over_velocity_max = 12.08
+color = Color(0, 0.97347945, 0, 1)
+color_ramp = SubResource("GradientTexture1D_n2h2g")
+color_initial_ramp = SubResource("GradientTexture1D_ujs0i")
+hue_variation_min = -0.12000002
+hue_variation_max = 0.119999975
+hue_variation_curve = SubResource("CurveTexture_uw2dd")
+
 [node name="Infector" unique_id=1094349948 instance=ExtResource("1_a7xe3")]
 script = ExtResource("2_vsncb")
 friction = 0.05
@@ -964,6 +1187,13 @@ anim_player = NodePath("../../AnimationPlayer")
 idle_timer = NodePath("../../IdleTimer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
+[node name="Rage" type="Node" parent="StateMachine" index="5" unique_id=1550566499 node_paths=PackedStringArray("parent", "anim_player", "idle_timer")]
+script = ExtResource("8_kxojx")
+parent = NodePath("../..")
+anim_player = NodePath("../../AnimationPlayer")
+idle_timer = NodePath("../../IdleTimer")
+metadata/_custom_type_script = "uid://xkegmi4e8sfs"
+
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 position = Vector2(0, -52)
 scale = Vector2(1.5, 1.5)
@@ -972,7 +1202,7 @@ animation = &"Attack"
 offset = Vector2(-8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="3" unique_id=2139733523]
-position = Vector2(-45.000008, 19)
+position = Vector2(-56, 19)
 scale = Vector2(1.555, 1.555)
 texture = ExtResource("17_ppkyb")
 hframes = 11
@@ -986,13 +1216,14 @@ shape = SubResource("CapsuleShape2D_56pq6")
 [node name="CollisionShape2D2" parent="Hurtbox" parent_id_path=PackedInt32Array(1912714286) index="3" unique_id=1329737567]
 position = Vector2(6, -12.5)
 shape = SubResource("RectangleShape2D_a7xe3")
+disabled = true
 
 [node name="Hitbox" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="0" unique_id=195243888]
 damage = 10.0
 knockback_force = 250.0
 
 [node name="CollisionShape2D2" parent="Hitboxes/Hitbox" index="1" unique_id=235091233]
-position = Vector2(-41.5, 4.5)
+position = Vector2(-41.5, -5)
 shape = SubResource("RectangleShape2D_hwsjm")
 
 [node name="Hitbox2" parent="Hitboxes" parent_id_path=PackedInt32Array(1117927688) index="1" unique_id=466385270 groups=["Enemy"] instance=ExtResource("9_hwsjm")]
@@ -1047,10 +1278,22 @@ emitting = false
 texture = SubResource("AtlasTexture_i6ow2")
 process_material = SubResource("ParticleProcessMaterial_5hoxb")
 
-[node name="RushTimer" type="Timer" parent="." index="16" unique_id=102817885]
+[node name="Shout" type="GPUParticles2D" parent="." index="16" unique_id=1322316232]
+z_index = 1
+position = Vector2(-46, -13)
+emitting = false
+amount = 25
+texture = ExtResource("18_vaj8c")
+lifetime = 2.0
+one_shot = true
+randomness = 0.25
+process_material = SubResource("ParticleProcessMaterial_qdq5c")
+
+[node name="RushTimer" type="Timer" parent="." index="17" unique_id=102817885]
 wait_time = 8.0
 one_shot = true
 
 [connection signal="timeout" from="IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="StateMachine/Rage" method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="GhostTimer" to="StateMachine/Rush" method="_on_ghost_timer_timeout"]
 [connection signal="timeout" from="RushTimer" to="StateMachine/Rush" method="_on_rush_timer_timeout"]
