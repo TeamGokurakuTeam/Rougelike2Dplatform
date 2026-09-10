@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://dga0gfloor7om"]
+
+[ext_resource type="Texture2D" uid="uid://b8mylfl7mui5d" path="res://Assets/Particle/46.png" id="2_nsosi"]
+[ext_resource type="Texture2D" uid="uid://5futa8f7kict" path="res://Assets/Particle/2.png" id="2_veaiu"]
+
+[sub_resource type="Curve" id="Curve_veaiu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7392345, 0.4617414), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_veaiu"]
+resource_name = "Partecle"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root2/CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root3/CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root3/CPUParticles2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0071562664, 0.46873546, 0.48662612, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.76666665, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.46666667, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.67058825, 1, 1, 1), Color(0.67058825, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.46666667, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nsosi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root2/CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root3/CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root3/CPUParticles2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.67058825, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5dgg"]
+_data = {
+&"Partecle": SubResource("Animation_veaiu"),
+&"RESET": SubResource("Animation_nsosi")
+}
+
+[node name="ModifierParticle" type="Node2D" unique_id=1432178653]
+
+[node name="Root2" type="Node2D" parent="." unique_id=1931575377]
+position = Vector2(2, -26)
+rotation = -1.5707964
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Root2" unique_id=111265883]
+position = Vector2(46, 2.0107238e-06)
+amount = 12
+texture = ExtResource("2_veaiu")
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.6
+lifetime_randomness = 0.19
+gravity = Vector2(0, -1000)
+initial_velocity_max = 500.0
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_veaiu")
+color = Color(0.65882355, 1, 1, 1)
+
+[node name="Root3" type="Node2D" parent="." unique_id=1778588630]
+position = Vector2(2, -26)
+rotation = -1.5707964
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Root3" unique_id=1258067565]
+visible = false
+position = Vector2(-28, -1.0000012)
+emitting = false
+amount = 1
+texture = ExtResource("2_veaiu")
+lifetime = 0.4
+one_shot = true
+lifetime_randomness = 0.19
+gravity = Vector2(0, -1000)
+initial_velocity_max = 100.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_veaiu")
+color = Color(0.65882355, 1, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=120753446]
+visible = false
+modulate = Color(0.67058825, 1, 1, 1)
+position = Vector2(0, -74)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_nsosi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=971298352]
+libraries/ = SubResource("AnimationLibrary_w5dgg")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1649324433]
+position = Vector2(0, 89)
