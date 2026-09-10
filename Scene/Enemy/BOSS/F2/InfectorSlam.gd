@@ -6,8 +6,23 @@ class_name InfectorSlam
 
 func Enter() -> void:
 	parent.flip_character()
-	anim_player.play("Slam")
-	await anim_player.animation_finished
+	if parent.is_rage:
+		for i in 3:
+			if i == 2:
+				#アニメーション作ったほうが良さそう
+				await get_tree().create_timer(2.0).timeout
+			anim_player.play("Slam")
+			await get_tree().create_timer(0.5).timeout
+			if i != 2:
+				parent.spawn_slam_custom_bullet(randi_range(20, 40))
+			else:
+				parent.spawn_slam_custom_bullet(50)
+			await anim_player.animation_finished
+	else:
+		anim_player.play("Slam")
+		await get_tree().create_timer(0.5).timeout
+		parent.spawn_slam_custom_bullet(randi_range(10, 20))
+		await anim_player.animation_finished
 	StateTransitioned.emit(self, "Idle")
 
 func Exit() -> void:

@@ -21,7 +21,7 @@ func Physics_Update(delta) -> void:
 	pass
 
 func _on_idle_timer_timeout() -> void:
-	if randi_range(0, 100) <= 50:
+	if randi_range(0, 100) <= 100:
 		StateTransitioned.emit(self, "Slam")
 	else:
 		parent.a_rush_effect.emitting = true
