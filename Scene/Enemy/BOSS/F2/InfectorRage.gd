@@ -1,5 +1,5 @@
 extends State
-class_name InfectorShoot
+class_name InfectorRage
 
 @export var parent : Infector
 @export var anim_player : AnimationPlayer
@@ -7,20 +7,13 @@ class_name InfectorShoot
 
 func Enter() -> void:
 	parent.flip_character()
-	if parent.is_rage:
-		for i in 3:
-			anim_player.play("Shoot")
-			await anim_player.animation_finished
-			await get_tree().create_timer(randf_range(0.1, 1.2)).timeout
-	else:
-		anim_player.play("Shoot")
-		await anim_player.animation_finished
-	parent.player_dir()
+	anim_player.play("Shout")
+	await anim_player.animation_finished
+	idle_timer.wait_time = 1.0
 	StateTransitioned.emit(self, "Idle")
 
 func Exit() -> void:
-	idle_timer.wait_time = 18.0
-	parent.flip_character()
+	pass
 
 func Update(delta) -> void:
 	if parent.hp_component.hp <= parent.hp_component.max_hp / 2 and not parent.is_rage:

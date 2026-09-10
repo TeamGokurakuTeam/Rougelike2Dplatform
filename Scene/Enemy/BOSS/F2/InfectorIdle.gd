@@ -13,7 +13,9 @@ func Exit() -> void:
 	pass
 
 func Update(delta) -> void:
-	pass
+	if parent.hp_component.hp <= parent.hp_component.max_hp / 2 and not parent.is_rage:
+		parent.is_rage = true
+		StateTransitioned.emit(self, "Rage")
 
 func Physics_Update(delta) -> void:
 	pass
