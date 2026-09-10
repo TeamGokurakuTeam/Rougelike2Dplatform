@@ -203,31 +203,6 @@ func _physics_process(delta: float) -> void:
 func has_modifiers(name : String):
 	return modifiers_ids.has(name) or lock_modifiers_ids.has(name)
 
-func attack_trigger_modifier() -> void:
-	modifier_use_count += 1
-	
-	if has_modifiers("Bloodletting"):
-		bloodletting(mouse_direction, offset_length)
-#跳躍(Leap)
-	if has_modifiers("Leap"):
-		leap_forward()
-#残影な(Afterimage)
-	if has_modifiers("Afterimage"):
-		afterimage_slash()
-#破裂し斬撃する(BurstSlasher)
-	if has_modifiers("Burstslasher"):
-		burst_slash()
-#斬：複製
-	if has_modifiers("FallSlashing"):
-		fall_slashing()
-#アヒル
-	if has_modifiers("Slash_Duck"):
-		slashduck()
-#アヒルバウンス
-	if has_modifiers("Bounce_Duck"):
-		bounceduck()
-#アヒル爆弾
-
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
 	if modifiers_ids.has(name):
@@ -453,7 +428,34 @@ func _on_stillblade_timer_timeout() -> void:
 	stillblade_stack = min(stillblade_stack + 1, max_stillblade_stack)
 	if stillblade_stack >= max_stillblade_stack:
 		stillblade_timer.stop()
-		
+
+func trigger_modifier_when_attack() -> void:
+	modifier_use_count += 1
+
+	if has_modifiers("Bloodletting"):
+		bloodletting(mouse_direction, offset_length)
+	#跳躍(Leap)
+	if has_modifiers("Leap"):
+		leap_forward()
+	#残影な(Afterimage)
+	if has_modifiers("Afterimage"):
+		afterimage_slash()
+	#破裂し斬撃する(BurstSlasher)
+	if has_modifiers("Burstslasher"):
+		burst_slash()
+	#斬：複製
+	if has_modifiers("FallSlashing"):
+		fall_slashing()
+	#アヒル
+	if has_modifiers("Slash_Duck"):
+		slashduck()
+	#アヒルバウンス
+	if has_modifiers("Bounce_Duck"):
+		bounceduck()
+	#アヒル爆弾
+
+func trigger_modifier_when_strong_attack() -> void:
+	pass
 
 func trigger_modifier_when_receive_damage(damage : float) -> void:
 	if has_modifiers("RevengeSlash"):

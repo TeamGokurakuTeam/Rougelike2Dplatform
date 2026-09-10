@@ -398,6 +398,20 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.093084596),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger_modifier_when_attack"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_7oc6y"]
 resource_name = "Charge"
@@ -1168,6 +1182,20 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [40.0, 40.0]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.5265996),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger_modifier_when_strong_attack"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kv42n"]

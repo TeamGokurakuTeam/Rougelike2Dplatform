@@ -183,11 +183,11 @@ tracks/13/path = NodePath(".")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.028625065),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"attack_trigger_modifier"
+"method": &"trigger_modifier_when_attack"
 }]
 }
 tracks/14/type = "value"
@@ -829,6 +829,20 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [80.0, 80.0]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.038655218),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"trigger_modifier_when_strong_attack"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2tcue"]

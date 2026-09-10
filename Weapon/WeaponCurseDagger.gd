@@ -12,10 +12,7 @@ func _ready() -> void:
 	hitbox_2.damage_dealt.connect(_on_hitbox2_damage_dealt)
 
 func _on_animation_started(anim_name: StringName) -> void:
-	if anim_name == "Attack":
-		attack_trigger_modifier()
 	if anim_name == "StrongAttack":
-		attack_trigger_modifier()
 		hitbox_2.damage_plus = strongattack_bonus
 
 func _on_hitbox2_damage_dealt(hurtbox: Hurtbox) -> void:
