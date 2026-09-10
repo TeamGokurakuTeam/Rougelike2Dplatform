@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="11_cxehs"]
 [ext_resource type="Resource" uid="uid://dif27orikbsbn" path="res://Resource/Modifier/Stillblade.tres" id="12_ufd7s"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="13_nbsl7"]
+[ext_resource type="AudioStream" uid="uid://dhnfawsf28lxp" path="res://Assets/Enemy/PoisonMush/dokukinoko_atk.mp3" id="20_w7c4d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0mabg"]
 atlas = ExtResource("2_cjn5o")
@@ -385,6 +386,10 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=1364159638]
 shape = SubResource("CircleShape2D_jhy2k")
 debug_color = Color(0.6242414, 0.5148668, 0.38770363, 0.41960785)
+
+[node name="Attack" type="AudioStreamPlayer" parent="." index="13" unique_id=498670978]
+stream = ExtResource("20_w7c4d")
+volume_db = -10.0
 
 [connection signal="timeout" from="IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="ChaseTimer" to="StateMachine/Chase" method="_on_chase_timer_timeout"]
