@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://bi33xsafmu7uf"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_qeyut"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_vbku4"]
+
+[resource]
+script = ExtResource("1_qeyut")
+texture = ExtResource("2_vbku4")
+modifier_id = "MiniDamageUp"
+modifier_name = "攻撃Up（小）"
+explanation = "攻撃力が少し"

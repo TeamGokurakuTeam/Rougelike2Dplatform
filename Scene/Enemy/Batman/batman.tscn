@@ -27,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="17_71v1d"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="18_wm8gy"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="19_nlvrf"]
+[ext_resource type="Resource" uid="uid://bi33xsafmu7uf" path="res://Resource/Modifier/MiniDamageUp.tres" id="20_31mju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3uev"]
 atlas = ExtResource("9_ayh16")
@@ -247,6 +248,7 @@ radius = 84.095184
 z_index = 1
 script = ExtResource("2_utyoy")
 mod_resource = Array[ExtResource("3_6x5c0")]([ExtResource("4_31mju"), ExtResource("5_ij36c"), ExtResource("6_wp27o"), ExtResource("7_givpb"), ExtResource("8_agw15"), ExtResource("9_ko1ff"), ExtResource("10_i0jfb"), ExtResource("11_nd5ah"), ExtResource("12_x6id8"), ExtResource("13_ofyuj"), ExtResource("14_ir5dc"), ExtResource("15_6dg78"), ExtResource("16_ryqoi"), ExtResource("17_71v1d"), ExtResource("18_wm8gy"), ExtResource("19_nlvrf")])
+mini_mod_resource = Array[ExtResource("3_6x5c0")]([ExtResource("20_31mju")])
 max_speed = 150.0
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]

@@ -213,6 +213,7 @@ func attack_trigger_modifier() -> void:
 		bounceduck()
 #アヒル爆弾
 
+
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
 	if modifiers_ids.has(name):
@@ -458,7 +459,15 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 		stillblade_stack = 0
 		stillblade_timer.start()
 
+#攻撃力小
+	if has_modifiers("MiniDamageUp"):
+		mults.damage_mult *= 2
+		mults.damage_plus += 1
+		
+
+		
 	return mults
+
 
 func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	var mults: AttackSpeedMultiplier = AttackSpeedMultiplier.new()
@@ -473,6 +482,13 @@ func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	if has_modifiers("HeavyStrike"):
 		var level : int = get_modifiers_level("HeavyStrike")
 		mults.attack_speed_mult *= 0.8 ** level
+
+#攻撃速度（小）
+	if has_modifiers("MiniSpeedUp"):
+		mults.attack_speed_mult *= 1.1
+		mults.charge_attack_speed_mult *= 1.1
+		
+
 
 	mults.attack_speed_mult = min(mults.attack_speed_mult, max_speed_scale)
 	mults.charge_attack_speed_mult = min(mults.charge_attack_speed_mult, max_speed_scale)

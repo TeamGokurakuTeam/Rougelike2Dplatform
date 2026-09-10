@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://dxcofjehtwhme"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_wlrbk"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_v8kfm"]
+
+[resource]
+script = ExtResource("1_wlrbk")
+texture = ExtResource("2_v8kfm")
+modifier_id = "MiniSpeedUp"
+modifier_name = "攻撃速度（小）"
+explanation = "攻撃速度が少し上昇"

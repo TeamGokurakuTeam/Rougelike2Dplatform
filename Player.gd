@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 	elif mouse_direction.x < 0 and not animated_sprite_2d.flip_h:
 		#マウスの方向が左側にあったら
 		animated_sprite_2d.flip_h = true
-	
+
 
 func _physics_process(delta: float) -> void:
 	super(delta)

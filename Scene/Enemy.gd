@@ -12,6 +12,7 @@ const GOLDEN_HEAL_POTION = preload("uid://bcx3wero7oylu")
 
 @export var item_resource : Array[ResourceItem]
 @export var mod_resource : Array[ModifierResource]
+@export var mini_mod_resource : Array[ModifierResource]
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -40,13 +41,24 @@ func _on_hp_component_is_dead() -> void:
 	queue_free()
 
 func killed_drop_modifier() -> void:
-	if mod_resource.size() <= 0 or randi_range(1, 100) <= 50:
-		return
+	# 50% の確率で普通の Modifier を落とす
+	if mod_resource.size() > 0 and randf() < 0.5:
+		var drop_mod : DropModifier = DROP_MODIFIER.instantiate()
+		drop_mod.modifier = mod_resource.pick_random()
+		var target_node : Node = room if room != null else get_tree().current_scene
+		target_node.add_child(drop_mod)
+		drop_mod.global_position = global_position
+	else:
+		# 50% を外した場合 → mini_modifier を落とす
+		mini_modifier()
+func mini_modifier() -> void:
+	print("ミニModi")
 	var drop_mod : DropModifier = DROP_MODIFIER.instantiate()
-	drop_mod.modifier = mod_resource.pick_random()
+	drop_mod.modifier = mini_mod_resource.pick_random()
 	var target_node : Node = room if room != null else get_tree().current_scene
 	target_node.add_child(drop_mod)
-	drop_mod.global_position = Vector2(self.global_position)
+	drop_mod.global_position = global_position
+
 
 func killed_drop_item() -> void:
 	if randi_range(1, 100) <= 20: #20は回復全体が出る確率
