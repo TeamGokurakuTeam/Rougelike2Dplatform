@@ -52,6 +52,5 @@ func apply_knockback(dir : Vector2) -> void:
 	add_external_force(dir)
 
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
-	hp_component.hp -= damage
-	DamageNumber.display_number(damage, global_position, false, Color("ffffff"))
+	hp_component.apply_damage(damage, DamageNumber.COLOR_DAMAGE_DEFAULT)
 	apply_knockback(knockback_dir)

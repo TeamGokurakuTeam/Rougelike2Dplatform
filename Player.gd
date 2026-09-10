@@ -103,7 +103,7 @@ func _physics_process(delta: float) -> void:
 	#凍結ダメージ
 	if dot_timer > 0:
 		dot_timer -= delta
-		hp_component.hp -= dot_damage_per_second * delta
+		hp_component.apply_damage(dot_damage_per_second * delta, DamageNumber.COLOR_DAMAGE_PLAYER)
 		if dot_timer <= 0:
 			animated_sprite_2d.modulate = original_color
 	
@@ -234,8 +234,7 @@ func _set_current_modifier(new_value : int) -> void:
 #region signal
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
 	if not is_dodgeroll:
-		hp_component.hp -= damage
-		DamageNumber.display_number(damage, global_position, false, Color("ff0000"))
+		hp_component.apply_damage(damage, DamageNumber.COLOR_DAMAGE_PLAYER)
 		if weapon:
 			weapon.trigger_modifier_when_receive_damage(damage)
 		apply_knockback(knockback_dir)

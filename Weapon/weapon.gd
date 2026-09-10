@@ -136,7 +136,7 @@ func _is_one_time_modifier(id : String) -> bool:
 func apply_instant_modifier(id : String) -> void:
 	if id == "RevolutionResolve":
 		if player.mod_resource_ids.size() == 1 and player.hp_component.hp <= 10:
-			player.hp_component.restore_hp()
+			player.hp_component.restore_hp(true)
 
 func decrease_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
@@ -178,7 +178,7 @@ func _try_rebirth_resolve() -> void:
 	modifiers_ids.clear()
 	_reset_non_locked_modifier_states()
 	add_lock_modifier("RebirthResolve")
-	player.hp_component.restore_hp()
+	player.hp_component.restore_hp(true)
 
 func _reset_non_locked_modifier_states() -> void:
 	if not has_modifiers("Rampage"):
@@ -296,8 +296,7 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		if has_modifiers("Slash_Pierce"):
 			slash.set_collision_mask_value(8, false)
 		get_tree().root.add_child(slash)
-		DamageNumber.display_number(2, global_position, false, Color("6f0000ff"))
-		player.hp_component.hp -= 1 #1は自傷ダメージ
+		player.hp_component.apply_damage(1, DamageNumber.COLOR_DAMAGE_SELF) #自傷ダメージ
 # アヒル
 func slashduck() -> void:
 	if randf() < 0.6:
