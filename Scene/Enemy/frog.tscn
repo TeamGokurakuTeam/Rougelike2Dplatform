@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="17_g65ee"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="18_eorfy"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="19_gtcqy"]
+[ext_resource type="AudioStream" uid="uid://bobqvy0wra7wi" path="res://Assets/Enemy/Frog/kaeru_atk.mp3" id="20_668xu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eijg2"]
 atlas = ExtResource("3_50hei")
@@ -438,5 +439,9 @@ collision_layer = 0
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_75vwg")
 debug_color = Color(0.65897655, 0.5156202, 1.92523e-07, 0.41960785)
+
+[node name="Attack" type="AudioStreamPlayer" parent="." index="9" unique_id=1507828047]
+stream = ExtResource("20_668xu")
+volume_db = -10.0
 
 [connection signal="body_entered" from="PlayerDetector" to="StateMachine/Idle" method="_on_player_detector_body_entered"]

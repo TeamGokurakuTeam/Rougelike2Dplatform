@@ -1,6 +1,7 @@
 extends State
 class_name HedoroSlimeAttack
 
+@onready var attack: AudioStreamPlayer = $"../../Attack"
 @export var parent : HedoroSlime
 @export var anim_player : AnimationPlayer
 
@@ -10,7 +11,7 @@ func Enter() -> void:
 		parent.hitbox.scale.x = 1
 	elif parent.player_dir() < 0:
 		parent.hitbox.scale.x = -1
-
+	attack.play()
 func Exit() -> void:
 	pass
 

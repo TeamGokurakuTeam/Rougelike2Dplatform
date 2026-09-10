@@ -19,6 +19,7 @@
 [ext_resource type="Resource" uid="uid://biu67fvhnupnx" path="res://Resource/Modifier/SpeedingMoveExceed.tres" id="9_ehmcq"]
 [ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="10_gppl3"]
 [ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="11_igxen"]
+[ext_resource type="AudioStream" uid="uid://dk8pm5ae7ua6w" path="res://Assets/Enemy/Slime/suraimu_atk.mp3" id="20_gppl3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4cq6"]
 atlas = ExtResource("2_5qgaf")
@@ -729,6 +730,10 @@ collision_layer = 0
 position = Vector2(0, -3)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jhy2k")
+
+[node name="Attack" type="AudioStreamPlayer" parent="." index="11" unique_id=627659339]
+stream = ExtResource("20_gppl3")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Hitboxes/Hitbox" to="StateMachine/Attack" method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitboxes/Hitbox" to="StateMachine/Attack" method="_on_hitbox_body_exited"]
