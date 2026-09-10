@@ -8,9 +8,11 @@ class_name Infector
 @onready var a_rush_effect: GPUParticles2D = $Rush
 @onready var b_rush_effect: GPUParticles2D = $Rush2
 @onready var shout: GPUParticles2D = $Shout
+@onready var spawn_bullet_pos: Marker2D = $SpawnBulletPos
 
 const HEDORO_GEAR = preload("uid://02rhrcwex5jr")
 const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
+const HEDORO_BULLET = preload("uid://dts67twvgxnr5")
 
 var is_rage : bool = false
 var rush_speed : float = max_speed
@@ -36,12 +38,14 @@ func flip_character() -> void:
 		slam_collision.scale = -Vector2(1.5, 1.5)
 		slam_effect.position.x = 70
 		shout.position.x = 69.0
+		spawn_bullet_pos.position.x = 82.0
 	elif player_dir() < 0 and sprite.flip_h:
 		sprite.flip_h = false
 		sprite.offset.x = -8.0
 		slam_collision.scale = Vector2(1.5, 1.5)
 		slam_effect.position.x = -70
 		shout.position.x = -46.0
+		spawn_bullet_pos.position.x = -71.0
 
 func shoot() -> void:
 	var gear : HedoroGear = HEDORO_GEAR.instantiate()
@@ -71,6 +75,25 @@ func add_ghost_effect() -> void:
 
 func _on_ghost_timer_timeout() -> void:
 	add_ghost_effect()
+
+func _spawn_bullet(pos : Vector2, angle : float):
+	var bullet : CharaProjectile = HEDORO_BULLET.instantiate()
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = pos
+	bullet.fire_angle = angle
+	bullet.speed = randf_range(300, 700)
+	main_game_node.main_camera.shake_fade = 4
+	main_game_node.main_camera.apply_shake(4)
+
+func shout_camera_effect() -> void:
+	main_game_node.main_camera.shake_fade = 1
+	main_game_node.main_camera.apply_shake(20)
+
+func spawn_slam_custom_bullet(num : int) -> void:
+	for i in num:
+		var angle : float = randf_range(-45, 45)
+		_spawn_bullet(spawn_bullet_pos.global_position, angle)
+		await get_tree().create_timer(0.01).timeout
 
 func _rush_attack() -> void:
 	var tween : Tween = get_parent().create_tween()
