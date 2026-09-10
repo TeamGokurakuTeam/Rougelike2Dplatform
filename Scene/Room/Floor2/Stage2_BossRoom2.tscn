@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_wr2wl"]
 [ext_resource type="Texture2D" uid="uid://d1tyyxia2dj0o" path="res://Assets/TileMap/Dungeon Tile Set.png" id="2_d2goy"]
+[ext_resource type="Script" uid="uid://cg3uwojruxkh6" path="res://Scene/Room/Floor1/BossRoom.gd" id="2_u4t2k"]
 [ext_resource type="Shader" uid="uid://c0x1wgglr8op4" path="res://Liquid.gdshader" id="2_vp6os"]
 [ext_resource type="Texture2D" uid="uid://p561qyuetbh2" path="res://icon.svg" id="3_nktad"]
 [ext_resource type="Texture2D" uid="uid://bjeqw5iu0387e" path="res://Assets/TileMap/spr_torch.png" id="3_tna0x"]
@@ -12,7 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://cpbgrn6frtnjs" path="res://Assets/TileMap/Tileset2.png" id="7_e7mul"]
 [ext_resource type="Texture2D" uid="uid://7c4wjpdpu754" path="res://Assets/TileMap/castle-tileset.png" id="8_mgjy4"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="9_ujs4k"]
+[ext_resource type="Texture2D" uid="uid://b4nkuy57rvubi" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_death.png" id="11_beadn"]
+[ext_resource type="PackedScene" uid="uid://d0073orlcwy78" path="res://Scene/Particle/swim_particles.tscn" id="12_beadn"]
 [ext_resource type="Shader" uid="uid://8xusv2nkr67n" path="res://Scene/Room/Wave.gdshader" id="13_u8m8y"]
+[ext_resource type="Script" uid="uid://c7ox6e5n2d6j1" path="res://camera.gd" id="14_e7jyo"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gr7aa"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -2051,6 +2055,409 @@ sources/5 = SubResource("TileSetAtlasSource_lxex0")
 sources/6 = SubResource("TileSetAtlasSource_oh00k")
 sources/8 = SubResource("TileSetAtlasSource_qa7qy")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhy2k"]
+size = Vector2(819, 221)
+
+[sub_resource type="Animation" id="Animation_wagxx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossObject:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossObject:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(652, -56)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BossCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(651, -167)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BossCamera:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwimParticles/GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SwimParticles/GPUParticles2D3:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwimParticles/GPUParticles2D2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SwimParticles:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, 37)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SwimParticles:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SwimParticles/GPUParticles2D2:amount")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [35]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SwimParticles/GPUParticles2D3:amount")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SwimParticles/GPUParticles2D:amount")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [40]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BossObject:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BossObject:animation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Awake"]
+}
+
+[sub_resource type="Animation" id="Animation_1fpfe"]
+resource_name = "Start"
+length = 20.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossObject:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 15.5, 15.6, 15.7, 15.8, 15.900001, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 5, 5, 4, 3, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossObject:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 10, 10.033334, 10.066667, 10.1, 10.133333, 10.166667, 10.2, 10.233334, 10.266666, 10.3, 10.333333, 10.366667, 10.4, 10.433333, 10.466666, 10.5, 10.533334, 10.566667, 10.6, 10.633333, 10.666667, 10.7, 10.733334, 10.766666, 10.8, 10.833333, 10.866667, 10.9, 10.933333, 10.966666, 11, 11.5, 11.533334, 11.566667, 11.6, 11.633333, 11.666667, 11.7, 11.733334, 11.766666, 11.8, 11.833333, 11.866667, 11.9, 11.933333, 11.966666, 12, 12.033334, 12.066667, 12.1, 12.133333, 12.166667, 12.2, 12.233334, 12.266666, 12.3, 12.333333, 12.366667, 12.4, 12.433333, 12.466666, 12.5, 12.533334, 12.566667, 12.6, 12.633333, 12.666667, 12.7, 12.733334, 12.766666, 12.8, 12.833333, 12.866667, 12.9, 12.933333, 12.966666, 13, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(652, -56), Vector2(652, -56), Vector2(652, -56), Vector2(651.54114, -69.50445), Vector2(651.0978, -82.55111), Vector2(650.67, -95.14), Vector2(650.25775, -107.27112), Vector2(649.8611, -118.94445), Vector2(649.48, -130.16), Vector2(649.11444, -140.91779), Vector2(648.76447, -151.21777), Vector2(648.43, -161.06001), Vector2(648.1111, -170.44446), Vector2(647.8078, -179.37111), Vector2(647.52, -187.84001), Vector2(647.2478, -195.8511), Vector2(646.9911, -203.40445), Vector2(646.75, -210.5), Vector2(646.5244, -217.13779), Vector2(646.31445, -223.31778), Vector2(646.12, -229.04001), Vector2(645.9411, -234.30444), Vector2(645.7778, -239.1111), Vector2(645.63, -243.45999), Vector2(645.4978, -247.35112), Vector2(645.3811, -250.78445), Vector2(645.28, -253.76001), Vector2(645.19446, -256.27777), Vector2(645.12445, -258.33777), Vector2(645.07, -259.94), Vector2(645.0311, -261.08444), Vector2(645.00775, -261.77112), Vector2(645, -262), Vector2(645, -262), Vector2(645, -256.26273), Vector2(645, -250.78043), Vector2(645, -245.54726), Vector2(645, -240.55745), Vector2(645, -235.8052), Vector2(645, -231.28474), Vector2(645, -226.99025), Vector2(645, -222.91592), Vector2(645, -219.056), Vector2(645, -215.40466), Vector2(645, -211.95612), Vector2(645, -208.70459), Vector2(645, -205.64426), Vector2(645, -202.76936), Vector2(645, -200.07407), Vector2(645, -197.55261), Vector2(645, -195.19919), Vector2(645, -193.008), Vector2(645, -190.97325), Vector2(645, -189.08917), Vector2(645, -187.34993), Vector2(645, -185.74976), Vector2(645, -184.28284), Vector2(645, -182.9434), Vector2(645, -181.72565), Vector2(645, -180.62378), Vector2(645, -179.632), Vector2(645, -178.7445), Vector2(645, -177.95554), Vector2(645, -177.25925), Vector2(645, -176.6499), Vector2(645, -176.12166), Vector2(645, -175.66873), Vector2(645, -175.28535), Vector2(645, -174.9657), Vector2(645, -174.70401), Vector2(645, -174.49445), Vector2(645, -174.33124), Vector2(645, -174.20859), Vector2(645, -174.12071), Vector2(645, -174.0618), Vector2(645, -174.02608), Vector2(645, -174.00772), Vector2(645, -174.00096), Vector2(645, -174), Vector2(645, -174)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BossCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1, 1.0333333, 1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333333, 1.2666667, 1.3, 1.3333334, 1.3666667, 1.4, 1.4333334, 1.4666667, 1.5, 1.5333333, 1.5666667, 1.6000001, 3.5, 3.5333333, 3.5666666, 3.6, 3.6333334, 3.6666667, 3.7, 3.7333333, 3.7666667, 3.8, 3.8333333, 3.8666666, 3.9, 3.9333334, 3.9666667, 4, 8, 8.033334, 8.066667, 8.1, 8.133333, 8.166667, 8.2, 8.233334, 8.266666, 8.3, 8.333333, 8.366667, 8.4, 8.433333, 8.466666, 8.5, 8.533334, 8.566667, 8.6, 9.5, 9.533334, 9.566667, 9.6, 9.633333, 9.666667, 9.7, 9.733334, 9.766666, 9.8, 9.833333, 9.866667, 9.9, 9.933333, 9.966666, 10, 15, 15.033334, 15.066667, 15.1, 15.133333, 15.166667, 15.2, 15.233334, 15.266666, 15.3, 15.333333, 15.366667, 15.4, 15.433333, 15.466666, 15.5, 15.533334, 15.566667, 15.6, 15.633333, 15.666667, 15.7, 15.733334, 15.766666, 15.8, 15.833333, 15.866667, 15.9, 15.933333, 15.966666, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(651, -167), Vector2(651, -167), Vector2(651, -167), Vector2(651, -166.99985), Vector2(651, -166.99887), Vector2(651, -166.99524), Vector2(651, -166.98547), Vector2(651, -166.96387), Vector2(651, -166.9219), Vector2(651, -166.84773), Vector2(651, -166.72562), Vector2(651, -166.53532), Vector2(651, -166.25165), Vector2(651, -165.84375), Vector2(651, -165.2747), Vector2(651, -164.50089), Vector2(651, -163.4714), Vector2(651, -162.12758), Vector2(651, -160.40234), Vector2(651, -158.21973), Vector2(651, -155.4943), Vector2(651, -152.13054), Vector2(651, -148.02238), Vector2(651, -143.05258), Vector2(651, -137.09222), Vector2(651, -130), Vector2(651, -130), Vector2(632.95557, -130), Vector2(616.1556, -130), Vector2(600.6, -130), Vector2(586.2889, -130), Vector2(573.2222, -130), Vector2(561.4, -130), Vector2(550.8222, -130), Vector2(541.4889, -130), Vector2(533.4, -130), Vector2(526.55554, -130), Vector2(520.95557, -130), Vector2(516.6, -130), Vector2(513.4889, -130), Vector2(511.62222, -130), Vector2(511, -130), Vector2(511, -130), Vector2(525.7994, -130), Vector2(539.75305, -130), Vector2(552.8611, -130), Vector2(565.1234, -130), Vector2(576.5401, -130), Vector2(587.1111, -130), Vector2(596.83636, -130), Vector2(605.716, -130), Vector2(613.74994, -130), Vector2(620.93823, -130), Vector2(627.2808, -130), Vector2(632.7777, -130), Vector2(637.42896, -130), Vector2(641.23456, -130), Vector2(644.1944, -130), Vector2(646.3086, -130), Vector2(647.57715, -130), Vector2(648, -130), Vector2(648, -130), Vector2(648, -133.86667), Vector2(648, -137.46667), Vector2(648, -140.8), Vector2(648, -143.86667), Vector2(648, -146.66667), Vector2(648, -149.2), Vector2(648, -151.46667), Vector2(648, -153.46667), Vector2(648, -155.2), Vector2(648, -156.66666), Vector2(648, -157.86667), Vector2(648, -158.8), Vector2(648, -159.46666), Vector2(648, -159.86667), Vector2(648, -160), Vector2(648, -160), Vector2(648, -157.10892), Vector2(648, -154.81427), Vector2(648, -152.993), Vector2(648, -151.54745), Vector2(648, -150.40013), Vector2(648, -149.4895), Vector2(648, -148.76672), Vector2(648, -148.19307), Vector2(648, -147.73775), Vector2(648, -147.37636), Vector2(648, -147.08954), Vector2(648, -146.86188), Vector2(648, -146.68118), Vector2(648, -146.53777), Vector2(648, -146.42393), Vector2(648, -146.33359), Vector2(648, -146.26189), Vector2(648, -146.20497), Vector2(648, -146.15979), Vector2(648, -146.12395), Vector2(648, -146.09549), Vector2(648, -146.07289), Vector2(648, -146.05498), Vector2(648, -146.04074), Vector2(648, -146.02945), Vector2(648, -146.02048), Vector2(648, -146.01337), Vector2(648, -146.00772), Vector2(648, -146.00323), Vector2(648, -146)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BossCamera:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.43333337, 0.4666667, 0.50000006, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8000001, 1.6, 9.5, 9.533334, 9.566667, 9.6, 9.633333, 9.666667, 9.7, 9.733334, 9.766666, 9.8, 9.833333, 9.866667, 9.9, 9.933333, 9.966666, 10, 15, 15.033334, 15.066667, 15.1, 15.133333, 15.166667, 15.2, 15.233334, 15.266666, 15.3, 15.333333, 15.366667, 15.4, 15.433333, 15.466666, 15.5, 15.533334, 15.566667, 15.6, 15.633333, 15.666667, 15.7, 15.733334, 15.766666, 15.8, 15.833333, 15.866667, 15.9, 15.933333, 15.966666, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1.4981945, 1.4981945), Vector2(1.4927778, 1.4927778), Vector2(1.48375, 1.48375), Vector2(1.471111, 1.471111), Vector2(1.4548612, 1.4548612), Vector2(1.4350001, 1.4350001), Vector2(1.4115278, 1.4115278), Vector2(1.3844445, 1.3844445), Vector2(1.35375, 1.35375), Vector2(1.3194444, 1.3194444), Vector2(1.2815278, 1.2815278), Vector2(1.24, 1.24), Vector2(1.24, 1.24), Vector2(1.24, 1.24), Vector2(1.1845319, 1.1845319), Vector2(1.1397586, 1.1397586), Vector2(1.104208, 1.104208), Vector2(1.0765171, 1.0765171), Vector2(1.0554321, 1.0554321), Vector2(1.039808, 1.039808), Vector2(1.028609, 1.028609), Vector2(1.0209082, 1.0209082), Vector2(1.015888, 1.015888), Vector2(1.0128396, 1.0128396), Vector2(1.011163, 1.011163), Vector2(1.010368, 1.010368), Vector2(1.0100727, 1.0100727), Vector2(1.0100045, 1.0100045), Vector2(1.01, 1.01), Vector2(1.01, 1.01), Vector2(1.0884721, 1.0884721), Vector2(1.1507556, 1.1507556), Vector2(1.20019, 1.20019), Vector2(1.2394261, 1.2394261), Vector2(1.2705678, 1.2705678), Vector2(1.295285, 1.295285), Vector2(1.314903, 1.314903), Vector2(1.3304739, 1.3304739), Vector2(1.3428324, 1.3428324), Vector2(1.3526416, 1.3526416), Vector2(1.3604269, 1.3604269), Vector2(1.3666062, 1.3666062), Vector2(1.3715107, 1.3715107), Vector2(1.3754034, 1.3754034), Vector2(1.3784931, 1.3784931), Vector2(1.3809453, 1.3809453), Vector2(1.3828917, 1.3828917), Vector2(1.3844366, 1.3844366), Vector2(1.3856627, 1.3856627), Vector2(1.3866359, 1.3866359), Vector2(1.3874083, 1.3874083), Vector2(1.3880213, 1.3880213), Vector2(1.388508, 1.388508), Vector2(1.3888941, 1.3888941), Vector2(1.3892007, 1.3892007), Vector2(1.389444, 1.389444), Vector2(1.389637, 1.389637), Vector2(1.3897903, 1.3897903), Vector2(1.389912, 1.389912), Vector2(1.39, 1.39)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SwimParticles/GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 4, 5.4, 5.5, 8, 8.1, 10, 10.1, 11.000001, 11.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false, true, true, false, false, true, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SwimParticles/GPUParticles2D3:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 4, 5.4, 5.5, 8.2, 8.3, 10, 10.1, 11.000001, 11.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false, true, true, false, false, true, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwimParticles/GPUParticles2D2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.6000001, 1.6333334, 3.9, 4, 5.4, 5.5, 8.4, 8.5, 10, 10.1, 11.000001, 11.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false, false, true, true, false, false, true, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SwimParticles:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.6333334, 1.6666667, 1.7000002, 1.7333335, 1.7666668, 1.8000001, 1.8333335, 1.8666668, 1.9000001, 1.9333334, 1.9666668, 2, 2.0333335, 2.0666668, 2.1000001, 2.1333334, 2.1666667, 2.2, 2.2333333, 2.266667, 2.3000002, 2.3333335, 2.3666668, 2.4, 2.4333334, 2.4666667, 2.5, 2.5333335, 2.5666668, 2.6000001, 2.6333334, 2.6666667, 2.7, 2.7333333, 2.766667, 2.8000002, 2.8333335, 2.8666668, 2.9, 2.9333334, 2.9666667, 3, 3.0333335, 3.0666668, 3.1000001, 3.1333334, 3.1666667, 3.2, 3.2333333, 3.266667, 3.3000002, 3.3333335, 3.3666668, 3.4, 3.4333334, 3.4666667, 3.5, 3.5333335, 3.5666668, 3.6000001, 3.6333334, 3.6666667, 3.7, 3.7333333, 3.766667, 3.8000002, 3.8333335, 3.8666668, 3.9, 3.9333334, 3.9666667, 4, 5, 5.0333333, 5.0666666, 5.1, 5.133333, 5.1666665, 5.2, 5.233333, 5.266667, 5.3, 5.3333335, 5.366667, 5.4, 5.4333334, 5.4666667, 5.5, 5.5333333, 5.5666666, 5.6, 5.633333, 5.6666665, 5.7, 5.733333, 5.766667, 5.8, 5.8333335, 5.866667, 5.9, 5.9333334, 5.9666667, 6, 6.0333333, 6.0666666, 6.1, 6.133333, 6.1666665, 6.2, 6.233333, 6.266667, 6.3, 6.3333335, 6.366667, 6.4, 6.4333334, 6.4666667, 6.5, 6.5333333, 6.5666666, 6.6, 6.633333, 6.6666665, 6.7, 6.733333, 6.766667, 6.8, 6.8333335, 6.866667, 6.9, 6.9333334, 6.9666667, 7, 10.099999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1029, -16), Vector2(1029, -16), Vector2(1028.8304, -16), Vector2(1028.3215, -16), Vector2(1027.4735, -16), Vector2(1026.2863, -16), Vector2(1024.7598, -16), Vector2(1022.89404, -16), Vector2(1020.68915, -16), Vector2(1018.145, -16), Vector2(1015.26166, -16), Vector2(1012.03906, -16), Vector2(1008.4773, -16), Vector2(1004.5763, -16), Vector2(1000.33606, -16), Vector2(995.7566, -16), Vector2(990.83795, -16), Vector2(985.58, -16), Vector2(979.9829, -16), Vector2(974.04663, -16), Vector2(967.77106, -16), Vector2(961.1563, -16), Vector2(954.20233, -16), Vector2(946.9091, -16), Vector2(939.27673, -16), Vector2(931.30505, -16), Vector2(922.99426, -16), Vector2(914.3442, -16), Vector2(905.3549, -16), Vector2(896.02637, -16), Vector2(886.35864, -16), Vector2(876.3517, -16), Vector2(866.00555, -16), Vector2(855.3201, -16), Vector2(844.29553, -16), Vector2(832.93176, -16), Vector2(821.22876, -16), Vector2(809.18646, -16), Vector2(796.80493, -16), Vector2(784.0843, -16), Vector2(771.0244, -16), Vector2(757.62524, -16), Vector2(743.8869, -16), Vector2(729.8093, -16), Vector2(715.3926, -16), Vector2(700.6365, -16), Vector2(685.5413, -16), Vector2(670.10693, -16), Vector2(654.33325, -16), Vector2(638.22034, -16), Vector2(621.76825, -16), Vector2(604.977, -16), Vector2(587.8464, -16), Vector2(570.37665, -16), Vector2(552.5677, -16), Vector2(534.41956, -16), Vector2(515.93207, -16), Vector2(497.10553, -16), Vector2(477.93964, -16), Vector2(458.43457, -16), Vector2(438.59027, -16), Vector2(418.4068, -16), Vector2(397.88416, -16), Vector2(377.02222, -16), Vector2(355.8211, -16), Vector2(334.28052, -16), Vector2(312.40106, -16), Vector2(290.1822, -16), Vector2(267.62415, -16), Vector2(244.72699, -16), Vector2(221.49048, -16), Vector2(197.91492, -16), Vector2(174, -16), Vector2(174, -16), Vector2(174.13083, -16), Vector2(174.52333, -16), Vector2(175.1775, -16), Vector2(176.09334, -16), Vector2(177.27083, -16), Vector2(178.71, -16), Vector2(180.41083, -16), Vector2(182.37334, -16), Vector2(184.5975, -16), Vector2(187.08333, -16), Vector2(189.83084, -16), Vector2(192.84, -16), Vector2(196.11084, -16), Vector2(199.64334, -16), Vector2(203.4375, -16), Vector2(207.49335, -16), Vector2(211.81084, -16), Vector2(216.39, -16), Vector2(221.23083, -16), Vector2(226.33334, -16), Vector2(231.6975, -16), Vector2(237.32333, -16), Vector2(243.21083, -16), Vector2(249.36002, -16), Vector2(255.77083, -16), Vector2(262.44333, -16), Vector2(269.3775, -16), Vector2(276.57333, -16), Vector2(284.03082, -16), Vector2(291.75, -16), Vector2(299.73083, -16), Vector2(307.97336, -16), Vector2(316.4775, -16), Vector2(325.24335, -16), Vector2(334.2708, -16), Vector2(343.56, -16), Vector2(353.11084, -16), Vector2(362.92334, -16), Vector2(372.9975, -16), Vector2(383.33334, -16), Vector2(393.93085, -16), Vector2(404.78998, -16), Vector2(415.91083, -16), Vector2(427.29333, -16), Vector2(438.9375, -16), Vector2(450.84332, -16), Vector2(463.01086, -16), Vector2(475.44003, -16), Vector2(488.13083, -16), Vector2(501.0833, -16), Vector2(514.2975, -16), Vector2(527.7733, -16), Vector2(541.51086, -16), Vector2(555.51, -16), Vector2(569.7709, -16), Vector2(584.29333, -16), Vector2(599.0775, -16), Vector2(614.1233, -16), Vector2(629.43085, -16), Vector2(645, -16), Vector2(645, -16)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SwimParticles:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8000001, 1.8333334, 1.8666667, 1.9, 1.9333334, 1.9666667, 2, 2.0333333, 2.0666666, 2.1, 2.1333334, 2.1666667, 2.2, 2.2333333, 2.2666667, 2.3, 2.3333333, 2.3666668, 2.4, 2.4333334, 2.4666667, 2.5, 2.5333333, 2.5666666, 2.6, 2.6333334, 2.6666667, 2.7, 2.7333333, 2.7666667, 2.8, 2.8333333, 2.8666668, 2.9, 2.9333334, 2.9666667, 3, 3.0333333, 3.0666666, 3.1, 3.1333334, 3.1666667, 3.2, 3.2333333, 3.2666667, 3.3, 3.3333333, 3.3666666, 3.4, 3.4333334, 3.4666667, 3.5, 3.5333333, 3.5666666, 3.6, 3.6333334, 3.6666667, 3.7, 3.7333333, 3.7666667, 3.8, 3.8333333, 3.8666666, 3.9, 3.9333334, 3.9666667, 4, 5.5, 5.5333333, 5.5666666, 5.6, 5.633333, 5.6666665, 5.7, 5.733333, 5.766667, 5.8, 5.8333335, 5.866667, 5.9, 5.9333334, 5.9666667, 6, 6.0333333, 6.0666666, 6.1, 6.133333, 6.1666665, 6.2, 6.233333, 6.266667, 6.3, 6.6, 6.633333, 6.6666665, 6.7, 6.733333, 6.7666664, 6.7999997, 6.833333, 6.866667, 6.9, 6.9333334, 6.9666667, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.026462569047433604, 0.051058025451128586, 0.07387643347255768, 0.09500543712145593, 0.11453065494865733, 0.1325352509234463, 0.14910041505092408, 0.16430491708445416, 0.1782254498237812, 0.19093638880634778, 0.2025098781318242, 0.21301593345154402, 0.22252233897906848, 0.23109454450075084, 0.23879587135460767, 0.2456874094408832, 0.2518280172220493, 0.25727433888771145, 0.26208078718970285, 0.2662995606069902, 0.269980626180768, 0.27317175384427017, 0.2759184649280524, 0.2782640836547099, 0.28024968564415964, 0.28191414940835813, 0.2832941220214895, 0.28442403628487156, 0.2853360935620497, 0.28606028094370295, 0.286624354082738, 0.28705385435919517, 0.2873721260451543, 0.2876002648100169, 0.2877571348854122, 0.2878593862301031, 0.28792148885979785, 0.28795564702262055, 0.28797183352892297, 0.2879778584109083, 0.2879792487682895, 0.28797933, 0.2691006887338321, 0.25086199777181895, 0.2332632617067798, 0.21630447195626168, 0.19998564139394404, 0.18430677860227984, 0.16926785783391018, 0.15486887908883507, 0.14110985953196042, 0.12799080774573923, 0.11551171514771852, 0.1036725474080864, 0.09247337318646665, 0.08191412382323549, 0.07199483, 0.06271548549646866, 0.054076113697838935, 0.04607668392250375, 0.03871723050027498, 0.03199771910134075, 0.025918149725701056, 0.0204785223733559, 0.015678871374117165, 0.011519162398172966, 0.007999412610429246, 0.005119639175791946, 0.0028797905995432416, 0.001279918376400957, 0.00031998817655320977, 0.0, 0.0, -0.1583525303502782, -0.33519903430414644, -0.4166463438978454, -0.3958360131262282, -0.3300829354265673, -0.2784359951756734, -0.2655977954778699, -0.28221932757555024, -0.3054325812539318, -0.31846058839486346, -0.31797982540252434, -0.3102050387257478, -0.3029870217624939, -0.3003988609184738, -0.3019571716521625, -0.30491054706712006, -0.3068803317917528, -0.3071199122590045, -0.30624511585988756, -0.30526818827374314, -0.30481824668953905, -0.30493319433925237, -0.3052964427483005, -0.30543262, -0.30543262, -0.19768452483875976, -0.12274654007843822, -0.07248062829754787, -0.04022160992257895, -0.020630026444287353, -0.009544787507213215, -0.0038358362044021987, -0.001256923603342841, -0.00029827404, -3.9286827380635714e-05, -1.2197485794729346e-06, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SwimParticles/GPUParticles2D2:amount")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 9.999999, 10.099999, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [35, 35, 60, 60]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SwimParticles/GPUParticles2D3:amount")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 9.999999, 10.099999, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [20, 20, 50, 50]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SwimParticles/GPUParticles2D:amount")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 9.999999, 10.099999, 11),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [40, 40, 80, 80]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BossObject:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(10, 10.2, 10.233334, 10.266666, 10.3, 10.333333, 10.366667, 10.4, 10.433333, 10.466666, 10.5, 10.533333, 10.566667, 10.599999, 10.633333, 10.666666, 10.7, 10.733334, 10.766666, 10.8, 10.833333, 10.866667, 10.9, 10.933333, 10.966666, 11, 11.033333, 11.066667, 11.099999, 11.133333, 11.166666, 11.2, 11.233334, 11.266666, 11.3, 11.333333, 11.366667, 11.4, 11.433333, 11.466666, 11.5, 11.533333, 11.566667, 11.599999, 11.633333, 11.666666, 11.7, 11.733334, 11.766666, 11.8, 11.833333, 11.866667, 11.9, 11.933333, 11.966666, 12, 12.033333, 12.066667, 12.099999, 12.133333, 12.166666, 12.2, 12.233334, 12.266666, 12.3, 12.333333, 12.366667, 12.4, 12.433333, 12.466666, 12.5, 12.533333, 12.566667, 12.599999, 12.633333, 12.666666, 12.7, 12.733334, 12.766666, 12.8, 12.833333, 12.866667, 12.9, 12.933333, 12.966666, 13, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.9332540197567027, 2.725836935294055, 3.328382246148607, 3.8316200873079254, 4.270802244565601, 4.6640544840883535, 5.022182831971236, 5.35224000476731, 5.659139534824504, 5.946469574080737, 6.216941178989259, 6.472670314318805, 6.715341887236548, 6.946322099419717, 7.166744209167462, 7.377553472245495, 7.579552082730743, 7.7734268865322065, 7.959769604771054, 8.139100802231098, 8.311872883415106, 8.4784865708545, 8.639299144264214, 8.794627436599, 8.944757571236437, 9.089948707047313, 9.230431540367476, 9.366419540208994, 9.498105203189766, 9.625665296632064, 9.749260858562536, 9.869042440810745, 9.985147112952859, 10.09769996033981, 10.20681932719583, 10.312614569576226, 10.415187553395526, 10.514631156399332, 10.611035260276935, 10.704479260520543, 10.795042552622363, 10.88279629291975, 10.967807143665596, 11.050139520070559, 11.129851845232679, 11.207000295207763, 11.281639548023463, 11.353815293538503, 11.423576217667915, 11.490967261256344, 11.556028122049895, 11.618799246808749, 11.679317337222699, 11.737615349911152, 11.793729237549826, 11.847687462673662, 11.899521483873912, 11.949257516643286, 11.996921776474494, 12.042539729846169, 12.086133847180633, 12.127725100872055, 12.167336710356835, 12.204985153944676, 12.240689156987514, 12.274467444837285, 12.306333499747382, 12.33630305101343, 12.36439107891698, 12.390608818669193, 12.414968254495307, 12.437482119634637, 12.458157155213883, 12.477006094472358, 12.494034180508606, 12.509251150505634, 12.522661498547905, 12.534272714776193, 12.544089293274965, 12.552114979114606, 12.558354266379581, 12.562808653098045, 12.565480386312231, 12.566371, 12.566371]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BossObject:animation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(15.5, 17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Awake", &"Awake"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o5pat"]
+_data = {
+&"RESET": SubResource("Animation_wagxx"),
+&"Start": SubResource("Animation_1fpfe")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6g8l"]
+atlas = ExtResource("11_beadn")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehlo5"]
+atlas = ExtResource("11_beadn")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4rc6"]
+atlas = ExtResource("11_beadn")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibu66"]
+atlas = ExtResource("11_beadn")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lueov"]
+atlas = ExtResource("11_beadn")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_507yi"]
+atlas = ExtResource("11_beadn")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4t2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6g8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehlo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4rc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibu66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lueov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_507yi")
+}],
+"loop": 1,
+"name": &"Awake",
+"speed": 5.0
+}]
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2j2di"]
 noise_type = 0
 
@@ -2065,7 +2472,7 @@ noise = SubResource("FastNoiseLite_7numd")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("2_vp6os")
 shader_parameter/scale = Vector2(0.25000012, 2.1875)
-shader_parameter/zoom = 0.9330146
+shader_parameter/zoom = 1.5026295
 shader_parameter/refraction_map = SubResource("NoiseTexture2D_33x8s")
 shader_parameter/water_mask = SubResource("NoiseTexture2D_fcnqv")
 shader_parameter/gap_stretch = Vector2(0.8, 0.05)
@@ -2093,7 +2500,9 @@ shader_parameter/add_bubble = true
 shader_parameter/bubble_scale = 10.0
 shader_parameter/bubble_speed = 0.5
 
-[node name="Room" unique_id=423967005 instance=ExtResource("1_wr2wl")]
+[node name="BossRoom" unique_id=423967005 instance=ExtResource("1_wr2wl")]
+script = ExtResource("2_u4t2k")
+boss_scene = null
 
 [node name="BackGround" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="0" unique_id=1098702387]
 tile_map_data = PackedByteArray("AAAHAP7/BAALAAoAAAAIAP7/BAALAAoAAAAIAP//BAALAAoAAAAEAPv/BAALAAoAAAAEAPz/BAALAAoAAAAFAPv/BAALAAoAAAAHAPj/BAALAAoAAAAIAPj/BAALAAoAAAAIAPn/BAALAAoAAAARAPH/BAALAAoAAAASAPD/BAALAAoAAAATAO//BAALAAoAAAAUAO//BAALAAoAAAAVAO//BAALAAoAAAAWAO//BAALAAoAAAAXAO//BAALAAoAAAAYAO//BAALAAoAAAAZAO//BAALAAoAAAAaAO//BAALAAoAAAAbAO//BAALAAoAAAAcAO//BAALAAoAAAAdAO//BAALAAoAAAAeAO//BAALAAoAAAAfAO//BAALAAoAAAAgAO//BAALAAoAAAAhAO//BAALAAoAAAAiAO//BAALAAoAAAAjAO//BAALAAoAAAAkAO//BAALAAoAAAAlAO//BAALAAoAAAAmAO//BAALAAoAAAAnAO//BAALAAoAAAAoAO//BAALAAoAAAApAO//BAALAAoAAAAqAO//BAALAAoAAAArAO//BAALAAoAAAAsAO//BAALAAoAAAAtAO//BAALAAoAAAAuAO//BAALAAoAAAAvAO//BAALAAoAAAAwAO//BAALAAoAAAAxAO//BAALAAoAAAAyAO//BAALAAoAAAAzAO//BAALAAoAAAA0AO//BAALAAoAAAA1AO//BAALAAoAAAA2AO//BAALAAoAAAA3AO//BAALAAoAAAA4AO//BAALAAoAAAA5AO//BAALAAoAAAA6AO//BAALAAoAAAA7AO//BAALAAoAAAA8AO//BAALAAoAAAA9AO//BAALAAoAAAA+AO//BAALAAoAAAA/APD/BAALAAoAAABAAPH/BAALAAoAAABOAPb/BAALAAoAAABPAPb/BAALAAoAAABPAPf/BAALAAoAAABMAPP/BAALAAoAAABLAPP/BAALAAoAAABLAPT/BAALAAoAAABPAPD/BAALAAoAAABOAPD/BAALAAoAAABPAPH/BAALAAoAAABSAOz/BAALAAoAAAAAAP3/BAALAAoAAAAAAP7/BAALAAoAAAAAAP//BAALAAoAAAABAP3/BAALAAoAAAABAP7/BAALAAoAAAABAP//BAALAAoAAAACAP3/BAALAAoAAAACAP7/BAALAAoAAAACAP//BAALAAoAAAADAP3/BAALAAoAAAADAP7/BAALAAoAAAADAP//BAALAAoAAAAEAP3/BAALAAoAAAAEAP7/BAALAAoAAAAEAP//BAALAAoAAAAFAP3/BAALAAoAAAAFAP7/BAALAAoAAAAFAP//BAALAAoAAAAGAP3/BAALAAoAAAAGAP7/BAALAAoAAAAGAP//BAALAAoAAAAHAP3/BAALAAoAAAAHAP//BAALAAoAAAAIAP3/BAALAAoAAAAEAPX/BAALAAoAAAAEAPb/BAALAAoAAAAEAPf/BAALAAoAAAAEAPj/BAALAAoAAAAEAPn/BAALAAoAAAAEAPr/BAALAAoAAAAFAPX/BAALAAoAAAAFAPb/BAALAAoAAAAFAPf/BAALAAoAAAAFAPj/BAALAAoAAAAFAPn/BAALAAoAAAAFAPr/BAALAAoAAAAFAPz/BAALAAoAAAAGAPX/BAALAAoAAAAGAPb/BAALAAoAAAAGAPf/BAALAAoAAAAGAPj/BAALAAoAAAAGAPn/BAALAAoAAAAGAPr/BAALAAoAAAAGAPv/BAALAAoAAAAGAPz/BAALAAoAAAAHAPX/BAALAAoAAAAHAPb/BAALAAoAAAAHAPf/BAALAAoAAAAHAPn/BAALAAoAAAAHAPr/BAALAAoAAAAHAPv/BAALAAoAAAAHAPz/BAALAAoAAAAIAPX/BAALAAoAAAAIAPb/BAALAAoAAAAIAPf/BAALAAoAAAAIAPr/BAALAAoAAAAIAPv/BAALAAoAAAAIAPz/BAALAAoAAAAJAPX/BAALAAoAAAAJAPb/BAALAAoAAAAJAPf/BAALAAoAAAAKAPX/BAALAAoAAAAKAPb/BAALAAoAAAAKAPf/BAALAAoAAAALAPX/BAALAAoAAAALAPb/BAALAAoAAAALAPf/BAALAAoAAAAMAPX/BAALAAoAAAAMAPb/BAALAAoAAAAMAPf/BAALAAoAAAANAPX/BAALAAoAAAANAPb/BAALAAoAAAANAPf/BAALAAoAAAAOAPX/BAALAAoAAAAOAPb/BAALAAoAAAAOAPf/BAALAAoAAAAPAPX/BAALAAoAAAAPAPb/BAALAAoAAAAPAPf/BAALAAoAAAAQAPX/BAALAAoAAAAQAPb/BAALAAoAAAAQAPf/BAALAAoAAAARAPX/BAAIAAoAAAARAPb/BAAIAAsAAAARAPf/BAALAAoAAAASAPX/BAAJAAoAAAASAPb/BAAJAAsAAAASAPf/BAALAAoAAAATAPX/BAALAAoAAAATAPb/BAALAAoAAAATAPf/BAALAAoAAAAUAPX/BAALAAoAAAAUAPb/BAALAAoAAAAUAPf/BAALAAoAAAAVAPX/BAALAAoAAAAVAPb/BAALAAoAAAAVAPf/BAALAAoAAAAWAPX/BAALAAoAAAAWAPb/BAALAAoAAAAWAPf/BAALAAoAAAAXAPX/BAALAAoAAAAXAPb/BAALAAoAAAAXAPf/BAALAAoAAAAYAPX/BAALAAoAAAAYAPb/BAALAAoAAAAYAPf/BAALAAoAAAAZAPX/BAAIAAoAAAAZAPb/BAAIAAsAAAAZAPf/BAALAAoAAAAaAPX/BAAJAAoAAAAaAPb/BAAJAAsAAAAaAPf/BAALAAoAAAAbAPX/BAALAAoAAAAbAPb/BAALAAoAAAAbAPf/BAALAAoAAAAcAPX/BAALAAoAAAAcAPb/BAALAAoAAAAcAPf/BAALAAoAAAAdAPX/BAALAAoAAAAdAPb/BAALAAoAAAAdAPf/BAALAAoAAAAeAPX/BAALAAoAAAAeAPb/BAALAAoAAAAeAPf/BAALAAoAAAAfAPX/BAALAAoAAAAfAPb/BAALAAoAAAAfAPf/BAALAAoAAAAgAPX/BAALAAoAAAAgAPb/BAALAAoAAAAgAPf/BAALAAoAAAAhAPX/BAAIAAoAAAAhAPb/BAAIAAsAAAAhAPf/BAALAAoAAAAiAPX/BAAJAAoAAAAiAPb/BAAJAAsAAAAiAPf/BAALAAoAAAAjAPX/BAALAAoAAAAjAPb/BAALAAoAAAAjAPf/BAALAAoAAAAkAPX/BAALAAoAAAAkAPb/BAALAAoAAAAkAPf/BAALAAoAAAAlAPX/BAALAAoAAAAlAPb/BAALAAoAAAAlAPf/BAALAAoAAAAmAPX/BAALAAoAAAAmAPb/BAALAAoAAAAmAPf/BAALAAoAAAAnAPX/BAALAAoAAAAnAPb/BAALAAoAAAAnAPf/BAALAAoAAAAoAPX/BAALAAoAAAAoAPb/BAALAAoAAAAoAPf/BAALAAoAAAATAPD/BAALAAoAAAATAPH/BAALAAoAAAATAPL/BAALAAoAAAATAPP/BAALAAoAAAATAPT/BAALAAoAAAAUAPD/BAALAAoAAAAUAPH/BAALAAoAAAAUAPL/BAALAAoAAAAUAPP/BAALAAoAAAAUAPT/BAALAAoAAAAVAPD/BAALAAoAAAAVAPH/BAALAAoAAAAVAPL/BAALAAoAAAAVAPP/BAALAAoAAAAVAPT/BAALAAoAAAAWAPD/BAALAAoAAAAWAPH/BAALAAoAAAAWAPL/BAALAAoAAAAWAPP/BAALAAoAAAAWAPT/BAALAAoAAAAXAPD/BAALAAoAAAAXAPH/BAALAAoAAAAXAPL/BAALAAoAAAAXAPP/BAALAAoAAAAXAPT/BAALAAoAAAAYAPD/BAALAAoAAAAYAPH/BAALAAoAAAAYAPL/BAALAAoAAAAYAPP/BAALAAoAAAAYAPT/BAALAAoAAAAZAPD/BAALAAoAAAAZAPH/BAALAAoAAAAZAPL/BAALAAoAAAAZAPP/BAALAAoAAAAZAPT/BAALAAoAAAAaAPD/BAALAAoAAAAaAPH/BAALAAoAAAAaAPL/BAALAAoAAAAaAPP/BAALAAoAAAAaAPT/BAALAAoAAAAbAPD/BAALAAoAAAAbAPH/BAALAAoAAAAbAPL/BAALAAoAAAAbAPP/BAALAAoAAAAbAPT/BAALAAoAAAAcAPD/BAALAAoAAAAcAPH/BAALAAoAAAAcAPL/BAALAAoAAAAcAPP/BAALAAoAAAAcAPT/BAALAAoAAAAdAPD/BAALAAoAAAAdAPH/BAALAAoAAAAdAPL/BAALAAoAAAAdAPP/BAALAAoAAAAdAPT/BAALAAoAAAAeAPD/BAALAAoAAAAeAPH/BAALAAoAAAAeAPL/BAALAAoAAAAeAPP/BAALAAoAAAAeAPT/BAALAAoAAAAfAPD/BAALAAoAAAAfAPH/BAALAAoAAAAfAPL/BAALAAoAAAAfAPP/BAALAAoAAAAfAPT/BAALAAoAAAAgAPD/BAALAAoAAAAgAPH/BAALAAoAAAAgAPL/BAALAAoAAAAgAPP/BAALAAoAAAAgAPT/BAALAAoAAAAhAPD/BAALAAoAAAAhAPH/BAALAAoAAAAhAPL/BAALAAoAAAAhAPP/BAALAAoAAAAhAPT/BAALAAoAAAAiAPD/BAALAAoAAAAiAPH/BAALAAoAAAAiAPL/BAALAAoAAAAiAPP/BAALAAoAAAAiAPT/BAALAAoAAAAjAPD/BAALAAoAAAAjAPH/BAALAAoAAAAjAPL/BAALAAoAAAAjAPP/BAALAAoAAAAjAPT/BAALAAoAAAAkAPD/BAALAAoAAAAkAPH/BAALAAoAAAAkAPL/BAALAAoAAAAkAPP/BAALAAoAAAAkAPT/BAALAAoAAAAlAPD/BAALAAoAAAAlAPH/BAALAAoAAAAlAPL/BAALAAoAAAAlAPP/BAALAAoAAAAlAPT/BAALAAoAAAAmAPD/BAALAAoAAAAmAPH/BAALAAoAAAAmAPL/BAALAAoAAAAmAPP/BAALAAoAAAAmAPT/BAALAAoAAAAnAPD/BAALAAoAAAAnAPH/BAALAAoAAAAnAPL/BAALAAoAAAAnAPP/BAALAAoAAAAnAPT/BAALAAoAAAAoAPD/BAALAAoAAAAoAPH/BAALAAoAAAAoAPL/BAALAAoAAAAoAPP/BAALAAoAAAAoAPT/BAALAAoAAAApAPD/BAALAAoAAAApAPH/BAALAAoAAAApAPL/BAALAAoAAAApAPP/BAALAAoAAAApAPT/BAALAAoAAAApAPX/BAAIAAoAAAApAPb/BAAIAAsAAAApAPf/BAALAAoAAAAqAPD/BAALAAoAAAAqAPH/BAALAAoAAAAqAPL/BAALAAoAAAAqAPP/BAALAAoAAAAqAPT/BAALAAoAAAAqAPX/BAAJAAoAAAAqAPb/BAAJAAsAAAAqAPf/BAALAAoAAAArAPD/BAALAAoAAAArAPH/BAALAAoAAAArAPL/BAALAAoAAAArAPP/BAALAAoAAAArAPT/BAALAAoAAAArAPX/BAALAAoAAAArAPb/BAALAAoAAAArAPf/BAALAAoAAAAsAPD/BAALAAoAAAAsAPH/BAALAAoAAAAsAPL/BAALAAoAAAAsAPP/BAALAAoAAAAsAPT/BAALAAoAAAAsAPX/BAALAAoAAAAsAPb/BAALAAoAAAAsAPf/BAALAAoAAAAtAPD/BAALAAoAAAAtAPH/BAALAAoAAAAtAPL/BAALAAoAAAAtAPP/BAALAAoAAAAtAPT/BAALAAoAAAAtAPX/BAALAAoAAAAtAPb/BAALAAoAAAAtAPf/BAALAAoAAAAuAPD/BAALAAoAAAAuAPH/BAALAAoAAAAuAPL/BAALAAoAAAAuAPP/BAALAAoAAAAuAPT/BAALAAoAAAAuAPX/BAALAAoAAAAuAPb/BAALAAoAAAAuAPf/BAALAAoAAAAvAPD/BAALAAoAAAAvAPH/BAALAAoAAAAvAPL/BAALAAoAAAAvAPP/BAALAAoAAAAvAPT/BAALAAoAAAAvAPX/BAALAAoAAAAvAPb/BAALAAoAAAAvAPf/BAALAAoAAAAwAPD/BAALAAoAAAAwAPH/BAALAAoAAAAwAPL/BAALAAoAAAAwAPP/BAALAAoAAAAwAPT/BAALAAoAAAAwAPX/BAALAAoAAAAwAPb/BAALAAoAAAAwAPf/BAALAAoAAAAxAPD/BAALAAoAAAAxAPH/BAALAAoAAAAxAPL/BAALAAoAAAAxAPP/BAALAAoAAAAxAPT/BAALAAoAAAAxAPX/BAAIAAoAAAAxAPb/BAAIAAsAAAAxAPf/BAALAAoAAAAyAPD/BAALAAoAAAAyAPH/BAALAAoAAAAyAPL/BAALAAoAAAAyAPP/BAALAAoAAAAyAPT/BAALAAoAAAAyAPX/BAAJAAoAAAAyAPb/BAAJAAsAAAAyAPf/BAALAAoAAAAzAPD/BAALAAoAAAAzAPH/BAALAAoAAAAzAPL/BAALAAoAAAAzAPP/BAALAAoAAAAzAPT/BAALAAoAAAAzAPX/BAALAAoAAAAzAPb/BAALAAoAAAAzAPf/BAALAAoAAAASAPH/BAALAAoAAAASAPL/BAALAAoAAAASAPP/BAALAAoAAAASAPT/BAALAAoAAAAQAPL/BAALAAoAAAAQAPP/BAALAAoAAAAQAPT/BAALAAoAAAARAPL/BAALAAoAAAARAPP/BAALAAoAAAARAPT/BAALAAoAAAAPAPT/BAALAAoAAAA0APD/BAALAAoAAAA0APH/BAALAAoAAAA0APL/BAALAAoAAAA0APP/BAALAAoAAAA0APT/BAALAAoAAAA0APX/BAALAAoAAAA0APb/BAALAAoAAAA0APf/BAALAAoAAAA1APD/BAALAAoAAAA1APH/BAALAAoAAAA1APL/BAALAAoAAAA1APP/BAALAAoAAAA1APT/BAALAAoAAAA1APX/BAALAAoAAAA1APb/BAALAAoAAAA1APf/BAALAAoAAAA2APD/BAALAAoAAAA2APH/BAALAAoAAAA2APL/BAALAAoAAAA2APP/BAALAAoAAAA2APT/BAALAAoAAAA2APX/BAALAAoAAAA2APb/BAALAAoAAAA2APf/BAALAAoAAAA3APD/BAALAAoAAAA3APH/BAALAAoAAAA3APL/BAALAAoAAAA3APP/BAALAAoAAAA3APT/BAALAAoAAAA3APX/BAALAAoAAAA3APb/BAALAAoAAAA3APf/BAALAAoAAAA4APD/BAALAAoAAAA4APH/BAALAAoAAAA4APL/BAALAAoAAAA4APP/BAALAAoAAAA4APT/BAALAAoAAAA4APX/BAALAAoAAAA4APb/BAALAAoAAAA4APf/BAALAAoAAAA5APD/BAALAAoAAAA5APH/BAALAAoAAAA5APL/BAALAAoAAAA5APP/BAALAAoAAAA5APT/BAALAAoAAAA5APX/BAAIAAoAAAA5APb/BAAIAAsAAAA5APf/BAALAAoAAAA6APD/BAALAAoAAAA6APH/BAALAAoAAAA6APL/BAALAAoAAAA6APP/BAALAAoAAAA6APT/BAALAAoAAAA6APX/BAAJAAoAAAA6APb/BAAJAAsAAAA6APf/BAALAAoAAAA7APD/BAALAAoAAAA7APH/BAALAAoAAAA7APL/BAALAAoAAAA7APP/BAALAAoAAAA7APT/BAALAAoAAAA7APX/BAALAAoAAAA7APb/BAALAAoAAAA7APf/BAALAAoAAAA8APD/BAALAAoAAAA8APH/BAALAAoAAAA8APL/BAALAAoAAAA8APP/BAALAAoAAAA8APT/BAALAAoAAAA8APX/BAALAAoAAAA8APb/BAALAAoAAAA8APf/BAALAAoAAAA9APD/BAALAAoAAAA9APH/BAALAAoAAAA9APL/BAALAAoAAAA9APP/BAALAAoAAAA9APT/BAALAAoAAAA9APX/BAALAAoAAAA9APb/BAALAAoAAAA9APf/BAALAAoAAAA+APD/BAALAAoAAAA+APH/BAALAAoAAAA+APL/BAALAAoAAAA+APP/BAALAAoAAAA+APT/BAALAAoAAAA+APX/BAALAAoAAAA+APb/BAALAAoAAAA+APf/BAALAAoAAAA/APH/BAALAAoAAAA/APL/BAALAAoAAAA/APP/BAALAAoAAAA/APT/BAALAAoAAAA/APX/BAALAAoAAAA/APb/BAALAAoAAAA/APf/BAALAAoAAABAAPL/BAALAAoAAABAAPP/BAALAAoAAABAAPT/BAALAAoAAABAAPX/BAALAAoAAABAAPb/BAALAAoAAABAAPf/BAALAAoAAABBAPL/BAALAAoAAABBAPP/BAALAAoAAABBAPT/BAALAAoAAABBAPX/BAAIAAoAAABBAPb/BAAIAAsAAABBAPf/BAALAAoAAABCAPT/BAALAAoAAABCAPX/BAAJAAoAAABCAPb/BAAJAAsAAABCAPf/BAALAAoAAABDAPX/BAALAAoAAABDAPb/BAALAAoAAABDAPf/BAALAAoAAABEAPX/BAALAAoAAABEAPb/BAALAAoAAABEAPf/BAALAAoAAABFAPX/BAALAAoAAABFAPb/BAALAAoAAABFAPf/BAALAAoAAABGAPX/BAALAAoAAABGAPb/BAALAAoAAABGAPf/BAALAAoAAABHAPX/BAALAAoAAABHAPb/BAALAAoAAABHAPf/BAALAAoAAABIAPX/BAALAAoAAABIAPb/BAALAAoAAABIAPf/BAALAAoAAABJAPX/BAALAAoAAABJAPb/BAALAAoAAABJAPf/BAALAAoAAABKAPX/BAALAAoAAABKAPb/BAALAAoAAABKAPf/BAALAAoAAABLAPX/BAALAAoAAABLAPb/BAALAAoAAABLAPf/BAALAAoAAABMAPX/BAALAAoAAABMAPb/BAALAAoAAABMAPf/BAALAAoAAABNAPX/BAALAAoAAABNAPb/BAALAAoAAABNAPf/BAALAAoAAABOAPX/BAALAAoAAABOAPf/BAALAAoAAABPAPX/BAALAAoAAABLAOz/BAALAAoAAABLAO3/BAALAAoAAABLAO7/BAALAAoAAABLAO//BAALAAoAAABMAOz/BAALAAoAAABMAO3/BAALAAoAAABMAO7/BAALAAoAAABMAO//BAALAAoAAABNAOz/BAALAAoAAABNAO3/BAALAAoAAABNAO7/BAALAAoAAABNAO//BAALAAoAAABOAOz/BAALAAoAAABOAO3/BAALAAoAAABOAO7/BAALAAoAAABOAO//BAALAAoAAABPAOz/BAALAAoAAABPAO3/BAALAAoAAABPAO7/BAALAAoAAABPAO//BAALAAoAAABQAOz/BAALAAoAAABQAO3/BAALAAoAAABQAO7/BAALAAoAAABQAO//BAALAAoAAABRAOz/BAALAAoAAABRAO3/BAALAAoAAABRAO7/BAALAAoAAABRAO//BAALAAoAAABSAO3/BAALAAoAAABSAO7/BAALAAoAAABSAO//BAALAAoAAABLAPD/BAALAAoAAABLAPH/BAALAAoAAABLAPL/BAALAAoAAABMAPD/BAALAAoAAABMAPH/BAALAAoAAABMAPL/BAALAAoAAABMAPT/BAALAAoAAABNAPD/BAALAAoAAABNAPH/BAALAAoAAABNAPL/BAALAAoAAABNAPP/BAALAAoAAABNAPT/BAALAAoAAABOAPH/BAALAAoAAABOAPL/BAALAAoAAABOAPP/BAALAAoAAABOAPT/BAALAAoAAABPAPL/BAALAAoAAABPAPP/BAALAAoAAABPAPT/BAALAAoAAAAUAOz/BAALAAoAAAAUAO3/BAALAAoAAAAUAO7/BAALAAoAAAAVAOz/BAALAAoAAAAVAO3/BAALAAoAAAAVAO7/BAALAAoAAAAWAOz/BAALAAoAAAAWAO3/BAALAAoAAAAWAO7/BAALAAoAAAAXAOz/BAALAAoAAAAXAO3/BAALAAoAAAAXAO7/BAALAAoAAAAYAOz/BAALAAoAAAAYAO3/BAALAAoAAAAYAO7/BAALAAoAAAAZAOz/BAALAAoAAAAZAO3/BAALAAoAAAAZAO7/BAALAAoAAAAaAOz/BAALAAoAAAAaAO3/BAALAAoAAAAaAO7/BAALAAoAAAAbAOz/BAALAAoAAAAbAO3/BAALAAoAAAAbAO7/BAALAAoAAAAcAOz/BAALAAoAAAAcAO3/BAALAAoAAAAcAO7/BAALAAoAAAAdAOz/BAALAAoAAAAdAO3/BAALAAoAAAAdAO7/BAALAAoAAAARAPD/BAALAAoAAAAYAOv/BAALAAoAAAAZAOv/BAALAAoAAAAaAOv/BAALAAoAAAAbAOv/BAALAAoAAAAcAOv/BAALAAoAAAAdAOv/BAALAAoAAAAeAOv/BAALAAoAAAAeAOz/BAALAAoAAAAeAO3/BAALAAoAAAAeAO7/BAALAAoAAAAfAOv/BAALAAoAAAAfAOz/BAALAAoAAAAfAO3/BAALAAoAAAAfAO7/BAALAAoAAAAgAOv/BAALAAoAAAAgAOz/BAALAAoAAAAgAO3/BAALAAoAAAAgAO7/BAALAAoAAAAhAOv/BAALAAoAAAAhAOz/BAALAAoAAAAhAO3/BAALAAoAAAAhAO7/BAALAAoAAAAiAOv/BAALAAoAAAAiAOz/BAALAAoAAAAiAO3/BAALAAoAAAAiAO7/BAALAAoAAAAjAOv/BAALAAoAAAAjAOz/BAALAAoAAAAjAO3/BAALAAoAAAAjAO7/BAALAAoAAAAkAOv/BAALAAoAAAAkAOz/BAALAAoAAAAkAO3/BAALAAoAAAAkAO7/BAALAAoAAAAlAOv/BAALAAoAAAAlAOz/BAALAAoAAAAlAO3/BAALAAoAAAAlAO7/BAALAAoAAAAmAOv/BAALAAoAAAAmAOz/BAALAAoAAAAmAO3/BAALAAoAAAAmAO7/BAALAAoAAAAnAOv/BAALAAoAAAAnAOz/BAALAAoAAAAnAO3/BAALAAoAAAAnAO7/BAALAAoAAAAoAOv/BAALAAoAAAAoAOz/BAALAAoAAAAoAO3/BAALAAoAAAAoAO7/BAALAAoAAAApAOv/BAALAAoAAAApAOz/BAALAAoAAAApAO3/BAALAAoAAAApAO7/BAALAAoAAAAqAOv/BAALAAoAAAAqAOz/BAALAAoAAAAqAO3/BAALAAoAAAAqAO7/BAALAAoAAAArAOv/BAALAAoAAAArAOz/BAALAAoAAAArAO3/BAALAAoAAAArAO7/BAALAAoAAAAsAOv/BAALAAoAAAAsAOz/BAALAAoAAAAsAO3/BAALAAoAAAAsAO7/BAALAAoAAAAtAOv/BAALAAoAAAAtAOz/BAALAAoAAAAtAO3/BAALAAoAAAAtAO7/BAALAAoAAAAuAOv/BAALAAoAAAAuAOz/BAALAAoAAAAuAO3/BAALAAoAAAAuAO7/BAALAAoAAAAvAOv/BAALAAoAAAAvAOz/BAALAAoAAAAvAO3/BAALAAoAAAAvAO7/BAALAAoAAAAwAOv/BAALAAoAAAAwAOz/BAALAAoAAAAwAO3/BAALAAoAAAAwAO7/BAALAAoAAAAxAOv/BAALAAoAAAAxAOz/BAALAAoAAAAxAO3/BAALAAoAAAAxAO7/BAALAAoAAAAyAOv/BAALAAoAAAAyAOz/BAALAAoAAAAyAO3/BAALAAoAAAAyAO7/BAALAAoAAAAzAOv/BAALAAoAAAAzAOz/BAALAAoAAAAzAO3/BAALAAoAAAAzAO7/BAALAAoAAAA0AOv/BAALAAoAAAA0AOz/BAALAAoAAAA0AO3/BAALAAoAAAA0AO7/BAALAAoAAAA1AOv/BAALAAoAAAA1AOz/BAALAAoAAAA1AO3/BAALAAoAAAA1AO7/BAALAAoAAAA2AOv/BAALAAoAAAA2AOz/BAALAAoAAAA2AO3/BAALAAoAAAA2AO7/BAALAAoAAAA3AOv/BAALAAoAAAA3AOz/BAALAAoAAAA3AO3/BAALAAoAAAA3AO7/BAALAAoAAAA4AOv/BAALAAoAAAA4AOz/BAALAAoAAAA4AO3/BAALAAoAAAA4AO7/BAALAAoAAAA5AOv/BAALAAoAAAA5AOz/BAALAAoAAAA5AO3/BAALAAoAAAA5AO7/BAALAAoAAAA6AOz/BAALAAoAAAA6AO3/BAALAAoAAAA6AO7/BAALAAoAAAA7AOz/BAALAAoAAAA7AO3/BAALAAoAAAA7AO7/BAALAAoAAAA8AOz/BAALAAoAAAA8AO3/BAALAAoAAAA8AO7/BAALAAoAAAA9AOz/BAALAAoAAAA9AO3/BAALAAoAAAA9AO7/BAALAAoAAABAAPD/BAALAAoAAAADAO7/BAALAAoAAAAEAO7/BAALAAoAAAAFAO7/BAALAAoAAAAMAO3/BAALAAoAAAANAO3/BAALAAoAAAAOAO3/BAALAAoAAAAIAPD/BAALAAoAAAAJAPD/BAALAAoAAAAKAPn/BAALAAoAAAALAPn/BAALAAoAAAAMAPn/BAALAAoAAAANAPn/BAALAAoAAAAOAPn/BAALAAoAAAAPAPn/BAALAAoAAAAQAPn/BAALAAoAAAARAPn/BAALAAoAAAASAPn/BAALAAoAAAATAPn/BAALAAoAAAAUAPn/BAALAAoAAAAVAPn/BAALAAoAAAAWAPn/BAALAAoAAAAXAPn/BAALAAoAAAAYAPn/BAALAAoAAAAZAPn/BAALAAoAAAAaAPn/BAALAAoAAAAbAPn/BAALAAoAAAAcAPn/BAALAAoAAAAdAPn/BAALAAoAAAAeAPn/BAALAAoAAAAfAPn/BAALAAoAAAAgAPn/BAALAAoAAAAhAPn/BAALAAoAAAAiAPn/BAALAAoAAAAjAPn/BAALAAoAAAAkAPn/BAALAAoAAAAlAPn/BAALAAoAAAAmAPn/BAALAAoAAAAnAPn/BAALAAoAAAAoAPn/BAALAAoAAAApAPn/BAALAAoAAAAqAPn/BAALAAoAAAArAPn/BAALAAoAAAAsAPn/BAALAAoAAAAtAPn/BAALAAoAAAAuAPn/BAALAAoAAAAvAPn/BAALAAoAAAAwAPn/BAALAAoAAAAxAPn/BAALAAoAAAAyAPn/BAALAAoAAAAzAPn/BAALAAoAAAA0APn/BAALAAoAAAA1APn/BAALAAoAAAA2APn/BAALAAoAAAA3APn/BAALAAoAAAA4APn/BAALAAoAAAA5APn/BAALAAoAAAA6APn/BAALAAoAAAA7APn/BAALAAoAAAA8APn/BAALAAoAAAA9APn/BAALAAoAAAA+APn/BAALAAoAAAA/APn/BAALAAoAAABAAPn/BAALAAoAAABBAPn/BAALAAoAAABCAPn/BAALAAoAAABDAPn/BAALAAoAAABEAPn/BAALAAoAAABFAPn/BAALAAoAAABGAPn/BAALAAoAAABHAPn/BAALAAoAAABIAPn/BAALAAoAAABJAPn/BAALAAoAAABKAPn/BAALAAoAAABLAPn/BAALAAoAAABMAPn/BAALAAoAAABNAPn/BAALAAoAAABOAPn/BAALAAoAAABPAPn/BAALAAoAAABQAPn/BAALAAoAAABAAOv/BAALAAoAAABBAOv/BAALAAoAAABCAOv/BAALAAoAAABDAO//BAALAAoAAABEAO//BAALAAoAAABHAPH/BAALAAoAAABIAPH/BAALAAoAAABJAPH/BAALAAoAAAA=")
@@ -2110,6 +2519,43 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAWAPX/BQAFAAQAAAAWAPb/BQAFAAQAAAAWAPf/BQAFAAUAAAAXAPX/BQAGAAQAAAAXAPb/BQAGAAQAAAAXAPf/BQAGAAUAAAAWAPL/BQAFAAMAAAAWAPP/BQAFAAQAAAAWAPT/BQAFAAQAAAAXAPL/BQAGAAMAAAAXAPP/BQAGAAQAAAAXAPT/BQAGAAQAAAAWAO//BQAFAAQAAAAWAPD/BQAFAAQAAAAWAPH/BQAFAAMAACAXAO//BQAGAAQAAAAXAPD/BQAGAAQAAAAXAPH/BQAGAAMAACAWAOz/BQAFAAUAACAWAO3/BQAFAAQAAAAWAO7/BQAFAAQAAAAXAOz/BQAGAAUAACAXAO3/BQAGAAQAAAAXAO7/BQAGAAQAAAAlAPf/BQAFAAUAAAAmAPf/BQAGAAUAAAAlAPb/BQAFAAQAAAAmAPb/BQAGAAQAAAAlAPX/BQAFAAQAAAAmAPX/BQAGAAQAAAAlAPT/BQAFAAQAAAAmAPT/BQAGAAQAAAAlAPP/BQAFAAQAAAAmAPP/BQAGAAQAAAAlAPL/BQAFAAMAAAAmAPL/BQAGAAMAAAAlAPH/BQAFAAMAACAmAPH/BQAGAAMAACAlAPD/BQAFAAQAAAAmAPD/BQAGAAQAAAAlAO//BQAFAAQAAAAmAO//BQAGAAQAAAAlAO7/BQAFAAQAAAAmAO7/BQAGAAQAAAAlAO3/BQAFAAQAAAAmAO3/BQAGAAQAAAAlAOz/BQAFAAQAAAAmAOz/BQAGAAQAAAAlAOv/BQAFAAUAACAmAOv/BQAGAAUAACA1APf/BQAFAAUAAAA2APf/BQAGAAUAAAA1APb/BQAFAAQAAAA2APb/BQAGAAQAAAA1APX/BQAFAAQAAAA2APX/BQAGAAQAAAA1APT/BQAFAAQAAAA2APT/BQAGAAQAAAA1APP/BQAFAAQAAAA2APP/BQAGAAQAAAA1APL/BQAFAAMAAAA2APL/BQAGAAMAAAA1APH/BQAFAAMAACA2APH/BQAGAAMAACA1APD/BQAFAAQAAAA2APD/BQAGAAQAAAA1AO//BQAFAAQAAAA2AO//BQAGAAQAAAA1AO7/BQAFAAQAAAA2AO7/BQAGAAQAAAA1AO3/BQAFAAQAAAA2AO3/BQAGAAQAAAA1AOz/BQAFAAQAAAA2AOz/BQAGAAQAAAA1AOv/BQAFAAUAACA2AOv/BQAGAAUAACAEAPX/BAAMAAYAAAAEAPb/BAAMAAcAAAAFAPX/BAANAAYAAAAFAPb/BAANAAcAAAA=")
 tile_set = SubResource("TileSet_08wr4")
 
+[node name="PlayerDetector" type="Area2D" parent="." index="1" unique_id=54745096]
+position = Vector2(659, -224)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=2007943897]
+position = Vector2(5.5, -10.5)
+shape = SubResource("RectangleShape2D_jhy2k")
+
+[node name="BossCamera" type="Camera2D" parent="." index="2" unique_id=780064455]
+position = Vector2(651, -167)
+zoom = Vector2(1.5, 1.5)
+script = ExtResource("14_e7jyo")
+metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
+
+[node name="DefeatedScene" type="Node2D" parent="." index="3" unique_id=1798097123]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DefeatedScene" index="0" unique_id=1762951562]
+libraries/ = SubResource("AnimationLibrary_o5pat")
+
+[node name="BossObject" type="AnimatedSprite2D" parent="DefeatedScene" index="1" unique_id=1620462867]
+z_index = 2
+position = Vector2(652, -56)
+sprite_frames = SubResource("SpriteFrames_u4t2k")
+animation = &"Awake"
+frame = 5
+
+[node name="SwimParticles" parent="DefeatedScene" index="2" unique_id=1478555142 instance=ExtResource("12_beadn")]
+position = Vector2(-5, 37)
+
+[node name="GPUParticles2D" parent="DefeatedScene/SwimParticles" index="0" unique_id=1173495031]
+position = Vector2(5, -37)
+
+[node name="GPUParticles2D3" parent="DefeatedScene/SwimParticles" index="1" unique_id=57132931]
+position = Vector2(5, -37)
+
+[node name="GPUParticles2D2" parent="DefeatedScene/SwimParticles" index="2" unique_id=1258971152]
+position = Vector2(13, -34)
+
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("9_ujs4k")]
 position = Vector2(1328, -288)
 dir = 4
@@ -2124,7 +2570,7 @@ dir = 3
 [node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="5" unique_id=21501033]
 position = Vector2(16, 16)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="6" unique_id=1244888292]
+[node name="Sprite2D" type="Sprite2D" parent="." index="9" unique_id=1244888292]
 z_index = 2
 material = SubResource("ShaderMaterial_g4v7s")
 position = Vector2(192.00002, -196)
@@ -2132,7 +2578,7 @@ scale = Vector2(0.25000012, 2.1875002)
 texture = ExtResource("3_nktad")
 script = ExtResource("4_vp6os")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." index="7" unique_id=1612820998]
+[node name="Sprite2D2" type="Sprite2D" parent="." index="10" unique_id=1612820998]
 z_index = 2
 material = SubResource("ShaderMaterial_g4v7s")
 position = Vector2(1104, -196)
@@ -2140,9 +2586,11 @@ scale = Vector2(0.25000012, 2.1875)
 texture = ExtResource("3_nktad")
 script = ExtResource("4_vp6os")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." index="8" unique_id=1150414620]
+[node name="Sprite2D3" type="Sprite2D" parent="." index="11" unique_id=1150414620]
 z_index = 2
 material = SubResource("ShaderMaterial_yf5fn")
 position = Vector2(728, -84)
 scale = Vector2(8.875, 1.3125)
 texture = ExtResource("3_nktad")
+
+[editable path="DefeatedScene/SwimParticles"]

@@ -1,6 +1,8 @@
 extends Room
 class_name BossRoom
 
+
+@export var boss_scene : PackedScene
 const GOLEM_BOSS = preload("uid://bthj1ytrgopek")
 
 @onready var animation_player: AnimationPlayer = $DefeatedScene/AnimationPlayer
@@ -29,8 +31,8 @@ func _on_player_detector_body_entered(body: Node2D) -> void:
 	main_game_node.change_camera(main_game_node.main_camera)
 
 func boss_summon() -> void:
-	var boss : GolemBoss = GOLEM_BOSS.instantiate()
-	enemies.add_child(boss)
+	var boss = boss_scene.instantiate()
+	enemies.add_child(boss.instantiate())
 	boss.main_game_node = main_game_node
 	boss.global_position = boss_object.global_position
 	boss.hp_component.is_dead.connect(_on_boss_is_dead)
