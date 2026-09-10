@@ -212,6 +212,11 @@ func attack_trigger_modifier() -> void:
 	if has_modifiers("Bounce_Duck"):
 		bounceduck()
 #アヒル爆弾
+#JumpSlash
+	if has_modifiers("JumpSlash"):
+		jumpslash()
+
+
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -292,6 +297,15 @@ func fall_slashing() -> void:
 			slash.knockback_direction = Vector2(dir, 0)
 			get_tree().root.add_child(slash)
 		)
+#ジャンプ斬撃
+func jumpslash() -> void:
+	if player.jump_away_from_floor:
+		var slash := PLAYER_SLASH.instantiate()
+		slash.direction = mouse_direction.normalized()
+		slash.scale *= 0.7
+		slash.global_position = global_position
+		get_tree().root.add_child(slash)
+
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 	if player.hp_component.hp > 10:
