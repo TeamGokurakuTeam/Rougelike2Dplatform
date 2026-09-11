@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dts67twvgxnr5"]
+
+[ext_resource type="PackedScene" uid="uid://dyk06yx10ak4q" path="res://Component/Projectile/CharacterProjectile/character_projectile.tscn" id="1_dhobi"]
+[ext_resource type="Texture2D" uid="uid://d2rr5s5strpbt" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Attack3_orb_of_venom.png" id="2_c3mec"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxojx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c3mec")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2s5yq"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u42ec"]
+radius = 7.071068
+
+[node name="HedoroBullet" unique_id=1749592914 node_paths=PackedStringArray("timer") instance=ExtResource("1_dhobi")]
+collision_layer = 16
+collision_mask = 0
+speed = 500.0
+fire_angle = 90.0
+is_gravity = true
+timer = NodePath("Timer")
+max_speed = 800.0
+
+[node name="AnimatedSprite2D" parent="VisualRoot" parent_id_path=PackedInt32Array(227830311) index="0" unique_id=1769133107]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kxojx")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1836529520]
+shape = SubResource("CircleShape2D_2s5yq")
+
+[node name="Hitbox" parent="." index="2" unique_id=556284651]
+collision_layer = 16
+collision_mask = 8
+damage = 2.0
+knockback_force = 200.0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=338653067]
+shape = SubResource("CircleShape2D_u42ec")
+
+[node name="Timer" type="Timer" parent="." index="3" unique_id=1559958103]
+wait_time = 4.0
+one_shot = true
+autostart = true

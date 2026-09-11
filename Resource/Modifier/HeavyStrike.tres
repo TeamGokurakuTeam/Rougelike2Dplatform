@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://cpvdfidpdiacj"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_vmqv3"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_pe4lm"]
+
+[resource]
+script = ExtResource("1_vmqv3")
+texture = ExtResource("2_pe4lm")
+modifier_id = "HeavyStrike"
+modifier_name = "重撃"
+explanation = "通常攻撃のスピードが 0.8 倍になる代わりにタメ攻撃の威力が 1.2 倍。（重複可能）"
+price = 3

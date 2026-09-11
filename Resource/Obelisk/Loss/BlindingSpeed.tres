@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://cw33uq6788ayh"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_vaimg"]
+
+[resource]
+script = ExtResource("1_vaimg")
+difficult = 2
+resource_id = "blinding_speed"
+explanation_text = "敵の移動速度・攻撃速度 +50%、被弾後のひるみ時間が短縮"

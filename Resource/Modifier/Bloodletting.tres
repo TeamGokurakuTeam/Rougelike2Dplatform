@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://c030c7jtl4oeb"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_gx4if"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_h7iuu"]
+
+[resource]
+script = ExtResource("1_gx4if")
+ModifierRank = 1
+texture = ExtResource("2_h7iuu")
+modifier_id = "Bloodletting"
+modifier_name = "自傷斬撃"
+color_rarity = Color(1, 0.100000024, 0.100000024, 1)
+explanation = "プレイヤーが剣で通常攻撃時、自身の体力を\"1\"減らして斬撃(発射物)を出す。
+ただし、プレイヤーの体力が10以下なら、この斬撃は出ない。"
+price = 2

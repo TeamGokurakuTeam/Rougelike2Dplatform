@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://biexb1n637u2x"]
+[gd_scene format=3 uid="uid://2uhay8asqx27"]
 
 [ext_resource type="PackedScene" uid="uid://qpvrd44qtox7" path="res://Weapon/Weapon.tscn" id="1_aeruu"]
-[ext_resource type="Texture2D" uid="uid://bis10q1fwyebo" path="res://Assets/Image/swords/木の剣.png" id="2_va35j"]
+[ext_resource type="Texture2D" path="res://Assets/Image/swords/木の剣.png" id="2_va35j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvnf7"]
 size = Vector2(17.028336, 3.5920768)
@@ -82,3 +82,6 @@ shape = SubResource("RectangleShape2D_wvnf7")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=2014526289]
 libraries/ = SubResource("AnimationLibrary_wvnf7")
+
+[node name="Charge" parent="." index="3" unique_id=1009231787]
+bus = &"Master"

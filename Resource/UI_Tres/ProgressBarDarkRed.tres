@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://d3pyu3kphs1q2"]
+
+[ext_resource type="Texture2D" uid="uid://bxw44ugfgwxun" path="res://Assets/UI/2sPurple.png" id="1_5im71"]
+
+[resource]
+texture = ExtResource("1_5im71")
+texture_margin_left = 12.0
+texture_margin_right = 15.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(1, 0, 0, 1)

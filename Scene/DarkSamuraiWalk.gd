@@ -1,6 +1,7 @@
 extends State
 class_name DarkSamuraiChase
 
+@export var chase_timer : Timer
 @export var animation_player : AnimationPlayer
 @export var parent : DarkSamurai
 
@@ -10,9 +11,10 @@ func Enter() -> void:
 	animation_player.play("Walk")
 	if get_tree().get_node_count_in_group("Player"):
 		player = get_tree().get_nodes_in_group("Player")[0]
+	chase_timer.start()
 
 func Exit() -> void:
-	pass
+	chase_timer.stop()
 
 func Update(delta) -> void:
 	pass
@@ -20,8 +22,6 @@ func Update(delta) -> void:
 func Physics_Update(delta) -> void:
 	if player == null:
 		return
-	set_target(player.global_position)
-	move_toward_player()
 	parent.move_and_slide()
 
 func set_target(target_pos : Vector2) -> void:
@@ -42,3 +42,8 @@ func move_toward_player() -> void:
 func _on_player_detector_body_entered(body: Node2D) -> void:
 	if body is Player:
 		StateTransitioned.emit(self, "Attack")
+
+func _on_chase_timer_timeout() -> void:
+	if player != null:
+		set_target(player.global_position)
+		move_toward_player()

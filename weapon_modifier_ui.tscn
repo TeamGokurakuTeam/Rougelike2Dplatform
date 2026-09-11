@@ -1,0 +1,516 @@
+[gd_scene format=3 uid="uid://cox1a8khttces"]
+
+[ext_resource type="Script" uid="uid://bsyhe5xk5mwgl" path="res://weapon_modifier_ui.gd" id="1_q2avo"]
+[ext_resource type="Texture2D" uid="uid://c1gdn22qmvsnf" path="res://Assets/UI/SpriteSheet.png" id="1_ui0gb"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="2_hp2sj"]
+[ext_resource type="PackedScene" uid="uid://c03a0ku5ghb2a" path="res://modifier_button.tscn" id="3_e82y7"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="3_lqte1"]
+[ext_resource type="Texture2D" uid="uid://cba2on58wibm" path="res://Assets/Weapon/エターナルソード.png" id="5_e82y7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoxb"]
+texture = ExtResource("1_ui0gb")
+texture_margin_left = 6.0
+texture_margin_top = 12.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 6.0
+expand_margin_top = 12.0
+expand_margin_right = 6.0
+expand_margin_bottom = 8.0
+region_rect = Rect2(32, 32, 157, 65)
+modulate_color = Color(0.876516, 0.876516, 0.876516, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gj3l6"]
+font = ExtResource("3_lqte1")
+font_size = 10
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhy2k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdq5c"]
+texture = ExtResource("1_ui0gb")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(282, 1463, 173, 49)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n2h2g"]
+texture = ExtResource("1_ui0gb")
+texture_margin_left = 18.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 18.0
+region_rect = Rect2(368, 32, 81, 80)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2avo"]
+bg_color = Color(0.89749104, 0.6700856, 0.42581245, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ujs0i"]
+texture = ExtResource("1_ui0gb")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(38, 1666, 248, 280)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("2_hp2sj")
+font_size = 10
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hp2sj"]
+font = ExtResource("2_hp2sj")
+font_size = 8
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0.22670749, 0.22670749, 0.22670746, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
+atlas = ExtResource("1_ui0gb")
+region = Rect2(147, 866, 69, 5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gj3l6"]
+texture = ExtResource("1_ui0gb")
+region_rect = Rect2(286, 1549, 166, 36)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+font = ExtResource("2_hp2sj")
+font_size = 12
+font_color = Color(0.5686275, 1, 1, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0.2940279, 0.29402775, 0.29402775, 0.8)
+stacked_outline_count = 1
+stacked_outline_0/size = 2
+stacked_outline_0/color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_e82y7"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(267, 20), Vector2(309.5162, 20), Vector2(348.16168, 20), Vector2(383.10718, 20), Vector2(414.52298, 20), Vector2(442.57977, 20), Vector2(467.4478, 20), Vector2(489.29785, 20), Vector2(508.30023, 20), Vector2(524.62555, 20), Vector2(538.4443, 20), Vector2(549.9269, 20), Vector2(559.2438, 20), Vector2(566.5657, 20), Vector2(572.063, 20), Vector2(575.9061, 20), Vector2(578.2656, 20), Vector2(579.312, 20), Vector2(579.2159, 20), Vector2(578.1476, 20), Vector2(576.2777, 20), Vector2(573.7767, 20), Vector2(570.81506, 20), Vector2(567.5633, 20), Vector2(564.192, 20), Vector2(560.87146, 20), Vector2(557.7724, 20), Vector2(555.0652, 20), Vector2(552.9204, 20), Vector2(551.50854, 20), Vector2(551, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackGround:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8000001, 0.8333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackGround:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lqte1"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(530, 20), Vector2(531.1475, 20), Vector2(528.95135, 20), Vector2(526.36505, 20), Vector2(529.5642, 20), Vector2(536.3609, 20), Vector2(540.7969, 20), Vector2(539.56177, 20), Vector2(532.552, 20), Vector2(521.10736, 20), Vector2(506.65988, 20), Vector2(490.139, 20), Vector2(471.78494, 20), Vector2(451.1371, 20), Vector2(427.15253, 20), Vector2(398.5, 20), Vector2(369.84744, 20), Vector2(345.8629, 20), Vector2(325.21503, 20), Vector2(306.86102, 20), Vector2(290.3401, 20), Vector2(275.89264, 20), Vector2(264.448, 20), Vector2(257.43826, 20), Vector2(256.20313, 20), Vector2(260.63907, 20), Vector2(267.43582, 20), Vector2(270.63498, 20), Vector2(268.04868, 20), Vector2(265.85248, 20), Vector2(267, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackGround:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackGround:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_sdr12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(522, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BackGround:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BackGround:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o56xt"]
+_data = {
+&"Close": SubResource("Animation_e82y7"),
+&"Open": SubResource("Animation_lqte1"),
+&"RESET": SubResource("Animation_sdr12")
+}
+
+[node name="WeaponModifierUI" type="Control" unique_id=1151445566]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q2avo")
+
+[node name="BackGround" type="Panel" parent="." unique_id=376336547]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 288.0
+
+[node name="Panel" type="Panel" parent="." unique_id=1754020218]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -124.0
+offset_right = 246.00012
+offset_bottom = 124.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5hoxb")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1902983130]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -8.0
+offset_right = 82.0
+offset_bottom = 15.0
+text = "WeaponData"
+label_settings = SubResource("LabelSettings_gj3l6")
+
+[node name="WeaponPanel" type="Panel" parent="Panel" unique_id=892082212]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jhy2k")
+
+[node name="WeaponExplanation" type="Panel" parent="Panel/WeaponPanel" unique_id=1787622974]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = 31.0
+offset_right = 165.0
+offset_bottom = 81.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qdq5c")
+
+[node name="WeaponExplanation2" type="Panel" parent="Panel/WeaponPanel" unique_id=1461059044]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = 87.0
+offset_right = 165.0
+offset_bottom = 137.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qdq5c")
+
+[node name="WeaponExplanation3" type="Panel" parent="Panel/WeaponPanel" unique_id=1712630160]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = 143.0
+offset_right = 165.0
+offset_bottom = 193.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qdq5c")
+
+[node name="ModifierPanel" type="Panel" parent="Panel" unique_id=627346171]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jhy2k")
+
+[node name="ModifierList" type="Panel" parent="Panel/ModifierPanel" unique_id=1191521356]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 50.0
+offset_right = 112.0
+offset_bottom = 228.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_n2h2g")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/ModifierPanel/ModifierList" unique_id=2066418118]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 7.0
+offset_right = 99.0
+offset_bottom = 165.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2avo")
+
+[node name="ModContainer" type="VBoxContainer" parent="Panel/ModifierPanel/ModifierList/ScrollContainer" unique_id=169036692]
+layout_mode = 2
+
+[node name="ModifierButton" parent="Panel/ModifierPanel/ModifierList/ScrollContainer/ModContainer" unique_id=412886008 instance=ExtResource("3_e82y7")]
+layout_mode = 2
+
+[node name="ModifierButton2" parent="Panel/ModifierPanel/ModifierList/ScrollContainer/ModContainer" unique_id=1617617752 instance=ExtResource("3_e82y7")]
+layout_mode = 2
+
+[node name="ModifierButton3" parent="Panel/ModifierPanel/ModifierList/ScrollContainer/ModContainer" unique_id=1114650520 instance=ExtResource("3_e82y7")]
+layout_mode = 2
+
+[node name="ModifierButton4" parent="Panel/ModifierPanel/ModifierList/ScrollContainer/ModContainer" unique_id=1052343314 instance=ExtResource("3_e82y7")]
+layout_mode = 2
+
+[node name="ModifierButton5" parent="Panel/ModifierPanel/ModifierList/ScrollContainer/ModContainer" unique_id=689645883 instance=ExtResource("3_e82y7")]
+layout_mode = 2
+
+[node name="ModifierButton6" parent="Panel/ModifierPanel/ModifierList/ScrollContainer/ModContainer" unique_id=1782439582 instance=ExtResource("3_e82y7")]
+layout_mode = 2
+
+[node name="ModifierButton7" parent="Panel/ModifierPanel/ModifierList/ScrollContainer/ModContainer" unique_id=552504720 instance=ExtResource("3_e82y7")]
+layout_mode = 2
+
+[node name="ModifierButton8" parent="Panel/ModifierPanel/ModifierList/ScrollContainer/ModContainer" unique_id=2126611176 instance=ExtResource("3_e82y7")]
+layout_mode = 2
+
+[node name="ModifierExplanation" type="Panel" parent="Panel/ModifierPanel" unique_id=680699075]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 50.0
+offset_right = 235.0
+offset_bottom = 228.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ujs0i")
+
+[node name="ModTitle" type="Label" parent="Panel/ModifierPanel/ModifierExplanation" unique_id=325908998]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 105.0
+offset_bottom = 28.0
+text = "増殖する"
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="setumei" type="Label" parent="Panel/ModifierPanel/ModifierExplanation" unique_id=198049113]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 26.0
+offset_right = 105.0
+offset_bottom = 49.0
+text = "説明"
+label_settings = SubResource("LabelSettings_hp2sj")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="ModExplanation" type="RichTextLabel" parent="Panel/ModifierPanel/ModifierExplanation" unique_id=1441309273]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 44.0
+offset_right = 117.0
+offset_bottom = 166.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("2_hp2sj")
+theme_override_font_sizes/normal_font_size = 9
+theme_override_font_sizes/bold_font_size = 10
+text = "プレイヤーが放つ斬撃(発射物)がある場合、
+敵に斬撃が当たると、
+斬撃の数が+1されるが、
+サイズが-0.1される。
+-----------------------------------
+斬撃のサイズは
+最小1.0で、
+1.0を下回る場合はそれ以上小さくならず、
+斬撃の数は増えない
+-----------------------------------
+
+--- ヤツを1匹見たら、30匹はいると思え…
+
+"
+autowrap_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sepa" type="TextureRect" parent="Panel/ModifierPanel/ModifierExplanation" unique_id=2096125634]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 25.0
+offset_right = 111.0
+offset_bottom = 33.0
+texture = SubResource("AtlasTexture_jhy2k")
+
+[node name="Sepa2" type="TextureRect" parent="Panel/ModifierPanel/ModifierExplanation" unique_id=1408220149]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 162.0
+offset_right = 111.0
+offset_bottom = 170.0
+texture = SubResource("AtlasTexture_jhy2k")
+
+[node name="Weapon" type="Panel" parent="Panel" unique_id=992288248]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -118.0
+offset_right = -11.0
+offset_bottom = -76.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gj3l6")
+
+[node name="WeaponSprite" type="TextureRect" parent="Panel/Weapon" unique_id=1988284336]
+custom_minimum_size = Vector2(31, 31)
+layout_mode = 0
+offset_left = 27.0
+offset_top = 4.0
+offset_right = 58.0
+offset_bottom = 35.0
+texture = ExtResource("5_e82y7")
+expand_mode = 1
+
+[node name="WeaponName" type="Label" parent="Panel/Weapon" unique_id=1257373983]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 8.0
+offset_right = 191.0
+offset_bottom = 31.0
+text = "英知と追撃の宝剣"
+label_settings = SubResource("LabelSettings_5hoxb")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1770814167]
+libraries/ = SubResource("AnimationLibrary_o56xt")

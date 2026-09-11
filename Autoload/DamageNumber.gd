@@ -1,13 +1,17 @@
 extends Node
 
-func display_number(value : float, position : Vector2, is_critical : bool) -> void:
+const COLOR_DAMAGE_DEFAULT : Color = Color("ffffff") # 敵などが受けるダメージ
+const COLOR_DAMAGE_PLAYER : Color = Color("ff0000") # プレイヤーが受けるダメージ
+const COLOR_DAMAGE_SELF : Color = Color("6f0000ff") # 自傷ダメージ
+const COLOR_HEAL : Color = Color("00ffa7") # 回復
+
+func display_number(value : float, position : Vector2, is_critical : bool, color : Color = "#FFF") -> void:
 	var number : Label = Label.new()
 	number.global_position = position
-	number.text = str(int(value))
+	number.text = str(ceili(value))
 	number.z_index = 5
 	number.label_settings = LabelSettings.new()
 	
-	var color : Color = "#FFF"
 	if is_critical:
 		color = "#B22"
 	if value == 0:

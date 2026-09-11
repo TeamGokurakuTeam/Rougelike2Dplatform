@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://t6aylwfhobjb"]
+[gd_scene format=3 uid="uid://dyt6lgikee0an"]
 
 [ext_resource type="PackedScene" uid="uid://baxqerfcgshhm" path="res://Scene/character.tscn" id="1_xa75v"]
 [ext_resource type="Script" uid="uid://dncht7rhcx5dc" path="res://Player.gd" id="2_58ae2"]
@@ -92,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_eqmt2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }]
@@ -178,6 +178,10 @@ defense_power = 10.0
 critical_chance = 0.0
 critical_damage = 0.0
 luck = 0.0
+dash_acceleration = 80
+dodgeroll_acceleration = 60
+dodgeroll_time = 0.5
+just_dodgeroll_time = 0.09
 friction = 0.3
 jump_velocity = -400.0
 
@@ -201,8 +205,9 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_58ae2")
 
 [node name="Hurtbox" parent="." index="6" unique_id=1912714286 node_paths=PackedStringArray("character")]
+position = Vector2(0, 2)
 collision_layer = 8
-collision_mask = 17
+collision_mask = 145
 character = NodePath("..")
 
 [node name="CollisionShape2D2" parent="Hurtbox" index="3" unique_id=1329737567]

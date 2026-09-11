@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cgo8m088lruhe" path="res://OneWay.gd" id="1_x3hvd"]
 
-[node name="OneWay" type="StaticBody2D" unique_id=610867179]
+[node name="OneWay" type="StaticBody2D" unique_id=610867179 groups=["Tile"]]
+process_mode = 1
 script = ExtResource("1_x3hvd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1858975291]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://llg70hcbd385"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_6cpuy"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_7vbor"]
+
+[resource]
+script = ExtResource("1_6cpuy")
+texture = ExtResource("2_7vbor")
+modifier_id = "Splitting"
+modifier_name = "増殖する"
+explanation = "プレイヤーが放つ斬撃(発射物)がある場合、敵に斬撃が当たると、斬撃の数が+1されるが、サイズが-0.1される。
+(斬撃のサイズは最小1.0で、1.0を下回る場合はそれ以上小さくならず、斬撃の数は増えない)
+
+--- ヤツを1匹見たら、30匹はいると思え…"

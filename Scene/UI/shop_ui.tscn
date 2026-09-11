@@ -1,0 +1,830 @@
+[gd_scene format=3 uid="uid://ck5n0v7vducof"]
+
+[ext_resource type="Script" uid="uid://dcxa6c3grfvwm" path="res://Scene/UI/ShopUI.gd" id="1_55fv0"]
+[ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="1_i8ip8"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="2_8fhbb"]
+[ext_resource type="Texture2D" uid="uid://b6ik1r1r15amg" path="res://Assets/icon.png" id="4_j5q23"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="4_t6jas"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="6_j5q23"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hoxb"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(768, 64, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jhy2k"]
+texture = SubResource("AtlasTexture_5hoxb")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_qdq5c"]
+font = ExtResource("2_8fhbb")
+font_color = Color(0.5323072, 0.37852368, 0.25816745, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_55fv0"]
+font = ExtResource("2_8fhbb")
+font_size = 8
+font_color = Color(0.5323072, 0.37852368, 0.25816745, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdq5c"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(16, 336, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gj3l6"]
+texture = SubResource("AtlasTexture_qdq5c")
+texture_margin_left = 6.0
+texture_margin_top = 4.0
+texture_margin_right = 6.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5hoxb"]
+font = ExtResource("6_j5q23")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwm8q"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(768, 64, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xijl7"]
+texture = SubResource("AtlasTexture_gwm8q")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_gj3l6"]
+font = ExtResource("2_8fhbb")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5q23"]
+font = ExtResource("2_8fhbb")
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+stacked_outline_count = 1
+stacked_outline_0/size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("2_8fhbb")
+font_size = 28
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj3l6"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(288, 272, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoxb"]
+texture = SubResource("AtlasTexture_gj3l6")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xijl7"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(80, 272, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t6jas"]
+texture = SubResource("AtlasTexture_xijl7")
+modulate_color = Color(0.44291076, 0.44291076, 0.44291073, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6jas"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(288, 272, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdq5c"]
+texture = SubResource("AtlasTexture_t6jas")
+modulate_color = Color(0.12591088, 0.12591082, 0.12591082, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55fv0"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(160, 272, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ghx6y"]
+texture = SubResource("AtlasTexture_55fv0")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghx6y"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(80, 272, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ugi87"]
+texture = SubResource("AtlasTexture_ghx6y")
+modulate_color = Color(0.12591088, 0.12591082, 0.12591082, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5q23"]
+atlas = ExtResource("1_i8ip8")
+region = Rect2(80, 272, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5q23"]
+texture = SubResource("AtlasTexture_j5q23")
+modulate_color = Color(0.7581918, 0.7581918, 0.7581917, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwbtm"]
+texture = SubResource("AtlasTexture_xijl7")
+modulate_color = Color(0.3553136, 0.35531354, 0.35531357, 1)
+
+[sub_resource type="Animation" id="Animation_55fv0"]
+resource_name = "End"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopItemPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-18, -4), Vector2(-18.266666, -4), Vector2(-19.066668, -4), Vector2(-20.4, -4), Vector2(-22.266666, -4), Vector2(-24.666668, -4), Vector2(-27.6, -4), Vector2(-31.066666, -4), Vector2(-35.06667, -4), Vector2(-39.6, -4), Vector2(-44.666668, -4), Vector2(-50.266666, -4), Vector2(-56.4, -4), Vector2(-63.06667, -4), Vector2(-70.26666, -4), Vector2(-78, -4), Vector2(-86.26668, -4), Vector2(-95.066666, -4), Vector2(-104.4, -4), Vector2(-114.26666, -4), Vector2(-124.66667, -4), Vector2(-135.6, -4), Vector2(-147.06667, -4), Vector2(-159.06665, -4), Vector2(-171.6, -4), Vector2(-184.66666, -4), Vector2(-198.26668, -4), Vector2(-212.4, -4), Vector2(-227.06667, -4), Vector2(-242.26665, -4), Vector2(-258, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShopItemPanel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.110269114, 0.1605645962692872, 0.20438106216907848, 0.2423658214878115, 0.27512125055600034, 0.30320700370586984, 0.32714108997338265, 0.34740185346089625, 0.3644292999878749, 0.3786269044121493, 0.3903629757342726, 0.3999724644187798, 0.4077584044058318, 0.4139936435251865, 0.4189222470541995, 0.42276126658543944, 0.42570225894561897, 0.4279129012486358, 0.4295385098145035, 0.43070377058332365, 0.4315142003537513, 0.4320578002896794, 0.432406670973279, 0.4326185505507531, 0.4327384297853767, 0.43280016711053726, 0.4328280652291321, 0.4328384284861429, 0.4328412356021421, 0.4328416393654022, 0.43284166]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ExplainPanel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(219.99997, 177), Vector2(220.06633, 177), Vector2(220.15843, 177), Vector2(220.27448, 177), Vector2(220.42067, 177), Vector2(220.60489, 177), Vector2(220.83698, 177), Vector2(221.12938, 177), Vector2(221.4978, 177), Vector2(221.96198, 177), Vector2(222.5468, 177), Vector2(223.28363, 177), Vector2(224.21198, 177), Vector2(225.38162, 177), Vector2(226.85527, 177), Vector2(228.71198, 177), Vector2(231.05127, 177), Vector2(233.99858, 177), Vector2(237.71198, 177), Vector2(242.39055, 177), Vector2(248.2852, 177), Vector2(255.71198, 177), Vector2(265.06915, 177), Vector2(276.8584, 177), Vector2(291.71198, 177), Vector2(310.42627, 177), Vector2(334.00488, 177), Vector2(363.71198, 177), Vector2(401.14063, 177), Vector2(448.29773, 177), Vector2(508, 177)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ExplainPanel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.042720933, -0.06120617662144645, -0.07845949724350954, -0.09452346093420716, -0.10944046334382108, -0.12325307102689376, -0.13600367963370696, -0.14773483293156842, -0.158488960751612, -0.1683085726802933, -0.17723614412321576, -0.185314127698748, -0.19258502159972823, -0.19909131262537727, -0.20487546478768115, -0.20997996488586068, -0.2144472883255193, -0.2183199105122604, -0.22164030685168745, -0.22445096414302124, -0.22679436918548257, -0.2287129745974401, -0.23024927857173205, -0.23144575651396185, -0.23234488382973284, -0.23298914731826592, -0.2334210109915471, -0.2336829616487972, -0.23381747469561964, -0.23386703693123523, -0.23387411]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShopPanel:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(366, 1.0000014), Vector2(377.47223, 1.0000014), Vector2(388.55554, 1.0000013), Vector2(399.25, 1.0000013), Vector2(409.55557, 1.0000013), Vector2(419.47223, 1.0000012), Vector2(429, 1.0000012), Vector2(438.1389, 1.0000012), Vector2(446.8889, 1.0000012), Vector2(455.25, 1.0000011), Vector2(463.22223, 1.0000011), Vector2(470.80554, 1.0000011), Vector2(478, 1.0000011), Vector2(484.80554, 1.0000011), Vector2(491.22223, 1.000001), Vector2(497.25, 1.000001), Vector2(502.88892, 1.000001), Vector2(508.1389, 1.000001), Vector2(513, 1.000001), Vector2(517.4722, 1.000001), Vector2(521.55554, 1.000001), Vector2(525.25, 1.0000008), Vector2(528.55554, 1.0000008), Vector2(531.4722, 1.0000008), Vector2(534, 1.0000008), Vector2(536.1389, 1.0000008), Vector2(537.8889, 1.0000008), Vector2(539.25, 1.0000008), Vector2(540.2222, 1.0000008), Vector2(540.80554, 1.0000008), Vector2(541, 1.0000008)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShopPanel:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.03860393, 0.051748226133697, 0.06444695074092133, 0.0767001054870935, 0.08850769634776334, 0.09986971435960612, 0.110786153547072, 0.12125703183681048, 0.13128234922882154, 0.14086209377200554, 0.14999625949081263, 0.15868485236079266, 0.16692789628414495, 0.17472534345647084, 0.182077241682169, 0.18898356705904007, 0.19544433153818375, 0.2014595112174007, 0.20702912999889023, 0.21215316398045303, 0.21683163706428843, 0.2210645492503964, 0.22485190053877704, 0.22819366702723087, 0.23108987261795733, 0.2335405053598567, 0.23554555330182936, 0.23710505229717427, 0.23821896649259244, 0.2388873197902832, 0.23911011]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BuyButton:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(403.99997, 246.99998), Vector2(403.99997, 246.99998), Vector2(403.99997, 247.00006), Vector2(403.99997, 247.00052), Vector2(403.99997, 247.00226), Vector2(403.99997, 247.00693), Vector2(403.99997, 247.01726), Vector2(403.99997, 247.03734), Vector2(403.99997, 247.0728), Vector2(403.99997, 247.13121), Vector2(403.99997, 247.22221), Vector2(403.99997, 247.35788), Vector2(403.99997, 247.55295), Vector2(403.99997, 247.82507), Vector2(403.99997, 248.19514), Vector2(403.99997, 248.68748), Vector2(403.99997, 249.33015), Vector2(403.99997, 250.15523), Vector2(403.99997, 251.19902), Vector2(403.99997, 252.50243), Vector2(403.99997, 254.1111), Vector2(403.99997, 256.07578), Vector2(403.99997, 258.4525), Vector2(403.99997, 261.30298), Vector2(403.99997, 264.6947), Vector2(403.99997, 268.7014), Vector2(403.99997, 273.40305), Vector2(403.99997, 278.88644), Vector2(403.99997, 285.24527), Vector2(403.99997, 292.58032), Vector2(403.99997, 301)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BuyButton:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.024538051]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BuyButton:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ExitButton:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ExitButton:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-15.000002, 8), Vector2(-15.000002, 7.9999433), Vector2(-15.000002, 7.999091), Vector2(-15.000002, 7.9954), Vector2(-15.000002, 7.9854617), Vector2(-15.000002, 7.964506), Vector2(-15.000002, 7.9264), Vector2(-15.000002, 7.863647), Vector2(-15.000002, 7.7673874), Vector2(-15.000002, 7.6274), Vector2(-15.000002, 7.432099), Vector2(-15.000002, 7.1685357), Vector2(-15.000002, 6.8224), Vector2(-15.000002, 6.3780174), Vector2(-15.000002, 5.818351), Vector2(-15.000002, 5.125), Vector2(-15.000002, 4.278202), Vector2(-15.000002, 3.2568321), Vector2(-15.000002, 2.0383992), Vector2(-15.000002, 0.5990548), Vector2(-15.000002, -1.08642), Vector2(-15.000002, -3.0445995), Vector2(-15.000002, -5.3034277), Vector2(-15.000002, -7.8922033), Vector2(-15.000002, -10.8416), Vector2(-15.000002, -14.18364), Vector2(-15.000002, -17.951725), Vector2(-15.000002, -22.180595), Vector2(-15.000002, -26.906391), Vector2(-15.000002, -32.16657), Vector2(-15.000002, -38)]
+}
+
+[sub_resource type="Animation" id="Animation_ghx6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopItemPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplainPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(219.99997, 177)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShopPanel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(366, 1.0000014)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ExplainPanel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.042720933]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShopPanel:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.03860393]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShopItemPanel:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.110269114]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BuyButton:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(423.99997, 246.99998)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BuyButton:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.024538051]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BuyButton:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ExitButton:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-15.000002, -32)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ExitButton:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fwbtm"]
+resource_name = "Start"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShopItemPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.13333333, 0.16666669, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.3666667, 0.4, 0.43333337, 0.46666667, 0.5, 0.5333333, 0.56666666, 0.59999996, 0.6333333, 0.6666666, 0.7, 0.7333333, 0.76666665, 0.79999995, 0.8333333, 0.8666666, 0.8999999, 0.9333332, 0.96666664, 0.99999994, 1.0333334, 1.0666667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-279, -4), Vector2(-253.7603, -4), Vector2(-230.20267, -4), Vector2(-208.26898, -4), Vector2(-187.90134, -4), Vector2(-169.04166, -4), Vector2(-151.632, -4), Vector2(-135.61432, -4), Vector2(-120.930664, -4), Vector2(-107.522995, -4), Vector2(-95.33331, -4), Vector2(-84.303665, -4), Vector2(-74.37601, -4), Vector2(-65.49234, -4), Vector2(-57.594666, -4), Vector2(-50.625, -4), Vector2(-44.52533, -4), Vector2(-39.237656, -4), Vector2(-34.70401, -4), Vector2(-30.866333, -4), Vector2(-27.666656, -4), Vector2(-25.046997, -4), Vector2(-22.94934, -4), Vector2(-21.315674, -4), Vector2(-20.088013, -4), Vector2(-19.208344, -4), Vector2(-18.618652, -4), Vector2(-18.260986, -4), Vector2(-18.077332, -4), Vector2(-18.009674, -4), Vector2(-18, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ExplainPanel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.13333333, 0.16666669, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.3666667, 0.4, 0.43333337, 0.46666667, 0.5, 0.5333333, 0.56666666, 0.59999996, 0.6333333, 0.6666666, 0.7, 0.7333333, 0.76666665, 0.79999995, 0.8333333, 0.8666666, 0.8999999, 0.9333332, 0.96666664, 0.99999994, 1.0333334, 1.0666667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(516, 177), Vector2(440.21265, 177), Vector2(409.73273, 177), Vector2(386.97656, 177), Vector2(368.32925, 177), Vector2(352.37982, 177), Vector2(338.4, 177), Vector2(325.95453, 177), Vector2(314.75867, 177), Vector2(304.6137, 177), Vector2(295.37457, 177), Vector2(286.93176, 177), Vector2(279.19995, 177), Vector2(272.11163, 177), Vector2(265.61206, 177), Vector2(259.65646, 177), Vector2(254.2077, 177), Vector2(249.2348, 177), Vector2(244.71149, 177), Vector2(240.61566, 177), Vector2(236.9285, 177), Vector2(233.63397, 177), Vector2(230.71848, 177), Vector2(228.17053, 177), Vector2(225.98038, 177), Vector2(224.14005, 177), Vector2(222.64288, 177), Vector2(221.4837, 177), Vector2(220.65848, 177), Vector2(220.16446, 177), Vector2(219.99997, 177)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShopPanel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.13333333, 0.16666669, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.3666667, 0.4, 0.43333337, 0.46666667, 0.5, 0.5333333, 0.56666666, 0.59999996, 0.6333333, 0.6666666, 0.7, 0.7333333, 0.76666665, 0.79999995, 0.8333333, 0.8666666, 0.8999999, 0.9333332, 0.96666664, 0.99999994, 1.0333334, 1.0666667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(510, 1.000001), Vector2(491.73883, 1.0000011), Vector2(475.2722, 1.0000011), Vector2(460.4784, 1.0000011), Vector2(447.24017, 1.0000012), Vector2(435.44446, 1.0000012), Vector2(424.98242, 1.0000012), Vector2(415.7495, 1.0000013), Vector2(407.6455, 1.0000013), Vector2(400.5744, 1.0000013), Vector2(394.44443, 1.0000013), Vector2(389.16818, 1.0000013), Vector2(384.6624, 1.0000013), Vector2(380.84818, 1.0000014), Vector2(377.65085, 1.0000014), Vector2(375, 1.0000014), Vector2(372.82953, 1.0000014), Vector2(371.0775, 1.0000014), Vector2(369.6864, 1.0000014), Vector2(368.60284, 1.0000014), Vector2(367.77777, 1.0000014), Vector2(367.16638, 1.0000014), Vector2(366.72818, 1.0000014), Vector2(366.42685, 1.0000014), Vector2(366.2304, 1.0000014), Vector2(366.1111, 1.0000014), Vector2(366.0455, 1.0000014), Vector2(366.0144, 1.0000014), Vector2(366.00284, 1.0000014), Vector2(366.00018, 1.0000014), Vector2(366, 1.0000014)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ExplainPanel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.13406627, -0.042720933]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ShopPanel:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.20226441, 0.03860393]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ShopItemPanel:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.13333333, 0.16666669, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.3666667, 0.4, 0.43333337, 0.46666667, 0.5, 0.5333333, 0.56666666, 0.59999996, 0.6333333, 0.6666666, 0.7, 0.7333333, 0.76666665, 0.79999995, 0.8333333, 0.8666666, 0.8999999, 0.9333332, 0.96666664, 0.99999994, 1.0333334, 1.0666667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.054611444, -0.05461124091698552, -0.05460818757276934, -0.05459495641659862, -0.0545593340653104, -0.05448422180928902, -0.05434763556657894, -0.05412270590687811, -0.05377767794596744, -0.05327591175839527, -0.05257588184962521, -0.0516311773095931, -0.05039050196626404, -0.04879767438563237, -0.04679162741105069, -0.04430640954524278, -0.04127118003648, -0.03761022423427995, -0.03324292103532533, -0.02808379202169964, -0.02204244249500431, -0.01502362535606516, -0.0069271698544906, 0.00235193241941589, 0.0129236356387743, 0.02490270706689168, 0.03840887692888106, 0.05356667625548361, 0.07050562852218789, 0.08935999904422776, 0.110269114]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BuyButton:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 0.13333333, 0.16666669, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.3666667, 0.4, 0.43333337, 0.46666667, 0.5, 0.5333333, 0.56666666, 0.59999996, 0.6333333, 0.6666666, 0.7, 0.7333333, 0.76666665, 0.79999995, 0.8333333, 0.8666666, 0.8999999, 0.9333332, 0.96666664, 0.99999994, 1.0333334, 1.0666667, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(423.99997, 296.99997), Vector2(423.99994, 296.9999), Vector2(423.99957, 296.999), Vector2(423.99796, 296.99496), Vector2(423.99365, 296.98416), Vector2(423.98453, 296.9614), Vector2(423.96796, 296.91998), Vector2(423.94067, 296.85175), Vector2(423.89883, 296.74713), Vector2(423.83798, 296.59497), Vector2(423.75305, 296.3827), Vector2(423.63846, 296.0962), Vector2(423.48798, 295.71997), Vector2(423.29477, 295.23694), Vector2(423.05142, 294.6286), Vector2(422.74997, 293.87497), Vector2(422.3818, 292.95453), Vector2(421.9377, 291.84436), Vector2(421.40796, 290.51996), Vector2(420.78217, 288.95547), Vector2(420.04935, 287.1234), Vector2(419.19797, 284.99496), Vector2(418.21588, 282.53973), Vector2(417.0903, 279.72583), Vector2(415.80798, 276.52), Vector2(414.35492, 272.88733), Vector2(412.7166, 268.7916), Vector2(410.87796, 264.19498), Vector2(408.82327, 259.05826), Vector2(406.53625, 253.34067), Vector2(403.99997, 246.99998)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BuyButton:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.15882497, -0.024538051]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BuyButton:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.1, 1.1666666, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ExitButton:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.06666659, 0.09999992, 0.13333325, 0.16666658, 0.19999993, 0.23333326, 0.2666666, 0.29999992, 0.33333325, 0.3666666, 0.39999992, 0.43333325, 0.46666658, 0.49999994, 0.53333324, 0.5666666, 0.5999999, 0.63333327, 0.66666657, 0.6999999, 0.73333323, 0.7666666, 0.7999999, 0.83333325, 0.8666666, 0.8999999, 0.9333333, 0.9666666, 0.9999999, 1.0333333, 1.0666666, 1.0999999, 1.1333332, 1.1666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-15.000002, -32), Vector2(-15.000002, -31.999966), Vector2(-15.000002, -31.99946), Vector2(-15.000002, -31.997269), Vector2(-15.000002, -31.991365), Vector2(-15.000002, -31.97892), Vector2(-15.000002, -31.956287), Vector2(-15.000002, -31.919016), Vector2(-15.000002, -31.861845), Vector2(-15.000002, -31.778704), Vector2(-15.000002, -31.66271), Vector2(-15.000002, -31.506172), Vector2(-15.000002, -31.300594), Vector2(-15.000002, -31.036665), Vector2(-15.000002, -30.704266), Vector2(-15.000002, -30.292467), Vector2(-15.000002, -29.789532), Vector2(-15.000002, -29.182915), Vector2(-15.000002, -28.459257), Vector2(-15.000002, -27.604395), Vector2(-15.000002, -26.60335), Vector2(-15.000002, -25.440338), Vector2(-15.000002, -24.098764), Vector2(-15.000002, -22.561226), Vector2(-15.000002, -20.809505), Vector2(-15.000002, -18.824587), Vector2(-15.000002, -16.586632), Vector2(-15.000002, -14.075001), Vector2(-15.000002, -11.268234), Vector2(-15.000002, -8.144085), Vector2(-15.000002, -4.6794643), Vector2(-15.000002, -0.85051346), Vector2(-15.000002, 3.367485), Vector2(-15.000002, 8)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ExitButton:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.1666667, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ugi87"]
+_data = {
+&"End": SubResource("Animation_55fv0"),
+&"RESET": SubResource("Animation_ghx6y"),
+&"Start": SubResource("Animation_fwbtm")
+}
+
+[node name="ShopUI" type="Control" unique_id=1161534947]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_right = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55fv0")
+
+[node name="ShopItemPanel" type="Panel" parent="." unique_id=1289917408]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -4.0
+offset_right = -304.3461
+offset_bottom = -13.630371
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.110269114
+mouse_force_pass_scroll_events = false
+theme_override_styles/panel = SubResource("StyleBoxTexture_jhy2k")
+
+[node name="Label" type="Label" parent="ShopItemPanel" unique_id=1830980736]
+layout_mode = 0
+offset_left = 59.12092
+offset_top = 36.71699
+offset_right = 164.12091
+offset_bottom = 59.71699
+text = "Items for Sale"
+label_settings = SubResource("LabelSettings_qdq5c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Flavor" type="Label" parent="ShopItemPanel" unique_id=2037936525]
+layout_mode = 0
+offset_left = -0.19689518
+offset_top = 57.370102
+offset_right = 224.8031
+offset_bottom = 70.91867
+text = "-Forgive me if the prices are kinda scammy lol-"
+label_settings = SubResource("LabelSettings_55fv0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="ShopItemPanel" unique_id=1037914825]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.50253
+offset_top = -56.238197
+offset_right = 77.49747
+offset_bottom = 104.27582
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="ExplainPanel" type="Panel" parent="." unique_id=2078664882]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 219.99997
+offset_top = 177.0
+offset_right = -12.036713
+offset_bottom = -11.300842
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.042720933
+theme_override_styles/panel = SubResource("StyleBoxTexture_jhy2k")
+
+[node name="ItemNamePanel" type="Panel" parent="ExplainPanel" unique_id=105161995]
+layout_mode = 0
+offset_left = -0.28982723
+offset_top = -22.770649
+offset_right = 111.48018
+offset_bottom = -0.048923492
+theme_override_styles/panel = SubResource("StyleBoxTexture_gj3l6")
+
+[node name="ItemName" type="Label" parent="ExplainPanel/ItemNamePanel" unique_id=642768673]
+layout_mode = 0
+offset_left = 6.417938
+offset_top = 2.5879211
+offset_right = 105.89491
+offset_bottom = 19.302246
+text = "nothing!"
+label_settings = SubResource("LabelSettings_5hoxb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemSpritePanel" type="Panel" parent="ExplainPanel" unique_id=533423808]
+layout_mode = 0
+offset_left = 13.517468
+offset_top = 11.587872
+offset_right = 63.517467
+offset_bottom = 61.58787
+rotation = -0.016497934
+theme_override_styles/panel = SubResource("StyleBoxTexture_xijl7")
+
+[node name="ItemSprite" type="TextureRect" parent="ExplainPanel/ItemSpritePanel" unique_id=1187983470]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(42, 42)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.520737
+offset_top = -17.06633
+offset_right = 16.420715
+offset_bottom = 17.237473
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j5q23")
+
+[node name="TextureRect" type="TextureRect" parent="ExplainPanel/ItemSpritePanel" unique_id=1325722748]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = -4.1350136
+offset_top = 52.84791
+offset_right = 19.864986
+offset_bottom = 76.847916
+texture = ExtResource("4_t6jas")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="ExplainPanel/ItemSpritePanel/TextureRect" unique_id=1500768471]
+layout_mode = 0
+offset_left = 2.8763728
+offset_top = 2.174047
+offset_right = 23.882416
+offset_bottom = 25.174047
+text = "ANY"
+label_settings = SubResource("LabelSettings_gj3l6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ExplainPanel/ItemSpritePanel/TextureRect" unique_id=1713819830]
+layout_mode = 0
+offset_left = 18.966696
+offset_top = 1.124501
+offset_right = 39.97274
+offset_bottom = 24.1245
+text = "x"
+label_settings = SubResource("LabelSettings_gj3l6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="ExplainPanel/ItemSpritePanel/TextureRect" unique_id=1511904465]
+layout_mode = 0
+offset_left = 36.055267
+offset_top = 0.1341393
+offset_right = 60.055267
+offset_bottom = 23.13414
+text = "???"
+label_settings = SubResource("LabelSettings_j5q23")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemExplain" type="RichTextLabel" parent="ExplainPanel" unique_id=1911819]
+layout_mode = 0
+offset_left = 73.50982
+offset_top = 8.061628
+offset_right = 269.92767
+offset_bottom = 76.391235
+rotation = -0.009370499
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("6_j5q23")
+theme_override_fonts/bold_font = ExtResource("6_j5q23")
+theme_override_font_sizes/normal_font_size = 12
+text = "nothing!"
+scroll_following_visible_characters = true
+
+[node name="ShopPanel" type="Panel" parent="." unique_id=939815045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 366.0
+offset_top = 1.0000014
+offset_right = 38.06909
+offset_bottom = -220.06537
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.03860393
+scale = Vector2(0.7778543, 0.7778543)
+theme_override_styles/panel = SubResource("StyleBoxTexture_jhy2k")
+
+[node name="Label" type="Label" parent="ShopPanel" unique_id=231002906]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -14.5
+offset_right = 64.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ITEM SHOP"
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyButton" type="Button" parent="." unique_id=616472410]
+layout_mode = 0
+offset_left = 423.99997
+offset_top = 246.99998
+offset_right = 506.99997
+offset_bottom = 284.00003
+rotation = -0.024538051
+theme_override_fonts/font = ExtResource("2_8fhbb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5hoxb")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t6jas")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qdq5c")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
+disabled = true
+text = "BUY"
+
+[node name="ExitButton" type="Button" parent="." unique_id=706412109]
+layout_mode = 0
+offset_left = -15.000002
+offset_top = -32.0
+offset_right = 35.61165
+offset_bottom = -9.056789
+rotation = 0.0685439
+theme_override_fonts/font = ExtResource("2_8fhbb")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_ghx6y")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ugi87")
+theme_override_styles/hover = SubResource("StyleBoxTexture_j5q23")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fwbtm")
+disabled = true
+text = "Exit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1319648673]
+libraries/ = SubResource("AnimationLibrary_ugi87")
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

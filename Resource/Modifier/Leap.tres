@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://b52pjp0l061t6"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_nabhr"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_2fhn1"]
+
+[resource]
+script = ExtResource("1_nabhr")
+texture = ExtResource("2_2fhn1")
+modifier_id = "Leap"
+modifier_name = "跳躍な"
+explanation = "この剣で攻撃時Playerがその方向に飛ぶ "

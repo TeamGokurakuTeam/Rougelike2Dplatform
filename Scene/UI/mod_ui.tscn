@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://b6vh5w3ybhsjo"]
+
+[ext_resource type="Script" uid="uid://by2ky6pvgepnf" path="res://Scene/UI/mod_ui.gd" id="1_werfn"]
+[ext_resource type="PackedScene" uid="uid://c20v8nds53bgs" path="res://Scene/carouse_container.tscn" id="2_jnadk"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="3_jnadk"]
+[ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="3_werfn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emuyo"]
+atlas = ExtResource("3_werfn")
+region = Rect2(16, 336, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_werfn"]
+texture = SubResource("AtlasTexture_emuyo")
+texture_margin_left = 8.0
+texture_margin_top = 4.0
+texture_margin_right = 8.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_67pkm"]
+font = ExtResource("3_jnadk")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ModUI" type="Control" unique_id=1180346681]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_werfn")
+
+[node name="Control" type="Control" parent="." unique_id=2009876980]
+clip_contents = true
+anchors_preset = 0
+offset_top = 204.0
+offset_right = 181.0
+offset_bottom = 262.0
+
+[node name="CarouseContainer" parent="Control" unique_id=438782455 node_paths=PackedStringArray("position_offset_node") instance=ExtResource("2_jnadk")]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -212.0
+offset_right = 76.0
+offset_bottom = -212.0
+spacing = 0.0
+opacity_strength = 0.5
+scale_strength = 0.2
+selected_index = 1
+position_offset_node = NodePath("ModContainer")
+
+[node name="ModContainer" type="Control" parent="Control/CarouseContainer" unique_id=154540731]
+anchors_preset = 0
+offset_left = -60.0
+offset_top = 247.0
+offset_right = -19.999985
+offset_bottom = 287.0
+
+[node name="Panel4" type="Panel" parent="." unique_id=907094898]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -227.0
+offset_top = -21.0
+offset_right = -132.55556
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_werfn")
+
+[node name="ModName" type="Label" parent="Panel4" unique_id=1119051682]
+clip_contents = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 15.0
+text = "test"
+label_settings = SubResource("LabelSettings_67pkm")
+horizontal_alignment = 1
+vertical_alignment = 1

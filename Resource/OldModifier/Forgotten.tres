@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://bf5sr4eh6ob2g"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_4wmlb"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_brpop"]
+
+[resource]
+script = ExtResource("1_4wmlb")
+texture = ExtResource("2_brpop")
+modifier_id = "Forgotten"
+modifier_name = "忘れられた"
+explanation = "・この武器の攻撃力が-5下がる
+・自身の最大HPが-10下がる
+・「英雄」と合体する時に「特別な修飾子」になる"

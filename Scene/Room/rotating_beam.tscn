@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://byhvlgtgsoruw"]
+
+[ext_resource type="Script" uid="uid://draxp6q5yqqw5" path="res://RotatingBeam.gd" id="1_g7huu"]
+[ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="2_5b3he"]
+[ext_resource type="Texture2D" uid="uid://cf2q2qtc4fjka" path="res://Assets/Pixel Holy Spell Effect 32x32 Pack 3/00.png" id="2_wsodn"]
+[ext_resource type="Texture2D" uid="uid://dnf8ndeicbhgl" path="res://Assets/lightning/lightning/lightning_v2_6.png" id="7_k5enn"]
+[ext_resource type="Texture2D" uid="uid://bp2qqbj20igge" path="res://Assets/lightning/lightning/lightning_v2_7.png" id="8_vtsu2"]
+[ext_resource type="Texture2D" uid="uid://b7ei6a4at1dhe" path="res://Assets/lightning/lightning/lightning_v2_8.png" id="9_134cp"]
+[ext_resource type="Script" uid="uid://cjslcyd3w0p2j" path="res://Script/Components/TrapComponent.gd" id="17_d7vrv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75vwg"]
+size = Vector2(20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ape4"]
+atlas = ExtResource("7_k5enn")
+region = Rect2(0, 0, 104, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40xi1"]
+atlas = ExtResource("8_vtsu2")
+region = Rect2(0, 0, 104, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fomg"]
+atlas = ExtResource("9_134cp")
+region = Rect2(0, 0, 104, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wgeh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ape4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40xi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fomg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsodn"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b3he"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wgeh"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d0l2"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wn28"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(256, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lycg"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(320, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufspa"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(384, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyoic"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(448, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0hkn"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(512, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj54e"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(576, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m44pm"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(640, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqlqj"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(704, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6emtl"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(768, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88m6l"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(832, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8a5x"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(896, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7vrv"]
+atlas = ExtResource("2_wsodn")
+region = Rect2(960, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5b3he"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsodn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b3he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wgeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d0l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wn28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lycg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufspa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyoic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0hkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj54e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m44pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqlqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6emtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88m6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8a5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7vrv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="RotatingBeam" type="Node2D" unique_id=1288819283]
+process_mode = 1
+script = ExtResource("1_g7huu")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=294448172]
+
+[node name="Hitbox" parent="Pivot" unique_id=1299649668 instance=ExtResource("2_5b3he")]
+collision_layer = 1
+collision_mask = 5
+damage = 1.0
+is_continuous = true
+damage_source_type = 2
+
+[node name="CollisionShape2D" parent="Pivot/Hitbox" index="0" unique_id=1399399970]
+position = Vector2(0, 61.5)
+scale = Vector2(1, 7.1199975)
+shape = SubResource("RectangleShape2D_75vwg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot/Hitbox" unique_id=11229514]
+position = Vector2(0, 64)
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_2wgeh")
+frame_progress = 0.31120092
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1993432426]
+z_index = 2
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_5b3he")
+frame_progress = 0.10466921
+
+[node name="TrapComponent" type="Node2D" parent="." unique_id=1643128376]
+script = ExtResource("17_d7vrv")
+
+[connection signal="body_entered" from="Pivot/Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="trap_disabled" from="TrapComponent" to="." method="_on_trap_component_trap_disabled"]
+[connection signal="trap_enabled" from="TrapComponent" to="." method="_on_trap_component_trap_enabled"]
+
+[editable path="Pivot/Hitbox"]

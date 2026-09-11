@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds4gq1w67leme"]
 
-[ext_resource type="Texture2D" uid="uid://dividxtjc5vxn" path="res://Assets/Image/Accessory/acc002.png" id="1_6g01b"]
+[ext_resource type="Texture2D" uid="uid://dividxtjc5vxn" path="res://Assets/Weapon/Accessory/acc002.png" id="1_6g01b"]
 
 [node name="Wings" type="Node2D" unique_id=498058561]
 

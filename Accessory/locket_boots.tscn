@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cb0s4hfuyog2c"]
 
-[ext_resource type="Texture2D" uid="uid://di0ljav37n5qf" path="res://Assets/Image/Accessory/acc003.png" id="1_d2wbp"]
+[ext_resource type="Texture2D" uid="uid://di0ljav37n5qf" path="res://Assets/Weapon/Accessory/acc003.png" id="1_d2wbp"]
 
 [node name="Locket_Boots" type="Node2D" unique_id=579228468]
 

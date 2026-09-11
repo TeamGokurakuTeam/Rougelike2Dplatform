@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopItemBuyList" format=3 uid="uid://bsmq0t57vr6w2"]
+
+[ext_resource type="Resource" uid="uid://c0b623boq2p7d" path="res://Resource/HealItem/MegaHealPotion.tres" id="1_lh8mb"]
+[ext_resource type="Resource" uid="uid://bimvibq616b67" path="res://Resource/HealItem/HealPotion.tres" id="2_dy7cq"]
+[ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="3_lh8mb"]
+[ext_resource type="Resource" uid="uid://5ujllemb1cp" path="res://Resource/Modifier/Afterimage.tres" id="4_dy7cq"]
+[ext_resource type="Resource" uid="uid://q17v86qdk2us" path="res://Resource/Modifier/AutoAttack.tres" id="5_skb4m"]
+[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="6_b31jr"]
+[ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="7_3vk03"]
+
+[resource]
+script = ExtResource("7_3vk03")
+item_list = Array[Resource]([ExtResource("2_dy7cq"), ExtResource("2_dy7cq"), ExtResource("1_lh8mb"), ExtResource("3_lh8mb"), ExtResource("4_dy7cq"), ExtResource("5_skb4m"), ExtResource("6_b31jr")])

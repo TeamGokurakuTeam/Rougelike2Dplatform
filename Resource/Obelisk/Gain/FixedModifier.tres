@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ObeliskResource" format=3 uid="uid://clm62mw8xcg3r"]
+
+[ext_resource type="Script" uid="uid://c0o2l126of76x" path="res://Resource/Obelisk/RiskAndReturn.gd" id="1_q8yaq"]
+
+[resource]
+script = ExtResource("1_q8yaq")
+resource_id = "FixedModifier"
+explanation_text = "自分の所持している修飾子の中から一つランダムで選び、それを現在の剣につける。
+その修飾子は、死ぬまで効果を発揮するようになる。"

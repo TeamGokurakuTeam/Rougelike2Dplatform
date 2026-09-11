@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://duur611rb4741"]
+
+[ext_resource type="Texture2D" uid="uid://icbmrklmhvc8" path="res://Assets/UI/ObeliskPanel.png" id="1_ic4bv"]
+
+[resource]
+texture = ExtResource("1_ic4bv")
+region_rect = Rect2(136, 0, 64, 98)

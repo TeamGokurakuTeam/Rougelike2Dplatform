@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://d0073orlcwy78"]
+
+[ext_resource type="Texture2D" uid="uid://3m7hndvvxape" path="res://Assets/Particle/Free Smoke Fx  Pixel 06.png" id="1_rfh57"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
+atlas = ExtResource("1_rfh57")
+region = Rect2(209, 1355, 29, 47)
+
+[sub_resource type="Gradient" id="Gradient_beadn"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wagxx"]
+gradient = SubResource("Gradient_beadn")
+
+[sub_resource type="Curve" id="Curve_2dpp0"]
+_data = [Vector2(0.73977697, 1), 0.0, -0.07225212, 0, 0, Vector2(1, 0), -3.4796968, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wagxx"]
+curve = SubResource("Curve_2dpp0")
+
+[sub_resource type="Curve" id="Curve_1fpfe"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o5pat"]
+curve = SubResource("Curve_1fpfe")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_beadn"]
+lifetime_randomness = 0.13
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1.475, 1.96, 1)
+angle_min = -184.7
+angle_max = -167.9
+direction = Vector3(0, -1, 0)
+spread = 7.105
+initial_velocity_min = 221.56999
+initial_velocity_max = 271.13
+orbit_velocity_min = -0.20999992
+orbit_velocity_max = 0.1630001
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 29.149977
+gravity = Vector3(0, 150, 0)
+linear_accel_min = 13.989998
+linear_accel_max = 32.069996
+radial_accel_min = 9.909998
+radial_accel_max = 17.489998
+tangential_accel_min = 9.909998
+tangential_accel_max = 26.239998
+damping_max = 13.994
+scale_min = 0.5
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_wagxx")
+scale_over_velocity_max = 600.8
+scale_over_velocity_curve = SubResource("CurveTexture_o5pat")
+color = Color(0.5019608, 0.8509804, 0.25882354, 1)
+color_ramp = SubResource("GradientTexture1D_wagxx")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehy3x"]
+atlas = ExtResource("1_rfh57")
+region = Rect2(12, 1416, 40, 48)
+
+[sub_resource type="Curve" id="Curve_8icjn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.732342, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -10.300534, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_row1a"]
+curve = SubResource("Curve_8icjn")
+
+[sub_resource type="Gradient" id="Gradient_2dpp0"]
+colors = PackedColorArray(0.32358396, 0.47073478, 0.83642673, 1, 1, 0.34312904, 0.9920693, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8sxql"]
+gradient = SubResource("Gradient_2dpp0")
+
+[sub_resource type="CurveTexture" id="CurveTexture_1fpfe"]
+curve = SubResource("Curve_2dpp0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sskq3"]
+lifetime_randomness = 0.13
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1.475, 1.96, 1)
+angle_min = -184.7
+angle_max = -146.9
+inherit_velocity_ratio = 0.105
+direction = Vector3(0, -1, 0)
+spread = 7.105
+initial_velocity_min = 195.34
+initial_velocity_max = 244.9
+angular_velocity_min = -209.91002
+angular_velocity_max = 289.68
+orbit_velocity_min = -0.011999906
+orbit_velocity_max = 0.31500012
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 29.149977
+gravity = Vector3(0, 200, 0)
+linear_accel_min = 21.569998
+linear_accel_max = 32.069996
+radial_accel_min = 9.909998
+radial_accel_max = 39.649998
+tangential_accel_min = 9.909998
+tangential_accel_max = 26.239998
+damping_max = 13.994
+scale_min = 0.59999996
+scale_curve = SubResource("CurveTexture_1fpfe")
+scale_over_velocity_max = 600.8
+scale_over_velocity_curve = SubResource("CurveTexture_o5pat")
+color = Color(0.61282, 0.974832, 0.38122287, 1)
+color_ramp = SubResource("GradientTexture1D_wagxx")
+color_initial_ramp = SubResource("GradientTexture1D_8sxql")
+alpha_curve = SubResource("CurveTexture_row1a")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.47999996
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sch0"]
+atlas = ExtResource("1_rfh57")
+region = Rect2(276, 1302, 23, 26)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5hoxb"]
+lifetime_randomness = 0.13
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(1.475, 1.96, 1)
+angle_min = -184.7
+angle_max = -184.7
+direction = Vector3(0, -1, 0)
+spread = 7.105
+initial_velocity_min = 201.15999
+initial_velocity_max = 250.72
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.1400001
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 29.149977
+gravity = Vector3(0, 150, 0)
+linear_accel_min = 13.989998
+linear_accel_max = 32.069996
+radial_accel_min = 9.909998
+radial_accel_max = 17.489998
+tangential_accel_min = 9.909998
+tangential_accel_max = 26.239998
+damping_max = 13.994
+scale_min = 0.5
+scale_max = 1.3
+scale_curve = SubResource("CurveTexture_wagxx")
+scale_over_velocity_max = 600.8
+scale_over_velocity_curve = SubResource("CurveTexture_o5pat")
+color = Color(0.5019608, 0.8509804, 0.25882354, 1)
+color_ramp = SubResource("GradientTexture1D_wagxx")
+
+[node name="SwimParticles" type="Node2D" unique_id=1478555142]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1173495031]
+z_index = 2
+position = Vector2(974, -121)
+emitting = false
+amount = 40
+texture = SubResource("AtlasTexture_jhy2k")
+lifetime = 2.0
+randomness = 0.39
+process_material = SubResource("ParticleProcessMaterial_beadn")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="." unique_id=57132931]
+z_index = 2
+position = Vector2(974, -121)
+emitting = false
+amount = 20
+texture = SubResource("AtlasTexture_ehy3x")
+lifetime = 2.0
+randomness = 0.39
+process_material = SubResource("ParticleProcessMaterial_sskq3")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=1258971152]
+z_index = 2
+position = Vector2(982, -118)
+emitting = false
+amount = 35
+texture = SubResource("AtlasTexture_6sch0")
+lifetime = 2.0
+randomness = 0.39
+process_material = SubResource("ParticleProcessMaterial_5hoxb")

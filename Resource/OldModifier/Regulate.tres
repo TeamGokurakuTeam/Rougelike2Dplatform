@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://biuimvxyevw2a"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_kllqs"]
+[ext_resource type="Texture2D" uid="uid://bfa2rrsincfcp" path="res://Assets/Modifier/Word3.png" id="2_fk5ft"]
+
+[resource]
+script = ExtResource("1_kllqs")
+ModifierRank = 2
+texture = ExtResource("2_fk5ft")
+modifier_id = "Regulate"
+modifier_name = "規制する"
+color_rarity = Color(0.4853649, 0, 0.066521294, 1)
+explanation = "・この修飾子がある時、[規制]属性として扱う
+・この修飾子がついた武器が\"剣\"だった時、攻撃力を[規制]にする
+・この修飾子がついた武器が\"弓\"だった時、移動速度を[規制]にする"

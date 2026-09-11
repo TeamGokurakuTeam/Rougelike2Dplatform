@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c20v8nds53bgs"]
+
+[ext_resource type="Script" uid="uid://csc5hqidm3ffv" path="res://Scene/carouse_container.gd" id="1_kxvo2"]
+
+[node name="CarouseContainer" type="Control" unique_id=292501455]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kxvo2")

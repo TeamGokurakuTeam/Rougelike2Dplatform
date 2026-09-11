@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://brnl1x3pmt0vd"]
+
+[ext_resource type="Script" uid="uid://rcp6yorupimn" path="res://what_is_tree.gd" id="1_gc5l7"]
+[ext_resource type="Texture2D" uid="uid://w5ihvx1i2vo4" path="res://Assets/Credits.png" id="2_h3bdo"]
+[ext_resource type="Shader" uid="uid://be76cm77gy4pc" path="res://windsway.gdshader" id="2_rpe4i"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="3_h3bdo"]
+[ext_resource type="Texture2D" uid="uid://bldxpebbei5hi" path="res://Assets/Keyboard Letters and Symbols.png" id="4_28spo"]
+[ext_resource type="AudioStream" uid="uid://de3lw3apsncg4" path="res://Assets/SoundEffect/エタソ出現.mp3" id="6_a7exv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvxgu"]
+shader = ExtResource("2_rpe4i")
+shader_parameter/margin_scale = 1.0
+shader_parameter/wind_strength = 2.0
+shader_parameter/wind_scale = 10.0
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_height_start = 0.0
+shader_parameter/sway_strength = 0.130000006175
+shader_parameter/sway_speed = 0.28
+shader_parameter/sway_height_start = 0.210000009975
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhy2k"]
+radius = 34.058773
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
+atlas = ExtResource("4_28spo")
+region = Rect2(33, 66, 13, 12)
+
+[node name="WhatIsTree" type="Node2D" unique_id=1123734980]
+script = ExtResource("1_gc5l7")
+text = "Funding for this program was made possible by viewers like you.
+
+Cor
+Corpo
+Corpora
+Corporat
+Corporatt
+Corporattt
+Corporatttt
+Corporattttt
+Corporatttttt
+Corporattttttt
+Corporatttttttt
+▒orporattttttttt
+▒▒rporatttttttttt
+▒▒▒▒orattttttttttt
+▒▒▒▒▒▒▒▒tttttttttttt
+
+
+
+you got sword."
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213848649]
+material = SubResource("ShaderMaterial_hvxgu")
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_h3bdo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1959599431]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=417719122]
+position = Vector2(0, 43)
+shape = SubResource("CircleShape2D_jhy2k")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=636966882]
+z_index = 1
+offset_left = -206.0
+offset_top = 19.0
+offset_right = -64.0
+offset_bottom = 58.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("3_h3bdo")
+theme_override_font_sizes/normal_font_size = 12
+text = "あああ
+あああ
+あああ
+あああ
+あああ"
+scroll_following_visible_characters = true
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters_behavior = 1
+
+[node name="S" type="Sprite2D" parent="." unique_id=1649745771]
+position = Vector2(0, 56)
+texture = SubResource("AtlasTexture_jhy2k")
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=615213187]
+stream = ExtResource("6_a7exv")
+volume_db = -16.0
+pitch_scale = 0.8
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ShopItemBuyList" format=3 uid="uid://djpmh3dydw550"]
+
+[ext_resource type="Resource" uid="uid://c0b623boq2p7d" path="res://Resource/HealItem/MegaHealPotion.tres" id="1_ch85e"]
+[ext_resource type="Resource" uid="uid://bimvibq616b67" path="res://Resource/HealItem/HealPotion.tres" id="1_n56r5"]
+[ext_resource type="Resource" uid="uid://dxcbhgtr4uqsq" path="res://Resource/Modifier/Slash_Duck.tres" id="3_bg1yw"]
+[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="4_174pl"]
+[ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="5_174pl"]
+[ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="5_pe2w1"]
+[ext_resource type="Resource" uid="uid://byyrtyhe8h857" path="res://Resource/Modifier/Bounce_Duck.tres" id="6_7sf1x"]
+
+[resource]
+script = ExtResource("5_174pl")
+item_list = Array[Resource]([ExtResource("1_ch85e"), ExtResource("1_n56r5"), ExtResource("3_bg1yw"), ExtResource("4_174pl"), ExtResource("5_pe2w1"), ExtResource("6_7sf1x")])

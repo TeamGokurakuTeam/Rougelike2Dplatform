@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dfg54e0pp0rie"]
+
+[ext_resource type="Script" uid="uid://cf8in0mmih3iy" path="res://Scene/Room/next_floor_detector.gd" id="1_38dxw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv1ba"]
+size = Vector2(53, 43)
+
+[node name="NextFloorDetector" type="Area2D" unique_id=1352035702]
+script = ExtResource("1_38dxw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1011964338]
+shape = SubResource("RectangleShape2D_jv1ba")

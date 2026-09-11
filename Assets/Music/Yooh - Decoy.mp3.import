@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cva8xydyvx4r8"
+path="res://.godot/imported/Yooh - Decoy.mp3-bf230a1034c86c7f325d7878c4247e81.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Yooh - Decoy.mp3"
+dest_files=["res://.godot/imported/Yooh - Decoy.mp3-bf230a1034c86c7f325d7878c4247e81.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
