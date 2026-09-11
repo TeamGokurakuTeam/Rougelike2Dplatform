@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="8_fg2dp"]
 [ext_resource type="Resource" uid="uid://dif27orikbsbn" path="res://Resource/Modifier/Stillblade.tres" id="9_wl3lo"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="10_q0o30"]
+[ext_resource type="Resource" uid="uid://0hu4fi4qle3m" path="res://Resource/Modifier/ChargeSplitSlash.tres" id="11_52dfc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jcjj"]
 atlas = ExtResource("2_xa1qw")
@@ -542,7 +543,7 @@ _data = {
 [node name="SkullWolf" unique_id=1094349948 instance=ExtResource("1_0ysf1")]
 script = ExtResource("2_40k88")
 dash_speed = 2000.0
-mod_resource = Array[ExtResource("3_lmtl0")]([ExtResource("4_52dfc"), ExtResource("5_usc5x"), ExtResource("6_e40u6"), ExtResource("7_5tex2"), ExtResource("8_fg2dp"), ExtResource("9_wl3lo"), ExtResource("10_q0o30")])
+mod_resource = Array[ExtResource("3_lmtl0")]([ExtResource("4_52dfc"), ExtResource("5_usc5x"), ExtResource("6_e40u6"), ExtResource("7_5tex2"), ExtResource("8_fg2dp"), ExtResource("9_wl3lo"), ExtResource("10_q0o30"), ExtResource("11_52dfc")])
 jump_velocity = -250.0
 max_speed = 60.0
 acceleration = 20
