@@ -25,6 +25,9 @@
 [ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="15_6dg78"]
 [ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="18_wm8gy"]
 [ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="19_nlvrf"]
+[ext_resource type="AudioStream" uid="uid://dpxersaoneo8a" path="res://Assets/Enemy/Bat/Batはばたく.mp3" id="26_8jdwp"]
+[ext_resource type="AudioStream" uid="uid://dkgtxyno36h4m" path="res://Assets/Enemy/Bat/Batダメージ.mp3" id="27_6x5c0"]
+[ext_resource type="AudioStream" uid="uid://bksemdqcmm01" path="res://Assets/Enemy/Bat/Bat噛む.mp3" id="28_31mju"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3uev"]
 atlas = ExtResource("9_ayh16")
@@ -232,6 +235,102 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer2:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer2:pitch_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioStreamPlayer3:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AudioStreamPlayer3:pitch_scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.4]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AudioStreamPlayer3:volume_db")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yrim7"]
 _data = {
@@ -332,6 +431,19 @@ wait_time = 0.1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=1419202774]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_atx0t")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="12" unique_id=904143750]
+stream = ExtResource("26_8jdwp")
+volume_db = -10.0
+pitch_scale = 1.5
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." index="13" unique_id=950430103]
+stream = ExtResource("27_6x5c0")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." index="14" unique_id=281458676]
+stream = ExtResource("28_31mju")
+volume_db = -5.0
+pitch_scale = 1.4
 
 [connection signal="recieved_damage" from="Hurtbox" to="StateMachine/Chase" method="_on_hurtbox_recieved_damage"]
 [connection signal="timeout" from="PathTimer" to="." method="_on_path_timer_timeout"]
