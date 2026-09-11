@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cg3uwojruxkh6" path="res://Scene/Room/Floor1/BossRoom.gd" id="2_at7fs"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="2_mvoro"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="3_3dwrt"]
+[ext_resource type="PackedScene" uid="uid://bthj1ytrgopek" path="res://Scene/Enemy/BOSS/GolemBoss.tscn" id="3_5nrqa"]
 [ext_resource type="Texture2D" uid="uid://dufs6hyelkf5p" path="res://Assets/Blighted_Stone_Catalyst.png" id="7_2bkeo"]
 [ext_resource type="Texture2D" uid="uid://dktuj0ydds5j2" path="res://Assets/BOSS/Character_sheet.png" id="7_4n0ex"]
 [ext_resource type="Script" uid="uid://c7ox6e5n2d6j1" path="res://camera.gd" id="7_dci1e"]
@@ -1999,6 +2000,7 @@ animations = [{
 
 [node name="BossRoom" unique_id=423967005 instance=ExtResource("1_esdj3")]
 script = ExtResource("2_at7fs")
+boss_scene = ExtResource("3_5nrqa")
 battle_bgm_type = 0
 
 [node name="BackGround" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="0" unique_id=1098702387]

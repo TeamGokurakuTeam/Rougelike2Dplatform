@@ -9,10 +9,11 @@ func Enter() -> void:
 	if parent.is_rage:
 		for i in 3:
 			if i == 2:
-				#アニメーション作ったほうが良さそう
-				await get_tree().create_timer(2.0).timeout
-			anim_player.play("Slam")
-			await get_tree().create_timer(0.5).timeout
+				anim_player.play("RageSlam")
+				await get_tree().create_timer(1.3).timeout
+			else:
+				anim_player.play("Slam")
+				await get_tree().create_timer(0.5).timeout
 			if i != 2:
 				parent.spawn_slam_custom_bullet(randi_range(20, 40))
 			else:
