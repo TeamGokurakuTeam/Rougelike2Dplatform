@@ -337,6 +337,45 @@ func charge_split_slash() -> void:
 		get_tree().current_scene.add_child(slash)
 	player.hp_component.apply_damage(5, DamageNumber.COLOR_DAMAGE_SELF)
 
+
+#重複レベルUp
+func _apply_random_levelup() -> void:
+	var stackable_mods = ["DampingSpeedUp","HeavyStrike","Expanding",
+	"Swift","Slash_Pierce","Bounce_Duck",
+	"Bomb_Duck","Rampage","Stillblade","RevengeSlash"]
+	var candidates: Array[String] = []
+	for id in stackable_mods:
+		if modifiers_ids.has(id):
+			candidates.append(id)
+	if candidates.size() <= 1:
+		for id in candidates:
+			modifiers_ids[id] += 1
+	else:
+		candidates.shuffle()
+		var pick1 = candidates[0]
+		var pick2 = candidates[1]
+		modifiers_ids[pick1] += 1
+		modifiers_ids[pick2] += 1
+	var all_mods: Array[String] = []
+	for id in modifiers_ids.keys():
+		all_mods.append(id)
+	for id in lock_modifiers_ids.keys():
+		all_mods.append(id)
+	all_mods.erase("LevelUp")
+	if all_mods.size() > 0:
+		all_mods.shuffle()
+		var delete_count = min(2, all_mods.size())
+		for i in range(delete_count):
+			var del_id = all_mods[i]
+			if modifiers_ids.has(del_id):
+				modifiers_ids.erase(del_id)
+			elif lock_modifiers_ids.has(del_id):
+				lock_modifiers_ids.erase(del_id)
+	if modifiers_ids.has("LevelUp"):
+		modifiers_ids.erase("LevelUp")
+
+
+
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
 
@@ -409,6 +448,7 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 		mults.charge_damage_mult *= 0.9
 	return mults
 
+
 func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	var mults: AttackSpeedMultiplier = AttackSpeedMultiplier.new()
 
@@ -467,6 +507,10 @@ func trigger_modifier_when_attack() -> void:
 	if has_modifiers("Bounce_Duck"):
 		bounceduck()
 	#アヒル爆弾
+#重複レベルUp
+	if has_modifiers("LevelUp"):
+		_apply_random_levelup()
+
 
 func trigger_modifier_when_strong_attack() -> void:
 	if has_modifiers("ChargeSplitSlash"):
