@@ -362,7 +362,7 @@ class AttackSpeedMultiplier:
 	var charge_speed_mult : float = 1.0			# チャージ速度
 	var attack_speed_mult : float = 1.0			# 攻撃速度
 	var charge_attack_speed_mult : float = 1.0	# チャージ攻撃速度
-
+##攻撃力
 func calculate_damage_multiplier() -> AttackDamageMultiplier:
 	var mults: AttackDamageMultiplier = AttackDamageMultiplier.new()
 
@@ -379,8 +379,8 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.damage_mult *= 0.9 ** level
-		mults.charge_damage_mult *= 0.9 ** level
+		mults.damage_mult *= 0.8 ** level
+		mults.charge_damage_mult *= 0.8 ** level
 
 	# 重撃
 	if has_modifiers("HeavyStrike"):
@@ -405,27 +405,32 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 
 	#残影な
 	if has_modifiers("Afterimage"):
-		mults.damage_mult *= 0.9
-		mults.charge_damage_mult *= 0.9
+		var level : int = get_modifiers_level("Afterimage")
+		mults.damage_mult *= 0.9 ** level
+		mults.charge_damage_mult *= 0.9 ** level
 	return mults
-
+##攻撃速度
 func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	var mults: AttackSpeedMultiplier = AttackSpeedMultiplier.new()
 
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.attack_speed_mult *= (1 + 0.1 * level)
-		mults.charge_attack_speed_mult *= (1 + 0.1 * level)
+		mults.attack_speed_mult *= (1 + 0.2 * level)
+		mults.charge_attack_speed_mult *= (1 + 0.2 * level)
 	
 	# 重撃
 	if has_modifiers("HeavyStrike"):
 		var level : int = get_modifiers_level("HeavyStrike")
 		mults.attack_speed_mult *= 0.8 ** level
 
+	#自動攻撃
+	if has_modifiers("AutoAttack"):
+		var level : int = get_modifiers_level("AutoAttack")
+		if level >= 2:
+			mults.attack_speed_mult *= 1.05 ** (level - 1)
 	mults.attack_speed_mult = min(mults.attack_speed_mult, max_speed_scale)
 	mults.charge_attack_speed_mult = min(mults.charge_attack_speed_mult, max_speed_scale)
-
 	return mults
 
 func _on_hitbox_damage_dealt(hurtbox : Hurtbox) -> void:
@@ -442,7 +447,7 @@ func _on_stillblade_timer_timeout() -> void:
 	stillblade_stack = min(stillblade_stack + 1, max_stillblade_stack)
 	if stillblade_stack >= max_stillblade_stack:
 		stillblade_timer.stop()
-
+##攻撃時
 func trigger_modifier_when_attack() -> void:
 	modifier_use_count += 1
 
