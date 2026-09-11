@@ -1,5 +1,10 @@
 extends Node
 
+const COLOR_DAMAGE_DEFAULT : Color = Color("ffffff") # 敵などが受けるダメージ
+const COLOR_DAMAGE_PLAYER : Color = Color("ff0000") # プレイヤーが受けるダメージ
+const COLOR_DAMAGE_SELF : Color = Color("6f0000ff") # 自傷ダメージ
+const COLOR_HEAL : Color = Color("00ffa7") # 回復
+
 func display_number(value : float, position : Vector2, is_critical : bool, color : Color = "#FFF") -> void:
 	var number : Label = Label.new()
 	number.global_position = position

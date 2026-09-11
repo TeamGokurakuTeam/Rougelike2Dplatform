@@ -136,7 +136,7 @@ func _is_one_time_modifier(id : String) -> bool:
 func apply_instant_modifier(id : String) -> void:
 	if id == "RevolutionResolve":
 		if player.mod_resource_ids.size() == 1 and player.hp_component.hp <= 10:
-			player.hp_component.restore_hp()
+			player.hp_component.restore_hp(true)
 
 func decrease_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
@@ -178,7 +178,7 @@ func _try_rebirth_resolve() -> void:
 	modifiers_ids.clear()
 	_reset_non_locked_modifier_states()
 	add_lock_modifier("RebirthResolve")
-	player.hp_component.restore_hp()
+	player.hp_component.restore_hp(true)
 
 func _reset_non_locked_modifier_states() -> void:
 	if not has_modifiers("Rampage"):
@@ -202,31 +202,6 @@ func _physics_process(delta: float) -> void:
 
 func has_modifiers(name : String):
 	return modifiers_ids.has(name) or lock_modifiers_ids.has(name)
-
-func attack_trigger_modifier() -> void:
-	modifier_use_count += 1
-	
-	if has_modifiers("Bloodletting"):
-		bloodletting(mouse_direction, offset_length)
-#跳躍(Leap)
-	if has_modifiers("Leap"):
-		leap_forward()
-#残影な(Afterimage)
-	if has_modifiers("Afterimage"):
-		afterimage_slash()
-#破裂し斬撃する(BurstSlasher)
-	if has_modifiers("Burstslasher"):
-		burst_slash()
-#斬：複製
-	if has_modifiers("FallSlashing"):
-		fall_slashing()
-#アヒル
-	if has_modifiers("Slash_Duck"):
-		slashduck()
-#アヒルバウンス
-	if has_modifiers("Bounce_Duck"):
-		bounceduck()
-#アヒル爆弾
 
 func get_modifiers_level(name : String) -> int:
 	var sum : int = 0
@@ -321,8 +296,7 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		if has_modifiers("Slash_Pierce"):
 			slash.set_collision_mask_value(8, false)
 		get_tree().root.add_child(slash)
-		DamageNumber.display_number(2, global_position, false, Color("6f0000ff"))
-		player.hp_component.hp -= 1 #1は自傷ダメージ
+		player.hp_component.apply_damage(1, DamageNumber.COLOR_DAMAGE_SELF) #自傷ダメージ
 # アヒル
 func slashduck() -> void:
 	if randf() < 0.6:
@@ -351,6 +325,17 @@ func bounceduck() -> void:
 	var random_y: float = randf_range(-300, -150)
 	duck.velocity = Vector2(random_x, random_y)
 	get_tree().root.add_child(duck)
+
+func charge_split_slash() -> void:
+	if player.hp_component.hp <= 5:
+		return
+	for i in range(-2, 3):	# [-2, -1, 0, 1, 2]
+		var slash : PlayerSlashProjectile = PLAYER_SLASH.instantiate()
+		var rotate_angle : float = deg_to_rad(i * 10)
+		slash.direction = mouse_direction.normalized().rotated(rotate_angle)
+		slash.global_position = global_position
+		get_tree().current_scene.add_child(slash)
+	player.hp_component.apply_damage(5, DamageNumber.COLOR_DAMAGE_SELF)
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
@@ -394,8 +379,8 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.damage_mult *= 0.5 ** level
-		mults.charge_damage_mult *= 0.5 ** level
+		mults.damage_mult *= 0.9 ** level
+		mults.charge_damage_mult *= 0.9 ** level
 
 	# 重撃
 	if has_modifiers("HeavyStrike"):
@@ -418,6 +403,10 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 		mults.damage_plus += 50
 		mults.charge_damage_plus += 50
 
+	#残影な
+	if has_modifiers("Afterimage"):
+		mults.damage_mult *= 0.9
+		mults.charge_damage_mult *= 0.9
 	return mults
 
 func calculate_speed_multiplier() -> AttackSpeedMultiplier:
@@ -426,8 +415,8 @@ func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.attack_speed_mult *= (1 + 0.2 * level)
-		mults.charge_attack_speed_mult *= (1 + 0.2 * level)
+		mults.attack_speed_mult *= (1 + 0.1 * level)
+		mults.charge_attack_speed_mult *= (1 + 0.1 * level)
 	
 	# 重撃
 	if has_modifiers("HeavyStrike"):
@@ -453,7 +442,35 @@ func _on_stillblade_timer_timeout() -> void:
 	stillblade_stack = min(stillblade_stack + 1, max_stillblade_stack)
 	if stillblade_stack >= max_stillblade_stack:
 		stillblade_timer.stop()
-		
+
+func trigger_modifier_when_attack() -> void:
+	modifier_use_count += 1
+
+	if has_modifiers("Bloodletting"):
+		bloodletting(mouse_direction, offset_length)
+	#跳躍(Leap)
+	if has_modifiers("Leap"):
+		leap_forward()
+	#残影な(Afterimage)
+	if has_modifiers("Afterimage"):
+		afterimage_slash()
+	#破裂し斬撃する(BurstSlasher)
+	if has_modifiers("Burstslasher"):
+		burst_slash()
+	#斬：複製
+	if has_modifiers("FallSlashing"):
+		fall_slashing()
+	#アヒル
+	if has_modifiers("Slash_Duck"):
+		slashduck()
+	#アヒルバウンス
+	if has_modifiers("Bounce_Duck"):
+		bounceduck()
+	#アヒル爆弾
+
+func trigger_modifier_when_strong_attack() -> void:
+	if has_modifiers("ChargeSplitSlash"):
+		charge_split_slash()
 
 func trigger_modifier_when_receive_damage(damage : float) -> void:
 	if has_modifiers("RevengeSlash"):

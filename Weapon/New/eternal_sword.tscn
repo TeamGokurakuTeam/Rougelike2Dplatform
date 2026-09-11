@@ -163,7 +163,7 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"attack_trigger_modifier"
+"method": &"trigger_modifier_when_attack"
 }]
 }
 tracks/12/type = "value"
@@ -403,7 +403,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"StrongShot"
+"method": &"trigger_modifier_when_strong_attack"
 }]
 }
 tracks/2/type = "value"

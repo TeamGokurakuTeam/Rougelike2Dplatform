@@ -32,7 +32,6 @@ func _process(delta: float) -> void:
 		if not animation_player.is_playing():
 			if strong_attack_queue > 0:
 				strong_attack_queue -= 1
-				attack_trigger_modifier()
 				_apply_weapon_strongattack_modifiers()
 				animation_player.speed_scale += counter_speed_bonus
 				animation_player.play("StrongAttack")
@@ -50,16 +49,6 @@ func _process(delta: float) -> void:
 				auto_counter_timer.start()
 
 func _on_animation_started(anim_name: StringName) -> void:
-	if anim_name == "Attack":
-		# ★ Attack にも修飾子を発動
-		attack_trigger_modifier()
-		var dmg_mults: AttackDamageMultiplier = calculate_damage_multiplier()
-		var speed_mults: AttackSpeedMultiplier = calculate_speed_multiplier()
-		for i in hitboxes.size():
-			hitboxes[i].damage_plus = dmg_mults.damage_plus
-			hitboxes[i].damage_multiplier = dmg_mults.damage_mult
-		animation_player.speed_scale = speed_mults.attack_speed_mult
-		return
 	if anim_name == "StrongAttack":
 		if block_strongattack:
 			block_strongattack = false
