@@ -7,6 +7,12 @@ const RIGHT_MASK : int = 0b1000
 
 const TRANSITION_SCENE : PackedScene = preload("uid://dgjy5a68qdv5c")
 
+enum EffectType {
+	None,
+	Ice,
+	Poison,
+}
+
 static var debug_mode : bool = false
 static var _current_transition_overlay : ColorRect = null
 

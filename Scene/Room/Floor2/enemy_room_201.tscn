@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="5_i2aaa"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_ubvv5"]
 [ext_resource type="PackedScene" uid="uid://wl86qbcex6dm" path="res://Scene/Enemy/PoisonMush/PoisonMush.tscn" id="6_4k712"]
-[ext_resource type="PackedScene" uid="uid://c7k2yh3ls1mvg" path="res://Scene/Room/ice_magic(PoisonColor).tscn" id="6_ubvv5"]
+[ext_resource type="PackedScene" uid="uid://c7k2yh3ls1mvg" path="res://Scene/Room/poison_magic.tscn" id="6_ubvv5"]
 [ext_resource type="PackedScene" uid="uid://cuhgb0dmmo2dk" path="res://Scene/Enemy/HedoroSlime/HedoroSlime.tscn" id="7_fj8f3"]
 [ext_resource type="PackedScene" uid="uid://dofccvw7xhhbj" path="res://Scene/Room/spike.tscn" id="7_ply2r"]
 [ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="8_fj8f3"]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_ltxpl"]
 [ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="2_ux4bx"]
 [ext_resource type="Texture2D" uid="uid://brd7fydt0y8r5" path="res://Assets/TileMap/SewerTiles.png" id="2_wbnsp"]
-[ext_resource type="PackedScene" uid="uid://c7k2yh3ls1mvg" path="res://Scene/Room/ice_magic(PoisonColor).tscn" id="3_wbnsp"]
+[ext_resource type="PackedScene" uid="uid://c7k2yh3ls1mvg" path="res://Scene/Room/poison_magic.tscn" id="3_wbnsp"]
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="4_ed4fc"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_x25dw"]
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_u2b1m"]
