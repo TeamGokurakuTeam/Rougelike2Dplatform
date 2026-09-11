@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxgd4g0rgt650"
+path="res://.godot/imported/トップハット攻撃.mp3-1de333ce793fcc4353e5de767744edfb.mp3str"
+
+[deps]
+
+source_file="res://Assets/Enemy/Top Hat Mimic Assets/トップハット攻撃.mp3"
+dest_files=["res://.godot/imported/トップハット攻撃.mp3-1de333ce793fcc4353e5de767744edfb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
