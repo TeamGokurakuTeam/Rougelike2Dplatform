@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://b1hy6ppps3g2l"]
+
+[ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_3lndo"]
+[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_x61on"]
+
+[resource]
+script = ExtResource("1_3lndo")
+texture = ExtResource("2_x61on")
+modifier_id = "SacrificialSlash"
+modifier_name = "玉砕の斬撃"
+explanation = "武器の修飾子を消費した分だけ全体に斬撃を放つ。"
+metadata/_custom_type_script = "uid://cwogrmg4kjfqg"

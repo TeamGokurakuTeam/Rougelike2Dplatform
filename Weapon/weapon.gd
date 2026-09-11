@@ -131,12 +131,16 @@ func _process(delta: float) -> void:
 	return
 
 func _is_one_time_modifier(id : String) -> bool:
-	return id == "RevolutionResolve"
+	return id == "RevolutionResolve" or id == "SacrificialSlash"
 
 func apply_instant_modifier(id : String) -> void:
+	# 革命の決心
 	if id == "RevolutionResolve":
 		if player.mod_resource_ids.size() == 1 and player.hp_component.hp <= 10:
 			player.hp_component.restore_hp(true)
+	# 玉砕の斬撃
+	elif id == "SacrificialSlash":
+		sacrificial_slash()
 
 func decrease_modifier(id : String, count : int = 1) -> void:
 	if modifiers_ids.has(id):
@@ -173,7 +177,7 @@ func trigger_modifier_when_added(id : String) -> void:
 # 修飾子が10以上剣についている時、通常修飾子を全て消す代わりに攻撃力+50・体力全回復し、固定修飾子になる
 func _try_rebirth_resolve() -> void:
 	# 修飾子が足りない、不発
-	if get_all_modifier_levels_sum() < 10:
+	if get_unique_modifier_count() < 10:
 		return
 	modifiers_ids.clear()
 	_reset_non_locked_modifier_states()
@@ -215,13 +219,13 @@ func get_modifiers_level(name : String) -> int:
 	#もし、"同じ数だけあれば大きくする"などの修飾子に使うなら
 	#まず、変数にいれてから掛け算すること。
 
-func get_all_modifier_levels_sum() -> int:
-	var sum := 0
+func get_unique_modifier_count() -> int:
+	var unique_ids : Dictionary = {}
 	for id in modifiers_ids.keys():
-		sum += modifiers_ids[id]
+		unique_ids[id] = true
 	for id in lock_modifiers_ids.keys():
-		sum += lock_modifiers_ids[id]
-	return sum
+		unique_ids[id] = true
+	return unique_ids.size()
 
 func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
@@ -336,6 +340,27 @@ func charge_split_slash() -> void:
 		slash.global_position = global_position
 		get_tree().current_scene.add_child(slash)
 	player.hp_component.apply_damage(5, DamageNumber.COLOR_DAMAGE_SELF)
+
+# 玉砕の斬撃
+func sacrificial_slash() -> void:
+	var modifier_count : int = get_unique_modifier_count()
+	if modifier_count <= 0:
+		return
+	const projectile_count : int = 8
+	modifiers_ids.clear()
+	_reset_non_locked_modifier_states()
+	for i in modifier_count:
+		var random_angle_offset : float = randf_range(0, 360)
+		for j in projectile_count:
+			var slash : PlayerSlashProjectile = PLAYER_SLASH.instantiate()
+			var rotate_angle : float = deg_to_rad(j * 360. / projectile_count + random_angle_offset)
+			# 常に貫通する
+			slash.set_collision_mask_value(8, false)
+			slash.direction = Vector2.RIGHT.rotated(rotate_angle)
+			slash.global_position = global_position
+			get_tree().current_scene.add_child(slash)
+			slash.damage = 5
+		await get_tree().create_timer(0.3).timeout
 
 func start_modifier_timer() -> void:
 	modifier_count_timer.start()
