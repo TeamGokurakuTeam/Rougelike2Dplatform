@@ -379,8 +379,8 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.damage_mult *= 0.5 ** level
-		mults.charge_damage_mult *= 0.5 ** level
+		mults.damage_mult *= 0.9 ** level
+		mults.charge_damage_mult *= 0.9 ** level
 
 	# 重撃
 	if has_modifiers("HeavyStrike"):
@@ -403,6 +403,10 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 		mults.damage_plus += 50
 		mults.charge_damage_plus += 50
 
+	#残影な
+	if has_modifiers("Afterimage"):
+		mults.damage_mult *= 0.9
+		mults.charge_damage_mult *= 0.9
 	return mults
 
 func calculate_speed_multiplier() -> AttackSpeedMultiplier:
@@ -411,8 +415,8 @@ func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.attack_speed_mult *= (1 + 0.2 * level)
-		mults.charge_attack_speed_mult *= (1 + 0.2 * level)
+		mults.attack_speed_mult *= (1 + 0.1 * level)
+		mults.charge_attack_speed_mult *= (1 + 0.1 * level)
 	
 	# 重撃
 	if has_modifiers("HeavyStrike"):
