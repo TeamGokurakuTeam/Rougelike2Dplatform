@@ -96,6 +96,10 @@ func shout_camera_effect() -> void:
 	main_game_node.main_camera.shake_fade = 1
 	main_game_node.main_camera.apply_shake(20)
 
+func rageslam_camera_effect() -> void:
+	main_game_node.main_camera.shake_fade = 2
+	main_game_node.main_camera.apply_shake(10)
+
 func spawn_slam_custom_bullet(num : int) -> void:
 	for i in num:
 		var angle : float = randf_range(-45, 45)
