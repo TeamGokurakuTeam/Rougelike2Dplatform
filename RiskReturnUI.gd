@@ -24,9 +24,10 @@ func _ready() -> void:
 func _on_risk_return_selected(gain_resource_id : String, loss_resource_id : String) -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	var weapon : Weapon = player.weapon
-	var id : String = player.mod_resource_ids.pick_random()
-	weapon.decrease_modifier(id)
-	weapon.add_lock_modifier(id)
+	var id : String = Common.pick_random_lockable_modifier(player.mod_resource_ids)
+	if id != "":
+		weapon.decrease_modifier(id)
+		weapon.add_lock_modifier(id)
 	parent.player_ui.locked_mod_label.text = "固定 : " + str(weapon.lock_modifiers_ids)
 	risk_selected.emit(loss_resource_id)
 	animation_player.play("End")

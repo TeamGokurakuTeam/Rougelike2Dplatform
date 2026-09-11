@@ -7,6 +7,8 @@ const RIGHT_MASK : int = 0b1000
 
 const TRANSITION_SCENE : PackedScene = preload("uid://dgjy5a68qdv5c")
 
+const NON_LOCKABLE_MODIFIERS : Array[String] = ["Substitute", "RevolutionResolve"]
+
 static var debug_mode : bool = false
 static var _current_transition_overlay : ColorRect = null
 
@@ -16,6 +18,14 @@ static func debug_print(msg : String) -> void:
 
 static func error_print(msg : String) -> void:
 	print("[ERROR][%s] %s " % [Time.get_datetime_string_from_system(), msg])
+
+static func pick_random_lockable_modifier(ids : Array[String]) -> String:
+	var lockable_ids : Array[String] = ids.filter(
+		func(id : String) -> bool: return id not in NON_LOCKABLE_MODIFIERS
+	)
+	if lockable_ids.is_empty():
+		return ""
+	return lockable_ids.pick_random()
 
 # 画面を黒にトランジションする
 static func fade_out_to_black(tree : SceneTree, duration : float = 0.8) -> void:

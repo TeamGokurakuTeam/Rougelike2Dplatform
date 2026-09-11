@@ -18,6 +18,8 @@ class_name CarouseContainer
 
 @export var position_offset_node : Control = null
 
+var player : Player
+
 func _process(delta: float) -> void:
 	if !position_offset_node or position_offset_node.get_child_count() <= 0:
 		return
@@ -54,10 +56,14 @@ func _process(delta: float) -> void:
 			control_node.z_index = 1
 			if control_node is WeaponSelectPanel:
 				control_node.button.mouse_filter = Control.MOUSE_FILTER_PASS
+			if control_node is ModifierUIPanel:
+				control_node.sparkling = player != null and player.weapon != null and player.weapon.has_modifiers("Substitute")
 		else:
 			control_node.z_index = -abs(control_node.get_index() - selected_index)
 			if control_node is WeaponSelectPanel:
 				control_node.button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			if control_node is ModifierUIPanel:
+				control_node.sparkling = false
 	
 		if follow_button_focus and control_node.has_focus():
 			selected_index = control_node.get_index()

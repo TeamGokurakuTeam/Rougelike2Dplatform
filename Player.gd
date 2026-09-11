@@ -168,9 +168,13 @@ func _get_input() -> void:
 		if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
 			return
 		weapon = inventory.get_child(current_weapon)
-		weapon.add_modifier(mod_resource_ids[current_modifier])
+		var apply_amount : int = 1
+		if weapon.has_modifiers("Substitute"):
+			apply_amount = 2
+			weapon.remove_modifier("Substitute")
+		weapon.add_modifier(mod_resource_ids[current_modifier], apply_amount)
 		mod_resource_ids.remove_at(current_modifier)
-		current_modifier -= 1
+		current_modifier = min(current_modifier, mod_resource_ids.size() - 1)
 		applied_modifier.emit.call_deferred(self)
 		modifier_updated.emit(self)
 		weapon.start_modifier_timer()

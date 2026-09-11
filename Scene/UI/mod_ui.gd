@@ -41,6 +41,7 @@ func texture_update(player : Player) -> void:
 		mod_name.text = mod_res_name
 	
 	carouse_container.selected_index = player.current_modifier
+	carouse_container.player = player
 
 
 func init_ui() -> void:

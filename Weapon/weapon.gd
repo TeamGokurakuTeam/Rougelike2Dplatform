@@ -139,8 +139,17 @@ func apply_instant_modifier(id : String) -> void:
 			player.hp_component.restore_hp(true)
 
 func decrease_modifier(id : String, count : int = 1) -> void:
-	if modifiers_ids.has(id):
-		modifiers_ids[id] = max(0, modifiers_ids[id] - count)
+	if not modifiers_ids.has(id):
+		return
+	modifiers_ids[id] = max(0, modifiers_ids[id] - count)
+	if modifiers_ids[id] <= 0:
+		modifiers_ids.erase(id)
+
+func remove_modifier(id : String) -> void:
+	if not modifiers_ids.has(id):
+		return
+	modifiers_ids.erase(id)
+	_reset_non_locked_modifier_states()
 
 func add_modifier(id : String, count : int = 1) -> void:
 	if _is_one_time_modifier(id):
@@ -157,6 +166,8 @@ func add_lock_modifier(id : String, count : int = 1) -> void:
 	if _is_one_time_modifier(id):
 		apply_instant_modifier(id)
 		return
+	if id in Common.NON_LOCKABLE_MODIFIERS:
+		return
 
 	if lock_modifiers_ids.has(id):
 		lock_modifiers_ids[id] += count
@@ -167,8 +178,13 @@ func add_lock_modifier(id : String, count : int = 1) -> void:
 func trigger_modifier_when_added(id : String) -> void:
 	if id == "Stillblade" and stillblade_timer.is_stopped():
 		stillblade_timer.start()
-	if id == "RebirthResolve":
+	elif id == "RebirthResolve":
 		_try_rebirth_resolve()
+	elif id == "Substitute":
+		var modifiers : Array = modifiers_ids.keys()
+		modifiers.erase("Substitute")
+		var modifier_to_delete : String = "Substitute" if modifiers.is_empty() else modifiers.pick_random()
+		remove_modifier(modifier_to_delete)
 
 # 修飾子が10以上剣についている時、通常修飾子を全て消す代わりに攻撃力+50・体力全回復し、固定修飾子になる
 func _try_rebirth_resolve() -> void:
