@@ -149,14 +149,17 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Root/Hitbox:damage")
+tracks/10/path = NodePath(".")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [20.0, 20.0]
+"values": [{
+"args": [],
+"method": &"trigger_modifier_when_attack"
+}]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -194,19 +197,17 @@ tracks/13/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
-tracks/10/type = "method"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath(".")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0.26666668),
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Root/Hitbox:knockback_force")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"trigger_modifier_when_attack"
-}]
+"update": 0,
+"values": [10.0]
 }
 
 [sub_resource type="Animation" id="Animation_qy027"]
@@ -565,6 +566,18 @@ tracks/25/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-20.0, -20.0]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Root/Hitbox:knockback_force")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
 }
 
 [sub_resource type="Animation" id="Animation_8uacm"]
@@ -1097,6 +1110,18 @@ tracks/43/keys = {
 "update": 0,
 "values": [-10.0]
 }
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Root/Hitbox:knockback_force")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
 
 [sub_resource type="Animation" id="Animation_dacgi"]
 resource_name = "StrongAttack"
@@ -1284,14 +1309,17 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Root/Hitbox:damage")
+tracks/15/path = NodePath(".")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.9249704),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [30.0, 30.0]
+"values": [{
+"args": [],
+"method": &"trigger_modifier_when_strong_attack"
+}]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
@@ -1341,19 +1369,17 @@ tracks/19/keys = {
 "update": 0,
 "values": [-10.0, -10.0]
 }
-tracks/15/type = "method"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath(".")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0.9249704),
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Root/Hitbox:knockback_force")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"trigger_modifier_when_strong_attack"
-}]
+"update": 0,
+"values": [10.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qy027"]
@@ -1418,7 +1444,7 @@ rotation = -2.1135938
 texture = ExtResource("3_mibex")
 hframes = 12
 vframes = 9
-frame = 106
+frame = 102
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="8" unique_id=461929815]
 visible = false
@@ -1428,7 +1454,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_g2ue0")
 hframes = 9
 vframes = 9
-frame = 26
+frame = 18
 
 [node name="Sprite2D3" type="Sprite2D" parent="." index="9" unique_id=338604499]
 visible = false
@@ -1478,7 +1504,7 @@ offset = Vector2(25, 0)
 
 [node name="Sprite2D8" type="Sprite2D" parent="Sprite2D6" index="1" unique_id=439002301]
 visible = false
-modulate = Color(1.8387517, 4.890077, 4.890077, 0)
+modulate = Color(1.6192245, 1.6192245, 1.6192245, 0)
 self_modulate = Color(2.454227, 2.454227, 0.8499633, 1)
 position = Vector2(-6.660849, -0.7692416)
 scale = Vector2(1.261111, 1.2561538)

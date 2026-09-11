@@ -7,6 +7,15 @@
 [resource]
 script = ExtResource("3_bfhlh")
 Sprite = ExtResource("1_cqhv5")
-Id = "AegisSpear"
+Id = "GeniuSpear"
 Name = "AegisSpear"
 WeaponScene = ExtResource("2_vjv7o")
+explanation = "[通常攻撃]
+槍を突き出す。
+20ダメージを敵に与える。
+[チャージ攻撃]
+振り下ろしてから突き出す。
+80ダメージを敵に与える。
+[カウンター攻撃]
+盾の紋章で敵を突き返す。
+80ダメージを敵に与え、ノックバックさせる。"

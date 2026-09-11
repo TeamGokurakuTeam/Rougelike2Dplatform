@@ -50,7 +50,7 @@ func _get_unlocked_weapon_states() -> Dictionary[String, bool]:
 		var weapon_id : String = weapon_resource.Id
 		if weapon_id == "CrystalBlade":
 			unlock_states[weapon_id] = unlocked_weapon_count >= 2
-		if weapon_id == "LanternMace":
+		if weapon_id == "LanternSquall":
 			unlock_states[weapon_id] = unlocked_weapon_count >= 4
 
 	return unlock_states
