@@ -2438,7 +2438,9 @@ texture = ExtResource("4_xyspu")
 4:2/0 = 0
 5:2/0 = 0
 6:2/0 = 0
+6:2/0/modulate = Color(18.892157, 18.892157, 18.892157, 1)
 7:2/0 = 0
+7:2/0/modulate = Color(18.892157, 18.892157, 18.892157, 1)
 10:2/0 = 0
 11:2/0 = 0
 14:2/0 = 0
@@ -2450,7 +2452,9 @@ texture = ExtResource("4_xyspu")
 4:3/0 = 0
 5:3/0 = 0
 6:3/0 = 0
+6:3/0/modulate = Color(18.892157, 18.892157, 18.892157, 1)
 7:3/0 = 0
+7:3/0/modulate = Color(18.892157, 18.892157, 18.892157, 1)
 10:3/0 = 0
 11:3/0 = 0
 12:3/0 = 0
@@ -3267,20 +3271,6 @@ texture = ExtResource("9_jkrnq")
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7qy"]
-texture = ExtResource("7_h6fnw")
-margins = Vector2i(3, 4)
-separation = Vector2i(5, 0)
-0:0/0 = 0
-0:0/0/modulate = Color(0, 1, 0, 1)
-1:0/0 = 0
-1:0/0/modulate = Color(0, 1, 0, 1)
-2:0/0 = 0
-2:0/0/modulate = Color(0, 1, 0, 1)
-3:0/0 = 0
-3:0/0/modulate = Color(0, 1, 0, 1)
-4:0/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_iunpq"]
 physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 66
@@ -3292,7 +3282,6 @@ sources/4 = SubResource("TileSetAtlasSource_0g67o")
 sources/1 = SubResource("TileSetAtlasSource_iunpq")
 sources/5 = SubResource("TileSetAtlasSource_i73y8")
 sources/6 = SubResource("TileSetAtlasSource_b8nb4")
-sources/8 = SubResource("TileSetAtlasSource_qa7qy")
 sources/7 = SubResource("TileSetAtlasSource_1ribm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oox1d"]
@@ -7546,7 +7535,9 @@ texture = ExtResource("4_xyspu")
 4:2/0 = 0
 5:2/0 = 0
 6:2/0 = 0
+6:2/0/modulate = Color(18.892157, 18.892157, 18.892157, 1)
 7:2/0 = 0
+7:2/0/modulate = Color(18.892157, 18.892157, 18.892157, 1)
 10:2/0 = 0
 11:2/0 = 0
 14:2/0 = 0
@@ -7558,7 +7549,9 @@ texture = ExtResource("4_xyspu")
 4:3/0 = 0
 5:3/0 = 0
 6:3/0 = 0
+6:3/0/modulate = Color(18.892157, 18.892157, 18.892157, 1)
 7:3/0 = 0
+7:3/0/modulate = Color(18.892157, 18.892157, 18.892157, 1)
 10:3/0 = 0
 11:3/0 = 0
 12:3/0 = 0
@@ -8932,6 +8925,20 @@ texture = ExtResource("8_h6fnw")
 2:11/0 = 0
 3:11/0 = 0
 0:12/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qa7qy"]
+texture = ExtResource("7_h6fnw")
+margins = Vector2i(3, 4)
+separation = Vector2i(5, 0)
+0:0/0 = 0
+0:0/0/modulate = Color(0, 1, 0, 1)
+1:0/0 = 0
+1:0/0/modulate = Color(0, 1, 0, 1)
+2:0/0 = 0
+2:0/0/modulate = Color(0, 1, 0, 1)
+3:0/0 = 0
+3:0/0/modulate = Color(0, 1, 0, 1)
+4:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_08wr4"]
 physics_layer_0/collision_layer = 0

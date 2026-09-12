@@ -10,12 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://dhbk6vaidn513" path="res://Scene/Enemy/Mushroom/mushroom.tscn" id="5_gktvu"]
 [ext_resource type="PackedScene" uid="uid://biowumdi4hwcl" path="res://Scene/Enemy/SkullWolf/SkullWolf.tscn" id="6_vgv18"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="9_yncs1"]
-[ext_resource type="PackedScene" uid="uid://dofccvw7xhhbj" path="res://Scene/Room/spike.tscn" id="10_gktvu"]
 [ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="11_gktvu"]
 [ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="12_3p8go"]
 [ext_resource type="Resource" uid="uid://gelko5u8afu3" path="res://Resource/ShopItemBuyList/Merchant/Merchant001.tres" id="13_id3ra"]
 [ext_resource type="Resource" uid="uid://djpmh3dydw550" path="res://Resource/ShopItemBuyList/Merchant/Merchant002.tres" id="14_xu68w"]
 [ext_resource type="Resource" uid="uid://bsmq0t57vr6w2" path="res://Resource/ShopItemBuyList/Merchant/Merchant003.tres" id="15_mfah0"]
+[ext_resource type="PackedScene" uid="uid://bkau4qsi1bsmo" path="res://Scene/ceiling.tscn" id="16_vgv18"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_2ivlk")]
 
@@ -143,14 +143,19 @@ move_speed = 0.1
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -200, 0)
 
-[node name="Spike" parent="." index="22" unique_id=2129174175 instance=ExtResource("10_gktvu")]
-position = Vector2(968, 400)
-
-[node name="OneWay16" parent="." index="23" unique_id=23407671 instance=ExtResource("2_4eghm")]
+[node name="OneWay16" parent="." index="22" unique_id=23407671 instance=ExtResource("2_4eghm")]
 position = Vector2(760, 112)
 
-[node name="MerchantFrog" parent="." index="24" unique_id=1094349948 instance=ExtResource("11_gktvu")]
+[node name="MerchantFrog" parent="." index="23" unique_id=1094349948 instance=ExtResource("11_gktvu")]
 position = Vector2(656, 160)
 item_list_tables = Array[ExtResource("12_3p8go")]([ExtResource("13_id3ra"), ExtResource("14_xu68w"), ExtResource("15_mfah0")])
+
+[node name="Ceiling" parent="." index="25" unique_id=219379365 instance=ExtResource("16_vgv18")]
+position = Vector2(960, 384)
+rotation = 3.1415927
+
+[node name="Ceiling2" parent="." index="26" unique_id=394387821 instance=ExtResource("16_vgv18")]
+position = Vector2(328, 240)
+rotation = 3.1415927
 
 [editable path="MoveTile"]
