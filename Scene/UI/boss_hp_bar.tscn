@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://da17alwjh2rnb"]
+
+[ext_resource type="Texture2D" uid="uid://dwdcf68cpaf2l" path="res://Assets/UI/7.png" id="1_2wgwo"]
+[ext_resource type="Script" uid="uid://hrxas8nrkyd1" path="res://Scene/UI/boss_hp_bar.gd" id="1_wjoa2"]
+[ext_resource type="Texture2D" uid="uid://c53n0f7q0ogn" path="res://Assets/UI/7sRed.png" id="2_wjoa2"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="3_20ks8"]
+
+[sub_resource type="Animation" id="Animation_wjoa2"]
+resource_name = "Hurt"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -0.003086419), Vector2(0, -0.049382705), Vector2(0, -0.24999994), Vector2(0, -0.7901233), Vector2(0, -1.9290122), Vector2(0, -4), Vector2(0, -3.9915984), Vector2(0, -3.9646275), Vector2(0, -3.879), Vector2(0, -3.6071496), Vector2(0, -2.7440782), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.01527163083665073, 0.026179938577115536, 0.03272492322139442, 0.034906585, -0.0071106036450246934, -0.016806874533566996, -0.017453292, -0.016406094800047177, -0.013482667992707476, -0.015882496527847567, -0.005279621112832533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.26666668, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.9246135, 0.51584375, 1), Color(1, 0.9246135, 0.51584375, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qlhym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2ngsn"]
+resource_name = "Start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8, 0.8333334, 0.8666667, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(159, 0), Vector2(76.42894, 0), Vector2(30.08751, 0), Vector2(4.079254, 0), Vector2(-10.517395, 0), Vector2(-18.709473, 0), Vector2(-23.307129, 0), Vector2(-25.887466, 0), Vector2(-27.335648, 0), Vector2(-28.148407, 0), Vector2(-28.604538, 0), Vector2(-28.86055, 0), Vector2(-29, 0), Vector2(-29, 0), Vector2(-16.035479, 0), Vector2(-7.01112, 0), Vector2(-1.2820988, 0), Vector2(1.7964115, 0), Vector2(2.8692265, 0), Vector2(2.581173, 0), Vector2(1.5770664, 0), Vector2(0.5017357, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.4666667, 0.50000006, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.00430157885111776, -0.007133245195452831, -0.008771277026825564, -0.009491951298759016, -0.009571547565519478, -0.009286342780630008, -0.008912617018505542, -0.008726646, -0.008726646, -0.005689901881527071, -0.00450187665156726, -0.0036393500415371483, -0.002954512450893121, -0.002389492141239291, -0.0019144102138818342, -0.001511478625411955, -0.0011691485154341485, -0.0008794850163479362, -0.0006368283907320915, -0.0004370496986316752, -0.00027710711076267547, -0.00015477074987807482, -6.844532007943549e-05, -1.706087560116032e-05, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cmliy"]
+_data = {
+&"Hurt": SubResource("Animation_wjoa2"),
+&"RESET": SubResource("Animation_qlhym"),
+&"Start": SubResource("Animation_2ngsn")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj3l6"]
+atlas = ExtResource("2_wjoa2")
+region = Rect2(13, 12, 87, 7)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoxb"]
+texture = SubResource("AtlasTexture_gj3l6")
+texture_margin_left = 1.0
+texture_margin_top = 2.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("3_20ks8")
+outline_size = 4
+outline_color = Color(0, 0, 0.35253903, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="BossHPBar" type="Control" unique_id=52351699]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wjoa2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1235711091]
+libraries/ = SubResource("AnimationLibrary_cmliy")
+
+[node name="Control" type="Control" parent="." unique_id=845143969]
+anchors_preset = 0
+offset_left = 159.0
+offset_right = 199.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=545618800]
+self_modulate = Color(0, 2.0056312, 3.5629182, 1)
+layout_mode = 0
+offset_left = 362.0
+offset_top = 221.0
+offset_right = 554.0
+offset_bottom = 261.0
+offset_transform_enabled = true
+offset_transform_rotation = 3.1415927
+texture = ExtResource("1_2wgwo")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=2087473207]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 237.0
+offset_right = 478.0
+offset_bottom = 246.0
+theme_override_styles/fill = SubResource("StyleBoxTexture_5hoxb")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control" unique_id=743160585]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 208.0
+offset_right = 505.0
+offset_bottom = 228.0
+text = "Boss Name"
+label_settings = SubResource("LabelSettings_jhy2k")
+horizontal_alignment = 2
+vertical_alignment = 1
