@@ -108,26 +108,29 @@ position = Vector2(200, -96)
 [node name="OneWay5" parent="." index="11" unique_id=650912328 instance=ExtResource("11_8j3v2")]
 position = Vector2(600, -64)
 
-[node name="OneWay6" parent="." index="12" unique_id=677794466 instance=ExtResource("11_8j3v2")]
+[node name="OneWay14" parent="." index="12" unique_id=93584920 instance=ExtResource("11_8j3v2")]
+position = Vector2(600, -136)
+
+[node name="OneWay6" parent="." index="13" unique_id=677794466 instance=ExtResource("11_8j3v2")]
 position = Vector2(600, -192)
 
-[node name="OneWay7" parent="." index="13" unique_id=1360930411 instance=ExtResource("11_8j3v2")]
+[node name="OneWay7" parent="." index="14" unique_id=1360930411 instance=ExtResource("11_8j3v2")]
 position = Vector2(616, -336)
 
-[node name="OneWay8" parent="." index="14" unique_id=1870172550 instance=ExtResource("11_8j3v2")]
+[node name="OneWay8" parent="." index="15" unique_id=1870172550 instance=ExtResource("11_8j3v2")]
 position = Vector2(344, -336)
 
-[node name="OneWay9" parent="." index="15" unique_id=1013900737 instance=ExtResource("11_8j3v2")]
+[node name="OneWay9" parent="." index="16" unique_id=1013900737 instance=ExtResource("11_8j3v2")]
 position = Vector2(8, -232)
 
-[node name="OneWay10" parent="." index="16" unique_id=1669976351 instance=ExtResource("11_8j3v2")]
+[node name="OneWay10" parent="." index="17" unique_id=1669976351 instance=ExtResource("11_8j3v2")]
 position = Vector2(-200, -160)
 
-[node name="OneWay11" parent="." index="17" unique_id=1430596501 instance=ExtResource("11_8j3v2")]
+[node name="OneWay11" parent="." index="18" unique_id=1430596501 instance=ExtResource("11_8j3v2")]
 position = Vector2(-184, -336)
 
-[node name="OneWay12" parent="." index="18" unique_id=1076054408 instance=ExtResource("11_8j3v2")]
+[node name="OneWay12" parent="." index="19" unique_id=1076054408 instance=ExtResource("11_8j3v2")]
 position = Vector2(344, -504)
 
-[node name="OneWay13" parent="." index="19" unique_id=1397450029 instance=ExtResource("11_8j3v2")]
+[node name="OneWay13" parent="." index="20" unique_id=1397450029 instance=ExtResource("11_8j3v2")]
 position = Vector2(344, -576)

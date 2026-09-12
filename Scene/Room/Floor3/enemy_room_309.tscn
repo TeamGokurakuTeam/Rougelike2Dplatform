@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="2_wdcob"]
 [ext_resource type="PackedScene" uid="uid://byhvlgtgsoruw" path="res://Scene/Room/rotating_beam.tscn" id="3_080cq"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="3_cbmbj"]
-[ext_resource type="PackedScene" uid="uid://dofccvw7xhhbj" path="res://Scene/Room/spike.tscn" id="4_cbmbj"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="4_wf8nr"]
 [ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="5_7ltyi"]
+[ext_resource type="PackedScene" uid="uid://bkau4qsi1bsmo" path="res://Scene/ceiling.tscn" id="7_f3165"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_kpvwd")]
 
@@ -68,8 +68,12 @@ position = Vector2(328, 200)
 [node name="RotatingBeam2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1950855061 instance=ExtResource("3_080cq")]
 position = Vector2(824, 200)
 
-[node name="Spike" parent="." index="5" unique_id=2129174175 instance=ExtResource("4_cbmbj")]
-position = Vector2(360, 176)
+[node name="Ceiling" parent="." index="6" unique_id=219379365 instance=ExtResource("7_f3165")]
+position = Vector2(376, 168)
+rotation = 3.1415927
+scale = Vector2(0.6, 0.6)
 
-[node name="Spike2" parent="." index="6" unique_id=2001378418 instance=ExtResource("4_cbmbj")]
-position = Vector2(384, 176)
+[node name="Ceiling2" parent="." index="7" unique_id=1615290750 instance=ExtResource("7_f3165")]
+position = Vector2(632, 136)
+rotation = 4.712389
+scale = Vector2(0.6, 0.6)
