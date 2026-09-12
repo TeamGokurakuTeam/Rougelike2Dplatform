@@ -3,6 +3,10 @@ class_name PlayerSlashProjectile
 
 @export var timer : Timer
 @export var animation_player : AnimationPlayer
+@export var damage : float = 2.0:
+	set(value):
+		damage = value
+		hitbox.damage = value
 
 #位置の保存
 var range_slash_scene: PackedScene
