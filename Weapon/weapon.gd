@@ -61,6 +61,12 @@ var stillblade_stack : int = 0
 var cumulated_damage : float = 0.0
 var is_countering : bool = false
 
+
+
+#自傷斬撃
+var bloodletting_cooldown := 0.0
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
@@ -79,6 +85,8 @@ func _process(delta: float) -> void:
 		return
 	if fall_slash_cooldown > 0.0:
 		fall_slash_cooldown -= delta
+	if bloodletting_cooldown > 0.0:
+		bloodletting_cooldown -= delta
 	if Input.is_action_just_pressed("UI_Attack") and not animation_player.is_playing():
 		animation_player.play("Charge")
 	elif Input.is_action_just_released("UI_Attack"):
@@ -284,6 +292,10 @@ func fall_slashing() -> void:
 		)
 
 func bloodletting(direction : Vector2, offset_position_length : float) -> void:
+	if bloodletting_cooldown > 0.0:
+		return
+	bloodletting_cooldown = 3.0 #クールタイム
+	
 	if player.hp_component.hp > 10:
 		var slash : PlayerSlashProjectile = PLAYER_SLASH.instantiate()
 		var weapon_rotation : Vector2 = Vector2.RIGHT.rotated(self.rotation) * offset_position_length
