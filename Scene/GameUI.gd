@@ -18,6 +18,7 @@ const PAUSE_MENU = preload("uid://bi80dehen74u6")
 @onready var retry: Button = $GameOver/Retry
 @onready var title: Button = $GameOver/Title
 @onready var game_over_panel: Panel = $GameOver
+@onready var boss_hp_bar: BossHPBar = $Parent/BossHPBar
 
 @onready var open_sound: AudioStreamPlayer = $OpenSound
 @onready var click_sound: AudioStreamPlayer = $ClickSound

@@ -5,9 +5,36 @@
 [ext_resource type="Texture2D" uid="uid://c53n0f7q0ogn" path="res://Assets/UI/7sRed.png" id="2_wjoa2"]
 [ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="3_20ks8"]
 
+[sub_resource type="Animation" id="Animation_20ks8"]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
 [sub_resource type="Animation" id="Animation_wjoa2"]
 resource_name = "Hurt"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,7 +57,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.01527163083665073, 0.026179938577115536, 0.03272492322139442, 0.034906585, -0.0071106036450246934, -0.016806874533566996, -0.017453292, -0.016406094800047177, -0.013482667992707476, -0.015882496527847567, -0.005279621112832533, 0.0]
+"values": [0.0, 0.01527163083665073, 0.02617993857711553, 0.03272492322139442, 0.034906585, -0.00711060364502469, -0.01680687453356699, -0.017453292, -0.01640609480004717, -0.01348266799270747, -0.01588249652784756, -0.00527962111283253, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -108,11 +135,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.4666667, 0.50000006, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.73333335, 0.7666667, 0.8, 0.8333334, 0.8666667, 0.90000004, 0.93333334, 0.9666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.00430157885111776, -0.007133245195452831, -0.008771277026825564, -0.009491951298759016, -0.009571547565519478, -0.009286342780630008, -0.008912617018505542, -0.008726646, -0.008726646, -0.005689901881527071, -0.00450187665156726, -0.0036393500415371483, -0.002954512450893121, -0.002389492141239291, -0.0019144102138818342, -0.001511478625411955, -0.0011691485154341485, -0.0008794850163479362, -0.0006368283907320915, -0.0004370496986316752, -0.00027710711076267547, -0.00015477074987807482, -6.844532007943549e-05, -1.706087560116032e-05, 0.0]
+"values": [0.0, -0.00430157885111776, -0.00713324519545283, -0.00877127702682556, -0.00949195129875901, -0.00957154756551947, -0.00928634278063, -0.00891261701850554, -0.008726646, -0.008726646, -0.00568990188152707, -0.00450187665156726, -0.00363935004153714, -0.00295451245089312, -0.00238949214123929, -0.00191441021388183, -0.00151147862541195, -0.00116914851543414, -0.00087948501634793, -0.00063682839073209, -0.00043704969863167, -0.00027710711076267, -0.00015477074987807, -6.844532007943549e-05, -1.706087560116032e-05, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cmliy"]
 _data = {
+&"Hide": SubResource("Animation_20ks8"),
 &"Hurt": SubResource("Animation_wjoa2"),
 &"RESET": SubResource("Animation_qlhym"),
 &"Start": SubResource("Animation_2ngsn")

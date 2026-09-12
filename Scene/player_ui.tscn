@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="12_468ky"]
 [ext_resource type="AudioStream" uid="uid://bghhfikimshyj" path="res://Assets/SoundEffect/UIOpen.mp3" id="13_w7iic"]
 [ext_resource type="AudioStream" uid="uid://si6hgmjjstg3" path="res://Assets/SoundEffect/UIClick.mp3" id="14_mgl1o"]
+[ext_resource type="PackedScene" uid="uid://da17alwjh2rnb" path="res://Scene/UI/boss_hp_bar.tscn" id="15_oyl28"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
 atlas = ExtResource("9_0pu00")
@@ -573,6 +574,9 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="PlayerHpUI" parent="Parent" unique_id=343152128 instance=ExtResource("2_5xwoe")]
+layout_mode = 1
+
+[node name="BossHPBar" parent="Parent" unique_id=52351699 instance=ExtResource("15_oyl28")]
 layout_mode = 1
 
 [node name="WeaponModifierUI" parent="." unique_id=1151445566 instance=ExtResource("8_yegcq")]
