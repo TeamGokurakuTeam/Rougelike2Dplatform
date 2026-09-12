@@ -13,12 +13,9 @@
 [ext_resource type="Script" uid="uid://bp1t3i6gkn42e" path="res://Scene/Enemy/PoisonMush/PoisonMushJump.gd" id="5_tsy8m"]
 [ext_resource type="Resource" uid="uid://bhwuiry4se62y" path="res://Resource/Modifier/Burstslasher.tres" id="6_07xud"]
 [ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="7_xeg83"]
-[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="8_hxrle"]
 [ext_resource type="Resource" uid="uid://u0vmblouv423" path="res://Resource/Modifier/Rampage.tres" id="9_yhivg"]
-[ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="10_ixt7p"]
 [ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="11_cxehs"]
 [ext_resource type="Resource" uid="uid://dif27orikbsbn" path="res://Resource/Modifier/Stillblade.tres" id="12_ufd7s"]
-[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="13_nbsl7"]
 [ext_resource type="AudioStream" uid="uid://dhnfawsf28lxp" path="res://Assets/Enemy/PoisonMush/dokukinoko_atk.mp3" id="20_w7c4d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0mabg"]
@@ -310,7 +307,7 @@ radius = 52.03845
 
 [node name="PoisonMush" unique_id=1094349948 instance=ExtResource("1_cp727")]
 script = ExtResource("2_dukoi")
-mod_resource = Array[ExtResource("3_irj1s")]([ExtResource("4_w7c4d"), ExtResource("5_gvdcu"), ExtResource("6_07xud"), ExtResource("7_xeg83"), ExtResource("8_hxrle"), ExtResource("9_yhivg"), ExtResource("10_ixt7p"), ExtResource("11_cxehs"), ExtResource("12_ufd7s"), ExtResource("13_nbsl7")])
+mod_resource = Array[ExtResource("3_irj1s")]([ExtResource("4_w7c4d"), ExtResource("5_gvdcu"), ExtResource("6_07xud"), ExtResource("7_xeg83"), ExtResource("9_yhivg"), ExtResource("11_cxehs"), ExtResource("12_ufd7s")])
 max_speed = 100.0
 acceleration = 20
 knockback_friction = 200.0

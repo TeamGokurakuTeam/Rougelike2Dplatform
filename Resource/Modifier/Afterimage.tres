@@ -10,4 +10,5 @@ texture = ExtResource("2_ieup5")
 modifier_id = "Afterimage"
 modifier_name = "残影な"
 color_rarity = Color(0.77254903, 0.85882354, 0, 1)
-explanation = "攻撃時斬撃を放つ、剣での攻撃の威力が下がる。"
+explanation = "攻撃時斬撃を放つ、レベルごとに剣のダメージ0.9倍。2つ以上重ねるとレベルごとに出す斬撃の威力+1 
+"

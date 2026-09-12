@@ -10,5 +10,6 @@ texture = ExtResource("2_twq88")
 modifier_id = "AutoAttack"
 modifier_name = "自動攻撃する"
 color_rarity = Color(1, 0.101960786, 0.101960786, 1)
-explanation = "チャージ攻撃出来なくなる代わりに自動攻撃が出来るようになる。"
+explanation = "チャージ攻撃出来なくなる代わりに自動攻撃が出来るようになる。重ねるとレベルごとに攻撃速度が0.05アップ。
+"
 price = 3

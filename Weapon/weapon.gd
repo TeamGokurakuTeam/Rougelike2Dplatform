@@ -54,7 +54,7 @@ var rampage_stack : int = 0
 
 # 剣の不動修飾子
 @onready var stillblade_timer : Timer = $StillbladeTimer
-const max_stillblade_stack : int = 5
+const max_stillblade_stack : int = 1
 var stillblade_stack : int = 0
 
 # 逆転こそ修飾子
@@ -227,11 +227,21 @@ func afterimage_slash() -> void:
 	var slash := PLAYER_SLASH.instantiate()
 	slash.scale *= 0.8
 	slash.speed *= 0.8
+	slash.get_node("Hitbox").damage_plus -= 2
 	var offset := Vector2.RIGHT.rotated(self.rotation) * offset_length
 	slash.direction = mouse_direction
 	slash.global_position = self.global_position + offset
+	if has_modifiers("Slash_Pierce"):
+		slash.set_collision_mask_value(8, false)
+		var level : int = get_modifiers_level("Slash_Pierce")
+		slash.get_node("Hitbox").damage_plus -= 2
+		if get_modifiers_level("Slash_Pierce") >= 2:
+			slash.get_node("Hitbox").damage_plus += level - 1
 	if slash.has_method("set_opacity"):
 		slash.set_opacity(0.9)
+	if get_modifiers_level("Afterimage") >= 2:
+		var level : int = get_modifiers_level("Afterimage")
+		slash.get_node("Hitbox").damage_plus += level - 1
 	get_tree().root.add_child(slash)
 
 func leap_forward() -> void: 
@@ -289,12 +299,12 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		var weapon_rotation : Vector2 = Vector2.RIGHT.rotated(self.rotation) * offset_position_length
 		slash.direction = direction
 		slash.global_position = self.global_position + weapon_rotation
-		if get_modifiers_level("Expanding"):
-			slash.scale += Vector2(0.2, 0.2)
-		if get_modifiers_level("Swift"):
-			slash.speed += 20
 		if has_modifiers("Slash_Pierce"):
 			slash.set_collision_mask_value(8, false)
+			var level : int = get_modifiers_level("Slash_Pierce")
+			slash.get_node("Hitbox").damage_plus -= 2
+			if get_modifiers_level("Slash_Pierce") >= 2:
+				slash.get_node("Hitbox").damage_plus += level - 1
 		get_tree().root.add_child(slash)
 		player.hp_component.apply_damage(1, DamageNumber.COLOR_DAMAGE_SELF) #自傷ダメージ
 # アヒル
@@ -379,8 +389,8 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.damage_mult *= 0.8 ** level
-		mults.charge_damage_mult *= 0.8 ** level
+		mults.damage_mult *= 0.9 ** level
+		mults.charge_damage_mult *= 0.9 ** level
 
 	# 重撃
 	if has_modifiers("HeavyStrike"):
@@ -392,9 +402,10 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 		mults.damage_mult *= (1 + 0.2 * rampage_stack)
 		mults.charge_damage_mult *= (1 + 0.2 * rampage_stack)
 
+	#剣の不動
 	if has_modifiers("Stillblade"):
-		mults.damage_plus += 1 * stillblade_stack
-		mults.charge_damage_plus += 1 * stillblade_stack
+		mults.damage_plus += 2 * stillblade_stack
+		mults.charge_damage_plus += 2 * stillblade_stack
 		stillblade_stack = 0
 		stillblade_timer.start()
 
@@ -408,6 +419,13 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 		var level : int = get_modifiers_level("Afterimage")
 		mults.damage_mult *= 0.9 ** level
 		mults.charge_damage_mult *= 0.9 ** level
+
+	#貫通する
+	if has_modifiers("Slash_Pierce"):
+		var level : int = get_modifiers_level("Slash_Pierce")
+		mults.damage_plus -= 2
+		if level >= 2:
+			mults.damage_plus += level - 1
 	return mults
 ##攻撃速度
 func calculate_speed_multiplier() -> AttackSpeedMultiplier:
@@ -428,7 +446,7 @@ func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	if has_modifiers("AutoAttack"):
 		var level : int = get_modifiers_level("AutoAttack")
 		if level >= 2:
-			mults.attack_speed_mult *= 1.05 ** (level - 1)
+			mults.attack_speed_mult += 0.05 * (level - 1)
 	mults.attack_speed_mult = min(mults.attack_speed_mult, max_speed_scale)
 	mults.charge_attack_speed_mult = min(mults.charge_attack_speed_mult, max_speed_scale)
 	return mults

@@ -9,15 +9,11 @@
 [ext_resource type="Script" uid="uid://bggc6mtm1iubv" path="res://Scene/Enemy/FrogJump.gd" id="4_50hei"]
 [ext_resource type="Script" uid="uid://bh5qfwy664h1l" path="res://Scene/Enemy/FrogAttack.gd" id="5_b2r6q"]
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="6_yu77f"]
-[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="9_c1s7b"]
 [ext_resource type="Resource" uid="uid://cycf0m4pavf61" path="res://Resource/Modifier/FallSlashing.tres" id="10_5fsnv"]
-[ext_resource type="Resource" uid="uid://5qghcl8ypqlw" path="res://Resource/Modifier/Resonating.tres" id="13_7vq82"]
 [ext_resource type="Resource" uid="uid://u0vmblouv423" path="res://Resource/Modifier/Rampage.tres" id="14_2j3ox"]
 [ext_resource type="Resource" uid="uid://dxfs8cvbj5p05" path="res://Resource/Modifier/Reversal.tres" id="14_qwje7"]
 [ext_resource type="Resource" uid="uid://dif27orikbsbn" path="res://Resource/Modifier/Stillblade.tres" id="15_668xu"]
 [ext_resource type="Resource" uid="uid://cedst8uqfl75l" path="res://Resource/Modifier/Slash_Pierce.tres" id="15_p1xvw"]
-[ext_resource type="Resource" uid="uid://llg70hcbd385" path="res://Resource/Modifier/Splitting.tres" id="18_eorfy"]
-[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="19_gtcqy"]
 [ext_resource type="AudioStream" uid="uid://bobqvy0wra7wi" path="res://Assets/Enemy/Frog/kaeru_atk.mp3" id="20_668xu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eijg2"]
@@ -382,7 +378,7 @@ script = ExtResource("2_4xo4e")
 Jump_up = -350.0
 Jump_speed = 300.0
 frog = NodePath(".")
-mod_resource = Array[ExtResource("3_u54ru")]([ExtResource("4_7blbc"), ExtResource("6_yu77f"), ExtResource("9_c1s7b"), ExtResource("10_5fsnv"), ExtResource("13_7vq82"), ExtResource("14_qwje7"), ExtResource("15_p1xvw"), ExtResource("18_eorfy"), ExtResource("19_gtcqy"), ExtResource("14_2j3ox"), ExtResource("15_668xu")])
+mod_resource = Array[ExtResource("3_u54ru")]([ExtResource("4_7blbc"), ExtResource("6_yu77f"), ExtResource("10_5fsnv"), ExtResource("14_qwje7"), ExtResource("15_p1xvw"), ExtResource("14_2j3ox"), ExtResource("15_668xu")])
 knockback_friction = 450.0
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
