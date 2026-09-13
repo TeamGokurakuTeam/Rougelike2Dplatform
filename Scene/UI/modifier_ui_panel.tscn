@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://eba7bld3s5r6"]
 
+[ext_resource type="Shader" uid="uid://cmgose8li4f1l" path="res://Assets/Effect/dissolve.gdshader" id="1_kbrat"]
 [ext_resource type="Texture2D" uid="uid://004c4a4aa07q" path="res://Assets/UI/4back.png" id="1_lpl2o"]
 [ext_resource type="Script" uid="uid://cfeav1vdaguup" path="res://Scene/UI/modifier_ui_panel.gd" id="2_lpl2o"]
 [ext_resource type="Texture2D" uid="uid://5futa8f7kict" path="res://Assets/Particle/2.png" id="3_b0dvn"]
@@ -8,6 +9,19 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoxb"]
 texture = ExtResource("1_lpl2o")
 region_rect = Rect2(6, 4, 55, 57)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_468ky"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lxwu3"]
+noise = SubResource("FastNoiseLite_468ky")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oyl28"]
+resource_local_to_scene = true
+shader = ExtResource("1_kbrat")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_lxwu3")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.32999999262384
+shader_parameter/burn_color = Color(0.28235295, 0, 0, 1)
 
 [node name="ModifierUIPanel" type="Panel" unique_id=2037691825]
 custom_minimum_size = Vector2(40, 40)
@@ -18,6 +32,7 @@ script = ExtResource("2_lpl2o")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1590686594]
 z_index = 3
+material = SubResource("ShaderMaterial_oyl28")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
