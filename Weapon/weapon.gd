@@ -1,11 +1,6 @@
 extends Node2D
 class_name Weapon
 
-enum AimInputMode {
-	MOUSE,
-	CONTROLLER
-}
-
 const PLAYER_SLASH : PackedScene = preload("uid://bikpq30swfbk1")
 const CRITICAL_RATE : float = 1.5
 const NORMAL_RATE : float = 1.0
@@ -27,9 +22,6 @@ const DUCK : PackedScene = preload("res://Scene/Player/Projectile/duck.tscn")
 @export_category("初期設定")
 @export var offset_length : float = 0.0 #発射物が出る時の位置を決める長さ
 
-@export_category("コントローラーの初期設定")
-@export var aim_stick_deadzone : float = 0.2
-
 @onready var modifier_count_timer: Timer = $ModifierCountTimer
 @onready var charge_particle: GPUParticles2D = $ChargeParticle
 @onready var root: Node2D = $Root
@@ -43,7 +35,6 @@ var lock_modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
 
 #CONTROLLER and MOUSE
-var aim_input_mode : AimInputMode = AimInputMode.MOUSE
 var last_aim_direction : Vector2 = Vector2.RIGHT
 
 #速度上限
@@ -83,16 +74,6 @@ func _ready() -> void:
 			hitbox.knockback_source = player
 	GameEvents.battle_start.connect(_on_battle_start)
 	GameEvents.battle_end.connect(_on_battle_end)
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		aim_input_mode = AimInputMode.MOUSE
-	elif event is InputEventJoypadMotion:
-		if event.axis == JOY_AXIS_RIGHT_X or event.axis == JOY_AXIS_RIGHT_Y:
-			if absf(event.axis_value) > aim_stick_deadzone:
-				aim_input_mode = AimInputMode.CONTROLLER
-	elif event is InputEventJoypadButton:
-		aim_input_mode = AimInputMode.CONTROLLER
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -152,12 +133,12 @@ func _process(delta: float) -> void:
 	return
 
 func _get_aim_dir() -> Vector2:
-	if aim_input_mode == AimInputMode.CONTROLLER:
+	if InputDeviceManager.current_input_mode == InputDeviceManager.InputMode.CONTROLLER:
 		var stick_direction : Vector2 = Vector2(
 			Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
 			Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
 		)
-		if stick_direction.length() > aim_stick_deadzone:
+		if stick_direction.length() > InputDeviceManager.stick_deadzone:
 			last_aim_direction = stick_direction.normalized()
 	else:
 			last_aim_direction = (get_global_mouse_position() - global_position).normalized()

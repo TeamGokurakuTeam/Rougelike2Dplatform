@@ -48,6 +48,18 @@ corner_radius_bottom_left = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdq5c"]
 bg_color = Color(0.027140377, 0.0019234187, 0.001923274, 0.8980392)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utuk5"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.872091, 0.8077177, 0.43599707, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [sub_resource type="LabelSettings" id="LabelSettings_gj3l6"]
 font = ExtResource("5_hckvd")
 font_size = 32
@@ -65,8 +77,6 @@ offset_bottom = 266.0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jhy2k")
 script = ExtResource("2_m8ija")
-scroll_duration = null
-wait_duration = null
 
 [node name="WeaponTextureRect" type="TextureRect" parent="." unique_id=938021864]
 custom_minimum_size = Vector2(64, 64)
@@ -130,6 +140,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_e1286")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_l0a6w")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lu1bg")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_qdq5c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_utuk5")
 
 [node name="LockedLabel" type="Label" parent="Button" unique_id=637157896]
 visible = false

@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bvbnsrlntkuqv" path="res://Assets/350dpi.png" id="1_75qdg"]
 [ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="1_nn2l1"]
 [ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="2_5qay0"]
-[ext_resource type="Texture2D" uid="uid://bjq1r0cdrogty" path="res://Assets/UI/FreeButtons.png" id="2_gcboo"]
 [ext_resource type="Texture2D" uid="uid://brdx3ysls5v5c" path="res://Assets/BackGround/Title/Clouds 8/1.png" id="2_utuk5"]
 [ext_resource type="Texture2D" uid="uid://dsppl45ocqrxm" path="res://Assets/BackGround/Title/62_20260723152859.png" id="3_ug1v6"]
 [ext_resource type="Texture2D" uid="uid://y6ygprm1damj" path="res://Assets/BackGround/Title/Clouds 8/2.png" id="4_s62xd"]
@@ -14,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://ces7mkd1ea685" path="res://Scene/Transition.gdshader" id="7_xriko"]
 [ext_resource type="Texture2D" uid="uid://dlhom3copqynk" path="res://Assets/BackGround/Title/62_20260723152912.png" id="7_yuseb"]
 [ext_resource type="Texture2D" uid="uid://crlm04ww6qakj" path="res://Assets/BackGround/Title/62_20260723152930.png" id="8_l6q45"]
+[ext_resource type="FontFile" uid="uid://b886r0dlg8m7q" path="res://Assets/Font/madoufmg.ttf" id="12_ug1v6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xijl7"]
 texture = ExtResource("1_nn2l1")
@@ -39,39 +39,68 @@ outline_color = Color(0.3882353, 0, 0, 1)
 font = ExtResource("2_5qay0")
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jhy2k"]
-texture = ExtResource("2_gcboo")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 4.0
-expand_margin_bottom = 2.0
-region_rect = Rect2(1, 1, 14, 14)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kep0o"]
+atlas = ExtResource("1_nn2l1")
+region = Rect2(768, 64, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hoxb"]
-texture = ExtResource("2_gcboo")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s62xd"]
+texture = SubResource("AtlasTexture_kep0o")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-region_rect = Rect2(17, 2, 14, 13)
+expand_margin_left = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 48, 48)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gj3l6"]
-texture = ExtResource("2_gcboo")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ubkjg"]
+texture = SubResource("AtlasTexture_kep0o")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-region_rect = Rect2(33, 1, 14, 14)
+expand_margin_left = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(0.36282945, 0.36282945, 0.36282945, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdq5c"]
-texture = ExtResource("2_gcboo")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lyk32"]
+texture = SubResource("AtlasTexture_kep0o")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
 texture_margin_bottom = 4.0
-region_rect = Rect2(17, 2, 14, 13)
-modulate_color = Color(0.32358384, 0.32358387, 0.32358384, 1)
+expand_margin_left = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(0.9999998, 0.7876851, 0.5272744, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yuseb"]
+texture = SubResource("AtlasTexture_kep0o")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(0.26468948, 0.14869398, 0.14071517, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6q45"]
+texture = SubResource("AtlasTexture_kep0o")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(0.9999978, 0.49052364, 0.37915358, 1)
 
 [sub_resource type="Animation" id="Animation_p5xl0"]
 length = 0.001
@@ -383,28 +412,46 @@ alignment = 1
 [node name="START" type="Button" parent="Title/ButtonContainor" unique_id=2015879748]
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_5hoxb")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("12_ug1v6")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_s62xd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ubkjg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lyk32")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yuseb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_l6q45")
 text = "START"
 
-[node name="OPTION" type="Button" parent="Title/ButtonContainor" unique_id=1973823877]
+[node name="OPTION" type="Button" parent="Title/ButtonContainor" unique_id=110832441]
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_5hoxb")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("12_ug1v6")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_s62xd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ubkjg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lyk32")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yuseb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_l6q45")
 text = "OPTION"
 
-[node name="QUIT" type="Button" parent="Title/ButtonContainor" unique_id=2144348159]
+[node name="QUIT" type="Button" parent="Title/ButtonContainor" unique_id=1416757381]
 custom_minimum_size = Vector2(80, 30)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_jhy2k")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_5hoxb")
-theme_override_styles/hover = SubResource("StyleBoxTexture_gj3l6")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_qdq5c")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("12_ug1v6")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_s62xd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ubkjg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lyk32")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yuseb")
+theme_override_styles/focus = SubResource("StyleBoxTexture_l6q45")
 text = "QUIT"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Title" unique_id=979635541]
@@ -466,3 +513,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="toggled" from="Title/OptionPanel/Sound/Check/VSYNC" to="." method="_on_vsync_toggled"]
 [connection signal="pressed" from="Title/ButtonContainor/START" to="Title" method="_on_start_pressed"]
 [connection signal="pressed" from="Title/ButtonContainor/OPTION" to="Title" method="_on_option_pressed"]
+[connection signal="pressed" from="Title/ButtonContainor/QUIT" to="Title" method="_on_option_pressed"]

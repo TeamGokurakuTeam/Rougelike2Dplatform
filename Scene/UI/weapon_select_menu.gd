@@ -32,6 +32,13 @@ func _ready() -> void:
 		var panel : WeaponSelectPanel = node as WeaponSelectPanel
 		panel.button.pressed.connect(_on_panel_button_pressed)
 
+func _process(delta: float) -> void:
+	if InputDeviceManager.current_input_mode == InputDeviceManager.InputMode.CONTROLLER:
+		if Input.is_action_just_pressed("ui_left"):
+			carouse_container.left()
+		if Input.is_action_just_pressed("ui_right"):
+			carouse_container.right()
+
 func _get_unlocked_weapon_states() -> Dictionary[String, bool]:
 	var unlock_states : Dictionary[String, bool] = {}
 
@@ -103,6 +110,7 @@ func _on_right_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	title._end_tween_transition()
+	title.visible_button()
 	queue_free()
 
 func _on_tutorial_do_it_pressed() -> void:
