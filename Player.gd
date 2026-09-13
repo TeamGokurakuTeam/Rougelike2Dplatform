@@ -55,9 +55,10 @@ var fall_through_time : float = 0.5
 var fall_timer : float = 0.0
 #ジャンプのジャストタイミング
 var jump_pressed_frame : int = 0
-#凍結ダメージ
-var dot_damage_per_second: float = 0.0
-var dot_timer: float = 0.0 
+
+#異常状態
+var active_effects: Dictionary[Common.EffectType, EffectTimer] = {}
+
 var original_color: Color = Color.WHITE 
 var is_dodgeroll : bool = false
 var dodgeroll_dir : Vector2 = Vector2.ZERO
@@ -69,6 +70,9 @@ signal pickup_item(player : Player)
 signal modifier_updated(player : Player)
 signal applied_modifier(player : Player)
 signal modifier_picked_up(mod_res : ModifierResource)
+
+const EFFECT_SPRITE_COLOR_ICE : Color = Color(0.251, 0.902, 1.0, 1.0)
+const EFFECT_SPRITE_COLOR_POISON : Color = Color(0.0, 0.853, 0.0, 1.0)
 
 func _ready() -> void:
 	super()
@@ -100,25 +104,53 @@ func _physics_process(delta: float) -> void:
 	if jump_pressed_frame > 0:
 		jump_pressed_frame -= 1
 
-	#凍結ダメージ
-	if dot_timer > 0:
-		dot_timer -= delta
-		hp_component.apply_damage(dot_damage_per_second * delta, DamageNumber.COLOR_DAMAGE_PLAYER)
-		if dot_timer <= 0:
-			animated_sprite_2d.modulate = original_color
-	
 	_update_state()
 	_play_state_animation()
 
 func external_bounce_jump(power: float) -> void:
 	velocity.y = -power
-#凍結
-func apply_dot(dps: float, duration: float) -> void:
-	dot_damage_per_second = dps
-	if dot_timer <= 0:
+
+func apply_effect(effect_type: Common.EffectType, damage_per_tick: float, duration: float) -> void:
+	if active_effects.is_empty():
 		original_color = animated_sprite_2d.modulate
-	dot_timer = duration
-	animated_sprite_2d.modulate = Color(0.2, 0.8, 2.0)
+	if active_effects.has(effect_type):
+		active_effects[effect_type].refresh(damage_per_tick, duration)
+	else:
+		var effect := EffectTimer.new()
+		add_child(effect)
+		effect.setup(effect_type, damage_per_tick, duration)
+		effect.ticked.connect(_on_effect_ticked)
+		effect.expired.connect(_on_effect_expired)
+		active_effects[effect_type] = effect
+	animated_sprite_2d.modulate = _effect_sprite_color(effect_type)
+
+func _on_effect_ticked(effect_type: Common.EffectType, damage: float) -> void:
+	hp_component.apply_damage(damage, _effect_damage_color(effect_type))
+
+func _on_effect_expired(effect_type: Common.EffectType) -> void:
+	active_effects.erase(effect_type)
+	if active_effects.is_empty():
+		animated_sprite_2d.modulate = original_color
+	else:
+		animated_sprite_2d.modulate = _effect_sprite_color(active_effects.values()[0].effect_type)
+
+func _effect_sprite_color(effect_type: Common.EffectType) -> Color:
+	match effect_type:
+		Common.EffectType.Ice:
+			return EFFECT_SPRITE_COLOR_ICE
+		Common.EffectType.Poison:
+			return EFFECT_SPRITE_COLOR_POISON
+		_:
+			return Color.WHITE
+
+func _effect_damage_color(effect_type: Common.EffectType) -> Color:
+	match effect_type:
+		Common.EffectType.Ice:
+			return DamageNumber.COLOR_ICE
+		Common.EffectType.Poison:
+			return DamageNumber.COLOR_POISON
+		_:
+			return DamageNumber.COLOR_DAMAGE_PLAYER
 
 func _get_input() -> void:
 	move_direction = Vector2.ZERO

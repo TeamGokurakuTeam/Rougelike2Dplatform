@@ -6,7 +6,7 @@
 [node name="Launcher" type="Node2D" unique_id=1827001644]
 process_mode = 1
 script = ExtResource("1_1b2oy")
-fire_interval = 3.0
+fire_interval = 5.0
 
 [node name="FireTimer" type="Timer" parent="." unique_id=1098391806]
 

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cuhgb0dmmo2dk" path="res://Scene/Enemy/HedoroSlime/HedoroSlime.tscn" id="6_2acjt"]
 [ext_resource type="PackedScene" uid="uid://dkxbmaoyq1r3" path="res://Scene/Room/launcher.tscn" id="8_053uu"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="9_l3i00"]
-[ext_resource type="PackedScene" uid="uid://c7k2yh3ls1mvg" path="res://Scene/Room/ice_magic(PoisonColor).tscn" id="9_tjo2l"]
+[ext_resource type="PackedScene" uid="uid://c7k2yh3ls1mvg" path="res://Scene/Room/poison_magic.tscn" id="9_tjo2l"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="10_atxd6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hoopc"]
