@@ -3,8 +3,9 @@ class_name Character
 
 @export var friction : float = .15 ##摩擦力または抵抗力
 
+@export var character_name : String = ""
 @export var jump_velocity : float = -600
-@export var max_speed : float = 200 
+@export var max_speed : float = 200
 @export var hp_component: HPComponent
 @export var acceleration : int = 30 #加速度
 @export var is_fly : bool = false
@@ -12,6 +13,7 @@ class_name Character
 @export var knockback_friction : float = 500.0
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var hurtbox: Hurtbox = $Hurtbox
 
 var current_acceleration : int = 0
 var move_direction : Vector2 = Vector2.ZERO #移動する方向

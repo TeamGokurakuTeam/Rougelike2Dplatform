@@ -147,7 +147,8 @@ func killed_drop_modifier() -> void:
 	drop_mod.global_position = Vector2(self.global_position)
 
 func killed_drop_item() -> void:
-	var drop_heal : DropHealItem = GOLDEN_HEAL_POTION.instantiate()
+	var drop_heal : DropHealItem = DROP_HEAL_ITEM.instantiate()
+	drop_heal.item_res = GOLDEN_HEAL_POTION
 	var target_node : Node = room if room != null else get_tree().current_scene
 	target_node.add_child(drop_heal)
 	drop_heal.global_position = Vector2(global_position.x, global_position.y + 15)

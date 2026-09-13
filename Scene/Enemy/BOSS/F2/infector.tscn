@@ -1597,6 +1597,7 @@ _data = {
 script = ExtResource("2_vsncb")
 mod_resource = Array[ExtResource("3_pvk54")]([ExtResource("4_a2ase")])
 friction = 0.05
+character_name = "Plauge Infector M.R.H."
 acceleration = 35
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]

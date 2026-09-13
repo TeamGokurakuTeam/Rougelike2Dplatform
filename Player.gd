@@ -13,7 +13,6 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @onready var inventory: Node2D = $Inventory
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox_collision: CollisionShape2D = $Hurtbox/CollisionShape2D2
-@onready var hurtbox: Hurtbox = $Hurtbox
 @onready var remote_transform: RemoteTransform2D = $RemoteTransform2D
 
 ## SOUND EFFECT ##
