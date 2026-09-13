@@ -140,16 +140,17 @@ func _on_slime_is_dead() -> void:
 	enemy_count -= 1
 
 func killed_drop_modifier() -> void:
-	var drop_mod : DropModifier = DROP_MODIFIER.instantiate()
-	drop_mod.modifier = mod_resource.pick_random()
+	var drop_mod : DropItem = DROP_MODIFIER.instantiate()
+	drop_mod.resource = mod_resource.pick_random()
 	var target_node : Node = room if room != null else get_tree().current_scene
 	target_node.add_child(drop_mod)
 	drop_mod.global_position = Vector2(self.global_position)
 
 func killed_drop_item() -> void:
-	var drop_heal : DropHealItem = GOLDEN_HEAL_POTION.instantiate()
+	var drop_heal : DropItem = DROP_HEAL_ITEM.instantiate()
 	var target_node : Node = room if room != null else get_tree().current_scene
 	target_node.add_child(drop_heal)
+	drop_heal.resource = GlobalResourceLoader.heal_item_cache["GoldenHealPotion"]
 	drop_heal.global_position = Vector2(global_position.x, global_position.y + 15)
 
 func _on_hp_component_is_dead() -> void:

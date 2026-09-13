@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b47iwp7p6b4wk"]
 
-[ext_resource type="Script" uid="uid://47x2xbmjru8s" path="res://Scene/DropModifier/DropModifier.gd" id="1_bi5dq"]
+[ext_resource type="Script" uid="uid://dvh48t63xyscl" path="res://drop_item.gd" id="1_bi5dq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvy5a"]
 size = Vector2(30, 30)

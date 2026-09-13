@@ -83,14 +83,14 @@ func _on_buy_button_pressed() -> void:
 			npc.sold_list[current_index] = true
 			
 			if res is HealItemRes:
-				var heal_item : DropHealItem = DROP_HEAL_ITEM.instantiate()
-				heal_item.item_res = res
+				var heal_item : DropItem = DROP_HEAL_ITEM.instantiate()
+				heal_item.resource = res
 				var target_node = npc.room if npc.room != null else get_tree().current_scene
 				target_node.add_child(heal_item)
 				heal_item.global_position = npc.item_spawn_point.global_position
 			elif res is ModifierResource:
-				var modifier_item : DropModifier = DROP_MODIFIER.instantiate()
-				modifier_item.modifier = res
+				var modifier_item : DropItem = DROP_MODIFIER.instantiate()
+				modifier_item.resource = res
 				var target_node = npc.room if npc.room != null else get_tree().current_scene
 				target_node.add_child(modifier_item)
 				modifier_item.global_position = npc.item_spawn_point.global_position
