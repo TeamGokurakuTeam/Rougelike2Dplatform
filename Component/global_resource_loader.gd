@@ -5,11 +5,13 @@ extends Node
 @export_dir var gain_folder : Array[String]
 @export_dir var loss_folder : Array[String]
 @export_dir var modifier_folder : Array[String]
+@export_dir var heal_item_folder : Array[String]
 
 #Global変数なのでこれはよそで使ってもよい
 #使用例:Sword.resource = weapon_cache["DebugSword"]
 var weapon_cache : Dictionary[String, Resource] = {}
 var modifier_cache : Dictionary[String, Resource] = {}
+var heal_item_cache : Dictionary[String, Resource] = {}
 
 #room_cacheのintはバイナリ(0101のやつ)、第二はRoomResのArrayとして用意している
 var room_cache : RoomDatabase = RoomDatabase.new()
@@ -27,6 +29,8 @@ func _ready() -> void:
 		_file_load(folder, loss_cache)
 	for folder in modifier_folder:
 		_file_load(folder, modifier_cache)
+	for folder in heal_item_folder:
+		_file_load(folder, heal_item_cache)
 
 #下の関数はprivateでここのAutoload専用の関数なのでよそで使わないこと
 func _file_load(folder_path : String, res_cache : Dictionary) -> void:

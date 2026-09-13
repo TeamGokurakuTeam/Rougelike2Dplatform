@@ -5,11 +5,6 @@ const DROP_ITEM = preload("uid://dy6pxaf7y18u7")
 const DROP_MODIFIER = preload("uid://b47iwp7p6b4wk")
 const DROP_HEAL_ITEM = preload("uid://d4cyex0no1ifo")
 
-const HEAL_POTION = preload("uid://bimvibq616b67")
-const MEGA_HEAL_POTION = preload("uid://c0b623boq2p7d")
-const GOLDEN_HEAL_POTION = preload("uid://bcx3wero7oylu")
-
-
 @export var item_resource : Array[ResourceItem]
 @export var mod_resource : Array[ModifierResource]
 
@@ -20,7 +15,6 @@ const GOLDEN_HEAL_POTION = preload("uid://bcx3wero7oylu")
 
 var hitboxes_array : Array[Hitbox]
 
-												  
 func _ready() -> void:
 	for node in hitboxes.get_children():
 		if node is not Hitbox:
@@ -42,20 +36,20 @@ func _on_hp_component_is_dead() -> void:
 func killed_drop_modifier() -> void:
 	if mod_resource.size() <= 0 or randi_range(1, 100) <= 50:
 		return
-	var drop_mod : DropModifier = DROP_MODIFIER.instantiate()
-	drop_mod.modifier = mod_resource.pick_random()
+	var drop_mod : DropItem = DROP_MODIFIER.instantiate()
+	drop_mod.resource = mod_resource.pick_random()
 	var target_node : Node = room if room != null else get_tree().current_scene
 	target_node.add_child(drop_mod)
 	drop_mod.global_position = Vector2(self.global_position)
 
 func killed_drop_item() -> void:
 	if randi_range(1, 100) <= 20: #20は回復全体が出る確率
-		var drop_heal : DropHealItem = DROP_HEAL_ITEM.instantiate()
-		drop_heal.item_res = HEAL_POTION
+		var drop_heal : DropItem = DROP_HEAL_ITEM.instantiate()
+		drop_heal.resource = GlobalResourceLoader.heal_item_cache["HealPotion"]
 		if randi_range(1, 100) <= 30: #40より下はより高Tierな回復の抽選
-			drop_heal.item_res = MEGA_HEAL_POTION
+			drop_heal.resource = GlobalResourceLoader.heal_item_cache["MegaHealPotion"]
 		if randi_range(1, 100) <= 2:
-			drop_heal.item_res = GOLDEN_HEAL_POTION
+			drop_heal.resource = GlobalResourceLoader.heal_item_cache["GoldenHealPotion"]
 		var target_node : Node = room if room != null else get_tree().current_scene
 		target_node.add_child(drop_heal)
 		drop_heal.global_position = Vector2(global_position.x, global_position.y + 15)

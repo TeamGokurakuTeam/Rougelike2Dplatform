@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d4cyex0no1ifo"]
 
-[ext_resource type="Script" uid="uid://dochsodwqd47q" path="res://drop_heal_item.gd" id="1_mulmf"]
+[ext_resource type="Script" uid="uid://dvh48t63xyscl" path="res://drop_item.gd" id="1_mulmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxrbv"]
 size = Vector2(35, 38)

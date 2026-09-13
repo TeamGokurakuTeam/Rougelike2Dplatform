@@ -19,24 +19,23 @@ func _process(delta: float) -> void:
 		collision_shape_2d.disabled = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is DropHealItem:
-		var drop_heal_item : DropHealItem = (body as DropHealItem)
-		if drop_heal_item == null and drop_heal_item.item_res == null:
-			return
-		character.hp_component.apply_heal(drop_heal_item.item_res.heal_amount)
+	if body is not DropItem:
+		return
+	var drop_item : DropItem = body as DropItem
+	var res : Resource = drop_item.resource
+	if res == null:
+		return
+
+	if res is HealItemRes:
+		character.hp_component.apply_heal((res as HealItemRes).heal_amount)
 		body.queue_free()
-	elif body is DropItem and character.weapon_resource_ids.size() <= 0:
-		character.weapon_resource_ids.append((body as DropItem).resource.Id)
+	elif res is ResourceItem and character.weapon_resource_ids.size() <= 0:
+		character.weapon_resource_ids.append((res as ResourceItem).Id)
 		character.current_weapon = character.weapon_resource_ids.size() - 1
-		#character.merge_weapon((body as DropItem).resource.Id)
 		character.update_weapon()
 		body.queue_free()
-	
-	if body is DropModifier:
-		var drop_modifier : DropModifier = (body as DropModifier)
-		if drop_modifier == null and drop_modifier.modifier == null:
-			return
-		character.mod_resource_ids.append(drop_modifier.modifier.modifier_id)
+	elif res is ModifierResource:
+		character.mod_resource_ids.append((res as ModifierResource).modifier_id)
 		character.update_modifier()
-		character.modifier_picked_up.emit(drop_modifier.modifier)
+		character.modifier_picked_up.emit(res)
 		body.queue_free()
