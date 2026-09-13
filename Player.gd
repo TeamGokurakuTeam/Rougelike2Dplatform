@@ -155,29 +155,15 @@ func _get_input() -> void:
 		if !coyote_time_activated and not jump_away_from_floor:
 			coyote_timer.start()
 			coyote_time_activated = true
-		if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
-			jump.play()
-			jump_pressed_frame = max_jump_pressed_frame
-			current_state = PlayerState.JUMP_START
-			velocity.y = jump_velocity
-			coyote_timer.stop()
-			coyote_time_activated = true
-			jump_away_from_floor = true
+	if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
+		jump.play()
+		jump_pressed_frame = max_jump_pressed_frame
+		current_state = PlayerState.JUMP_START
+		velocity.y = jump_velocity
+		coyote_timer.stop()
+		coyote_time_activated = true
+		jump_away_from_floor = true
 			
-	if Input.is_action_just_pressed("UI_Apply"):
-		if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
-			return
-		weapon = inventory.get_child(current_weapon)
-		var apply_amount : int = 1
-		if weapon.has_modifiers("Substitute"):
-			apply_amount = 2
-			weapon.remove_modifier("Substitute")
-		weapon.add_modifier(mod_resource_ids[current_modifier], apply_amount)
-		mod_resource_ids.remove_at(current_modifier)
-		current_modifier = min(current_modifier, mod_resource_ids.size() - 1)
-		applied_modifier.emit.call_deferred(self)
-		modifier_updated.emit(self)
-		weapon.start_modifier_timer()
 	for i in range(5):
 		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
 			var prev_weapon = current_weapon
@@ -201,8 +187,24 @@ func update_weapon() -> void:
 	pickup_item.emit(self)
 
 func update_modifier() -> void:
-	current_modifier += 1
+	if current_modifier == -1 and mod_resource_ids.size() > 0:
+		current_modifier = 0
 	modifier_updated.emit(self)
+
+func apply_current_modifier() -> void:
+	if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
+		return
+	weapon = inventory.get_child(current_weapon)
+	var apply_amount : int = 1
+	if weapon.has_modifiers("Substitute"):
+		apply_amount = 2
+		weapon.remove_modifier("Substitute")
+	weapon.add_modifier(mod_resource_ids[current_modifier], apply_amount)
+	mod_resource_ids.remove_at(current_modifier)
+	current_modifier = min(current_modifier, mod_resource_ids.size() - 1)
+	applied_modifier.emit.call_deferred(self)
+	modifier_updated.emit(self)
+	weapon.start_modifier_timer()
 
 func merge_weapon(target_res_id : String) -> void:
 	var target_res : Resource = GlobalResourceLoader.weapon_cache[target_res_id]
@@ -230,9 +232,9 @@ func _set_current_modifier(new_value : int) -> void:
 	if mod_resource_ids.size() <= 0:
 		current_modifier = -1
 		return
-	current_modifier = new_value % mod_resource_ids.size()
-	if current_modifier < 0:
-		current_modifier += mod_resource_ids.size()
+
+	var size : int = mod_resource_ids.size()
+	current_modifier = ((new_value % size) + size) % size
 #endregion
 
 #region signal

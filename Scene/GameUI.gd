@@ -46,17 +46,21 @@ func _process(delta: float) -> void:
 		var pause_menu : PauseMenuUI = PAUSE_MENU.instantiate()
 		pause_menu.player_ui = self
 		add_child(pause_menu)
-	if Input.is_action_just_pressed("UI_scroll_left"):
+	if Input.is_action_just_pressed("UI_scroll_left") and not mod_ui.carouse_container.lock_scroll:
 		player.current_modifier += 1
 		mod_ui.texture_update(player)
 		if not player.current_modifier < 0:
 			_on_modifier_picked_up(GlobalResourceLoader.modifier_cache[player.mod_resource_ids[player.current_modifier]])
 		
-	if Input.is_action_just_pressed("UI_scroll_right"):
+	if Input.is_action_just_pressed("UI_scroll_right") and not mod_ui.carouse_container.lock_scroll:
 		player.current_modifier -= 1
 		mod_ui.texture_update(player)
 		if not player.current_modifier < 0:
 			_on_modifier_picked_up(GlobalResourceLoader.modifier_cache[player.mod_resource_ids[player.current_modifier]])
+	
+	if Input.is_action_just_pressed("UI_Apply") and not mod_ui.carouse_container.lock_scroll:
+		_on_apply_modifier()
+	
 	if Input.is_action_just_pressed("UI_ShowMod"):
 		is_show_mod_ui = !is_show_mod_ui
 		open_sound.play()
@@ -138,3 +142,16 @@ func _on_title_pressed() -> void:
 	click_sound.play()
 	await click_sound.finished
 	get_tree().change_scene_to_packed(TITLE)
+
+func _on_apply_modifier() -> void:
+	if player.weapon_resource_ids.size() <= 0 or player.inventory.get_child_count() <= 0 or player.current_modifier < 0:
+		return
+	
+	mod_ui.carouse_container.lock_scroll = true
+	var panel = mod_ui.mod_container.get_child(player.current_modifier)
+	if panel is ModifierUIPanel:
+		await panel.dissolve()
+	
+	player.apply_current_modifier()
+	mod_ui.carouse_container.lock_scroll = false
+	mod_ui.texture_update(player)
