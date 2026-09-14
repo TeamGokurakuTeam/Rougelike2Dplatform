@@ -21,6 +21,14 @@
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wwp4a"]
 noise = SubResource("FastNoiseLite_mo8tq")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lo75"]
+resource_local_to_scene = true
+shader = ExtResource("5_4lo75")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_wwp4a")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.16999999620016
+shader_parameter/burn_color = Color(0.7882353, 0.19215687, 0, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1shb2"]
 resource_local_to_scene = true
 shader = ExtResource("5_4lo75")
@@ -37,18 +45,11 @@ shader_parameter/dissolve_value = 1.0
 shader_parameter/burn_size = 0.16999999620016
 shader_parameter/burn_color = Color(0.7882353, 0.19215687, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ki1mi"]
-resource_local_to_scene = true
-shader = ExtResource("5_4lo75")
-shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_wwp4a")
-shader_parameter/dissolve_value = 1.0
-shader_parameter/burn_size = 0.16999999620016
-shader_parameter/burn_color = Color(0.7882353, 0.19215687, 0, 1)
-
 [node name="MainGame" type="Node2D" unique_id=334667216]
 script = ExtResource("1_ga214")
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
+apply_cooldown = 0.5
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
 position = Vector2(0, -38)
@@ -63,13 +64,13 @@ offset_top = 248.0
 offset_bottom = 288.0
 
 [node name="ModifierUIPanel" parent="PlayerUI/Parent/ModUI/Control/CarouseContainer/ModContainer" index="0" unique_id=2037691825]
-material = SubResource("ShaderMaterial_1shb2")
+material = SubResource("ShaderMaterial_4lo75")
 
 [node name="ModifierUIPanel2" parent="PlayerUI/Parent/ModUI/Control/CarouseContainer/ModContainer" index="1" unique_id=301000932]
-material = SubResource("ShaderMaterial_n14k5")
+material = SubResource("ShaderMaterial_1shb2")
 
 [node name="ModifierUIPanel3" parent="PlayerUI/Parent/ModUI/Control/CarouseContainer/ModContainer" index="2" unique_id=887723899]
-material = SubResource("ShaderMaterial_ki1mi")
+material = SubResource("ShaderMaterial_n14k5")
 
 [node name="RichTextLabel" parent="PlayerUI/Parent/ModifierExplanation" parent_id_path=PackedInt32Array(1814325200, 20382060) index="1" unique_id=542273533]
 scroll_active = false
