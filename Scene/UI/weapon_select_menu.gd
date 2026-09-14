@@ -3,6 +3,12 @@ class_name WeaponSelectMenu
 
 const WEAPON_SELECT_PANEL = preload("uid://bj4lwbxdk6ctk")
 
+enum SelectState{
+	Selecting,
+	Tutorial,
+	Selected
+}
+
 @onready var left: Button = $Left
 @onready var right: Button = $Right
 @onready var back: Button = $Back
@@ -10,10 +16,14 @@ const WEAPON_SELECT_PANEL = preload("uid://bj4lwbxdk6ctk")
 @onready var panel_container: Control = $CarouseContainer/PanelContainer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var check_tutorial_ui: CheckTutorialUI = $CheckTutorialUI
+@onready var do_it: Button = $CheckTutorialUI/Panel/DoIt
+@onready var not_doing: Button = $CheckTutorialUI/Panel/NotDoing
 
 var title : TitleUI
 var main_game_scene : PackedScene
 var tutorial_game_scene : PackedScene
+
+var current_state : SelectState = SelectState.Selecting
 
 func _ready() -> void:
 	animation_player.play("Start")
@@ -33,11 +43,18 @@ func _ready() -> void:
 		panel.button.pressed.connect(_on_panel_button_pressed)
 
 func _process(delta: float) -> void:
-	if InputDeviceManager.current_input_mode == InputDeviceManager.InputMode.CONTROLLER:
+	if InputDeviceManager.current_input_mode == InputDeviceManager.InputMode.CONTROLLER and current_state == SelectState.Selecting:
 		if Input.is_action_just_pressed("ui_left"):
 			carouse_container.left()
 		if Input.is_action_just_pressed("ui_right"):
 			carouse_container.right()
+		if Input.is_action_just_pressed("UI_Up"):
+			back.grab_focus()
+	elif current_state == SelectState.Tutorial:
+		if Input.is_action_just_pressed("ui_left"):
+			do_it.grab_focus()
+		if Input.is_action_just_pressed("ui_right"):
+			not_doing.grab_focus()
 
 func _get_unlocked_weapon_states() -> Dictionary[String, bool]:
 	var unlock_states : Dictionary[String, bool] = {}
@@ -76,6 +93,13 @@ func _should_weapon_be_unlocked_by_progress(weapon_id : String) -> bool:
 	return false
 
 func _on_panel_button_pressed() -> void:
+	if not GlobalGameState.has_played_tutorial:
+		current_state = SelectState.Tutorial
+		for node in panel_container.get_children():
+			var panel : WeaponSelectPanel = node as WeaponSelectPanel
+			panel.focus_mode = Control.FOCUS_NONE
+	else:
+		current_state = SelectState.Selected
 	var selected_id : String = ""
 	for node in panel_container.get_children():
 		var panel : WeaponSelectPanel = node as WeaponSelectPanel
@@ -111,6 +135,7 @@ func _on_right_pressed() -> void:
 func _on_back_pressed() -> void:
 	title._end_tween_transition()
 	title.visible_button()
+	title.start.grab_focus()
 	queue_free()
 
 func _on_tutorial_do_it_pressed() -> void:
