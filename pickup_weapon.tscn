@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ciohbcdkapsop" path="res://Assets/TileMap/CastleTiles.png" id="2_tbsf2"]
 [ext_resource type="Texture2D" uid="uid://x7amrwqju0u0" path="res://Assets/Particle/32x32_Star_5.png" id="3_tbsf2"]
 [ext_resource type="Texture2D" uid="uid://bldxpebbei5hi" path="res://Assets/Keyboard Letters and Symbols.png" id="5_e11dr"]
+[ext_resource type="Texture2D" uid="uid://bwynxv54jtdqs" path="res://Assets/UI/tilemap.png" id="6_7qixu"]
+[ext_resource type="FontFile" uid="uid://k7vyd1dsdo2x" path="res://Assets/Font/x8y12pxDenkiChip.ttf" id="7_6m5oh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhy2k"]
 size = Vector2(29, 57)
@@ -174,6 +176,13 @@ _data = {
 atlas = ExtResource("5_e11dr")
 region = Rect2(33, 66, 13, 12)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj3l6"]
+atlas = ExtResource("6_7qixu")
+region = Rect2(51, 17, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
+font = ExtResource("7_6m5oh")
+
 [node name="PickupWeapon" type="Node2D" unique_id=1811123941]
 script = ExtResource("1_qxhbd")
 
@@ -201,12 +210,36 @@ position = Vector2(10, -9)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("3_tbsf2")
 
-[node name="KeyS" type="TextureRect" parent="." unique_id=1161281971]
-offset_left = -8.0
+[node name="Control" type="Control" parent="." unique_id=1448249103]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="KeyS" type="TextureRect" parent="Control" unique_id=1161281971]
+layout_mode = 0
+offset_left = -23.0
 offset_top = -48.0
-offset_right = 7.0
+offset_right = -8.0
 offset_bottom = -33.0
 texture = SubResource("AtlasTexture_5hoxb")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=408793653]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -51.0
+offset_right = 25.0
+offset_bottom = -33.0
+texture = SubResource("AtlasTexture_gj3l6")
+
+[node name="Label" type="Label" parent="Control" unique_id=447450849]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -49.0
+offset_right = 36.0
+offset_bottom = -26.0
+text = "/"
+label_settings = SubResource("LabelSettings_jhy2k")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
