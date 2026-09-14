@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cmftk8djsnu4b" path="res://Assets/Trap/EnemyTrap/Ceiling Trap - Level 2.png" id="2_5wvev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5wvev"]
+size = Vector2(46, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6qow"]
 atlas = ExtResource("2_5wvev")
@@ -121,7 +122,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_cjtdo"]
 resource_name = "Ceiling"
-length = 1.5999999999999999
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -213,7 +214,7 @@ script = ExtResource("1_5wvev")
 [node name="Hitbox" parent="." unique_id=466385270 instance=ExtResource("1_fl3ma")]
 collision_layer = 5
 collision_mask = 32
-damage = 5.0
+damage = 10.0
 damage_source_type = 2
 
 [node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1399399970]

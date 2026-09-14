@@ -42,4 +42,4 @@ func _on_chase_timer_timeout() -> void:
 
 
 func _on_hp_component_is_dead() -> void:
-	pass # Replace with function body.
+	StateTransitioned.emit(self, "Dead")

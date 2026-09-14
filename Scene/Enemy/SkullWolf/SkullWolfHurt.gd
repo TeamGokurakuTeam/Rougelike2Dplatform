@@ -25,4 +25,4 @@ func Physics_Update(delta) -> void:
 
 
 func _on_hp_component_is_dead() -> void:
-	pass # Replace with function body.
+	StateTransitioned.emit(self, "Dead")
