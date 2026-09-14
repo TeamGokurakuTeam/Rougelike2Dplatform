@@ -32,6 +32,7 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @export var dodgeroll_acceleration : int = 60
 @export var dodgeroll_time : float = 0.5
 @export var just_dodgeroll_time : float = 0.09
+@export var apply_cooldown : float = 0.5  # 秒。これより短い間隔での連続適用を防ぐ
 
 enum PlayerState { 
 	IDLE,
@@ -43,6 +44,8 @@ enum PlayerState {
 }
 
 var current_state : PlayerState = PlayerState.IDLE
+
+var _last_apply_time : float = -INF
 
 var weapon_resource_ids : Array[String] = []
 var mod_resource_ids : Array[String] = []
@@ -82,11 +85,9 @@ func _ready() -> void:
 		set_player_default_weapon(GlobalGameState.current_selected_weapon)
 
 func _process(delta: float) -> void:
-	var mouse_direction : Vector2 = (get_global_mouse_position() - global_position).normalized()
-	if mouse_direction.x > 0 and animated_sprite_2d.flip_h:
+	if velocity.x > 0 and animated_sprite_2d.flip_h:
 		animated_sprite_2d.flip_h = false
-	elif mouse_direction.x < 0 and not animated_sprite_2d.flip_h:
-		#マウスの方向が左側にあったら
+	elif velocity.x < 0 and not animated_sprite_2d.flip_h:
 		animated_sprite_2d.flip_h = true
 	
 
@@ -170,7 +171,7 @@ func _get_input() -> void:
 			.set_trans(Tween.TRANS_EXPO)
 		move_direction.x = dodgeroll_dir.x
 	else:
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if Input.is_action_just_pressed("UI_Jump") and is_on_floor():
 			velocity.y = jump_velocity
 			current_state = PlayerState.JUMP_START
 			jump_away_from_floor = true
@@ -195,15 +196,34 @@ func _get_input() -> void:
 		coyote_time_activated = true
 		jump_away_from_floor = true
 			
-	for i in range(5):
-		if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
-			var prev_weapon = current_weapon
-			current_weapon = i
-			if current_weapon >= weapon_resource_ids.size() or current_weapon < 0:
-				current_weapon = prev_weapon
-				return
-			update_weapon()
-			break
+	if Input.is_action_just_pressed("UI_Apply"):
+		var now : float = Time.get_ticks_msec() / 1000.0
+		if now - _last_apply_time < apply_cooldown:
+			return
+		_last_apply_time = now
+		
+		if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
+			return
+		weapon = inventory.get_child(current_weapon)
+		var apply_amount : int = 1
+		if weapon.has_modifiers("Substitute"):
+			apply_amount = 2
+			weapon.remove_modifier("Substitute")
+		weapon.add_modifier(mod_resource_ids[current_modifier], apply_amount)
+		mod_resource_ids.remove_at(current_modifier)
+		current_modifier = min(current_modifier, mod_resource_ids.size() - 1)
+		applied_modifier.emit.call_deferred(self)
+		modifier_updated.emit(self)
+		weapon.start_modifier_timer()
+	#for i in range(5):
+		#if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
+			#var prev_weapon = current_weapon
+			#current_weapon = i
+			#if current_weapon >= weapon_resource_ids.size() or current_weapon < 0:
+				#current_weapon = prev_weapon
+				#return
+			#update_weapon()
+			#break
 
 func update_weapon() -> void:
 	if current_weapon == -1:

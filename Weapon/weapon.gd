@@ -34,6 +34,9 @@ var modifiers_ids : Dictionary[String, int] = {}
 var lock_modifiers_ids : Dictionary[String, int] = {}
 var mouse_direction : Vector2
 
+#CONTROLLER and MOUSE
+var last_aim_direction : Vector2 = Vector2.RIGHT
+
 #速度上限
 var max_speed_scale := 2.5
 
@@ -41,7 +44,6 @@ var max_speed_scale := 2.5
 var modifier_use_count: int = 0
 #
 var fall_slash_cooldown := 0.0
-
 
 # バウンド設定
 var bounce_speed_multiplier := 1.1
@@ -110,7 +112,7 @@ func _process(delta: float) -> void:
 			animation_player.speed_scale = speed_mults.charge_attack_speed_mult
 			animation_player.play("StrongAttack")
 
-	mouse_direction = (get_global_mouse_position() - global_position).normalized()
+	mouse_direction = _get_aim_dir()
 	if not animation_player.is_playing() or animation_player.current_animation == "charge":
 		rotation = mouse_direction.angle()
 		if scale.y == 1 and mouse_direction.x < 0:
@@ -130,6 +132,19 @@ func _process(delta: float) -> void:
 				animation_player.play("Attack")
 	return
 
+func _get_aim_dir() -> Vector2:
+	if InputDeviceManager.current_input_mode == InputDeviceManager.InputMode.CONTROLLER:
+		var stick_direction : Vector2 = Vector2(
+			Input.get_joy_axis(0, JOY_AXIS_RIGHT_X),
+			Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+		)
+		if stick_direction.length() > InputDeviceManager.stick_deadzone:
+			last_aim_direction = stick_direction.normalized()
+	else:
+			last_aim_direction = (get_global_mouse_position() - global_position).normalized()
+	
+	return last_aim_direction
+	
 func _is_one_time_modifier(id : String) -> bool:
 	return id == "RevolutionResolve" or id == "SacrificialSlash"
 

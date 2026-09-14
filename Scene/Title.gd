@@ -11,10 +11,13 @@ const WEAPON_SELECT_MENU = preload("uid://crrgxcmvwd3d6")
 @onready var option_panel: Panel = $OptionPanel
 @onready var transition: ColorRect = $Transition
 @onready var black: ColorRect = $Black
-@onready var start: Button = $ButtonContainor/START
 @onready var full_screen: CheckButton = $OptionPanel/Sound/Check/FullScreen
 @onready var vsync: CheckButton = $OptionPanel/Sound/Check/VSYNC
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
+@onready var start: Button = $ButtonContainor/START
+@onready var option: Button = $ButtonContainor/OPTION
+@onready var quit: Button = $ButtonContainor/QUIT
 
 var bgm_index : int
 var se_index : int
@@ -25,7 +28,11 @@ var option_tween : Tween
 var start_tween : Tween
 
 func _ready() -> void:
+	InputDeviceManager.device_changed.connect(_on_device_changed)
+	if InputDeviceManager.current_input_mode == InputDeviceManager.InputMode.CONTROLLER:
+		start.grab_focus()
 	black.visible = false
+	option_panel.visible = false
 	(transition.material as ShaderMaterial).set_shader_parameter("progress", 0.0)
 	bgm_index = AudioServer.get_bus_index("BGM")
 	se_index = AudioServer.get_bus_index("SoundEffect")
@@ -51,6 +58,7 @@ func _on_option_pressed() -> void:
 		is_open = true
 		if option_tween != null and option_tween.is_running():
 			option_tween.kill()
+		option_panel.visible = is_open
 		option_tween = create_tween()
 		option_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 		option_tween.tween_property(option_panel, "global_position", Vector2(327.0, 11.0), 0.5)
@@ -58,6 +66,7 @@ func _on_option_pressed() -> void:
 		is_open = false
 		if option_tween.is_running():
 			option_tween.kill()
+		option_panel.visible = is_open
 		option_tween = create_tween()
 		option_tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 		option_tween.tween_property(option_panel, "global_position", Vector2(534.0, 11.0), 0.5)
@@ -67,6 +76,7 @@ func _on_start_pressed() -> void:
 	var weapon_select_menu : WeaponSelectMenu = WEAPON_SELECT_MENU.instantiate()
 	weapon_select_menu.title = self
 	get_tree().current_scene.add_child(weapon_select_menu)
+	visible_button()
 	#get_tree().change_scene_to_packed(main_game_scene)
 
 func _end_tween_transition() -> void:
@@ -90,6 +100,21 @@ func _start_tween_transition() -> void:
 	start_tween.tween_property(transition.material, "shader_parameter/progress", 0.49, 0.8)
 	await start_tween.finished
 	black.visible = true
+
+func visible_button() -> void:
+	start.visible = !start.visible
+	option.visible = !option.visible
+	quit.visible = !quit.visible
+
+func _on_device_changed(input_mode : InputDeviceManager.InputMode) -> void:
+	if input_mode == InputDeviceManager.InputMode.CONTROLLER:
+		if get_viewport().gui_get_focus_owner() == null:
+			start.grab_focus()
+	else:
+		# マウス操作に戻ったら、コントローラー用のフォーカス枠を消す
+		var focused := get_viewport().gui_get_focus_owner()
+		if focused:
+			focused.release_focus()
 
 func _on_vsync_toggled(toggled_on: bool) -> void:
 	if toggled_on:
