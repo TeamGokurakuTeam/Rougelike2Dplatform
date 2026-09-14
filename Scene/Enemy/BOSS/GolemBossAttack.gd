@@ -7,12 +7,16 @@ class_name GolemBossAttack
 var attack_count : int = 0
 
 func Enter() -> void:
+	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 2:
+		StateTransitioned.emit(self, "Rage")
+		return
 	attack_count = 1
 	anim_player.play("Attack")
 
 func Exit() -> void:
 	attack_count = 1
 	parent.can_move = true
+	pass
 
 func Update(delta) -> void:
 	if parent.player != null:
@@ -21,7 +25,12 @@ func Update(delta) -> void:
 			anim_player.play("Attack")
 		elif not anim_player.is_playing() and attack_count >= 3:
 			StateTransitioned.emit(self, "Fly")
-			
+		
+		if parent.sprite.flip_h:
+			parent.attack_pos.position = Vector2(-80, 35)
+		else:
+			parent.attack_pos.position = Vector2(80, 35)
+		
 		if parent.can_move:
 			parent.set_target(parent.player.global_position)
 			parent.move_toward_player()

@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	super(delta)
 	if velocity.x > 0 and sprite.flip_h:
 		sprite.flip_h = false
-	elif velocity.x <= 0 and not sprite.flip_h:
+	elif velocity.x < 0 and not sprite.flip_h:
 		sprite.flip_h = true
 
 func _on_hp_component_is_dead() -> void:
