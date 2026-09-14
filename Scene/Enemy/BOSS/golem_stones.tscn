@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://dn7if2gxj3bea"]
+
+[ext_resource type="PackedScene" uid="uid://dqiu3v1k0xk63" path="res://Scene/rock.tscn" id="1_pbd77"]
+[ext_resource type="Script" uid="uid://chnimr06f75yk" path="res://Scene/Enemy/BOSS/golem_stones.gd" id="1_pbl4v"]
+
+[sub_resource type="Animation" id="Animation_pbl4v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stone/Rock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stone/Rock2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stone/Rock3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Stone/Rock4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Stone:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Stone:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Stone:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dusqc"]
+resource_name = "Start"
+length = 8.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stone/Rock:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.5333333, 1.5666666, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8, 1.8333333, 1.8666667, 1.9, 1.9333334, 1.9666667, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -14.469924), Vector2(0, -26.149925), Vector2(0, -35.424), Vector2(0, -42.6477), Vector2(0, -48.14815), Vector2(0, -52.224), Vector2(0, -55.14548), Vector2(0, -57.15437), Vector2(0, -58.464), Vector2(0, -59.25926), Vector2(0, -59.69659), Vector2(0, -59.904), Vector2(0, -59.981037), Vector2(0, -59.998817), Vector2(0, -60), Vector2(0, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stone/Rock2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.5333333, 1.5666666, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8, 1.8333333, 1.8666667, 1.9, 1.9333334, 1.9666667, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(14.469924, 0), Vector2(26.149925, 0), Vector2(35.424, 0), Vector2(42.6477, 0), Vector2(48.14815, 0), Vector2(52.224, 0), Vector2(55.14548, 0), Vector2(57.15437, 0), Vector2(58.464, 0), Vector2(59.25926, 0), Vector2(59.69659, 0), Vector2(59.904, 0), Vector2(59.981037, 0), Vector2(59.998817, 0), Vector2(60, 0), Vector2(60, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stone/Rock3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.5333333, 1.5666666, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8, 1.8333333, 1.8666667, 1.9, 1.9333334, 1.9666667, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 14.469924), Vector2(0, 26.149925), Vector2(0, 35.424), Vector2(0, 42.6477), Vector2(0, 48.14815), Vector2(0, 52.224), Vector2(0, 55.14548), Vector2(0, 57.15437), Vector2(0, 58.464), Vector2(0, 59.25926), Vector2(0, 59.69659), Vector2(0, 59.904), Vector2(0, 59.981037), Vector2(0, 59.998817), Vector2(0, 60), Vector2(0, 60)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Stone/Rock4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.5333333, 1.5666666, 1.6, 1.6333333, 1.6666667, 1.7, 1.7333333, 1.7666667, 1.8, 1.8333333, 1.8666667, 1.9, 1.9333334, 1.9666667, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-14.469924, 0), Vector2(-26.149925, 0), Vector2(-35.424, 0), Vector2(-42.6477, 0), Vector2(-48.14815, 0), Vector2(-52.224, 0), Vector2(-55.14548, 0), Vector2(-57.15437, 0), Vector2(-58.464, 0), Vector2(-59.25926, 0), Vector2(-59.69659, 0), Vector2(-59.904, 0), Vector2(-59.981037, 0), Vector2(-59.998817, 0), Vector2(-60, 0), Vector2(-60, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Stone:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 2.0333333, 2.0666666, 2.1, 2.1333332, 2.1666665, 2.2, 2.2333333, 2.2666667, 2.3, 2.3333335, 2.3666668, 2.4, 2.4333334, 2.4666667, 2.5, 2.5333333, 2.5666666, 2.6, 2.6333332, 2.6666665, 2.7, 2.7333333, 2.7666667, 2.8, 2.8333335, 2.8666668, 2.9, 2.9333334, 2.9666667, 3, 3.0333333, 3.0666666, 3.1, 3.1333334, 3.1666667, 3.2, 3.2333333, 3.2666667, 3.3, 3.3333333, 3.3666666, 3.4, 3.4333334, 3.4666667, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 8.403438695052216e-06, 0.00013445501912083546, 0.0006806784476289518, 0.0021512803059333674, 0.005252148701530374, 0.010890855162063229, 0.0201766536448047, 0.03442048489493388, 0.055134959408635886, 0.08403437922448598, 0.1230347315841378, 0.17425368259301166, 0.2400105772202945, 0.3228264583168752, 0.425424, 0.550727758318942, 0.70186344170844, 0.8821593505381742, 1.095144300725316, 1.3445500675917756, 1.6343087487105166, 1.9685557053462048, 2.351626012440633, 2.7880589214881866, 3.282592383370499, 3.840169235524712, 4.465930507630276, 5.165223333070003, 5.9435906031733055, 6.806784, 6.654021955241092, 6.539196718912592, 6.454758290190853, 6.394232192864649, 6.352136737447438, 6.323900536020858, 6.305779424108891, 6.29477413156593, 6.28854714203311, 6.285340207781815, 6.283891552468049, 6.283353042677902, 6.283207546726487, 6.283186168621228, 6.2831855, 6.2831855]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_stone_shoot"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Stone:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 0.6666667, 0.7, 0.73333335, 0.76666665, 0.8, 0.8333333, 0.8666667, 0.9, 0.93333334, 0.96666664, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 111), Vector2(0, 100.26588), Vector2(0, 90.24711), Vector2(0, 80.91899), Vector2(0, 72.2569), Vector2(0, 64.2361), Vector2(0, 56.832005), Vector2(0, 50.019886), Vector2(0, 43.77511), Vector2(0, 38.072998), Vector2(0, 32.888885), Vector2(0, 28.198112), Vector2(0, 23.976006), Vector2(0, 20.197891), Vector2(0, 16.839111), Vector2(0, 13.875), Vector2(0, 11.280884), Vector2(0, 9.032112), Vector2(0, 7.104004), Vector2(0, 5.4718933), Vector2(0, 4.111107), Vector2(0, 2.9970016), Vector2(0, 2.104889), Vector2(0, 1.4101105), Vector2(0, 0.8880005), Vector2(0, 0.5138855), Vector2(0, 0.2631073), Vector2(0, 0.11100006), Vector2(0, 0.03289032), Vector2(0, 0.0041122437), Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Stone:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rrl5h"]
+_data = {
+&"RESET": SubResource("Animation_pbl4v"),
+&"Start": SubResource("Animation_dusqc")
+}
+
+[node name="GolemStones" type="Node2D" unique_id=1422658630]
+script = ExtResource("1_pbl4v")
+
+[node name="Stone" type="Node2D" parent="." unique_id=265393403]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Rock" parent="Stone" unique_id=2047208876 instance=ExtResource("1_pbd77")]
+is_gravity = false
+
+[node name="Timer" parent="Stone/Rock" index="3" unique_id=1879135262]
+autostart = false
+
+[node name="Rock2" parent="Stone" unique_id=95016786 instance=ExtResource("1_pbd77")]
+is_gravity = false
+
+[node name="Timer" parent="Stone/Rock2" index="3" unique_id=1879135262]
+autostart = false
+
+[node name="Rock3" parent="Stone" unique_id=2102103959 instance=ExtResource("1_pbd77")]
+is_gravity = false
+
+[node name="Timer" parent="Stone/Rock3" index="3" unique_id=1879135262]
+autostart = false
+
+[node name="Rock4" parent="Stone" unique_id=1553253395 instance=ExtResource("1_pbd77")]
+is_gravity = false
+
+[node name="Timer" parent="Stone/Rock4" index="3" unique_id=1879135262]
+autostart = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1284264970]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1719981079]
+libraries/ = SubResource("AnimationLibrary_rrl5h")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Stone/Rock"]
+[editable path="Stone/Rock2"]
+[editable path="Stone/Rock3"]
+[editable path="Stone/Rock4"]

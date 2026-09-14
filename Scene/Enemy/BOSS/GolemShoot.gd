@@ -7,7 +7,17 @@ class_name GolemBossShoot
 var dir_player : Vector2
 
 func Enter() -> void:
-	anim_player.play("ShootingArm")
+	if parent.is_rage:
+		for i in 2:
+			anim_player.play("ShootingArm")
+			await anim_player.animation_finished
+	else:
+		anim_player.play("ShootingArm")
+		await anim_player.animation_finished
+	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 2:
+		StateTransitioned.emit(self, "Rage")
+		return
+	StateTransitioned.emit(self, "Attack")
 
 func Exit() -> void:
 	pass
@@ -26,8 +36,6 @@ func Update(delta) -> void:
 	else:
 		parent.root_node.scale.x = 1
 	
-	if not anim_player.is_playing():
-		StateTransitioned.emit(self, "Attack")
 
 func Physics_Update(delta) -> void:
 	pass

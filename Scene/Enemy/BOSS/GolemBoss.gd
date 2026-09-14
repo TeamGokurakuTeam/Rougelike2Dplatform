@@ -2,10 +2,14 @@ extends Enemy
 class_name GolemBoss
 
 const GOLEM_ARM = preload("uid://sa838rue6n5a")
+const GOLEM_ATTACK_EFFECT = preload("uid://blkm73mbwl7so")
+const GOLEM_RAGE_ATTACK_EFFECT = preload("uid://cw8yc8sr720na")
+const GOLEM_STONES = preload("uid://dn7if2gxj3bea")
 
 @onready var root_node: Node2D = $RootNode
 @onready var marker_2d: Marker2D = $RootNode/Marker2D
 @onready var rock_shoot_2: AudioStreamPlayer2D = $Audio/RockShoot2
+@onready var attack_pos: Marker2D = $AttackPos
 
 @export var dash_speed : float = 200
 @export var can_move : bool = true
@@ -13,6 +17,8 @@ const GOLEM_ARM = preload("uid://sa838rue6n5a")
 var max_degree : float = 30
 var angle_acceleration : float = 30
 var player : Player
+
+var is_rage : bool = false
 
 func _ready() -> void:
 	if get_tree().get_node_count_in_group("Player"):
@@ -43,6 +49,21 @@ func Shoot() -> void:
 	var arm : GolemArm = GOLEM_ARM.instantiate()
 	add_child(arm)
 	arm.global_position = marker_2d.global_position
+
+func attack_effect() -> void:
+	if is_rage:
+		var effect : GolemRageAttackEffect = GOLEM_RAGE_ATTACK_EFFECT.instantiate()
+		get_tree().current_scene.add_child(effect)
+		effect.position = attack_pos.global_position
+	else:
+		var effect : GolemAttackEffect = GOLEM_ATTACK_EFFECT.instantiate()
+		get_tree().current_scene.add_child(effect)
+		effect.position = attack_pos.global_position
+
+func _rage_attack() -> void:
+	var golem_stones : GolemStones = GOLEM_STONES.instantiate()
+	get_tree().current_scene.add_child(golem_stones)
+	golem_stones.global_position = self.global_position
 
 #---test-----------
 func move_toward_player() -> void:
