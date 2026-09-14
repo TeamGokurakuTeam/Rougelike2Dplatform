@@ -13,7 +13,7 @@ func Enter() -> void:
 				await get_tree().create_timer(1.3).timeout
 			else:
 				anim_player.play("Slam")
-				await get_tree().create_timer(0.5).timeout
+				await get_tree().create_timer(0.9).timeout
 			if i != 2:
 				parent.spawn_slam_custom_bullet(randi_range(20, 40))
 			else:
