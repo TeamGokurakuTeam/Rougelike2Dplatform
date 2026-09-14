@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bp7spqx85b8l2" path="res://Scene/door.gd" id="1_t1p54"]
 [ext_resource type="Shader" uid="uid://difua20qbqo3n" path="res://Assets/Effect/outline.gdshader" id="2_8kni7"]
 [ext_resource type="Texture2D" uid="uid://c1dyp8nhcwpf0" path="res://Assets/Door.png" id="2_t1p54"]
+[ext_resource type="AudioStream" uid="uid://cq72s2bvpiy0k" path="res://Assets/SoundEffect/door_open.mp3" id="4_xwlx2"]
+[ext_resource type="AudioStream" uid="uid://d2ft5gls4jvoe" path="res://Assets/SoundEffect/door_close.mp3" id="5_nccli"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lmuuw"]
 resource_local_to_scene = true
@@ -62,6 +64,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Close:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8kni7"]
 resource_name = "Open"
@@ -103,6 +117,18 @@ tracks/2/keys = {
 "method": &"_try_disable_collider"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Open:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_lmuuw"]
 length = 0.001
@@ -141,6 +167,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Open:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Close:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xwlx2"]
@@ -183,5 +233,15 @@ debug_color = Color(0.5209268, 0.57466865, 0, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=884074299]
 libraries/ = SubResource("AnimationLibrary_xwlx2")
+
+[node name="Open" type="AudioStreamPlayer2D" parent="." unique_id=76823512]
+stream = ExtResource("4_xwlx2")
+volume_db = -10.0
+pitch_scale = 1.2
+
+[node name="Close" type="AudioStreamPlayer2D" parent="." unique_id=1583326726]
+stream = ExtResource("5_nccli")
+volume_db = -10.0
+bus = &"SoundEffect"
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
