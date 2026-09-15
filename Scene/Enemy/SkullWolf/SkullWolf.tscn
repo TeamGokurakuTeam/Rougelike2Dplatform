@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://c030c7jtl4oeb" path="res://Resource/Modifier/Bloodletting.tres" id="4_52dfc"]
 [ext_resource type="Script" uid="uid://ctlq6n2vi3x35" path="res://Scene/Enemy/SkullWolf/SkullWolfHurt.gd" id="5_7agah"]
 [ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="5_usc5x"]
-[ext_resource type="Resource" uid="uid://b52pjp0l061t6" path="res://Resource/Modifier/Leap.tres" id="6_e40u6"]
 [ext_resource type="Script" uid="uid://bsyapjt6q5syj" path="res://Scene/Enemy/SkullWolf/SkullWolfDead.gd" id="6_frit1"]
 [ext_resource type="Resource" uid="uid://dxcbhgtr4uqsq" path="res://Resource/Modifier/Slash_Duck.tres" id="7_5tex2"]
 [ext_resource type="Script" uid="uid://bmrpu38hd2i1l" path="res://Scene/Enemy/SkullWolf/SkullWolfRage.gd" id="7_40k88"]
@@ -798,7 +797,7 @@ _data = {
 [node name="SkullWolf" unique_id=1094349948 instance=ExtResource("1_0ysf1")]
 script = ExtResource("2_40k88")
 dash_speed = 2000.0
-mod_resource = Array[ExtResource("3_lmtl0")]([ExtResource("4_52dfc"), ExtResource("5_usc5x"), ExtResource("6_e40u6"), ExtResource("7_5tex2"), ExtResource("8_fg2dp"), ExtResource("9_wl3lo"), ExtResource("10_q0o30"), ExtResource("11_52dfc")])
+mod_resource = Array[ExtResource("3_lmtl0")]([ExtResource("4_52dfc"), ExtResource("5_usc5x"), ExtResource("7_5tex2"), ExtResource("8_fg2dp"), ExtResource("9_wl3lo"), ExtResource("10_q0o30"), ExtResource("11_52dfc")])
 jump_velocity = -250.0
 max_speed = 60.0
 acceleration = 20

@@ -9,4 +9,5 @@ texture = ExtResource("2_mne2k")
 modifier_id = "Substitute"
 modifier_name = "身代わり"
 explanation = "次に使う修飾子の効果を2倍にする。ただし、武器に着いてる修飾子をランダムに1つ消す。"
+price = 2
 metadata/_custom_type_script = "uid://cwogrmg4kjfqg"

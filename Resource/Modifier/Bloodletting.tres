@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://c030c7jtl4oeb"]
 
 [ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_gx4if"]
-[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_h7iuu"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_gx4if"]
 
 [resource]
 script = ExtResource("1_gx4if")
 ModifierRank = 1
-texture = ExtResource("2_h7iuu")
+texture = ExtResource("2_gx4if")
 modifier_id = "Bloodletting"
 modifier_name = "自傷斬撃"
 color_rarity = Color(1, 0.100000024, 0.100000024, 1)

@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://csnxinxfnxpyt" path="res://Resource/Modifier/RevengeSlash.tres" id="4_4bs8o"]
 [ext_resource type="Script" uid="uid://ncteui0x5rir" path="res://Scene/Enemy/BOSS/GolemBossFly.gd" id="4_oaa17"]
 [ext_resource type="Script" uid="uid://7dvclidi08dr" path="res://Scene/Enemy/BOSS/GolemBossAttack.gd" id="5_4bl0x"]
+[ext_resource type="Resource" uid="uid://t603blr5o8t1" path="res://Resource/Modifier/RevolutionResolve.tres" id="5_4bs8o"]
 [ext_resource type="Texture2D" uid="uid://dktuj0ydds5j2" path="res://Assets/BOSS/Character_sheet.png" id="6_5nfcm"]
 [ext_resource type="Script" uid="uid://coyohaf4i45hc" path="res://Scene/Enemy/BOSS/GolemShoot.gd" id="6_qmbkk"]
 [ext_resource type="PackedScene" uid="uid://d155ketyg2q77" path="res://Component/Hitbox/hitbox.tscn" id="7_ajh7x"]
@@ -1258,7 +1259,7 @@ _data = {
 script = ExtResource("2_g1ujj")
 dash_speed = 1500.0
 can_move = true
-mod_resource = Array[ExtResource("3_kbcm7")]([ExtResource("4_4bs8o")])
+mod_resource = Array[ExtResource("3_kbcm7")]([ExtResource("4_4bs8o"), ExtResource("5_4bs8o")])
 character_name = "\"Pess\" The Fallen Guardian"
 jump_velocity = 0.0
 max_speed = 300.0

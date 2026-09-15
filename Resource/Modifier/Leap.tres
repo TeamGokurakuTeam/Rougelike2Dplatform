@@ -9,3 +9,4 @@ texture = ExtResource("2_2fhn1")
 modifier_id = "Leap"
 modifier_name = "跳躍な"
 explanation = "この剣で攻撃時Playerがその方向に飛ぶ "
+price = 2

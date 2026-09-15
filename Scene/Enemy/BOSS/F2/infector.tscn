@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://dc6oxaw2a6iw3" path="res://Resource/Modifier/RebirthResolve.tres" id="4_a2ase"]
 [ext_resource type="Texture2D" uid="uid://b4nkuy57rvubi" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_death.png" id="4_a5cet"]
 [ext_resource type="Script" uid="uid://byb1j2hn5ewmw" path="res://Scene/Enemy/BOSS/F2/InfectorRush.gd" id="4_fjlxk"]
+[ext_resource type="Resource" uid="uid://2nhl2ikencro" path="res://Resource/Modifier/Substitute.tres" id="5_a2ase"]
 [ext_resource type="Texture2D" uid="uid://dnfq1j2cs2duh" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_walk.png" id="5_do7x0"]
 [ext_resource type="Script" uid="uid://dh4wlcfni8brq" path="res://Scene/Enemy/BOSS/F2/InfectorSlam.gd" id="5_f36w6"]
 [ext_resource type="Texture2D" uid="uid://5nlc00tdp2gx" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_run.png" id="6_fjlxk"]
@@ -1146,7 +1147,7 @@ tracks/12/keys = {
 
 [sub_resource type="Animation" id="Animation_w8k11"]
 resource_name = "Slam"
-length = 1.9000000000000001
+length = 1.9
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1595,7 +1596,7 @@ _data = {
 
 [node name="Infector" unique_id=1094349948 instance=ExtResource("1_a7xe3")]
 script = ExtResource("2_vsncb")
-mod_resource = Array[ExtResource("3_pvk54")]([ExtResource("4_a2ase")])
+mod_resource = Array[ExtResource("3_pvk54")]([ExtResource("4_a2ase"), ExtResource("5_a2ase")])
 friction = 0.05
 character_name = "Plauge Infector M.R.H."
 acceleration = 35
@@ -1645,8 +1646,8 @@ idle_timer = NodePath("../../IdleTimer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 3000.0
-hp = 3000.0
+max_hp = 3500.0
+hp = 3500.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 position = Vector2(0, -52)

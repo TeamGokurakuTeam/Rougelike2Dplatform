@@ -208,7 +208,7 @@ func trigger_modifier_when_added(id : String) -> void:
 # 修飾子が10以上剣についている時、通常修飾子を全て消す代わりに攻撃力+50・体力全回復し、固定修飾子になる
 func _try_rebirth_resolve() -> void:
 	# 修飾子が足りない、不発
-	if get_unique_modifier_count() < 10:
+	if get_unique_modifier_count() < 15:
 		return
 	modifiers_ids.clear()
 	_reset_non_locked_modifier_states()
@@ -325,7 +325,7 @@ func bloodletting(direction : Vector2, offset_position_length : float) -> void:
 		slash.direction = direction
 		slash.global_position = self.global_position + weapon_rotation
 		if get_modifiers_level("Expanding"):
-			slash.scale += Vector2(0.2, 0.2)
+			slash.scale += Vector2(0.3, 0.3)
 		if get_modifiers_level("Swift"):
 			slash.speed += 20
 		if has_modifiers("Slash_Pierce"):
@@ -435,8 +435,8 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.damage_mult *= 0.9 ** level
-		mults.charge_damage_mult *= 0.9 ** level
+		mults.damage_mult *= 0.8 ** level
+		mults.charge_damage_mult *= 0.8 ** level
 
 	# 重撃
 	if has_modifiers("HeavyStrike"):
@@ -456,8 +456,8 @@ func calculate_damage_multiplier() -> AttackDamageMultiplier:
 
 	# 転生の覚悟
 	if has_modifiers("RebirthResolve"):
-		mults.damage_plus += 50
-		mults.charge_damage_plus += 50
+		mults.damage_plus += 40
+		mults.charge_damage_plus += 40
 
 	#残影な
 	if has_modifiers("Afterimage"):
@@ -471,8 +471,8 @@ func calculate_speed_multiplier() -> AttackSpeedMultiplier:
 	# 衰退し加速する
 	if has_modifiers("DampingSpeedUp"):
 		var level : int = get_modifiers_level("DampingSpeedUp")
-		mults.attack_speed_mult *= (1 + 0.1 * level)
-		mults.charge_attack_speed_mult *= (1 + 0.1 * level)
+		mults.attack_speed_mult *= (1 + 0.2 * level)
+		mults.charge_attack_speed_mult *= (1 + 0.2 * level)
 	
 	# 重撃
 	if has_modifiers("HeavyStrike"):
@@ -495,7 +495,7 @@ func _on_rampage_timer_timeout() -> void:
 	rampage_stack = 0
 
 func _on_stillblade_timer_timeout() -> void:
-	stillblade_stack = min(stillblade_stack + 1, max_stillblade_stack)
+	stillblade_stack = min(stillblade_stack + 3, max_stillblade_stack)
 	if stillblade_stack >= max_stillblade_stack:
 		stillblade_timer.stop()
 

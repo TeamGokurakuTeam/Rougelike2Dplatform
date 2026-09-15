@@ -11,3 +11,4 @@ modifier_id = "Bomb_Duck"
 modifier_name = "アヒル爆弾"
 color_rarity = Color(0.7529412, 0.85882354, 0, 1)
 explanation = "アヒルが消えるときに爆発する"
+price = 6

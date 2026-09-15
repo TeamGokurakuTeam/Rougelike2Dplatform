@@ -9,4 +9,5 @@ texture = ExtResource("2_x61on")
 modifier_id = "SacrificialSlash"
 modifier_name = "玉砕の斬撃"
 explanation = "武器の修飾子を消費した分だけ全体に斬撃を放つ。"
+price = 2
 metadata/_custom_type_script = "uid://cwogrmg4kjfqg"

@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://5no0h7ph7dod" path="res://Scene/Enemy/TopHat/TopHatHurt.gd" id="6_r4yci"]
 [ext_resource type="Texture2D" uid="uid://bp32enucgypfq" path="res://Assets/Enemy/Top Hat Mimic Assets/Attack01/Top Hat Mimic First Attack 6.png" id="7_r4yci"]
 [ext_resource type="Resource" uid="uid://dxcbhgtr4uqsq" path="res://Resource/Modifier/Slash_Duck.tres" id="7_rs1tq"]
-[ext_resource type="Resource" uid="uid://dc6oxaw2a6iw3" path="res://Resource/Modifier/RebirthResolve.tres" id="8_5wvl4"]
+[ext_resource type="Resource" uid="uid://2nhl2ikencro" path="res://Resource/Modifier/Substitute.tres" id="8_j84ul"]
 [ext_resource type="Texture2D" uid="uid://f1q4htq4aoip" path="res://Assets/Enemy/Top Hat Mimic Assets/Death/Top Hat Mimic Death1.png" id="8_oh3xw"]
 [ext_resource type="Texture2D" uid="uid://b4ftqdxly0flv" path="res://Assets/Enemy/Top Hat Mimic Assets/Death/Top Hat Mimic Death2.png" id="9_vvesd"]
 [ext_resource type="Texture2D" uid="uid://i7uupssgq2v8" path="res://Assets/Enemy/Top Hat Mimic Assets/Death/Top Hat Mimic Death3.png" id="10_de32d"]
@@ -680,7 +680,7 @@ jump_peak_offset = 150.0
 jump_duration = 0.5
 hover_duration = 0.4
 drop_speed = 900.0
-mod_resource = Array[ExtResource("3_5wvl4")]([ExtResource("4_de32d"), ExtResource("5_rs1tq"), ExtResource("6_5wvl4"), ExtResource("7_rs1tq"), ExtResource("8_5wvl4")])
+mod_resource = Array[ExtResource("3_5wvl4")]([ExtResource("4_de32d"), ExtResource("5_rs1tq"), ExtResource("6_5wvl4"), ExtResource("7_rs1tq"), ExtResource("8_j84ul")])
 friction = 0.3
 max_speed = 180.0
 acceleration = 25

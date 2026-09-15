@@ -1,12 +1,13 @@
 [gd_resource type="Resource" script_class="ModifierResource" format=3 uid="uid://dxcbhgtr4uqsq"]
 
 [ext_resource type="Script" uid="uid://cwogrmg4kjfqg" path="res://Resource/ModifierResource.gd" id="1_5dcd8"]
-[ext_resource type="Texture2D" uid="uid://bfngyrr13dgi5" path="res://Assets/Modifier/Word1.png" id="2_bfmeb"]
+[ext_resource type="Texture2D" uid="uid://doujir5blfyv6" path="res://Assets/Modifier/Word2.png" id="2_5dcd8"]
 
 [resource]
 script = ExtResource("1_5dcd8")
-texture = ExtResource("2_bfmeb")
+ModifierRank = 1
+texture = ExtResource("2_5dcd8")
 modifier_id = "Slash_Duck"
 modifier_name = "アヒル"
 explanation = "剣を振るとアヒルが出現"
-price = 3
+price = 4
