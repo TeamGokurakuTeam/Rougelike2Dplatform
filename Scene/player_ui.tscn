@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6vh5w3ybhsjo" path="res://Scene/UI/mod_ui.tscn" id="3_00pm1"]
 [ext_resource type="PackedScene" uid="uid://eba7bld3s5r6" path="res://Scene/UI/modifier_ui_panel.tscn" id="4_mgl1o"]
 [ext_resource type="PackedScene" uid="uid://cuc66hry0j4hn" path="res://Scene/UI/ModifierProgressBar.tscn" id="4_rj6n4"]
+[ext_resource type="Shader" uid="uid://cmgose8li4f1l" path="res://Assets/Effect/dissolve.gdshader" id="5_lxwu3"]
 [ext_resource type="Script" uid="uid://de1nov8m6sb05" path="res://Scene/modifier_explanation.gd" id="6_a57nb"]
 [ext_resource type="Texture2D" uid="uid://c7mldru1plvh5" path="res://Assets/UI/UI books & more.png" id="8_cxaj8"]
 [ext_resource type="PackedScene" uid="uid://cox1a8khttces" path="res://weapon_modifier_ui.tscn" id="8_yegcq"]
@@ -19,6 +20,35 @@
 [ext_resource type="AudioStream" uid="uid://bghhfikimshyj" path="res://Assets/SoundEffect/UIOpen.mp3" id="13_w7iic"]
 [ext_resource type="AudioStream" uid="uid://si6hgmjjstg3" path="res://Assets/SoundEffect/UIClick.mp3" id="14_mgl1o"]
 [ext_resource type="PackedScene" uid="uid://da17alwjh2rnb" path="res://Scene/UI/boss_hp_bar.tscn" id="15_oyl28"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mo8tq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wwp4a"]
+noise = SubResource("FastNoiseLite_mo8tq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_468ky"]
+resource_local_to_scene = true
+shader = ExtResource("5_lxwu3")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_wwp4a")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.16999999620016
+shader_parameter/burn_color = Color(0.7882353, 0.19215687, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r6q0k"]
+resource_local_to_scene = true
+shader = ExtResource("5_lxwu3")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_wwp4a")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.16999999620016
+shader_parameter/burn_color = Color(0.7882353, 0.19215687, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6kpd"]
+resource_local_to_scene = true
+shader = ExtResource("5_lxwu3")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_wwp4a")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.16999999620016
+shader_parameter/burn_color = Color(0.7882353, 0.19215687, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhy2k"]
 atlas = ExtResource("9_0pu00")
@@ -441,6 +471,7 @@ offset_bottom = 280.0
 
 [node name="ModifierUIPanel" parent="Parent/ModUI/Control/CarouseContainer/ModContainer" index="0" unique_id=2037691825 instance=ExtResource("4_mgl1o")]
 z_index = 1
+material = SubResource("ShaderMaterial_468ky")
 layout_mode = 0
 offset_top = -31.0
 offset_bottom = 31.0
@@ -449,6 +480,7 @@ pivot_offset = Vector2(31, 31)
 [node name="ModifierUIPanel2" parent="Parent/ModUI/Control/CarouseContainer/ModContainer" index="1" unique_id=301000932 instance=ExtResource("4_mgl1o")]
 modulate = Color(1, 1, 1, 0.5)
 z_index = -1
+material = SubResource("ShaderMaterial_r6q0k")
 layout_mode = 0
 offset_left = 62.0
 offset_top = -31.0
@@ -460,6 +492,7 @@ pivot_offset = Vector2(31, 31)
 [node name="ModifierUIPanel3" parent="Parent/ModUI/Control/CarouseContainer/ModContainer" index="2" unique_id=887723899 instance=ExtResource("4_mgl1o")]
 modulate = Color(1, 1, 1, 0)
 z_index = -2
+material = SubResource("ShaderMaterial_p6kpd")
 layout_mode = 0
 offset_left = 124.0
 offset_top = -31.0

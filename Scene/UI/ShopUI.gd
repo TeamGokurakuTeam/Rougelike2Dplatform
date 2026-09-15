@@ -15,6 +15,7 @@ const DROP_MODIFIER = preload("uid://b47iwp7p6b4wk")
 @onready var price: Label = $ExplainPanel/ItemSpritePanel/TextureRect/Price
 @onready var item_explain: RichTextLabel = $ExplainPanel/ItemExplain
 @onready var buy_button: Button = $BuyButton
+@onready var exit_button: Button = $ExitButton
 
 var npc : MerchantFrog
 var current_index : int = -1
@@ -37,6 +38,9 @@ func _ready() -> void:
 	for i in grid_container.get_child_count():
 		var panel : ShopItemPanel = grid_container.get_child(i)
 		panel.is_lock = npc.sold_list[i]
+	await animation_player.animation_finished
+	if InputDeviceManager.current_input_mode == InputDeviceManager.InputMode.CONTROLLER:
+		exit_button.grab_focus()
 
 func _on_exit_button_pressed() -> void:
 	animation_player.play("End")

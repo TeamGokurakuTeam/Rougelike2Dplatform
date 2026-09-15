@@ -131,6 +131,8 @@ func game_over() -> void:
 	player.input_enabled = false
 	game_over_animation_player.play("Start")
 	await game_over_animation_player.animation_finished
+	if InputDeviceManager.current_input_mode == InputDeviceManager.InputMode.CONTROLLER:
+		retry.grab_focus()
 	retry.disabled = false
 	title.disabled = false
 
