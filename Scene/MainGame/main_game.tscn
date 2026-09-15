@@ -49,7 +49,6 @@ shader_parameter/burn_color = Color(0.7882353, 0.19215687, 0, 1)
 script = ExtResource("1_ga214")
 
 [node name="Player" parent="." unique_id=1094349948 instance=ExtResource("3_4x3oj")]
-apply_cooldown = 0.5
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player" unique_id=2015756698]
 position = Vector2(0, -38)
