@@ -176,9 +176,9 @@ _data = {
 atlas = ExtResource("5_e11dr")
 region = Rect2(33, 66, 13, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gj3l6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj4o1"]
 atlas = ExtResource("6_7qixu")
-region = Rect2(51, 17, 16, 16)
+region = Rect2(188, 222, 14, 15)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhy2k"]
 font = ExtResource("7_6m5oh")
@@ -230,7 +230,7 @@ offset_left = 7.0
 offset_top = -51.0
 offset_right = 25.0
 offset_bottom = -33.0
-texture = SubResource("AtlasTexture_gj3l6")
+texture = SubResource("AtlasTexture_wj4o1")
 
 [node name="Label" type="Label" parent="Control" unique_id=447450849]
 layout_mode = 0
