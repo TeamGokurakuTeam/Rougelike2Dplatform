@@ -1300,9 +1300,10 @@ position = Vector2(2536, -296)
 
 [node name="MoveTile" parent="." index="9" unique_id=655839382 instance=ExtResource("11_e6jb0")]
 position = Vector2(2328, -448)
+move_speed = 0.7
 
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
-points = PackedVector2Array(0, 0, 0, 64)
+points = PackedVector2Array(0, -50, 0, 66)
 
 [node name="PlayerMarker" type="Marker2D" parent="." index="10" unique_id=534369705]
 position = Vector2(-480, 208)
