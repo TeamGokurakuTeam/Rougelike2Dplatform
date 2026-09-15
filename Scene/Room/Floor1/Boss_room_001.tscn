@@ -2070,7 +2070,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_top = 288.0
 offset_right = 512.0
-offset_bottom = 336.0
+offset_bottom = 336.00018
 color = Color(0, 0, 0, 1)
 
 [node name="BossName" type="Label" parent="CanvasLayer/Control" index="2" unique_id=1371298869]
@@ -2100,7 +2100,7 @@ anchor_right = 0.5
 offset_left = -34.0
 offset_top = 16.0
 offset_right = 34.0
-offset_bottom = 39.000023
+offset_bottom = 39.000027
 grow_horizontal = 2
 text = "1F - Boss"
 label_settings = SubResource("LabelSettings_jhy2k")
@@ -2133,7 +2133,7 @@ metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 
 [node name="Flash" type="AudioStreamPlayer" parent="Sound" index="0" unique_id=965587861]
 stream = ExtResource("17_stfpc")
-volume_db = -5.0
+volume_db = -15.0
 bus = &"SoundEffect"
 
 [node name="Awake" type="AudioStreamPlayer" parent="Sound" index="1" unique_id=2127768954]
