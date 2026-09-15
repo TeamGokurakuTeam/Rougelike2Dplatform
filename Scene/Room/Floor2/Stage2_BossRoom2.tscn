@@ -3295,22 +3295,29 @@ alpha_curve = SubResource("CurveTexture_il756")
 hue_variation_min = 0.19999997
 hue_variation_max = 0.19999997
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2j2di"]
-noise_type = 0
+[sub_resource type="Gradient" id="Gradient_3gngh"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_33x8s"]
-noise = SubResource("FastNoiseLite_2j2di")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d0u6y"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_57qmd"]
+noise = SubResource("FastNoiseLite_d0u6y")
+color_ramp = SubResource("Gradient_3gngh")
+
+[sub_resource type="Gradient" id="Gradient_p1u0y"]
+offsets = PackedFloat32Array(0, 0.012820513, 0.083333336, 1)
+colors = PackedColorArray(0.47361457, 0.47361457, 0.47361457, 1, 0, 0, 0, 1, 0.44871795, 0.44871795, 0.44871795, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7numd"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fcnqv"]
 noise = SubResource("FastNoiseLite_7numd")
+color_ramp = SubResource("Gradient_p1u0y")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("2_vp6os")
 shader_parameter/scale = Vector2(0.25000012, 2.1875)
-shader_parameter/zoom = 0.8481951
-shader_parameter/refraction_map = SubResource("NoiseTexture2D_33x8s")
+shader_parameter/zoom = 1.6528925
+shader_parameter/refraction_map = SubResource("NoiseTexture2D_57qmd")
 shader_parameter/water_mask = SubResource("NoiseTexture2D_fcnqv")
 shader_parameter/gap_stretch = Vector2(0.8, 0.05)
 shader_parameter/refraction_stretch = Vector2(2, 0.8)
@@ -3431,6 +3438,7 @@ position = Vector2(652, -56)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_u4t2k")
 animation = &"Awake"
+frame = 5
 
 [node name="SwimParticles" parent="DefeatedScene" index="2" unique_id=1478555142 instance=ExtResource("12_beadn")]
 position = Vector2(-5, 37)
