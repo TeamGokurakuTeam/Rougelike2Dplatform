@@ -9,6 +9,8 @@ var has_played_tutorial : bool = false
 var is_current_floor_boss_killed : bool = false
 var best_floor_clear_time_list : Dictionary[int, int] = {}
 var current_floor_start_tick : int = 0
+var has_cleared_1st_floor_with_silver_sword : bool = false
+var enemy_2nd_floor_kill_count : int = 0
 
 func start_floor_timer() -> void:
 	current_floor_start_tick = Time.get_ticks_msec()

@@ -89,7 +89,11 @@ func _should_weapon_be_unlocked_by_progress(weapon_id : String) -> bool:
 			return GlobalGameState.found_floor1_secret_room
 		"TimerBlade":
 			var floor2_clear_time : int = GlobalGameState.get_best_floor_clear_time(2)
-			return floor2_clear_time > 0 and floor2_clear_time <= 240_000
+			return floor2_clear_time > 0 and floor2_clear_time <= 480_000
+		"GeniuSpear":
+			return GlobalGameState.has_cleared_1st_floor_with_silver_sword
+		"CurseDagger":
+			return GlobalGameState.enemy_2nd_floor_kill_count >= 20
 	return false
 
 func _on_panel_button_pressed() -> void:
