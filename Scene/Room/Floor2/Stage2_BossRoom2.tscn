@@ -24,6 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://dnfq1j2cs2duh" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_walk.png" id="15_o5pat"]
 [ext_resource type="Texture2D" uid="uid://b5drt4ofb1x7w" path="res://Assets/BOSS2/3 Ooze/3 Ooze/Ooze_boss_attack3.png" id="16_f4rc6"]
 [ext_resource type="Texture2D" uid="uid://3m7hndvvxape" path="res://Assets/Particle/Free Smoke Fx  Pixel 06.png" id="19_ibu66"]
+[ext_resource type="AudioStream" uid="uid://b5rndhn21j3e2" path="res://Assets/SoundEffect/BoosF2.mp3" id="20_ibu66"]
+[ext_resource type="AudioStream" uid="uid://q03mrxjgkx7w" path="res://Assets/SoundEffect/BossF2水しぶき.mp3" id="21_lueov"]
+[ext_resource type="AudioStream" uid="uid://db6c7laxti6b5" path="res://Assets/SoundEffect/BossF2着地.mp3" id="22_507yi"]
+[ext_resource type="AudioStream" uid="uid://cuefrycbqukx4" path="res://Assets/SoundEffect/BossF2倒れる.mp3" id="23_ehy3x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hoxb"]
 shader = ExtResource("4_wagxx")
@@ -2279,6 +2283,30 @@ tracks/13/keys = {
 "update": 1,
 "values": [true, true, false]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AudioStreamPlayer4:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 1, 1.2, 9.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AudioStreamPlayer4:volume_db")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 1.2272625, 8.03299, 9.29213),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-20.0, -20.0, -20.0, -40.0]
+}
 
 [sub_resource type="Animation" id="Animation_wagxx"]
 length = 0.001
@@ -2665,6 +2693,114 @@ tracks/31/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("AudioStreamPlayer:playing")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-25.0]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("AudioStreamPlayer2:playing")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("AudioStreamPlayer3:playing")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("AudioStreamPlayer3:pitch_scale")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("AudioStreamPlayer2:pitch_scale")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("AudioStreamPlayer4:playing")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("AudioStreamPlayer4:volume_db")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
 }
 
 [sub_resource type="Animation" id="Animation_1fpfe"]
@@ -3055,6 +3191,90 @@ tracks/31/keys = {
 "update": 1,
 "values": [false, true, true, false]
 }
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("AudioStreamPlayer:playing")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 1.4974884, 1.5, 10, 10.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(-0.1, 1.491143, 5.8, 9.8),
+"transitions": PackedFloat32Array(1, 1, 0.012691388, 0.012691388),
+"update": 0,
+"values": [-10.0, 10.0, -10.0, -10.0]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("AudioStreamPlayer2:playing")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 9.2, 10.2, 13.2, 16.735285, 16.931593),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, false, true]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 14.884001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-20.0, -20.0]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("AudioStreamPlayer3:playing")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0, 12.3, 12.4, 12.659116, 12.901699),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("AudioStreamPlayer3:pitch_scale")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0, 12.550759, 12.827516),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.5]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("AudioStreamPlayer2:pitch_scale")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0, 22),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o5pat"]
 _data = {
@@ -3309,7 +3529,7 @@ noise = SubResource("FastNoiseLite_7numd")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("2_vp6os")
 shader_parameter/scale = Vector2(0.25000012, 2.1875)
-shader_parameter/zoom = 0.8481951
+shader_parameter/zoom = 0.63726145
 shader_parameter/refraction_map = SubResource("NoiseTexture2D_33x8s")
 shader_parameter/water_mask = SubResource("NoiseTexture2D_fcnqv")
 shader_parameter/gap_stretch = Vector2(0.8, 0.05)
@@ -3368,7 +3588,7 @@ horizontal_alignment = 1
 layout_mode = 0
 offset_left = 209.0
 offset_top = 249.00002
-offset_right = 536.0
+offset_right = 536.0003
 offset_bottom = 282.00006
 rotation = -0.015380681
 text = "Plauge Infector M.R.H."
@@ -3431,6 +3651,7 @@ position = Vector2(652, -56)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_u4t2k")
 animation = &"Awake"
+frame = 5
 
 [node name="SwimParticles" parent="DefeatedScene" index="2" unique_id=1478555142 instance=ExtResource("12_beadn")]
 position = Vector2(-5, 37)
@@ -3471,6 +3692,22 @@ emitting = false
 amount = 12
 texture = SubResource("AtlasTexture_yw74o")
 process_material = SubResource("ParticleProcessMaterial_5hoxb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DefeatedScene" index="6" unique_id=625916341]
+stream = ExtResource("20_ibu66")
+volume_db = -25.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DefeatedScene" index="7" unique_id=1559406557]
+stream = ExtResource("21_lueov")
+volume_db = -20.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DefeatedScene" index="8" unique_id=848098692]
+stream = ExtResource("22_507yi")
+volume_db = -15.0
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DefeatedScene" index="9" unique_id=1360575902]
+stream = ExtResource("23_ehy3x")
+volume_db = -20.0
 
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("9_ujs4k")]
 position = Vector2(1328, -288)
