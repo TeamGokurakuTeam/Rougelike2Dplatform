@@ -48,13 +48,13 @@ func _process(delta: float) -> void:
 		pause_menu.player_ui = self
 		add_child(pause_menu)
 	if Input.is_action_just_pressed("UI_scroll_left") and not mod_ui.carouse_container.lock_scroll:
-		player.current_modifier += 1
+		player.current_modifier -= 1
 		mod_ui.texture_update(player)
 		if not player.current_modifier < 0:
 			_on_modifier_picked_up(GlobalResourceLoader.modifier_cache[player.mod_resource_ids[player.current_modifier]])
-		
+
 	if Input.is_action_just_pressed("UI_scroll_right") and not mod_ui.carouse_container.lock_scroll:
-		player.current_modifier -= 1
+		player.current_modifier += 1
 		mod_ui.texture_update(player)
 		if not player.current_modifier < 0:
 			_on_modifier_picked_up(GlobalResourceLoader.modifier_cache[player.mod_resource_ids[player.current_modifier]])
