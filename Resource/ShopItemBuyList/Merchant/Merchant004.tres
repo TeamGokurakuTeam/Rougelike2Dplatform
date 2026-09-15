@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ShopItemBuyList" format=3 uid="uid://bdogx5g844ak3"]
+
+[ext_resource type="Resource" uid="uid://chyw28j23uaay" path="res://Resource/Modifier/Swift.tres" id="1_03p8m"]
+[ext_resource type="Resource" uid="uid://byoe8yma55ih3" path="res://Resource/Modifier/DampingSpeedUp.tres" id="3_acmnp"]
+[ext_resource type="Resource" uid="uid://cpvdfidpdiacj" path="res://Resource/Modifier/HeavyStrike.tres" id="4_acmnp"]
+[ext_resource type="Resource" uid="uid://djae1rhe63ajg" path="res://Resource/Modifier/Expanding.tres" id="6_uu1ow"]
+[ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="7_r31wo"]
+
+[resource]
+script = ExtResource("7_r31wo")
+item_list = Array[Resource]([ExtResource("1_03p8m"), ExtResource("1_03p8m"), ExtResource("6_uu1ow"), ExtResource("6_uu1ow"), ExtResource("3_acmnp"), ExtResource("3_acmnp"), ExtResource("4_acmnp")])
