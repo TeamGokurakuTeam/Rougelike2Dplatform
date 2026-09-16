@@ -20,6 +20,7 @@ const HEDORO_SLIME = preload("uid://cuhgb0dmmo2dk")
 var is_rage : bool = false
 var rush_speed : float = max_speed
 var enemy_count : int = 0
+var boss_summoned_enemys : Array[HedoroSlime]
 
 func _ready() -> void:
 	a_rush_effect.emitting = false
@@ -44,6 +45,7 @@ func flip_character() -> void:
 		shout.position.x = 73.0
 		spawn_bullet_pos.position.x = 82.0
 		boss_enemy_spawn_point.position.x = 92.0
+		hitboxes.scale.x = -1.0
 	elif player_dir() < 0 and sprite.flip_h:
 		sprite.flip_h = false
 		sprite.offset.x = -8.0
@@ -52,6 +54,7 @@ func flip_character() -> void:
 		shout.position.x = -50.0
 		spawn_bullet_pos.position.x = -71.0
 		boss_enemy_spawn_point.position.x = -92.0
+		hitboxes.scale.x = 1.0
 
 func shoot() -> void:
 	var gear : HedoroGear = HEDORO_GEAR.instantiate()
@@ -135,6 +138,7 @@ func _slime_anim_summon() -> void:
 	hedoro_slime.hp_component.hp = hedoro_slime.hp_component.max_hp / 2
 	hedoro_slime.hp_component.is_dead.connect(_on_slime_is_dead)
 	enemy_count += 1
+	boss_summoned_enemys.append(hedoro_slime)
 
 func _on_slime_is_dead() -> void:
 	enemy_count -= 1
@@ -157,3 +161,9 @@ func _on_hp_component_is_dead() -> void:
 	killed_drop_item()
 	killed_drop_modifier()
 	queue_free()
+	if boss_summoned_enemys.size() < 0:
+		return
+	for node in boss_summoned_enemys:
+		if node:
+			node.queue_free()
+	enemy_count = 0
