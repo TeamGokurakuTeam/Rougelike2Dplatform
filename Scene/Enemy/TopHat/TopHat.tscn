@@ -675,16 +675,16 @@ _data = {
 
 [node name="TopHat" unique_id=1094349948 instance=ExtResource("1_jaa30")]
 script = ExtResource("2_cqjqm")
-jump_height_offset = 120.0
-jump_peak_offset = 150.0
-jump_duration = 0.5
-hover_duration = 0.4
-drop_speed = 900.0
 mod_resource = Array[ExtResource("3_5wvl4")]([ExtResource("4_de32d"), ExtResource("5_rs1tq"), ExtResource("6_5wvl4"), ExtResource("7_rs1tq"), ExtResource("8_j84ul")])
 friction = 0.3
 max_speed = 180.0
 acceleration = 25
 knockback_friction = 400.0
+jump_height_offset = 120.0
+jump_peak_offset = 150.0
+jump_duration = 0.5
+hover_duration = 0.4
+drop_speed = 900.0
 
 [node name="StateMachine" parent="." index="0" unique_id=1396875699 node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Idle")
@@ -716,8 +716,8 @@ animation_player = NodePath("../../AnimationPlayer")
 metadata/_custom_type_script = "uid://xkegmi4e8sfs"
 
 [node name="HPComponent" parent="." index="1" unique_id=456158778]
-max_hp = 350.0
-hp = 350.0
+max_hp = 600.0
+hp = 600.0
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1883945263]
 sprite_frames = SubResource("SpriteFrames_nd50y")
