@@ -78,9 +78,8 @@ position = Vector2(448, 344)
 enemys = Array[PackedScene]([ExtResource("5_xub2d")])
 
 [node name="Ceiling" parent="." index="4" unique_id=219379365 instance=ExtResource("3_gy51e")]
-position = Vector2(560, 392)
+position = Vector2(544, 384)
 rotation = 3.1415927
-scale = Vector2(0.5, 0.5)
 
 [node name="Launcher" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=1827001644 instance=ExtResource("5_u2er8")]
 position = Vector2(8, 344)
