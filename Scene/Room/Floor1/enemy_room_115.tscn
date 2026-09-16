@@ -24,95 +24,95 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAIAAIAAAAAAAEAAAAIAAIAAAAAAAIAAAAIAAI
 [node name="Decoration" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="3" unique_id=1904370471]
 tile_map_data = PackedByteArray("AAASACYAAAAFAAkAAAASACcAAAAFAAkAAAASACgAAAAFAAkAAAASACkAAAAFAAkAAAASACoAAAAFAAkAAAASACsAAAAFAAkAAAASACwAAAAFAAkAAAASAC0AAAAFAAkAAAASAC4AAAAKAAoAAAASAC8AAAAKAAoAAAASADAAAAAKAAoAAAATADAAAAAKAAoAAAAUADAAAAAKAAoAAAATAC8AAAAKAAoAAAARADAAAAAKAAoAAAATAC4AAAAKAAwAAAAUAC8AAAAMAAwAAAATACYAAAAIAAwAAAATACcAAAAIAA0AAAATAC0AAQAAAAAAAAAFAC4AAQAAAAAAAAAFADAAAAAEAA0AAAAGADAAAAAFAA0AAAAHADAAAAAGAA0AAAAMADAAAAAEAA0AAAANADAAAAAFAA0AAAAOADAAAAAGAA0AAAAEADAAAAAHAAoAAAAKADAAAAALAAwAAAALADAAAAAKAAoAAAARAC8AAAALAAwAAAAEACUAAAAIAAwAAAAEACYAAAAIAA0AAAATAB8AAAAIAAwAAAATACAAAAAIAA0AAAAIABYAAAAIAAwAAAAIABcAAAAIAA0AAAAJAAsAAAAIAAwAAAAJAAwAAAAIAA0AAAAEACwAAAAKAA4AAAAFACwAAAALAA4AAAAGACwAAAAMAA4AAAAHACwAAAANAA4AAAAJADAAAAAIAA0AAFALAC8AAAAIAAwAAFAHACcAAQAAAAAAAAASACEAAAAFAAkAAAAUABoAAQAAAAAAAAALABwAAQAAAAAAAAAPABUAAQAAAAAAAAARABAAAQAAAAAAAAAKAA0AAQAAAAAAAAACACkAAAAKAAwAAAADACkAAAAKAAoAAAADACgAAAAKAAoAAAAEACkAAAAKAAoAAAAFACkAAAAMAAwAAAAEACgAAAALAAwAAAASACMAAAAFAAkAAAASACIAAAAFAAkAAAASACAAAAAFAAkAAAASAB8AAAAFAAkAAAAUACEAAQAAAAAAAAAVACMAAAAKAAoAAAAWACMAAAAKAAoAAAAXACIAAAAKAAoAAAAXACEAAAAKAAoAAAAWACIAAAAKAAoAAAAXACMAAAAKAAoAAAAVACIAAAALAAwAAAAXACAAAAAKAAwAAAATACMAAAAFAA0AAAAUACMAAAAGAA0AAAAXAB8AAAAKAA4AAAAUACYAAAAKAA4AAAACACUAAAANAA4AAAAGABYAAAANAA4AAAATABUAAAAKAA4AAAANAAsAAAAKAA4AAAAOAAsAAAALAA4AAAAPAAsAAAAMAA4AAAAQAAsAAAANAA4AAAASABIAAAAKAAoAAAASABEAAAAKAAoAAAATABAAAAAKAAoAAAATABEAAAAKAAoAAAATABIAAAAKAAoAAAATAA8AAAAKAAwAAAASABAAAAAMAAwAAAATABwAAAAEAA0AAAAUABwAAAAFAA0AAAAVABwAAAAGAA0AAAASABUAAAAIAAwAAAASABYAAAAIAA0AAAAKABEAAgAMAAQAAAAKABIAAgAMAAQAAAASAAsAAgAMAAQAAAAFACUAAgAMAAQAAAAWABwAAAALAAwAAAAGABkAAAAKAAoAAAAHABkAAAAKAAwAAAAGABsAAAAFAAkAAAAGABwAAAAFAAkAAAAGAB0AAAAFAAkAAAAGAB4AAAAFAAkAAAAGAB8AAAAFAAkAAAAGACAAAAAFAAkAAAAGACEAAAAFAAkAAAAGACIAAAAFAAkAAAAGACMAAAAFAAkAAAAGACQAAAAFAAkAAAAGACUAAAAFAAkAAAAGACYAAAAFAAkAAAAGACcAAAAFAAkAAAAGACgAAAAFAAkAAAAGACkAAAAFAAkAAAD7/wAAAAAIAAIAAAD7/wEAAAAIAAIAAAD7/wIAAAAIAAIAAAD7/wMAAAAIAAIAAAD8/wAAAAAIAAIAAAD8/wEAAAACAAIAAAD8/wIAAAACAAIAAAD8/wMAAAAIAAIAAAD9/wAAAAAIAAIAAAD9/wEAAAACAAIAAAD9/wIAAAACAAIAAAD9/wMAAAAIAAIAAAD+/wAAAAAIAAIAAAD+/wEAAAAIAAIAAAD+/wIAAAAIAAIAAAD+/wMAAAAIAAIAAAAFAAAAAAAIAAIAAAAFAAEAAAAIAAIAAAAFAAIAAAAIAAIAAAAFAAMAAAAIAAIAAAAGAAAAAAAIAAIAAAAGAAEAAAACAAIAAAAGAAIAAAACAAIAAAAGAAMAAAAIAAIAAAAHAAAAAAAIAAIAAAAHAAEAAAACAAIAAAAHAAIAAAACAAIAAAAHAAMAAAAIAAIAAAAIAAAAAAAIAAIAAAAIAAEAAAAIAAIAAAAIAAIAAAAIAAIAAAAIAAMAAAAIAAIAAAARAAAAAAAIAAIAAAARAAEAAAAIAAIAAAARAAIAAAAIAAIAAAARAAMAAAAIAAIAAAASAAAAAAAIAAIAAAASAAEAAAACAAIAAAASAAIAAAACAAIAAAASAAMAAAAIAAIAAAATAAAAAAAIAAIAAAATAAEAAAACAAIAAAATAAIAAAACAAIAAAATAAMAAAAIAAIAAAAUAAAAAAAIAAIAAAAUAAEAAAAIAAIAAAAUAAIAAAAIAAIAAAAUAAMAAAAIAAIAAAAbAAAAAAAIAAIAAAAbAAEAAAAIAAIAAAAbAAIAAAAIAAIAAAAbAAMAAAAIAAIAAAAcAAAAAAAIAAIAAAAcAAEAAAACAAIAAAAcAAIAAAACAAIAAAAcAAMAAAAIAAIAAAAdAAAAAAAIAAIAAAAdAAEAAAACAAIAAAAdAAIAAAACAAIAAAAdAAMAAAAIAAIAAAAeAAAAAAAIAAIAAAAeAAEAAAAIAAIAAAAeAAIAAAAIAAIAAAAeAAMAAAAIAAIAAAAbAAwAAAAIAAIAAAAbAA0AAAAIAAIAAAAbAA4AAAAIAAIAAAAbAA8AAAAIAAIAAAAcAAwAAAAIAAIAAAAcAA0AAAACAAIAAAAcAA4AAAACAAIAAAAcAA8AAAAIAAIAAAAdAAwAAAAIAAIAAAAdAA0AAAACAAIAAAAdAA4AAAACAAIAAAAdAA8AAAAIAAIAAAAeAAwAAAAIAAIAAAAeAA0AAAAIAAIAAAAeAA4AAAAIAAIAAAAeAA8AAAAIAAIAAAAbABkAAAAIAAIAAAAbABoAAAAIAAIAAAAbABsAAAAIAAIAAAAbABwAAAAIAAIAAAAcABkAAAAIAAIAAAAcABoAAAACAAIAAAAcABsAAAACAAIAAAAcABwAAAAIAAIAAAAdABkAAAAIAAIAAAAdABoAAAACAAIAAAAdABsAAAACAAIAAAAdABwAAAAIAAIAAAAeABkAAAAIAAIAAAAeABoAAAAIAAIAAAAeABsAAAAIAAIAAAAeABwAAAAIAAIAAAAbACAAAAAIAAIAAAAbACEAAAAIAAIAAAAbACIAAAAIAAIAAAAbACMAAAAIAAIAAAAcACAAAAAIAAIAAAAcACEAAAACAAIAAAAcACIAAAACAAIAAAAcACMAAAAIAAIAAAAdACAAAAAIAAIAAAAdACEAAAACAAIAAAAdACIAAAACAAIAAAAdACMAAAAIAAIAAAAeACAAAAAIAAIAAAAeACEAAAAIAAIAAAAeACIAAAAIAAIAAAAeACMAAAAIAAIAAAAbAC0AAAAIAAIAAAAbAC4AAAAIAAIAAAAbAC8AAAAIAAIAAAAbADAAAAAIAAIAAAAcAC0AAAAIAAIAAAAcAC4AAAACAAIAAAAcAC8AAAACAAIAAAAcADAAAAAIAAIAAAAdAC0AAAAIAAIAAAAdAC4AAAACAAIAAAAdAC8AAAACAAIAAAAdADAAAAAIAAIAAAAeAC0AAAAIAAIAAAAeAC4AAAAIAAIAAAAeAC8AAAAIAAIAAAAeADAAAAAIAAIAAAAbADQAAAAIAAIAAAAbADUAAAAIAAIAAAAbADYAAAAIAAIAAAAbADcAAAAIAAIAAAAcADQAAAAIAAIAAAAcADUAAAACAAIAAAAcADYAAAACAAIAAAAcADcAAAAIAAIAAAAdADQAAAAIAAIAAAAdADUAAAACAAIAAAAdADYAAAACAAIAAAAdADcAAAAIAAIAAAAeADQAAAAIAAIAAAAeADUAAAAIAAIAAAAeADYAAAAIAAIAAAAeADcAAAAIAAIAAAARADQAAAAIAAIAAAARADUAAAAIAAIAAAARADYAAAAIAAIAAAARADcAAAAIAAIAAAASADQAAAAIAAIAAAASADUAAAACAAIAAAASADYAAAACAAIAAAASADcAAAAIAAIAAAATADQAAAAIAAIAAAATADUAAAACAAIAAAATADYAAAACAAIAAAATADcAAAAIAAIAAAAUADQAAAAIAAIAAAAUADUAAAAIAAIAAAAUADYAAAAIAAIAAAAUADcAAAAIAAIAAAAFADQAAAAIAAIAAAAFADUAAAAIAAIAAAAFADYAAAAIAAIAAAAFADcAAAAIAAIAAAAGADQAAAAIAAIAAAAGADUAAAACAAIAAAAGADYAAAACAAIAAAAGADcAAAAIAAIAAAAHADQAAAAIAAIAAAAHADUAAAACAAIAAAAHADYAAAACAAIAAAAHADcAAAAIAAIAAAAIADQAAAAIAAIAAAAIADUAAAAIAAIAAAAIADYAAAAIAAIAAAAIADcAAAAIAAIAAAD7/zQAAAAIAAIAAAD7/zUAAAAIAAIAAAD7/zYAAAAIAAIAAAD7/zcAAAAIAAIAAAD8/zQAAAAIAAIAAAD8/zUAAAACAAIAAAD8/zYAAAACAAIAAAD8/zcAAAAIAAIAAAD9/zQAAAAIAAIAAAD9/zUAAAACAAIAAAD9/zYAAAACAAIAAAD9/zcAAAAIAAIAAAD+/zQAAAAIAAIAAAD+/zUAAAAIAAIAAAD+/zYAAAAIAAIAAAD+/zcAAAAIAAIAAAD7/y0AAAAIAAIAAAD7/y4AAAAIAAIAAAD7/y8AAAAIAAIAAAD7/zAAAAAIAAIAAAD8/y0AAAAIAAIAAAD8/y4AAAACAAIAAAD8/y8AAAACAAIAAAD8/zAAAAAIAAIAAAD9/y0AAAAIAAIAAAD9/y4AAAACAAIAAAD9/y8AAAACAAIAAAD9/zAAAAAIAAIAAAD+/y0AAAAIAAIAAAD+/y4AAAAIAAIAAAD+/y8AAAAIAAIAAAD+/zAAAAAIAAIAAAD7/yAAAAAIAAIAAAD7/yEAAAAIAAIAAAD7/yIAAAAIAAIAAAD7/yMAAAAIAAIAAAD8/yAAAAAIAAIAAAD8/yEAAAACAAIAAAD8/yIAAAACAAIAAAD8/yMAAAAIAAIAAAD9/yAAAAAIAAIAAAD9/yEAAAACAAIAAAD9/yIAAAACAAIAAAD9/yMAAAAIAAIAAAD+/yAAAAAIAAIAAAD+/yEAAAAIAAIAAAD+/yIAAAAIAAIAAAD+/yMAAAAIAAIAAAD7/xkAAAAIAAIAAAD7/xoAAAAIAAIAAAD7/xsAAAAIAAIAAAD7/xwAAAAIAAIAAAD8/xkAAAAIAAIAAAD8/xoAAAACAAIAAAD8/xsAAAACAAIAAAD8/xwAAAAIAAIAAAD9/xkAAAAIAAIAAAD9/xoAAAACAAIAAAD9/xsAAAACAAIAAAD9/xwAAAAIAAIAAAD+/xkAAAAIAAIAAAD+/xoAAAAIAAIAAAD+/xsAAAAIAAIAAAD+/xwAAAAIAAIAAAD7/wwAAAAIAAIAAAD7/w0AAAAIAAIAAAD7/w4AAAAIAAIAAAD7/w8AAAAIAAIAAAD8/wwAAAAIAAIAAAD8/w0AAAACAAIAAAD8/w4AAAACAAIAAAD8/w8AAAAIAAIAAAD9/wwAAAAIAAIAAAD9/w0AAAACAAIAAAD9/w4AAAACAAIAAAD9/w8AAAAIAAIAAAD+/wwAAAAIAAIAAAD+/w0AAAAIAAIAAAD+/w4AAAAIAAIAAAD+/w8AAAAIAAIAAAA=")
 
-[node name="OneWay" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="5" unique_id=610867179 instance=ExtResource("2_x240b")]
-position = Vector2(184, 728)
-
-[node name="OneWay2" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="6" unique_id=1539530295 instance=ExtResource("2_x240b")]
-position = Vector2(264, 576)
-
-[node name="OneWay3" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="7" unique_id=987173998 instance=ExtResource("2_x240b")]
-position = Vector2(216, 576)
-
-[node name="OneWay4" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="8" unique_id=1420877161 instance=ExtResource("2_x240b")]
-position = Vector2(168, 576)
-
-[node name="OneWay5" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="9" unique_id=621537602 instance=ExtResource("2_x240b")]
-position = Vector2(120, 576)
-
-[node name="MoveTile" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="10" unique_id=971770846 instance=ExtResource("3_04mjy")]
-position = Vector2(312, 640)
-move_speed = 0.5
-
-[node name="Line2D" parent="TileMaps/MoveTile" index="3" unique_id=2081624802]
-points = PackedVector2Array(0, 0, -184, 0)
-
-[node name="OneWay6" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="11" unique_id=119200660 instance=ExtResource("2_x240b")]
-position = Vector2(168, 512)
-
-[node name="OneWay7" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="12" unique_id=186265146 instance=ExtResource("2_x240b")]
-position = Vector2(264, 464)
-
-[node name="Obelisk" parent="TileMaps" parent_id_path=PackedInt32Array(880576602) index="13" unique_id=1340329694 instance=ExtResource("4_04mjy")]
-position = Vector2(96, 216)
-
 [node name="Door" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="0" unique_id=611324660 instance=ExtResource("4_6yn72")]
 position = Vector2(32, 752)
 dir = 3
 
-[node name="ExitPonit" type="Marker2D" parent="Doors/Door" index="5" unique_id=1198633189]
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door" index="5" unique_id=1198633189]
 position = Vector2(24, 0)
 
 [node name="Door2" parent="Doors" parent_id_path=PackedInt32Array(622901157) index="1" unique_id=707225080 instance=ExtResource("4_6yn72")]
 position = Vector2(400, 432)
 dir = 4
 
-[node name="ExitPonit" type="Marker2D" parent="Doors/Door2" index="5" unique_id=802033614]
+[node name="ExitPoint" type="Marker2D" parent="Doors/Door2" index="5" unique_id=802033614]
 position = Vector2(-40, 0)
 
-[node name="OneWay" parent="." index="6" unique_id=764683364 instance=ExtResource("2_x240b")]
+[node name="EnemySpawnPoint6" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=2127040969 instance=ExtResource("6_jsf3y")]
+position = Vector2(136, 752)
+enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
+is_random = true
+
+[node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=441511218 instance=ExtResource("6_jsf3y")]
+position = Vector2(240, 752)
+enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
+is_random = true
+
+[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=809482321 instance=ExtResource("6_jsf3y")]
+position = Vector2(80, 632)
+enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
+is_random = true
+
+[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=902469742 instance=ExtResource("6_jsf3y")]
+position = Vector2(152, 544)
+enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
+is_random = true
+
+[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=1168925344 instance=ExtResource("6_jsf3y")]
+position = Vector2(296, 264)
+enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
+is_random = true
+
+[node name="EnemySpawnPoint7" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="5" unique_id=340536946 instance=ExtResource("6_jsf3y")]
+position = Vector2(320, 544)
+enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
+is_random = true
+
+[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="6" unique_id=293395906 instance=ExtResource("6_jsf3y")]
+position = Vector2(136, 224)
+enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
+is_random = true
+
+[node name="OneWay3" parent="." index="6" unique_id=1539530295 instance=ExtResource("2_x240b")]
+position = Vector2(264, 576)
+
+[node name="OneWay4" parent="." index="7" unique_id=987173998 instance=ExtResource("2_x240b")]
+position = Vector2(216, 576)
+
+[node name="OneWay5" parent="." index="8" unique_id=1420877161 instance=ExtResource("2_x240b")]
+position = Vector2(168, 576)
+
+[node name="OneWay6" parent="." index="9" unique_id=621537602 instance=ExtResource("2_x240b")]
+position = Vector2(120, 576)
+
+[node name="MoveTile2" parent="." index="10" unique_id=971770846 instance=ExtResource("3_04mjy")]
+position = Vector2(312, 640)
+move_speed = 0.5
+
+[node name="Line2D" parent="MoveTile2" index="3" unique_id=2081624802]
+points = PackedVector2Array(0, 0, -184, 0)
+
+[node name="OneWay7" parent="." index="11" unique_id=119200660 instance=ExtResource("2_x240b")]
+position = Vector2(168, 512)
+
+[node name="OneWay8" parent="." index="12" unique_id=186265146 instance=ExtResource("2_x240b")]
+position = Vector2(264, 464)
+
+[node name="OneWay2" parent="." index="13" unique_id=610867179 instance=ExtResource("2_x240b")]
+position = Vector2(184, 728)
+
+[node name="Obelisk" parent="." index="14" unique_id=1340329694 instance=ExtResource("4_04mjy")]
+position = Vector2(96, 216)
+
+[node name="OneWay" parent="." index="15" unique_id=764683364 instance=ExtResource("2_x240b")]
 position = Vector2(136, 416)
 
-[node name="MoveTile" parent="." index="7" unique_id=1917202676 instance=ExtResource("3_04mjy")]
+[node name="MoveTile" parent="." index="16" unique_id=1917202676 instance=ExtResource("3_04mjy")]
 position = Vector2(296, 392)
 move_speed = 0.5
 
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, -48, 0, -48, -136, -96, -136)
 
-[node name="EnemySpawnPoint" parent="." index="8" unique_id=441511218 instance=ExtResource("6_jsf3y")]
-position = Vector2(240, 752)
-enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
-is_random = true
-
-[node name="EnemySpawnPoint6" parent="." index="9" unique_id=2127040969 instance=ExtResource("6_jsf3y")]
-position = Vector2(136, 752)
-enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
-is_random = true
-
-[node name="EnemySpawnPoint5" parent="." index="10" unique_id=1168925344 instance=ExtResource("6_jsf3y")]
-position = Vector2(296, 264)
-enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
-is_random = true
-
-[node name="EnemySpawnPoint2" parent="." index="11" unique_id=809482321 instance=ExtResource("6_jsf3y")]
-position = Vector2(80, 632)
-enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
-is_random = true
-
-[node name="EnemySpawnPoint3" parent="." index="12" unique_id=902469742 instance=ExtResource("6_jsf3y")]
-position = Vector2(152, 544)
-enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
-is_random = true
-
-[node name="EnemySpawnPoint7" parent="." index="13" unique_id=340536946 instance=ExtResource("6_jsf3y")]
-position = Vector2(320, 544)
-enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
-is_random = true
-
-[node name="EnemySpawnPoint4" parent="." index="14" unique_id=293395906 instance=ExtResource("6_jsf3y")]
-position = Vector2(136, 224)
-enemys = Array[PackedScene]([ExtResource("7_wyru4"), ExtResource("8_kf5ox"), ExtResource("9_iw0n8")])
-is_random = true
-
-[editable path="TileMaps/MoveTile"]
+[editable path="MoveTile2"]
 [editable path="MoveTile"]
