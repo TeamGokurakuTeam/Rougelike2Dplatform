@@ -100,8 +100,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivevv"]
 size = Vector2(24, 23)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_58ae2"]
-size = Vector2(14, 21)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nd50y"]
+radius = 7.0
+height = 23.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r6jsd"]
 size = Vector2(12, 21)
@@ -173,7 +174,9 @@ _data = {
 collision_layer = 1
 collision_mask = 129
 script = ExtResource("2_58ae2")
+input_enabled = true
 max_jump_pressed_frame = 5
+spawn_weapon_on_spawn = true
 defense_power = 10.0
 critical_chance = 0.0
 critical_damage = 0.0
@@ -202,7 +205,7 @@ shape = SubResource("RectangleShape2D_ivevv")
 
 [node name="CollisionShape2D" parent="." index="5" unique_id=879731102]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_58ae2")
+shape = SubResource("CapsuleShape2D_nd50y")
 
 [node name="Hurtbox" parent="." index="6" unique_id=1912714286 node_paths=PackedStringArray("character")]
 position = Vector2(0, 2)
