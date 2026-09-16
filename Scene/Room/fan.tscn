@@ -426,6 +426,7 @@ sprite_frames = SubResource("SpriteFrames_axg12")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1258668816]
 visible = false
+modulate = Color(1, 1, 1, 0.39215687)
 position = Vector2(110, 0)
 scale = Vector2(0.253, 0.3)
 sprite_frames = SubResource("SpriteFrames_axg12")
@@ -433,6 +434,7 @@ animation = &"new_animation"
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=1200330953]
 visible = false
+modulate = Color(1, 1, 1, 0.39215687)
 position = Vector2(310, 0)
 scale = Vector2(0.253, 0.3)
 sprite_frames = SubResource("SpriteFrames_axg12")

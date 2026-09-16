@@ -7,6 +7,7 @@ size = Vector2(35, 38)
 
 [node name="DropHealItem" type="CharacterBody2D" unique_id=1850648246]
 process_mode = 1
+scale = Vector2(0.6, 0.6)
 collision_layer = 64
 collision_mask = 128
 script = ExtResource("1_mulmf")
