@@ -1429,6 +1429,7 @@ _data = {
 size = Vector2(19.281738, 28.01206)
 
 [node name="CrystalBlade" unique_id=1591556401 instance=ExtResource("1_afa2q")]
+offset_length = 50.0
 
 [node name="Sprite2D" parent="Root" parent_id_path=PackedInt32Array(1850941881) index="0" unique_id=141181324]
 position = Vector2(0, -30)

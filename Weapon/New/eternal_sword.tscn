@@ -453,6 +453,7 @@ _data = {
 
 [node name="Weapon" unique_id=1591556401 instance=ExtResource("1_6m55f")]
 script = ExtResource("2_jjlr0")
+offset_length = 60.0
 
 [node name="Root" parent="." index="0" unique_id=1850941881]
 position = Vector2(-4.205, 0)
