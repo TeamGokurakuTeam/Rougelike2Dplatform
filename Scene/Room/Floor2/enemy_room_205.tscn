@@ -41,22 +41,32 @@ position = Vector2(480, -256)
 enemys = Array[PackedScene]([ExtResource("4_003cm")])
 is_random = true
 
-[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=302774402 instance=ExtResource("3_gpld1")]
-position = Vector2(392, -24)
+[node name="EnemySpawnPoint6" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="1" unique_id=684058544 instance=ExtResource("3_gpld1")]
+position = Vector2(624, -256)
+enemys = Array[PackedScene]([ExtResource("4_003cm")])
+is_random = true
+
+[node name="EnemySpawnPoint2" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=302774402 instance=ExtResource("3_gpld1")]
+position = Vector2(440, -24)
 enemys = Array[PackedScene]([ExtResource("5_lmqin"), ExtResource("4_gpld1")])
 is_random = true
 
-[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="2" unique_id=1487892690 instance=ExtResource("3_gpld1")]
+[node name="EnemySpawnPoint7" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=1814799737 instance=ExtResource("3_gpld1")]
+position = Vector2(208, -24)
+enemys = Array[PackedScene]([ExtResource("5_lmqin"), ExtResource("4_gpld1")])
+is_random = true
+
+[node name="EnemySpawnPoint5" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=1487892690 instance=ExtResource("3_gpld1")]
 position = Vector2(1136, -384)
 enemys = Array[PackedScene]([ExtResource("4_gpld1"), ExtResource("5_lmqin")])
 is_random = true
 
-[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="3" unique_id=244758385 instance=ExtResource("3_gpld1")]
+[node name="EnemySpawnPoint4" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="5" unique_id=244758385 instance=ExtResource("3_gpld1")]
 position = Vector2(960, -32)
 enemys = Array[PackedScene]([ExtResource("5_lmqin"), ExtResource("4_gpld1")])
 is_random = true
 
-[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="4" unique_id=874707894 instance=ExtResource("3_gpld1")]
+[node name="EnemySpawnPoint3" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="6" unique_id=874707894 instance=ExtResource("3_gpld1")]
 position = Vector2(656, -24)
 enemys = Array[PackedScene]([ExtResource("5_lmqin"), ExtResource("6_fgtcb"), ExtResource("4_gpld1")])
 is_random = true
