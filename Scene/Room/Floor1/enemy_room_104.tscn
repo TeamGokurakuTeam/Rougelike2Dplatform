@@ -70,13 +70,13 @@ position = Vector2(240, 400)
 position = Vector2(288, 400)
 
 [node name="OneWay6" parent="." index="9" unique_id=957425443 instance=ExtResource("3_swvev")]
-position = Vector2(576, 400)
+position = Vector2(584, 408)
 
 [node name="OneWay11" parent="." index="10" unique_id=1910589133 instance=ExtResource("3_swvev")]
-position = Vector2(624, 400)
+position = Vector2(632, 368)
 
 [node name="OneWay10" parent="." index="11" unique_id=80285088 instance=ExtResource("3_swvev")]
-position = Vector2(528, 400)
+position = Vector2(528, 448)
 
 [node name="EnemySpawnPoint" parent="EnemySpawnPoints" parent_id_path=PackedInt32Array(1286384951) index="0" unique_id=441511218 instance=ExtResource("4_fmtm0")]
 position = Vector2(416, 80)
