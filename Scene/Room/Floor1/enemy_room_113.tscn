@@ -137,6 +137,10 @@ pull_strength = 300.0
 on_time = 5.0
 off_time = 0.1
 
+[node name="CollisionShape2D" parent="Traps/Fan2/WindArea" parent_id_path=PackedInt32Array(1389191426, 1889727315) index="0" unique_id=959600140]
+position = Vector2(80, -8.042738e-06)
+scale = Vector2(0.4, 1)
+
 [node name="Ceiling" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="2" unique_id=219379365 instance=ExtResource("5_altxp")]
 position = Vector2(471.99997, 592.00006)
 rotation = -3.1415925
@@ -146,3 +150,4 @@ scale = Vector2(1.2, 1.2)
 position = Vector2(264, 256)
 
 [editable path="MoveTile"]
+[editable path="Traps/Fan2"]
