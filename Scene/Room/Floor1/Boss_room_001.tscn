@@ -2273,4 +2273,14 @@ scale = Vector2(2.365, 2.365)
 texture = ExtResource("16_ydpnf")
 hframes = 5
 
+[node name="Door" parent="." index="11" unique_id=1926619191 instance=ExtResource("3_3dwrt")]
+position = Vector2(176, 272)
+is_open = true
+disable_collider_on_open = true
+
+[node name="Door2" parent="." index="12" unique_id=413487238 instance=ExtResource("3_3dwrt")]
+position = Vector2(672, 272)
+is_open = true
+disable_collider_on_open = true
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

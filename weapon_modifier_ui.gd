@@ -27,6 +27,12 @@ const LOCK_MODIFIER_BUTTON = preload("uid://dchcs7a330j1m")
 
 var tween : Tween
 
+## ----- 右スティックで説明文をスクロール -----
+@export var explanation_scroll_speed : float = 400.0 ## 1秒あたりにスクロールする量
+@export var explanation_scroll_deadzone : float = 0.2
+
+var _mod_explanation_scroll_bar : VScrollBar
+
 func init_ui() -> void:
 	mod_title.text = ""
 	mod_explanation.text = ""
@@ -59,10 +65,29 @@ func load_modifier(player : Player) -> void:
 	
 	weapon_sprite.texture = player.weapon.sprite_2d.texture
 	weapon_name.text = (GlobalResourceLoader.weapon_cache[player.weapon.resource_id] as ResourceItem).Name
+	
+	if mod_container.get_children().size() > 0:
+		var mod_panel : ModifierButton = mod_container.get_child(0)
+		mod_panel.grab_focus()
 
 func _ready() -> void:
 	panel.global_position = HIDE_POSITION
 	back_ground.self_modulate = TRANSPARENT
+	_mod_explanation_scroll_bar = mod_explanation.get_v_scroll_bar()
+
+func _process(delta: float) -> void:
+	_update_explanation_scroll(delta)
+
+## 右スティックの上下でModExplanationのVScrollBarを動かす
+func _update_explanation_scroll(delta: float) -> void:
+	if _mod_explanation_scroll_bar == null or not panel.visible:
+		return
+
+	var stick_y : float = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+	if absf(stick_y) < explanation_scroll_deadzone:
+		return
+
+	_mod_explanation_scroll_bar.value += stick_y * explanation_scroll_speed * delta
 
 func show_ui() -> void:
 	if tween != null and tween.is_running():

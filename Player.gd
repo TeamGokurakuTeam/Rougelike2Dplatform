@@ -34,12 +34,12 @@ const GHOST_EFFECT = preload("uid://dris5yp7e3utg")
 @export var just_dodgeroll_time : float = 0.09
 
 enum PlayerState { 
-	IDLE,
-	WALK,
-	JUMP_START,
-	JUMPING,
-	JUMP_END,
-	DODGE_ROLL 
+    IDLE,
+    WALK,
+    JUMP_START,
+    JUMPING,
+    JUMP_END,
+    DODGE_ROLL 
 }
 
 var current_state : PlayerState = PlayerState.IDLE
@@ -74,278 +74,278 @@ const EFFECT_SPRITE_COLOR_ICE : Color = Color(0.251, 0.902, 1.0, 1.0)
 const EFFECT_SPRITE_COLOR_POISON : Color = Color(0.0, 0.853, 0.0, 1.0)
 
 func _ready() -> void:
-	super()
-	GameEvents.cutscene_started.connect(_on_cutscene_started)
-	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
-	
-	if spawn_weapon_on_spawn and GlobalGameState.current_selected_weapon != "":
-		set_player_default_weapon(GlobalGameState.current_selected_weapon)
+    super()
+    GameEvents.cutscene_started.connect(_on_cutscene_started)
+    GameEvents.cutscene_ended.connect(_on_cutscene_ended)
+    
+    if spawn_weapon_on_spawn and GlobalGameState.current_selected_weapon != "":
+        set_player_default_weapon(GlobalGameState.current_selected_weapon)
 
 func _process(delta: float) -> void:
-	if velocity.x > 0 and animated_sprite_2d.flip_h:
-		animated_sprite_2d.flip_h = false
-	elif velocity.x < 0 and not animated_sprite_2d.flip_h:
-		animated_sprite_2d.flip_h = true
-	
+    if velocity.x > 0 and animated_sprite_2d.flip_h:
+        animated_sprite_2d.flip_h = false
+    elif velocity.x < 0 and not animated_sprite_2d.flip_h:
+        animated_sprite_2d.flip_h = true
+    
 
 func _physics_process(delta: float) -> void:
-	super(delta)
-	if not input_enabled:
-		move_direction = Vector2.ZERO
-		return
-	#慣性
-	_get_input()
-	var was_on_floor : bool = is_on_floor()
-	if was_on_floor && !is_on_floor():
-		coyote_timer.start()
-	if jump_pressed_frame > 0:
-		jump_pressed_frame -= 1
+    super(delta)
+    if not input_enabled:
+        move_direction = Vector2.ZERO
+        return
+    #慣性
+    _get_input()
+    var was_on_floor : bool = is_on_floor()
+    if was_on_floor && !is_on_floor():
+        coyote_timer.start()
+    if jump_pressed_frame > 0:
+        jump_pressed_frame -= 1
 
-	_update_state()
-	_play_state_animation()
+    _update_state()
+    _play_state_animation()
 
 func external_bounce_jump(power: float) -> void:
-	velocity.y = -power
+    velocity.y = -power
 
 func apply_effect(effect_type: Common.EffectType, damage_per_tick: float, duration: float) -> void:
-	if active_effects.is_empty():
-		original_color = animated_sprite_2d.modulate
-	if active_effects.has(effect_type):
-		active_effects[effect_type].refresh(damage_per_tick, duration)
-	else:
-		var effect := EffectTimer.new()
-		add_child(effect)
-		effect.setup(effect_type, damage_per_tick, duration)
-		effect.ticked.connect(_on_effect_ticked)
-		effect.expired.connect(_on_effect_expired)
-		active_effects[effect_type] = effect
-	animated_sprite_2d.modulate = _effect_sprite_color(effect_type)
+    if active_effects.is_empty():
+        original_color = animated_sprite_2d.modulate
+    if active_effects.has(effect_type):
+        active_effects[effect_type].refresh(damage_per_tick, duration)
+    else:
+        var effect := EffectTimer.new()
+        add_child(effect)
+        effect.setup(effect_type, damage_per_tick, duration)
+        effect.ticked.connect(_on_effect_ticked)
+        effect.expired.connect(_on_effect_expired)
+        active_effects[effect_type] = effect
+    animated_sprite_2d.modulate = _effect_sprite_color(effect_type)
 
 func _on_effect_ticked(effect_type: Common.EffectType, damage: float) -> void:
-	hp_component.apply_damage(damage, _effect_damage_color(effect_type))
+    hp_component.apply_damage(damage, _effect_damage_color(effect_type))
 
 func _on_effect_expired(effect_type: Common.EffectType) -> void:
-	active_effects.erase(effect_type)
-	if active_effects.is_empty():
-		animated_sprite_2d.modulate = original_color
-	else:
-		animated_sprite_2d.modulate = _effect_sprite_color(active_effects.values()[0].effect_type)
+    active_effects.erase(effect_type)
+    if active_effects.is_empty():
+        animated_sprite_2d.modulate = original_color
+    else:
+        animated_sprite_2d.modulate = _effect_sprite_color(active_effects.values()[0].effect_type)
 
 func _effect_sprite_color(effect_type: Common.EffectType) -> Color:
-	match effect_type:
-		Common.EffectType.Ice:
-			return EFFECT_SPRITE_COLOR_ICE
-		Common.EffectType.Poison:
-			return EFFECT_SPRITE_COLOR_POISON
-		_:
-			return Color.WHITE
+    match effect_type:
+        Common.EffectType.Ice:
+            return EFFECT_SPRITE_COLOR_ICE
+        Common.EffectType.Poison:
+            return EFFECT_SPRITE_COLOR_POISON
+        _:
+            return Color.WHITE
 
 func _effect_damage_color(effect_type: Common.EffectType) -> Color:
-	match effect_type:
-		Common.EffectType.Ice:
-			return DamageNumber.COLOR_ICE
-		Common.EffectType.Poison:
-			return DamageNumber.COLOR_POISON
-		_:
-			return DamageNumber.COLOR_DAMAGE_PLAYER
+    match effect_type:
+        Common.EffectType.Ice:
+            return DamageNumber.COLOR_ICE
+        Common.EffectType.Poison:
+            return DamageNumber.COLOR_POISON
+        _:
+            return DamageNumber.COLOR_DAMAGE_PLAYER
 
 func _get_input() -> void:
-	move_direction = Vector2.ZERO
-	move_direction.x = Input.get_axis(&"UI_left", &"UI_right")
-	if is_on_floor():
-		jump_away_from_floor = false
-	if abs(move_direction.x) > 0 and Input.is_action_just_pressed("UI_DodgeRoll") and not is_dodgeroll:
-		if dodge_roll_cool_down_timer.time_left <= 0.0:
-			is_dodgeroll = true
-			ghost_timer.start()
-			dodge_rolling_timer.start()
-			dodgeroll_dir.x = sign(move_direction.x)
-			current_acceleration = dodgeroll_acceleration
-	if is_dodgeroll:
-		var tween: Tween = create_tween()
-		tween.tween_property(self, "dodgeroll_acceleration", dodgeroll_acceleration, dodgeroll_time) \
-			.set_ease(Tween.EASE_IN) \
-			.set_trans(Tween.TRANS_EXPO)
-		move_direction.x = dodgeroll_dir.x
-	else:
-		if Input.is_action_just_pressed("UI_Jump") and is_on_floor():
-			velocity.y = jump_velocity
-			current_state = PlayerState.JUMP_START
-			jump_away_from_floor = true
-			jump.play()
+    move_direction = Vector2.ZERO
+    move_direction.x = Input.get_axis(&"UI_left", &"UI_right")
+    if is_on_floor():
+        jump_away_from_floor = false
+    if abs(move_direction.x) > 0 and Input.is_action_just_pressed("UI_DodgeRoll") and not is_dodgeroll:
+        if dodge_roll_cool_down_timer.time_left <= 0.0:
+            is_dodgeroll = true
+            ghost_timer.start()
+            dodge_rolling_timer.start()
+            dodgeroll_dir.x = sign(move_direction.x)
+            current_acceleration = dodgeroll_acceleration
+    if is_dodgeroll:
+        var tween: Tween = create_tween()
+        tween.tween_property(self, "dodgeroll_acceleration", dodgeroll_acceleration, dodgeroll_time) \
+            .set_ease(Tween.EASE_IN) \
+            .set_trans(Tween.TRANS_EXPO)
+        move_direction.x = dodgeroll_dir.x
+    else:
+        if Input.is_action_just_pressed("UI_Jump") and is_on_floor():
+            velocity.y = jump_velocity
+            current_state = PlayerState.JUMP_START
+            jump_away_from_floor = true
+            jump.play()
 
-		ghost_timer.stop()
-	if is_on_floor():
-		if coyote_time_activated:
-			coyote_time_activated = false
-			coyote_timer.stop()
-	else:
-		# coyoteまだ起動してない＋プレイヤーは地面にいない＋ジャンプによって地面から離れたわけじゃない
-		if !coyote_time_activated and not jump_away_from_floor:
-			coyote_timer.start()
-			coyote_time_activated = true
-	if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
-		jump.play()
-		jump_pressed_frame = max_jump_pressed_frame
-		current_state = PlayerState.JUMP_START
-		velocity.y = jump_velocity
-		coyote_timer.stop()
-		coyote_time_activated = true
-		jump_away_from_floor = true
-			
-	#for i in range(5):
-		#if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
-			#var prev_weapon = current_weapon
-			#current_weapon = i
-			#if current_weapon >= weapon_resource_ids.size() or current_weapon < 0:
-				#current_weapon = prev_weapon
-				#return
-			#update_weapon()
-			#break
+        ghost_timer.stop()
+    if is_on_floor():
+        if coyote_time_activated:
+            coyote_time_activated = false
+            coyote_timer.stop()
+    else:
+        # coyoteまだ起動してない＋プレイヤーは地面にいない＋ジャンプによって地面から離れたわけじゃない
+        if !coyote_time_activated and not jump_away_from_floor:
+            coyote_timer.start()
+            coyote_time_activated = true
+    if Input.is_action_just_pressed("UI_Jump") and (!coyote_timer.is_stopped() or is_on_floor()):
+        jump.play()
+        jump_pressed_frame = max_jump_pressed_frame
+        current_state = PlayerState.JUMP_START
+        velocity.y = jump_velocity
+        coyote_timer.stop()
+        coyote_time_activated = true
+        jump_away_from_floor = true
+            
+    #for i in range(5):
+        #if Input.is_action_just_pressed(&"UI_%d" % (i + 1)):
+            #var prev_weapon = current_weapon
+            #current_weapon = i
+            #if current_weapon >= weapon_resource_ids.size() or current_weapon < 0:
+                #current_weapon = prev_weapon
+                #return
+            #update_weapon()
+            #break
 
 func update_weapon() -> void:
-	if current_weapon == -1:
-		for node in inventory.get_children():
-			node.queue_free()
-	var res : ResourceItem = GlobalResourceLoader.weapon_cache[weapon_resource_ids[current_weapon]]
-	weapon = res.WeaponScene.instantiate()
-	weapon.resource_id = res.Id
-	for node in inventory.get_children():
-		node.queue_free()
-	inventory.call_deferred("add_child", weapon)
-	pickup_item.emit(self)
+    if current_weapon == -1:
+        for node in inventory.get_children():
+            node.queue_free()
+    var res : ResourceItem = GlobalResourceLoader.weapon_cache[weapon_resource_ids[current_weapon]]
+    weapon = res.WeaponScene.instantiate()
+    weapon.resource_id = res.Id
+    for node in inventory.get_children():
+        node.queue_free()
+    inventory.call_deferred("add_child", weapon)
+    pickup_item.emit(self)
 
 func update_modifier() -> void:
-	if current_modifier == -1 and mod_resource_ids.size() > 0:
-		current_modifier = 0
-	modifier_updated.emit(self)
+    if current_modifier == -1 and mod_resource_ids.size() > 0:
+        current_modifier = 0
+    modifier_updated.emit(self)
 
 func apply_current_modifier() -> void:
-	if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
-		return
-	weapon = inventory.get_child(current_weapon)
-	var apply_amount : int = 1
-	if weapon.has_modifiers("Substitute"):
-		apply_amount = 2
-		weapon.remove_modifier("Substitute")
-	weapon.add_modifier(mod_resource_ids[current_modifier], apply_amount)
-	mod_resource_ids.remove_at(current_modifier)
-	current_modifier = min(current_modifier, mod_resource_ids.size() - 1)
-	applied_modifier.emit.call_deferred(self)
-	modifier_updated.emit(self)
-	weapon.start_modifier_timer()
+    if weapon_resource_ids.size() <= 0 or inventory.get_child_count() <= 0 or current_modifier < 0:
+        return
+    weapon = inventory.get_child(current_weapon)
+    var apply_amount : int = 1
+    if weapon.has_modifiers("Substitute"):
+        apply_amount = 2
+        weapon.remove_modifier("Substitute")
+    weapon.add_modifier(mod_resource_ids[current_modifier], apply_amount)
+    mod_resource_ids.remove_at(current_modifier)
+    current_modifier = min(current_modifier, mod_resource_ids.size() - 1)
+    applied_modifier.emit.call_deferred(self)
+    modifier_updated.emit(self)
+    weapon.start_modifier_timer()
 
 func merge_weapon(target_res_id : String) -> void:
-	var target_res : Resource = GlobalResourceLoader.weapon_cache[target_res_id]
-	var count : int = weapon_resource_ids.count(target_res.Id)
-	if count >= 2 and target_res.MergeResultWeaponId != "":
-		current_weapon = 0
-		weapon_resource_ids.erase(target_res.Id)
-		weapon_resource_ids.erase(target_res.Id)
-		weapon_resource_ids.append(target_res.MergeResultWeaponId)
-		merge_weapon(target_res.MergeResultWeaponId)
-	
+    var target_res : Resource = GlobalResourceLoader.weapon_cache[target_res_id]
+    var count : int = weapon_resource_ids.count(target_res.Id)
+    if count >= 2 and target_res.MergeResultWeaponId != "":
+        current_weapon = 0
+        weapon_resource_ids.erase(target_res.Id)
+        weapon_resource_ids.erase(target_res.Id)
+        weapon_resource_ids.append(target_res.MergeResultWeaponId)
+        merge_weapon(target_res.MergeResultWeaponId)
+    
 func _dodge_roll_effect() -> void:
-	ghost_effect = GHOST_EFFECT.instantiate()
-	ghost_effect.animated_sprite_2d = self.animated_sprite_2d
-	ghost_effect.set_propety(animated_sprite_2d.global_position, animated_sprite_2d.scale)
-	get_tree().current_scene.add_child(ghost_effect)
+    ghost_effect = GHOST_EFFECT.instantiate()
+    ghost_effect.animated_sprite_2d = self.animated_sprite_2d
+    ghost_effect.set_propety(animated_sprite_2d.global_position, animated_sprite_2d.scale)
+    get_tree().current_scene.add_child(ghost_effect)
 
 func player_dash() -> void:
-	current_acceleration = dash_acceleration
-	await get_tree().create_timer(0.4).timeout
-	current_acceleration = acceleration
+    current_acceleration = dash_acceleration
+    await get_tree().create_timer(0.4).timeout
+    current_acceleration = acceleration
 
 #region setter
 func _set_current_modifier(new_value : int) -> void:
-	if mod_resource_ids.size() <= 0:
-		current_modifier = -1
-		return
+    if mod_resource_ids.size() <= 0:
+        current_modifier = -1
+        return
 
-	var size : int = mod_resource_ids.size()
-	current_modifier = ((new_value % size) + size) % size
+    var size : int = mod_resource_ids.size()
+    current_modifier = ((new_value % size) + size) % size
 #endregion
 
 #region signal
 func _on_hurtbox_recieved_damage(damage: float, knockback_dir: Vector2) -> void:
-	if not is_dodgeroll:
-		hp_component.apply_damage(damage, DamageNumber.COLOR_DAMAGE_PLAYER)
-		if weapon:
-			weapon.trigger_modifier_when_receive_damage(damage)
-		apply_knockback(knockback_dir)
-	elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
-		parry_effect.emitting = true
-		is_just_dodgeroll = true
-		just_dodge.play()
-		counter_timer.start()
-	elif dodge_roll_cool_down_timer.is_stopped():
-		dodge_roll.play()
-		dodge_roll_cool_down_timer.start()
-		counter_timer.start()
+    if not is_dodgeroll:
+        hp_component.apply_damage(damage, DamageNumber.COLOR_DAMAGE_PLAYER)
+        if weapon:
+            weapon.trigger_modifier_when_receive_damage(damage)
+        apply_knockback(knockback_dir)
+    elif dodge_rolling_timer.time_left >= (dodge_rolling_timer.wait_time - just_dodgeroll_time):
+        parry_effect.emitting = true
+        is_just_dodgeroll = true
+        just_dodge.play()
+        counter_timer.start()
+    elif dodge_roll_cool_down_timer.is_stopped():
+        dodge_roll.play()
+        dodge_roll_cool_down_timer.start()
+        counter_timer.start()
 
 func _on_dodge_rolling_timer_timeout() -> void:
-	is_dodgeroll = false
-	current_acceleration = acceleration
+    is_dodgeroll = false
+    current_acceleration = acceleration
 
 func _on_ghost_timer_timeout() -> void:
-	_dodge_roll_effect()
+    _dodge_roll_effect()
 
 func _on_hp_component_is_dead() -> void:
-	main_game_node.player_ui.game_over()
-	main_game_node.player_ui.ui_fade_in()
-	main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.GAMEOVER)
-	self.queue_free()
+    main_game_node.player_ui.game_over()
+    main_game_node.player_ui.ui_fade_in()
+    main_game_node.bgm_changer.change_bgm(BGMChanger.BGMType.GAMEOVER)
+    self.queue_free()
 
 func _on_cutscene_started() -> void:
-	input_enabled = false
+    input_enabled = false
 
 func _on_cutscene_ended() -> void:
-	input_enabled = true
+    input_enabled = true
 
 #endregion
 
 func _update_state() -> void:
-	if is_dodgeroll:
-		current_state = PlayerState.DODGE_ROLL
-		return
+    if is_dodgeroll:
+        current_state = PlayerState.DODGE_ROLL
+        return
 
-	match current_state:
-		PlayerState.JUMP_START:
-			if not animation_player.is_playing() or animation_player.current_animation != "JumpStart":
-				current_state = PlayerState.JUMPING
-		PlayerState.JUMPING, PlayerState.DODGE_ROLL:
-			if is_on_floor():
-				current_state = PlayerState.JUMP_END
-		PlayerState.JUMP_END:
-			if not animation_player.is_playing() or animation_player.current_animation != "JumpEnd":
-				current_state = PlayerState.WALK if abs(velocity.x) > 0.8 else PlayerState.IDLE
-		_:
-			if not is_on_floor():
-				current_state = PlayerState.JUMPING
-			elif abs(velocity.x) > 0.8:
-				current_state = PlayerState.WALK
-			else:
-				current_state = PlayerState.IDLE
+    match current_state:
+        PlayerState.JUMP_START:
+            if not animation_player.is_playing() or animation_player.current_animation != "JumpStart":
+                current_state = PlayerState.JUMPING
+        PlayerState.JUMPING, PlayerState.DODGE_ROLL:
+            if is_on_floor():
+                current_state = PlayerState.JUMP_END
+        PlayerState.JUMP_END:
+            if not animation_player.is_playing() or animation_player.current_animation != "JumpEnd":
+                current_state = PlayerState.WALK if abs(velocity.x) > 0.8 else PlayerState.IDLE
+        _:
+            if not is_on_floor():
+                current_state = PlayerState.JUMPING
+            elif abs(velocity.x) > 0.8:
+                current_state = PlayerState.WALK
+            else:
+                current_state = PlayerState.IDLE
 
 func _play_state_animation() -> void:
-	match current_state:
-		PlayerState.IDLE:
-			animation_player.play("Idle")
-		PlayerState.WALK:
-			animation_player.play("Walk")
-		PlayerState.JUMP_START:
-			animation_player.play("JumpStart")
-		PlayerState.JUMPING:
-			animation_player.play("Jumping")
-		PlayerState.JUMP_END:
-			animation_player.play("JumpEnd")
-		PlayerState.DODGE_ROLL:
-			animation_player.play("DodgeRoll")
+    match current_state:
+        PlayerState.IDLE:
+            animation_player.play("Idle")
+        PlayerState.WALK:
+            animation_player.play("Walk")
+        PlayerState.JUMP_START:
+            animation_player.play("JumpStart")
+        PlayerState.JUMPING:
+            animation_player.play("Jumping")
+        PlayerState.JUMP_END:
+            animation_player.play("JumpEnd")
+        PlayerState.DODGE_ROLL:
+            animation_player.play("DodgeRoll")
 
 func set_player_default_weapon(weapon_id : String) -> void:
-	if not GlobalResourceLoader.weapon_cache.has(weapon_id):
-		Common.error_print("武器\"%s\"は存在しない" % weapon_id)
-		return
-	weapon_resource_ids.append(weapon_id)
-	current_weapon = weapon_resource_ids.size() - 1
-	update_weapon()
+    if not GlobalResourceLoader.weapon_cache.has(weapon_id):
+        Common.error_print("武器\"%s\"は存在しない" % weapon_id)
+        return
+    weapon_resource_ids.append(weapon_id)
+    current_weapon = weapon_resource_ids.size() - 1
+    update_weapon()

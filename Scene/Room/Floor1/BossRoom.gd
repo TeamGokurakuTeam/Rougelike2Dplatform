@@ -1,7 +1,6 @@
 extends Room
 class_name BossRoom
 
-
 @export var boss_scene : PackedScene
 const GOLEM_BOSS = preload("uid://bthj1ytrgopek")
 
@@ -9,6 +8,8 @@ const GOLEM_BOSS = preload("uid://bthj1ytrgopek")
 @onready var boss_object: AnimatedSprite2D = $DefeatedScene/BossObject
 @onready var collision_shape_2d: CollisionShape2D = $PlayerDetector/CollisionShape2D
 @onready var boss_room_camera: Camera = $BossRoomCamera
+@onready var boss_door: Door = $Door
+@onready var boss_door_2: Door = $Door2
 
 func _ready() -> void:
 	super._ready()
@@ -17,10 +18,11 @@ func _ready() -> void:
 	boss_object.visible = true
 
 func _on_player_detector_body_entered(body: Node2D) -> void:
-	main_game_node.change_camera(boss_room_camera)
+	boss_room_door_lock()
 	GameEvents.cutscene_started.emit()
 	battle_bgm_type = BGMChanger.BGMType.BOSS
 	main_game_node.bgm_changer.change_bgm(battle_bgm_type)
+	main_game_node.change_camera(boss_room_camera)
 	await main_game_node.transition_offset_tween.finished
 	animation_player.play("Start")
 	main_game_node.player_ui.ui_fade_in()
@@ -48,11 +50,11 @@ func _on_hurtbox_recieved_damage(damage: int, knockback_dir: Vector2) -> void:
 	main_game_node.player_ui.boss_hp_bar.shake()
 
 func _on_boss_is_dead() -> void:
-	main_game_node.player.visible = false
 	GlobalGameState.is_current_floor_boss_killed = true
 	main_game_node.player_ui.ui_fade_in()
 	main_game_node.player_ui.boss_hp_bar.visible = false
 	await Common.fade_out_to_black(main_game_node.get_tree())
+	main_game_node.player.visible = false
 	main_game_node.change_camera(boss_room_camera)
 	await Common.fade_in_from_black()
 	animation_player.play("Defeated")
@@ -62,5 +64,14 @@ func _on_boss_is_dead() -> void:
 	GameEvents.cutscene_ended.emit()
 	main_game_node.player_ui.ui_fade_out()
 	main_game_node.change_camera(main_game_node.main_camera)
-	await Common.fade_in_from_black()
 	main_game_node.player.visible = true
+	await Common.fade_in_from_black()
+	boss_room_door_open()
+
+func boss_room_door_lock() -> void:
+	boss_door.lock()
+	boss_door_2.lock()
+
+func boss_room_door_open() -> void:
+	boss_door.open()
+	boss_door_2.open()

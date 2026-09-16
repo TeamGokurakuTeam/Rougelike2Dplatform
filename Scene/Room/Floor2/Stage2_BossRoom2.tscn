@@ -3309,7 +3309,7 @@ noise = SubResource("FastNoiseLite_7numd")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("2_vp6os")
 shader_parameter/scale = Vector2(0.25000012, 2.1875)
-shader_parameter/zoom = 0.8481951
+shader_parameter/zoom = 7.594999
 shader_parameter/refraction_map = SubResource("NoiseTexture2D_33x8s")
 shader_parameter/water_mask = SubResource("NoiseTexture2D_fcnqv")
 shader_parameter/gap_stretch = Vector2(0.8, 0.05)
@@ -3431,6 +3431,7 @@ position = Vector2(652, -56)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_u4t2k")
 animation = &"Awake"
+frame = 5
 
 [node name="SwimParticles" parent="DefeatedScene" index="2" unique_id=1478555142 instance=ExtResource("12_beadn")]
 position = Vector2(-5, 37)
@@ -3508,6 +3509,16 @@ material = SubResource("ShaderMaterial_yf5fn")
 position = Vector2(728, -45.500008)
 scale = Vector2(8.875, 1.7734374)
 texture = ExtResource("3_nktad")
+
+[node name="Door" parent="." index="13" unique_id=1892282339 instance=ExtResource("9_ujs4k")]
+position = Vector2(240, -160)
+is_open = true
+disable_collider_on_open = true
+
+[node name="Door2" parent="." index="14" unique_id=240984364 instance=ExtResource("9_ujs4k")]
+position = Vector2(1088, -160)
+is_open = true
+disable_collider_on_open = true
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 
