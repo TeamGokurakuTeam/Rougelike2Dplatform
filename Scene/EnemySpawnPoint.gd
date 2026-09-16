@@ -3,6 +3,7 @@ class_name EnemySpawnPoint
 
 @export var enemys : Array[PackedScene] = []
 @export var is_random : bool
+@export var hp_multiplier : float = 1.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 signal enemy_summoned(enemy : Enemy)
@@ -23,5 +24,7 @@ func _summon() -> void:
 	else:
 		add_child(enemy)
 	enemy.global_position = global_position
-	enemy_summoned.emit(enemy)
+	enemy.hp_component.max_hp *= hp_multiplier
+	enemy.hp_component.restore_hp()
 	enemy.main_game_node = self.main_game_node
+	enemy_summoned.emit(enemy)

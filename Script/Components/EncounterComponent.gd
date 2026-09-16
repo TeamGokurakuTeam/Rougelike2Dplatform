@@ -18,10 +18,17 @@ func trigger() -> void:
 		return
 	is_triggered = true
 
+	var hp_multiplier : float = 1.0
+	if main_game_node and main_game_node.floor_progression is RandomFloorProgression:
+		var progression : RandomFloorProgression = main_game_node.floor_progression as RandomFloorProgression
+		var current_floor : int = progression.current_floor
+		hp_multiplier = 1.0 + (current_floor - 1) * 0.2
+
 	for point in spawn_points:
 		if point is not EnemySpawnPoint:
 			continue
 		point.main_game_node = main_game_node
+		point.hp_multiplier = hp_multiplier
 		point.target_container = target_container
 		point.animation_player.play("Spawn")
 		point.enemy_summoned.connect(_on_enemy_summoned)
