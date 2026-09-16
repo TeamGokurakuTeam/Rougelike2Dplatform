@@ -103,6 +103,7 @@ position = Vector2(184, 728)
 
 [node name="Obelisk" parent="." index="14" unique_id=1340329694 instance=ExtResource("4_04mjy")]
 position = Vector2(96, 216)
+is_obelisk_locked = false
 
 [node name="OneWay" parent="." index="15" unique_id=764683364 instance=ExtResource("2_x240b")]
 position = Vector2(136, 416)
