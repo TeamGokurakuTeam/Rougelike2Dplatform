@@ -77,7 +77,9 @@ func _ready() -> void:
 	super()
 	GameEvents.cutscene_started.connect(_on_cutscene_started)
 	GameEvents.cutscene_ended.connect(_on_cutscene_ended)
-	
+	GameEvents.menu_opened.connect(_on_menu_opened)
+	GameEvents.menu_closed.connect(_on_menu_closed)
+
 	if spawn_weapon_on_spawn and GlobalGameState.current_selected_weapon != "":
 		set_player_default_weapon(GlobalGameState.current_selected_weapon)
 
@@ -297,10 +299,23 @@ func _on_hp_component_is_dead() -> void:
 	self.queue_free()
 
 func _on_cutscene_started() -> void:
-	input_enabled = false
+	GlobalGameState.is_cutscene_active = true
+	_update_input_enabled()
 
 func _on_cutscene_ended() -> void:
-	input_enabled = true
+	GlobalGameState.is_cutscene_active = false
+	_update_input_enabled()
+
+func _on_menu_opened() -> void:
+	GlobalGameState.menu_opened()
+	_update_input_enabled()
+
+func _on_menu_closed() -> void:
+	GlobalGameState.menu_closed()
+	_update_input_enabled()
+
+func _update_input_enabled() -> void:
+	input_enabled = not (GlobalGameState.is_cutscene_active or GlobalGameState.is_menu_active())
 
 #endregion
 

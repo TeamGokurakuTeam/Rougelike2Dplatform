@@ -36,6 +36,7 @@ func _ready() -> void:
 	game_over_panel.visible = false
 	GameEvents.shop_ui_opened.connect(_on_shop_ui_opened)
 	GameEvents.shop_ui_closed.connect(_on_shop_ui_closed)
+	GameEvents.cutscene_started.connect(_on_global_cutscene_started)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -62,17 +63,23 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("UI_Apply") and not mod_ui.carouse_container.lock_scroll:
 		_on_apply_modifier()
 	
-	if Input.is_action_just_pressed("UI_ShowMod"):
+	if Input.is_action_just_pressed("UI_ShowMod") and (is_show_mod_ui or GlobalGameState.can_open_menu()):
 		is_show_mod_ui = !is_show_mod_ui
 		open_sound.play()
 		if is_show_mod_ui:
-			GameEvents.cutscene_started.emit()
+			GameEvents.menu_opened.emit()
 			weapon_modifier_ui.init_ui()
 			weapon_modifier_ui.load_modifier(player)
 			weapon_modifier_ui.show_ui()
 		else:
-			GameEvents.cutscene_ended.emit()
+			GameEvents.menu_closed.emit()
 			weapon_modifier_ui.hide_ui()
+
+func _on_global_cutscene_started() -> void:
+	if is_show_mod_ui:
+		is_show_mod_ui = false
+		weapon_modifier_ui.hide_ui()
+		GameEvents.menu_closed.emit()
 
 func _on_character_modifier_updated(player: Player) -> void:
 	for i in hotbar.get_children().size():
@@ -116,7 +123,7 @@ func ui_fade_out() -> void:
 func _on_shop_ui_opened(npc : MerchantFrog) -> void:
 	merchant = npc
 	ui_fade_in()
-	GameEvents.cutscene_started.emit()
+	GameEvents.menu_opened.emit()
 	var shop_ui : ShopUI = SHOP_UI.instantiate()
 	shop_ui.npc = npc
 	add_child(shop_ui)
@@ -124,7 +131,7 @@ func _on_shop_ui_opened(npc : MerchantFrog) -> void:
 func _on_shop_ui_closed() -> void:
 	merchant.is_running = false
 	ui_fade_out()
-	GameEvents.cutscene_ended.emit()
+	GameEvents.menu_closed.emit()
 
 func game_over() -> void:
 	game_over_panel.visible = true
