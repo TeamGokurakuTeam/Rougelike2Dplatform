@@ -19,7 +19,7 @@ func Physics_Update(delta) -> void:
 	pass
 
 func _on_move_timer_timeout() -> void:
-	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 2:
+	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 3:
 		StateTransitioned.emit(self, "Rage")
 		return
 	if parent.is_rage:
