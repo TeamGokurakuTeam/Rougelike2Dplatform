@@ -46,6 +46,8 @@ func _ready() -> void:
 
 	GameEvents.next_floor_entered.connect(floor_progression._on_next_floor_entered)
 	GlobalGameState.is_current_floor_boss_killed = false
+	GlobalGameState.is_cutscene_active = false
+	GlobalGameState.menu_open_count = 0
 
 	await Common.fade_in_from_black()
 

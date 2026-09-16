@@ -72,12 +72,12 @@ func _ready() -> void:
 			sold_list.append(false)
 
 func _physics_process(delta: float) -> void:
-	if is_player_inside:
+	if is_player_inside and GlobalGameState.can_open_menu():
 		if Input.is_action_just_pressed("UI_Down") and not is_running:
 			visible_off()
 			is_running = true
 			_open_shop_ui()
-			
+
 		elif Input.is_action_just_pressed("UI_Up") and not is_running:
 			visible_off()
 			is_running = true
@@ -159,5 +159,3 @@ func submit(text : String, scroll_second : float):
 
 func _open_shop_ui() -> void:
 	GameEvents.shop_ui_opened.emit(self)
-	GameEvents.cutscene_started.emit()
-	
