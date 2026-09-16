@@ -20,7 +20,7 @@ func _on_hitbox2_damage_dealt(hurtbox: Hurtbox) -> void:
 		_increase_strongattack_bonus()
 
 func _increase_strongattack_bonus() -> void:
-	strongattack_bonus = min(strongattack_bonus + 1, 20)
+	strongattack_bonus = min(strongattack_bonus + 1, 50)
 	hitbox_2.damage_plus = strongattack_bonus
-	if strongattack_bonus >= 20:
+	if strongattack_bonus >= 50:
 		charge_particle_2.emitting = true
