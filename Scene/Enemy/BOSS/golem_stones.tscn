@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dqiu3v1k0xk63" path="res://Scene/rock.tscn" id="1_pbd77"]
 [ext_resource type="Script" uid="uid://chnimr06f75yk" path="res://Scene/Enemy/BOSS/golem_stones.gd" id="1_pbl4v"]
+[ext_resource type="AudioStream" uid="uid://d0khdxtjqybvk" path="res://Assets/SoundEffect/Golem/岩の落石音.mp3" id="3_dusqc"]
 
 [sub_resource type="Animation" id="Animation_pbl4v"]
 length = 0.001
@@ -235,6 +236,11 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1719981079]
 libraries/ = SubResource("AnimationLibrary_rrl5h")
+
+[node name="RockShoot" type="AudioStreamPlayer2D" parent="." unique_id=1111325922]
+stream = ExtResource("3_dusqc")
+volume_db = -10.0
+pitch_scale = 0.9
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

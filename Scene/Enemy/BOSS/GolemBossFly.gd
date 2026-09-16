@@ -34,9 +34,6 @@ func _spawn_bullet(pos : Vector2, angle : float):
 	parent.main_game_node.main_camera.apply_shake(10)
 
 func Enter() -> void:
-	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 2:
-		StateTransitioned.emit(self, "Rage")
-		return
 	parent.can_move = false
 	anim_player.play("FlyStart")
 	await anim_player.animation_finished
@@ -68,7 +65,7 @@ func _on_fly_timer_timeout() -> void:
 	parent.animation_player.play("FlyEnd")
 	await anim_player.animation_finished
 	parent.can_move = true
-	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 2:
+	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 3:
 		StateTransitioned.emit(self, "Rage")
 		return
 	StateTransitioned.emit(self, "Move")

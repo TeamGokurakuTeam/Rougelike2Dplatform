@@ -14,7 +14,7 @@ func Enter() -> void:
 	else:
 		anim_player.play("ShootingArm")
 		await anim_player.animation_finished
-	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 2:
+	if not parent.is_rage and parent.hp_component.hp <= parent.hp_component.max_hp / 3:
 		StateTransitioned.emit(self, "Rage")
 		return
 	StateTransitioned.emit(self, "Attack")

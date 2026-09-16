@@ -51,14 +51,9 @@ func Shoot() -> void:
 	arm.global_position = marker_2d.global_position
 
 func attack_effect() -> void:
-	if is_rage:
-		var effect : GolemRageAttackEffect = GOLEM_RAGE_ATTACK_EFFECT.instantiate()
-		get_tree().current_scene.add_child(effect)
-		effect.position = attack_pos.global_position
-	else:
-		var effect : GolemAttackEffect = GOLEM_ATTACK_EFFECT.instantiate()
-		get_tree().current_scene.add_child(effect)
-		effect.position = attack_pos.global_position
+	var effect : GolemAttackEffect = GOLEM_ATTACK_EFFECT.instantiate()
+	get_tree().current_scene.add_child(effect)
+	effect.position = Vector2(attack_pos.global_position.x, attack_pos.global_position.y - 20)
 
 func _rage_attack() -> void:
 	var golem_stones : GolemStones = GOLEM_STONES.instantiate()

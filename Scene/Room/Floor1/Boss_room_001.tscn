@@ -884,7 +884,7 @@ tracks/45/keys = {
 }
 tracks/46/type = "value"
 tracks/46/imported = false
-tracks/46/enabled = true
+tracks/46/enabled = false
 tracks/46/path = NodePath("Sound/Flash:playing")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
@@ -896,7 +896,7 @@ tracks/46/keys = {
 }
 tracks/47/type = "value"
 tracks/47/imported = false
-tracks/47/enabled = true
+tracks/47/enabled = false
 tracks/47/path = NodePath("Sound/Defeat:playing")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
@@ -2133,25 +2133,29 @@ metadata/_custom_type_script = "uid://c7ox6e5n2d6j1"
 
 [node name="Flash" type="AudioStreamPlayer" parent="Sound" index="0" unique_id=965587861]
 stream = ExtResource("17_stfpc")
-volume_db = -5.0
+volume_db = -14.0
 bus = &"SoundEffect"
 
 [node name="Awake" type="AudioStreamPlayer" parent="Sound" index="1" unique_id=2127768954]
 stream = ExtResource("8_4n0ex")
 volume_db = -10.0
 pitch_scale = 0.8
+bus = &"SoundEffect"
 
 [node name="Rock" type="AudioStreamPlayer" parent="Sound" index="2" unique_id=894053512]
 stream = ExtResource("9_xdla1")
 volume_db = -5.0
+bus = &"SoundEffect"
 
 [node name="AwakeRock" type="AudioStreamPlayer" parent="Sound" index="3" unique_id=1932128928]
 stream = ExtResource("10_xdla1")
 volume_db = -5.0
+bus = &"SoundEffect"
 
 [node name="Defeat" type="AudioStreamPlayer" parent="Sound" index="4" unique_id=1615053764]
 stream = ExtResource("12_stfpc")
-volume_db = -5.0
+volume_db = -12.0
+bus = &"SoundEffect"
 
 [node name="DefeatedScene" type="Node2D" parent="." index="10" unique_id=110092569]
 

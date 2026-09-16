@@ -4,6 +4,7 @@ class_name GolemStones
 @onready var stones: Node2D = $Stone
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var timer: Timer = $Timer
+@onready var rock_shoot: AudioStreamPlayer2D = $RockShoot
 
 func _ready() -> void:
 	animation_player.play("Start")
@@ -33,9 +34,10 @@ func _stone_shoot() -> void:
 		tween = create_tween()
 		tween.set_parallel()
 		rock.direction = dir
-		tween.tween_property(rock, "speed", 1200, 1.0)
+		tween.tween_property(rock, "speed", 1200, 0.8)
 		tween.tween_property(rock.hitbox, "damage", 10, 2.0)
 		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+		rock_shoot.play()
 		await get_tree().create_timer(0.6).timeout
 	timer.start()
 
