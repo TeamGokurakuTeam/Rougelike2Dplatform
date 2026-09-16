@@ -313,15 +313,16 @@ func _update_state() -> void:
         PlayerState.JUMP_START:
             if not animation_player.is_playing() or animation_player.current_animation != "JumpStart":
                 current_state = PlayerState.JUMPING
-        PlayerState.JUMPING, PlayerState.DODGE_ROLL:
-            if is_on_floor():
+        PlayerState.JUMPING:
+            if velocity.y > 0:
                 current_state = PlayerState.JUMP_END
         PlayerState.JUMP_END:
-            if not animation_player.is_playing() or animation_player.current_animation != "JumpEnd":
-                current_state = PlayerState.WALK if abs(velocity.x) > 0.8 else PlayerState.IDLE
+            if is_on_floor():
+                if not animation_player.is_playing() or animation_player.current_animation != "JumpEnd":
+                    current_state = PlayerState.WALK if abs(velocity.x) > 0.8 else PlayerState.IDLE
         _:
             if not is_on_floor():
-                current_state = PlayerState.JUMPING
+                current_state = PlayerState.JUMP_END if velocity.y > 0 else PlayerState.JUMPING
             elif abs(velocity.x) > 0.8:
                 current_state = PlayerState.WALK
             else:
