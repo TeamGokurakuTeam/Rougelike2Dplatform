@@ -102,3 +102,8 @@ position = Vector2(352, 368)
 [node name="MoveTile" parent="." index="19" unique_id=971770846 instance=ExtResource("8_6wjkm")]
 position = Vector2(456, 272)
 move_speed = 0.5
+
+[node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
+points = PackedVector2Array(0, 0, 0, 96)
+
+[editable path="MoveTile"]
