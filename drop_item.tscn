@@ -6,6 +6,7 @@
 
 [node name="DropItem" type="CharacterBody2D" unique_id=931621491]
 process_mode = 1
+scale = Vector2(0.4, 0.4)
 collision_layer = 320
 collision_mask = 128
 script = ExtResource("1_2xnun")
@@ -14,7 +15,7 @@ script = ExtResource("1_2xnun")
 z_index = 2
 texture_filter = 1
 position = Vector2(-2.3841858e-07, -2.3841858e-07)
-scale = Vector2(0.625, 0.625)
+scale = Vector2(0.4, 0.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1721792257]
 shape = SubResource("RectangleShape2D_2xnun")

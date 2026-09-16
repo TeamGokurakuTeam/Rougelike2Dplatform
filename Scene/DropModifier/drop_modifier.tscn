@@ -6,6 +6,7 @@
 size = Vector2(30, 30)
 
 [node name="DropModifier" type="CharacterBody2D" unique_id=1774769907]
+scale = Vector2(0.6, 0.6)
 collision_layer = 256
 collision_mask = 128
 script = ExtResource("1_bi5dq")
