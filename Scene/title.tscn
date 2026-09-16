@@ -310,9 +310,8 @@ offset_left = 57.0
 offset_top = 217.0
 offset_right = 134.0
 offset_bottom = 240.0
-text = "HARD MODE"
+text = "WIP"
 label_settings = SubResource("LabelSettings_5qay0")
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BGMSlider" type="HSlider" parent="Title/OptionPanel/Sound" unique_id=1707275868]
@@ -513,4 +512,4 @@ color = Color(0, 0, 0, 1)
 [connection signal="toggled" from="Title/OptionPanel/Sound/Check/VSYNC" to="." method="_on_vsync_toggled"]
 [connection signal="pressed" from="Title/ButtonContainor/START" to="Title" method="_on_start_pressed"]
 [connection signal="pressed" from="Title/ButtonContainor/OPTION" to="Title" method="_on_option_pressed"]
-[connection signal="pressed" from="Title/ButtonContainor/QUIT" to="Title" method="_on_option_pressed"]
+[connection signal="pressed" from="Title/ButtonContainor/QUIT" to="Title" method="_on_quit_pressed"]
