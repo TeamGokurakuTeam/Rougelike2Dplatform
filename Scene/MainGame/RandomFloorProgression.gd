@@ -13,6 +13,8 @@ func start_first_floor() -> void:
 func _on_next_floor_entered() -> void:
 	GlobalGameState.furthest_clear_floor = max(GlobalGameState.furthest_clear_floor, current_floor)
 	GlobalGameState.record_best_floor_clear_time(current_floor)
+	if current_floor == 1 and GlobalGameState.current_selected_weapon == "SilverSword":
+		GlobalGameState.has_cleared_1st_floor_with_silver_sword = true
 	current_floor += 1
 	GameEvents.floor_changed.emit(current_floor)
 	await Common.fade_out_to_black(main_game_node.get_tree())

@@ -48,6 +48,10 @@ func _on_enemy_summoned(enemy : Enemy) -> void:
 
 func _on_enemy_is_dead() -> void:
 	enemy_count -= 1
+	if main_game_node.floor_progression is RandomFloorProgression:
+		var progression : RandomFloorProgression = main_game_node.floor_progression as RandomFloorProgression
+		if progression.current_floor == 2:
+			GlobalGameState.enemy_2nd_floor_kill_count += 1
 	if enemy_count <= 0:
 		open_doors()
 		encounter_cleared.emit()
