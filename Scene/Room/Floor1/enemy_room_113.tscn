@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1g5dpi7r1h1" path="res://Scene/Room/roomTemplate.tscn" id="1_eqirc"]
 [ext_resource type="PackedScene" uid="uid://t13ifssdsp0u" path="res://Scene/Room/one_way_tile.tscn" id="2_oj0ak"]
 [ext_resource type="PackedScene" uid="uid://cmin4ppf3tbti" path="res://Scene/door.tscn" id="3_m7dt3"]
+[ext_resource type="Script" uid="uid://cra6q5avtvxge" path="res://Scene/Room/TouchTriggerMoveTile.gd" id="4_1u6s6"]
 [ext_resource type="PackedScene" uid="uid://p7fm5umwi47k" path="res://Scene/Room/move_tile.tscn" id="4_40cxa"]
 [ext_resource type="PackedScene" uid="uid://bkau4qsi1bsmo" path="res://Scene/ceiling.tscn" id="5_altxp"]
 [ext_resource type="PackedScene" uid="uid://daswny3xai2q3" path="res://Scene/enemy_spawn_point.tscn" id="5_ixsu7"]
@@ -11,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://ijnhuk8s0s00" path="res://Scene/NPC/merchant_frog.tscn" id="7_40cxa"]
 [ext_resource type="PackedScene" uid="uid://m8remxejcdeu" path="res://Scene/DarkSamurai.tscn" id="7_vu2g0"]
 [ext_resource type="PackedScene" uid="uid://ccb30p5cwn564" path="res://Scene/Enemy/Batman/batman.tscn" id="8_w5a8l"]
+[ext_resource type="Script" uid="uid://dpqul5mlvyxyi" path="res://Resource/ShopItemBuyList/ShopItemBuyList.gd" id="12_ue0c3"]
+[ext_resource type="Resource" uid="uid://gelko5u8afu3" path="res://Resource/ShopItemBuyList/Merchant/Merchant001.tres" id="13_3ma1f"]
+[ext_resource type="Resource" uid="uid://djpmh3dydw550" path="res://Resource/ShopItemBuyList/Merchant/Merchant002.tres" id="14_y4yxu"]
+[ext_resource type="Resource" uid="uid://bsmq0t57vr6w2" path="res://Resource/ShopItemBuyList/Merchant/Merchant003.tres" id="15_d1t5c"]
 
 [node name="Room" unique_id=423967005 instance=ExtResource("1_eqirc")]
 
@@ -70,7 +75,8 @@ position = Vector2(296, 392)
 [node name="MoveTile" parent="." index="14" unique_id=971770846 instance=ExtResource("4_40cxa")]
 position = Vector2(472, 560)
 scale = Vector2(1.7, 1)
-move_speed = 0.5
+script = ExtResource("4_1u6s6")
+move_speed = 0.4
 
 [node name="Line2D" parent="MoveTile" index="3" unique_id=2081624802]
 points = PackedVector2Array(0, 0, 0, -407.99994)
@@ -125,14 +131,16 @@ enemys = Array[PackedScene]([ExtResource("6_eqswd"), ExtResource("7_vu2g0")])
 is_random = true
 
 [node name="Fan" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="0" unique_id=2135413050 instance=ExtResource("6_m7dt3")]
-position = Vector2(576, 152)
+position = Vector2(568, 152)
+scale = Vector2(0.4, 1)
 pull_strength = 300.0
 on_time = 5.0
 off_time = 0.1
 
 [node name="Fan2" parent="Traps" parent_id_path=PackedInt32Array(348055510) index="1" unique_id=1389191426 instance=ExtResource("6_m7dt3")]
-position = Vector2(736, 216)
+position = Vector2(744, 216)
 rotation = -3.1415925
+scale = Vector2(0.4, 1)
 pull_strength = 300.0
 on_time = 5.0
 off_time = 0.1
@@ -144,5 +152,6 @@ scale = Vector2(1.2, 1.2)
 
 [node name="MerchantFrog" parent="." index="20" unique_id=1094349948 instance=ExtResource("7_40cxa")]
 position = Vector2(264, 256)
+item_list_tables = Array[ExtResource("12_ue0c3")]([ExtResource("13_3ma1f"), ExtResource("14_y4yxu"), ExtResource("15_d1t5c")])
 
 [editable path="MoveTile"]
