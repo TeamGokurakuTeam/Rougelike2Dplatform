@@ -2105,7 +2105,7 @@ sources/6 = SubResource("TileSetAtlasSource_oh00k")
 sources/8 = SubResource("TileSetAtlasSource_qa7qy")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhy2k"]
-size = Vector2(819, 221)
+size = Vector2(760, 221)
 
 [sub_resource type="Animation" id="Animation_a6g8l"]
 resource_name = "Defeated"
@@ -3309,7 +3309,7 @@ noise = SubResource("FastNoiseLite_7numd")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("2_vp6os")
 shader_parameter/scale = Vector2(0.25000012, 2.1875)
-shader_parameter/zoom = 7.594999
+shader_parameter/zoom = 3.8974347
 shader_parameter/refraction_map = SubResource("NoiseTexture2D_33x8s")
 shader_parameter/water_mask = SubResource("NoiseTexture2D_fcnqv")
 shader_parameter/gap_stretch = Vector2(0.8, 0.05)
@@ -3409,7 +3409,7 @@ position = Vector2(659, -224)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" index="0" unique_id=2007943897]
-position = Vector2(5.5, -10.5)
+position = Vector2(1, -10.5)
 shape = SubResource("RectangleShape2D_jhy2k")
 disabled = true
 

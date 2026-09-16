@@ -21,7 +21,7 @@ func Enter() -> void:
 			await anim_player.animation_finished
 	else:
 		anim_player.play("Slam")
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.9).timeout
 		parent.spawn_slam_custom_bullet(randi_range(10, 20))
 		await anim_player.animation_finished
 	if parent.is_rage:

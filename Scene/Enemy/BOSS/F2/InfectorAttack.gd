@@ -6,7 +6,7 @@ class_name InfectorAttack
 
 func Enter() -> void:
 	if parent.is_rage:
-		for i in 1:
+		for i in 3:
 			parent.flip_character()
 			parent._rush_attack()
 			anim_player.play("Attack")
