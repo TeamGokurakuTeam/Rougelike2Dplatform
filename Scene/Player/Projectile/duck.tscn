@@ -110,6 +110,42 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, false, true, true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hitbox:damage")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hitbox:knockback_force")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [150.0]
+}
 
 [sub_resource type="Animation" id="Animation_x3mlo"]
 length = 0.001
@@ -185,6 +221,42 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hitbox:damage")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Hitbox:knockback_force")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
 
 [sub_resource type="Animation" id="Animation_fkg5h"]
 resource_name = "RollDuck"
@@ -213,6 +285,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:damage")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:knockback_force")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j6ikh"]
 _data = {
@@ -226,7 +334,7 @@ script = ExtResource("2_fkg5h")
 timer = NodePath("Timer")
 animation_player = NodePath("AnimationPlayer")
 range_slash_scene = null
-damage = 5.0
+damage = 0.0
 is_explosion = false
 duck_gravity = 700.0
 bounce_speed_multiplier = -0.5
@@ -243,7 +351,7 @@ scale = Vector2(0.8882998, 0.9)
 shape = SubResource("CircleShape2D_fkg5h")
 
 [node name="Hitbox" parent="." index="3" unique_id=2085938192]
-damage = 5.0
+knockback_force = 100.0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=1399399970]
 scale = Vector2(1.5, 1.5)
@@ -257,6 +365,7 @@ wait_time = 3.0
 libraries/ = SubResource("AnimationLibrary_j6ikh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="6" unique_id=1596984423]
+visible = false
 z_index = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_j6ikh")

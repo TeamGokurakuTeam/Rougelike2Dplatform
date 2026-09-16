@@ -4,7 +4,7 @@ class_name DuckProjectile
 @export var timer : Timer
 @export var animation_player : AnimationPlayer
 @export var range_slash_scene : PackedScene
-@export var damage: float = 5.0
+@export var damage: float = 0.0
 @export var is_explosion : bool = false
 @export var duck_gravity : float = 900.0
 @export var bounce_speed_multiplier : float = 1.1

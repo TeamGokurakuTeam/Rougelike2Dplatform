@@ -80,7 +80,7 @@ mouse_filter = 1
 [node name="RoomGenerator" type="Node2D" parent="." unique_id=522472444]
 process_mode = 1
 script = ExtResource("1_4nic5")
-generate_room_value = 9
+generate_room_value = 10
 
 [node name="BGMChanger" type="Node2D" parent="." unique_id=9408269 node_paths=PackedStringArray("stage_bgm", "battle_bgm", "boss_bgm", "gameover_bgm", "secret_bgm")]
 process_mode = 1
